@@ -1,0 +1,24 @@
+{
+  "name": "wizzard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A friends-only WeChat prediction trick-taking card game prototype.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "5.0.4",
+    "vite": "6.4.2",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.8.0"
+  }
+}

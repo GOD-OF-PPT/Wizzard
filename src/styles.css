@@ -1,0 +1,128 @@
+:root {
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Microsoft YaHei", serif;
+  color: #f7e7bd;
+  background: #100f13;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #100f13;
+  -webkit-font-smoothing: antialiased;
+}
+
+.project-shell {
+  width: min(100% - 40px, 1440px);
+  min-height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.72fr) minmax(620px, 1.55fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 80px);
+  padding: 48px 0;
+}
+
+.intro {
+  max-width: 520px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #d7a64b;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(48px, 7vw, 92px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.summary {
+  margin: 28px 0;
+  color: #d9cba9;
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.decision-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.decision-list li {
+  padding: 9px 13px;
+  border: 1px solid #74552f;
+  border-radius: 999px;
+  color: #f1dba8;
+  background: #241a18;
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: 13px;
+}
+
+.phase {
+  margin: 26px 0 0;
+  color: #9da57b;
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+}
+
+.reference-frame {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #70502d;
+  border-radius: 24px;
+  background: #1e1413;
+  box-shadow: 0 30px 80px rgb(0 0 0 / 45%);
+}
+
+.reference-frame img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.reference-frame figcaption {
+  padding: 12px 18px 14px;
+  color: #cdb989;
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: 13px;
+  text-align: right;
+}
+
+@media (max-width: 980px) {
+  .project-shell {
+    grid-template-columns: 1fr;
+    align-content: center;
+  }
+
+  .intro {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-shell {
+    width: min(100% - 24px, 1440px);
+    padding: 28px 0;
+  }
+
+  .reference-frame {
+    border-radius: 14px;
+  }
+}
