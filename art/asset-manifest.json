@@ -43,7 +43,28 @@
   "ui": {
     "chromeAtlas": "art/runtime/ui/ui-chrome-sheet.png",
     "feedbackFxAtlas": "art/runtime/ui/feedback-fx-sheet.png",
-    "hasAlpha": true
+    "hasAlpha": true,
+    "components": {
+      "roundTitleScroll": "art/runtime/ui/round-title-scroll.png",
+      "turnButton": "art/runtime/ui/turn-button.png",
+      "primaryPanel": "art/runtime/ui/primary-panel.png",
+      "secondaryPanel": "art/runtime/ui/secondary-panel.png",
+      "smallPlaque": "art/runtime/ui/small-plaque.png",
+      "greenStatus": "art/runtime/ui/green-status.png",
+      "trumpTile": "art/runtime/ui/trump-tile.png",
+      "countdownRing": "art/runtime/ui/countdown-ring.png",
+      "aiBadge": "art/runtime/ui/ai-badge.png",
+      "bidDots": "art/runtime/ui/bid-dots.png",
+      "scoreRibbon": "art/runtime/ui/score-ribbon.png"
+    },
+    "effects": {
+      "legalHalo": "art/runtime/ui/legal-halo.png",
+      "selectedHalo": "art/runtime/ui/selected-halo.png",
+      "trickWin": "art/runtime/ui/trick-win.png",
+      "predictionSuccess": "art/runtime/ui/prediction-success.png",
+      "predictionMiss": "art/runtime/ui/prediction-miss.png",
+      "reconnectSpinner": "art/runtime/ui/reconnect-spinner.png"
+    }
   },
   "fonts": {
     "display": "Noto Serif SC",

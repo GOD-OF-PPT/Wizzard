@@ -14,11 +14,27 @@
 
 规则状态不能由渲染节点、动画对象或微信 API 持有。服务端是多人对局的唯一权威来源。
 
+## 当前规则模块接口
+
+首版平台无关实现位于 `src/game/`，统一从 `src/game/index.ts` 导出。当前接口包括：
+
+- `createDeck`、`shuffleCards`、`dealCards`；
+- `getRoundHandCounts`、`resolveTrump`；
+- `validateBid`、`getLegalCards`；
+- `getLeadSuit`、`resolveTrickWinner`；
+- `scoreBid`、`scoreRound`。
+
+随机源由调用方注入，便于服务端使用安全随机数，也便于测试做确定性重放。渲染层不持有牌力或计分规则。
+
+`src/App.tsx` 仅是可丢弃的视觉交互验证工具，其中的本地页面跳转不是正式游戏状态。Cocos 客户端实现必须通过客户端状态适配器提交意图，并且只根据服务端接受事件推进牌局。
+
 ## 游戏状态机
 
 `LOBBY → DEAL → TRUMP_SELECT? → BID → TRICK_PLAY → ROUND_SCORE → MATCH_END`
 
 每个阶段只接受明确允许的命令，非法阶段命令必须返回稳定错误码，不静默忽略。
+
+当前已经完成各阶段依赖的核心纯函数；完整命令状态机、发牌者轮转、快照过滤与幂等命令处理仍属于下一实现切片。
 
 ## 共享领域类型
 
