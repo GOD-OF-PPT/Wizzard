@@ -15,3 +15,5 @@ When implementing from a selected generated mock, treat that image as the source
 - The source game mechanics may be reproduced, but all names, symbols, card art, copy, branding, avatars, and decorative compositions must be original.
 - Platform-specific code must not leak into the pure rules engine. The final WeChat Mini Program vs Mini Game choice is documented in `docs/04-platform-decision.md`.
 - The default player experience is a 3–6 seat friend room with optional AI fill. Public matchmaking, monetization, chat, progression, and live operations are out of scope.
+- Generated art masters, runtime-ready crops, screen mockups, and resource keys live under `art/`; read `art/README.md` and `art/asset-manifest.json` before implementing visible UI.
+- Do not replace the generated lacquer, parchment, avatar, card, or UI assets with CSS drawings, inline SVG, emoji, text glyphs, generic placeholders, or unrelated icon packs.

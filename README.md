@@ -21,6 +21,7 @@
 - [实施计划与验收](docs/06-implementation-plan.md)
 - [资料来源与研究记录](docs/07-research-notes.md)
 - [关键决策记录](docs/decisions/README.md)
+- [美术资源包与界面稿](art/README.md)
 
 选定视觉基准位于 [public/assets/selected-art-direction.png](public/assets/selected-art-direction.png)。原始规则照片保存在 `docs/reference/source-rulebook/`，仅用于规则研究与内部追溯。
 
@@ -40,4 +41,4 @@ npm run build
 
 ## 当前阶段
 
-本次 initial commit 只建立可运行原型骨架并固化研究资料。后续按“美术资源拆分 → 交互牌桌 → 规则引擎 → 好友房与 AI → 微信体验版”推进。
+项目基线与第一版美术资源包已经完成。下一阶段按“交互牌桌 → 规则引擎 → 好友房与 AI → 微信体验版”推进。

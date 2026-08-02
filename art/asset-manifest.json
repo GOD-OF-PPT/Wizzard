@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "artDirection": "enchanted-teahouse",
+  "orientation": "landscape",
+  "designViewport": [1920, 1080],
+  "reference": "art/reference/gameplay-selected.png",
+  "mockups": {
+    "home": "art/mockups/home-screen.png",
+    "friendRoom": "art/mockups/friend-room-screen.png",
+    "gameplay": "art/mockups/gameplay-screen.png",
+    "roundResults": "art/mockups/round-results-screen.png"
+  },
+  "backgrounds": {
+    "table": "art/runtime/backgrounds/teahouse-table.png"
+  },
+  "cards": {
+    "pixelSize": [230, 390],
+    "back": "art/runtime/cards/card-back.png",
+    "faces": {
+      "mountain": "art/runtime/cards/mountain-face.png",
+      "knot": "art/runtime/cards/knot-face.png",
+      "leaf": "art/runtime/cards/leaf-face.png",
+      "sun": "art/runtime/cards/sun-face.png",
+      "highest": "art/runtime/cards/highest-special.png",
+      "lowest": "art/runtime/cards/lowest-special.png"
+    },
+    "colors": {
+      "mountain": "#243F66",
+      "knot": "#B63A2E",
+      "leaf": "#2F7F78",
+      "sun": "#C88724"
+    }
+  },
+  "avatars": {
+    "pixelSize": [418, 500],
+    "bambooCat": "art/runtime/avatars/bamboo-cat.png",
+    "wanderingCrane": "art/runtime/avatars/wandering-crane.png",
+    "flowerFox": "art/runtime/avatars/flower-fox.png",
+    "inkPanda": "art/runtime/avatars/ink-panda.png",
+    "sleepyStarCat": "art/runtime/avatars/sleepy-star-cat.png",
+    "maskedTraveler": "art/runtime/avatars/masked-traveler.png"
+  },
+  "ui": {
+    "chromeAtlas": "art/runtime/ui/ui-chrome-sheet.png",
+    "feedbackFxAtlas": "art/runtime/ui/feedback-fx-sheet.png",
+    "hasAlpha": true
+  },
+  "fonts": {
+    "display": "Noto Serif SC",
+    "interface": "Noto Sans SC"
+  }
+}

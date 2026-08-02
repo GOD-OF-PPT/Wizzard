@@ -30,6 +30,8 @@
 
 ## 首版资源清单
 
+资源现已生成并保存在 [`art/`](../art/README.md)。运行时资源键、尺寸和路径见 [`art/asset-manifest.json`](../art/asset-manifest.json)。
+
 ### 牌桌与环境
 
 - 1920×1080 横版夜间茶馆背景；
@@ -59,6 +61,15 @@
 - 预测值选择器、王牌选择器、计分条、托管与断线标记；
 - 合法出牌光圈、轮次结算纸签、赢墩反馈；
 - 规则提示插图与三轮教程手势动画。
+
+## 已完成界面
+
+- 首页：`art/mockups/home-screen.png`；
+- 好友房：`art/mockups/friend-room-screen.png`；
+- 游戏牌桌：`art/mockups/gameplay-screen.png`；
+- 轮次结算：`art/mockups/round-results-screen.png`。
+
+这四张稿覆盖首版最重要的体验闭环，后续编码以它们作为同级视觉真值，不再从文字描述重新推断布局。
 
 ## 版权边界
 
