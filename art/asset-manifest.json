@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "artDirection": "enchanted-teahouse",
   "orientation": "landscape",
   "designViewport": [1920, 1080],
@@ -10,20 +10,98 @@
     "gameplay": "art/mockups/gameplay-screen.png",
     "roundResults": "art/mockups/round-results-screen.png"
   },
+  "cocos38": {
+    "semanticKeyConvention": "domain.category.name[.state]",
+    "defaultAnchor": [0.5, 0.5],
+    "atlas": {
+      "maxSize": [2048, 2048],
+      "padding": 4,
+      "extrude": 2,
+      "allowRotation": false
+    },
+    "importProfiles": {
+      "opaqueIllustration": {
+        "preferredCompression": "ASTC_6x6",
+        "fallbackCompression": "ETC2_RGB8",
+        "filter": "linear",
+        "mipmap": false,
+        "trim": false
+      },
+      "alphaUi": {
+        "preferredCompression": "ASTC_4x4",
+        "fallbackCompression": "RGBA8888",
+        "filter": "linear",
+        "mipmap": false,
+        "trim": false,
+        "premultiplyAlpha": false
+      },
+      "background": {
+        "preferredCompression": "ASTC_8x8",
+        "fallbackCompression": "ETC2_RGB8",
+        "filter": "linear",
+        "mipmap": false,
+        "trim": false
+      }
+    }
+  },
   "backgrounds": {
-    "table": "art/runtime/backgrounds/teahouse-table.png"
+    "table": {
+      "semanticKey": "scene.teahouse.table",
+      "runtime": "art/runtime/backgrounds/teahouse-table.png",
+      "pixelSize": [1920, 1080],
+      "anchor": [0.5, 0.5],
+      "importProfile": "background"
+    }
   },
   "cards": {
-    "pixelSize": [230, 390],
-    "back": "art/runtime/cards/card-back.png",
-    "faces": {
-      "mountain": "art/runtime/cards/mountain-face.png",
-      "knot": "art/runtime/cards/knot-face.png",
-      "leaf": "art/runtime/cards/leaf-face.png",
-      "sun": "art/runtime/cards/sun-face.png",
-      "highest": "art/runtime/cards/highest-special.png",
-      "lowest": "art/runtime/cards/lowest-special.png"
+    "sourcePixelSize": [1024, 1536],
+    "runtimePixelSize": [256, 384],
+    "anchor": [0.5, 0.5],
+    "importProfile": "opaqueIllustration",
+    "allowAtlasRotation": false,
+    "numericOverlayRange": [1, 13],
+    "items": {
+      "back": {
+        "semanticKey": "card.back",
+        "source": "art/source/cards/card-back-master.png",
+        "runtime": "art/runtime/cards/card-back.png"
+      },
+      "mountain": {
+        "semanticKey": "card.face.mountain",
+        "source": "art/source/cards/mountain-face-master.png",
+        "runtime": "art/runtime/cards/mountain-face.png"
+      },
+      "knot": {
+        "semanticKey": "card.face.knot",
+        "source": "art/source/cards/knot-face-master.png",
+        "runtime": "art/runtime/cards/knot-face.png"
+      },
+      "leaf": {
+        "semanticKey": "card.face.leaf",
+        "source": "art/source/cards/leaf-face-master.png",
+        "runtime": "art/runtime/cards/leaf-face.png"
+      },
+      "sun": {
+        "semanticKey": "card.face.sun",
+        "source": "art/source/cards/sun-face-master.png",
+        "runtime": "art/runtime/cards/sun-face.png"
+      },
+      "highest": {
+        "semanticKey": "card.special.highest",
+        "source": "art/source/cards/highest-special-master.png",
+        "runtime": "art/runtime/cards/highest-special.png"
+      },
+      "lowest": {
+        "semanticKey": "card.special.lowest",
+        "source": "art/source/cards/lowest-special-master.png",
+        "runtime": "art/runtime/cards/lowest-special.png"
+      }
     },
+    "localizedRetouches": [
+      "card.back",
+      "card.face.knot",
+      "card.special.highest"
+    ],
     "colors": {
       "mountain": "#243F66",
       "knot": "#B63A2E",
@@ -32,18 +110,172 @@
     }
   },
   "avatars": {
-    "pixelSize": [418, 500],
-    "bambooCat": "art/runtime/avatars/bamboo-cat.png",
-    "wanderingCrane": "art/runtime/avatars/wandering-crane.png",
-    "flowerFox": "art/runtime/avatars/flower-fox.png",
-    "inkPanda": "art/runtime/avatars/ink-panda.png",
-    "sleepyStarCat": "art/runtime/avatars/sleepy-star-cat.png",
-    "maskedTraveler": "art/runtime/avatars/masked-traveler.png"
+    "sourcePixelSize": [1024, 1024],
+    "runtimePixelSize": [512, 512],
+    "displayPixelSize": [160, 160],
+    "anchor": [0.5, 0.5],
+    "importProfile": "opaqueIllustration",
+    "expressions": ["normal", "thinking", "proud", "mistake"],
+    "expressionSemanticKeyPattern": "avatar.{character}.{expression}",
+    "cropCleanup": "all quadrant divider lines removed before runtime export",
+    "characters": {
+      "bambooCat": {
+        "semanticKey": "avatar.bambooCat",
+        "source": {
+          "normal": "art/source/avatars/bamboo-cat/normal.png",
+          "thinking": "art/source/avatars/bamboo-cat/thinking.png",
+          "proud": "art/source/avatars/bamboo-cat/proud.png",
+          "mistake": "art/source/avatars/bamboo-cat/mistake.png"
+        },
+        "runtime": {
+          "normal": "art/runtime/avatars/bamboo-cat/normal.png",
+          "thinking": "art/runtime/avatars/bamboo-cat/thinking.png",
+          "proud": "art/runtime/avatars/bamboo-cat/proud.png",
+          "mistake": "art/runtime/avatars/bamboo-cat/mistake.png"
+        }
+      },
+      "wanderingCrane": {
+        "semanticKey": "avatar.wanderingCrane",
+        "source": {
+          "normal": "art/source/avatars/wandering-crane/normal.png",
+          "thinking": "art/source/avatars/wandering-crane/thinking.png",
+          "proud": "art/source/avatars/wandering-crane/proud.png",
+          "mistake": "art/source/avatars/wandering-crane/mistake.png"
+        },
+        "runtime": {
+          "normal": "art/runtime/avatars/wandering-crane/normal.png",
+          "thinking": "art/runtime/avatars/wandering-crane/thinking.png",
+          "proud": "art/runtime/avatars/wandering-crane/proud.png",
+          "mistake": "art/runtime/avatars/wandering-crane/mistake.png"
+        }
+      },
+      "flowerFox": {
+        "semanticKey": "avatar.flowerFox",
+        "source": {
+          "normal": "art/source/avatars/flower-fox/normal.png",
+          "thinking": "art/source/avatars/flower-fox/thinking.png",
+          "proud": "art/source/avatars/flower-fox/proud.png",
+          "mistake": "art/source/avatars/flower-fox/mistake.png"
+        },
+        "runtime": {
+          "normal": "art/runtime/avatars/flower-fox/normal.png",
+          "thinking": "art/runtime/avatars/flower-fox/thinking.png",
+          "proud": "art/runtime/avatars/flower-fox/proud.png",
+          "mistake": "art/runtime/avatars/flower-fox/mistake.png"
+        }
+      },
+      "inkPanda": {
+        "semanticKey": "avatar.inkPanda",
+        "source": {
+          "normal": "art/source/avatars/ink-panda/normal.png",
+          "thinking": "art/source/avatars/ink-panda/thinking.png",
+          "proud": "art/source/avatars/ink-panda/proud.png",
+          "mistake": "art/source/avatars/ink-panda/mistake.png"
+        },
+        "runtime": {
+          "normal": "art/runtime/avatars/ink-panda/normal.png",
+          "thinking": "art/runtime/avatars/ink-panda/thinking.png",
+          "proud": "art/runtime/avatars/ink-panda/proud.png",
+          "mistake": "art/runtime/avatars/ink-panda/mistake.png"
+        }
+      },
+      "sleepyStarCat": {
+        "semanticKey": "avatar.sleepyStarCat",
+        "source": {
+          "normal": "art/source/avatars/sleepy-star-cat/normal.png",
+          "thinking": "art/source/avatars/sleepy-star-cat/thinking.png",
+          "proud": "art/source/avatars/sleepy-star-cat/proud.png",
+          "mistake": "art/source/avatars/sleepy-star-cat/mistake.png"
+        },
+        "runtime": {
+          "normal": "art/runtime/avatars/sleepy-star-cat/normal.png",
+          "thinking": "art/runtime/avatars/sleepy-star-cat/thinking.png",
+          "proud": "art/runtime/avatars/sleepy-star-cat/proud.png",
+          "mistake": "art/runtime/avatars/sleepy-star-cat/mistake.png"
+        }
+      },
+      "maskedTraveler": {
+        "semanticKey": "avatar.maskedTraveler",
+        "source": {
+          "normal": "art/source/avatars/masked-traveler/normal.png",
+          "thinking": "art/source/avatars/masked-traveler/thinking.png",
+          "proud": "art/source/avatars/masked-traveler/proud.png",
+          "mistake": "art/source/avatars/masked-traveler/mistake.png"
+        },
+        "runtime": {
+          "normal": "art/runtime/avatars/masked-traveler/normal.png",
+          "thinking": "art/runtime/avatars/masked-traveler/thinking.png",
+          "proud": "art/runtime/avatars/masked-traveler/proud.png",
+          "mistake": "art/runtime/avatars/masked-traveler/mistake.png"
+        }
+      }
+    }
+  },
+  "tutorial": {
+    "ruleHint": {
+      "semanticKey": "tutorial.ruleHint",
+      "source": "art/source/tutorial/rule-hint-illustration.png",
+      "runtime": "art/runtime/tutorial/rule-hint-illustration.png",
+      "sourcePixelSize": [1536, 1024],
+      "runtimePixelSize": [768, 512],
+      "anchor": [0.5, 0.5],
+      "importProfile": "opaqueIllustration"
+    },
+    "gestures": {
+      "framePixelSize": [256, 256],
+      "frameCount": 4,
+      "hasAlpha": true,
+      "anchor": [0.5, 0.5],
+      "importProfile": "alphaUi",
+      "bidTap": {
+        "semanticKey": "tutorial.gesture.bidTap",
+        "sourceStrip": "art/source/tutorial/bid-tap-strip.png",
+        "runtimeFrames": [
+          "art/runtime/tutorial/bid-tap/01.png",
+          "art/runtime/tutorial/bid-tap/02.png",
+          "art/runtime/tutorial/bid-tap/03.png",
+          "art/runtime/tutorial/bid-tap/04.png"
+        ],
+        "animation": {"fps": 8, "loop": true}
+      },
+      "cardDrag": {
+        "semanticKey": "tutorial.gesture.cardDrag",
+        "sourceStrip": "art/source/tutorial/card-drag-strip.png",
+        "runtimeFrames": [
+          "art/runtime/tutorial/card-drag/01.png",
+          "art/runtime/tutorial/card-drag/02.png",
+          "art/runtime/tutorial/card-drag/03.png",
+          "art/runtime/tutorial/card-drag/04.png"
+        ],
+        "animation": {
+          "fps": 8,
+          "loop": true,
+          "motion": "consistent-hand-translation",
+          "frameContentOffsets": [[10, 32], [43, 24], [76, 16], [109, 8]],
+          "perFrameDeltaPixels": [33, -8],
+          "preservePose": true,
+          "keepFrameAnchor": true
+        }
+      },
+      "playConfirm": {
+        "semanticKey": "tutorial.gesture.playConfirm",
+        "sourceStrip": "art/source/tutorial/play-confirm-strip.png",
+        "runtimeFrames": [
+          "art/runtime/tutorial/play-confirm/01.png",
+          "art/runtime/tutorial/play-confirm/02.png",
+          "art/runtime/tutorial/play-confirm/03.png",
+          "art/runtime/tutorial/play-confirm/04.png"
+        ],
+        "animation": {"fps": 8, "loop": true}
+      }
+    }
   },
   "ui": {
     "chromeAtlas": "art/runtime/ui/ui-chrome-sheet.png",
     "feedbackFxAtlas": "art/runtime/ui/feedback-fx-sheet.png",
     "hasAlpha": true,
+    "anchor": [0.5, 0.5],
+    "importProfile": "alphaUi",
     "components": {
       "roundTitleScroll": "art/runtime/ui/round-title-scroll.png",
       "turnButton": "art/runtime/ui/turn-button.png",
@@ -57,6 +289,27 @@
       "bidDots": "art/runtime/ui/bid-dots.png",
       "scoreRibbon": "art/runtime/ui/score-ribbon.png"
     },
+    "semanticKeys": {
+      "roundTitleScroll": "ui.roundTitleScroll",
+      "turnButton": "ui.turnButton",
+      "primaryPanel": "ui.panel.primary",
+      "secondaryPanel": "ui.panel.secondary",
+      "smallPlaque": "ui.plaque.small",
+      "greenStatus": "ui.status.green",
+      "trumpTile": "ui.trumpTile",
+      "countdownRing": "ui.countdownRing",
+      "aiBadge": "ui.badge.ai",
+      "bidDots": "ui.bidDots",
+      "scoreRibbon": "ui.scoreRibbon"
+    },
+    "nineSliceInsets": {
+      "roundTitleScroll": {"left": 64, "right": 64, "top": 72, "bottom": 72},
+      "primaryPanel": {"left": 80, "right": 80, "top": 52, "bottom": 52},
+      "secondaryPanel": {"left": 64, "right": 64, "top": 42, "bottom": 42},
+      "smallPlaque": {"left": 44, "right": 44, "top": 36, "bottom": 36},
+      "greenStatus": {"left": 72, "right": 72, "top": 48, "bottom": 48},
+      "scoreRibbon": {"left": 180, "right": 180, "top": 56, "bottom": 56}
+    },
     "effects": {
       "legalHalo": "art/runtime/ui/legal-halo.png",
       "selectedHalo": "art/runtime/ui/selected-halo.png",
@@ -64,6 +317,14 @@
       "predictionSuccess": "art/runtime/ui/prediction-success.png",
       "predictionMiss": "art/runtime/ui/prediction-miss.png",
       "reconnectSpinner": "art/runtime/ui/reconnect-spinner.png"
+    },
+    "effectSemanticKeys": {
+      "legalHalo": "fx.card.legal",
+      "selectedHalo": "fx.card.selected",
+      "trickWin": "fx.trick.win",
+      "predictionSuccess": "fx.prediction.success",
+      "predictionMiss": "fx.prediction.miss",
+      "reconnectSpinner": "fx.connection.reconnecting"
     }
   },
   "fonts": {

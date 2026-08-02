@@ -1,21 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import type { RefObject } from "react";
 import friendRoomScreen from "../art/mockups/friend-room-screen.png";
-import gameplayScreen from "../art/mockups/gameplay-screen.png";
 import homeScreen from "../art/mockups/home-screen.png";
-import roundResultsScreen from "../art/mockups/round-results-screen.png";
 import primaryPanel from "../art/runtime/ui/primary-panel.png";
-import roundTitleScroll from "../art/runtime/ui/round-title-scroll.png";
 import secondaryPanel from "../art/runtime/ui/secondary-panel.png";
-import selectedHalo from "../art/runtime/ui/selected-halo.png";
 import smallPlaque from "../art/runtime/ui/small-plaque.png";
+import { MatchScreen } from "./components/MatchScreen";
 
-type Screen = "home" | "room" | "game" | "results";
+type Screen = "home" | "room" | "match";
 
 type HotspotProps = {
   buttonRef?: RefObject<HTMLButtonElement | null>;
-  label: string;
   className: string;
+  label: string;
   onClick: () => void;
 };
 
@@ -28,26 +25,7 @@ type ArtButtonProps = {
   onClick: () => void;
 };
 
-type HandCard = {
-  id: string;
-  label: string;
-};
-
-const handCards: HandCard[] = [
-  { id: "mountain-1", label: "山 1" },
-  { id: "knot-2", label: "结 2" },
-  { id: "leaf-4", label: "叶 4" },
-  { id: "sun-6", label: "日 6" },
-  { id: "knot-7", label: "结 7" },
-  { id: "mountain-8", label: "山 8" },
-  { id: "leaf-10", label: "叶 10" },
-  { id: "sun-12", label: "日 12" },
-];
-
-// Visual interaction harness only. Production Cocos screens will submit
-// intents to an authoritative adapter and render accepted server events.
-
-function Hotspot({ buttonRef, label, className, onClick }: HotspotProps) {
+function Hotspot({ buttonRef, className, label, onClick }: HotspotProps) {
   return (
     <button
       aria-label={label}
@@ -103,21 +81,9 @@ function HomeScreen({
         draggable="false"
         src={homeScreen}
       />
-      <Hotspot
-        className="home-create"
-        label="创建房间"
-        onClick={onCreateRoom}
-      />
-      <Hotspot
-        className="home-join"
-        label="加入房间"
-        onClick={onCreateRoom}
-      />
-      <Hotspot
-        className="home-practice"
-        label="单人练习"
-        onClick={onPractice}
-      />
+      <Hotspot className="home-create" label="创建房间" onClick={onCreateRoom} />
+      <Hotspot className="home-join" label="加入房间" onClick={onCreateRoom} />
+      <Hotspot className="home-practice" label="单人练习" onClick={onPractice} />
       <Hotspot
         buttonRef={rulesButtonRef}
         className="home-rules"
@@ -148,116 +114,6 @@ function FriendRoomScreen({
       />
       <Hotspot className="room-invite" label="邀请好友" onClick={onInvite} />
       <Hotspot className="room-start" label="开始游戏" onClick={onStart} />
-    </section>
-  );
-}
-
-function GameScreen({
-  onNeedCard,
-  onPlay,
-  round,
-}: {
-  onNeedCard: () => void;
-  onPlay: () => void;
-  round: number;
-}) {
-  const [selectedCard, setSelectedCard] = useState<string | null>(null);
-  const activeHandCards = handCards.slice(0, Math.min(round, handCards.length));
-
-  function playSelectedCard() {
-    if (!selectedCard) {
-      onNeedCard();
-      return;
-    }
-
-    onPlay();
-  }
-
-  return (
-    <section aria-labelledby="game-title" className="screen-stage">
-      <h1 className="sr-only" id="game-title">
-        第 {round} 轮
-      </h1>
-      <img
-        alt={`奇术茶馆第 ${round} 轮牌桌，六位玩家围桌进行预测型墩牌游戏`}
-        className="screen-art"
-        draggable="false"
-        src={gameplayScreen}
-      />
-
-      {round !== 4 ? (
-        <div aria-hidden="true" className="dynamic-round-title">
-          <img alt="" draggable="false" src={roundTitleScroll} />
-          <span>第 {round} 轮</span>
-        </div>
-      ) : null}
-
-      <div aria-label="你的手牌" className="hand-hotspots" role="group">
-        {activeHandCards.map((card, index) => {
-          const isSelected = selectedCard === card.id;
-
-          return (
-            <button
-              aria-label={card.label}
-              aria-pressed={isSelected}
-              className={`card-hotspot card-hotspot-${index + 1}`}
-              key={card.id}
-              onClick={() => setSelectedCard(card.id)}
-              type="button"
-            >
-              {isSelected ? (
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  className="selected-card-fx"
-                  draggable="false"
-                  src={selectedHalo}
-                />
-              ) : null}
-            </button>
-          );
-        })}
-      </div>
-
-      <Hotspot
-        className="game-turn-action"
-        label={selectedCard ? "出牌" : "你的回合"}
-        onClick={playSelectedCard}
-      />
-    </section>
-  );
-}
-
-function RoundResultsScreen({
-  onContinue,
-  onLeaderboard,
-  round,
-}: {
-  onContinue: () => void;
-  onLeaderboard: () => void;
-  round: number;
-}) {
-  return (
-    <section aria-labelledby="results-title" className="screen-stage">
-      <h1 className="sr-only" id="results-title">
-        第 {round} 轮结算
-      </h1>
-      <img
-        alt={`第 ${round} 轮结算榜，展示六位玩家的预测、赢墩、本轮得分与总分`}
-        className="screen-art"
-        draggable="false"
-        src={roundResultsScreen}
-      />
-      <Hotspot
-        className="results-leaderboard"
-        label="查看总榜"
-        onClick={onLeaderboard}
-      />
-      <Hotspot
-        className="results-continue"
-        label="继续"
-        onClick={onContinue}
-      />
     </section>
   );
 }
@@ -309,7 +165,8 @@ function RulesDialog({
         <div className="rules-dialog-content">
           <h2 id="rules-dialog-title">规则与设置</h2>
           <p>
-            每轮先预测自己会赢几墩。准确预测可获得基础分与赢墩奖励；误差越大，扣分越多。
+            每轮先决定王牌，再依次预测自己会赢几墩。出牌时必须跟随领出花色，至高牌与虚无牌可随时打出。
+            每次操作限时 30 秒，超时后由茶馆托管完成本次行动。
           </p>
           <div className="rules-summary">
             <span>快速局：8 轮</span>
@@ -346,7 +203,6 @@ function Notice({ message }: { message: string }) {
 
 export function App() {
   const [notice, setNotice] = useState<string | null>(null);
-  const [round, setRound] = useState(4);
   const [rulesOpen, setRulesOpen] = useState(false);
   const [screen, setScreen] = useState<Screen>("home");
   const [soundEnabled, setSoundEnabled] = useState(true);
@@ -361,16 +217,6 @@ export function App() {
     return () => window.clearTimeout(timeout);
   }, [notice]);
 
-  function startGame() {
-    setRound(4);
-    setScreen("game");
-  }
-
-  function continueGame() {
-    setRound((currentRound) => currentRound + 1);
-    setScreen("game");
-  }
-
   return (
     <main className="game-prototype">
       <div
@@ -381,7 +227,7 @@ export function App() {
         {screen === "home" ? (
           <HomeScreen
             onCreateRoom={() => setScreen("room")}
-            onPractice={startGame}
+            onPractice={() => setScreen("match")}
             onRules={() => setRulesOpen(true)}
             rulesButtonRef={rulesButtonRef}
           />
@@ -390,24 +236,12 @@ export function App() {
         {screen === "room" ? (
           <FriendRoomScreen
             onInvite={() => setNotice("邀请链接已准备")}
-            onStart={startGame}
+            onStart={() => setScreen("match")}
           />
         ) : null}
 
-        {screen === "game" ? (
-          <GameScreen
-            onNeedCard={() => setNotice("请先选择一张手牌")}
-            onPlay={() => setScreen("results")}
-            round={round}
-          />
-        ) : null}
-
-        {screen === "results" ? (
-          <RoundResultsScreen
-            onContinue={continueGame}
-            onLeaderboard={() => setNotice("总榜将在完整对局中展示")}
-            round={round}
-          />
+        {screen === "match" ? (
+          <MatchScreen onExit={() => setScreen("room")} />
         ) : null}
       </div>
 

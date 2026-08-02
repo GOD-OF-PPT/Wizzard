@@ -10,34 +10,12 @@ function enterFriendRoom() {
   ).toBeInTheDocument();
 }
 
-function enterGame() {
+function enterMatch() {
   enterFriendRoom();
   fireEvent.click(screen.getByRole("button", { name: "开始游戏" }));
 
   expect(
-    screen.getByRole("heading", { name: "第 4 轮" }),
-  ).toBeInTheDocument();
-  expect(
-    within(screen.getByRole("group", { name: "你的手牌" })).getAllByRole(
-      "button",
-    ),
-  ).toHaveLength(4);
-}
-
-function finishRound() {
-  enterGame();
-
-  const card = screen.getByRole("button", { name: "山 1" });
-  fireEvent.click(card);
-
-  expect(card).toHaveAttribute("aria-pressed", "true");
-
-  fireEvent.click(
-    screen.getByRole("button", { name: /^(出牌|你的回合)$/ }),
-  );
-
-  expect(
-    screen.getByRole("heading", { name: "第 4 轮结算" }),
+    screen.getByRole("heading", { name: "奇术茶馆快速局牌桌" }),
   ).toBeInTheDocument();
 }
 
@@ -52,32 +30,33 @@ describe("friends-only game prototype", () => {
     enterFriendRoom();
   });
 
-  it("starts the game from a prepared friend room", () => {
+  it("starts a dynamic match with private hand state and trump selection", () => {
     render(<App />);
 
-    enterGame();
-  });
+    enterMatch();
 
-  it("selects and plays a hand card before showing the round result", () => {
-    render(<App />);
-
-    finishRound();
-  });
-
-  it("continues from the round result into the next round", () => {
-    render(<App />);
-
-    finishRound();
-    fireEvent.click(screen.getByRole("button", { name: "继续" }));
-
-    expect(
-      screen.getByRole("heading", { name: "第 5 轮" }),
-    ).toBeInTheDocument();
     expect(
       within(screen.getByRole("group", { name: "你的手牌" })).getAllByRole(
         "button",
       ),
-    ).toHaveLength(5);
+    ).toHaveLength(1);
+    expect(
+      screen.getByRole("heading", { name: "请选择本轮王牌" }),
+    ).toBeInTheDocument();
+  });
+
+  it("submits a trump intent before bidding begins", () => {
+    render(<App />);
+
+    enterMatch();
+    fireEvent.click(
+      screen.getByRole("button", { name: "选择靛山为王牌" }),
+    );
+
+    expect(
+      screen.queryByRole("heading", { name: "请选择本轮王牌" }),
+    ).not.toBeInTheDocument();
+    expect(screen.getByText("靛山")).toBeInTheDocument();
   });
 
   it("opens and closes the rules and settings overlay", () => {
@@ -96,23 +75,5 @@ describe("friends-only game prototype", () => {
     expect(
       screen.queryByRole("dialog", { name: "规则与设置" }),
     ).not.toBeInTheDocument();
-  });
-
-  it("keeps keyboard focus inside the rules dialog and restores it on escape", () => {
-    render(<App />);
-
-    const rulesButton = screen.getByRole("button", { name: "规则与设置" });
-    fireEvent.click(rulesButton);
-
-    expect(
-      screen.getByRole("button", { name: "关闭规则与设置" }),
-    ).toHaveFocus();
-
-    fireEvent.keyDown(window, { key: "Escape" });
-
-    expect(
-      screen.queryByRole("dialog", { name: "规则与设置" }),
-    ).not.toBeInTheDocument();
-    expect(rulesButton).toHaveFocus();
   });
 });

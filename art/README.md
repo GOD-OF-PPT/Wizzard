@@ -1,51 +1,55 @@
 # 奇术茶馆美术资源包
 
-本目录是编码实现前的视觉真值。所有资源均基于用户选择的第二套“奇术茶馆”方向生成，最终界面不得退回通用仪表盘、纯色占位或与本目录不一致的视觉语言。
+本目录是正式编码实现使用的视觉真值。所有资源均延续用户选择的第二套“奇术茶馆 / Enchanted Teahouse”方向，界面不得退回通用仪表盘、纯色占位或与本目录不一致的视觉语言。
 
 ## 目录
 
-- `reference/`：用户选定的原始游戏牌桌方向；
-- `generated/`：生成过程源图与设计母版；当前并非全部达到正式生产分辨率；
-- `runtime/`：已经拆分、可直接接入客户端的第一版资源；
-- `mockups/`：首页、好友房、游戏牌桌和轮次结算界面；
-- `prompts/`：生成提示和关键约束，便于一致性迭代。
+- `reference/`：选定的原始牌桌方向；
+- `source/`：正式高分辨率母版；
+- `runtime/`：Cocos Creator 3.8 直接导入的运行时资源；
+- `mockups/`：首页、好友房、游戏牌桌和轮次结算视觉真值；
+- `review/`：卡牌、头像、教程和界面的验收联系表；
+- `prompts/`：生成提示、身份锚点与返修记录。
 
-## 已完成资源
+## 最终通过资源
 
-| 类别 | 文件 | 状态 |
-| --- | --- | --- |
-| 牌桌背景 | `runtime/backgrounds/teahouse-table.png` | 1920×1080，可直接使用 |
-| 卡背 | `runtime/cards/card-back.png` | 已拆分 |
-| 四花色卡面 | `runtime/cards/*-face.png` | 已拆分，运行时叠加数字 |
-| 两张特殊牌 | `runtime/cards/highest-special.png`、`lowest-special.png` | 已拆分 |
-| 六位头像 | `runtime/avatars/*.png` | 已拆分，统一椭圆金框 |
-| UI 装饰 | `runtime/ui/ui-chrome-sheet.png` | RGBA 透明图集母版 |
-| 反馈特效 | `runtime/ui/feedback-fx-sheet.png` | 6 组 RGBA 透明反馈效果 |
-| 核心界面 | `mockups/*.png` | 首页、好友房、游戏、结算齐全 |
+| 类别 | 正式源文件 | 运行时文件 | 状态 |
+| --- | --- | --- | --- |
+| 牌桌背景 | — | `runtime/backgrounds/teahouse-table.png`，1920×1080 | passed |
+| 七张卡牌 | `source/cards/*.png`，1024×1536 | `runtime/cards/*.png`，256×384 | passed |
+| 六角色四表情 | `source/avatars/<character>/*.png`，1024×1024 | `runtime/avatars/<character>/*.png`，512×512 | passed |
+| 规则提示插图 | `source/tutorial/rule-hint-illustration.png`，1536×1024 | `runtime/tutorial/rule-hint-illustration.png`，768×512 | passed |
+| 三组教程手势 | `source/tutorial/{bid-tap,card-drag,play-confirm}-strip.png` | 每组 4 帧透明 PNG，单帧 256×256 | passed |
+| UI 装饰与反馈 | — | `runtime/ui/*.png`，RGBA | passed |
+| 核心界面 | — | `mockups/*.png` | passed |
 
-## 正式 Cocos 接入前置缺口
+卡牌中的数字牌继续由四张花色母版与界面层数字 1–13 组合，不为 52 张牌重复导出整张位图。
 
-- 当前卡牌拆分文件为 230×390；需从已确认方向重制至少 768×1152 的七张独立母版；
-- 当前头像拆分文件为 418×500；需重制至少 512×512 的六张独立母版；
-- 规则提示插图与三轮教程手势动画尚未生成；
-- 上述项目不影响当前 Web 视觉原型，但不得把 MVP 拆分文件误标为正式生产源文件。
+## 最终返修记录
+
+- 卡背、结牌和至高牌完成局部返修，清理不一致的装饰细节并保持卡框、留白与构图统一；返修结果已收敛到稳定的正式母版文件名。
+- 六角色四表情母版已按独立象限裁切，所有中央分隔线均从源文件与运行时文件中清除。
+- 头像在 160×160 显示尺寸下复验通过；允许思考表情使用轻微托腮或头部姿态，但身份、金框、暗蓝底和光照必须稳定。
+- 三组教程手势均为 4 帧透明动画。`card-drag` 保持同一只手、同一姿态和同一光照，每帧内容固定平移 `(+33, -8)` 像素，形成匀速向右上拖动，不应再叠加不一致的逐帧缩放或旋转。
 
 ## 视觉规则
 
 - 基础画幅为横版 16:9，设计稿基准 1920×1080；
 - 主材质为朱漆木、米白宣纸、旧金属、午夜蓝和灯笼暖光；
 - 四花色为靛蓝山、朱红结、青绿叶、赭黄日，必须同时依赖颜色和形状识别；
-- UI 文字采用 `Noto Serif SC`，辅助文字采用 `Noto Sans SC`；两者均需使用允许商业/项目使用的 OFL 字体包；
+- UI 文字采用 `Noto Serif SC`，辅助文字采用 `Noto Sans SC`；
 - 标题“奇术茶馆”仍是工作名，正式名称确认前不制作最终品牌 Logo；
-- 角色、符号和装饰均为原创方向，不得混入 Wizard/巫师牌的名称、W/J 字母、商标或既有卡面。
+- 角色、符号和装饰均为原创方向，不得混入 Wizard/巫师牌名称、W/J 字母、商标或既有卡面。
 
-## 接入原则
+## Cocos Creator 3.8 接入原则
 
-- Cocos 中通过语义资源键加载，不从源图文件名推导游戏规则；
-- 数字牌使用四张花色母版并在运行时叠加 1–13，避免重复 52 张大图；
-- 头像由圆形/椭圆 Mask 裁切，暗蓝底色保留；
-- UI 图集进入正式客户端前使用 TexturePacker/Cocos 自动图集生成九宫格与 SpriteFrame 元数据；
-- 反馈图集依次包含合法牌光圈、选中光圈、赢墩爆发、预测命中、预测失败和重连云环；
-- `generated/ui/ui-chrome-source.png` 是洋红抠图源，正式资源使用透明的 `ui-chrome-sheet.png`。
+- 仅通过 [`asset-manifest.json`](asset-manifest.json) 中的语义资源键加载资源，不从文件名推导游戏规则；
+- 卡牌、头像、教程插图和手势帧默认锚点均为 `(0.5, 0.5)`；手势动画保持相同锚点，避免逐帧跳动；
+- 自动图集关闭旋转，建议 `2048×2048`、4 px padding、2 px extrude；
+- 不透明卡牌与头像优先使用 ASTC 6×6，背景可使用 ASTC 8×8；透明 UI、FX 与手势优先使用 ASTC 4×4，低兼容设备回退 ETC2 或 RGBA8888；
+- 2D 界面默认关闭 mipmap，使用 linear 过滤；透明资源关闭裁边，防止动画锚点和光效边缘漂移；
+- 面板、卷轴、状态牌和计分带按清单中的 inset 建立九宫格；圆形按钮、头像框和特效不得九宫格拉伸；
+- 头像保留暗蓝底，使用圆形或椭圆 Mask 显示，不执行自动 trim；
+- `card-drag` 直接按四帧序列播放既有一致位移，不额外改变 SpriteFrame 锚点。
 
-详细尺寸和资源键见 [asset-manifest.json](asset-manifest.json)。
+详细路径、语义键、尺寸、锚点、九宫格与压缩建议见 [asset-manifest.json](asset-manifest.json)。
