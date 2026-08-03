@@ -4,15 +4,25 @@
   "private": true,
   "description": "A friends-only WeChat prediction trick-taking card game prototype.",
   "type": "module",
+  "workspaces": [
+    "packages/*",
+    "cocos-client"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build:core && vite build",
+    "build:core": "npm run build --workspace @wizzard/game-core",
+    "cocos:prepare": "npm run build:core && npm run cocos:sync && npm run typecheck --workspace @wizzard/cocos-client",
+    "cocos:sync": "npm run sync:assets --workspace @wizzard/cocos-client",
+    "cocos:typecheck": "npm run build:core && npm run typecheck --workspace @wizzard/cocos-client",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "npm run typecheck:core && npm run build:core && tsc --noEmit && npm run typecheck --workspace @wizzard/cocos-client",
+    "typecheck:core": "npm run typecheck --workspace @wizzard/game-core",
     "test": "vitest run",
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@wizzard/game-core": "0.1.0",
     "@fontsource/noto-sans-sc": "^5.3.0",
     "@fontsource/noto-serif-sc": "^5.3.0",
     "@vitejs/plugin-react": "5.0.4",

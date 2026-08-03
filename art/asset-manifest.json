@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "artDirection": "enchanted-teahouse",
   "orientation": "landscape",
   "designViewport": [1920, 1080],
@@ -328,7 +328,25 @@
     }
   },
   "fonts": {
-    "display": "Noto Serif SC",
-    "interface": "Noto Sans SC"
+    "display": {
+      "semanticKey": "font.display",
+      "family": "Noto Serif SC",
+      "style": "SemiBold",
+      "weight": 600,
+      "static": true,
+      "runtime": "art/runtime/fonts/NotoSerifSC-SemiBold-Subset.ttf",
+      "sourceNotes": "art/source/fonts/README.md",
+      "license": "art/source/fonts/LICENSE-OFL-1.1.txt"
+    },
+    "interface": {
+      "semanticKey": "font.interface",
+      "family": "Noto Sans SC",
+      "style": "Medium",
+      "weight": 500,
+      "static": true,
+      "runtime": "art/runtime/fonts/NotoSansSC-Medium-Subset.ttf",
+      "sourceNotes": "art/source/fonts/README.md",
+      "license": "art/source/fonts/LICENSE-OFL-1.1.txt"
+    }
   }
 }

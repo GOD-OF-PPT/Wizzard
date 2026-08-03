@@ -11,6 +11,12 @@
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@wizzard/game-core": ["packages/game-core/src/index.ts"],
+      "@wizzard/game-core/contracts": ["packages/game-core/src/contracts.ts"],
+      "@wizzard/game-core/authority": ["packages/game-core/src/authority.ts"]
+    },
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,

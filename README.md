@@ -20,8 +20,10 @@
 - [系统架构](docs/05-architecture.md)
 - [实施计划与验收](docs/06-implementation-plan.md)
 - [资料来源与研究记录](docs/07-research-notes.md)
+- [Cocos 客户端实施记录](docs/08-cocos-client-implementation.md)
 - [关键决策记录](docs/decisions/README.md)
 - [美术资源包与界面稿](art/README.md)
+- [Cocos 正式客户端](cocos-client/README.md)
 
 选定视觉基准位于 [public/assets/selected-art-direction.png](public/assets/selected-art-direction.png)。原始规则照片保存在 `docs/reference/source-rulebook/`，仅用于规则研究与内部追溯。
 
@@ -38,13 +40,16 @@ npm run dev
 npm test
 npm run typecheck
 npm run build
+npm run cocos:prepare
 ```
 
 ## 当前已实现
 
-### 权威规则核心
+### 共享权威规则核心
 
-- `src/game/match.ts` 已实现平台无关、纯 TypeScript 的权威比赛状态机；
+- `packages/game-core` 是 Web、Cocos 与未来 Node 服务共用的唯一规则源码，构建为私有 ESM 包 `@wizzard/game-core`；
+- 包提供根入口、只读契约入口 `@wizzard/game-core/contracts` 与权威入口 `@wizzard/game-core/authority`，正式网络客户端不会导入权威函数；
+- `packages/game-core/src/match.ts` 已实现平台无关、纯 TypeScript 的权威比赛状态机；
 - 客户端或 AI 只能提交 `MatchIntent`，状态机返回新的权威状态和 `MatchEvent[]`；
 - 意图只携带动作参数、`commandId` 与 `expectedVersion`；行动者身份由本地/网络适配器从会话注入，不能由客户端请求体冒充；
 - 首次成功命令的事件结果会按 `commandId` 缓存并在重试时重放，旧版本、错误阶段、越权回合和非法行动仍稳定拒绝；
@@ -71,15 +76,25 @@ npm run build
 - 牌桌已从整屏截图热点演示升级为由状态驱动、资源可替换的动态界面，结构可映射为 Cocos Creator 的 Scene、Node、SpriteFrame、Prefab 和 UI 组件；
 - 首页与好友房仍承担进入验证牌桌的轻量导航，不代表正式联网房间已经实现。
 
+### Cocos Creator 正式客户端首切片
+
+- `cocos-client/` 已按 Cocos Creator 3.8.x 2D 工程格式初始化，设计分辨率为横版 `1920×1080`，微信小游戏构建模板锁定横屏；
+- `GameBootstrap`、`IMatchAdapter`、`LocalMatchAdapter` 与 `MatchSceneView` 已建立模拟、输入、资源和渲染分层，Cocos Node 不持有权威比赛状态；
+- 正式客户端通过 `@wizzard/game-core` 的构建产物复用同一状态机，没有复制第二份规则源码；
+- 首个本地牌桌切片已覆盖选择王牌、预测、合法选牌、确认出牌、AI 行动、30 秒托管、一墩结算、轮结算、8 轮总榜和重新开始；
+- `tools/sync-cocos-assets.mjs` 从 `art/asset-manifest.json` 生成稳定语义地址，当前同步 31 张首切片 PNG 与两套精简 Noto SC 字体；
+- 牌桌只使用正式背景、卡牌、头像、漆器/羊皮纸 UI 和反馈 FX，动态王牌使用正式花色卡面裁切，不依赖错误的通用 `ui.trumpTile`；
+- Cocos 适配器的完整 8 轮闭环已有进程内集成验证，客户端 TypeScript 可使用官方 Creator 3.8 类型声明检查。
+
 ## 当前边界
 
-React/Vite 版本仍是交互与架构验证工具，不是正式发布客户端。它目前在浏览器进程内同时运行本地适配器和权威状态机，用于验证 Cocos 迁移前的状态、布局和反馈。
+React/Vite 版本仍是交互与架构验证工具，不是正式发布客户端。正式客户端入口已经转移到 `cocos-client/`，当前 Cocos 首切片仍使用进程内本地权威适配器，目的是先验证引擎场景、资源和完整比赛表现。
 
-以下工作尚未开始：
+以下工作尚未开始或尚未在真实工具链验证：
 
-- 正式 Cocos Creator 3.8 微信小游戏工程与场景迁移；
 - Node.js/WebSocket 权威房间服务；
 - Redis 房间状态、重连、分享令牌和线上部署；
 - 微信登录、分享、合法域名、云托管与真机体验成员发布。
+- Cocos Creator 浏览器预览与微信小游戏构建；当前机器未安装 Creator，工程只能先进行结构、资源清单与 TypeScript 静态验证。
 
-正式实现时，Cocos 客户端只提交意图并消费服务端事件/查看者快照；当前 `useLocalMatch` 将被网络适配器替换，`src/game/` 的规则与比赛核心保持平台无关。
+接入联网房间时，Cocos 客户端仍只提交意图并消费服务端事件/查看者快照；当前 `LocalMatchAdapter` 将被 `NetworkMatchAdapter` 替换，而 `packages/game-core` 继续作为唯一平台无关规则核心。

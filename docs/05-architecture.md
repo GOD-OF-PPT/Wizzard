@@ -11,28 +11,29 @@
 ## 当前进程内架构
 
 ```text
-React 动态牌桌（验证工具）
-        │ 发送 MatchIntent
-        ▼
-useLocalMatch 本地适配器
-        │ 注入会话行动者、调用纯函数并调度 AI
-        ▼
-src/game/match.ts 权威比赛状态机
-        │
-        ├── 内部 AuthoritativeMatchState
-        ├── MatchEvent[]
-        └── createPlayerSnapshot(viewerId)
-                    │
-                    └── viewer 专属 PlayerMatchSnapshot
+React 动态牌桌（验证工具）        Cocos Creator 正式客户端
+        │                                │
+        ├── useLocalMatch                ├── IMatchAdapter
+        │                                └── LocalMatchAdapter
+        └──────────────┬─────────────────┘
+                       │ 注入行动者、调度 AI、提交 MatchIntent
+                       ▼
+            @wizzard/game-core/authority
+                       │
+                       ├── 内部 AuthoritativeMatchState
+                       ├── MatchEvent[]
+                       └── createPlayerSnapshot(viewerId)
+                                   │
+                                   └── viewer 专属 PlayerMatchSnapshot
 ```
 
-“权威”在这里描述状态所有权和接口约束：只有 `applyMatchIntent` 与带明确推进类型的 `advanceAuthoritativeMatch` 能推进状态。React 只获得事件和本地查看者快照，不再从 Hook 读取完整权威状态。当前核心仍运行在浏览器进程内，尚不是已部署的网络服务。
+“权威”在这里描述状态所有权和接口约束：只有 `applyMatchIntent` 与带明确推进类型的 `advanceAuthoritativeMatch` 能推进状态。React 与 Cocos 表现层都只获得事件和本地查看者快照。当前权威核心仍运行在客户端进程内用于开发验证，尚不是已部署的网络服务。
 
 ## 已实现模块
 
 ### 规则与比赛核心
 
-平台无关实现位于 `src/game/`，统一从 `src/game/index.ts` 导出：
+平台无关实现位于 `packages/game-core/src/`，构建为私有 ESM 包 `@wizzard/game-core`，并提供根入口、`contracts` 与 `authority` 三个导出面：
 
 - `deck.ts`：牌组与唯一牌 ID；
 - `deal.ts`：可注入随机源的洗牌与发牌；
@@ -139,7 +140,15 @@ React 验证工具消费转换事件，并在每次权威状态变化后重新�
 
 它不实现房间码、WebSocket、Redis、登录、重连或跨设备同步。正式联网阶段使用网络适配器替换该 Hook，而不是把网络逻辑写入比赛核心。
 
-## 动态牌桌与 Cocos 迁移边界
+`cocos-client/assets/scripts/adapters/LocalMatchAdapter.ts` 是 Cocos 首切片的同类适配器：
+
+- 通过 `IMatchAdapter` 隐藏 `commandId`、`expectedVersion` 与行动者注入细节；
+- 表现层只提交 `MatchIntentDraft`，不直接调用权威函数；
+- 使用 `update(deltaSeconds)` 驱动 AI、30 秒真人托管和 1.5 秒赢墩展示；
+- 每次变化都只发布 `MatchUpdate { snapshot, events, turnSecondsRemaining, connection }`；
+- 完整 8 轮本地闭环已通过适配器集成验证。
+
+## 动态牌桌与 Cocos 表现层
 
 `src/components/MatchScreen.tsx` 与 `CardView.tsx` 已经按状态动态渲染：
 
@@ -151,9 +160,18 @@ React 验证工具消费转换事件，并在每次权威状态变化后重新�
 - 随当前行动、赢墩和负分切换的角色表情；
 - 3–6 人查看者相对座位映射、30 秒倒计时、短横屏适配与羊皮卷结算面板。
 
-这套 React UI 仍是验证工具，但已经避免将整屏 mockup 当作不可拆分背景。迁移到 Cocos Creator 3.8 时，可将座位、卡牌、状态条、选择面板和结算面板映射为 Prefab/Node/SpriteFrame，同时继续消费相同的快照字段和意图语义。
+这套 React UI 仍是验证工具，但已经避免将整屏 mockup 当作不可拆分背景。
 
-## 正式目标架构（尚未开始）
+`cocos-client/` 已实现第一版正式表现层：
+
+- `Boot.scene` 只序列化 Canvas、Camera 与 `GameBootstrap`，其余节点由模块化视图代码构建，降低在无编辑器环境中手写 Prefab 序列化的风险；
+- `MatchSceneView` 根据查看者快照构建横版牌桌、相对座位、手牌、一墩、状态条、倒计时、王牌/预测面板和结算总榜；
+- `CardView`、`PlayerSeatView` 与 `UiFactory` 已形成可在安装 Creator 后保存为 Prefab 的组件边界；
+- `AssetRegistry` 只接受生成的语义键，运行时文件地址由 `tools/sync-cocos-assets.mjs` 从美术清单生成；
+- 首切片同步 31 张必要 PNG 与两套精简字体，表情和教程资源保留在完整清单中，待 Asset Bundle/小游戏分包阶段接入；
+- Cocos Node、Sprite 与 Label 只持有表现状态，不持有或修改 `AuthoritativeMatchState`。
+
+## 联网目标架构（服务端尚未开始）
 
 ```text
 微信小游戏 Cocos 客户端
@@ -161,7 +179,7 @@ React 验证工具消费转换事件，并在每次权威状态变化后重新�
         ▼
 Node.js + WebSocket 权威房间服务
         │
-        ├── 调用 src/game 纯 TypeScript 核心
+        ├── 调用 @wizzard/game-core/authority
         ├── 为真人与 AI 创建查看者快照
         ├── 广播 MatchEvent / Snapshot
         └── Redis 保存活跃房间与断线恢复状态
@@ -169,4 +187,4 @@ Node.js + WebSocket 权威房间服务
 
 WebSocket 连接在鉴权后绑定玩家身份；房间服务把该身份作为 `actorPlayerId` 注入规则核心，并在每次回复中附带该连接的最新查看者快照。
 
-尚未开始的内容包括 Cocos 工程、WebSocket 服务、房间生命周期、Redis、微信登录/分享和线上部署。文档中的这些组件是目标边界，不是当前已交付能力。
+Cocos 工程与本地动态牌桌首切片已经建立；尚未开始的内容包括 WebSocket 服务、房间生命周期、Redis、微信登录/分享和线上部署。由于当前机器没有安装 Cocos Creator，编辑器首次导入、浏览器预览与微信小游戏构建仍属于待验证项。

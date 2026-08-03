@@ -45,7 +45,7 @@ import smallPlaque from "../art/runtime/ui/small-plaque.png";
 import trickWin from "../art/runtime/ui/trick-win.png";
 import trumpTile from "../art/runtime/ui/trump-tile.png";
 import turnButton from "../art/runtime/ui/turn-button.png";
-import type { Card, Suit } from "./game";
+import type { Card, Suit } from "@wizzard/game-core/contracts";
 
 export type AvatarExpression = "normal" | "thinking" | "proud" | "mistake";
 

@@ -9,18 +9,20 @@ import {
 import {
   advanceAuthoritativeMatch,
   applyMatchIntent,
-  chooseAiIntent,
   createMatch,
   createPlayerSnapshot,
   type AuthoritativeMatchState,
-  type MatchEvent,
-  type MatchIntent,
-  type MatchPlayerSeed,
   type MatchTransition,
-  type PlayerMatchSnapshot,
-  type RandomSource,
-  type Suit,
-} from "../game";
+} from "@wizzard/game-core/authority";
+import { chooseAiIntent } from "@wizzard/game-core";
+import type {
+  MatchEvent,
+  MatchIntent,
+  MatchPlayerSeed,
+  PlayerMatchSnapshot,
+  RandomSource,
+  Suit,
+} from "@wizzard/game-core/contracts";
 
 const HUMAN_PLAYER_ID = "player-you";
 const TURN_DURATION_SECONDS = 30;

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "verbatimModuleSyntax": true,
+    "baseUrl": ".",
+    "paths": {
+      "@wizzard/game-core": ["./src/index.ts"],
+      "@wizzard/game-core/contracts": ["./src/contracts.ts"],
+      "@wizzard/game-core/authority": ["./src/authority.ts"]
+    }
+  },
+  "include": ["src", "test"]
+}

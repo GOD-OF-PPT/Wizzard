@@ -1,0 +1,22 @@
+{
+  "name": "@wizzard/cocos-client",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "uuid": "d0bd9a73-4f3a-4cd6-83ed-c0e924912c81",
+  "creator": {
+    "version": "3.8.8"
+  },
+  "scripts": {
+    "build:core": "npm --prefix ../packages/game-core run build",
+    "sync:assets": "node ../tools/sync-cocos-assets.mjs --target ./assets/resources/game-art --generated-ts ./assets/scripts/assets/AssetAddresses.generated.ts --core-only",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@wizzard/game-core": "file:../packages/game-core"
+  },
+  "devDependencies": {
+    "@cocos/creator-types": "3.8.7",
+    "typescript": "^5.8.0"
+  }
+}

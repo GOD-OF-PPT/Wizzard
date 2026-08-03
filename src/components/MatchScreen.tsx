@@ -21,7 +21,7 @@ import {
   type MatchPhase,
   type MatchPlayerState,
   type Suit,
-} from "../game";
+} from "@wizzard/game-core/contracts";
 import { useLocalMatch } from "../hooks/useLocalMatch";
 import { CardView, type CardVisualState } from "./CardView";
 

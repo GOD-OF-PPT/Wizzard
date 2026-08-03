@@ -1,0 +1,42 @@
+{
+  "name": "@wizzard/game-core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Platform-neutral rules, contracts, and authoritative state transitions for Wizzard.",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "contracts": ["dist/contracts.d.ts"],
+      "authority": ["dist/authority.d.ts"],
+      "dist/index.d.ts": ["dist/index.d.ts"]
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./contracts": {
+      "types": "./dist/contracts.d.ts",
+      "import": "./dist/contracts.js",
+      "default": "./dist/contracts.js"
+    },
+    "./authority": {
+      "types": "./dist/authority.d.ts",
+      "import": "./dist/authority.js",
+      "default": "./dist/authority.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}

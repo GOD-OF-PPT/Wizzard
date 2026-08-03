@@ -5,7 +5,7 @@ import {
   getCardImage,
   suitNames,
 } from "../game-assets";
-import type { Card } from "../game";
+import type { Card } from "@wizzard/game-core/contracts";
 
 export type CardVisualState =
   | "normal"
