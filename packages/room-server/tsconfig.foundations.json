@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/identity/**/*.ts",
+    "src/persistence/**/*.ts",
+    "src/random/**/*.ts",
+    "test/HmacCounterRandom.test.ts",
+    "test/MemoryRoomRepository.test.ts",
+    "test/RedisRoomRepository.test.ts",
+    "test/tokens.test.ts"
+  ]
+}

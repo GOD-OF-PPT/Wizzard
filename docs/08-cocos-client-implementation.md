@@ -96,9 +96,8 @@ Boot.scene / GameBootstrap
 
 ## 当前未实现
 
-- `NetworkMatchAdapter` 与 WebSocket；
-- 好友房创建/加入/准备/AI 补位；
-- Redis、断线恢复和服务端计时；
+- 好友房创建/加入/准备/开始的 Cocos 大厅视图（协议、服务端和网络适配器已实现）；
+- 微信登录、分享入口、合法域名部署和真机联调；
 - 微信登录、分享令牌与云托管；
 - 音频、表情 Bundle、教程 Bundle；
 - Creator 编辑器视觉 QA、微信开发者工具和真机测试。

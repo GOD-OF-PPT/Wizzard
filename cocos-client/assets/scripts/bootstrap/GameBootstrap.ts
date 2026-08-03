@@ -12,7 +12,8 @@ import {
 } from "cc";
 import { AssetRegistry } from "../assets/AssetRegistry";
 import type { IMatchAdapter } from "../adapters/IMatchAdapter";
-import { LocalMatchAdapter } from "../adapters/LocalMatchAdapter";
+import { createMatchAdapter } from "../adapters/MatchAdapterFactory";
+import { MATCH_RUNTIME_CONFIG } from "../config/MatchRuntimeConfig";
 import { MatchSceneView } from "../views/MatchSceneView";
 
 const { ccclass } = _decorator;
@@ -53,7 +54,7 @@ export class GameBootstrap extends Component {
 
       this.loadingNode?.destroy();
       this.loadingNode = null;
-      this.adapter = new LocalMatchAdapter();
+      this.adapter = createMatchAdapter(MATCH_RUNTIME_CONFIG);
       this.matchView = new MatchSceneView(this.node, assets, this.adapter);
       this.adapter.start((update) => this.matchView?.render(update));
     } catch (error) {

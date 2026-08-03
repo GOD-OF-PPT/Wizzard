@@ -10,12 +10,23 @@ export type MatchIntentDraft =
   | { type: "submit-bid"; bid: number }
   | { type: "play-card"; cardId: Card["id"] };
 
-export type MatchConnectionState = "local" | "connected" | "reconnecting";
+export type MatchConnectionState =
+  | "local"
+  | "connected"
+  | "reconnecting"
+  | "disconnected";
+
+export type MatchControls = {
+  canContinueRound: boolean;
+  canRematch: boolean;
+};
 
 export type MatchUpdate = {
   connection: MatchConnectionState;
+  controls?: MatchControls;
   events: readonly MatchEvent[];
   snapshot: PlayerMatchSnapshot;
+  statusMessage?: string;
   turnSecondsRemaining: number | null;
 };
 

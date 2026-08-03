@@ -58,7 +58,7 @@ trump-select? → bid → trick-play → trick-result
                                                    └─ 最后一轮 → match-end
 ```
 
-发牌与翻牌在 `createMatch`/`setupRound` 中作为原子状态转换完成；好友房的 `LOBBY / READY / START` 属于尚未实现的房间服务层，不混入比赛核心。
+发牌与翻牌在 `createMatch`/`setupRound` 中作为原子状态转换完成；好友房的 `LOBBY / READY / START` 已由独立房间服务层实现，并继续与比赛核心隔离。
 
 已实现的完整流程：
 
@@ -171,7 +171,7 @@ React 验证工具消费转换事件，并在每次权威状态变化后重新�
 - 首切片同步 31 张必要 PNG 与两套精简字体，表情和教程资源保留在完整清单中，待 Asset Bundle/小游戏分包阶段接入；
 - Cocos Node、Sprite 与 Label 只持有表现状态，不持有或修改 `AuthoritativeMatchState`。
 
-## 联网目标架构（服务端尚未开始）
+## 已实现的联网架构
 
 ```text
 微信小游戏 Cocos 客户端
@@ -187,4 +187,4 @@ Node.js + WebSocket 权威房间服务
 
 WebSocket 连接在鉴权后绑定玩家身份；房间服务把该身份作为 `actorPlayerId` 注入规则核心，并在每次回复中附带该连接的最新查看者快照。
 
-Cocos 工程与本地动态牌桌首切片已经建立；尚未开始的内容包括 WebSocket 服务、房间生命周期、Redis、微信登录/分享和线上部署。由于当前机器没有安装 Cocos Creator，编辑器首次导入、浏览器预览与微信小游戏构建仍属于待验证项。
+Cocos 工程、本地动态牌桌、WebSocket 房间生命周期、Redis 仓储 seam、断线恢复和网络适配器已经建立。尚未完成的是 Cocos 好友房大厅视图、微信登录/分享、线上部署，以及 Creator 编辑器首次导入、浏览器预览与微信小游戏构建。

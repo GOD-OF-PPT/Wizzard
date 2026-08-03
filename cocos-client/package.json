@@ -13,7 +13,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@wizzard/game-core": "file:../packages/game-core"
+    "@wizzard/game-core": "file:../packages/game-core",
+    "@wizzard/room-protocol": "file:../packages/room-protocol"
   },
   "devDependencies": {
     "@cocos/creator-types": "3.8.7",

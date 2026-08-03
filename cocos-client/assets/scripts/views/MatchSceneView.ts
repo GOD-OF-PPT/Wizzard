@@ -19,8 +19,6 @@ import {
   createText,
 } from "./UiFactory";
 
-const HUMAN_PLAYER_ID = "player-you";
-
 const SUIT_NAMES: Record<Suit, string> = {
   knot: "结",
   leaf: "叶",
@@ -55,37 +53,42 @@ const SLOT_MAPS: Record<number, readonly number[]> = {
 
 function getRelativePlayers(
   players: readonly MatchPlayerState[],
+  viewerPlayerId: string,
 ): MatchPlayerState[] {
-  const humanIndex = Math.max(
-    0,
-    players.findIndex((player) => player.id === HUMAN_PLAYER_ID),
+  const viewerIndex = players.findIndex(
+    (player) => player.id === viewerPlayerId,
   );
 
+  if (viewerIndex < 0) {
+    throw new Error(`VIEWER_PLAYER_NOT_FOUND:${viewerPlayerId}`);
+  }
+
   return players.map(
-    (_, offset) => players[(humanIndex + offset) % players.length],
+    (_, offset) => players[(viewerIndex + offset) % players.length],
   );
 }
 
 function getPhaseLabel(snapshot: PlayerMatchSnapshot): string {
   const state = snapshot.publicState;
+  const viewerPlayerId = snapshot.privateState.playerId;
   const currentPlayer = state.players.find(
     (player) => player.id === state.currentPlayerId,
   );
 
   if (state.phase === "trump-select") {
-    return currentPlayer?.id === HUMAN_PLAYER_ID
+    return currentPlayer?.id === viewerPlayerId
       ? "请选择本轮王牌"
       : `等待 ${currentPlayer?.name ?? "发牌者"} 选择王牌`;
   }
 
   if (state.phase === "bid") {
-    return currentPlayer?.id === HUMAN_PLAYER_ID
+    return currentPlayer?.id === viewerPlayerId
       ? "轮到你预测赢墩数"
       : `等待 ${currentPlayer?.name ?? "玩家"} 预测`;
   }
 
   if (state.phase === "trick-play") {
-    return currentPlayer?.id === HUMAN_PLAYER_ID
+    return currentPlayer?.id === viewerPlayerId
       ? "轮到你出牌"
       : `等待 ${currentPlayer?.name ?? "玩家"} 出牌`;
   }
@@ -204,6 +207,7 @@ export class MatchSceneView {
     this.currentUpdate = update;
     const snapshot = update.snapshot;
     const state = snapshot.publicState;
+    const viewerPlayerId = snapshot.privateState.playerId;
     const turnChanged = this.lastTurnPlayerId !== state.currentPlayerId;
     const phaseChanged = this.lastPhase !== state.phase;
 
@@ -222,7 +226,8 @@ export class MatchSceneView {
 
     if (
       state.phase !== "trick-play" ||
-      state.currentPlayerId !== HUMAN_PLAYER_ID
+      state.currentPlayerId !== viewerPlayerId ||
+      !this.isInteractionEnabled(update)
     ) {
       this.selectedCardId = null;
     }
@@ -231,6 +236,9 @@ export class MatchSceneView {
     if (feedback) {
       this.feedbackText = feedback;
     }
+    if (update.statusMessage) {
+      this.feedbackText = update.statusMessage;
+    }
 
     this.lastPhase = state.phase;
     this.lastTurnPlayerId = state.currentPlayerId;
@@ -238,9 +246,10 @@ export class MatchSceneView {
     this.renderHeader(update);
     this.renderSeats(snapshot);
     this.renderTrick(snapshot);
-    this.renderHand(snapshot);
+    this.renderHand(update);
     this.renderFeedback();
-    this.renderPhaseOverlay(snapshot);
+    this.renderPhaseOverlay(update);
+    this.renderConnectionOverlay(update);
   }
 
   private refreshPresentation(): void {
@@ -290,12 +299,75 @@ export class MatchSceneView {
     );
   }
 
-  private renderHand(snapshot: PlayerMatchSnapshot): void {
+  private isInteractionEnabled(update: MatchUpdate): boolean {
+    if (update.connection === "local") {
+      return true;
+    }
+
+    return (
+      update.connection === "connected" &&
+      (update.turnSecondsRemaining === null ||
+        update.turnSecondsRemaining > 0)
+    );
+  }
+
+  private renderConnectionOverlay(update: MatchUpdate): void {
+    if (
+      update.connection !== "reconnecting" &&
+      update.connection !== "disconnected"
+    ) {
+      return;
+    }
+
+    const backdrop = createModalBackdrop(this.dynamicRoot);
+    createSprite(
+      backdrop,
+      this.assets,
+      "ui.panel.secondary" as AssetKey,
+      720,
+      330,
+      0,
+      0,
+      true,
+    );
+    createSprite(
+      backdrop,
+      this.assets,
+      "fx.connection.reconnecting" as AssetKey,
+      96,
+      96,
+      0,
+      52,
+    );
+    createText(
+      backdrop,
+      this.assets,
+      update.connection === "reconnecting"
+        ? "正在重新连接好友房…"
+        : "好友房连接已中断",
+      580,
+      60,
+      0,
+      -54,
+      {
+        fontKey: "font.interface" as AssetKey,
+        fontSize: 30,
+        outlineColor: new Color(44, 22, 14, 255),
+        outlineWidth: 2,
+      },
+    );
+  }
+
+  private renderHand(update: MatchUpdate): void {
+    const snapshot = update.snapshot;
     const state = snapshot.publicState;
     const hand = snapshot.privateState.hand;
+    const viewerPlayerId = snapshot.privateState.playerId;
     const legalCardIds = new Set(snapshot.privateState.legalCardIds);
     const canPlay =
-      state.phase === "trick-play" && state.currentPlayerId === HUMAN_PLAYER_ID;
+      this.isInteractionEnabled(update) &&
+      state.phase === "trick-play" &&
+      state.currentPlayerId === viewerPlayerId;
     const spacing = Math.min(118, hand.length > 1 ? 900 / (hand.length - 1) : 0);
     const center = (hand.length - 1) / 2;
 
@@ -412,35 +484,52 @@ export class MatchSceneView {
     this.renderTimer(update);
   }
 
-  private renderPhaseOverlay(snapshot: PlayerMatchSnapshot): void {
+  private renderPhaseOverlay(update: MatchUpdate): void {
+    const snapshot = update.snapshot;
     const state = snapshot.publicState;
+    const viewerPlayerId = snapshot.privateState.playerId;
+    const canInteract = this.isInteractionEnabled(update);
 
     if (
+      canInteract &&
       state.phase === "trump-select" &&
-      state.currentPlayerId === HUMAN_PLAYER_ID
+      state.currentPlayerId === viewerPlayerId
     ) {
       this.renderTrumpChooser();
       return;
     }
 
-    if (state.phase === "bid" && state.currentPlayerId === HUMAN_PLAYER_ID) {
+    if (
+      canInteract &&
+      state.phase === "bid" &&
+      state.currentPlayerId === viewerPlayerId
+    ) {
       this.renderBidPanel(state.handSize);
       return;
     }
 
     if (state.phase === "round-score") {
-      this.renderRoundResults(snapshot);
+      this.renderRoundResults(
+        snapshot,
+        canInteract && (update.controls?.canContinueRound ?? true),
+      );
       return;
     }
 
     if (state.phase === "match-end") {
-      this.renderMatchResults(snapshot);
+      this.renderMatchResults(
+        snapshot,
+        canInteract && (update.controls?.canRematch ?? true),
+      );
     }
   }
 
   private renderSeats(snapshot: PlayerMatchSnapshot): void {
     const state = snapshot.publicState;
-    const players = getRelativePlayers(state.players);
+    const players = getRelativePlayers(
+      state.players,
+      snapshot.privateState.playerId,
+    );
     const slots = SLOT_MAPS[players.length] ?? SLOT_MAPS[6];
     const dealerId = state.players[state.dealerIndex]?.id;
 
@@ -496,7 +585,10 @@ export class MatchSceneView {
 
   private renderTrick(snapshot: PlayerMatchSnapshot): void {
     const state = snapshot.publicState;
-    const players = getRelativePlayers(state.players);
+    const players = getRelativePlayers(
+      state.players,
+      snapshot.privateState.playerId,
+    );
     const slots = SLOT_MAPS[players.length] ?? SLOT_MAPS[6];
     const playerSlots = new Map(
       players.map((player, index) => [player.id, slots[index]]),
@@ -704,7 +796,10 @@ export class MatchSceneView {
     });
   }
 
-  private renderRoundResults(snapshot: PlayerMatchSnapshot): void {
+  private renderRoundResults(
+    snapshot: PlayerMatchSnapshot,
+    canContinueRound: boolean,
+  ): void {
     const backdrop = createModalBackdrop(this.dynamicRoot);
     const state = snapshot.publicState;
     createSprite(
@@ -777,21 +872,32 @@ export class MatchSceneView {
       );
     });
 
-    createButton(
-      backdrop,
-      this.assets,
-      state.roundIndex + 1 >= state.roundHandCounts.length
-        ? "查看总榜"
-        : "继续下一轮",
-      300,
-      102,
-      0,
-      -322,
-      () => this.adapter.requestContinueRound(),
-    );
+    if (canContinueRound) {
+      createButton(
+        backdrop,
+        this.assets,
+        state.roundIndex + 1 >= state.roundHandCounts.length
+          ? "查看总榜"
+          : "继续下一轮",
+        300,
+        102,
+        0,
+        -322,
+        () => this.adapter.requestContinueRound(),
+      );
+    } else {
+      createText(backdrop, this.assets, "等待房主继续", 320, 56, 0, -322, {
+        color: new Color(104, 70, 49, 255),
+        fontKey: "font.interface" as AssetKey,
+        fontSize: 25,
+      });
+    }
   }
 
-  private renderMatchResults(snapshot: PlayerMatchSnapshot): void {
+  private renderMatchResults(
+    snapshot: PlayerMatchSnapshot,
+    canRematch: boolean,
+  ): void {
     const backdrop = createModalBackdrop(this.dynamicRoot);
     const ranking = [...snapshot.publicState.players].sort(
       (left, right) => right.totalScore - left.totalScore,
@@ -838,9 +944,17 @@ export class MatchSceneView {
         },
       );
     });
-    createButton(backdrop, this.assets, "再来一局", 280, 102, 0, -300, () => {
-      this.feedbackText = null;
-      this.adapter.requestRematch();
-    });
+    if (canRematch) {
+      createButton(backdrop, this.assets, "再来一局", 280, 102, 0, -300, () => {
+        this.feedbackText = null;
+        this.adapter.requestRematch();
+      });
+    } else {
+      createText(backdrop, this.assets, "等待房主发起重赛", 360, 56, 0, -300, {
+        color: new Color(104, 70, 49, 255),
+        fontKey: "font.interface" as AssetKey,
+        fontSize: 25,
+      });
+    }
   }
 }
