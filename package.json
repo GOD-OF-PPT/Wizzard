@@ -21,6 +21,7 @@
     "cocos:sync": "npm run sync:assets --workspace @wizzard/cocos-client",
     "cocos:typecheck": "npm run build:core && npm run build:protocol && npm run typecheck --workspace @wizzard/cocos-client",
     "preview": "vite preview",
+    "room:docker:build": "docker build --tag wizzard-room-server:cloudbase .",
     "room:dev": "npm run dev --workspace @wizzard/room-server",
     "room:start": "npm run build:core && npm run build:protocol && npm run build:room && npm run start --workspace @wizzard/room-server",
     "typecheck": "npm run typecheck:core && npm run build:core && npm run typecheck --workspace @wizzard/room-protocol && npm run build:protocol && npm run typecheck --workspace @wizzard/room-server && tsc --noEmit && npm run typecheck --workspace @wizzard/cocos-client",

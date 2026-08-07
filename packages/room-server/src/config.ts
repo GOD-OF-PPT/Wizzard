@@ -48,8 +48,11 @@ export function readRoomServiceConfig(
   return {
     ...DEFAULT_ROOM_SERVICE_CONFIG,
     port: readPositiveInteger(
-      environment.WIZZARD_ROOM_PORT,
-      DEFAULT_ROOM_SERVICE_CONFIG.port,
+      environment.PORT,
+      readPositiveInteger(
+        environment.WIZZARD_ROOM_PORT,
+        DEFAULT_ROOM_SERVICE_CONFIG.port,
+      ),
     ),
   };
 }
