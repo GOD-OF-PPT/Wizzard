@@ -1,11 +1,17 @@
-import type { MatchRuntimeConfig } from "../config/MatchRuntimeConfig";
-import { RoomSocketClient } from "../network/RoomSocketClient";
+import type { FriendRoomRuntimeConfig } from "../config/MatchRuntimeConfig";
+import {
+  RoomSocketClient,
+  type RoomBinding,
+} from "../network/RoomSocketClient";
 import {
   createPlatformServices,
   type PlatformServices,
 } from "../platform/PlatformServices";
 import type { IMatchAdapter } from "./IMatchAdapter";
-import { LocalMatchAdapter } from "./LocalMatchAdapter";
+import {
+  LocalMatchAdapter,
+  type LocalMatchAdapterOptions,
+} from "./LocalMatchAdapter";
 import { NetworkMatchAdapter } from "./NetworkMatchAdapter";
 
 function assertSocketEndpoint(
@@ -25,23 +31,31 @@ function assertSocketEndpoint(
   }
 }
 
-export function createMatchAdapter(
-  config: MatchRuntimeConfig,
-  platformServices?: PlatformServices,
+export function createLocalMatchAdapter(
+  options?: LocalMatchAdapterOptions,
 ): IMatchAdapter {
-  if (config.mode === "local") {
-    return new LocalMatchAdapter();
-  }
+  return new LocalMatchAdapter(options);
+}
 
+export function createNetworkMatchAdapter(
+  roomClient: RoomSocketClient,
+  ownsRoomClient = true,
+): IMatchAdapter {
+  return new NetworkMatchAdapter(roomClient, ownsRoomClient);
+}
+
+export function createRoomSocketClient(
+  config: FriendRoomRuntimeConfig,
+  binding: RoomBinding,
+  platformServices?: PlatformServices,
+): RoomSocketClient {
   const services = platformServices ?? createPlatformServices();
   assertSocketEndpoint(config.endpoint, services.runtime);
-  const roomClient = new RoomSocketClient({
-    binding: config.binding,
+  return new RoomSocketClient({
+    binding,
     endpoint: config.endpoint,
     ...(config.protocol ? { protocol: config.protocol } : {}),
     sessionStore: services.sessionStore,
     socketFactory: services.socketFactory,
   });
-
-  return new NetworkMatchAdapter(roomClient);
 }

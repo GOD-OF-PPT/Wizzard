@@ -20,8 +20,8 @@ const RUNTIME_ROOT = path.join(REPOSITORY_ROOT, "art", "runtime");
 const GENERATED_DIRECTORY = "_generated";
 const GENERATED_TYPESCRIPT = "AssetAddresses.generated.ts";
 const SYNC_REPORT = "asset-sync-report.md";
-const EXPECTED_FULL_COUNTS = Object.freeze({ spriteFrame: 62, font: 2 });
-const EXPECTED_CORE_COUNTS = Object.freeze({ spriteFrame: 31, font: 2 });
+const EXPECTED_FULL_COUNTS = Object.freeze({ spriteFrame: 73, font: 2 });
+const EXPECTED_CORE_COUNTS = Object.freeze({ spriteFrame: 43, font: 2 });
 
 function printUsage() {
   process.stdout.write(`Usage:
@@ -154,7 +154,10 @@ function normalizeResourcePrefix(value) {
 
 function isWithin(parent, child) {
   const relative = path.relative(parent, child);
-  return relative === "" || (!relative.startsWith("..") && !path.isAbsolute(relative));
+  return (
+    relative === "" ||
+    (!relative.startsWith("..") && !path.isAbsolute(relative))
+  );
 }
 
 function assertSafeTarget(targetDirectory) {
@@ -162,7 +165,10 @@ function assertSafeTarget(targetDirectory) {
   if (targetDirectory === root) {
     throw new Error("Refusing to use a drive root as the target directory.");
   }
-  if (isWithin(RUNTIME_ROOT, targetDirectory) || isWithin(targetDirectory, RUNTIME_ROOT)) {
+  if (
+    isWithin(RUNTIME_ROOT, targetDirectory) ||
+    isWithin(targetDirectory, RUNTIME_ROOT)
+  ) {
     throw new Error("Target directory must not overlap art/runtime.");
   }
 }
@@ -172,7 +178,9 @@ function assertSafeGeneratedTypeScript(generatedTypeScript) {
     throw new Error("--generated-ts must point to a .ts file.");
   }
   if (isWithin(RUNTIME_ROOT, generatedTypeScript)) {
-    throw new Error("Generated TypeScript must not be written inside art/runtime.");
+    throw new Error(
+      "Generated TypeScript must not be written inside art/runtime.",
+    );
   }
 }
 
@@ -183,7 +191,9 @@ async function readManifest() {
 
 function createRecord(semanticKey, runtime, kind, tier) {
   if (!semanticKey || !runtime) {
-    throw new Error("Every synchronized asset needs a semantic key and runtime path.");
+    throw new Error(
+      "Every synchronized asset needs a semantic key and runtime path.",
+    );
   }
   return { semanticKey, runtime, kind, tier };
 }
@@ -193,12 +203,19 @@ function collectRecords(manifest) {
 
   for (const background of Object.values(manifest.backgrounds)) {
     records.push(
-      createRecord(background.semanticKey, background.runtime, "spriteFrame", "core"),
+      createRecord(
+        background.semanticKey,
+        background.runtime,
+        "spriteFrame",
+        "core",
+      ),
     );
   }
 
   for (const card of Object.values(manifest.cards.items)) {
-    records.push(createRecord(card.semanticKey, card.runtime, "spriteFrame", "core"));
+    records.push(
+      createRecord(card.semanticKey, card.runtime, "spriteFrame", "core"),
+    );
   }
 
   for (const character of Object.values(manifest.avatars.characters)) {
@@ -219,7 +236,7 @@ function collectRecords(manifest) {
       manifest.tutorial.ruleHint.semanticKey,
       manifest.tutorial.ruleHint.runtime,
       "spriteFrame",
-      "full",
+      "core",
     ),
   );
 
@@ -242,13 +259,23 @@ function collectRecords(manifest) {
 
   for (const [name, runtime] of Object.entries(manifest.ui.components)) {
     records.push(
-      createRecord(manifest.ui.semanticKeys[name], runtime, "spriteFrame", "core"),
+      createRecord(
+        manifest.ui.semanticKeys[name],
+        runtime,
+        "spriteFrame",
+        "core",
+      ),
     );
   }
 
   for (const [name, runtime] of Object.entries(manifest.ui.effects)) {
     records.push(
-      createRecord(manifest.ui.effectSemanticKeys[name], runtime, "spriteFrame", "core"),
+      createRecord(
+        manifest.ui.effectSemanticKeys[name],
+        runtime,
+        "spriteFrame",
+        "core",
+      ),
     );
   }
 
@@ -329,7 +356,14 @@ async function validateIgnoredPngs(manifest, records) {
   const referenced = new Set(
     records
       .filter((record) => record.kind === "spriteFrame")
-      .map((record) => toPosix(path.relative(REPOSITORY_ROOT, path.resolve(REPOSITORY_ROOT, record.runtime)))),
+      .map((record) =>
+        toPosix(
+          path.relative(
+            REPOSITORY_ROOT,
+            path.resolve(REPOSITORY_ROOT, record.runtime),
+          ),
+        ),
+      ),
   );
   const allRuntimePngs = (await walkFiles(RUNTIME_ROOT))
     .filter((file) => path.extname(file).toLowerCase() === ".png")
@@ -337,8 +371,13 @@ async function validateIgnoredPngs(manifest, records) {
     .sort();
 
   const avatarDirectory = path.join(RUNTIME_ROOT, "avatars");
-  const topLevelAvatarFiles = (await readdir(avatarDirectory, { withFileTypes: true }))
-    .filter((entry) => entry.isFile() && path.extname(entry.name).toLowerCase() === ".png")
+  const topLevelAvatarFiles = (
+    await readdir(avatarDirectory, { withFileTypes: true })
+  )
+    .filter(
+      (entry) =>
+        entry.isFile() && path.extname(entry.name).toLowerCase() === ".png",
+    )
     .map((entry) => toPosix(path.join("art", "runtime", "avatars", entry.name)))
     .sort();
 
@@ -356,7 +395,9 @@ async function validateIgnoredPngs(manifest, records) {
       sha256(path.resolve(REPOSITORY_ROOT, normal)),
     ]);
     if (duplicateHash !== normalHash) {
-      throw new Error(`${duplicate} is no longer identical to ${normal}; review the exclusion.`);
+      throw new Error(
+        `${duplicate} is no longer identical to ${normal}; review the exclusion.`,
+      );
     }
   }
 
@@ -365,9 +406,13 @@ async function validateIgnoredPngs(manifest, records) {
     .sort();
   const ignored = [...topLevelAvatarFiles, ...unslicedSheets].sort();
   const ignoredSet = new Set(ignored);
-  const unreferenced = allRuntimePngs.filter((runtime) => !referenced.has(runtime));
+  const unreferenced = allRuntimePngs.filter(
+    (runtime) => !referenced.has(runtime),
+  );
   const unexpected = unreferenced.filter((runtime) => !ignoredSet.has(runtime));
-  const missingIgnored = ignored.filter((runtime) => !allRuntimePngs.includes(runtime));
+  const missingIgnored = ignored.filter(
+    (runtime) => !allRuntimePngs.includes(runtime),
+  );
 
   if (unexpected.length > 0 || missingIgnored.length > 0) {
     throw new Error(
@@ -384,9 +429,9 @@ async function validateIgnoredPngs(manifest, records) {
     );
   }
 
-  if (allRuntimePngs.length !== 70 || ignored.length !== 8) {
+  if (allRuntimePngs.length !== 81 || ignored.length !== 8) {
     throw new Error(
-      `Runtime PNG inventory drifted: expected 70 total / 8 ignored, got ${allRuntimePngs.length} total / ${ignored.length} ignored.`,
+      `Runtime PNG inventory drifted: expected 81 total / 8 ignored, got ${allRuntimePngs.length} total / ${ignored.length} ignored.`,
     );
   }
 
@@ -404,9 +449,15 @@ async function enrichRecord(record, targetDirectory, resourcePrefix) {
     throw new Error(`${record.runtime} is not a regular file.`);
   }
 
-  const expectedExtension = record.kind === "font" ? ".ttf" : ".png";
-  if (path.extname(source).toLowerCase() !== expectedExtension) {
-    throw new Error(`${record.semanticKey} must point to a ${expectedExtension} file.`);
+  const extension = path.extname(source).toLowerCase();
+  const validExtensions =
+    record.kind === "font"
+      ? new Set([".ttf"])
+      : new Set([".jpg", ".jpeg", ".png"]);
+  if (!validExtensions.has(extension)) {
+    throw new Error(
+      `${record.semanticKey} must point to ${record.kind === "font" ? "a .ttf" : "a .png, .jpg, or .jpeg"} file.`,
+    );
   }
 
   const runtimeRelative = path.relative(RUNTIME_ROOT, source);
@@ -414,7 +465,10 @@ async function enrichRecord(record, targetDirectory, resourcePrefix) {
   const withoutExtension = toPosix(
     runtimeRelative.slice(0, -path.extname(runtimeRelative).length),
   );
-  const suffix = record.kind === "spriteFrame" ? "/spriteFrame" : "";
+  // Synced PNGs are imported by Creator as Texture2D assets by default. The
+  // runtime registry wraps each texture in a SpriteFrame so the pipeline does
+  // not depend on hand-edited per-file .meta importer settings.
+  const suffix = record.kind === "spriteFrame" ? "/texture" : "";
 
   return {
     ...record,
@@ -427,8 +481,12 @@ async function enrichRecord(record, targetDirectory, resourcePrefix) {
 }
 
 function renderTypeScript(records, manifestVersion, mode) {
-  const union = records.map((record) => `  | ${JSON.stringify(record.semanticKey)}`).join("\n");
-  const keys = records.map((record) => `  ${JSON.stringify(record.semanticKey)},`).join("\n");
+  const union = records
+    .map((record) => `  | ${JSON.stringify(record.semanticKey)}`)
+    .join("\n");
+  const keys = records
+    .map((record) => `  ${JSON.stringify(record.semanticKey)},`)
+    .join("\n");
   const addresses = records
     .map(
       (record) =>
@@ -503,7 +561,7 @@ Generated by \`tools/sync-cocos-assets.mjs\`. Do not edit by hand.
 - Manifest: \`art/asset-manifest.json\` v${manifest.version}
 - Mode: **${mode}**
 - Cocos resource prefix: \`${resourcePrefix}\`
-- Selected: **${counts.spriteFrame} PNG SpriteFrames + ${counts.font} fonts** (${bytes.toLocaleString("en-US")} bytes before Cocos import/compression)
+- Selected: **${counts.spriteFrame} image SpriteFrames + ${counts.font} fonts** (${bytes.toLocaleString("en-US")} bytes before Cocos import/compression)
 - Generated TypeScript: \`${generatedTypeScriptFromTarget}\`
 - This command copies or overwrites selected files but never deletes stale files from the target.
 
@@ -521,7 +579,7 @@ ${omittedRows}
 
 ## Deliberately excluded runtime PNGs
 
-The runtime directory contains 70 PNGs. Exactly 62 non-duplicate, sliced PNGs are represented by semantic keys; these eight files are intentionally never synchronized:
+The runtime directory contains 81 PNGs. Exactly 73 non-duplicate runtime PNGs are represented by semantic keys; these eight files are intentionally never synchronized:
 
 | Runtime file | Reason |
 | --- | --- |
@@ -579,8 +637,12 @@ async function main() {
   const ignored = await validateIgnoredPngs(manifest, allRecords);
 
   const selectedBase = options.coreOnly ? coreRecords : allRecords;
-  const selectedKeys = new Set(selectedBase.map((record) => record.semanticKey));
-  const omitted = allRecords.filter((record) => !selectedKeys.has(record.semanticKey));
+  const selectedKeys = new Set(
+    selectedBase.map((record) => record.semanticKey),
+  );
+  const omitted = allRecords.filter(
+    (record) => !selectedKeys.has(record.semanticKey),
+  );
   const selected = await Promise.all(
     selectedBase.map((record) =>
       enrichRecord(record, targetDirectory, resourcePrefix),
@@ -616,7 +678,7 @@ async function main() {
   const counts = countByKind(selected);
   const action = options.dryRun ? "Validated" : "Synchronized";
   process.stdout.write(
-    `${action} ${counts.spriteFrame} PNG SpriteFrames + ${counts.font} fonts (${mode}) for ${resourcePrefix}.\n`,
+    `${action} ${counts.spriteFrame} image SpriteFrames + ${counts.font} fonts (${mode}) for ${resourcePrefix}.\n`,
   );
   process.stdout.write(
     `${options.dryRun ? "Would write" : "Generated"} ${toPosix(generatedTypeScript)}.\n`,

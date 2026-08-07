@@ -9,3 +9,14 @@ Thumbs.db
 .vite/
 .npm-cache/
 coverage/
+
+# Cocos Creator local import/build state accidentally emitted at repo root.
+/library/
+/local/
+/profiles/
+/settings/
+/temp/
+
+# Local screenshot-audit evidence; approved masters and runtime assets live in
+# art/source, art/runtime, art/mockups, and art/review.
+/art/qa/

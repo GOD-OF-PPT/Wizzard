@@ -1,4 +1,4 @@
-import { resources, SpriteFrame, TTFFont } from "cc";
+import { resources, SpriteFrame, Texture2D, TTFFont } from "cc";
 import {
   ASSET_ADDRESSES,
   type AssetKey,
@@ -11,6 +11,12 @@ type Insets = {
   top: number;
 };
 
+type HorizontalSliceSpec = Readonly<{
+  left: number;
+  right: number;
+  sourceHeight: number;
+}>;
+
 const NINE_SLICE_INSETS: Record<string, Insets> = {
   "ui.roundTitleScroll": { bottom: 72, left: 64, right: 64, top: 72 },
   "ui.panel.primary": { bottom: 52, left: 80, right: 80, top: 52 },
@@ -18,6 +24,11 @@ const NINE_SLICE_INSETS: Record<string, Insets> = {
   "ui.plaque.small": { bottom: 36, left: 44, right: 44, top: 36 },
   "ui.status.green": { bottom: 48, left: 72, right: 72, top: 48 },
   "ui.scoreRibbon": { bottom: 56, left: 180, right: 180, top: 56 },
+};
+
+const HORIZONTAL_SLICE_SPECS: Record<string, HorizontalSliceSpec> = {
+  "ui.plaque.small": { left: 44, right: 44, sourceHeight: 161 },
+  "ui.scoreRibbon": { left: 180, right: 180, sourceHeight: 236 },
 };
 
 export class AssetRegistry {
@@ -46,6 +57,36 @@ export class AssetRegistry {
 
   public has(key: string): key is AssetKey {
     return this.fonts.has(key as AssetKey) || this.spriteFrames.has(key as AssetKey);
+  }
+
+  /**
+   * Builds a per-node three-slice frame. The authored artwork is scaled
+   * uniformly to the requested height, then only its quiet horizontal center
+   * is allowed to stretch. Never mutate the shared registry frame here:
+   * plaques and ribbons are used at several different heights.
+   */
+  public createHorizontalSliceFrame(
+    key: AssetKey,
+    targetHeight: number,
+  ): SpriteFrame {
+    const spec = HORIZONTAL_SLICE_SPECS[key];
+
+    if (!spec) {
+      throw new Error(`HORIZONTAL_SLICE_NOT_SUPPORTED:${key}`);
+    }
+    if (targetHeight <= 0) {
+      throw new Error(`INVALID_HORIZONTAL_SLICE_HEIGHT:${key}:${targetHeight}`);
+    }
+
+    const source = this.getSpriteFrame(key);
+    const scale = targetHeight / spec.sourceHeight;
+    const frame = new SpriteFrame();
+    frame.texture = source.texture;
+    frame.insetBottom = 0;
+    frame.insetLeft = spec.left * scale;
+    frame.insetRight = spec.right * scale;
+    frame.insetTop = 0;
+    return frame;
   }
 
   public async preload(): Promise<void> {
@@ -91,12 +132,14 @@ export class AssetRegistry {
 
   private loadSpriteFrame(resourcePath: string): Promise<SpriteFrame> {
     return new Promise((resolve, reject) => {
-      resources.load(resourcePath, SpriteFrame, (error, frame) => {
+      resources.load(resourcePath, Texture2D, (error, texture) => {
         if (error) {
           reject(error);
           return;
         }
 
+        const frame = new SpriteFrame();
+        frame.texture = texture;
         resolve(frame);
       });
     });

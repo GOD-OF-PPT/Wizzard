@@ -24,7 +24,17 @@ export type WechatPlatformApi = {
   }): WechatSocketTask;
   getStorageSync(key: string): unknown;
   removeStorageSync(key: string): void;
+  setClipboardData?(options: {
+    data: string;
+    fail?: (error: { errMsg?: string }) => void;
+    success?: () => void;
+  }): void;
   setStorageSync(key: string, value: unknown): void;
+  vibrateShort?(options: {
+    fail?: (error: { errMsg?: string }) => void;
+    success?: () => void;
+    type?: "heavy" | "light" | "medium";
+  }): void;
 };
 
 class WechatTextSocket implements TextSocket {

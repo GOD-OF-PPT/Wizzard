@@ -24,14 +24,26 @@ export type AssetKey =
   | "fx.prediction.success"
   | "fx.trick.win"
   | "scene.teahouse.table"
+  | "screen.home"
+  | "screen.home.wechat.ultrawide"
+  | "tutorial.ruleHint"
   | "ui.badge.ai"
   | "ui.bidDots"
   | "ui.countdownRing"
+  | "ui.match.stat.green"
+  | "ui.match.stat.paper"
   | "ui.panel.primary"
+  | "ui.panel.rulesSettings"
+  | "ui.panel.rulesText"
+  | "ui.panel.rulesVisual"
   | "ui.panel.secondary"
   | "ui.plaque.small"
+  | "ui.results.button.green.v2"
+  | "ui.results.button.paper"
+  | "ui.results.panel"
   | "ui.roundTitleScroll"
   | "ui.scoreRibbon"
+  | "ui.settingsRow"
   | "ui.status.green"
   | "ui.trumpTile"
   | "ui.turnButton";
@@ -64,51 +76,75 @@ export const ASSET_KEYS: readonly AssetKey[] = [
   "fx.prediction.success",
   "fx.trick.win",
   "scene.teahouse.table",
+  "screen.home",
+  "screen.home.wechat.ultrawide",
+  "tutorial.ruleHint",
   "ui.badge.ai",
   "ui.bidDots",
   "ui.countdownRing",
+  "ui.match.stat.green",
+  "ui.match.stat.paper",
   "ui.panel.primary",
+  "ui.panel.rulesSettings",
+  "ui.panel.rulesText",
+  "ui.panel.rulesVisual",
   "ui.panel.secondary",
   "ui.plaque.small",
+  "ui.results.button.green.v2",
+  "ui.results.button.paper",
+  "ui.results.panel",
   "ui.roundTitleScroll",
   "ui.scoreRibbon",
+  "ui.settingsRow",
   "ui.status.green",
   "ui.trumpTile",
   "ui.turnButton",
 ];
 
 export const ASSET_ADDRESSES: Record<AssetKey, AssetAddress> = {
-  "avatar.bambooCat.normal": { kind: "spriteFrame", resourcePath: "game-art/avatars/bamboo-cat/normal/spriteFrame" },
-  "avatar.flowerFox.normal": { kind: "spriteFrame", resourcePath: "game-art/avatars/flower-fox/normal/spriteFrame" },
-  "avatar.inkPanda.normal": { kind: "spriteFrame", resourcePath: "game-art/avatars/ink-panda/normal/spriteFrame" },
-  "avatar.maskedTraveler.normal": { kind: "spriteFrame", resourcePath: "game-art/avatars/masked-traveler/normal/spriteFrame" },
-  "avatar.sleepyStarCat.normal": { kind: "spriteFrame", resourcePath: "game-art/avatars/sleepy-star-cat/normal/spriteFrame" },
-  "avatar.wanderingCrane.normal": { kind: "spriteFrame", resourcePath: "game-art/avatars/wandering-crane/normal/spriteFrame" },
-  "card.back": { kind: "spriteFrame", resourcePath: "game-art/cards/card-back/spriteFrame" },
-  "card.face.knot": { kind: "spriteFrame", resourcePath: "game-art/cards/knot-face/spriteFrame" },
-  "card.face.leaf": { kind: "spriteFrame", resourcePath: "game-art/cards/leaf-face/spriteFrame" },
-  "card.face.mountain": { kind: "spriteFrame", resourcePath: "game-art/cards/mountain-face/spriteFrame" },
-  "card.face.sun": { kind: "spriteFrame", resourcePath: "game-art/cards/sun-face/spriteFrame" },
-  "card.special.highest": { kind: "spriteFrame", resourcePath: "game-art/cards/highest-special/spriteFrame" },
-  "card.special.lowest": { kind: "spriteFrame", resourcePath: "game-art/cards/lowest-special/spriteFrame" },
+  "avatar.bambooCat.normal": { kind: "spriteFrame", resourcePath: "game-art/avatars/bamboo-cat/normal/texture" },
+  "avatar.flowerFox.normal": { kind: "spriteFrame", resourcePath: "game-art/avatars/flower-fox/normal/texture" },
+  "avatar.inkPanda.normal": { kind: "spriteFrame", resourcePath: "game-art/avatars/ink-panda/normal/texture" },
+  "avatar.maskedTraveler.normal": { kind: "spriteFrame", resourcePath: "game-art/avatars/masked-traveler/normal/texture" },
+  "avatar.sleepyStarCat.normal": { kind: "spriteFrame", resourcePath: "game-art/avatars/sleepy-star-cat/normal/texture" },
+  "avatar.wanderingCrane.normal": { kind: "spriteFrame", resourcePath: "game-art/avatars/wandering-crane/normal/texture" },
+  "card.back": { kind: "spriteFrame", resourcePath: "game-art/cards/card-back/texture" },
+  "card.face.knot": { kind: "spriteFrame", resourcePath: "game-art/cards/knot-face/texture" },
+  "card.face.leaf": { kind: "spriteFrame", resourcePath: "game-art/cards/leaf-face/texture" },
+  "card.face.mountain": { kind: "spriteFrame", resourcePath: "game-art/cards/mountain-face/texture" },
+  "card.face.sun": { kind: "spriteFrame", resourcePath: "game-art/cards/sun-face/texture" },
+  "card.special.highest": { kind: "spriteFrame", resourcePath: "game-art/cards/highest-special/texture" },
+  "card.special.lowest": { kind: "spriteFrame", resourcePath: "game-art/cards/lowest-special/texture" },
   "font.display": { kind: "font", resourcePath: "game-art/fonts/NotoSerifSC-SemiBold-Subset" },
   "font.interface": { kind: "font", resourcePath: "game-art/fonts/NotoSansSC-Medium-Subset" },
-  "fx.card.legal": { kind: "spriteFrame", resourcePath: "game-art/ui/legal-halo/spriteFrame" },
-  "fx.card.selected": { kind: "spriteFrame", resourcePath: "game-art/ui/selected-halo/spriteFrame" },
-  "fx.connection.reconnecting": { kind: "spriteFrame", resourcePath: "game-art/ui/reconnect-spinner/spriteFrame" },
-  "fx.prediction.miss": { kind: "spriteFrame", resourcePath: "game-art/ui/prediction-miss/spriteFrame" },
-  "fx.prediction.success": { kind: "spriteFrame", resourcePath: "game-art/ui/prediction-success/spriteFrame" },
-  "fx.trick.win": { kind: "spriteFrame", resourcePath: "game-art/ui/trick-win/spriteFrame" },
-  "scene.teahouse.table": { kind: "spriteFrame", resourcePath: "game-art/backgrounds/teahouse-table/spriteFrame" },
-  "ui.badge.ai": { kind: "spriteFrame", resourcePath: "game-art/ui/ai-badge/spriteFrame" },
-  "ui.bidDots": { kind: "spriteFrame", resourcePath: "game-art/ui/bid-dots/spriteFrame" },
-  "ui.countdownRing": { kind: "spriteFrame", resourcePath: "game-art/ui/countdown-ring/spriteFrame" },
-  "ui.panel.primary": { kind: "spriteFrame", resourcePath: "game-art/ui/primary-panel/spriteFrame" },
-  "ui.panel.secondary": { kind: "spriteFrame", resourcePath: "game-art/ui/secondary-panel/spriteFrame" },
-  "ui.plaque.small": { kind: "spriteFrame", resourcePath: "game-art/ui/small-plaque/spriteFrame" },
-  "ui.roundTitleScroll": { kind: "spriteFrame", resourcePath: "game-art/ui/round-title-scroll/spriteFrame" },
-  "ui.scoreRibbon": { kind: "spriteFrame", resourcePath: "game-art/ui/score-ribbon/spriteFrame" },
-  "ui.status.green": { kind: "spriteFrame", resourcePath: "game-art/ui/green-status/spriteFrame" },
-  "ui.trumpTile": { kind: "spriteFrame", resourcePath: "game-art/ui/trump-tile/spriteFrame" },
-  "ui.turnButton": { kind: "spriteFrame", resourcePath: "game-art/ui/turn-button/spriteFrame" },
+  "fx.card.legal": { kind: "spriteFrame", resourcePath: "game-art/ui/legal-halo/texture" },
+  "fx.card.selected": { kind: "spriteFrame", resourcePath: "game-art/ui/selected-halo/texture" },
+  "fx.connection.reconnecting": { kind: "spriteFrame", resourcePath: "game-art/ui/reconnect-spinner/texture" },
+  "fx.prediction.miss": { kind: "spriteFrame", resourcePath: "game-art/ui/prediction-miss/texture" },
+  "fx.prediction.success": { kind: "spriteFrame", resourcePath: "game-art/ui/prediction-success/texture" },
+  "fx.trick.win": { kind: "spriteFrame", resourcePath: "game-art/ui/trick-win/texture" },
+  "scene.teahouse.table": { kind: "spriteFrame", resourcePath: "game-art/backgrounds/teahouse-table/texture" },
+  "screen.home": { kind: "spriteFrame", resourcePath: "game-art/backgrounds/home-screen-hd/texture" },
+  "screen.home.wechat.ultrawide": { kind: "spriteFrame", resourcePath: "game-art/backgrounds/home-screen-wechat-ultrawide/texture" },
+  "tutorial.ruleHint": { kind: "spriteFrame", resourcePath: "game-art/tutorial/rule-hint-illustration-hd/texture" },
+  "ui.badge.ai": { kind: "spriteFrame", resourcePath: "game-art/ui/ai-badge/texture" },
+  "ui.bidDots": { kind: "spriteFrame", resourcePath: "game-art/ui/bid-dots/texture" },
+  "ui.countdownRing": { kind: "spriteFrame", resourcePath: "game-art/ui/countdown-ring/texture" },
+  "ui.match.stat.green": { kind: "spriteFrame", resourcePath: "game-art/ui/gameplay-stat-green/texture" },
+  "ui.match.stat.paper": { kind: "spriteFrame", resourcePath: "game-art/ui/gameplay-stat-paper/texture" },
+  "ui.panel.primary": { kind: "spriteFrame", resourcePath: "game-art/ui/primary-panel/texture" },
+  "ui.panel.rulesSettings": { kind: "spriteFrame", resourcePath: "game-art/ui/rules-settings-panel/texture" },
+  "ui.panel.rulesText": { kind: "spriteFrame", resourcePath: "game-art/ui/rules-text-panel/texture" },
+  "ui.panel.rulesVisual": { kind: "spriteFrame", resourcePath: "game-art/ui/rules-visual-panel/texture" },
+  "ui.panel.secondary": { kind: "spriteFrame", resourcePath: "game-art/ui/secondary-panel/texture" },
+  "ui.plaque.small": { kind: "spriteFrame", resourcePath: "game-art/ui/small-plaque/texture" },
+  "ui.results.button.green.v2": { kind: "spriteFrame", resourcePath: "game-art/ui/score-button-green-v2/texture" },
+  "ui.results.button.paper": { kind: "spriteFrame", resourcePath: "game-art/ui/score-button-paper/texture" },
+  "ui.results.panel": { kind: "spriteFrame", resourcePath: "game-art/ui/round-results-panel/texture" },
+  "ui.roundTitleScroll": { kind: "spriteFrame", resourcePath: "game-art/ui/round-title-scroll/texture" },
+  "ui.scoreRibbon": { kind: "spriteFrame", resourcePath: "game-art/ui/score-ribbon/texture" },
+  "ui.settingsRow": { kind: "spriteFrame", resourcePath: "game-art/ui/settings-row/texture" },
+  "ui.status.green": { kind: "spriteFrame", resourcePath: "game-art/ui/green-status/texture" },
+  "ui.trumpTile": { kind: "spriteFrame", resourcePath: "game-art/ui/trump-tile/texture" },
+  "ui.turnButton": { kind: "spriteFrame", resourcePath: "game-art/ui/turn-button/texture" },
 };

@@ -28,14 +28,19 @@ export class NetworkMatchAdapter implements IMatchAdapter {
   private pendingIntentCommandId: string | null = null;
   private unsubscribe: (() => void) | null = null;
 
-  public constructor(private readonly roomClient: RoomSocketClient) {}
+  public constructor(
+    private readonly roomClient: RoomSocketClient,
+    private readonly ownsRoomClient = true,
+  ) {}
 
   public dispose(): void {
     this.disposed = true;
     this.unsubscribe?.();
     this.unsubscribe = null;
     this.listener = null;
-    this.roomClient.dispose();
+    if (this.ownsRoomClient) {
+      this.roomClient.dispose();
+    }
   }
 
   public requestContinueRound(): void {

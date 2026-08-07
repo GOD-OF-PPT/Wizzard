@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { RefObject } from "react";
 import friendRoomScreen from "../art/mockups/friend-room-screen.png";
-import homeScreen from "../art/mockups/home-screen.png";
+import homeScreen from "../art/runtime/backgrounds/home-screen-hd.png";
 import primaryPanel from "../art/runtime/ui/primary-panel.png";
 import secondaryPanel from "../art/runtime/ui/secondary-panel.png";
 import smallPlaque from "../art/runtime/ui/small-plaque.png";

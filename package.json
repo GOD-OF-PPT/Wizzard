@@ -14,7 +14,10 @@
     "build:core": "npm run build --workspace @wizzard/game-core",
     "build:protocol": "npm run build --workspace @wizzard/room-protocol",
     "build:room": "npm run build --workspace @wizzard/room-server",
+    "build:wechat": "npm run cocos:build:wechat",
     "cocos:prepare": "npm run build:core && npm run build:protocol && npm run cocos:sync && npm run typecheck --workspace @wizzard/cocos-client",
+    "cocos:build:web": "npm run cocos:prepare && node tools/build-cocos.mjs web-desktop",
+    "cocos:build:wechat": "npm run cocos:prepare && node tools/build-cocos.mjs wechatgame",
     "cocos:sync": "npm run sync:assets --workspace @wizzard/cocos-client",
     "cocos:typecheck": "npm run build:core && npm run build:protocol && npm run typecheck --workspace @wizzard/cocos-client",
     "preview": "vite preview",
@@ -42,5 +45,9 @@
     "jsdom": "^28.1.0",
     "typescript": "^5.8.0",
     "vitest": "^4.1.10"
-  }
+  },
+  "creator": {
+    "version": "3.8.8"
+  },
+  "uuid": "959b4473-d6d6-4c8a-b566-bb82603be19d"
 }

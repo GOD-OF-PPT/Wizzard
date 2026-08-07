@@ -302,7 +302,10 @@ export class RoomSocketClient {
   }
 
   private emit(event: RoomSocketEvent): void {
-    for (const listener of this.listeners) {
+    // A lobby-to-match handoff can subscribe the match adapter while an update
+    // is being dispatched. Iterate a snapshot so the new listener receives the
+    // cached update once through subscribe(), not twice in the same dispatch.
+    for (const listener of Array.from(this.listeners)) {
       listener(event);
     }
   }

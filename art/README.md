@@ -15,12 +15,20 @@
 
 | 类别 | 正式源文件 | 运行时文件 | 状态 |
 | --- | --- | --- | --- |
+| 首页背景 | `mockups/home-screen.png`，设计真值 | `runtime/backgrounds/home-screen-hd.png`，1920×1080 无损 PNG | passed |
+| 首页小游戏超宽母版 | 单张连续茶馆场景；中央保留 16:9 核心信息，右上预留微信胶囊安全区 | `runtime/backgrounds/home-screen-wechat-ultrawide.png`，2560×1080 | passed |
 | 牌桌背景 | — | `runtime/backgrounds/teahouse-table.png`，1920×1080 | passed |
 | 七张卡牌 | `source/cards/*.png`，1024×1536 | `runtime/cards/*.png`，256×384 | passed |
 | 六角色四表情 | `source/avatars/<character>/*.png`，1024×1024 | `runtime/avatars/<character>/*.png`，512×512 | passed |
-| 规则提示插图 | `source/tutorial/rule-hint-illustration.png`，1536×1024 | `runtime/tutorial/rule-hint-illustration.png`，768×512 | passed |
+| 规则提示插图 | `source/tutorial/rule-hint-illustration.png`，1536×1024 | `runtime/tutorial/rule-hint-illustration-hd.png`，1536×910，金框外透明 | passed |
 | 三组教程手势 | `source/tutorial/{bid-tap,card-drag,play-confirm}-strip.png` | 每组 4 帧透明 PNG，单帧 256×256 | passed |
 | UI 装饰与反馈 | — | `runtime/ui/*.png`，RGBA | passed |
+| 规则/设置专用漆框 | `source/ui/rules-settings-panel-master.png` | `runtime/ui/rules-settings-panel.png`，1840×1000，整图显示 | passed |
+| 规则正文/牌例专用卡 | `source/ui/rules-{text,visual}-panel-master.png` | `runtime/ui/rules-{text,visual}-panel.png`，680×333，整图显示 | passed |
+| 设置项专用卷轴 | `source/ui/settings-row-master.png` | `runtime/ui/settings-row.png`，820×116，中央无装饰，整图显示 | passed |
+| 牌桌预测/已赢状态牌 | `source/ui/gameplay-stat-{paper,green}-master.png` | `runtime/ui/gameplay-stat-{paper,green}.png`，600×168，最终比例 SIMPLE | passed |
+| 轮次结算专用面板 | `source/ui/round-results-panel-master.png` | `runtime/ui/round-results-panel.png`，1710×920，标题/表头/六行/页脚固定分带，整图显示 | passed |
+| 轮次结算操作按钮 | `source/ui/score-button-{paper,green}-master.png` | `runtime/ui/score-button-paper.png`、`runtime/ui/score-button-green-v2.png`，最终比例 SIMPLE；绿色按钮使用版本化路径防止小游戏旧纹理缓存 | passed |
 | 中文字体 | `source/fonts/` 字符集、来源与 OFL 许可证 | `runtime/fonts/NotoSerifSC-SemiBold-Subset.ttf`、`NotoSansSC-Medium-Subset.ttf` | passed |
 | 核心界面 | — | `mockups/*.png` | passed |
 
@@ -28,6 +36,9 @@
 
 ## 最终返修记录
 
+- 首页运行时背景由低码率 JPEG 升级为 1920×1080 无损 PNG，并在保持原设计构图的前提下进行克制锐化，避免标题和人物边缘在高密度屏幕上发虚。
+- 规则提示插图升级到 1536×910 的高密度运行时版本，继续沿用原有透明遮罩和金框外透明边界。
+- 规则提示插图的运行时版本已裁去金框外暗色底板并改为透明边界，规则页直接显示正式插图，不再出现矩形底色或重复套框。
 - 卡背、结牌和至高牌完成局部返修，清理不一致的装饰细节并保持卡框、留白与构图统一；返修结果已收敛到稳定的正式母版文件名。
 - 六角色四表情母版已按独立象限裁切，所有中央分隔线均从源文件与运行时文件中清除。
 - 头像在 160×160 显示尺寸下复验通过；允许思考表情使用轻微托腮或头部姿态，但身份、金框、暗蓝底和光照必须稳定。
@@ -63,8 +74,8 @@ node tools/sync-cocos-assets.mjs cocos-client/assets/resources/game-art
 node tools/sync-cocos-assets.mjs --target cocos-client/assets/resources/game-art --generated-ts cocos-client/assets/scripts/assets/AssetAddresses.generated.ts --core-only
 ```
 
-完整模式固定同步 62 张非重复 PNG 与 2 个字体。脚本会排除 6 张与各角色 `normal.png` 内容相同的顶层头像，以及 `ui-chrome-sheet.png`、`feedback-fx-sheet.png` 两张尚未切片的合成图。首个可玩切片可使用 `--core-only`，只同步背景、7 张卡牌、6 张常态头像、17 张 UI/FX 和 2 个字体；它不会删除目标目录中以前同步的文件。
+完整模式固定同步 73 张非重复图片与 2 个字体。脚本会排除 6 张与各角色 `normal.png` 内容相同的顶层头像，以及 `ui-chrome-sheet.png`、`feedback-fx-sheet.png` 两张尚未切片的合成图。当前可玩切片使用 `--core-only`，同步 3 张背景、7 张卡牌、6 张常态头像、1 张规则提示插图、26 张 UI/FX 和 2 个字体；它不会删除目标目录中以前同步的文件。
 
-目标目录通常为 `<cocos-project>/assets/resources/game-art`。同步报告位于目标目录的 `_generated/`；TypeScript 默认也写入该目录，可用 `--generated-ts` 指向 Cocos 的脚本目录。SpriteFrame 地址不含扩展名并以 `/spriteFrame` 结尾，字体地址不含扩展名，可直接交给 Cocos `resources.load`。
+目标目录通常为 `<cocos-project>/assets/resources/game-art`。同步报告位于目标目录的 `_generated/`；TypeScript 默认也写入该目录，可用 `--generated-ts` 指向 Cocos 的脚本目录。图片地址不含扩展名并以 `/texture` 结尾；`AssetRegistry` 将 Creator 默认导入的 `Texture2D` 包装为 `SpriteFrame`。字体地址同样不含扩展名，可直接交给 Cocos `resources.load`。
 
 详细路径、语义键、尺寸、锚点、九宫格与压缩建议见 [asset-manifest.json](asset-manifest.json)。

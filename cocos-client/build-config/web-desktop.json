@@ -1,0 +1,25 @@
+{
+  "platform": "web-desktop",
+  "debug": false,
+  "buildPath": "project://build",
+  "outputName": "web-desktop",
+  "taskName": "web-desktop",
+  "mainBundleCompressionType": "merge_dep",
+  "packages": {
+    "web-desktop": {
+      "useWebGPU": false,
+      "resolution": {
+        "designWidth": 1920,
+        "designHeight": 1080
+      }
+    }
+  },
+  "startScene": "94479d66-b74a-4d65-a3d2-5c2a8d44bbde",
+  "scenes": [
+    {
+      "url": "db://assets/scenes/Boot.scene",
+      "uuid": "94479d66-b74a-4d65-a3d2-5c2a8d44bbde"
+    }
+  ],
+  "useSplashScreen": false
+}

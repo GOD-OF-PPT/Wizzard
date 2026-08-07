@@ -19,10 +19,21 @@ import type {
 } from "./IMatchAdapter";
 
 const HUMAN_PLAYER_ID = "player-you";
-const DEFAULT_SEED = 20260802;
 const TURN_DURATION_SECONDS = 30;
 const AI_THINK_SECONDS = 0.42;
 const TRICK_RESULT_SECONDS = 1.5;
+const UINT32_RANGE = 0x1_0000_0000;
+const SEED_SEQUENCE_STEP = 0x9e3779b9;
+const OPENING_HAND_REROLL_LIMIT = 16;
+
+export type PracticeSeedSource = () => number;
+
+export type LocalMatchAdapterOptions = Readonly<{
+  avoidImmediateOpeningRepeat?: boolean;
+  seedSource?: PracticeSeedSource;
+}>;
+
+const lastOpeningHandBySeedSource = new WeakMap<PracticeSeedSource, string>();
 
 const PRACTICE_PLAYERS: readonly MatchPlayerSeed[] = [
   {
@@ -67,15 +78,68 @@ function createSeededRandom(seed: number): RandomSource {
   };
 }
 
-function createPracticeState(random: RandomSource): AuthoritativeMatchState {
+function mixSeed(value: number): number {
+  let mixed = value >>> 0;
+  mixed ^= mixed >>> 16;
+  mixed = Math.imul(mixed, 0x85ebca6b);
+  mixed ^= mixed >>> 13;
+  mixed = Math.imul(mixed, 0xc2b2ae35);
+  mixed ^= mixed >>> 16;
+  return mixed >>> 0;
+}
+
+export function createPracticeSeedSource(
+  clock: () => number = Date.now,
+  entropy: () => number = Math.random,
+): PracticeSeedSource {
+  const timestamp = Math.trunc(clock()) >>> 0;
+  const entropyValue = entropy();
+  const entropyFraction = Number.isFinite(entropyValue)
+    ? entropyValue - Math.floor(entropyValue)
+    : 0;
+  const entropyWord = Math.floor(entropyFraction * UINT32_RANGE) >>> 0;
+  const salt = timestamp ^ entropyWord;
+  let sequence = 0;
+
+  return () => {
+    sequence = (sequence + SEED_SEQUENCE_STEP) >>> 0;
+    return mixSeed((salt + sequence) >>> 0);
+  };
+}
+
+const runtimePracticeSeedSource = createPracticeSeedSource();
+
+function normalizeSeed(seed: number): number {
+  if (!Number.isFinite(seed)) {
+    throw new Error("INVALID_PRACTICE_SEED");
+  }
+
+  return Math.trunc(seed) >>> 0;
+}
+
+function createPracticeState(
+  random: RandomSource,
+  seed: number,
+): AuthoritativeMatchState {
   return createMatch(
     {
-      matchId: "cocos-local-practice",
+      matchId: `cocos-local-practice:${seed.toString(16).padStart(8, "0")}`,
       mode: "quick",
       players: PRACTICE_PLAYERS,
     },
     random,
   );
+}
+
+function getOpeningHandSignature(state: AuthoritativeMatchState): string {
+  const cardIds = createPlayerSnapshot(
+    state,
+    HUMAN_PLAYER_ID,
+  ).privateState.hand
+    .map((card) => card.id)
+    .sort();
+
+  return JSON.stringify(cardIds);
 }
 
 function isActiveTurn(state: AuthoritativeMatchState): boolean {
@@ -88,14 +152,32 @@ function isActiveTurn(state: AuthoritativeMatchState): boolean {
 }
 
 export class LocalMatchAdapter implements IMatchAdapter {
+  private readonly avoidImmediateOpeningRepeat: boolean;
   private commandCounter = 0;
   private disposed = false;
+  private lastOpeningHandSignature: string | null = null;
   private lastCountdownValue: number | null = null;
   private listener: MatchUpdateListener | null = null;
-  private random = createSeededRandom(DEFAULT_SEED);
-  private state = createPracticeState(this.random);
+  private random: RandomSource;
+  private readonly seedSource: PracticeSeedSource;
+  private state: AuthoritativeMatchState;
   private turnElapsedSeconds = 0;
   private turnKey = "";
+
+  public constructor(options: LocalMatchAdapterOptions = {}) {
+    this.seedSource = options.seedSource ?? runtimePracticeSeedSource;
+    this.avoidImmediateOpeningRepeat =
+      options.avoidImmediateOpeningRepeat ?? options.seedSource === undefined;
+
+    if (this.avoidImmediateOpeningRepeat) {
+      this.lastOpeningHandSignature =
+        lastOpeningHandBySeedSource.get(this.seedSource) ?? null;
+    }
+
+    const session = this.createPracticeSession();
+    this.random = session.random;
+    this.state = session.state;
+  }
 
   public dispose(): void {
     this.disposed = true;
@@ -120,9 +202,10 @@ export class LocalMatchAdapter implements IMatchAdapter {
       return;
     }
 
-    this.random = createSeededRandom(DEFAULT_SEED);
+    const session = this.createPracticeSession();
+    this.random = session.random;
     this.commandCounter = 0;
-    this.commit(createPracticeState(this.random), []);
+    this.commit(session.state, []);
   }
 
   public start(listener: MatchUpdateListener): void {
@@ -204,6 +287,37 @@ export class LocalMatchAdapter implements IMatchAdapter {
     this.emit(events);
   }
 
+  private createPracticeSession(): Readonly<{
+    random: RandomSource;
+    state: AuthoritativeMatchState;
+  }> {
+    for (let attempt = 0; attempt < OPENING_HAND_REROLL_LIMIT; attempt += 1) {
+      const seed = normalizeSeed(this.seedSource());
+      const random = createSeededRandom(seed);
+      const state = createPracticeState(random, seed);
+
+      if (!this.avoidImmediateOpeningRepeat) {
+        return { random, state };
+      }
+
+      const openingHandSignature = getOpeningHandSignature(state);
+      const repeatsPreviousOpening =
+        this.lastOpeningHandSignature === openingHandSignature;
+      const reachedRerollLimit = attempt === OPENING_HAND_REROLL_LIMIT - 1;
+
+      if (!repeatsPreviousOpening || reachedRerollLimit) {
+        this.lastOpeningHandSignature = openingHandSignature;
+        lastOpeningHandBySeedSource.set(
+          this.seedSource,
+          openingHandSignature,
+        );
+        return { random, state };
+      }
+    }
+
+    throw new Error("PRACTICE_SESSION_CREATION_FAILED");
+  }
+
   private emit(events: MatchEvent[]): void {
     if (!this.listener || this.disposed) {
       return;
@@ -259,10 +373,7 @@ export class LocalMatchAdapter implements IMatchAdapter {
     this.commit(transition.state, transition.events);
   }
 
-  private toMatchIntent(
-    draft: MatchIntentDraft,
-    origin: string,
-  ): MatchIntent {
+  private toMatchIntent(draft: MatchIntentDraft, origin: string): MatchIntent {
     return {
       ...draft,
       commandId: this.nextCommandId(origin),

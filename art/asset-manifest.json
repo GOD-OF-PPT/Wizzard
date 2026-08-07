@@ -45,6 +45,23 @@
     }
   },
   "backgrounds": {
+    "home": {
+      "semanticKey": "screen.home",
+      "source": "art/mockups/home-screen.png",
+      "runtime": "art/runtime/backgrounds/home-screen-hd.png",
+      "pixelSize": [1920, 1080],
+      "anchor": [0.5, 0.5],
+      "importProfile": "background"
+    },
+    "homeWechatUltrawide": {
+      "semanticKey": "screen.home.wechat.ultrawide",
+      "source": "art/source/backgrounds/home-screen-wechat-ultrawide-master.png",
+      "runtime": "art/runtime/backgrounds/home-screen-wechat-ultrawide.png",
+      "pixelSize": [2560, 1080],
+      "anchor": [0.5, 0.5],
+      "importProfile": "background",
+      "notes": "Single continuous WeChat Mini Game home master for ultra-wide landscape devices; no runtime side-extension stitching."
+    },
     "table": {
       "semanticKey": "scene.teahouse.table",
       "runtime": "art/runtime/backgrounds/teahouse-table.png",
@@ -114,7 +131,7 @@
     "runtimePixelSize": [512, 512],
     "displayPixelSize": [160, 160],
     "anchor": [0.5, 0.5],
-    "importProfile": "opaqueIllustration",
+    "importProfile": "alphaUi",
     "expressions": ["normal", "thinking", "proud", "mistake"],
     "expressionSemanticKeyPattern": "avatar.{character}.{expression}",
     "cropCleanup": "all quadrant divider lines removed before runtime export",
@@ -215,11 +232,11 @@
     "ruleHint": {
       "semanticKey": "tutorial.ruleHint",
       "source": "art/source/tutorial/rule-hint-illustration.png",
-      "runtime": "art/runtime/tutorial/rule-hint-illustration.png",
+      "runtime": "art/runtime/tutorial/rule-hint-illustration-hd.png",
       "sourcePixelSize": [1536, 1024],
-      "runtimePixelSize": [768, 512],
+      "runtimePixelSize": [1536, 910],
       "anchor": [0.5, 0.5],
-      "importProfile": "opaqueIllustration"
+      "importProfile": "alphaUi"
     },
     "gestures": {
       "framePixelSize": [256, 256],
@@ -236,7 +253,7 @@
           "art/runtime/tutorial/bid-tap/03.png",
           "art/runtime/tutorial/bid-tap/04.png"
         ],
-        "animation": {"fps": 8, "loop": true}
+        "animation": { "fps": 8, "loop": true }
       },
       "cardDrag": {
         "semanticKey": "tutorial.gesture.cardDrag",
@@ -251,7 +268,12 @@
           "fps": 8,
           "loop": true,
           "motion": "consistent-hand-translation",
-          "frameContentOffsets": [[10, 32], [43, 24], [76, 16], [109, 8]],
+          "frameContentOffsets": [
+            [10, 32],
+            [43, 24],
+            [76, 16],
+            [109, 8]
+          ],
           "perFrameDeltaPixels": [33, -8],
           "preservePose": true,
           "keepFrameAnchor": true
@@ -266,7 +288,7 @@
           "art/runtime/tutorial/play-confirm/03.png",
           "art/runtime/tutorial/play-confirm/04.png"
         ],
-        "animation": {"fps": 8, "loop": true}
+        "animation": { "fps": 8, "loop": true }
       }
     }
   },
@@ -278,6 +300,15 @@
     "importProfile": "alphaUi",
     "components": {
       "roundTitleScroll": "art/runtime/ui/round-title-scroll.png",
+      "gameplayStatPaper": "art/runtime/ui/gameplay-stat-paper.png",
+      "gameplayStatGreen": "art/runtime/ui/gameplay-stat-green.png",
+      "roundResultsPanel": "art/runtime/ui/round-results-panel.png",
+      "scoreButtonPaper": "art/runtime/ui/score-button-paper.png",
+      "scoreButtonGreenV2": "art/runtime/ui/score-button-green-v2.png",
+      "rulesSettingsPanel": "art/runtime/ui/rules-settings-panel.png",
+      "rulesTextPanel": "art/runtime/ui/rules-text-panel.png",
+      "rulesVisualPanel": "art/runtime/ui/rules-visual-panel.png",
+      "settingsRow": "art/runtime/ui/settings-row.png",
       "turnButton": "art/runtime/ui/turn-button.png",
       "primaryPanel": "art/runtime/ui/primary-panel.png",
       "secondaryPanel": "art/runtime/ui/secondary-panel.png",
@@ -291,6 +322,15 @@
     },
     "semanticKeys": {
       "roundTitleScroll": "ui.roundTitleScroll",
+      "gameplayStatPaper": "ui.match.stat.paper",
+      "gameplayStatGreen": "ui.match.stat.green",
+      "roundResultsPanel": "ui.results.panel",
+      "scoreButtonPaper": "ui.results.button.paper",
+      "scoreButtonGreenV2": "ui.results.button.green.v2",
+      "rulesSettingsPanel": "ui.panel.rulesSettings",
+      "rulesTextPanel": "ui.panel.rulesText",
+      "rulesVisualPanel": "ui.panel.rulesVisual",
+      "settingsRow": "ui.settingsRow",
       "turnButton": "ui.turnButton",
       "primaryPanel": "ui.panel.primary",
       "secondaryPanel": "ui.panel.secondary",
@@ -302,13 +342,42 @@
       "bidDots": "ui.bidDots",
       "scoreRibbon": "ui.scoreRibbon"
     },
+    "renderContracts": {
+      "gameplayStatPaper": {
+        "pixelSize": [600, 168],
+        "renderMode": "simple",
+        "contentSafeRect": [70, 18, 460, 132]
+      },
+      "gameplayStatGreen": {
+        "pixelSize": [600, 168],
+        "renderMode": "simple",
+        "contentSafeRect": [100, 18, 455, 132]
+      },
+      "roundResultsPanel": {
+        "pixelSize": [1710, 920],
+        "renderMode": "simple",
+        "contentSafeRect": [250, 160, 1210, 650],
+        "notes": "Dedicated Mini Game results panel with baked empty title/header/row bands; flowers stay outside the runtime table columns."
+      },
+      "scoreButtonPaper": {
+        "pixelSize": [480, 200],
+        "renderMode": "simple",
+        "contentSafeRect": [80, 30, 320, 140]
+      },
+      "scoreButtonGreenV2": {
+        "pixelSize": [600, 200],
+        "renderMode": "simple",
+        "contentSafeRect": [60, 30, 480, 140],
+        "notes": "Versioned cache-busting runtime path. Full-height lacquer plaque with all decoration contained inside the frame; runtime labels may stay optically centered."
+      }
+    },
     "nineSliceInsets": {
-      "roundTitleScroll": {"left": 64, "right": 64, "top": 72, "bottom": 72},
-      "primaryPanel": {"left": 80, "right": 80, "top": 52, "bottom": 52},
-      "secondaryPanel": {"left": 64, "right": 64, "top": 42, "bottom": 42},
-      "smallPlaque": {"left": 44, "right": 44, "top": 36, "bottom": 36},
-      "greenStatus": {"left": 72, "right": 72, "top": 48, "bottom": 48},
-      "scoreRibbon": {"left": 180, "right": 180, "top": 56, "bottom": 56}
+      "roundTitleScroll": { "left": 64, "right": 64, "top": 72, "bottom": 72 },
+      "primaryPanel": { "left": 80, "right": 80, "top": 52, "bottom": 52 },
+      "secondaryPanel": { "left": 64, "right": 64, "top": 42, "bottom": 42 },
+      "smallPlaque": { "left": 44, "right": 44, "top": 36, "bottom": 36 },
+      "greenStatus": { "left": 72, "right": 72, "top": 48, "bottom": 48 },
+      "scoreRibbon": { "left": 180, "right": 180, "top": 56, "bottom": 56 }
     },
     "effects": {
       "legalHalo": "art/runtime/ui/legal-halo.png",

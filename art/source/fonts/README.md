@@ -20,14 +20,14 @@
 
 | 运行时文件 | 大小 | SHA-256 |
 | --- | ---: | --- |
-| `art/runtime/fonts/NotoSansSC-Medium-Subset.ttf` | 108,488 bytes | `5CECF3920CAAD57271F505EFF3378297E5B664AC8D26B8A9BADF0C71EF439507` |
-| `art/runtime/fonts/NotoSerifSC-SemiBold-Subset.ttf` | 144,564 bytes | `7472432173B6CF8B1993A74B053AC1C82A51F459F30BCDA03489E21C2BADA582` |
+| `art/runtime/fonts/NotoSansSC-Medium-Subset.ttf` | 131,400 bytes | `6906B169D4795473DF178A527305BFA8D8EEAAB38604C6B172275A1A658A4081` |
+| `art/runtime/fonts/NotoSerifSC-SemiBold-Subset.ttf` | 175,944 bytes | `41F192AB89F566D75D3EF4849202587B1F4B87BA11A34A316EC400ED564C6081` |
 
-两个输出均为无 `fvar`/`gvar` 的静态 TrueType 字体；相较 42.9 MB 的两个源文件合计体积约减少 99.4%。
+两个输出均为无 `fvar`/`gvar` 的静态 TrueType 字体；相较源文件合计体积约减少 99.3%。
 
 ## 字符范围
 
-[`subset-glyphs.txt`](subset-glyphs.txt) 固化当前 React 验证客户端与 Cocos 首个可玩切片已使用的中文字符，并补充好友房、重连、准备、托管、结算和错误反馈所需常用文案。生成时还统一加入：
+[`subset-glyphs.txt`](subset-glyphs.txt) 固化当前 React 验证客户端与 Cocos 可玩切片已使用的中文字符，并补充好友房、规则与设置、重连、准备、托管、结算和错误反馈所需常用文案。生成时还统一加入：
 
 - Basic Latin `U+0020–U+007E`；
 - 不换行空格、度数、正负号、间隔号、乘号、除号与数学减号；

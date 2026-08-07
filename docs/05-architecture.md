@@ -8,26 +8,24 @@
 - 每个查看者只获得公共状态、自己的私有手牌和自己的合法牌集合；
 - 正式多人版本由服务端持有唯一权威状态。
 
-## 当前进程内架构
+## 当前客户端与权威服务架构
 
 ```text
-React 动态牌桌（验证工具）        Cocos Creator 正式客户端
-        │                                │
-        ├── useLocalMatch                ├── IMatchAdapter
-        │                                └── LocalMatchAdapter
-        └──────────────┬─────────────────┘
-                       │ 注入行动者、调度 AI、提交 MatchIntent
-                       ▼
-            @wizzard/game-core/authority
-                       │
-                       ├── 内部 AuthoritativeMatchState
-                       ├── MatchEvent[]
-                       └── createPlayerSnapshot(viewerId)
-                                   │
-                                   └── viewer 专属 PlayerMatchSnapshot
+React 动态牌桌（验证工具） ── useLocalMatch ──────────────┐
+Cocos 单人练习 ────────────── LocalMatchAdapter ─────────┤
+                                                        ▼
+                                             @wizzard/game-core/authority
+
+Cocos 好友房 ── FriendRoomController / NetworkMatchAdapter
+        │
+        └── RoomSocketClient ── Node.js WebSocket 房间服务
+                                      │
+                                      ├── 注入行动者、调度 AI 与计时器
+                                      ├── @wizzard/game-core/authority
+                                      └── viewer 专属 PlayerMatchSnapshot
 ```
 
-“权威”在这里描述状态所有权和接口约束：只有 `applyMatchIntent` 与带明确推进类型的 `advanceAuthoritativeMatch` 能推进状态。React 与 Cocos 表现层都只获得事件和本地查看者快照。当前权威核心仍运行在客户端进程内用于开发验证，尚不是已部署的网络服务。
+“权威”在这里描述状态所有权和接口约束：只有 `applyMatchIntent` 与带明确推进类型的 `advanceAuthoritativeMatch` 能推进状态。React 与 Cocos 表现层都只获得事件和本地查看者快照。单人练习在客户端进程内运行核心；好友房由本地可运行的 Node.js/WebSocket 服务持有权威状态，但生产服务尚未部署。
 
 ## 已实现模块
 
@@ -131,7 +129,7 @@ React 验证工具消费转换事件，并在每次权威状态变化后重新�
 
 `src/hooks/useLocalMatch.ts` 是 Web 验证环境的临时适配器：
 
-- 创建固定种子的六席 8 轮快速局；
+- 使用固定种子创建六席 8 轮快速局，保证 Web 视觉验证路径可重复；正式小游戏的随机练习策略不由该 Hook 决定；
 - 为真人和 AI 生成命令 ID、附加当前版本，并从适配器上下文注入行动者身份；
 - 在一墩展示结束后使用 `resolve-trick` 推进，在用户继续后使用 `continue-round` 推进，错误阶段不再静默跳转；
 - 为每个 AI 座位生成独立查看者快照；
@@ -145,6 +143,8 @@ React 验证工具消费转换事件，并在每次权威状态变化后重新�
 - 通过 `IMatchAdapter` 隐藏 `commandId`、`expectedVersion` 与行动者注入细节；
 - 表现层只提交 `MatchIntentDraft`，不直接调用权威函数；
 - 使用 `update(deltaSeconds)` 驱动 AI、30 秒真人托管和 1.5 秒赢墩展示；
+- 每次进入/重赛使用新会话种子；快速模式首轮只有一张可见手牌，因此默认在 16 次上限内跳过与上一局完全相同的首手；
+- 显式注入固定种子源时默认关闭首手防重复，保留确定性测试与问题重放；
 - 每次变化都只发布 `MatchUpdate { snapshot, events, turnSecondsRemaining, connection }`；
 - 完整 8 轮本地闭环已通过适配器集成验证。
 
@@ -164,11 +164,13 @@ React 验证工具消费转换事件，并在每次权威状态变化后重新�
 
 `cocos-client/` 已实现第一版正式表现层：
 
-- `Boot.scene` 只序列化 Canvas、Camera 与 `GameBootstrap`，其余节点由模块化视图代码构建，降低在无编辑器环境中手写 Prefab 序列化的风险；
+- `Boot.scene` 只序列化 Canvas、Camera 与 `GameBootstrap`，其余节点由模块化视图代码构建；
 - `MatchSceneView` 根据查看者快照构建横版牌桌、相对座位、手牌、一墩、状态条、倒计时、王牌/预测面板和结算总榜；
-- `CardView`、`PlayerSeatView` 与 `UiFactory` 已形成可在安装 Creator 后保存为 Prefab 的组件边界；
+- `FriendRoomView` 根据房间快照构建首页、创建/加入表单和动态大厅，并与联网牌桌复用同一个 `RoomSocketClient`；
+- `RulesSettingsView` 在首页内渲染规则分页与本机体验设置；偏好经平台存储适配器持久化，只影响提示与震动，不进入规则核心或房间协议；
+- `CardView`、`PlayerSeatView` 与 `UiFactory` 已形成可继续保存为 Prefab 的组件边界；
 - `AssetRegistry` 只接受生成的语义键，运行时文件地址由 `tools/sync-cocos-assets.mjs` 从美术清单生成；
-- 首切片同步 31 张必要 PNG 与两套精简字体，表情和教程资源保留在完整清单中，待 Asset Bundle/小游戏分包阶段接入；
+- 核心切片同步 33 张图片（32 PNG + 1 JPG）与两套精简字体，其中包含规则页所需的 `tutorial.ruleHint`；角色表情和教程手势仍保留在完整清单中，待 Asset Bundle/小游戏分包阶段接入；
 - Cocos Node、Sprite 与 Label 只持有表现状态，不持有或修改 `AuthoritativeMatchState`。
 
 ## 已实现的联网架构
@@ -187,4 +189,4 @@ Node.js + WebSocket 权威房间服务
 
 WebSocket 连接在鉴权后绑定玩家身份；房间服务把该身份作为 `actorPlayerId` 注入规则核心，并在每次回复中附带该连接的最新查看者快照。
 
-Cocos 工程、本地动态牌桌、WebSocket 房间生命周期、Redis 仓储 seam、断线恢复和网络适配器已经建立。尚未完成的是 Cocos 好友房大厅视图、微信登录/分享、线上部署，以及 Creator 编辑器首次导入、浏览器预览与微信小游戏构建。
+Cocos 工程、好友房大厅、本地/联网动态牌桌、WebSocket 房间生命周期、Redis 仓储 seam、断线恢复和网络适配器已经建立。Creator 3.8.8 已完成首次导入，并产出 Web Desktop 与横屏微信小游戏 release 构建。尚未完成的是双客户端人工闭环、Cocos 视觉 QA、微信开发者工具与真机验收、包体压缩/分包、微信登录/原生分享和线上部署。
