@@ -1,3 +1,16 @@
+const WIZZARD_CLOUDBASE_TRIAL_ROOM_ENDPOINT =
+  "wss://wizzard-room-server-293680-4-1254409409.sh.run.tcloudbase.com/ws";
+
+// The shipping carrier is the WeChat Mini Game. Give release builds the
+// deployed trial service by default while still allowing a pre-boot runtime
+// injection to replace it with a custom domain later.
+if (globalThis.__WIZZARD_APP_RUNTIME_CONFIG__ === undefined) {
+  globalThis.__WIZZARD_APP_RUNTIME_CONFIG__ = {
+    friendRoom: { endpoint: WIZZARD_CLOUDBASE_TRIAL_ROOM_ENDPOINT },
+    startup: "home",
+  };
+}
+
 function __initApp() {
   const info = wx.getSystemInfoSync();
 

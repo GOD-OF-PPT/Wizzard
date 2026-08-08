@@ -1,6 +1,22 @@
 # CloudBase friend-room deployment
 
-Status: **container image and local smoke test verified; CloudBase service activation and deployment are environment operations.**
+Status: **deployed and protocol-verified in CloudBase on 2026-08-08.**
+
+## Active trial deployment
+
+| Setting | Value |
+| --- | --- |
+| CloudBase environment | `mini-pro-d9gbcemh17af17f1b` |
+| Service | `wizzard-room-server` |
+| Deployment | `001` |
+| Source repository | `https://github.com/GOD-OF-PPT/Wizzard` |
+| Source branch | `codex/cocos-ui-practice-fixes` |
+| Default HTTPS origin | `https://wizzard-room-server-293680-4-1254409409.sh.run.tcloudbase.com` |
+| WebSocket endpoint | `wss://wizzard-room-server-293680-4-1254409409.sh.run.tcloudbase.com/ws` |
+
+The default CloudBase domain is suitable for this disposable trial but the
+CloudBase console documents rate, feature, and stability limitations. Replace
+it with a project-owned custom domain before a production release.
 
 ## Resource boundary
 
@@ -37,7 +53,7 @@ The runtime contract is:
 | Service name | `wizzard-room-server` |
 | Deployment type | Container CloudBase Run |
 | Container port | `8080` |
-| Health check | `GET /healthz` |
+| Health endpoint | `GET /healthz` |
 | Minimum instances | `1` |
 | Maximum instances | `1` |
 | Redis | Unset for the first disposable trial |
@@ -65,11 +81,19 @@ npm run typecheck --workspace @wizzard/room-server
 npm run room:docker:build
 ```
 
-After deployment, verify:
+The 2026-08-08 CloudBase deployment passed these checks:
 
-1. `https://<service-domain>/healthz` returns
+1. `GET /healthz` returned HTTP 200 with
    `{ "service": "wizzard-room", "status": "ok" }`;
-2. `wss://<service-domain>/ws` emits `connection.ready`;
-3. the connection remains open for more than 70 seconds;
-4. creating and joining a room affects only `wizzard-room-server` and leaves
-   every pre-existing CloudBase function unchanged.
+2. `/ws` emitted protocol-v1 `connection.ready` with a 15-second heartbeat;
+3. the public WebSocket remained open for 75.6 seconds and closed normally
+   only when the verification client requested it;
+4. deployment `001` was healthy, served 100% of traffic, and ran exactly one
+   instance with the configured `1`-to-`1` instance range;
+5. the pre-existing `get-room-view` and `execute-command` functions remained
+   healthy and retained their prior 2026-08-01 modification timestamps.
+
+`cocos-client/build-templates/wechatgame/game.js` injects the trial WebSocket
+endpoint only when no earlier runtime configuration exists. Before device
+testing, register the chosen `wss://` host as an allowed WeChat socket domain.
+WeChat DevTools and real-device acceptance remain an explicit manual step.

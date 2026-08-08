@@ -91,6 +91,20 @@ async function executeWechatTemplate(
 }
 
 describe("WeChat rendering scale compatibility", () => {
+  it("injects the deployed CloudBase friend-room endpoint", async () => {
+    const source = await readFile(
+      resolve(TEST_DIRECTORY, "../build-templates/wechatgame/game.js"),
+      "utf8",
+    );
+
+    expect(source).toContain(
+      "wss://wizzard-room-server-293680-4-1254409409.sh.run.tcloudbase.com/ws",
+    );
+    expect(source).toContain(
+      "globalThis.__WIZZARD_APP_RUNTIME_CONFIG__ === undefined",
+    );
+  });
+
   it("supersamples the 1x DevTools simulator at 2x", async () => {
     await expect(
       executeWechatTemplate({
