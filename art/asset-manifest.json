@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "artDirection": "enchanted-teahouse",
   "orientation": "landscape",
   "designViewport": [1920, 1080],
@@ -305,6 +305,11 @@
       "roundResultsPanel": "art/runtime/ui/round-results-panel.png",
       "scoreButtonPaper": "art/runtime/ui/score-button-paper.png",
       "scoreButtonGreenV2": "art/runtime/ui/score-button-green-v2.png",
+      "friendRoomCreatePanelV2": "art/runtime/ui/friend-room-create-panel-v2.png",
+      "friendRoomJoinPanelV2": "art/runtime/ui/friend-room-join-panel-v2.png",
+      "friendRoomInputRowV2": "art/runtime/ui/friend-room-input-row-v2.png",
+      "friendRoomCodeRowV2": "art/runtime/ui/friend-room-code-row-v2.png",
+      "friendRoomAiRowV2": "art/runtime/ui/friend-room-ai-row-v2.png",
       "rulesSettingsPanel": "art/runtime/ui/rules-settings-panel.png",
       "rulesTextPanel": "art/runtime/ui/rules-text-panel.png",
       "rulesVisualPanel": "art/runtime/ui/rules-visual-panel.png",
@@ -327,6 +332,11 @@
       "roundResultsPanel": "ui.results.panel",
       "scoreButtonPaper": "ui.results.button.paper",
       "scoreButtonGreenV2": "ui.results.button.green.v2",
+      "friendRoomCreatePanelV2": "ui.friendRoom.panel.create.v2",
+      "friendRoomJoinPanelV2": "ui.friendRoom.panel.join.v2",
+      "friendRoomInputRowV2": "ui.friendRoom.row.input.v2",
+      "friendRoomCodeRowV2": "ui.friendRoom.row.code.v2",
+      "friendRoomAiRowV2": "ui.friendRoom.row.ai.v2",
       "rulesSettingsPanel": "ui.panel.rulesSettings",
       "rulesTextPanel": "ui.panel.rulesText",
       "rulesVisualPanel": "ui.panel.rulesVisual",
@@ -369,6 +379,36 @@
         "renderMode": "simple",
         "contentSafeRect": [60, 30, 480, 140],
         "notes": "Versioned cache-busting runtime path. Full-height lacquer plaque with all decoration contained inside the frame; runtime labels may stay optically centered."
+      },
+      "friendRoomCreatePanelV2": {
+        "pixelSize": [1482, 1062],
+        "renderMode": "simple",
+        "contentSafeRect": [100, 100, 1282, 862],
+        "notes": "Dedicated final-ratio create-room modal. Dynamic title, avatars, fields, AI-fill control, mode controls, and actions stay runtime-rendered."
+      },
+      "friendRoomJoinPanelV2": {
+        "pixelSize": [1601, 982],
+        "renderMode": "simple",
+        "contentSafeRect": [100, 90, 1401, 802],
+        "notes": "Dedicated final-ratio join-room modal with a quiet center and versioned Mini Game cache-busting path."
+      },
+      "friendRoomInputRowV2": {
+        "pixelSize": [1400, 152],
+        "renderMode": "simple",
+        "contentSafeRect": [120, 22, 1160, 108],
+        "notes": "Final-ratio nickname input row with an ornament-free center."
+      },
+      "friendRoomCodeRowV2": {
+        "pixelSize": [1400, 164],
+        "renderMode": "simple",
+        "contentSafeRect": [120, 24, 1160, 116],
+        "notes": "Final-ratio room-code input row with an ornament-free center."
+      },
+      "friendRoomAiRowV2": {
+        "pixelSize": [1080, 152],
+        "renderMode": "simple",
+        "contentSafeRect": [120, 22, 840, 108],
+        "notes": "Final-ratio AI auto-fill control with an ornament-free center."
       }
     },
     "nineSliceInsets": {

@@ -62,3 +62,11 @@ When implementing from a selected generated mock, treat that image as the source
 - Quick mode exposes only one card in its opening round, so shipping practice also bounded-rerolls an immediately repeated visible opening hand. Explicit fixed-seed replay opts out by default unless the caller deliberately enables the guard.
 - The friend-room CloudBase trial must use a dedicated container service named `wizzard-room-server`; existing CloudBase functions belong to other projects and must never be edited, redeployed, or deleted by this project.
 - Keep CloudBase Run at exactly one minimum and one maximum instance until distributed room ownership and pub/sub are implemented. Use container `PORT`, `GET /healthz`, and WebSocket `/ws` as the deployment contract.
+
+### Latest Visual QA Decisions (2026-08-08)
+
+- Create-room and join-room dialogs use their dedicated versioned final-ratio SIMPLE panel bitmaps. Never stretch `ui.panel.primary` into either full modal again.
+- Friend-room input rows preserve their authored height and extend only through the quiet horizontal center band. Compact dialog buttons may use nine-slice only when their runtime height is at least the combined authored top/bottom caps.
+- Friend-room title, avatar, field, option, and action bands must stay inside each panel's authored decoration-free safe area with at least 8 design pixels between adjacent bands; bottom actions must not enter the lotus ornament or lacquer border.
+- The AI-fill row must expose an explicit 开启/关闭 state in addition to its visual opacity state.
+- Room creation exposes AI auto-fill as an explicit choice. A network match may not start until at least two real human players are present and ready; AI may fill only the remaining configured seats.

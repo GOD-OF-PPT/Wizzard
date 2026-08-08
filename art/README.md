@@ -29,6 +29,8 @@
 | 牌桌预测/已赢状态牌 | `source/ui/gameplay-stat-{paper,green}-master.png` | `runtime/ui/gameplay-stat-{paper,green}.png`，600×168，最终比例 SIMPLE | passed |
 | 轮次结算专用面板 | `source/ui/round-results-panel-master.png` | `runtime/ui/round-results-panel.png`，1710×920，标题/表头/六行/页脚固定分带，整图显示 | passed |
 | 轮次结算操作按钮 | `source/ui/score-button-{paper,green}-master.png` | `runtime/ui/score-button-paper.png`、`runtime/ui/score-button-green-v2.png`，最终比例 SIMPLE；绿色按钮使用版本化路径防止小游戏旧纹理缓存 | passed |
+| 好友房创建/加入弹窗 | `source/ui/friend-room-{create,join}-panel-master.png` | `runtime/ui/friend-room-{create,join}-panel-v2.png`，最终比例高清 SIMPLE；无烘焙文字与控件，版本化路径防止小游戏旧纹理缓存 | passed |
+| 好友房输入与 AI 行 | `source/ui/friend-room-blue-row-master.png` | `runtime/ui/friend-room-{input,code,ai}-row-v2.png`，最终比例高清 SIMPLE；中央无花饰，不遮挡动态文字 | passed |
 | 中文字体 | `source/fonts/` 字符集、来源与 OFL 许可证 | `runtime/fonts/NotoSerifSC-SemiBold-Subset.ttf`、`NotoSansSC-Medium-Subset.ttf` | passed |
 | 核心界面 | — | `mockups/*.png` | passed |
 
@@ -43,6 +45,8 @@
 - 六角色四表情母版已按独立象限裁切，所有中央分隔线均从源文件与运行时文件中清除。
 - 头像在 160×160 显示尺寸下复验通过；允许思考表情使用轻微托腮或头部姿态，但身份、金框、暗蓝底和光照必须稳定。
 - 三组教程手势均为 4 帧透明动画。`card-drag` 保持同一只手、同一姿态和同一光照，每帧内容固定平移 `(+33, -8)` 像素，形成匀速向右上拖动，不应再叠加不一致的逐帧缩放或旋转。
+- 创建/加入好友房不再把 482×234 通用漆框九宫格放大为整张弹窗。两种高度分别使用最终比例高清底板，动态标题、头像、表单和按钮继续由运行时绘制。
+- 昵称、房间码和 AI 自动补位改用三个最终比例蓝色长条，端部金饰保持清晰，中央 75% 只保留安静的靛蓝纹理。
 
 ## 视觉规则
 
@@ -74,7 +78,7 @@ node tools/sync-cocos-assets.mjs cocos-client/assets/resources/game-art
 node tools/sync-cocos-assets.mjs --target cocos-client/assets/resources/game-art --generated-ts cocos-client/assets/scripts/assets/AssetAddresses.generated.ts --core-only
 ```
 
-完整模式固定同步 73 张非重复图片与 2 个字体。脚本会排除 6 张与各角色 `normal.png` 内容相同的顶层头像，以及 `ui-chrome-sheet.png`、`feedback-fx-sheet.png` 两张尚未切片的合成图。当前可玩切片使用 `--core-only`，同步 3 张背景、7 张卡牌、6 张常态头像、1 张规则提示插图、26 张 UI/FX 和 2 个字体；它不会删除目标目录中以前同步的文件。
+完整模式固定同步 78 张非重复图片与 2 个字体。脚本会排除 6 张与各角色 `normal.png` 内容相同的顶层头像，以及 `ui-chrome-sheet.png`、`feedback-fx-sheet.png` 两张尚未切片的合成图。当前可玩切片使用 `--core-only`，同步 3 张背景、7 张卡牌、6 张常态头像、1 张规则提示插图、31 张 UI/FX 和 2 个字体；它不会删除目标目录中以前同步的文件。
 
 目标目录通常为 `<cocos-project>/assets/resources/game-art`。同步报告位于目标目录的 `_generated/`；TypeScript 默认也写入该目录，可用 `--generated-ts` 指向 Cocos 的脚本目录。图片地址不含扩展名并以 `/texture` 结尾；`AssetRegistry` 将 Creator 默认导入的 `Texture2D` 包装为 `SpriteFrame`。字体地址同样不含扩展名，可直接交给 Cocos `resources.load`。
 

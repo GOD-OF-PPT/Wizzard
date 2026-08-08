@@ -238,3 +238,59 @@ final result: safe-area layout passed; runtime clarity recheck pending cache cle
 - Post-fix rendered Mini Game evidence is still pending manual recapture.
 
 final result: blocked
+
+## 好友房弹窗高清素材与布局 — 2026-08-08
+
+- Source visual truth: `art/qa/audits/2026-08-08-room-dialog-blur/01-join-room-blur.png` and `02-create-room-blur.png`.
+- Implementation screenshots: `07-create-room-v2-web-diagnostic.png` and `08-join-room-v2-web-diagnostic.png`.
+- Viewport: 847×402 landscape, matching the project's ultra-wide Mini Game diagnostic viewport.
+- State: create-room entry with AI auto-fill enabled; join-room entry with empty room-code field.
+- Full-view comparison evidence: `07-create-room-v2-web-diagnostic.png` and `08-join-room-v2-web-diagnostic.png`.
+- Focused side-by-side comparison evidence: `09-create-before-after-comparison.png` and `10-join-before-after-comparison.png`.
+
+### Findings and fixes
+
+- P1 fixed — stretched panel texture: the old 482×234 general lacquer panel was nine-sliced to 1060×760 / 1060×650, visibly magnifying its quiet center and ornaments. Create and join now use dedicated final-ratio `v2` panel bitmaps rendered as SIMPLE sprites.
+- P2 fixed — text rows and decorative interference: nickname, room-code, and AI-fill controls now use three final-ratio `v2` SIMPLE assets with ornament-free content-safe centers. Runtime text remains centered and readable in both empty and filled states.
+- P2 fixed — footer containment: back and primary actions sit fully inside each authored modal frame. The create dialog's AI-fill row occupies its own layout band, and the seat, mode, and footer bands do not overlap.
+- P1 fixed — authored safe-area containment: the create panel now renders at its original 1200×860 ratio and every title/content/action band stays inside the decoration-free safe rectangle with at least 8 design pixels between adjacent bands. Join actions were raised into the same contract.
+- P1 fixed — compressed selected controls: create-room seat and mode controls now render at 88px, above the 84px combined top/bottom cap height of `ui.panel.secondary`; selected blue controls no longer flatten their nine-slice corners.
+- P2 fixed — AI switch affordance: the row now says “开启 · 至少 2 真人后补位” or “关闭 · 不添加机器人”, so state is not conveyed by opacity alone.
+- P2 fixed — Mini Game texture caching: all five materially replaced bitmaps use new semantic keys and unique UUID paths instead of reusing the old panel texture identity.
+
+### Required fidelity surfaces
+
+- Fonts and typography: passed. The display/interface font split, font weights, line heights, centered input copy, and action labels remain consistent; no label wraps or clips.
+- Spacing and layout rhythm: passed. Title, avatar, input, seat, AI, mode, and action bands remain distinct. Both action rows stay inside the lacquer border.
+- Colors and visual tokens: passed. Warm lacquer, old gold, parchment, and midnight-blue controls remain in the selected Enchanted Teahouse direction.
+- Image quality and asset fidelity: passed. Five dedicated high-resolution PNGs are rendered without nine-slice stretching. The rebuilt `wechatgame` package contains all five native PNGs at their source dimensions with byte-identical SHA-256 hashes.
+- Copy and content: passed. Create/join titles, nickname and room-code prompts, player counts, modes, action labels, and “开启 · 至少 2 真人后补位” are coherent and fit their safe areas.
+- Icons and imagery: passed. Existing authored avatar portraits remain unchanged, correctly cropped, and evenly spaced; no CSS/SVG/emoji placeholders were introduced.
+- States and interactions: passed. Create/join entry, nickname editing, six-digit room-code editing, AI-fill on/off, and back navigation were exercised. Browser diagnostic logs contained zero errors or warnings.
+
+### Comparison history
+
+#### Iteration FR1 — blocked
+
+Evidence: `01-join-room-blur.png` and `02-create-room-blur.png`. The general panel texture was visibly enlarged, the repeated center decoration competed with input text, and the modal had no dedicated AI-fill band.
+
+#### Iteration FR2 — blocked
+
+Evidence: `05-join-room-fixed-web-diagnostic.png` and `06-create-room-fixed-web-diagnostic.png`. Dedicated final-ratio panels and rows removed the stretched texture, but the create title/footer and join footer still entered the authored ornament-safe insets; the 76/82px selected blue controls also compressed 84px of vertical nine-slice caps.
+
+#### Iteration FR3 — passed
+
+Evidence: `09-create-before-after-comparison.png` and `10-join-before-after-comparison.png`. The enlarged proportional create panel, explicit safe rectangles, 8px minimum band gaps, raised footer actions, 88px selected controls, and explicit AI state copy remove the remaining P1/P2 layout findings.
+
+### Verification
+
+- `npm test`: 26 files, 148 tests passed.
+- `npm run typecheck`: passed across game core, protocol, room server, React diagnostic client, and Cocos client.
+- `npm run cocos:build:wechat`: passed; `game.json.deviceOrientation` remains `landscape`.
+- The rebuilt Mini Game resource config contains all five versioned `/texture` paths. Their native output dimensions are 1482×1062, 1601×982, 1400×152, 1400×164, and 1080×152, with hashes matching the synchronized sources.
+
+### Acceptance limit
+
+The browser captures are layout diagnostics only. Per project policy and the user's instruction, WeChat DevTools/device visual acceptance is intentionally left to manual QA; this run did not connect to or operate WeChat DevTools.
+
+final result: passed

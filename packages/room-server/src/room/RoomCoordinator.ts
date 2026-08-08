@@ -9,6 +9,7 @@ import {
 import type { MatchEvent } from "@wizzard/game-core/contracts";
 import {
   AVATAR_KEYS,
+  MIN_HUMAN_PLAYERS,
   type ClientRoomMessage,
   type CreateRoomMessage,
   type JoinRoomMessage,
@@ -575,10 +576,18 @@ export class RoomCoordinator {
     }
 
     const humans = room.players.filter((player) => !player.isAi);
-    if (!humans.every((player) => player.ready)) {
+    const connectedHumans = humans.filter((player) => player.connected);
+    if (connectedHumans.length < MIN_HUMAN_PLAYERS) {
+      throw new RoomServiceError(
+        "NOT_ENOUGH_PLAYERS",
+        `At least ${MIN_HUMAN_PLAYERS} connected human players are required before AI fill.`,
+      );
+    }
+
+    if (!humans.every((player) => player.connected && player.ready)) {
       throw new RoomServiceError(
         "PLAYERS_NOT_READY",
-        "Every human player must be ready.",
+        "Every human player must be connected and ready.",
       );
     }
 

@@ -240,16 +240,17 @@ export function createTextInput(
   x: number,
   y: number,
   maxLength: number,
+  backgroundKey: AssetKey = "ui.friendRoom.row.input.v2" as AssetKey,
 ): TextInputView {
   const node = createSprite(
     parent,
     assets,
-    "ui.panel.secondary" as AssetKey,
+    backgroundKey,
     width,
     height,
     x,
     y,
-    true,
+    false,
   );
   node.name = `Input:${placeholder}`;
 
@@ -298,9 +299,9 @@ export function createTextInput(
   placeholderLabel.horizontalAlign = Label.HorizontalAlign.CENTER;
 
   const editBox = node.addComponent(EditBox);
-  editBox.backgroundImage = assets.getSpriteFrame(
-    "ui.panel.secondary" as AssetKey,
-  );
+  editBox.backgroundImage =
+    node.getComponent(Sprite)?.spriteFrame ??
+    assets.getSpriteFrame(backgroundKey);
   prepareUiNode(node, width, height);
   editBox.inputMode = EditBox.InputMode.SINGLE_LINE;
   textLabel.verticalAlign = Label.VerticalAlign.CENTER;

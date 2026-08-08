@@ -5,7 +5,11 @@ export {
   encodeServerMessage,
   ProtocolEncodeError,
 } from "./validation.js";
-export { AVATAR_KEYS, PROTOCOL_VERSION } from "./messages.js";
+export {
+  AVATAR_KEYS,
+  MIN_HUMAN_PLAYERS,
+  PROTOCOL_VERSION,
+} from "./messages.js";
 export type {
   AvatarKey,
   ClientRoomMessage,

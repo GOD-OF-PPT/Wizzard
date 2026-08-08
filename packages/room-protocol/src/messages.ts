@@ -14,6 +14,7 @@ export const AVATAR_KEYS = [
   "masked-traveler",
 ] as const;
 export const PROTOCOL_VERSION = 1 as const;
+export const MIN_HUMAN_PLAYERS = 2 as const;
 
 export type AvatarKey = (typeof AVATAR_KEYS)[number];
 export type RoomPhase = "lobby" | "playing" | "finished";

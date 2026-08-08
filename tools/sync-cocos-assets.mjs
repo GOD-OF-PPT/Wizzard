@@ -20,8 +20,8 @@ const RUNTIME_ROOT = path.join(REPOSITORY_ROOT, "art", "runtime");
 const GENERATED_DIRECTORY = "_generated";
 const GENERATED_TYPESCRIPT = "AssetAddresses.generated.ts";
 const SYNC_REPORT = "asset-sync-report.md";
-const EXPECTED_FULL_COUNTS = Object.freeze({ spriteFrame: 73, font: 2 });
-const EXPECTED_CORE_COUNTS = Object.freeze({ spriteFrame: 43, font: 2 });
+const EXPECTED_FULL_COUNTS = Object.freeze({ spriteFrame: 78, font: 2 });
+const EXPECTED_CORE_COUNTS = Object.freeze({ spriteFrame: 48, font: 2 });
 
 function printUsage() {
   process.stdout.write(`Usage:
@@ -429,9 +429,9 @@ async function validateIgnoredPngs(manifest, records) {
     );
   }
 
-  if (allRuntimePngs.length !== 81 || ignored.length !== 8) {
+  if (allRuntimePngs.length !== 86 || ignored.length !== 8) {
     throw new Error(
-      `Runtime PNG inventory drifted: expected 81 total / 8 ignored, got ${allRuntimePngs.length} total / ${ignored.length} ignored.`,
+      `Runtime PNG inventory drifted: expected 86 total / 8 ignored, got ${allRuntimePngs.length} total / ${ignored.length} ignored.`,
     );
   }
 
@@ -579,7 +579,7 @@ ${omittedRows}
 
 ## Deliberately excluded runtime PNGs
 
-The runtime directory contains 81 PNGs. Exactly 73 non-duplicate runtime PNGs are represented by semantic keys; these eight files are intentionally never synchronized:
+The runtime directory contains 86 PNGs. Exactly 78 non-duplicate runtime PNGs are represented by semantic keys; these eight files are intentionally never synchronized:
 
 | Runtime file | Reason |
 | --- | --- |

@@ -49,6 +49,96 @@ async function join(
 }
 
 describe("RoomCoordinator", () => {
+  it("requires two real players before AI fills the remaining seats", async () => {
+    const now = 1_500_000;
+    const repository = new MemoryRoomRepository<RoomRecord>(() => now);
+    const coordinator = new RoomCoordinator({ clock: () => now, repository });
+    const host = await coordinator.createRoom(createMessage("Host"), now);
+    await coordinator.execute(
+      host.session,
+      readyMessage("ready-host-for-ai"),
+      now,
+    );
+
+    await expect(
+      coordinator.execute(
+        host.session,
+        {
+          payload: { fillWithAi: true },
+          requestId: "start-with-only-one-human",
+          type: "room.start",
+          v: 1,
+        },
+        now,
+      ),
+    ).rejects.toMatchObject({ code: "NOT_ENOUGH_PLAYERS" });
+
+    const second = await join(
+      coordinator,
+      host.grant.inviteToken!,
+      "Second",
+    );
+    await coordinator.execute(
+      second.session,
+      readyMessage("ready-second-for-ai"),
+      now,
+    );
+    const started = await coordinator.execute(
+      host.session,
+      {
+        payload: { fillWithAi: true },
+        requestId: "start-with-two-humans",
+        type: "room.start",
+        v: 1,
+      },
+      now,
+    );
+
+    expect(started.room.players.filter((player) => !player.isAi)).toHaveLength(
+      2,
+    );
+    expect(started.room.players.filter((player) => player.isAi)).toHaveLength(
+      1,
+    );
+    expect(started.room.lifecycle).toBe("playing");
+  });
+
+  it("does not count a disconnected ready player toward the human minimum", async () => {
+    const now = 1_600_000;
+    const repository = new MemoryRoomRepository<RoomRecord>(() => now);
+    const coordinator = new RoomCoordinator({ clock: () => now, repository });
+    const host = await coordinator.createRoom(createMessage("Host"), now);
+    const second = await join(
+      coordinator,
+      host.grant.inviteToken!,
+      "Second",
+    );
+    await coordinator.execute(
+      host.session,
+      readyMessage("ready-host-before-disconnect"),
+      now,
+    );
+    await coordinator.execute(
+      second.session,
+      readyMessage("ready-second-before-disconnect"),
+      now,
+    );
+    await coordinator.disconnect(second.session, now);
+
+    await expect(
+      coordinator.execute(
+        host.session,
+        {
+          payload: { fillWithAi: true },
+          requestId: "start-with-disconnected-second-human",
+          type: "room.start",
+          v: 1,
+        },
+        now,
+      ),
+    ).rejects.toMatchObject({ code: "NOT_ENOUGH_PLAYERS" });
+  });
+
   it("isolates equal client command ids by authenticated session", async () => {
     const now = 2_000_000;
     const repository = new MemoryRoomRepository<RoomRecord>(() => now);

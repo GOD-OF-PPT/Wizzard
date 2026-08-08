@@ -1,11 +1,12 @@
 import { Color, Node, Sprite, UIOpacity, view } from "cc";
-import type {
-  AvatarKey,
-  FriendRoomSnapshot,
-  RoomPlayerSnapshot,
+import {
+  MIN_HUMAN_PLAYERS,
+  type AvatarKey,
+  type FriendRoomSnapshot,
+  type RoomPlayerSnapshot,
 } from "@wizzard/room-protocol";
-import { getRoundHandCounts } from "@wizzard/game-core";
 import type { AssetKey } from "../assets/AssetAddresses.generated";
+import { getRoundHandCounts } from "@wizzard/game-core";
 import { AssetRegistry } from "../assets/AssetRegistry";
 import type { GamePreferences } from "../platform/GamePreferences";
 import {
@@ -28,6 +29,7 @@ import {
   type RulesSettingsTab,
 } from "./RulesSettingsView";
 import { getHomeBackgroundLayout } from "./HomeBackgroundLayout";
+import { FRIEND_ROOM_DIALOG_LAYOUT } from "./FriendRoomDialogLayout";
 
 const AVATARS: readonly AvatarKey[] = [
   "bamboo-cat",
@@ -96,6 +98,14 @@ const PAPER_BUTTON: ButtonStyle = {
   textColor: new Color(70, 39, 21, 255),
 };
 
+const AI_FILL_BUTTON: ButtonStyle = {
+  assetKey: "ui.friendRoom.row.ai.v2",
+  fontKey: "font.display",
+  fontSize: 25,
+  outlineWidth: 1,
+  textColor: new Color(247, 226, 184, 255),
+};
+
 type EntryMode = "create" | "home" | "join" | "rules";
 
 export type FriendRoomViewOptions = {
@@ -112,7 +122,7 @@ function getErrorMessage(error: FriendRoomError): string {
     INTERNAL_ERROR: "茶馆暂时忙碌，请稍后重试",
     INVITE_TOKEN_INVALID: "邀请链接已失效",
     NAME_INVALID: "昵称需要 1 至 16 个字符",
-    NOT_ENOUGH_PLAYERS: "请等待好友，或开启 AI 补位",
+    NOT_ENOUGH_PLAYERS: `至少需要 ${MIN_HUMAN_PLAYERS} 名在线真人，空位可由 AI 补齐`,
     NOT_HOST: "只有房主可以开始游戏",
     PLAYER_NOT_FOUND: "你的座位已不在房间中",
     PLAYERS_NOT_READY: "所有真人玩家准备后才能开始",
@@ -426,36 +436,37 @@ export class FriendRoomView {
     mode: Exclude<EntryMode, "home" | "rules">,
     state: FriendRoomState,
   ): void {
+    const layout = FRIEND_ROOM_DIALOG_LAYOUT[mode];
     const overlay = createModalBackdrop(this.contentRoot);
     overlay.name = mode === "create" ? "CreateRoomDialog" : "JoinRoomDialog";
     createSprite(
       overlay,
       this.assets,
-      "ui.panel.primary",
-      1060,
-      mode === "create" ? 760 : 650,
-      0,
-      -10,
-      true,
+      layout.panel.assetKey,
+      layout.panel.width,
+      layout.panel.height,
+      layout.panel.x,
+      layout.panel.y,
+      layout.panel.sliced,
     );
     createText(
       overlay,
       this.assets,
       mode === "create" ? "创建好友房" : "加入好友房",
-      620,
-      90,
-      0,
-      mode === "create" ? 292 : 238,
+      layout.title.width,
+      layout.title.height,
+      layout.title.x,
+      layout.title.y,
       {
         color: new Color(246, 224, 181, 255),
         fontKey: "font.display",
-        fontSize: 48,
+        fontSize: 44,
         outlineColor: new Color(56, 28, 17, 255),
         outlineWidth: 2,
       },
     );
-    const avatarY = mode === "create" ? 174 : 132;
-    const nameY = mode === "create" ? 56 : 12;
+    const avatarY = layout.avatars.y;
+    const nameY = layout.name.y;
     this.renderEntryLabel(overlay, "选择形象", avatarY);
     this.renderAvatarPicker(overlay, avatarY);
     this.renderEntryLabel(overlay, "昵称", nameY);
@@ -465,10 +476,11 @@ export class FriendRoomView {
       this.displayName,
       "输入昵称",
       ENTRY_CONTROL_WIDTH,
-      76,
+      layout.name.height,
       ENTRY_CONTROL_X,
       nameY,
       16,
+      layout.name.assetKey,
     );
 
     if (mode === "create") {
@@ -479,7 +491,7 @@ export class FriendRoomView {
         ENTRY_LABEL_WIDTH,
         54,
         ENTRY_LABEL_X,
-        -64,
+        layout.seats!.y,
         {
           color: new Color(238, 216, 175, 255),
           fontKey: "font.interface",
@@ -493,9 +505,9 @@ export class FriendRoomView {
           this.assets,
           `${count} 人`,
           136,
-          76,
+          layout.seats!.height,
           -220 + index * 150,
-          -64,
+          layout.seats!.y,
           () => {
             this.captureInputs();
             this.maxPlayers = count;
@@ -511,11 +523,46 @@ export class FriendRoomView {
       createText(
         overlay,
         this.assets,
+        "机器人",
+        ENTRY_LABEL_WIDTH,
+        54,
+        ENTRY_LABEL_X,
+        layout.aiFill!.y,
+        {
+          color: new Color(238, 216, 175, 255),
+          fontKey: "font.interface",
+          fontSize: 25,
+        },
+      );
+      const aiFillButton = createButton(
+        overlay,
+        this.assets,
+        this.fillWithAi
+          ? `开启 · 至少 ${MIN_HUMAN_PLAYERS} 真人后补位`
+          : "关闭 · 不添加机器人",
+        layout.aiFill!.width,
+        layout.aiFill!.height,
+        ENTRY_CONTROL_X,
+        layout.aiFill!.y,
+        () => {
+          this.captureInputs();
+          this.fillWithAi = !this.fillWithAi;
+          this.render(this.latestState);
+        },
+        true,
+        AI_FILL_BUTTON,
+      );
+      if (!this.fillWithAi) {
+        aiFillButton.addComponent(UIOpacity).opacity = 200;
+      }
+      createText(
+        overlay,
+        this.assets,
         "局制",
         ENTRY_LABEL_WIDTH,
         54,
         ENTRY_LABEL_X,
-        -156,
+        layout.mode!.y,
         {
           color: new Color(238, 216, 175, 255),
           fontKey: "font.interface",
@@ -529,9 +576,9 @@ export class FriendRoomView {
           this.assets,
           getModeLabel(gameMode, this.maxPlayers),
           286,
-          82,
+          layout.mode!.height,
           -106 + index * 306,
-          -156,
+          layout.mode!.y,
           () => {
             this.captureInputs();
             this.mode = gameMode;
@@ -545,17 +592,18 @@ export class FriendRoomView {
         }
       });
     } else {
-      this.renderEntryLabel(overlay, "房间码", -88);
+      this.renderEntryLabel(overlay, "房间码", layout.roomCode!.y);
       this.roomCodeInput = createTextInput(
         overlay,
         this.assets,
         this.roomCode,
         "输入 6 位房间码",
         ENTRY_CONTROL_WIDTH,
-        82,
+        layout.roomCode!.height,
         ENTRY_CONTROL_X,
-        -88,
+        layout.roomCode!.y,
         6,
+        layout.roomCode!.assetKey,
       );
       const codeLabel = this.roomCodeInput.editBox.textLabel;
       if (codeLabel) {
@@ -563,7 +611,7 @@ export class FriendRoomView {
       }
     }
 
-    const actionY = mode === "create" ? -274 : -220;
+    const actionY = layout.actions.y;
     createButton(
       overlay,
       this.assets,
@@ -586,7 +634,7 @@ export class FriendRoomView {
       this.assets,
       mode === "create" ? "确认创建" : "确认加入",
       320,
-      112,
+      layout.actions.height,
       176,
       actionY,
       () => (mode === "create" ? this.createRoom() : this.joinRoom()),
@@ -791,7 +839,7 @@ export class FriendRoomView {
       settings,
       this.assets,
       isHost
-        ? `AI 补位：${this.fillWithAi ? "开" : "关"}`
+        ? `AI补位：${this.fillWithAi ? "开" : "关"} · 至少${MIN_HUMAN_PLAYERS}真人`
         : "空位由房主决定",
       310,
       58,
@@ -845,11 +893,16 @@ export class FriendRoomView {
     );
 
     const humans = room.players.filter((player) => !player.isAi);
-    const readyHumans = humans.filter((player) => player.ready).length;
+    const connectedHumans = humans.filter((player) => player.connected);
+    const readyHumans = humans.filter(
+      (player) => player.connected && player.ready,
+    ).length;
+    const hasMinimumHumans = connectedHumans.length >= MIN_HUMAN_PLAYERS;
     const allHumansReady =
-      humans.length > 0 && humans.every((player) => player.ready);
+      hasMinimumHumans &&
+      humans.every((player) => player.connected && player.ready);
     const hasEnoughSeats = this.fillWithAi
-      ? room.maxPlayers >= 3
+      ? hasMinimumHumans
       : room.players.length === room.maxPlayers;
     const canStart =
       connected &&
