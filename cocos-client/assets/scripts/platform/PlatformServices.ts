@@ -29,10 +29,15 @@ export type PlatformServices = {
 function getWechatApi(): WechatPlatformApi | null {
   const candidate = (globalThis as unknown as { wx?: Partial<WechatPlatformApi> })
     .wx;
+  const cloud = candidate?.cloud;
+  const hasSocketTransport =
+    typeof candidate?.connectSocket === "function" ||
+    (typeof cloud?.init === "function" &&
+      typeof cloud.connectContainer === "function");
 
   if (
     !candidate ||
-    typeof candidate.connectSocket !== "function" ||
+    !hasSocketTransport ||
     typeof candidate.getStorageSync !== "function" ||
     typeof candidate.removeStorageSync !== "function" ||
     typeof candidate.setStorageSync !== "function"

@@ -91,15 +91,56 @@ async function executeWechatTemplate(
 }
 
 describe("WeChat rendering scale compatibility", () => {
-  it("injects the deployed CloudBase friend-room endpoint", async () => {
+  it("builds for the same AppID that owns the cloud-container environment", async () => {
+    const config = JSON.parse(
+      await readFile(
+        resolve(TEST_DIRECTORY, "../build-config/wechatgame.json"),
+        "utf8",
+      ),
+    ) as {
+      packages?: {
+        wechatgame?: { appid?: string; libVersion?: string };
+      };
+    };
+
+    expect(config.packages?.wechatgame?.appid).toBe(
+      "wx4376a5b67a747d28",
+    );
+    expect(config.packages?.wechatgame?.libVersion).toBe("2.23.0");
+  });
+
+  it("persists the resources bundle as a WeChat Mini Game subpackage", async () => {
+    const [resourcesMeta, builderSettings] = await Promise.all([
+      readFile(resolve(TEST_DIRECTORY, "../assets/resources.meta"), "utf8"),
+      readFile(
+        resolve(TEST_DIRECTORY, "../settings/v2/packages/builder.json"),
+        "utf8",
+      ),
+    ]).then((sources) => sources.map((source) => JSON.parse(source)));
+    const configId = resourcesMeta.userData?.bundleConfigID;
+    const bundleConfig = builderSettings.bundleConfig?.custom?.[configId];
+
+    expect(configId).toBe("wizzard-wechat-resources-v1");
+    expect(
+      bundleConfig?.configs?.miniGame?.overwriteSettings?.wechatgame,
+    ).toEqual({ compressionType: "subpackage", isRemote: false });
+    expect(bundleConfig?.configs?.web?.preferredOptions).toEqual({
+      compressionType: "merge_dep",
+      isRemote: false,
+    });
+  });
+
+  it("injects the AppID-bound cloud-container friend-room target", async () => {
     const source = await readFile(
       resolve(TEST_DIRECTORY, "../build-templates/wechatgame/game.js"),
       "utf8",
     );
 
-    expect(source).toContain(
-      "wss://wizzard-room-server-293680-4-1254409409.sh.run.tcloudbase.com/ws",
-    );
+    expect(source).toContain('transport: "wechat-cloud-container"');
+    expect(source).toContain('environmentId: "prod-d9g3qr6rqdbba6605"');
+    expect(source).toContain('serviceName: "wizzard-room-server"');
+    expect(source).toContain('path: "/ws"');
+    expect(source).not.toContain("sh.run.tcloudbase.com");
     expect(source).toContain(
       "globalThis.__WIZZARD_APP_RUNTIME_CONFIG__ === undefined",
     );

@@ -15,6 +15,7 @@ import type {
 import type {
   TextSocket,
   TextSocketFactory,
+  TextSocketTarget,
 } from "../platform/SocketTransport";
 
 const DEFAULT_RECONNECT_BASE_MS = 500;
@@ -54,12 +55,11 @@ export type RoomSocketListener = (event: RoomSocketEvent) => void;
 
 export type RoomSocketClientOptions = {
   binding: RoomBinding;
-  endpoint: string;
-  protocol?: string;
   reconnectBaseMs?: number;
   reconnectMaxMs?: number;
   sessionStore: RoomSessionStore;
   socketFactory: TextSocketFactory;
+  target: TextSocketTarget;
 };
 
 function clampHeartbeatInterval(value: number): number {
@@ -256,7 +256,7 @@ export class RoomSocketClient {
 
     try {
       const socket = this.options.socketFactory.connect(
-        this.options.endpoint,
+        this.options.target,
         {
           onClose: () => {
             if (generation !== this.connectionGeneration) {
@@ -285,7 +285,6 @@ export class RoomSocketClient {
             }
           },
         },
-        this.options.protocol,
       );
 
       if (generation !== this.connectionGeneration) {

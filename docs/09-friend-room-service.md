@@ -71,7 +71,7 @@ $env:WIZZARD_REDIS_URL = "redis://127.0.0.1:6379"
 npm run room:dev
 ```
 
-端口可通过 `WIZZARD_ROOM_PORT` 修改；生产入口用逗号分隔的 `WIZZARD_ALLOWED_ORIGINS` 配置 Origin 白名单。生产环境必须通过受信任域名与 TLS 暴露 `wss://`；不要直接把本地 `ws://` 配置发布到微信。
+端口可通过 `WIZZARD_ROOM_PORT` 修改；生产入口用逗号分隔的 `WIZZARD_ALLOWED_ORIGINS` 配置 Origin 白名单。正式小游戏通过 AppID 直属微信云托管的 `wx.cloud.connectContainer` 访问 `/ws`，无需暴露或登记公网 `wss://`；本地 `ws://` 仍只用于桌面联调。启用 Origin 白名单前必须先从真机私有协议连接中取得实际 Header，不能猜测。
 
 ## Cocos 人工联调路径
 
@@ -112,4 +112,4 @@ npm run room:dev
 5. 关闭 B 后重新连接并发送 `session.resume`；应恢复相同玩家、相同私有手牌与最新版本，同时得到轮换后的恢复令牌。
 6. 在行动阶段等待截止时间，过期 Intent 应被拒绝，随后两端应收到服务端托管动作；一墩和一轮也应分别由服务端自动推进。
 
-最小自动验证使用真实 TCP/WebSocket 覆盖协议冒充拒绝、相同裸 command ID 隔离、私有字段不可见、恢复令牌轮换、三客户端完成首轮和到期托管推进。Cocos 控制器测试另覆盖输入规范化、同类命令防重复、ack/error 清理和单 Socket 跨大厅/比赛保留。尚待完成的是双浏览器 Cocos 人工闭环、1920×1080 视觉 QA、微信开发者工具导入与包体优化、合法 `wss://` 部署和真机验证。
+最小自动验证使用真实 TCP/WebSocket 覆盖协议冒充拒绝、相同裸 command ID 隔离、私有字段不可见、恢复令牌轮换、三客户端完成首轮和到期托管推进。Cocos 控制器测试另覆盖输入规范化、同类命令防重复、ack/error 清理和单 Socket 跨大厅/比赛保留。微信云托管私有 HTTP `/healthz` 已验证，本地正式构建也已通过 `resources` 分包与 4 MiB 主包/30 MiB 总包自动门槛；尚待人工完成的是微信开发者工具包体分析、小游戏视觉 QA，以及 `connectContainer` 双真机 WebSocket 与弱网恢复闭环。浏览器联调只能用于辅助诊断。

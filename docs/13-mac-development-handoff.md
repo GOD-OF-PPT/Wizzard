@@ -1,8 +1,8 @@
 # Mac development handoff
 
-Updated: 2026-08-08
+Updated: 2026-08-10
 
-This document is the cross-machine entry point for continuing Wizzard on macOS. Read `AGENTS.md` first; its durable product, visual, platform, asset, and CloudBase decisions remain authoritative.
+This document is the cross-machine entry point for continuing Wizzard on macOS. Read `AGENTS.md` first; its durable product, visual, platform, asset, and WeChat Cloud Hosting decisions remain authoritative.
 
 ## Checkout
 
@@ -24,6 +24,8 @@ Use Node.js 22 and Cocos Creator 3.8.8. Open `cocos-client/` as the Creator proj
 - `FriendRoomDialogLayout.ts` owns modal safe rectangles and non-overlapping title, avatar, field, option, and action bands.
 - Create-room exposes an explicit AI-fill toggle. At least two connected real players, including the host, must be ready before bots may fill remaining seats.
 - The shared `MIN_HUMAN_PLAYERS` constant is enforced by the Cocos lobby and authoritative room server. A ready player who disconnects no longer counts toward the minimum.
+- The shipping Mini Game now uses the current AppID's private `wx.cloud.connectContainer` route instead of the rejected public CloudBase WSS domain.
+- The WeChat release build now persists `resources` as an ordinary subpackage and automatically enforces 4 MiB main/30 MiB total limits. The current local result is 1.9205 MiB main and 29.1141 MiB total.
 - Art manifests, Cocos resource addresses, layout/server tests, durable decisions, and design-QA evidence were updated with the implementation.
 
 For detail, use these source-of-truth files rather than repeating their content here:
@@ -45,24 +47,23 @@ For detail, use these source-of-truth files rather than repeating their content 
 
 ## External state and next steps
 
-CloudBase currently runs the dedicated single-instance service `wizzard-room-server`. Do not touch the environment's unrelated cloud functions.
+The current Mini Game AppID owns WeChat Cloud Hosting environment `prod-d9g3qr6rqdbba6605` and dedicated single-instance service `wizzard-room-server`. The legacy Tencent Cloud CloudBase environment still contains unrelated project functions and must not be changed.
 
-The deployed revision predates the latest connected-two-human rule, so redeploy this service before treating that rule as live. It still uses `MemoryRoomRepository`; restarts discard rooms, and the service must remain at one minimum and one maximum instance until distributed ownership and pub/sub exist.
+The deployed source revision includes the connected-two-human rule. It still uses `MemoryRoomRepository`; restarts discard rooms, and the service must remain at one minimum and one maximum instance until distributed ownership and pub/sub exist.
 
 Recommended continuation order:
 
 1. Pull this branch and rerun the checks above on macOS.
-2. Redeploy only `wizzard-room-server`; verify `GET /healthz` and `/ws`.
-3. Bind an ICP-compliant subdomain in CloudBase HTTP Gateway, associate `/` with path pass-through, and place the exact CloudBase-provided CNAME in Cloudflare as DNS-only initially.
-4. Verify `https://<domain>/healthz` and `wss://<domain>/ws`.
-5. Update `cocos-client/build-templates/wechatgame/game.js` and its compatibility test to the custom WSS endpoint, then rebuild.
-6. Register the custom host as the WeChat Mini Game socket domain and manually verify two-device create, join, ready, AI-fill, start, reconnect, and the repaired modal layout.
-7. Capture the actual WeChat `Origin` before configuring `WIZZARD_ALLOWED_ORIGINS`; do not guess and accidentally block the shipping client.
+2. Build with AppID `wx4376a5b67a747d28`; confirm the generated template still contains the exact env/service/path `connectContainer` target and the build reports a passing `resources` subpackage/main/total package gate.
+3. If server code changed, redeploy only `wizzard-room-server` in environment `prod-d9g3qr6rqdbba6605`; verify the private `GET /healthz` call and service status.
+4. Keep minimum and maximum instances at `1`; do not enable distributed scaling before room ownership/pub-sub exists.
+5. Import the `wechatgame` build into WeChat DevTools and manually verify package analysis, then test two-device create, join, ready, AI-fill, start, reconnect, and the repaired modal layout in the Mini Game carrier. No Socket legal-domain entry is required for this private route.
+6. Capture the actual private-protocol request headers before configuring `WIZZARD_ALLOWED_ORIGINS`; do not guess and accidentally block the shipping client.
 
 ## Suggested skills
 
 - `product-design:audit` for evidence-based Mini Game screenshot review.
-- `diagnosing-bugs` for Cocos, TLS, WebSocket, or CloudBase gateway failures.
+- `diagnosing-bugs` for Cocos, `connectContainer`, WebSocket, or WeChat Cloud Hosting failures.
 - `tdd` for protocol, room lifecycle, bot-fill, reconnect, or persistence changes.
 - `github:yeet` for the next checked and publishable change set.
 - `handoff` before another machine or session transfer.

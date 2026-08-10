@@ -1,10 +1,23 @@
 import type { RoomBinding } from "../network/RoomSocketClient";
 
-export type FriendRoomRuntimeConfig = {
-  endpoint: string;
+type FriendRoomBindingConfig = {
   initialBinding?: RoomBinding;
-  protocol?: string;
 };
+
+export type FriendRoomRuntimeConfig = FriendRoomBindingConfig &
+  (
+    | {
+        endpoint: string;
+        protocol?: string;
+        transport?: "websocket";
+      }
+    | {
+        environmentId: string;
+        path: string;
+        serviceName: string;
+        transport: "wechat-cloud-container";
+      }
+  );
 
 export type AppRuntimeConfig = {
   friendRoom: FriendRoomRuntimeConfig | null;
@@ -29,14 +42,41 @@ function isFriendRoomRuntimeConfig(
     return false;
   }
 
-  const candidate = value as Partial<FriendRoomRuntimeConfig>;
+  const candidate = value as {
+    endpoint?: unknown;
+    environmentId?: unknown;
+    initialBinding?: unknown;
+    path?: unknown;
+    protocol?: unknown;
+    serviceName?: unknown;
+    transport?: unknown;
+  };
+  const hasValidBinding =
+    candidate.initialBinding === undefined ||
+    (typeof candidate.initialBinding === "object" &&
+      candidate.initialBinding !== null);
+
+  if (!hasValidBinding) {
+    return false;
+  }
+
+  if (candidate.transport === "wechat-cloud-container") {
+    return (
+      typeof candidate.environmentId === "string" &&
+      candidate.environmentId.trim().length > 0 &&
+      typeof candidate.serviceName === "string" &&
+      candidate.serviceName.trim().length > 0 &&
+      typeof candidate.path === "string" &&
+      candidate.path.startsWith("/")
+    );
+  }
+
   return (
+    (candidate.transport === undefined ||
+      candidate.transport === "websocket") &&
     typeof candidate.endpoint === "string" &&
     (candidate.protocol === undefined ||
-      typeof candidate.protocol === "string") &&
-    (candidate.initialBinding === undefined ||
-      (typeof candidate.initialBinding === "object" &&
-        candidate.initialBinding !== null))
+      typeof candidate.protocol === "string")
   );
 }
 
@@ -103,8 +143,9 @@ function readInjectedRuntimeConfig(): AppRuntimeConfig | null {
 }
 
 // The checked-in development build opens the friend-room home and connects
-// only after the player creates or joins. Production injects a public wss://
-// endpoint before Boot.scene starts; credentials never belong in this config.
+// only after the player creates or joins. The shipping Mini Game injects its
+// AppID-bound cloud-container target before Boot.scene starts; credentials
+// never belong in this public routing config.
 export const APP_RUNTIME_CONFIG: AppRuntimeConfig =
   readInjectedRuntimeConfig() ?? {
     friendRoom: { endpoint: LOCAL_FRIEND_ROOM_ENDPOINT },

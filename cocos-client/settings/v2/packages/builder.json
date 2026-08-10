@@ -13,5 +13,35 @@
         "orientation": "landscape"
       }
     }
+  },
+  "bundleConfig": {
+    "custom": {
+      "wizzard-wechat-resources-v1": {
+        "displayName": "WeChat resources subpackage",
+        "configs": {
+          "native": {
+            "preferredOptions": {
+              "compressionType": "merge_dep",
+              "isRemote": false
+            }
+          },
+          "miniGame": {
+            "configMode": "overwrite",
+            "overwriteSettings": {
+              "wechatgame": {
+                "compressionType": "subpackage",
+                "isRemote": false
+              }
+            }
+          },
+          "web": {
+            "preferredOptions": {
+              "compressionType": "merge_dep",
+              "isRemote": false
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -19,6 +19,7 @@ import type {
   SocketObserver,
   TextSocket,
   TextSocketFactory,
+  TextSocketTarget,
 } from "../assets/scripts/platform/SocketTransport";
 
 const SERVER_TIME = 2_000_000;
@@ -43,7 +44,7 @@ class FakeTextSocket implements TextSocket {
 class FakeSocketFactory implements TextSocketFactory {
   public readonly sockets: FakeTextSocket[] = [];
 
-  public connect(_url: string, observer: SocketObserver): TextSocket {
+  public connect(_target: TextSocketTarget, observer: SocketObserver): TextSocket {
     const socket = new FakeTextSocket(observer);
     this.sockets.push(socket);
     observer.onOpen();
@@ -68,9 +69,9 @@ function createHarness(): ControllerHarness {
     bindings.push(binding);
     const client = new RoomSocketClient({
       binding,
-      endpoint: "ws://127.0.0.1:8787/ws",
       sessionStore,
       socketFactory,
+      target: { kind: "websocket", url: "ws://127.0.0.1:8787/ws" },
     });
     clients.push(client);
     return client;
@@ -333,9 +334,9 @@ describe("FriendRoomController", () => {
         },
         type: "create",
       },
-      endpoint: "ws://127.0.0.1:8787/ws",
       sessionStore,
       socketFactory,
+      target: { kind: "websocket", url: "ws://127.0.0.1:8787/ws" },
     });
     existingClient.start();
     const socket = socketFactory.sockets[0];

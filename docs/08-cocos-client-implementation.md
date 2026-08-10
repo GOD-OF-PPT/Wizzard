@@ -1,6 +1,6 @@
 # Cocos Creator 客户端实施记录
 
-状态：**好友房大厅与联网牌桌交接已实现，Creator 3.8.8 首次导入、Web Desktop 与横屏微信小游戏 release 构建均已完成。**
+状态：**好友房大厅与联网牌桌交接、AppID 直属微信云托管接入和微信上传包体门槛已完成；Creator 3.8.8 首次导入、Web Desktop 与横屏微信小游戏 release 构建均已完成，开发者工具与双真机人工验收仍待完成。**
 
 ## 工程选择
 
@@ -8,7 +8,8 @@
 - 目标：Cocos Creator 3.8.x 2D，项目元数据固定为 3.8.8；
 - 静态类型：使用 `@cocos/creator-types@3.8.7`，该包是当前可获得的最新 3.8 官方声明，与 3.8.8 API 兼容；
 - 设计分辨率：`1920×1080`，运行时采用固定高度横屏适配；
-- 微信模板：`build-templates/wechatgame/game.json` 设置 `deviceOrientation=landscape`。
+- 微信模板：`build-templates/wechatgame/game.json` 设置 `deviceOrientation=landscape`；
+- 微信工程：AppID 固定为 `wx4376a5b67a747d28`，基础库固定为 `2.23.0`；`connectContainer` 最低要求基础库 2.21.1。
 
 工程已使用 Cocos Creator 3.8.8 完成首次导入，Creator 已生成正式图片/字体 `.meta`，并成功产出 `build/web-desktop/` 与 `build/wechatgame/`。两者均使用 `debug: false` 的 release 配置；微信生成物的 `game.json` 已确认 `deviceOrientation: landscape`。
 
@@ -73,7 +74,9 @@ Boot.scene / GameBootstrap
 5. 所有真人准备，房主决定是否 AI 补位并开始；同类 pending 命令在 ack 或 request error 前不能重复发送；
 6. 服务端发布 `playing + match` 后自动切换 `MatchSceneView`，比赛期间大厅控制器继续订阅相同 Socket；
 7. 房主在比赛结束请求重赛后，服务端发布 `lobby + match:null`，客户端回到原好友房大厅；
-8. 浏览器和微信运行时分别使用 `WebSocket`/`wx.connectSocket`、对应持久存储和剪贴板适配器。
+8. 浏览器使用 `WebSocket`；微信正式运行时使用当前 AppID 直属云托管的 `wx.cloud.connectContainer`，显式 WebSocket 只保留给本地诊断，正式配置不回退到公网 `wx.connectSocket`。持久存储和剪贴板继续收敛在平台层。
+
+正式网络目标固定为环境 `prod-d9g3qr6rqdbba6605`、服务 `wizzard-room-server` 和路径 `/ws`。该私有路径不需要公网 IP、Cloudflare 域名或微信后台 Socket 合法域名。云托管私有 `GET /healthz` 已返回 200，服务最小/最大实例固定为 `1 / 1`；在分布式房间所有权和 pub/sub 完成前不得扩容。HTTP 健康检查不证明 WebSocket 升级、重连或双玩家牌局已经通过。
 
 ## 已跑通的离线流程
 
@@ -97,7 +100,7 @@ Boot.scene / GameBootstrap
 - `cocos-client/assets/scripts/assets/AssetAddresses.generated.ts`：语义键与 `resources.load` 地址；
 - `cocos-client/assets/resources/game-art/_generated/asset-sync-report.md`：同步报告。
 
-核心切片为 43 张 PNG + 2 套精简字体，包括：3 张背景、7 张卡牌、6 张 normal 头像、1 张规则提示插图，以及 26 张 UI/反馈资源。角色其他表情与教程手势仍保留在完整清单中，待 Creator Asset Bundle/微信分包阶段接入。
+当前核心切片为 48 张 PNG + 2 套精简字体，覆盖背景、卡牌、6 张 normal 头像、规则提示插图和 UI/反馈资源。该切片已随 `resources` Asset Bundle 进入微信普通分包；角色其他表情与教程手势仍保留在完整清单中，待后续按页面接入。
 
 字体来自本机 Noto Sans SC / Noto Serif SC 变量字体，已转换为项目文案所需的静态子集，并保留 SIL OFL 许可证和来源说明。
 
@@ -110,7 +113,7 @@ npm install
 npm run cocos:prepare
 ```
 
-本地好友房人工测试需要两个并行步骤。终端 A 启动权威服务：
+以下浏览器流程只用于本地协议与布局诊断，不属于微信体验版发布验收。终端 A 启动权威服务：
 
 ```powershell
 npm run room:dev
@@ -137,26 +140,26 @@ npm run room:dev
 npm run cocos:build:wechat
 ```
 
-真机构建必须把应用配置中的 endpoint 换成已在微信后台登记的 `wss://` 合法域名；本地 `ws://127.0.0.1` 只用于桌面联调。
+真机构建固定注入 AppID `wx4376a5b67a747d28`、环境 `prod-d9g3qr6rqdbba6605`、服务 `wizzard-room-server` 和路径 `/ws`，由 `wx.cloud.connectContainer` 走免域名私有协议；本地 `ws://127.0.0.1` 只用于桌面联调。构建脚本还会规范并校验 `project.config.json` 中的 AppID 与基础库 `2.23.0`，以及生成模板中的云环境、服务名和 `wechat-cloud-container` 标记。
 
 本机 Creator CLI 在日志已出现 `build Task (wechatgame) Finished` 后仍可能返回退出码 `36`。因此命令行验收需同时确认完成日志、输出目录和生成的 `game.json`，不能只依据进程退出码。
 
-当前微信 release 构建目录为 12,257,592 bytes（约 11.69 MiB）。这证明本地构建链路可用，但仍超过可直接上传的首包预算；最终数值要以微信开发者工具包体分析为准，纹理压缩、Auto Atlas、Asset Bundle/分包和重新测量仍是发布阻断项。
+微信 release 构建已经在 `game.json` 与 `settings.json` 中声明 `resources` 普通分包。最大的 8 张 PNG 经无损重编码后逐像素比较均为 `AE=0`，其中 7 张产生体积缩减，`teahouse-table` 输出字节数不变；最新正式产物主包为 2,013,782 B（1.9205 MiB）、资源分包为 28,514,601 B（27.1936 MiB）、总包为 30,528,383 B（29.1141 MiB），已满足 4 MiB 主包和 30 MiB 总包限制。构建脚本会在缺少分包或任一包体门槛超限时失败；微信开发者工具中的人工包体分析仍是发布验收步骤。
 
 ## 后续验证顺序
 
-1. 按上述路径完成单客户端 AI 冒烟和两个隔离浏览器的好友房完整快速局；
-2. 在 1920×1080 捕获首页、大厅和联网牌桌，与 `art/mockups/` 做 Cocos Design QA；
-3. 将 `build/wechatgame/` 导入微信开发者工具，完成包体分析和横屏模拟器检查；
-4. 为卡牌、头像、UI/FX 创建 Auto Atlas，并按 manifest 配置禁旋转、禁 trim、padding 与压缩；
-5. 把表情和教程资源设为 Asset Bundle / 微信小游戏分包，并重新测量主包与总包；
-6. 在真机检查横屏、安全区、触控、断线恢复和内存。
+1. 由人工将 `build/wechatgame/` 导入微信开发者工具，复核包体分析、`resources` 分包、横屏模拟器、系统胶囊安全区和上传前配置；
+2. 在微信小游戏载体捕获首页、大厅、联网牌桌和弹窗，与 `art/mockups/` 做 Cocos Design QA；
+3. 用至少两台真机完成创建/加入/准备/AI 补位/开始、整局、弱网重连、会话恢复和重赛；
+4. 在微信后台人工确认类目/主体资质、隐私保护指引、正式名称、头像、120 字内介绍、体验成员、版本号和版本说明；
+5. 在 iPhone/Android 检查横屏、安全区、触控、纹理清晰度、内存和帧率；
+6. 浏览器单端或隔离双端流程可用于辅助诊断，但不能替代上述开发者工具/真机验收。
 
 ## 当前未实现
 
-- 微信开发者工具导入、包体优化和真机联调；
-- 微信登录、原生分享/邀请令牌、合法域名部署和云托管；
+- 微信开发者工具导入与人工包体分析；
+- 微信登录、原生分享/邀请令牌、`connectContainer` 双真机闭环和发布后云托管监控；
 - 可见的冷启动恢复、主动离房和返回好友房入口；
 - 音频、表情 Bundle、教程 Bundle；
-- Prefab、Auto Atlas、纹理压缩与小游戏分包；
-- Cocos 首页/大厅 1920×1080 视觉 QA，以及完整双客户端人工测试。
+- Prefab、Auto Atlas 与平台纹理压缩等后续工程优化；
+- 微信小游戏载体上的 Cocos 首页/大厅/牌桌视觉 QA，以及完整双真机人工测试。

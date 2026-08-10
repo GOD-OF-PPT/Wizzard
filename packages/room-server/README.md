@@ -25,15 +25,17 @@ npm run typecheck --workspace @wizzard/room-server
 npm run test --workspace @wizzard/room-server
 ```
 
-Production deployments must terminate TLS as `wss://`, set an origin allowlist
-with `WIZZARD_ALLOWED_ORIGINS` (or when constructing the service), use Redis,
-and keep logs free of invite/resume
-tokens, RNG keys, authoritative state, and private hands.
+The shipping Mini Game does not expose this service as public `wss://`. It uses
+the current AppID's private WeChat Cloud Hosting transport described below.
+Keep logs free of invite/resume tokens, RNG keys, authoritative state, and
+private hands. Leave `WIZZARD_ALLOWED_ORIGINS` unset until the actual private
+transport headers have been captured in WeChat DevTools and on a real device;
+guessing an Origin can reject the shipping client.
 
-## CloudBase Run trial
+## AppID-bound WeChat Cloud Hosting
 
 The repository root `Dockerfile` builds only `game-core`, `room-protocol`, and
-this service. It runs as the non-root Node user, reads CloudBase's injected
+this service. It runs as the non-root Node user, reads Cloud Hosting's injected
 `PORT`, exposes `GET /healthz`, and upgrades WebSocket requests only at `/ws`.
 
 Build the same image locally with:
@@ -42,18 +44,58 @@ Build the same image locally with:
 npm run room:docker:build
 ```
 
-Use these CloudBase container settings:
+The active deployment settings are:
 
+- Mini Game AppID: `wx4376a5b67a747d28`;
+- Cloud Hosting environment: `prod-d9g3qr6rqdbba6605`;
 - service name: `wizzard-room-server`;
 - container port: `8080`;
 - health check: `GET /healthz`;
 - minimum instances: `1`;
 - maximum instances: `1`;
-- public WebSocket path: `wss://<service-domain>/ws`.
+- public service access: disabled;
+- Mini Game transport: `wx.cloud.connectContainer({ path: "/ws" })`.
 
-The first trial intentionally leaves `WIZZARD_REDIS_URL` unset. A container
-restart or new deployment therefore discards active rooms. Adding Redis
+The client passes the environment and service explicitly:
+
+```ts
+await wx.cloud.init({ traceUser: true });
+const { socketTask } = await wx.cloud.connectContainer({
+  config: { env: "prod-d9g3qr6rqdbba6605" },
+  service: "wizzard-room-server",
+  path: "/ws",
+});
+```
+
+Because the Mini Game and Cloud Hosting service belong to the same AppID, this
+route does not require a public IP, Cloudflare/custom domain, ICP filing, or a
+Socket legal-domain entry. `connectContainer` requires WeChat base library
+2.21.1 or newer; this project fixes its generated Mini Game configuration at
+2.23.0.
+
+Cloud Hosting's private debugger has returned HTTP 200 from `GET /healthz`.
+That proves the container health contract only; the WebSocket upgrade,
+heartbeat, reconnect, session resume, and two-player game flow still require
+manual testing through the WeChat Mini Game carrier. Web or generic WebSocket
+tests do not replace that release acceptance.
+
+The matching Mini Game release build now declares the `resources` ordinary
+subpackage and passes the repository's automated 4 MiB main-package / 30 MiB
+total-package gates (2,013,782 B / 1.9205 MiB main, 28,514,601 B / 27.1936 MiB
+resources, 30,528,383 B / 29.1141 MiB total). This removes the local upload-size
+blocker but does not replace manual package analysis in WeChat DevTools or the
+two-device private-transport test.
+
+The current deployment intentionally leaves `WIZZARD_REDIS_URL` unset. A
+container restart or new deployment therefore discards active rooms. Adding Redis
 improves persistence but does not make horizontal scaling safe: distributed
 room leases and pub/sub are still required before increasing the maximum
-instance count. Leave `WIZZARD_ALLOWED_ORIGINS` unset until the actual WeChat
-Mini Game `Origin` behavior has been captured in DevTools and on a device.
+instance count. Keep the service at exactly one minimum and one maximum
+instance until that work is complete.
+
+The legacy Tencent Cloud CloudBase trial environment
+`mini-pro-d9gbcemh17af17f1b` and its unrelated cloud functions belong to other
+projects. Do not edit, redeploy, rename, or delete them, and do not restore the
+old public `sh.run.tcloudbase.com` endpoint in a shipping build. See
+`docs/12-cloudbase-room-deployment.md` for the full deployment and verification
+record.

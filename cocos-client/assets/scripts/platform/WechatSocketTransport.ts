@@ -2,6 +2,7 @@ import type {
   SocketObserver,
   TextSocket,
   TextSocketFactory,
+  TextSocketTarget,
 } from "./SocketTransport";
 
 type WechatSocketTask = {
@@ -16,8 +17,18 @@ type WechatSocketTask = {
   }): void;
 };
 
+type WechatCloudApi = {
+  connectContainer(options: {
+    config: { env: string };
+    path: string;
+    service: string;
+  }): Promise<{ socketTask: WechatSocketTask }>;
+  init(options: { traceUser: boolean }): Promise<unknown> | unknown;
+};
+
 export type WechatPlatformApi = {
-  connectSocket(options: {
+  cloud?: Partial<WechatCloudApi>;
+  connectSocket?(options: {
     protocols?: string[];
     tcpNoDelay?: boolean;
     url: string;
@@ -39,35 +50,24 @@ export type WechatPlatformApi = {
 
 class WechatTextSocket implements TextSocket {
   private closed = false;
+  private closeNotified = false;
   private opened = false;
+  private pendingClose: { code?: number; reason?: string } | null = null;
+  private task: WechatSocketTask | null = null;
 
   public constructor(
-    private readonly task: WechatSocketTask,
+    task: Promise<WechatSocketTask> | WechatSocketTask,
     private readonly observer: SocketObserver,
   ) {
-    task.onOpen(() => {
-      this.opened = true;
-      observer.onOpen();
-    });
-    task.onMessage((event) => {
-      if (typeof event.data !== "string") {
-        observer.onError(new Error("SOCKET_BINARY_MESSAGE_NOT_SUPPORTED"));
-        return;
-      }
+    if (typeof (task as Promise<WechatSocketTask>).then === "function") {
+      void Promise.resolve(task).then(
+        (resolvedTask) => this.attach(resolvedTask),
+        (error: unknown) => this.failConnection(error),
+      );
+      return;
+    }
 
-      observer.onMessage(event.data);
-    });
-    task.onError((event) => {
-      observer.onError(new Error(event.errMsg ?? "WECHAT_SOCKET_ERROR"));
-    });
-    task.onClose((event) => {
-      this.closed = true;
-      this.opened = false;
-      observer.onClose({
-        code: event.code ?? 1006,
-        reason: event.reason ?? "",
-      });
-    });
+    this.attach(task as WechatSocketTask);
   }
 
   public close(code?: number, reason?: string): void {
@@ -76,11 +76,13 @@ class WechatTextSocket implements TextSocket {
     }
 
     this.closed = true;
-    this.task.close({ code, reason });
+    this.opened = false;
+    this.pendingClose = { code, reason };
+    this.task?.close(this.pendingClose);
   }
 
   public send(text: string): boolean {
-    if (!this.opened || this.closed) {
+    if (!this.task || !this.opened || this.closed) {
       return false;
     }
 
@@ -94,22 +96,138 @@ class WechatTextSocket implements TextSocket {
     });
     return true;
   }
+
+  private attach(task: WechatSocketTask): void {
+    this.task = task;
+    task.onOpen(() => {
+      if (this.closed) {
+        return;
+      }
+
+      this.opened = true;
+      this.observer.onOpen();
+    });
+    task.onMessage((event) => {
+      if (typeof event.data !== "string") {
+        this.observer.onError(
+          new Error("SOCKET_BINARY_MESSAGE_NOT_SUPPORTED"),
+        );
+        return;
+      }
+
+      this.observer.onMessage(event.data);
+    });
+    task.onError((event) => {
+      this.observer.onError(
+        new Error(event.errMsg ?? "WECHAT_SOCKET_ERROR"),
+      );
+    });
+    task.onClose((event) => {
+      this.closed = true;
+      this.opened = false;
+      this.notifyClose({
+        code: event.code ?? 1006,
+        reason: event.reason ?? "",
+      });
+    });
+
+    if (this.closed) {
+      task.close(this.pendingClose ?? undefined);
+    }
+  }
+
+  private failConnection(error: unknown): void {
+    if (this.closed) {
+      return;
+    }
+
+    const normalized =
+      error instanceof Error
+        ? error
+        : new Error(
+            typeof error === "object" &&
+              error !== null &&
+              "errMsg" in error &&
+              typeof error.errMsg === "string"
+              ? error.errMsg
+              : String(error),
+          );
+
+    this.observer.onError(normalized);
+    this.closed = true;
+    this.opened = false;
+    this.notifyClose({ code: 1006, reason: normalized.message.slice(0, 123) });
+  }
+
+  private notifyClose(info: { code: number; reason: string }): void {
+    if (this.closeNotified) {
+      return;
+    }
+
+    this.closeNotified = true;
+    this.observer.onClose(info);
+  }
 }
 
 export class WechatSocketFactory implements TextSocketFactory {
+  private cloudInitPromise: Promise<void> | null = null;
+
   public constructor(private readonly api: WechatPlatformApi) {}
 
   public connect(
-    url: string,
+    target: TextSocketTarget,
     observer: SocketObserver,
-    protocol?: string,
   ): TextSocket {
+    if (target.kind === "wechat-cloud-container") {
+      return new WechatTextSocket(this.connectCloudContainer(target), observer);
+    }
+
+    if (!this.api.connectSocket) {
+      throw new Error("WECHAT_CONNECT_SOCKET_UNAVAILABLE");
+    }
+
     const task = this.api.connectSocket({
-      ...(protocol ? { protocols: [protocol] } : {}),
+      ...(target.protocol ? { protocols: [target.protocol] } : {}),
       tcpNoDelay: true,
-      url,
+      url: target.url,
     });
 
     return new WechatTextSocket(task, observer);
+  }
+
+  private async connectCloudContainer(
+    target: Extract<TextSocketTarget, { kind: "wechat-cloud-container" }>,
+  ): Promise<WechatSocketTask> {
+    const cloud = this.api.cloud;
+    if (
+      !cloud ||
+      typeof cloud.init !== "function" ||
+      typeof cloud.connectContainer !== "function"
+    ) {
+      throw new Error("WECHAT_CLOUD_CONTAINER_UNAVAILABLE");
+    }
+
+    if (!this.cloudInitPromise) {
+      const initAttempt = Promise.resolve(cloud.init({ traceUser: true })).then(
+        () => undefined,
+      );
+      this.cloudInitPromise = initAttempt.catch((error: unknown) => {
+        this.cloudInitPromise = null;
+        throw error;
+      });
+    }
+
+    await this.cloudInitPromise;
+    const result = await cloud.connectContainer({
+      config: { env: target.environmentId },
+      path: target.path,
+      service: target.serviceName,
+    });
+
+    if (!result?.socketTask) {
+      throw new Error("WECHAT_CLOUD_CONTAINER_SOCKET_TASK_MISSING");
+    }
+
+    return result.socketTask;
   }
 }

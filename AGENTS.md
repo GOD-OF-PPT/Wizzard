@@ -60,8 +60,9 @@ When implementing from a selected generated mock, treat that image as the source
 - Round-results footer visuals must stay inside the baked parchment footer frame, not merely the panel bounds. Keep the action row centered at `y=-306`, exclude the rounded end caps from the visual safe area, and retain at least 10px outer and 20px inter-item design gaps.
 - Shipping Cocos single-player practice uses a fresh session seed on every entry and local rematch. Fixed seeds remain injectable only for deterministic tests and bug replay; do not restore a hard-coded runtime practice seed.
 - Quick mode exposes only one card in its opening round, so shipping practice also bounded-rerolls an immediately repeated visible opening hand. Explicit fixed-seed replay opts out by default unless the caller deliberately enables the guard.
-- The friend-room CloudBase trial must use a dedicated container service named `wizzard-room-server`; existing CloudBase functions belong to other projects and must never be edited, redeployed, or deleted by this project.
-- Keep CloudBase Run at exactly one minimum and one maximum instance until distributed room ownership and pub/sub are implemented. Use container `PORT`, `GET /healthz`, and WebSocket `/ws` as the deployment contract.
+- The legacy Tencent Cloud CloudBase trial environment `mini-pro-d9gbcemh17af17f1b` and its unrelated cloud functions belong to other projects. Do not edit, redeploy, rename, or delete them; the shipping Mini Game no longer connects to its public `sh.run.tcloudbase.com` endpoint.
+- Shipping friend rooms use the current Mini Game AppID `wx4376a5b67a747d28` and its dedicated WeChat Cloud Hosting environment `prod-d9g3qr6rqdbba6605`, service `wizzard-room-server`, through `wx.cloud.connectContainer({ path: "/ws" })`. Do not restore a public `wx.connectSocket` endpoint or require a Socket legal-domain entry for this path.
+- Keep the WeChat Cloud Hosting service at exactly one minimum and one maximum instance until distributed room ownership and pub/sub are implemented. Use container `PORT`, `GET /healthz`, and WebSocket `/ws` as the deployment contract, and require WeChat base library 2.21.1 or newer (2.23.0+ preferred).
 
 ### Latest Visual QA Decisions (2026-08-08)
 
@@ -70,3 +71,10 @@ When implementing from a selected generated mock, treat that image as the source
 - Friend-room title, avatar, field, option, and action bands must stay inside each panel's authored decoration-free safe area with at least 8 design pixels between adjacent bands; bottom actions must not enter the lotus ornament or lacquer border.
 - The AI-fill row must expose an explicit 开启/关闭 state in addition to its visual opacity state.
 - Room creation exposes AI auto-fill as an explicit choice. A network match may not start until at least two real human players are present and ready; AI may fill only the remaining configured seats.
+
+### Latest Release Engineering Decisions (2026-08-10)
+
+- The Cocos `resources` Asset Bundle uses bundle config ID `wizzard-wechat-resources-v1`; its WeChat compression mode is persisted in `settings/v2/packages/builder.json` as `subpackage`. Do not try to persist this platform override as a direct `compressionType` field in `assets/resources.meta`.
+- Shipping builds must keep the generated `resources` ordinary subpackage, the main package at or below 4 MiB, and the total package at or below 30 MiB. `tools/build-cocos.mjs` is the automated gate for these conditions and for the AppID, base library, cloud-container target, `/ws`, and removal of the legacy public endpoint.
+- The eight largest PNGs were checked through a lossless re-encode; seven became smaller and all eight compare at `AE=0`. Do not replace this with lossy PNG8/JPEG/WebP solely to reduce size without Mini Game device QA.
+- The latest local release build is 2,013,782 bytes in the main package, 28,514,601 bytes in the `resources` subpackage, and 30,528,383 bytes total. These are build-gate measurements, not substitutes for WeChat DevTools package analysis or two-device acceptance.

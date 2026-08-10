@@ -2,6 +2,7 @@ import type {
   SocketObserver,
   TextSocket,
   TextSocketFactory,
+  TextSocketTarget,
 } from "./SocketTransport";
 
 class BrowserTextSocket implements TextSocket {
@@ -30,11 +31,16 @@ class BrowserTextSocket implements TextSocket {
 
 export class BrowserSocketFactory implements TextSocketFactory {
   public connect(
-    url: string,
+    target: TextSocketTarget,
     observer: SocketObserver,
-    protocol?: string,
   ): TextSocket {
-    const socket = protocol ? new WebSocket(url, protocol) : new WebSocket(url);
+    if (target.kind !== "websocket") {
+      throw new Error("BROWSER_CLOUD_CONTAINER_NOT_AVAILABLE");
+    }
+
+    const socket = target.protocol
+      ? new WebSocket(target.url, target.protocol)
+      : new WebSocket(target.url);
 
     socket.addEventListener("open", () => observer.onOpen());
     socket.addEventListener("message", (event) => {

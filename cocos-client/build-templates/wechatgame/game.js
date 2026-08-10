@@ -1,12 +1,14 @@
-const WIZZARD_CLOUDBASE_TRIAL_ROOM_ENDPOINT =
-  "wss://wizzard-room-server-293680-4-1254409409.sh.run.tcloudbase.com/ws";
-
-// The shipping carrier is the WeChat Mini Game. Give release builds the
-// deployed trial service by default while still allowing a pre-boot runtime
-// injection to replace it with a custom domain later.
+// The shipping Mini Game reaches the room server through the private WeChat
+// Cloud Hosting protocol. This AppID-bound route does not use a public WSS
+// domain and therefore does not depend on the server-domain allowlist.
 if (globalThis.__WIZZARD_APP_RUNTIME_CONFIG__ === undefined) {
   globalThis.__WIZZARD_APP_RUNTIME_CONFIG__ = {
-    friendRoom: { endpoint: WIZZARD_CLOUDBASE_TRIAL_ROOM_ENDPOINT },
+    friendRoom: {
+      environmentId: "prod-d9g3qr6rqdbba6605",
+      path: "/ws",
+      serviceName: "wizzard-room-server",
+      transport: "wechat-cloud-container",
+    },
     startup: "home",
   };
 }

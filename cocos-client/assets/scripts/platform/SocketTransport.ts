@@ -10,15 +10,24 @@ export type SocketObserver = {
   onOpen(): void;
 };
 
+export type TextSocketTarget =
+  | {
+      kind: "websocket";
+      protocol?: string;
+      url: string;
+    }
+  | {
+      environmentId: string;
+      kind: "wechat-cloud-container";
+      path: string;
+      serviceName: string;
+    };
+
 export interface TextSocket {
   close(code?: number, reason?: string): void;
   send(text: string): boolean;
 }
 
 export interface TextSocketFactory {
-  connect(
-    url: string,
-    observer: SocketObserver,
-    protocol?: string,
-  ): TextSocket;
+  connect(target: TextSocketTarget, observer: SocketObserver): TextSocket;
 }

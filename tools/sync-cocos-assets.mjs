@@ -17,6 +17,7 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPOSITORY_ROOT = path.resolve(SCRIPT_DIR, "..");
 const MANIFEST_PATH = path.join(REPOSITORY_ROOT, "art", "asset-manifest.json");
 const RUNTIME_ROOT = path.join(REPOSITORY_ROOT, "art", "runtime");
+const PLATFORM_SUBMISSION_ROOT = path.join(RUNTIME_ROOT, "branding");
 const GENERATED_DIRECTORY = "_generated";
 const GENERATED_TYPESCRIPT = "AssetAddresses.generated.ts";
 const SYNC_REPORT = "asset-sync-report.md";
@@ -404,7 +405,24 @@ async function validateIgnoredPngs(manifest, records) {
   const unslicedSheets = [manifest.ui.chromeAtlas, manifest.ui.feedbackFxAtlas]
     .map((runtime) => toPosix(runtime))
     .sort();
-  const ignored = [...topLevelAvatarFiles, ...unslicedSheets].sort();
+  const platformSubmissionFiles = (await readdir(PLATFORM_SUBMISSION_ROOT, {
+    withFileTypes: true,
+  }).catch((error) => {
+    if (error?.code === "ENOENT") {
+      return [];
+    }
+    throw error;
+  }))
+    .filter(
+      (entry) =>
+        entry.isFile() && path.extname(entry.name).toLowerCase() === ".png",
+    )
+    .map((entry) =>
+      toPosix(path.join("art", "runtime", "branding", entry.name)),
+    )
+    .sort();
+  const reportedIgnored = [...topLevelAvatarFiles, ...unslicedSheets].sort();
+  const ignored = [...reportedIgnored, ...platformSubmissionFiles].sort();
   const ignoredSet = new Set(ignored);
   const unreferenced = allRuntimePngs.filter(
     (runtime) => !referenced.has(runtime),
@@ -429,13 +447,18 @@ async function validateIgnoredPngs(manifest, records) {
     );
   }
 
-  if (allRuntimePngs.length !== 86 || ignored.length !== 8) {
+  const expectedRuntimePngs = 86 + platformSubmissionFiles.length;
+  const expectedIgnoredPngs = 8 + platformSubmissionFiles.length;
+  if (
+    allRuntimePngs.length !== expectedRuntimePngs ||
+    ignored.length !== expectedIgnoredPngs
+  ) {
     throw new Error(
-      `Runtime PNG inventory drifted: expected 86 total / 8 ignored, got ${allRuntimePngs.length} total / ${ignored.length} ignored.`,
+      `Runtime PNG inventory drifted: expected ${expectedRuntimePngs} total / ${expectedIgnoredPngs} ignored, got ${allRuntimePngs.length} total / ${ignored.length} ignored.`,
     );
   }
 
-  return ignored;
+  return reportedIgnored;
 }
 
 async function enrichRecord(record, targetDirectory, resourcePrefix) {
@@ -579,7 +602,7 @@ ${omittedRows}
 
 ## Deliberately excluded runtime PNGs
 
-The runtime directory contains 86 PNGs. Exactly 78 non-duplicate runtime PNGs are represented by semantic keys; these eight files are intentionally never synchronized:
+Exactly 78 non-duplicate runtime PNGs are represented by semantic keys. Duplicate source sheets and any platform-submission artwork under \`art/runtime/branding/\` are intentionally never synchronized:
 
 | Runtime file | Reason |
 | --- | --- |

@@ -1,99 +1,131 @@
-# CloudBase friend-room deployment
+# WeChat Cloud Hosting friend-room deployment
 
-Status: **deployed and protocol-verified in CloudBase on 2026-08-08.**
+Status: **deployed for the current Mini Game AppID on 2026-08-10.**
 
-## Active trial deployment
+The file name is retained for existing links, but the shipping transport is no
+longer the public Tencent Cloud CloudBase trial endpoint.
+
+## Active AppID-bound deployment
 
 | Setting | Value |
 | --- | --- |
-| CloudBase environment | `mini-pro-d9gbcemh17af17f1b` |
+| Mini Game AppID | `wx4376a5b67a747d28` |
+| WeChat Cloud Hosting environment | `prod-d9g3qr6rqdbba6605` (`prod`, Shanghai) |
 | Service | `wizzard-room-server` |
-| Deployment | `001` |
+| Online version after instance configuration | `wizzard-room-server-002` |
 | Source repository | `https://github.com/GOD-OF-PPT/Wizzard` |
 | Source branch | `codex/cocos-ui-practice-fixes` |
-| Default HTTPS origin | `https://wizzard-room-server-293680-4-1254409409.sh.run.tcloudbase.com` |
-| WebSocket endpoint | `wss://wizzard-room-server-293680-4-1254409409.sh.run.tcloudbase.com/ws` |
+| Build context / Dockerfile | repository root / `Dockerfile` |
+| Container port | `8080` |
+| Minimum / maximum instances | `1` / `1` |
+| Public service access | disabled |
+| Mini Game transport | `wx.cloud.connectContainer` to `/ws` |
 
-The default CloudBase domain is suitable for this disposable trial but the
-CloudBase console documents rate, feature, and stability limitations. Replace
-it with a project-owned custom domain before a production release.
+The Mini Game calls the container through WeChat's private protocol:
+
+```ts
+await wx.cloud.init({ traceUser: true });
+const { socketTask } = await wx.cloud.connectContainer({
+  config: { env: "prod-d9g3qr6rqdbba6605" },
+  service: "wizzard-room-server",
+  path: "/ws",
+});
+```
+
+This route is owned by the same AppID and does not require a public WSS domain,
+Cloudflare DNS, ICP-compliant custom domain, or a Socket legal-domain entry.
+`connectContainer` requires WeChat base library 2.21.1 or newer; 2.23.0 or newer
+is preferred for device troubleshooting consistency.
+
+## Verification evidence
+
+The initial source deployment created version `wizzard-room-server-001`. Saving
+the required one-minimum/one-maximum instance policy created
+`wizzard-room-server-002`, which the console reports as healthy with one
+instance.
+
+Cloud Hosting's AppID-private debugger called `GET /healthz` and returned HTTP
+200 with:
+
+```json
+{
+  "service": "wizzard-room",
+  "status": "ok"
+}
+```
+
+The response included `X-Cloudbase-Upstream-Status-Code: 200` and a 9 ms
+upstream time. The console's HTTP debugger does not prove the full WebSocket
+upgrade; two-device `connectContainer` verification remains a manual Mini Game
+acceptance task and must not be replaced by Web acceptance.
 
 ## Resource boundary
 
-Deploy Wizzard only as the dedicated CloudBase Run service
-`wizzard-room-server`. Existing CloudBase functions in the selected environment
-belong to other projects and are outside this deployment's scope. Do not edit,
-redeploy, rename, or delete them.
+The legacy Tencent Cloud CloudBase environment
+`mini-pro-d9gbcemh17af17f1b` and its unrelated cloud functions remain outside
+this project's deployment scope. Do not edit, redeploy, rename, or delete those
+functions. The old service and public origin
+`wizzard-room-server-293680-4-1254409409.sh.run.tcloudbase.com` may be retained
+temporarily for rollback diagnostics, but shipping builds must not connect to
+it.
 
-## Build contract
+## Runtime contract
 
-The root `Dockerfile` uses three stages:
+The root `Dockerfile` builds `@wizzard/game-core`,
+`@wizzard/room-protocol`, and `@wizzard/room-server`, then runs the compiled
+room server as the non-root Node user. Its Cloud Hosting contract is:
 
-1. install development dependencies and build `@wizzard/game-core`,
-   `@wizzard/room-protocol`, and `@wizzard/room-server`;
-2. install only the room server's production dependency graph;
-3. run the compiled service as the non-root Node user.
-
-`.dockerignore` allowlists only these three packages and their build inputs, so
-Cocos assets, QA screenshots, local caches, existing `dist/` folders, and
-workspace credentials never enter the build context.
-
-The runtime contract is:
-
-- `PORT`: CloudBase-injected listening port, preferred over
+- `PORT`: platform-injected listening port, preferred over
   `WIZZARD_ROOM_PORT`;
 - `GET /healthz`: liveness endpoint;
 - `/ws`: the only WebSocket upgrade path;
 - `SIGTERM`: graceful gateway, HTTP server, and repository shutdown.
 
-## CloudBase settings
-
-| Setting | Value |
-| --- | --- |
-| Service name | `wizzard-room-server` |
-| Deployment type | Container CloudBase Run |
-| Container port | `8080` |
-| Health endpoint | `GET /healthz` |
-| Minimum instances | `1` |
-| Maximum instances | `1` |
-| Redis | Unset for the first disposable trial |
-| Origin allowlist | Unset until WeChat runtime headers are verified |
-
-CloudBase closes a WebSocket that transfers no data for about 60 seconds. The
-gateway currently sends WebSocket control pings and application heartbeat
-messages every 15 seconds, so active clients remain below that limit.
+Public and internal test domains are disabled. Public egress remains enabled so
+future server integrations are not silently blocked. `WIZZARD_ALLOWED_ORIGINS`
+remains unset until the actual private-protocol headers are captured on a real
+device; guessing an Origin can lock out the Mini Game.
 
 ## State limitations
 
-The initial deployment uses `MemoryRoomRepository`. Publishing a new version,
-restarting the container, or platform migration discards active rooms. Setting
-`WIZZARD_REDIS_URL` enables revision-CAS room persistence, but the service must
-still remain single-instance because sockets, timers, and broadcasts do not yet
-have a distributed owner or pub/sub channel.
+The current deployment uses `MemoryRoomRepository`. Publishing a new version or
+restarting the container discards active rooms. The service must stay at one
+application instance because sockets, timers, broadcasts, and room ownership
+are process-local. Redis persistence alone does not make multi-instance routing
+safe; distributed leases and pub/sub are required first.
 
-## Verification
+Low-frequency Cloud Hosting environments may be frozen after prolonged
+inactivity. Check service status before an external playtest and retain basic
+usage/alerting reminders.
 
-Before CloudBase deployment, run:
+## Build and release checks
+
+Before publishing a new version:
 
 ```powershell
 npm test
-npm run typecheck --workspace @wizzard/room-server
+npm run typecheck
+npm run cocos:build:wechat
 npm run room:docker:build
 ```
 
-The 2026-08-08 CloudBase deployment passed these checks:
+The WeChat build script verifies all of the following:
 
-1. `GET /healthz` returned HTTP 200 with
-   `{ "service": "wizzard-room", "status": "ok" }`;
-2. `/ws` emitted protocol-v1 `connection.ready` with a 15-second heartbeat;
-3. the public WebSocket remained open for 75.6 seconds and closed normally
-   only when the verification client requested it;
-4. deployment `001` was healthy, served 100% of traffic, and ran exactly one
-   instance with the configured `1`-to-`1` instance range;
-5. the pre-existing `get-room-view` and `execute-command` functions remained
-   healthy and retained their prior 2026-08-01 modification timestamps.
+- landscape `game.json`;
+- AppID `wx4376a5b67a747d28` in `project.config.json`;
+- environment `prod-d9g3qr6rqdbba6605`;
+- service `wizzard-room-server`;
+- path `/ws`;
+- `wechat-cloud-container` transport in the shipping template.
+- compiled `connectContainer` transport in `assets/main/index.js`;
+- the declared `resources` ordinary subpackage;
+- the 4 MiB main-package and 30 MiB total-package limits.
 
-`cocos-client/build-templates/wechatgame/game.js` injects the trial WebSocket
-endpoint only when no earlier runtime configuration exists. Before device
-testing, register the chosen `wss://` host as an allowed WeChat socket domain.
-WeChat DevTools and real-device acceptance remain an explicit manual step.
+The latest local release build measures 2,013,782 bytes in the main package,
+28,514,601 bytes in the `resources` subpackage, and 30,528,383 bytes total.
+These automated measurements remove the local size blocker but do not replace
+WeChat DevTools package analysis.
+
+After deployment, verify private `GET /healthz`, service health, one running
+instance, and then manually test two-device create/join/ready/AI-fill/start,
+heartbeat, reconnect, and session resume through the WeChat Mini Game carrier.

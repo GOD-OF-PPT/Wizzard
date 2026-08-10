@@ -18,14 +18,19 @@ Cocos 单人练习 ────────────── LocalMatchAdapter 
 
 Cocos 好友房 ── FriendRoomController / NetworkMatchAdapter
         │
-        └── RoomSocketClient ── Node.js WebSocket 房间服务
+        └── RoomSocketClient ── wx.cloud.connectContainer(`/ws`)
+                                      │
+                                      ▼
+                           微信云托管 Node.js 房间服务
                                       │
                                       ├── 注入行动者、调度 AI 与计时器
                                       ├── @wizzard/game-core/authority
                                       └── viewer 专属 PlayerMatchSnapshot
 ```
 
-“权威”在这里描述状态所有权和接口约束：只有 `applyMatchIntent` 与带明确推进类型的 `advanceAuthoritativeMatch` 能推进状态。React 与 Cocos 表现层都只获得事件和本地查看者快照。单人练习在客户端进程内运行核心；好友房由本地可运行的 Node.js/WebSocket 服务持有权威状态，但生产服务尚未部署。
+“权威”在这里描述状态所有权和接口约束：只有 `applyMatchIntent` 与带明确推进类型的 `advanceAuthoritativeMatch` 能推进状态。React 与 Cocos 表现层都只获得事件和本地查看者快照。单人练习在客户端进程内运行核心；好友房由 Node.js/WebSocket 服务持有权威状态，正式实例已经部署到 AppID `wx4376a5b67a747d28` 直属微信云托管环境 `prod-d9g3qr6rqdbba6605`，服务名为 `wizzard-room-server`。
+
+正式小游戏通过 `wx.cloud.connectContainer({ path: "/ws" })` 使用 AppID 私有协议，不经过公网 `wx.connectSocket`，因此不需要公网 IP、自定义域名或微信后台 Socket 合法域名。该接口要求微信基础库 2.21.1+；项目构建配置固定为 2.23.0。浏览器 WebSocket 仅保留给本地诊断，不能代替微信小游戏载体上的人工验收。
 
 ## 已实现模块
 
@@ -170,7 +175,7 @@ React 验证工具消费转换事件，并在每次权威状态变化后重新�
 - `RulesSettingsView` 在首页内渲染规则分页与本机体验设置；偏好经平台存储适配器持久化，只影响提示与震动，不进入规则核心或房间协议；
 - `CardView`、`PlayerSeatView` 与 `UiFactory` 已形成可继续保存为 Prefab 的组件边界；
 - `AssetRegistry` 只接受生成的语义键，运行时文件地址由 `tools/sync-cocos-assets.mjs` 从美术清单生成；
-- 核心切片同步 33 张图片（32 PNG + 1 JPG）与两套精简字体，其中包含规则页所需的 `tutorial.ruleHint`；角色表情和教程手势仍保留在完整清单中，待 Asset Bundle/小游戏分包阶段接入；
+- 当前核心切片同步 48 张 PNG 与两套精简字体，其中包含规则页所需的 `tutorial.ruleHint`；该切片已随 `resources` Asset Bundle 进入微信普通分包，角色其他表情和教程手势仍保留在完整清单中，待后续按页面接入；
 - Cocos Node、Sprite 与 Label 只持有表现状态，不持有或修改 `AuthoritativeMatchState`。
 
 ## 已实现的联网架构
@@ -178,15 +183,20 @@ React 验证工具消费转换事件，并在每次权威状态变化后重新�
 ```text
 微信小游戏 Cocos 客户端
         │ MatchIntent / 重连请求（不自报 playerId）
+        │ wx.cloud.connectContainer(`/ws`)
         ▼
-Node.js + WebSocket 权威房间服务
+微信云托管 `wizzard-room-server`
         │
         ├── 调用 @wizzard/game-core/authority
         ├── 为真人与 AI 创建查看者快照
         ├── 广播 MatchEvent / Snapshot
-        └── Redis 保存活跃房间与断线恢复状态
+        └── MemoryRoomRepository（当前）/ Redis CAS seam
 ```
 
 WebSocket 连接在鉴权后绑定玩家身份；房间服务把该身份作为 `actorPlayerId` 注入规则核心，并在每次回复中附带该连接的最新查看者快照。
 
-Cocos 工程、好友房大厅、本地/联网动态牌桌、WebSocket 房间生命周期、Redis 仓储 seam、断线恢复和网络适配器已经建立。Creator 3.8.8 已完成首次导入，并产出 Web Desktop 与横屏微信小游戏 release 构建。尚未完成的是双客户端人工闭环、Cocos 视觉 QA、微信开发者工具与真机验收、包体压缩/分包、微信登录/原生分享和线上部署。
+当前云托管版本使用进程内仓储、Socket、计时器和广播，因此服务必须保持最小/最大实例 `1 / 1`。增加 Redis 只能改善重启恢复；在实现分布式房间所有权、lease 与 pub/sub 之前，不得横向扩容。私有 `GET /healthz` 已返回 HTTP 200，但该结果不证明 WebSocket 升级和双端比赛闭环。
+
+微信小游戏构建已经把 `resources` 声明为普通分包。最大的 8 张 PNG 均通过逐像素 `AE=0` 的无损重编码验证，其中 7 张产生体积缩减，`teahouse-table` 输出字节数不变。最新产物的主包为 2,013,782 B（1.9205 MiB）、资源分包为 28,514,601 B（27.1936 MiB）、总包为 30,528,383 B（29.1141 MiB）；构建脚本会自动拒绝缺少分包、主包超过 4 MiB 或总包超过 30 MiB 的产物。
+
+Cocos 工程、好友房大厅、本地/联网动态牌桌、WebSocket 房间生命周期、Redis 仓储 seam、断线恢复、网络适配器、AppID 直属云托管部署和本地包体门槛已经建立。Creator 3.8.8 已完成首次导入，并产出 Web Desktop 与横屏微信小游戏 release 构建。尚未完成的是微信开发者工具人工包体分析、双真机 `connectContainer` 闭环、Cocos 视觉与弱网人工验收、微信登录/原生分享，以及可见的冷启动恢复/离房入口；Web 构建或浏览器联调通过不能替代这些验收。

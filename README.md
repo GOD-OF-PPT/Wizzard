@@ -52,7 +52,7 @@ npm run cocos:prepare
 npm run build:wechat
 ```
 
-This runs asset sync, shared-package compilation, Cocos type checking, and the Creator 3.8.8 release build. The verified output is `cocos-client/build/wechatgame/`; open that directory in WeChat DevTools, then clear its cache and recompile.
+This runs asset sync, shared-package compilation, Cocos type checking, and the Creator 3.8.8 release build. The output is `cocos-client/build/wechatgame/`; open that directory in WeChat DevTools, then clear its cache and recompile. The build script also verifies the shipping AppID, base-library version, Cloud Hosting target, and private transport marker.
 
 ## 当前已实现
 
@@ -95,20 +95,25 @@ This runs asset sync, shared-package compilation, Cocos type checking, and the C
 - 首个本地牌桌切片已覆盖选择王牌、预测、合法选牌、确认出牌、AI 行动、30 秒托管、一墩结算、轮结算、8 轮总榜和重新开始；
 - 好友房首页、大厅和联网牌桌复用同一个 `RoomSocketClient`，已支持 3–6 人房、准备/取消、AI 补位、房主开始、断线恢复和重赛返回原大厅；
 - 首页“规则与设置”已接入四章规则手册和本机体验设置；合法牌提示与回合震动均真实作用于 Cocos 牌桌并独立持久化；
-- `tools/sync-cocos-assets.mjs` 从 `art/asset-manifest.json` 生成稳定语义地址，核心切片同步 43 张 PNG 与两套精简 Noto SC 字体；
+- `tools/sync-cocos-assets.mjs` 从 `art/asset-manifest.json` 生成稳定语义地址，当前核心切片同步 48 张 PNG 与两套精简 Noto SC 字体；
 - 牌桌只使用正式背景、卡牌、头像、漆器/羊皮纸 UI 和反馈 FX，动态王牌使用正式花色卡面裁切，不依赖错误的通用 `ui.trumpTile`；
 - Cocos 适配器的完整 8 轮闭环已有进程内集成验证，客户端 TypeScript 可使用官方 Creator 3.8 类型声明检查；
-- 当前机器已安装 Creator 3.8.8，并已成功生成 Web Desktop 与微信小游戏 release 构建；微信产物的 `game.json` 为 `deviceOrientation: landscape`。
+- 当前机器已安装 Creator 3.8.8，并已成功生成 Web Desktop 与微信小游戏 release 构建；微信产物的 `game.json` 为 `deviceOrientation: landscape`，`project.config.json` 固定 AppID `wx4376a5b67a747d28` 与基础库 `2.23.0`；
+- 好友房权威服务已部署到该 AppID 直属微信云托管：环境 `prod-d9g3qr6rqdbba6605`、服务 `wizzard-room-server`、`GET /healthz` 已返回 200，且实例策略固定为最小/最大 `1 / 1`；
+- 正式小游戏通过 `wx.cloud.connectContainer({ path: "/ws" })` 访问云托管私有协议，不需要公网 IP、Cloudflare 域名或微信后台 Socket 合法域名。该能力要求基础库 2.21.1+，项目固定使用 2.23.0；
+- 微信构建已把 `resources` 配置为普通分包；最大的 8 张 PNG 均通过逐像素 `AE=0` 的无损重编码验证，其中 7 张产生体积缩减。最新正式构建主包为 2,013,782 B（1.9205 MiB）、资源分包为 28,514,601 B（27.1936 MiB）、总包为 30,528,383 B（29.1141 MiB），已满足 4 MiB 主包和 30 MiB 总包门槛；
+- 构建脚本会在缺少 `resources` 分包、主包超过 4 MiB 或总包超过 30 MiB 时直接失败，避免后续改动静默破坏上传预算。
 
 ## 当前边界
 
-React/Vite 版本仍是交互与架构验证工具，不是正式发布客户端。正式客户端入口已经转移到 `cocos-client/`；单人练习使用进程内本地权威适配器，好友房则通过 WebSocket 连接 Node.js 权威服务。
+React/Vite 版本仍是交互与架构验证工具，不是正式发布客户端。正式客户端入口已经转移到 `cocos-client/`；单人练习使用进程内本地权威适配器，好友房则通过 AppID 直属微信云托管连接 Node.js 权威服务。Web/浏览器预览只能用于诊断，不能作为体验版视觉、网络或发布验收结论。
 
 以下工作尚未完成或尚未在目标工具链验证：
 
-- 两个隔离浏览器会话的完整好友房人工闭环与 Cocos 1920×1080 视觉 QA；
-- 微信开发者工具导入、体验成员、iPhone/Android 真机横屏与弱网验收；
-- 微信登录、原生分享/邀请、合法 `wss://` 域名和线上部署；
-- Prefab、Auto Atlas、纹理压缩、Asset Bundle 与小游戏分包。加入规则页正式插图后的微信 release 构建目录约 11.69 MiB，仍超过可直接上传的首包预算，必须先完成包体分析、压缩和分包。
+- 可选的两个隔离浏览器会话诊断与 Cocos 1920×1080 视觉对比；它们不替代小游戏载体验收；
+- 微信开发者工具导入、上传版本号/说明、体验成员、iPhone/Android 双真机横屏、弱网、私有 WebSocket 升级和恢复闭环；
+- 微信登录、原生分享/邀请与可见的冷启动恢复/离房入口；
+- 微信后台类目/主体资质、隐私保护指引、正式名称、头像与 120 字内介绍的人工确认；
+- Prefab、Auto Atlas 与平台纹理压缩仍可继续优化，但当前自动包体门槛已经通过；最终包体结论仍需人工在微信开发者工具中复核。
 
 联网房间中，Cocos 客户端只提交意图并消费服务端事件/查看者快照；`packages/game-core` 继续作为本地练习与服务端共用的唯一平台无关规则核心。

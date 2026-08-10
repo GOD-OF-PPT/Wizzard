@@ -8,7 +8,8 @@
   "packages": {
     "wechatgame": {
       "orientation": "landscape",
-      "appid": "",
+      "appid": "wx4376a5b67a747d28",
+      "libVersion": "2.23.0",
       "buildOpenDataContextTemplate": "",
       "separateEngine": false,
       "highPerformanceMode": false
