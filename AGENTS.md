@@ -11,6 +11,7 @@ When implementing from a selected generated mock, treat that image as the source
 - The current product is a friends-only, non-commercial WeChat card-game experience.
 - Work priority is functional behavior first, WeChat Mini Game UI second, required release/build gates third, and broader test-only work last. Do not expand tests while known functional or visual defects remain unresolved.
 - Newly created friend rooms use six-digit numeric room codes. The initial staged rollout generates digits 2-9 so the previous experience client can still join after the server-first deployment; the new client accepts exactly six decimal digits. Protocol decoding may accept the previous safe-alphabet format only for short-lived deployment compatibility; never generate new letter-based room codes or weaken the separate high-entropy invite token.
+- Opening either the create-room or join-room dialog generates one fresh, editable teahouse-style nickname. Keep that nickname stable across dialog redraws, generate another only after returning and opening an entry dialog again, and preserve the established identity when resuming a room session. Direct create/join bindings also receive a random nickname.
 - The game is landscape-first at a 16:9 design reference; do not redesign it as portrait without an explicit decision change.
 - The selected visual direction is option 2, “Enchanted Teahouse / 奇术茶馆”, stored at `public/assets/selected-art-direction.png`.
 - Preserve the warm lacquer, paper-card, lantern, ink-wash, animal-traveler visual language of the selected reference.

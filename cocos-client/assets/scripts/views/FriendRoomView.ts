@@ -45,6 +45,7 @@ import {
   FRIEND_ROOM_LOBBY_SEAT_POSITIONS,
   FRIEND_ROOM_LOBBY_SLOT_MAPS,
 } from "./FriendRoomLobbyLayout";
+import { generateRandomFriendRoomNickname } from "./FriendRoomNickname";
 import {
   reconcileFriendRoomEntryMode,
   type FriendRoomEntryMode,
@@ -244,7 +245,7 @@ function getModeLabel(
 export class FriendRoomView {
   private avatarKey: AvatarKey = "bamboo-cat";
   private readonly contentRoot: Node;
-  private displayName = "青竹客";
+  private displayName = "";
   private disposed = false;
   private entryMode: FriendRoomEntryMode = "home";
   private fillWithAi = true;
@@ -395,6 +396,13 @@ export class FriendRoomView {
         this.notice = "房间码复制失败，请直接告诉好友";
         this.render(this.latestState);
       });
+  }
+
+  private openEntryDialog(mode: "create" | "join"): void {
+    this.displayName = generateRandomFriendRoomNickname();
+    this.entryMode = mode;
+    this.controller.clearError();
+    this.render(this.latestState);
   }
 
   private confirmLeaveRoom(): void {
@@ -839,8 +847,7 @@ export class FriendRoomView {
       -73,
     );
     create.on(Node.EventType.TOUCH_END, () => {
-      this.entryMode = "create";
-      this.render(this.latestState);
+      this.openEntryDialog("create");
     });
 
     const join = createContainer(
@@ -852,8 +859,7 @@ export class FriendRoomView {
       -8,
     );
     join.on(Node.EventType.TOUCH_END, () => {
-      this.entryMode = "join";
-      this.render(this.latestState);
+      this.openEntryDialog("join");
     });
 
     const practice = createContainer(

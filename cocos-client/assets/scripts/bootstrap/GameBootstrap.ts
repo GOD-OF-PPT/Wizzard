@@ -34,6 +34,7 @@ import {
   type PlatformServices,
 } from "../platform/PlatformServices";
 import { FriendRoomView } from "../views/FriendRoomView";
+import { generateRandomFriendRoomNickname } from "../views/FriendRoomNickname";
 import { MatchSceneView } from "../views/MatchSceneView";
 
 const { ccclass } = _decorator;
@@ -126,18 +127,22 @@ export class GameBootstrap extends Component {
     }
 
     if (binding.type === "create") {
-      controller.createRoom(binding.payload);
+      controller.createRoom({
+        ...binding.payload,
+        displayName: generateRandomFriendRoomNickname(),
+      });
     } else if (binding.type === "join") {
+      const displayName = generateRandomFriendRoomNickname();
       if (binding.payload.roomCode) {
         controller.joinRoom({
           avatarKey: binding.payload.avatarKey,
-          displayName: binding.payload.displayName,
+          displayName,
           roomCode: binding.payload.roomCode,
         });
       } else if (binding.payload.inviteToken) {
         controller.joinRoomWithInvite({
           avatarKey: binding.payload.avatarKey,
-          displayName: binding.payload.displayName,
+          displayName,
           inviteToken: binding.payload.inviteToken,
         });
       }
