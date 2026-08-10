@@ -3,12 +3,16 @@ export {
   decodeServerMessage,
   encodeClientMessage,
   encodeServerMessage,
+  isNumericRoomCode,
+  isRoomCode,
   ProtocolEncodeError,
 } from "./validation.js";
 export {
   AVATAR_KEYS,
+  MAX_AI_PLAYERS,
   MIN_HUMAN_PLAYERS,
   PROTOCOL_VERSION,
+  ROOM_CODE_LENGTH,
 } from "./messages.js";
 export type {
   AvatarKey,
@@ -37,6 +41,7 @@ export type {
   ServerRoomMessage,
   SessionEstablishedMessage,
   SessionGrant,
+  SetAiCountMessage,
   SetReadyMessage,
   StartRoomMessage,
   SubmitMatchIntentMessage,

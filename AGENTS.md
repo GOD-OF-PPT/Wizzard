@@ -9,6 +9,8 @@ When implementing from a selected generated mock, treat that image as the source
 ## Durable Project Decisions
 
 - The current product is a friends-only, non-commercial WeChat card-game experience.
+- Work priority is functional behavior first, WeChat Mini Game UI second, required release/build gates third, and broader test-only work last. Do not expand tests while known functional or visual defects remain unresolved.
+- Newly created friend rooms use six-digit numeric room codes. The initial staged rollout generates digits 2-9 so the previous experience client can still join after the server-first deployment; the new client accepts exactly six decimal digits. Protocol decoding may accept the previous safe-alphabet format only for short-lived deployment compatibility; never generate new letter-based room codes or weaken the separate high-entropy invite token.
 - The game is landscape-first at a 16:9 design reference; do not redesign it as portrait without an explicit decision change.
 - The selected visual direction is option 2, “Enchanted Teahouse / 奇术茶馆”, stored at `public/assets/selected-art-direction.png`.
 - Preserve the warm lacquer, paper-card, lantern, ink-wash, animal-traveler visual language of the selected reference.
@@ -72,9 +74,25 @@ When implementing from a selected generated mock, treat that image as the source
 - The AI-fill row must expose an explicit 开启/关闭 state in addition to its visual opacity state.
 - Room creation exposes AI auto-fill as an explicit choice. A network match may not start until at least two real human players are present and ready; AI may fill only the remaining configured seats.
 
+### Latest Visual QA Decisions (2026-08-10)
+
+- Single-player practice must expose a return-home action throughout active play, including chooser and round-result overlays. Keep its compact paper visual in the top-left gap between the round sign and upper-left seat, with an expanded Mini Game touch target, and never place it in the WeChat system-capsule lane.
+- The practice final-ranking footer uses the existing paper secondary-action slot for `返回首页` beside `再来一局`. Only local practice receives this action; network matches require a separate explicit leave-room flow.
+- Returning from practice must dispose the local match surface, rebuild the friend-room home flow exactly once, and must not replay an initial invite/resume binding.
+- The friend-room lobby room-information scroll and all six seat bounds must remain disjoint. Its scroll may extend only through the horizontally sliced quiet center band; do not compress the authored scroll pillars with ordinary nine-slice geometry.
+- The six-player bottom AI-standby seat must remain above the ready/notice bands with explicit layout gaps. Do not solve the collision by shrinking the AI badge independently from the other empty-seat furniture.
+- The friend-room lobby exposes a paper `返回首页` action in the left safe column. It must open a blocking second-confirmation modal; only `确认离开` sends `room.leave`, while `继续等待` keeps the room and session intact. Return to the home screen only after the server acknowledges the leave and the persisted resume session has been cleared.
+- The friend-room AI management panel owns separate title, status, and action bands. Keep both AI button touch targets inside the secondary panel's quiet center, outside its 64px side caps and 42px bottom ornament band.
+- The lobby AI standby badge preserves the authored 215:169 aspect ratio. Its seat is a redundant add-AI target only while the host is allowed to add a robot, and its touch target must remain disjoint from notices and ready actions.
+- Once a friend room has been established, clear the create/join entry-dialog mode. A later protocol or session failure may return to the home entry with an error, but must never reopen the stale create-room dialog.
+- Friend-room occupied-seat status uses the final-ratio SIMPLE `ui.match.stat.paper/green` assets. The local prepare action uses the final-ratio green results button, cancel-prepare uses the paper results button, and the ready counter counts connected ready humans over total humans only.
+- The lobby must expose explicit host-only `添加机器人` / `移除机器人` controls after at least two connected humans are present. Commands set an absolute AI count; a successful manual adjustment disables the host's local start-time auto-fill choice so a removed AI is not silently restored.
+- Disabled start controls must state the blocking reason (`等待好友`, `等待准备`, or `补齐座位`). AI management, ready, start, and leave are mutually exclusive pending commands, and their Mini Game touch targets must remain disjoint at the 402px-height acceptance viewport.
+
 ### Latest Release Engineering Decisions (2026-08-10)
 
 - The Cocos `resources` Asset Bundle uses bundle config ID `wizzard-wechat-resources-v1`; its WeChat compression mode is persisted in `settings/v2/packages/builder.json` as `subpackage`. Do not try to persist this platform override as a direct `compressionType` field in `assets/resources.meta`.
 - Shipping builds must keep the generated `resources` ordinary subpackage, the main package at or below 4 MiB, and the total package at or below 30 MiB. `tools/build-cocos.mjs` is the automated gate for these conditions and for the AppID, base library, cloud-container target, `/ws`, and removal of the legacy public endpoint.
 - The eight largest PNGs were checked through a lossless re-encode; seven became smaller and all eight compare at `AE=0`. Do not replace this with lossy PNG8/JPEG/WebP solely to reduce size without Mini Game device QA.
 - The latest local release build is 2,013,782 bytes in the main package, 28,514,601 bytes in the `resources` subpackage, and 30,528,383 bytes total. These are build-gate measurements, not substitutes for WeChat DevTools package analysis or two-device acceptance.
+- `room.set-ai-count` is a backward-compatible server-response change but a new strict v1 client command. Deploy the supporting Cloud Hosting server before uploading a client that can send it; do not roll the service back to a build that rejects that command while the new experience version is active.

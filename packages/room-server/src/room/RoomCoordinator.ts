@@ -1,4 +1,4 @@
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { chooseAiIntent } from "@wizzard/game-core";
 import {
   advanceAuthoritativeMatch,
@@ -184,6 +184,40 @@ export class RoomCoordinator {
 
     return this.queue.run(located.id, async () => {
       const current = await this.requireRoom(located.id);
+      const requestFingerprint = fingerprintJoinRequest(message);
+      const replayedPlayer = current.players.find(
+        (player) =>
+          !player.isAi && player.joinRequestId === message.requestId,
+      );
+
+      if (replayedPlayer) {
+        if (replayedPlayer.joinRequestFingerprint !== requestFingerprint) {
+          throw new RoomServiceError(
+            "COMMAND_REJECTED",
+            "The join request id was already used with different room details.",
+          );
+        }
+        if (
+          !replayedPlayer.session ||
+          replayedPlayer.session.expiresAt <= now ||
+          current.lifecycle === "closed"
+        ) {
+          throw new RoomServiceError(
+            "SESSION_NOT_FOUND",
+            "The retried join session is no longer active.",
+          );
+        }
+
+        const room = structuredClone(current);
+        const rotated = this.rotatePlayerSession(
+          room,
+          replayedPlayer.playerId,
+          now,
+        );
+        prepareSave(room, current.revision, now, this.expiryFor(room, now));
+        await this.saveOrThrow(room, current.revision);
+        return { ...rotated, room };
+      }
 
       if (current.lifecycle !== "lobby") {
         throw new RoomServiceError(
@@ -192,21 +226,33 @@ export class RoomCoordinator {
         );
       }
 
-      if (current.players.length >= current.maxPlayers) {
-        throw new RoomServiceError("ROOM_FULL", "This room is full.");
+      const room = structuredClone(current);
+      let replacedAiSeatIndex: number | null = null;
+      if (room.players.length >= room.maxPlayers) {
+        const replaceableAi = room.players
+          .filter((player) => player.isAi)
+          .sort((left, right) => right.seatIndex - left.seatIndex)[0];
+        if (!replaceableAi) {
+          throw new RoomServiceError("ROOM_FULL", "This room is full.");
+        }
+        replacedAiSeatIndex = replaceableAi.seatIndex;
+        room.players = room.players.filter(
+          (player) => player.playerId !== replaceableAi.playerId,
+        );
       }
 
       const playerId = this.idFactory();
       const sessionId = this.idFactory();
       const resume = issueResumeToken(current.id, playerId);
-      const seatIndex = firstOpenSeat(current);
-      const room = structuredClone(current);
+      const seatIndex = replacedAiSeatIndex ?? firstOpenSeat(room);
       room.players.push({
         avatarKey: message.payload.avatarKey,
         connected: true,
         consecutiveTimeouts: 0,
         control: "human",
         isAi: false,
+        joinRequestFingerprint: requestFingerprint,
+        joinRequestId: message.requestId,
         joinedAt: now,
         name: message.payload.displayName,
         playerId,
@@ -275,36 +321,11 @@ export class RoomCoordinator {
       }
 
       const room = structuredClone(current);
-      const player = requirePlayer(room, parsed.playerId);
-      const resume = issueResumeToken(room.id, player.playerId);
-      const nextGeneration = player.session!.generation + 1;
-      player.connected = true;
-      player.consecutiveTimeouts = 0;
-      player.control = "human";
-      player.session = {
-        expiresAt: now + this.config.sessionTtlMs,
-        generation: nextGeneration,
-        resumeTokenHash: resume.tokenHash,
-        sessionId: player.session!.sessionId,
-      };
+      const rotated = this.rotatePlayerSession(room, parsed.playerId, now);
       prepareSave(room, current.revision, now, this.expiryFor(room, now));
       await this.saveOrThrow(room, current.revision);
 
-      return {
-        grant: {
-          playerId: player.playerId,
-          resumeToken: resume.token,
-          roomCode: room.code,
-          roomId: room.id,
-        },
-        room,
-        session: {
-          generation: nextGeneration,
-          playerId: player.playerId,
-          roomId: room.id,
-          sessionId: player.session.sessionId,
-        },
-      };
+      return { ...rotated, room };
     });
   }
 
@@ -358,6 +379,8 @@ export class RoomCoordinator {
       if (message.type === "room.set-ready") {
         requireLifecycle(room, "lobby");
         actor.ready = message.payload.ready;
+      } else if (message.type === "room.set-ai-count") {
+        this.setAiCount(room, actor.playerId, message.payload.aiCount, now);
       } else if (message.type === "room.start") {
         this.startMatch(room, actor.playerId, message.payload.fillWithAi, now);
       } else if (message.type === "match.continue-round") {
@@ -591,7 +614,7 @@ export class RoomCoordinator {
       );
     }
 
-    if (!fillWithAi && humans.length !== room.maxPlayers) {
+    if (!fillWithAi && room.players.length !== room.maxPlayers) {
       throw new RoomServiceError(
         "NOT_ENOUGH_PLAYERS",
         "Fill every seat or enable AI fill.",
@@ -600,19 +623,7 @@ export class RoomCoordinator {
 
     while (fillWithAi && room.players.length < room.maxPlayers) {
       const seatIndex = firstOpenSeat(room);
-      room.players.push({
-        avatarKey: AVATAR_KEYS[seatIndex % AVATAR_KEYS.length],
-        connected: true,
-        consecutiveTimeouts: 0,
-        control: "ai",
-        isAi: true,
-        joinedAt: now,
-        name: `茶灵 ${seatIndex + 1}`,
-        playerId: `ai-${this.idFactory()}`,
-        ready: true,
-        seatIndex,
-        session: null,
-      });
+      room.players.push(this.createAiPlayer(seatIndex, now));
     }
 
     if (room.players.length < 3) {
@@ -642,6 +653,126 @@ export class RoomCoordinator {
     room.match = created.result;
     room.lifecycle = "playing";
     synchronizeMatch(room, now, this.config);
+  }
+
+  private setAiCount(
+    room: RoomRecord,
+    actorPlayerId: string,
+    aiCount: number,
+    now: number,
+  ): void {
+    requireLifecycle(room, "lobby");
+
+    if (room.hostPlayerId !== actorPlayerId) {
+      throw new RoomServiceError(
+        "NOT_HOST",
+        "Only the host can manage lobby AI players.",
+      );
+    }
+
+    if (!Number.isSafeInteger(aiCount) || aiCount < 0) {
+      throw new RoomServiceError(
+        "COMMAND_REJECTED",
+        "The requested AI count is invalid.",
+      );
+    }
+
+    const humanCount = room.players.filter((player) => !player.isAi).length;
+    const aiPlayers = room.players
+      .filter((player) => player.isAi)
+      .sort((left, right) => right.seatIndex - left.seatIndex);
+    if (
+      humanCount < MIN_HUMAN_PLAYERS &&
+      aiCount > aiPlayers.length
+    ) {
+      throw new RoomServiceError(
+        "NOT_ENOUGH_PLAYERS",
+        `At least ${MIN_HUMAN_PLAYERS} human players are required before adding AI players.`,
+      );
+    }
+
+    const maximumAiCount = room.maxPlayers - humanCount;
+    if (aiCount > maximumAiCount) {
+      throw new RoomServiceError(
+        "COMMAND_REJECTED",
+        "The requested AI count exceeds the remaining room capacity.",
+      );
+    }
+
+    if (aiPlayers.length > aiCount) {
+      const removedIds = new Set(
+        aiPlayers
+          .slice(0, aiPlayers.length - aiCount)
+          .map((player) => player.playerId),
+      );
+      room.players = room.players.filter(
+        (player) => !removedIds.has(player.playerId),
+      );
+    }
+
+    while (room.players.filter((player) => player.isAi).length < aiCount) {
+      const seatIndex = firstOpenSeat(room);
+      room.players.push(this.createAiPlayer(seatIndex, now));
+    }
+
+    room.players.sort((left, right) => left.seatIndex - right.seatIndex);
+  }
+
+  private createAiPlayer(seatIndex: number, now: number): RoomPlayerRecord {
+    return {
+      avatarKey: AVATAR_KEYS[seatIndex % AVATAR_KEYS.length],
+      connected: true,
+      consecutiveTimeouts: 0,
+      control: "ai",
+      isAi: true,
+      joinedAt: now,
+      name: `茶灵 ${seatIndex + 1}`,
+      playerId: `ai-${this.idFactory()}`,
+      ready: true,
+      seatIndex,
+      session: null,
+    };
+  }
+
+  private rotatePlayerSession(
+    room: RoomRecord,
+    playerId: string,
+    now: number,
+  ): Pick<EstablishedRoomSession, "grant" | "session"> {
+    const player = requirePlayer(room, playerId);
+    if (!player.session) {
+      throw new RoomServiceError(
+        "SESSION_NOT_FOUND",
+        "The room session is no longer active.",
+      );
+    }
+
+    const resume = issueResumeToken(room.id, player.playerId);
+    const nextGeneration = player.session.generation + 1;
+    player.connected = true;
+    player.consecutiveTimeouts = 0;
+    player.control = "human";
+    player.session = {
+      expiresAt: now + this.config.sessionTtlMs,
+      generation: nextGeneration,
+      resumeTokenHash: resume.tokenHash,
+      sessionId: player.session.sessionId,
+    };
+
+    return {
+      grant: {
+        playerId: player.playerId,
+        resumeToken: resume.token,
+        roomCode: room.code,
+        roomId: room.id,
+      },
+      session: {
+        generation: nextGeneration,
+        playerId: player.playerId,
+        roomId: room.id,
+        sessionId: player.session.sessionId,
+      },
+    };
   }
 
   private continueRound(room: RoomRecord, now: number): MatchEvent[] {
@@ -878,6 +1009,19 @@ function prepareSave(
   room.expiresAt = expiresAt;
 }
 
+function fingerprintJoinRequest(message: JoinRoomMessage): string {
+  const canonicalPayload = JSON.stringify({
+    avatarKey: message.payload.avatarKey,
+    displayName: message.payload.displayName,
+    inviteToken: message.payload.inviteToken ?? null,
+    roomCode: message.payload.roomCode ?? null,
+  });
+  return createHash("sha256")
+    .update("wizzard-room-join:v1\0", "utf8")
+    .update(canonicalPayload, "utf8")
+    .digest("hex");
+}
+
 function firstOpenSeat(room: RoomRecord): number {
   const occupied = new Set(room.players.map((player) => player.seatIndex));
   for (let index = 0; index < room.maxPlayers; index += 1) {
@@ -969,6 +1113,9 @@ function roomCommandReceipt(
   }
   if (message.type === "room.start") {
     return `${message.type}|${message.payload.fillWithAi}`;
+  }
+  if (message.type === "room.set-ai-count") {
+    return `${message.type}|${message.payload.aiCount}`;
   }
   return message.type;
 }

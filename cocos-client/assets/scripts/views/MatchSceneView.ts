@@ -25,6 +25,7 @@ import {
   GAMEPLAY_SLOT_MAPS,
   getGameplayRightActionOccupant,
   getGameplayTrumpStatusRects,
+  getPracticeHomeActionPlacement,
   type GameplayLayoutRect,
 } from "./GameplayLayout";
 import {
@@ -73,6 +74,18 @@ const GREEN_BUTTON: ButtonStyle = {
   textOffsetY: ROUND_RESULTS_LAYOUT.footer.primaryLabel.offsetY,
 };
 
+const PRACTICE_HOME_BUTTON: ButtonStyle = {
+  assetKey: ROUND_RESULTS_ASSETS.paperButton as AssetKey,
+  fontKey: "font.interface" as AssetKey,
+  fontSize: 23,
+  hitHeight: GAMEPLAY_LAYOUT.practiceHomeTouch.height,
+  hitWidth: GAMEPLAY_LAYOUT.practiceHomeTouch.width,
+  labelHeight: 44,
+  labelWidth: 120,
+  outlineWidth: 0,
+  textColor: new Color(72, 42, 24, 255),
+};
+
 const TURN_ACTION_BUTTON: ButtonStyle = {
   assetKey: "ui.turnButton" as AssetKey,
   fontKey: "font.display" as AssetKey,
@@ -86,6 +99,7 @@ const TURN_ACTION_BUTTON: ButtonStyle = {
 };
 
 export type MatchSceneViewOptions = Readonly<{
+  onReturnHome: (() => void) | null;
   onVibrate: () => Promise<void>;
   preferences: GamePreferences;
 }>;
@@ -251,6 +265,7 @@ export class MatchSceneView {
     options?: Partial<MatchSceneViewOptions>,
   ) {
     this.options = {
+      onReturnHome: options?.onReturnHome ?? null,
       onVibrate: options?.onVibrate ?? (() => Promise.resolve()),
       preferences: options?.preferences ?? DEFAULT_GAME_PREFERENCES,
     };
@@ -345,6 +360,7 @@ export class MatchSceneView {
     this.renderHand(update);
     this.renderPhaseOverlay(update);
     this.renderConnectionOverlay(update);
+    this.renderPracticeHomeAction(state.phase);
   }
 
   private refreshPresentation(): void {
@@ -417,6 +433,33 @@ export class MatchSceneView {
         outlineColor: new Color(44, 22, 14, 255),
         outlineWidth: 2,
       },
+    );
+  }
+
+  private renderPracticeHomeAction(
+    phase: PlayerMatchSnapshot["publicState"]["phase"],
+  ): void {
+    const onReturnHome = this.options.onReturnHome;
+    const placement = getPracticeHomeActionPlacement(
+      phase,
+      onReturnHome !== null,
+    );
+    if (!onReturnHome || placement !== "floating") {
+      return;
+    }
+
+    const action = GAMEPLAY_LAYOUT.practiceHomeAction;
+    createButton(
+      this.dynamicRoot,
+      this.assets,
+      "返回首页",
+      action.width,
+      action.height,
+      action.x,
+      action.y,
+      onReturnHome,
+      true,
+      PRACTICE_HOME_BUTTON,
     );
   }
 
@@ -1481,6 +1524,25 @@ export class MatchSceneView {
         fontSize: 22,
       },
     );
+    const onReturnHome = this.options.onReturnHome;
+    const homePlacement = getPracticeHomeActionPlacement(
+      "match-end",
+      onReturnHome !== null,
+    );
+    if (onReturnHome && homePlacement === "results-footer") {
+      createButton(
+        sheet,
+        this.assets,
+        "返回首页",
+        ROUND_RESULTS_LAYOUT.footer.secondaryButton.width,
+        ROUND_RESULTS_LAYOUT.footer.secondaryButton.height,
+        ROUND_RESULTS_LAYOUT.footer.secondaryButton.x,
+        ROUND_RESULTS_LAYOUT.footer.secondaryButton.y,
+        onReturnHome,
+        true,
+        PAPER_BUTTON,
+      );
+    }
     if (canRematch) {
       createButton(
         sheet,

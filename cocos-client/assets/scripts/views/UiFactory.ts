@@ -38,6 +38,7 @@ export type TextInputView = {
 
 export type ButtonStyle = {
   assetKey?: AssetKey;
+  disabledOpacity?: number;
   fontKey?: AssetKey;
   fontSize?: number;
   hitHeight?: number;
@@ -222,10 +223,13 @@ export function createButton(
     },
   );
   if (enabled) {
-    eventNode.on(Node.EventType.TOUCH_END, onActivate);
+    eventNode.on(Node.EventType.TOUCH_END, (event: EventTouch) => {
+      event.propagationStopped = true;
+      onActivate();
+    });
   } else {
     const opacity = eventNode.addComponent(UIOpacity);
-    opacity.opacity = 112;
+    opacity.opacity = style.disabledOpacity ?? 112;
   }
   return eventNode;
 }
@@ -241,6 +245,7 @@ export function createTextInput(
   y: number,
   maxLength: number,
   backgroundKey: AssetKey = "ui.friendRoom.row.input.v2" as AssetKey,
+  inputMode: EditBox["inputMode"] = EditBox.InputMode.SINGLE_LINE,
 ): TextInputView {
   const node = createSprite(
     parent,
@@ -303,7 +308,7 @@ export function createTextInput(
     node.getComponent(Sprite)?.spriteFrame ??
     assets.getSpriteFrame(backgroundKey);
   prepareUiNode(node, width, height);
-  editBox.inputMode = EditBox.InputMode.SINGLE_LINE;
+  editBox.inputMode = inputMode;
   textLabel.verticalAlign = Label.VerticalAlign.CENTER;
   placeholderLabel.verticalAlign = Label.VerticalAlign.CENTER;
   editBox.maxLength = maxLength;

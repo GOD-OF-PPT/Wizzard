@@ -1,6 +1,8 @@
 import {
   AVATAR_KEYS,
+  MAX_AI_PLAYERS,
   PROTOCOL_VERSION,
+  ROOM_CODE_LENGTH,
   type AvatarKey,
   type ClientRoomMessage,
   type DecodeResult,
@@ -37,6 +39,7 @@ const CLIENT_TYPES = [
   "room.join",
   "session.resume",
   "room.set-ready",
+  "room.set-ai-count",
   "room.start",
   "room.leave",
   "match.intent",
@@ -71,6 +74,10 @@ const PROTOCOL_ERROR_CODES = [
 ] as const;
 
 const ROOM_PHASES = ["lobby", "playing", "finished"] as const;
+const NUMERIC_ROOM_CODE_PATTERN = new RegExp(
+  `^[0-9]{${ROOM_CODE_LENGTH}}$`,
+);
+const LEGACY_ROOM_CODE_PATTERN = /^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{6}$/;
 
 function success<T>(value: T): DecodeResult<T> {
   return { ok: true, value };
@@ -121,10 +128,14 @@ function isToken(value: unknown): value is string {
   );
 }
 
-function isRoomCode(value: unknown): value is string {
+export function isNumericRoomCode(value: unknown): value is string {
+  return typeof value === "string" && NUMERIC_ROOM_CODE_PATTERN.test(value);
+}
+
+export function isRoomCode(value: unknown): value is string {
   return (
     typeof value === "string" &&
-    /^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{6}$/.test(value)
+    (isNumericRoomCode(value) || LEGACY_ROOM_CODE_PATTERN.test(value))
   );
 }
 
@@ -273,6 +284,25 @@ function decodeClientValue(value: unknown): DecodeResult<ClientRoomMessage> {
       payload: { ready: value.payload.ready },
       requestId: value.requestId,
       type: "room.set-ready",
+      v: PROTOCOL_VERSION,
+    });
+  }
+
+  if (value.type === "room.set-ai-count") {
+    if (
+      !hasOnlyKeys(value, ["v", "type", "requestId", "payload"]) ||
+      !isRecord(value.payload) ||
+      !hasOnlyKeys(value.payload, ["aiCount"]) ||
+      !isNonNegativeInteger(value.payload.aiCount) ||
+      value.payload.aiCount > MAX_AI_PLAYERS
+    ) {
+      return failure("room.set-ai-count payload is invalid.");
+    }
+
+    return success({
+      payload: { aiCount: value.payload.aiCount },
+      requestId: value.requestId,
+      type: "room.set-ai-count",
       v: PROTOCOL_VERSION,
     });
   }

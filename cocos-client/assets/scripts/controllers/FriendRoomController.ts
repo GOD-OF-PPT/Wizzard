@@ -1,9 +1,14 @@
 import {
+  MAX_AI_PLAYERS,
   PROTOCOL_VERSION,
+  ROOM_CODE_LENGTH,
+  isNumericRoomCode,
   type CreateRoomMessage,
   type JoinRoomMessage,
+  type LeaveRoomMessage,
   type RequestErrorCode,
   type RoomUpdatePayload,
+  type SetAiCountMessage,
   type SetReadyMessage,
   type StartRoomMessage,
 } from "@wizzard/room-protocol";
@@ -14,7 +19,6 @@ import {
   type RoomSocketEvent,
 } from "../network/RoomSocketClient";
 
-const ROOM_CODE_PATTERN = /^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{6}$/;
 const INVITE_TOKEN_PATTERN = /^[A-Za-z0-9._-]{16,512}$/;
 const CONTROL_CHARACTER_PATTERN = /[\u0000-\u001f\u007f]/;
 
@@ -35,7 +39,9 @@ export type JoinFriendRoomInviteInput = {
 export type FriendRoomBindingCommand = "create" | "join" | "resume";
 
 export type FriendRoomPendingState = Readonly<{
+  ai: boolean;
   binding: FriendRoomBindingCommand | null;
+  leave: boolean;
   ready: boolean;
   start: boolean;
 }>;
@@ -70,8 +76,8 @@ function normalizeDisplayName(value: string): string | null {
 }
 
 function normalizeRoomCode(value: string): string | null {
-  const roomCode = value.trim().toUpperCase();
-  return ROOM_CODE_PATTERN.test(roomCode) ? roomCode : null;
+  const roomCode = value.trim();
+  return isNumericRoomCode(roomCode) ? roomCode : null;
 }
 
 function isTerminalClientError(code: FriendRoomError["code"]): boolean {
@@ -85,10 +91,12 @@ function isTerminalClientError(code: FriendRoomError["code"]): boolean {
 }
 
 export class FriendRoomController {
+  private aiRequestId: string | null = null;
   private bindingCommand: FriendRoomBindingCommand | null = null;
   private connection: RoomSocketConnectionState = "disconnected";
   private disposed = false;
   private error: FriendRoomError | null = null;
+  private leaveRequestId: string | null = null;
   private readonly listeners = new Set<FriendRoomStateListener>();
   private readyRequestId: string | null = null;
   private roomClient: RoomSocketClient | null = null;
@@ -103,7 +111,9 @@ export class FriendRoomController {
       connection: this.connection,
       error: this.error,
       pending: {
+        ai: this.aiRequestId !== null,
         binding: this.bindingCommand,
+        leave: this.leaveRequestId !== null,
         ready: this.readyRequestId !== null,
         start: this.startRequestId !== null,
       },
@@ -143,7 +153,9 @@ export class FriendRoomController {
 
     this.disposed = true;
     this.detachRoomClient(true);
+    this.aiRequestId = null;
     this.bindingCommand = null;
+    this.leaveRequestId = null;
     this.readyRequestId = null;
     this.startRequestId = null;
     this.connection = "disconnected";
@@ -169,7 +181,7 @@ export class FriendRoomController {
     if (!roomCode) {
       return this.rejectInput(
         "ROOM_CODE_INVALID",
-        "Room code must contain six supported letters or digits.",
+        `Room code must contain exactly ${ROOM_CODE_LENGTH} digits.`,
       );
     }
 
@@ -210,8 +222,74 @@ export class FriendRoomController {
     });
   }
 
+  public leaveRoom(): boolean {
+    if (
+      !this.canSendRoomCommand() ||
+      this.update?.room.phase !== "lobby" ||
+      this.hasPendingLobbyCommand()
+    ) {
+      return false;
+    }
+
+    const roomClient = this.roomClient;
+    if (!roomClient) {
+      return false;
+    }
+
+    const requestId = roomClient.nextRequestId();
+    const message: LeaveRoomMessage = {
+      payload: {},
+      requestId,
+      type: "room.leave",
+      v: PROTOCOL_VERSION,
+    };
+    this.leaveRequestId = requestId;
+    this.error = null;
+    roomClient.sendTracked(message);
+    this.emitState();
+    return true;
+  }
+
   public resumeRoom(): boolean {
     return this.bindRoom("resume", { type: "resume" });
+  }
+
+  public setAiCount(aiCount: number): boolean {
+    const room = this.update?.room;
+    const humanCount = room?.players.filter((player) => !player.isAi).length;
+    const currentAiCount = room?.players.filter((player) => player.isAi).length;
+    if (
+      !this.canSendRoomCommand() ||
+      !room ||
+      room.phase !== "lobby" ||
+      room.hostPlayerId !== room.selfPlayerId ||
+      !Number.isInteger(aiCount) ||
+      aiCount < 0 ||
+      humanCount === undefined ||
+      aiCount > Math.min(MAX_AI_PLAYERS, room.maxPlayers - humanCount) ||
+      aiCount === currentAiCount ||
+      this.hasPendingLobbyCommand()
+    ) {
+      return false;
+    }
+
+    const roomClient = this.roomClient;
+    if (!roomClient) {
+      return false;
+    }
+
+    const requestId = roomClient.nextRequestId();
+    const message: SetAiCountMessage = {
+      payload: { aiCount },
+      requestId,
+      type: "room.set-ai-count",
+      v: PROTOCOL_VERSION,
+    };
+    this.aiRequestId = requestId;
+    this.error = null;
+    roomClient.sendTracked(message);
+    this.emitState();
+    return true;
   }
 
   public setReady(ready: boolean): boolean {
@@ -219,7 +297,7 @@ export class FriendRoomController {
       !this.canSendRoomCommand() ||
       !this.update?.permissions.canSetReady ||
       this.update.room.phase !== "lobby" ||
-      this.readyRequestId
+      this.hasPendingLobbyCommand()
     ) {
       return false;
     }
@@ -248,7 +326,7 @@ export class FriendRoomController {
       !this.canSendRoomCommand() ||
       !this.update?.permissions.canStart ||
       this.update.room.phase !== "lobby" ||
-      this.startRequestId
+      this.hasPendingLobbyCommand()
     ) {
       return false;
     }
@@ -294,6 +372,8 @@ export class FriendRoomController {
     this.bindingCommand = command;
     this.connection = "disconnected";
     this.error = null;
+    this.aiRequestId = null;
+    this.leaveRequestId = null;
     this.readyRequestId = null;
     this.startRequestId = null;
     this.update = null;
@@ -360,6 +440,15 @@ export class FriendRoomController {
     );
   }
 
+  private hasPendingLobbyCommand(): boolean {
+    return Boolean(
+      this.aiRequestId ||
+        this.leaveRequestId ||
+        this.readyRequestId ||
+        this.startRequestId,
+    );
+  }
+
   private detachRoomClient(disposeClient: boolean): void {
     const roomClient = this.roomClient;
     this.unsubscribeRoomClient?.();
@@ -379,6 +468,14 @@ export class FriendRoomController {
   }
 
   private handleError(event: FriendRoomError): void {
+    if (event.requestId === this.aiRequestId) {
+      this.aiRequestId = null;
+    }
+
+    if (event.requestId === this.leaveRequestId) {
+      this.leaveRequestId = null;
+    }
+
     if (event.requestId === this.readyRequestId) {
       this.readyRequestId = null;
     }
@@ -397,7 +494,9 @@ export class FriendRoomController {
 
     if (bindingFailed || isTerminalClientError(event.code)) {
       this.connection = "disconnected";
+      this.aiRequestId = null;
       this.bindingCommand = null;
+      this.leaveRequestId = null;
       this.readyRequestId = null;
       this.startRequestId = null;
       this.update = null;
@@ -431,6 +530,25 @@ export class FriendRoomController {
 
     const ackCommandId = event.payload.ackCommandId;
     let acknowledged = false;
+
+    if (ackCommandId && ackCommandId === this.aiRequestId) {
+      this.aiRequestId = null;
+      acknowledged = true;
+    }
+
+    if (ackCommandId && ackCommandId === this.leaveRequestId) {
+      this.aiRequestId = null;
+      this.leaveRequestId = null;
+      this.bindingCommand = null;
+      this.readyRequestId = null;
+      this.startRequestId = null;
+      this.connection = "disconnected";
+      this.error = null;
+      this.update = null;
+      this.detachRoomClient(true);
+      this.emitState();
+      return;
+    }
 
     if (ackCommandId && ackCommandId === this.readyRequestId) {
       this.readyRequestId = null;

@@ -1,6 +1,15 @@
-import { Color, Node, Sprite, UIOpacity, view } from "cc";
+import {
+  Color,
+  EditBox,
+  EventTouch,
+  Node,
+  Sprite,
+  UIOpacity,
+  view,
+} from "cc";
 import {
   MIN_HUMAN_PLAYERS,
+  ROOM_CODE_LENGTH,
   type AvatarKey,
   type FriendRoomSnapshot,
   type RoomPlayerSnapshot,
@@ -17,6 +26,7 @@ import {
 import {
   createButton,
   createContainer,
+  createHorizontalSliceSprite,
   createModalBackdrop,
   createSprite,
   createText,
@@ -30,6 +40,15 @@ import {
 } from "./RulesSettingsView";
 import { getHomeBackgroundLayout } from "./HomeBackgroundLayout";
 import { FRIEND_ROOM_DIALOG_LAYOUT } from "./FriendRoomDialogLayout";
+import {
+  FRIEND_ROOM_LOBBY_LAYOUT,
+  FRIEND_ROOM_LOBBY_SEAT_POSITIONS,
+  FRIEND_ROOM_LOBBY_SLOT_MAPS,
+} from "./FriendRoomLobbyLayout";
+import {
+  reconcileFriendRoomEntryMode,
+  type FriendRoomEntryMode,
+} from "./FriendRoomNavigation";
 
 const AVATARS: readonly AvatarKey[] = [
   "bamboo-cat",
@@ -49,22 +68,6 @@ const AVATAR_ASSET_KEYS: Record<AvatarKey, AssetKey> = {
   "wandering-crane": "avatar.wanderingCrane.normal",
 };
 
-const SEAT_POSITIONS = [
-  [-741, -11],
-  [-432, 253],
-  [7, 383],
-  [444, 311],
-  [734, 19],
-  [9, -282],
-] as const;
-
-const SLOT_MAPS: Record<3 | 4 | 5 | 6, readonly number[]> = {
-  3: [1, 2, 3],
-  4: [1, 2, 3, 0],
-  5: [1, 2, 3, 0, 4],
-  6: [1, 2, 3, 0, 4, 5],
-};
-
 const LACQUER_BUTTON: ButtonStyle = {
   assetKey: "ui.panel.primary",
   fontKey: "font.display",
@@ -74,13 +77,6 @@ const LACQUER_BUTTON: ButtonStyle = {
 
 const BLUE_BUTTON: ButtonStyle = {
   assetKey: "ui.panel.secondary",
-  fontKey: "font.display",
-  sliced: true,
-  textColor: new Color(247, 226, 184, 255),
-};
-
-const GREEN_BUTTON: ButtonStyle = {
-  assetKey: "ui.status.green",
   fontKey: "font.display",
   sliced: true,
   textColor: new Color(247, 226, 184, 255),
@@ -106,7 +102,99 @@ const AI_FILL_BUTTON: ButtonStyle = {
   textColor: new Color(247, 226, 184, 255),
 };
 
-type EntryMode = "create" | "home" | "join" | "rules";
+const LOBBY_HOME_BUTTON: ButtonStyle = {
+  assetKey: "ui.results.button.paper",
+  fontKey: "font.display",
+  fontSize: 25,
+  hitHeight: FRIEND_ROOM_LOBBY_LAYOUT.returnHomeTouch.height,
+  hitWidth: FRIEND_ROOM_LOBBY_LAYOUT.returnHomeTouch.width,
+  labelHeight: 54,
+  labelWidth: 164,
+  outlineWidth: 0,
+  textColor: new Color(70, 39, 21, 255),
+};
+
+const LOBBY_INVITE_BUTTON: ButtonStyle = {
+  assetKey: "ui.results.button.paper",
+  fontKey: "font.display",
+  fontSize: 31,
+  labelHeight: 72,
+  labelWidth: 230,
+  outlineWidth: 0,
+  textColor: new Color(70, 39, 21, 255),
+};
+
+const LOBBY_READY_BUTTON: ButtonStyle = {
+  assetKey: "ui.results.button.green.v2",
+  fontKey: "font.display",
+  fontSize: 32,
+  hitHeight: FRIEND_ROOM_LOBBY_LAYOUT.readyButton.height,
+  hitWidth: FRIEND_ROOM_LOBBY_LAYOUT.readyButton.width,
+  labelHeight: 64,
+  labelWidth: 240,
+  outlineWidth: 0,
+  textColor: new Color(245, 229, 188, 255),
+};
+
+const LOBBY_CANCEL_READY_BUTTON: ButtonStyle = {
+  assetKey: "ui.results.button.paper",
+  fontKey: "font.display",
+  fontSize: 30,
+  hitHeight: FRIEND_ROOM_LOBBY_LAYOUT.readyButton.height,
+  hitWidth: FRIEND_ROOM_LOBBY_LAYOUT.readyButton.width,
+  labelHeight: 64,
+  labelWidth: 190,
+  outlineWidth: 0,
+  textColor: new Color(70, 39, 21, 255),
+};
+
+const LOBBY_AI_ADD_BUTTON: ButtonStyle = {
+  assetKey: "ui.results.button.green.v2",
+  disabledOpacity: 176,
+  fontKey: "font.interface",
+  fontSize: 21,
+  hitHeight: FRIEND_ROOM_LOBBY_LAYOUT.aiAddTouch.height,
+  hitWidth: FRIEND_ROOM_LOBBY_LAYOUT.aiAddTouch.width,
+  labelHeight: 44,
+  labelWidth: 154,
+  outlineWidth: 0,
+  textColor: new Color(245, 229, 188, 255),
+};
+
+const LOBBY_AI_REMOVE_BUTTON: ButtonStyle = {
+  assetKey: "ui.results.button.paper",
+  disabledOpacity: 176,
+  fontKey: "font.interface",
+  fontSize: 21,
+  hitHeight: FRIEND_ROOM_LOBBY_LAYOUT.aiRemoveTouch.height,
+  hitWidth: FRIEND_ROOM_LOBBY_LAYOUT.aiRemoveTouch.width,
+  labelHeight: 44,
+  labelWidth: 126,
+  outlineWidth: 0,
+  textColor: new Color(70, 39, 21, 255),
+};
+
+const LEAVE_CONFIRM_BUTTON: ButtonStyle = {
+  assetKey: "ui.results.button.green.v2",
+  fontKey: "font.display",
+  fontSize: 31,
+  hitHeight: 120,
+  labelHeight: 58,
+  labelWidth: 210,
+  outlineWidth: 0,
+  textColor: new Color(245, 229, 188, 255),
+};
+
+const LEAVE_CANCEL_BUTTON: ButtonStyle = {
+  assetKey: "ui.results.button.paper",
+  fontKey: "font.display",
+  fontSize: 31,
+  hitHeight: 120,
+  labelHeight: 64,
+  labelWidth: 160,
+  outlineWidth: 0,
+  textColor: new Color(72, 42, 24, 255),
+};
 
 export type FriendRoomViewOptions = {
   onInvite: (roomCode: string) => Promise<void>;
@@ -128,7 +216,7 @@ function getErrorMessage(error: FriendRoomError): string {
     PLAYERS_NOT_READY: "所有真人玩家准备后才能开始",
     PROTOCOL_ERROR: "客户端与房间服务版本不一致",
     RATE_LIMITED: "操作太快了，请稍候",
-    ROOM_CODE_INVALID: "请输入正确的 6 位房间码",
+    ROOM_CODE_INVALID: `请输入 ${ROOM_CODE_LENGTH} 位数字房间码`,
     ROOM_FULL: "房间已经坐满",
     ROOM_NOT_FOUND: "没有找到这个好友房",
     ROOM_NOT_JOINABLE: "这局已经开始，暂时不能加入",
@@ -158,9 +246,10 @@ export class FriendRoomView {
   private readonly contentRoot: Node;
   private displayName = "青竹客";
   private disposed = false;
-  private entryMode: EntryMode = "home";
+  private entryMode: FriendRoomEntryMode = "home";
   private fillWithAi = true;
   private latestState: FriendRoomState;
+  private leaveConfirmationOpen = false;
   private maxPlayers: 3 | 4 | 5 | 6 = 6;
   private mode: "classic" | "quick" = "quick";
   private nameInput: TextInputView | null = null;
@@ -217,7 +306,17 @@ export class FriendRoomView {
   }
 
   public render(state: FriendRoomState): void {
+    if (this.leaveConfirmationOpen && state.error) {
+      this.leaveConfirmationOpen = false;
+    }
     this.latestState = state;
+    this.entryMode = reconcileFriendRoomEntryMode(
+      this.entryMode,
+      state.update !== null,
+    );
+    if (!state.update) {
+      this.leaveConfirmationOpen = false;
+    }
     this.nameInput = null;
     this.roomCodeInput = null;
     destroyChildren(this.contentRoot);
@@ -233,6 +332,10 @@ export class FriendRoomView {
       state.connection === "reconnecting"
     ) {
       this.renderConnectionOverlay(state.connection);
+    }
+
+    if (state.update && this.leaveConfirmationOpen) {
+      this.renderLeaveConfirmation(state);
     }
 
     if (state.error) {
@@ -292,6 +395,42 @@ export class FriendRoomView {
         this.notice = "房间码复制失败，请直接告诉好友";
         this.render(this.latestState);
       });
+  }
+
+  private confirmLeaveRoom(): void {
+    const previousEntryMode = this.entryMode;
+    this.entryMode = "home";
+    this.notice = null;
+    if (!this.controller.leaveRoom()) {
+      this.entryMode = previousEntryMode;
+    }
+  }
+
+  private setLobbyAiCount(aiCount: number): void {
+    const previousFillWithAi = this.fillWithAi;
+    this.fillWithAi = false;
+    if (!this.controller.setAiCount(aiCount)) {
+      this.fillWithAi = previousFillWithAi;
+      return;
+    }
+  }
+
+  private openLeaveConfirmation(): void {
+    if (
+      this.latestState.connection !== "connected" ||
+      this.latestState.pending.leave ||
+      this.latestState.pending.ai ||
+      this.latestState.pending.ready ||
+      this.latestState.pending.start ||
+      this.latestState.update?.room.phase !== "lobby"
+    ) {
+      return;
+    }
+
+    this.leaveConfirmationOpen = true;
+    this.notice = null;
+    this.controller.clearError();
+    this.render(this.latestState);
   }
 
   private renderAvatarPicker(parent: Node, y: number): void {
@@ -433,7 +572,7 @@ export class FriendRoomView {
   }
 
   private renderEntryDialog(
-    mode: Exclude<EntryMode, "home" | "rules">,
+    mode: Exclude<FriendRoomEntryMode, "home" | "rules">,
     state: FriendRoomState,
   ): void {
     const layout = FRIEND_ROOM_DIALOG_LAYOUT[mode];
@@ -597,13 +736,14 @@ export class FriendRoomView {
         overlay,
         this.assets,
         this.roomCode,
-        "输入 6 位房间码",
+        `输入 ${ROOM_CODE_LENGTH} 位数字房间码`,
         ENTRY_CONTROL_WIDTH,
         layout.roomCode!.height,
         ENTRY_CONTROL_X,
         layout.roomCode!.y,
-        6,
+        ROOM_CODE_LENGTH,
         layout.roomCode!.assetKey,
+        EditBox.InputMode.NUMERIC,
       );
       const codeLabel = this.roomCodeInput.editBox.textLabel;
       if (codeLabel) {
@@ -644,15 +784,17 @@ export class FriendRoomView {
   }
 
   private renderError(error: FriendRoomError): void {
-    const notice = createSprite(
+    const layout = this.latestState.update
+      ? FRIEND_ROOM_LOBBY_LAYOUT.notice
+      : { height: 96, width: 680, x: 0, y: -450 };
+    const notice = createHorizontalSliceSprite(
       this.contentRoot,
       this.assets,
       "ui.plaque.small",
-      680,
-      96,
-      0,
-      -450,
-      true,
+      layout.width,
+      layout.height,
+      layout.x,
+      layout.y,
     );
     notice.name = "FriendRoomError";
     createText(
@@ -742,16 +884,91 @@ export class FriendRoomView {
     });
   }
 
+  private renderLeaveConfirmation(state: FriendRoomState): void {
+    const layout = FRIEND_ROOM_LOBBY_LAYOUT.leaveDialog;
+    const overlay = createModalBackdrop(this.contentRoot);
+    overlay.name = "FriendRoomLeaveConfirmation";
+    createSprite(
+      overlay,
+      this.assets,
+      "ui.panel.secondary",
+      layout.panel.width,
+      layout.panel.height,
+      layout.panel.x,
+      layout.panel.y,
+      true,
+    );
+    createText(
+      overlay,
+      this.assets,
+      "返回首页",
+      layout.title.width,
+      layout.title.height,
+      layout.title.x,
+      layout.title.y,
+      {
+        fontKey: "font.display",
+        fontSize: 42,
+        outlineColor: new Color(43, 22, 14, 255),
+        outlineWidth: 2,
+      },
+    );
+    createText(
+      overlay,
+      this.assets,
+      "确定离开好友房并返回首页吗？\n离开后需要重新输入房间码加入。",
+      layout.body.width,
+      layout.body.height,
+      layout.body.x,
+      layout.body.y,
+      {
+        color: new Color(239, 215, 166, 255),
+        fontKey: "font.interface",
+        fontSize: 28,
+        lineHeight: 42,
+        outlineColor: new Color(43, 22, 14, 255),
+        outlineWidth: 1,
+      },
+    );
+    createButton(
+      overlay,
+      this.assets,
+      "继续等待",
+      layout.cancelButton.width,
+      layout.cancelButton.height,
+      layout.cancelButton.x,
+      layout.cancelButton.y,
+      () => {
+        this.leaveConfirmationOpen = false;
+        this.render(this.latestState);
+      },
+      !state.pending.leave,
+      LEAVE_CANCEL_BUTTON,
+    );
+    createButton(
+      overlay,
+      this.assets,
+      state.pending.leave ? "正在离开" : "确认离开",
+      layout.confirmButton.width,
+      layout.confirmButton.height,
+      layout.confirmButton.x,
+      layout.confirmButton.y,
+      () => this.confirmLeaveRoom(),
+      state.connection === "connected" && !state.pending.leave,
+      LEAVE_CONFIRM_BUTTON,
+    );
+  }
+
   private renderNotice(message: string): void {
-    const notice = createSprite(
+    const layout = FRIEND_ROOM_LOBBY_LAYOUT.notice;
+    const notice = createHorizontalSliceSprite(
       this.contentRoot,
       this.assets,
       "ui.plaque.small",
-      680,
-      96,
-      0,
-      -450,
-      true,
+      layout.width,
+      layout.height,
+      layout.x,
+      layout.y,
     );
     notice.name = "FriendRoomNotice";
     createText(notice, this.assets, message, 590, 58, 0, 0, {
@@ -762,59 +979,98 @@ export class FriendRoomView {
   }
 
   private renderLobby(state: FriendRoomState, room: FriendRoomSnapshot): void {
-    const connected = state.connection === "connected";
+    const connected =
+      state.connection === "connected" && !state.pending.leave;
     const isHost = room.hostPlayerId === room.selfPlayerId;
-    const roomTitle = createSprite(
+    const layout = FRIEND_ROOM_LOBBY_LAYOUT;
+    const roomTitle = createHorizontalSliceSprite(
       this.contentRoot,
       this.assets,
       "ui.scoreRibbon",
-      470,
-      190,
-      -670,
-      390,
-      true,
+      layout.roomTitle.width,
+      layout.roomTitle.height,
+      layout.roomTitle.x,
+      layout.roomTitle.y,
     );
     createText(
       roomTitle,
       this.assets,
       `好友房 ${room.roomCode}`,
-      390,
-      64,
-      0,
-      32,
+      layout.roomTitleLabel.width,
+      layout.roomTitleLabel.height,
+      layout.roomTitleLabel.x,
+      layout.roomTitleLabel.y,
       {
         color: new Color(57, 34, 20, 255),
         fontKey: "font.display",
-        fontSize: 32,
+        fontSize: 28,
       },
     );
     createText(
       roomTitle,
       this.assets,
       getModeLabel(room.mode, room.maxPlayers),
-      390,
-      54,
-      0,
-      -36,
+      layout.roomModeLabel.width,
+      layout.roomModeLabel.height,
+      layout.roomModeLabel.x,
+      layout.roomModeLabel.y,
       {
         color: new Color(72, 44, 27, 255),
         fontKey: "font.interface",
-        fontSize: 25,
+        fontSize: 22,
       },
     );
 
+    createButton(
+      this.contentRoot,
+      this.assets,
+      "返回首页",
+      layout.returnHome.width,
+      layout.returnHome.height,
+      layout.returnHome.x,
+      layout.returnHome.y,
+      () => this.openLeaveConfirmation(),
+      connected &&
+        room.phase === "lobby" &&
+        !state.pending.ai &&
+        !state.pending.ready &&
+        !state.pending.start,
+      LOBBY_HOME_BUTTON,
+    );
+
+    const humans = room.players.filter((player) => !player.isAi);
+    const connectedHumans = humans.filter((player) => player.connected);
+    const aiCount = room.players.filter((player) => player.isAi).length;
+    const readyHumans = humans.filter(
+      (player) => player.connected && player.ready,
+    ).length;
+    const hasMinimumHumans = connectedHumans.length >= MIN_HUMAN_PLAYERS;
+    const canManageAi =
+      connected && isHost && room.phase === "lobby" && !state.pending.ai;
+    const canAddAi =
+      canManageAi &&
+      hasMinimumHumans &&
+      room.players.length < room.maxPlayers &&
+      !state.pending.ready &&
+      !state.pending.start;
+    const canRemoveAi =
+      canManageAi &&
+      aiCount > 0 &&
+      !state.pending.ready &&
+      !state.pending.start;
     const orderedPlayers = this.getViewerRelativePlayers(room);
-    const activeSlots = SLOT_MAPS[room.maxPlayers];
+    const activeSlots = FRIEND_ROOM_LOBBY_SLOT_MAPS[room.maxPlayers];
     activeSlots.forEach((slotIndex, index) => {
-      const [x, y] = SEAT_POSITIONS[slotIndex];
+      const [x, y] = FRIEND_ROOM_LOBBY_SEAT_POSITIONS[slotIndex];
       const player = orderedPlayers[index];
       if (player) {
         this.renderOccupiedSeat(player, room, x, y);
       } else {
         this.renderOpenSeat(
-          index === activeSlots.length - 1 && this.fillWithAi,
+          index === activeSlots.length - 1 && canAddAi,
           x,
           y,
+          () => this.setLobbyAiCount(aiCount + 1),
         );
       }
     });
@@ -823,40 +1079,69 @@ export class FriendRoomView {
       this.contentRoot,
       this.assets,
       "ui.panel.secondary",
-      382,
-      203,
-      -723,
-      -359,
+      layout.settings.width,
+      layout.settings.height,
+      layout.settings.x,
+      layout.settings.y,
       true,
     );
-    createText(settings, this.assets, `${room.maxPlayers} 人桌`, 300, 58, 0, 43, {
-      fontKey: "font.display",
-      fontSize: 30,
-      outlineColor: new Color(34, 24, 24, 255),
-      outlineWidth: 2,
-    });
-    const aiToggle = createText(
+    createText(
       settings,
       this.assets,
-      isHost
-        ? `AI补位：${this.fillWithAi ? "开" : "关"} · 至少${MIN_HUMAN_PLAYERS}真人`
-        : "空位由房主决定",
-      310,
-      58,
-      0,
-      -45,
+      `${room.maxPlayers} 人桌`,
+      layout.settingsTitle.width,
+      layout.settingsTitle.height,
+      layout.settingsTitle.x,
+      layout.settingsTitle.y,
+      {
+        fontKey: "font.display",
+        fontSize: 28,
+        outlineColor: new Color(34, 24, 24, 255),
+        outlineWidth: 2,
+      },
+    );
+    createText(
+      settings,
+      this.assets,
+      state.pending.ai
+        ? `开局补位 关 · ${aiCount}AI · 调整中`
+        : isHost
+          ? `开局补位 ${this.fillWithAi ? "开" : "关"} · ${humans.length}真人 · ${aiCount}AI`
+          : `${humans.length}真人 · ${aiCount}AI · 房主管理`,
+      layout.settingsStatus.width,
+      layout.settingsStatus.height,
+      layout.settingsStatus.x,
+      layout.settingsStatus.y,
       {
         color: new Color(239, 215, 166, 255),
         fontKey: "font.interface",
-        fontSize: 27,
+        fontSize: 22,
       },
     );
-    if (isHost && connected) {
-      aiToggle.on(Node.EventType.TOUCH_END, () => {
-        this.fillWithAi = !this.fillWithAi;
-        this.render(this.latestState);
-      });
-    }
+    createButton(
+      this.contentRoot,
+      this.assets,
+      "移除机器人",
+      layout.aiRemoveButton.width,
+      layout.aiRemoveButton.height,
+      layout.aiRemoveButton.x,
+      layout.aiRemoveButton.y,
+      () => this.setLobbyAiCount(Math.max(0, aiCount - 1)),
+      canRemoveAi,
+      LOBBY_AI_REMOVE_BUTTON,
+    );
+    createButton(
+      this.contentRoot,
+      this.assets,
+      "添加机器人",
+      layout.aiAddButton.width,
+      layout.aiAddButton.height,
+      layout.aiAddButton.x,
+      layout.aiAddButton.y,
+      () => this.setLobbyAiCount(aiCount + 1),
+      canAddAi,
+      LOBBY_AI_ADD_BUTTON,
+    );
 
     const self = room.players.find(
       (player) => player.playerId === room.selfPlayerId,
@@ -865,39 +1150,38 @@ export class FriendRoomView {
       connected &&
       room.phase === "lobby" &&
       state.update?.permissions.canSetReady === true &&
+      !state.pending.ai &&
+      !state.pending.start &&
       !state.pending.ready;
+    const readyVisual = self?.ready
+      ? layout.readyButtonPaperVisual
+      : layout.readyButtonGreenVisual;
     createButton(
       this.contentRoot,
       this.assets,
-      self?.ready ? "取消准备" : "准备",
-      270,
-      118,
-      260,
-      -400,
+      state.pending.ready ? "正在处理" : self?.ready ? "取消准备" : "准备",
+      readyVisual.width,
+      readyVisual.height,
+      readyVisual.x,
+      readyVisual.y,
       () => this.controller.setReady(!self?.ready),
       canSetReady,
-      self?.ready ? BLUE_BUTTON : GREEN_BUTTON,
+      self?.ready ? LOBBY_CANCEL_READY_BUTTON : LOBBY_READY_BUTTON,
     );
 
     createButton(
       this.contentRoot,
       this.assets,
       "邀请好友",
-      330,
-      150,
-      420,
-      -295,
+      layout.inviteButton.width,
+      layout.inviteButton.height,
+      layout.inviteButton.x,
+      layout.inviteButton.y,
       () => this.invite(room.roomCode),
       connected,
-      PAPER_BUTTON,
+      LOBBY_INVITE_BUTTON,
     );
 
-    const humans = room.players.filter((player) => !player.isAi);
-    const connectedHumans = humans.filter((player) => player.connected);
-    const readyHumans = humans.filter(
-      (player) => player.connected && player.ready,
-    ).length;
-    const hasMinimumHumans = connectedHumans.length >= MIN_HUMAN_PLAYERS;
     const allHumansReady =
       hasMinimumHumans &&
       humans.every((player) => player.connected && player.ready);
@@ -910,21 +1194,33 @@ export class FriendRoomView {
       state.update?.permissions.canStart === true &&
       allHumansReady &&
       hasEnoughSeats &&
+      !state.pending.ai &&
+      !state.pending.ready &&
       !state.pending.start;
     const start = createSprite(
       this.contentRoot,
       this.assets,
       "ui.turnButton",
-      300,
-      260,
-      740,
-      -240,
+      layout.startButton.width,
+      layout.startButton.height,
+      layout.startButton.x,
+      layout.startButton.y,
     );
     start.name = "Button:开始游戏";
     createText(
       start,
       this.assets,
-      isHost ? (state.pending.start ? "正在开局" : "开始游戏") : "等待房主",
+      isHost
+        ? state.pending.start
+          ? "正在\n开局"
+          : !hasMinimumHumans
+            ? "等待\n好友"
+            : !allHumansReady
+              ? "等待\n准备"
+              : !hasEnoughSeats
+                ? `还差\n${room.maxPlayers - room.players.length}席`
+                : "开始\n游戏"
+        : "等待\n房主",
       210,
       94,
       0,
@@ -940,27 +1236,29 @@ export class FriendRoomView {
         this.controller.startRoom(this.fillWithAi),
       );
     } else {
-      start.addComponent(UIOpacity).opacity = 132;
+      const startSprite = start.getComponent(Sprite);
+      if (startSprite) {
+        startSprite.color = new Color(255, 255, 255, 176);
+      }
     }
 
     createSprite(
       this.contentRoot,
       this.assets,
-      "ui.plaque.small",
-      270,
-      68,
-      740,
-      -420,
-      true,
+      "ui.match.stat.paper",
+      layout.readyCount.width,
+      layout.readyCount.height,
+      layout.readyCount.x,
+      layout.readyCount.y,
     );
     createText(
       this.contentRoot,
       this.assets,
-      `${readyHumans}/${room.maxPlayers} 已准备`,
-      220,
+      `${readyHumans}/${humans.length} 真人已准备`,
+      210,
       44,
-      740,
-      -420,
+      layout.readyCount.x,
+      layout.readyCount.y,
       {
         color: allHumansReady
           ? new Color(40, 104, 57, 255)
@@ -1016,37 +1314,42 @@ export class FriendRoomView {
       0,
       36,
     );
-    createSprite(
+    const statusLayout = FRIEND_ROOM_LOBBY_LAYOUT.occupiedSeatStatus;
+    const status = createSprite(
       seat,
       this.assets,
-      "ui.status.green",
-      246,
-      82,
-      0,
-      -78,
-      true,
+      player.ready ? "ui.match.stat.green" : "ui.match.stat.paper",
+      statusLayout.width,
+      statusLayout.height,
+      statusLayout.x,
+      statusLayout.y,
     );
-    createText(seat, this.assets, player.name, 200, 42, 0, -71, {
-      fontSize: 28,
+    const statusTextX = player.ready ? 11 : 0;
+    createText(status, this.assets, player.name, 184, 32, statusTextX, 12, {
+      color: player.ready
+        ? new Color(246, 229, 187, 255)
+        : new Color(70, 39, 21, 255),
+      fontKey: "font.display",
+      fontSize: 25,
       outlineColor: new Color(35, 48, 30, 255),
-      outlineWidth: 2,
+      outlineWidth: player.ready ? 1 : 0,
     });
     createText(
-      seat,
+      status,
       this.assets,
       player.connected ? (player.ready ? "已准备" : "未准备") : "离线",
       150,
-      30,
-      0,
-      -105,
+      22,
+      statusTextX,
+      -17,
       {
         color: player.ready
           ? new Color(127, 206, 126, 255)
-          : new Color(222, 193, 139, 255),
+          : new Color(105, 70, 43, 255),
         fontKey: "font.interface",
-        fontSize: 18,
+        fontSize: 16,
         outlineColor: new Color(35, 35, 28, 255),
-        outlineWidth: 1,
+        outlineWidth: player.ready ? 1 : 0,
       },
     );
     if (player.isAi) {
@@ -1072,18 +1375,39 @@ export class FriendRoomView {
     }
   }
 
-  private renderOpenSeat(aiStandby: boolean, x: number, y: number): void {
+  private renderOpenSeat(
+    aiStandby: boolean,
+    x: number,
+    y: number,
+    onAddAi: () => void,
+  ): void {
+    const touchBounds = aiStandby
+      ? FRIEND_ROOM_LOBBY_LAYOUT.aiStandbyTouch
+      : FRIEND_ROOM_LOBBY_LAYOUT.seat;
     const seat = createContainer(
       this.contentRoot,
       aiStandby ? "LobbySeat:AiStandby" : "LobbySeat:Open",
-      286,
-      254,
+      touchBounds.width,
+      touchBounds.height,
       x,
       y,
     );
     createSprite(seat, this.assets, "fx.card.selected", 208, 208, 0, 34);
     if (aiStandby) {
-      createSprite(seat, this.assets, "ui.badge.ai", 148, 148, 0, 34);
+      const badge = FRIEND_ROOM_LOBBY_LAYOUT.aiStandbyBadge;
+      createSprite(
+        seat,
+        this.assets,
+        "ui.badge.ai",
+        badge.width,
+        badge.height,
+        badge.x,
+        badge.y,
+      );
+      seat.on(Node.EventType.TOUCH_END, (event: EventTouch) => {
+        event.propagationStopped = true;
+        onAddAi();
+      });
     } else {
       const silhouette = createSprite(
         seat,
@@ -1100,7 +1424,7 @@ export class FriendRoomView {
       silhouette.getComponent(Sprite)!.color = new Color(42, 46, 57, 255);
       silhouette.addComponent(UIOpacity).opacity = 176;
     }
-    createSprite(
+    createHorizontalSliceSprite(
       seat,
       this.assets,
       "ui.plaque.small",
@@ -1108,7 +1432,6 @@ export class FriendRoomView {
       82,
       0,
       -78,
-      true,
     );
     createText(
       seat,

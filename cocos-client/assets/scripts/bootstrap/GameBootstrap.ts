@@ -218,7 +218,7 @@ export class GameBootstrap extends Component {
       controller,
       {
         onInvite: async (roomCode) =>
-          platformServices.copyText(`奇术茶馆好友房：${roomCode}`),
+          platformServices.copyText(`奇术茶馆 6 位数字房间码：${roomCode}`),
         onPreferencesChange: (preferences) => {
           this.preferences = preferences;
           platformServices.preferenceStore.save(preferences);
@@ -246,7 +246,7 @@ export class GameBootstrap extends Component {
     return node;
   }
 
-  private startFriendRoomFlow(): void {
+  private startFriendRoomFlow(connectInitialBinding = true): void {
     const friendRoomConfig = APP_RUNTIME_CONFIG.friendRoom;
     if (!friendRoomConfig) {
       this.startPractice();
@@ -270,7 +270,7 @@ export class GameBootstrap extends Component {
     );
     this.showFriendRoomSurface();
 
-    if (friendRoomConfig.initialBinding) {
+    if (connectInitialBinding && friendRoomConfig.initialBinding) {
       this.connectInitialBinding(friendRoomConfig.initialBinding);
     }
   }
@@ -311,10 +311,25 @@ export class GameBootstrap extends Component {
     this.matchView?.dispose();
     this.adapter = createLocalMatchAdapter();
     this.matchView = new MatchSceneView(this.node, assets, this.adapter, {
+      onReturnHome: APP_RUNTIME_CONFIG.friendRoom
+        ? () => this.returnPracticeToHome()
+        : null,
       onVibrate: () => this.platformServices?.vibrateShort() ?? Promise.resolve(),
       preferences: this.preferences,
     });
     this.activeSurface = "practice";
     this.adapter.start((update) => this.matchView?.render(update));
+  }
+
+  private returnPracticeToHome(): void {
+    if (this.activeSurface !== "practice" || !APP_RUNTIME_CONFIG.friendRoom) {
+      return;
+    }
+
+    // Guard against a second tap while the friend-room controller and view are
+    // being recreated. showFriendRoomSurface owns the single disposal pass for
+    // the local adapter and match view.
+    this.activeSurface = "boot";
+    this.startFriendRoomFlow(false);
   }
 }

@@ -1,15 +1,17 @@
 import {
   createHash,
   randomBytes,
+  randomInt,
   timingSafeEqual,
 } from "node:crypto";
+import { ROOM_CODE_LENGTH } from "@wizzard/room-protocol";
 
 const DEFAULT_SECRET_BYTES = 32;
 const MAX_TOKEN_CHARACTERS = 512;
 const ID_SEGMENT_PATTERN = /^[A-Za-z0-9_-]{1,128}$/;
 const SECRET_PATTERN = /^[A-Za-z0-9_-]{43}$/;
 const HASH_PATTERN = /^[a-f0-9]{64}$/;
-const ROOM_CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+const ROOM_CODE_DIGITS = "23456789";
 
 export type TokenPurpose = "connection" | "invite" | "resume";
 
@@ -194,16 +196,12 @@ export function rotateResumeToken(
   return issueResumeToken(roomId, playerId);
 }
 
-export function generateRoomCode(length = 6): string {
-  if (!Number.isSafeInteger(length) || length < 4 || length > 12) {
-    throw new Error("ROOM_CODE_LENGTH_INVALID");
-  }
-
-  const bytes = randomBytes(length);
+export function generateRoomCode(): string {
   let code = "";
-
-  for (const byte of bytes) {
-    code += ROOM_CODE_ALPHABET[byte & 31];
+  // Digits 2-9 keep the staged server-first rollout readable by the previous
+  // client while still removing letters from every newly generated code.
+  for (let index = 0; index < ROOM_CODE_LENGTH; index += 1) {
+    code += ROOM_CODE_DIGITS[randomInt(0, ROOM_CODE_DIGITS.length)];
   }
 
   return code;

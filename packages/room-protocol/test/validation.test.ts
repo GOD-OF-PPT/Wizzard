@@ -102,7 +102,7 @@ function createUpdatePayload(): RoomUpdatePayload {
         },
       ],
       revision: 4,
-      roomCode: "ABC234",
+      roomCode: "123456",
       roomId: "room-1",
       selfPlayerId: "player-host",
       updatedAt: 1_500,
@@ -151,6 +151,40 @@ describe("client protocol decoder", () => {
         v: 1,
       },
     });
+  });
+
+  it("accepts a host request that sets the lobby AI count", () => {
+    expect(
+      decodeClientMessage(
+        JSON.stringify({
+          payload: { aiCount: 4 },
+          requestId: "stream-1:ai-count",
+          type: "room.set-ai-count",
+          v: 1,
+        }),
+      ),
+    ).toEqual({
+      ok: true,
+      value: {
+        payload: { aiCount: 4 },
+        requestId: "stream-1:ai-count",
+        type: "room.set-ai-count",
+        v: 1,
+      },
+    });
+  });
+
+  it.each([-1, 1.5, 5, "2"])("rejects invalid AI counts: %s", (aiCount) => {
+    expect(
+      decodeClientMessage(
+        JSON.stringify({
+          payload: { aiCount },
+          requestId: "stream-1:bad-ai-count",
+          type: "room.set-ai-count",
+          v: 1,
+        }),
+      ).ok,
+    ).toBe(false);
   });
 
   it.each([
@@ -254,6 +288,7 @@ describe("client protocol decoder", () => {
       value: message,
     });
   });
+
 });
 
 describe("server protocol decoder", () => {
@@ -334,7 +369,7 @@ describe("server protocol decoder", () => {
       session: {
         playerId: "player-host",
         resumeToken: "resume_token_1234567890",
-        roomCode: "ABC234",
+        roomCode: "123456",
         roomId: "room-1",
       },
       type: "session.established",

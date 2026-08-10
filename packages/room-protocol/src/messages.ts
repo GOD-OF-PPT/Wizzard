@@ -15,6 +15,8 @@ export const AVATAR_KEYS = [
 ] as const;
 export const PROTOCOL_VERSION = 1 as const;
 export const MIN_HUMAN_PLAYERS = 2 as const;
+export const MAX_AI_PLAYERS = 4 as const;
+export const ROOM_CODE_LENGTH = 6 as const;
 
 export type AvatarKey = (typeof AVATAR_KEYS)[number];
 export type RoomPhase = "lobby" | "playing" | "finished";
@@ -102,6 +104,13 @@ export type SetReadyMessage = {
   v: 1;
 };
 
+export type SetAiCountMessage = {
+  payload: { aiCount: number };
+  requestId: string;
+  type: "room.set-ai-count";
+  v: 1;
+};
+
 export type StartRoomMessage = {
   payload: { fillWithAi: boolean };
   requestId: string;
@@ -149,6 +158,7 @@ export type ClientRoomMessage =
   | JoinRoomMessage
   | ResumeSessionMessage
   | SetReadyMessage
+  | SetAiCountMessage
   | StartRoomMessage
   | LeaveRoomMessage
   | SubmitMatchIntentMessage

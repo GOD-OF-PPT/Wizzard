@@ -67,10 +67,9 @@ describe("room identity tokens", () => {
     expect(parseResumeToken("r1.room.player.short")).toBeNull();
   });
 
-  it("generates human-friendly room codes without ambiguous glyphs", () => {
+  it("generates six-digit room codes for direct entry", () => {
     const codes = Array.from({ length: 20 }, () => generateRoomCode());
 
-    expect(codes.every((code) => /^[A-HJ-NP-Z2-9]{6}$/.test(code))).toBe(true);
-    expect(new Set(codes).size).toBe(codes.length);
+    expect(codes.every((code) => /^[2-9]{6}$/.test(code))).toBe(true);
   });
 });

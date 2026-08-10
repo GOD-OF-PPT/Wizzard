@@ -101,7 +101,9 @@ function createRoomUpdate(
   updateId: number,
   options: {
     ackCommandId?: string;
+    hostPlayerId?: string;
     phase?: "lobby" | "playing" | "finished";
+    players?: RoomUpdatePayload["room"]["players"];
   } = {},
 ): RoomUpdatePayload {
   return {
@@ -113,25 +115,29 @@ function createRoomUpdate(
       canContinueRound: false,
       canRematch: options.phase === "finished",
       canSetReady: (options.phase ?? "lobby") === "lobby",
-      canStart: (options.phase ?? "lobby") === "lobby",
+      canStart:
+        (options.phase ?? "lobby") === "lobby" &&
+        (options.hostPlayerId ?? "player-self") === "player-self",
     },
     room: {
       createdAt: SERVER_TIME - 10_000,
-      hostPlayerId: "player-self",
+      hostPlayerId: options.hostPlayerId ?? "player-self",
       maxPlayers: 3,
       mode: "quick",
       phase: options.phase ?? "lobby",
-      players: [
-        {
-          avatarKey: "bamboo-cat",
-          connected: true,
-          isAi: false,
-          joinedAt: SERVER_TIME - 9_000,
-          name: "Self",
-          playerId: "player-self",
-          ready: false,
-        },
-      ],
+      players:
+        options.players ??
+        [
+          {
+            avatarKey: "bamboo-cat",
+            connected: true,
+            isAi: false,
+            joinedAt: SERVER_TIME - 9_000,
+            name: "Self",
+            playerId: "player-self",
+            ready: false,
+          },
+        ],
       revision: updateId,
       roomCode: "ABC234",
       roomId: "room-controller-test",
@@ -194,7 +200,7 @@ describe("FriendRoomController", () => {
       harness.controller.joinRoom({
         avatarKey: "bamboo-cat",
         displayName: "   ",
-        roomCode: "abc234",
+        roomCode: "123456",
       }),
     ).toBe(false);
     expect(harness.controller.state.error?.code).toBe("NAME_INVALID");
@@ -204,7 +210,7 @@ describe("FriendRoomController", () => {
       harness.controller.joinRoom({
         avatarKey: "bamboo-cat",
         displayName: "Self",
-        roomCode: "ABCO23",
+        roomCode: "12345A",
       }),
     ).toBe(false);
     expect(harness.controller.state.error?.code).toBe("ROOM_CODE_INVALID");
@@ -214,7 +220,7 @@ describe("FriendRoomController", () => {
       harness.controller.joinRoom({
         avatarKey: "bamboo-cat",
         displayName: "  Self  ",
-        roomCode: " abc234 ",
+        roomCode: " 123456 ",
       }),
     ).toBe(true);
     expect(harness.bindings).toEqual([
@@ -222,7 +228,7 @@ describe("FriendRoomController", () => {
         payload: {
           avatarKey: "bamboo-cat",
           displayName: "Self",
-          roomCode: "ABC234",
+          roomCode: "123456",
         },
         type: "join",
       },
@@ -250,6 +256,7 @@ describe("FriendRoomController", () => {
 
     expect(harness.controller.setReady(true)).toBe(true);
     expect(harness.controller.setReady(false)).toBe(false);
+    expect(harness.controller.leaveRoom()).toBe(false);
     expect(harness.controller.state.pending.ready).toBe(true);
     const readyMessage = decodeSent(socket, 1);
     expect(readyMessage.type).toBe("room.set-ready");
@@ -266,6 +273,7 @@ describe("FriendRoomController", () => {
 
     expect(harness.controller.startRoom(true)).toBe(true);
     expect(harness.controller.startRoom(false)).toBe(false);
+    expect(harness.controller.leaveRoom()).toBe(false);
     expect(harness.controller.state.pending.start).toBe(true);
     const startMessage = decodeSent(socket, 2);
     expect(startMessage.type).toBe("room.start");
@@ -282,6 +290,218 @@ describe("FriendRoomController", () => {
       code: "PLAYERS_NOT_READY",
       requestId: startMessage.requestId,
     });
+    harness.controller.dispose();
+  });
+
+  it("tracks AI-count commands and serializes every lobby mutation", () => {
+    const harness = createHarness();
+    expect(
+      harness.controller.createRoom({
+        avatarKey: "bamboo-cat",
+        displayName: "Self",
+        maxPlayers: 3,
+        mode: "quick",
+      }),
+    ).toBe(true);
+    const socket = establishBoundRoom(harness, "ai-controller-stream");
+    socket.receive({
+      ...createRoomUpdate("ai-controller-stream", 2, {
+        players: [
+          {
+            avatarKey: "bamboo-cat",
+            connected: true,
+            isAi: false,
+            joinedAt: SERVER_TIME - 9_000,
+            name: "Self",
+            playerId: "player-self",
+            ready: false,
+          },
+          {
+            avatarKey: "flower-fox",
+            connected: true,
+            isAi: false,
+            joinedAt: SERVER_TIME - 8_000,
+            name: "Friend",
+            playerId: "player-friend",
+            ready: false,
+          },
+        ],
+      }),
+      serverTime: SERVER_TIME,
+      type: "room.update",
+      v: PROTOCOL_VERSION,
+    });
+
+    expect(harness.controller.setAiCount(1)).toBe(true);
+    expect(harness.controller.state.pending.ai).toBe(true);
+    expect(harness.controller.setAiCount(0)).toBe(false);
+    expect(harness.controller.setReady(true)).toBe(false);
+    expect(harness.controller.startRoom(true)).toBe(false);
+    expect(harness.controller.leaveRoom()).toBe(false);
+    const aiMessage = decodeSent(socket, 1);
+    expect(aiMessage).toMatchObject({
+      payload: { aiCount: 1 },
+      type: "room.set-ai-count",
+    });
+
+    socket.receive({
+      ...createRoomUpdate("ai-controller-stream", 3, {
+        ackCommandId: aiMessage.requestId,
+      }),
+      serverTime: SERVER_TIME,
+      type: "room.update",
+      v: PROTOCOL_VERSION,
+    });
+    expect(harness.controller.state.pending.ai).toBe(false);
+
+    expect(harness.controller.setReady(true)).toBe(true);
+    expect(harness.controller.setAiCount(1)).toBe(false);
+    expect(harness.controller.startRoom(true)).toBe(false);
+    expect(harness.controller.leaveRoom()).toBe(false);
+    const readyMessage = decodeSent(socket, 2);
+    socket.receive({
+      ...createRoomUpdate("ai-controller-stream", 4, {
+        ackCommandId: readyMessage.requestId,
+      }),
+      serverTime: SERVER_TIME,
+      type: "room.update",
+      v: PROTOCOL_VERSION,
+    });
+
+    expect(harness.controller.startRoom(true)).toBe(true);
+    expect(harness.controller.setAiCount(1)).toBe(false);
+    expect(harness.controller.setReady(false)).toBe(false);
+    expect(harness.controller.leaveRoom()).toBe(false);
+    harness.controller.dispose();
+  });
+
+  it("rejects unauthorized AI counts and clears pending AI on request error", () => {
+    const harness = createHarness();
+    expect(
+      harness.controller.createRoom({
+        avatarKey: "bamboo-cat",
+        displayName: "Self",
+        maxPlayers: 3,
+        mode: "quick",
+      }),
+    ).toBe(true);
+    const socket = establishBoundRoom(harness, "ai-error-stream");
+
+    expect(harness.controller.setAiCount(-1)).toBe(false);
+    expect(harness.controller.setAiCount(3)).toBe(false);
+    expect(harness.controller.setAiCount(1)).toBe(true);
+    const aiMessage = decodeSent(socket, 1);
+    socket.receive({
+      code: "NOT_ENOUGH_PLAYERS",
+      message: "At least two connected human players are required.",
+      requestId: aiMessage.requestId,
+      serverTime: SERVER_TIME,
+      type: "request.error",
+      v: PROTOCOL_VERSION,
+    });
+    expect(harness.controller.state.pending.ai).toBe(false);
+    expect(harness.controller.state.error).toMatchObject({
+      code: "NOT_ENOUGH_PLAYERS",
+      requestId: aiMessage.requestId,
+    });
+
+    socket.receive({
+      ...createRoomUpdate("ai-error-stream", 2, {
+        hostPlayerId: "player-host",
+        players: [
+          {
+            avatarKey: "flower-fox",
+            connected: true,
+            isAi: false,
+            joinedAt: SERVER_TIME - 9_000,
+            name: "Host",
+            playerId: "player-host",
+            ready: false,
+          },
+          {
+            avatarKey: "bamboo-cat",
+            connected: true,
+            isAi: false,
+            joinedAt: SERVER_TIME - 8_000,
+            name: "Self",
+            playerId: "player-self",
+            ready: false,
+          },
+        ],
+      }),
+      serverTime: SERVER_TIME,
+      type: "room.update",
+      v: PROTOCOL_VERSION,
+    });
+    expect(harness.controller.setAiCount(1)).toBe(false);
+    expect(socket.sent).toHaveLength(2);
+    harness.controller.dispose();
+  });
+
+  it("leaves a lobby once, then clears the room session after the server ack", () => {
+    const harness = createHarness();
+    expect(
+      harness.controller.createRoom({
+        avatarKey: "bamboo-cat",
+        displayName: "Self",
+        maxPlayers: 6,
+        mode: "classic",
+      }),
+    ).toBe(true);
+    const socket = establishBoundRoom(harness, "leave-controller-stream");
+    expect(harness.sessionStore.load()).not.toBeNull();
+
+    expect(harness.controller.leaveRoom()).toBe(true);
+    expect(harness.controller.leaveRoom()).toBe(false);
+    expect(harness.controller.state.pending.leave).toBe(true);
+    const leaveMessage = decodeSent(socket, 1);
+    expect(leaveMessage).toMatchObject({ payload: {}, type: "room.leave" });
+
+    socket.receive({
+      ...createRoomUpdate("leave-controller-stream", 2, {
+        ackCommandId: leaveMessage.requestId,
+      }),
+      serverTime: SERVER_TIME,
+      type: "room.update",
+      v: PROTOCOL_VERSION,
+    });
+
+    expect(harness.controller.state.pending.leave).toBe(false);
+    expect(harness.controller.state.update).toBeNull();
+    expect(harness.controller.state.connection).toBe("disconnected");
+    expect(harness.controller.getRoomClient()).toBeNull();
+    expect(harness.sessionStore.load()).toBeNull();
+    harness.controller.dispose();
+  });
+
+  it("keeps the lobby session when a leave request is rejected", () => {
+    const harness = createHarness();
+    expect(
+      harness.controller.createRoom({
+        avatarKey: "bamboo-cat",
+        displayName: "Self",
+        maxPlayers: 3,
+        mode: "quick",
+      }),
+    ).toBe(true);
+    const socket = establishBoundRoom(harness, "leave-rejected-stream");
+    const activeClient = harness.controller.getRoomClient();
+
+    expect(harness.controller.leaveRoom()).toBe(true);
+    const leaveMessage = decodeSent(socket, 1);
+    socket.receive({
+      code: "WRONG_ROOM_PHASE",
+      message: "Room cannot be left in this phase.",
+      requestId: leaveMessage.requestId,
+      serverTime: SERVER_TIME,
+      type: "request.error",
+      v: PROTOCOL_VERSION,
+    });
+
+    expect(harness.controller.state.pending.leave).toBe(false);
+    expect(harness.controller.state.update?.room.roomCode).toBe("ABC234");
+    expect(harness.controller.getRoomClient()).toBe(activeClient);
+    expect(harness.sessionStore.load()).not.toBeNull();
     harness.controller.dispose();
   });
 

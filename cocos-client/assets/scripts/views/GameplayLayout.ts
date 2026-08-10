@@ -1,3 +1,5 @@
+import type { MatchPhase } from "@wizzard/game-core/contracts";
+
 export type GameplayLayoutRect = Readonly<{
   height: number;
   width: number;
@@ -11,6 +13,11 @@ export type GameplayLocalHandVisualState = "normal" | "legal" | "selected";
 
 export type GameplayRightActionOccupant =
   "bid-trump-status" | "turn-action" | null;
+
+export type PracticeHomeActionPlacement =
+  | "floating"
+  | "results-footer"
+  | null;
 
 export type GameplayTrumpStatusRects = Readonly<{
   contentSafe: GameplayLayoutRect;
@@ -57,6 +64,8 @@ export const GAMEPLAY_LAYOUT = {
     x: -846,
     y: 375,
   },
+  practiceHomeAction: { height: 60, width: 144, x: -670, y: 480 },
+  practiceHomeTouch: { height: 120, width: 144, x: -670, y: 480 },
   tableStatus: { height: 48, width: 620, x: 0, y: 95 },
   localStats: {
     paper: { height: 75, width: 268, x: -800, y: -274 },
@@ -151,6 +160,17 @@ export const GAMEPLAY_LAYOUT = {
   },
   upperLeftSeatAvatar: { height: 176, width: 176, x: -450, y: 402 },
 } as const;
+
+export function getPracticeHomeActionPlacement(
+  phase: MatchPhase,
+  available: boolean,
+): PracticeHomeActionPlacement {
+  if (!available) {
+    return null;
+  }
+
+  return phase === "match-end" ? "results-footer" : "floating";
+}
 
 function translateRect(
   rect: GameplayLayoutRect,

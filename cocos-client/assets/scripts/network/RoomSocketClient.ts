@@ -446,7 +446,12 @@ export class RoomSocketClient {
     this.latestUpdateServerTime = serverTime;
 
     if (payload.ackCommandId) {
+      const acknowledged = this.pendingCommands.get(payload.ackCommandId);
       this.pendingCommands.delete(payload.ackCommandId);
+      if (acknowledged?.type === "room.leave") {
+        this.options.sessionStore.clear();
+        this.session = null;
+      }
     }
 
     this.emit({ payload, serverTime, type: "update" });

@@ -1,6 +1,10 @@
 import type { AuthoritativeMatchState } from "@wizzard/game-core/authority";
 import type { GameMode, MatchEvent } from "@wizzard/game-core/contracts";
-import { AVATAR_KEYS, type AvatarKey } from "@wizzard/room-protocol";
+import {
+  AVATAR_KEYS,
+  isRoomCode,
+  type AvatarKey,
+} from "@wizzard/room-protocol";
 import type { RevisionedRoom } from "../persistence/types.js";
 import type { HmacCounterRandomState } from "../random/index.js";
 
@@ -20,6 +24,8 @@ export type RoomPlayerRecord = {
   consecutiveTimeouts: number;
   control: SeatControl;
   isAi: boolean;
+  joinRequestFingerprint?: string;
+  joinRequestId?: string;
   joinedAt: number;
   name: string;
   playerId: string;
@@ -77,7 +83,7 @@ export function isRoomRecord(value: unknown): value is RoomRecord {
     !(
     room.schemaVersion === 1 &&
     typeof room.id === "string" &&
-    typeof room.code === "string" &&
+    isRoomCode(room.code) &&
     typeof room.inviteTokenHash === "string" &&
     Number.isSafeInteger(room.revision) &&
     (room.revision as number) >= 0 &&
@@ -109,10 +115,22 @@ export function isRoomRecord(value: unknown): value is RoomRecord {
 
   const playerIds = room.players.map((player) => player.playerId);
   const seatIndexes = room.players.map((player) => player.seatIndex);
+  const maxPlayers = room.maxPlayers;
+  const joinRequestIds = room.players
+    .map((player) => player.joinRequestId)
+    .filter((requestId): requestId is string => requestId !== undefined);
+  const hostPlayer = room.players.find(
+    (player) => player.playerId === room.hostPlayerId,
+  );
   return (
+    room.players.length <= maxPlayers &&
     new Set(playerIds).size === playerIds.length &&
     new Set(seatIndexes).size === seatIndexes.length &&
-    (room.lifecycle === "closed" || playerIds.includes(room.hostPlayerId))
+    new Set(joinRequestIds).size === joinRequestIds.length &&
+    seatIndexes.every((seatIndex) => seatIndex < maxPlayers) &&
+    (room.lifecycle === "closed"
+      ? room.hostPlayerId === ""
+      : hostPlayer !== undefined && !hostPlayer.isAi)
   );
 }
 
@@ -122,6 +140,8 @@ function isRoomPlayerRecord(value: unknown): value is RoomPlayerRecord {
   }
 
   const player = value as Partial<RoomPlayerRecord>;
+  const hasJoinRequestFingerprint = player.joinRequestFingerprint !== undefined;
+  const hasJoinRequestId = player.joinRequestId !== undefined;
   return (
     typeof player.playerId === "string" &&
     typeof player.name === "string" &&
@@ -137,6 +157,18 @@ function isRoomPlayerRecord(value: unknown): value is RoomPlayerRecord {
     Number.isSafeInteger(player.consecutiveTimeouts) &&
     (player.consecutiveTimeouts as number) >= 0 &&
     (player.control === "ai" || player.control === "human") &&
+    (hasJoinRequestFingerprint === hasJoinRequestId) &&
+    (!hasJoinRequestFingerprint ||
+      (typeof player.joinRequestFingerprint === "string" &&
+        /^[a-f0-9]{64}$/.test(player.joinRequestFingerprint) &&
+        typeof player.joinRequestId === "string" &&
+        player.joinRequestId.length > 0 &&
+        player.joinRequestId.length <= 128)) &&
+    (!player.isAi ||
+      (player.connected &&
+        player.control === "ai" &&
+        player.ready &&
+        player.session === null)) &&
     (player.session === null || isHumanSession(player.session))
   );
 }

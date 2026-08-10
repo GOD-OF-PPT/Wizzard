@@ -270,6 +270,118 @@ describe("friend-room WebSocket service", () => {
     expect(staleError.code).toBe("SESSION_NOT_FOUND");
   });
 
+  it("broadcasts host-managed lobby AI and starts with the explicit roster", async () => {
+    service = createRoomService({
+      config: {
+        aiActionDelayMs: 60_000,
+        heartbeatIntervalMs: 60_000,
+        idleConnectionTimeoutMs: 120_000,
+        turnTimeoutMs: 60_000,
+      },
+    });
+    const address = await service.listen(0);
+    const host = await SocketProbe.connect(address.wsUrl);
+    const guest = await SocketProbe.connect(address.wsUrl);
+    probes.push(host, guest);
+
+    host.send({
+      payload: {
+        avatarKey: "bamboo-cat",
+        displayName: "Host",
+        maxPlayers: 3,
+        mode: "quick",
+      },
+      requestId: "ai-room-create",
+      type: "room.create",
+      v: 1,
+    });
+    const created = await host.waitFor(
+      (message): message is Extract<
+        ServerRoomMessage,
+        { type: "session.established" }
+      > => message.type === "session.established",
+    );
+    guest.send({
+      payload: {
+        avatarKey: "flower-fox",
+        displayName: "Guest",
+        roomCode: created.session.roomCode,
+      },
+      requestId: "ai-room-join",
+      type: "room.join",
+      v: 1,
+    });
+    await guest.waitFor((message) => message.type === "session.established");
+
+    host.send({
+      payload: { aiCount: 1 },
+      requestId: "host-set-ai-count",
+      type: "room.set-ai-count",
+      v: 1,
+    });
+    const hostAiUpdate = await host.waitFor(
+      (message): message is Extract<ServerRoomMessage, { type: "room.update" }> =>
+        message.type === "room.update" &&
+        message.ackCommandId === "host-set-ai-count",
+    );
+    const guestAiUpdate = await guest.waitFor(
+      (message): message is Extract<ServerRoomMessage, { type: "room.update" }> =>
+        message.type === "room.update" &&
+        message.room.players.some((player) => player.isAi),
+    );
+    expect(hostAiUpdate.room.players.filter((player) => player.isAi))
+      .toHaveLength(1);
+    expect(guestAiUpdate.room.players.filter((player) => player.isAi))
+      .toHaveLength(1);
+
+    guest.send({
+      payload: { aiCount: 0 },
+      requestId: "guest-set-ai-count",
+      type: "room.set-ai-count",
+      v: 1,
+    });
+    const guestRejected = await guest.waitFor(
+      (message): message is Extract<
+        ServerRoomMessage,
+        { type: "request.error" }
+      > =>
+        message.type === "request.error" &&
+        message.requestId === "guest-set-ai-count",
+    );
+    expect(guestRejected.code).toBe("NOT_HOST");
+
+    for (const [probe, requestId] of [
+      [host, "ai-room-host-ready"],
+      [guest, "ai-room-guest-ready"],
+    ] as const) {
+      probe.send({
+        payload: { ready: true },
+        requestId,
+        type: "room.set-ready",
+        v: 1,
+      });
+      await probe.waitFor(
+        (message) =>
+          message.type === "room.update" &&
+          message.ackCommandId === requestId,
+      );
+    }
+
+    host.send({
+      payload: { fillWithAi: false },
+      requestId: "start-explicit-ai-roster",
+      type: "room.start",
+      v: 1,
+    });
+    const started = await host.waitFor(
+      (message): message is Extract<ServerRoomMessage, { type: "room.update" }> =>
+        message.type === "room.update" &&
+        message.ackCommandId === "start-explicit-ai-roster",
+    );
+    expect(started.room.phase).toBe("playing");
+    expect(started.match?.snapshot.publicState.players).toHaveLength(3);
+  });
+
   it("acknowledges a lobby leave before removing the socket identity", async () => {
     service = createRoomService();
     const address = await service.listen(0);
