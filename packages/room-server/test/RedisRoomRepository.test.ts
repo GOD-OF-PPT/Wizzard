@@ -141,6 +141,11 @@ class FakeRedisClient implements RedisClientLike {
     return this.values.get(key) ?? null;
   }
 
+  public async scanKeys(pattern: string): Promise<string[]> {
+    const prefix = pattern.replace(/\*$/, "");
+    return [...this.values.keys()].filter((key) => key.startsWith(prefix));
+  }
+
   public replaceRoomJson(id: string, serialized: string): void {
     const key = [...this.values.keys()].find((candidate) =>
       candidate.endsWith(`:room:${encodeURIComponent(id)}`),

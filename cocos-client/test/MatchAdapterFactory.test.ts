@@ -29,6 +29,11 @@ function createWechatServices(
     preferenceStore: new MemoryGamePreferencesStore(),
     runtime: "wechat",
     sessionStore: new MemoryRoomSessionStore(),
+    sharing: {
+      register: () => () => undefined,
+      setRoomInvite: () => undefined,
+      shareRoom: () => false,
+    },
     socketFactory,
     vibrateShort: async () => undefined,
   };

@@ -5,9 +5,12 @@ export type RoomServiceConfig = {
   idleConnectionTimeoutMs: number;
   lobbyRoomTtlMs: number;
   matchRoomTtlMs: number;
+  maxActiveRooms: number;
   maxFrameBytes: number;
+  maxRoomCreationsPerWindow: number;
   offlineRoomTtlMs: number;
   port: number;
+  roomCreationWindowMs: number;
   roundScoreDelayMs: number;
   sessionTtlMs: number;
   trickResultDelayMs: number;
@@ -15,15 +18,18 @@ export type RoomServiceConfig = {
 };
 
 export const DEFAULT_ROOM_SERVICE_CONFIG: RoomServiceConfig = {
-  aiActionDelayMs: 450,
+  aiActionDelayMs: 420,
   finishedRoomTtlMs: 30 * 60 * 1_000,
   heartbeatIntervalMs: 15_000,
   idleConnectionTimeoutMs: 45_000,
   lobbyRoomTtlMs: 30 * 60 * 1_000,
   matchRoomTtlMs: 4 * 60 * 60 * 1_000,
+  maxActiveRooms: 100,
   maxFrameBytes: 16 * 1_024,
+  maxRoomCreationsPerWindow: 3,
   offlineRoomTtlMs: 15 * 60 * 1_000,
   port: 8787,
+  roomCreationWindowMs: 10 * 60 * 1_000,
   roundScoreDelayMs: 8_000,
   sessionTtlMs: 4 * 60 * 60 * 1_000,
   trickResultDelayMs: 1_500,

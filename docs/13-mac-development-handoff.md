@@ -25,7 +25,8 @@ Use Node.js 22 and Cocos Creator 3.8.8. Open `cocos-client/` as the Creator proj
 - Create-room exposes an explicit AI-fill toggle. At least two connected real players, including the host, must be ready before bots may fill remaining seats.
 - The shared `MIN_HUMAN_PLAYERS` constant is enforced by the Cocos lobby and authoritative room server. A ready player who disconnects no longer counts toward the minimum.
 - The shipping Mini Game now uses the current AppID's private `wx.cloud.connectContainer` route instead of the rejected public CloudBase WSS domain.
-- The WeChat release build now persists `resources` as an ordinary subpackage and automatically enforces 4 MiB main/30 MiB total limits. The current local result is 1.9205 MiB main and 29.1141 MiB total.
+- The WeChat release build now persists `resources` as an ordinary subpackage and automatically enforces 4 MiB main/30 MiB total limits. The current local result is 2.1090 MiB main and 29.3026 MiB total.
+- New friend rooms default to no human turn countdown. The create dialog sends `turnTimerEnabled:false`; old clients that omit the optional field retain the 30-second path, so deploy the accepting Cloud Hosting server before the new Mini Game client.
 - Art manifests, Cocos resource addresses, layout/server tests, durable decisions, and design-QA evidence were updated with the implementation.
 
 For detail, use these source-of-truth files rather than repeating their content here:

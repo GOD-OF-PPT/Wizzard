@@ -3,6 +3,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import {
+  FRIEND_ROOM_CREATE_OPTION_TOUCHES,
   FRIEND_ROOM_DIALOG_LAYOUT,
   type FriendRoomDialogRect,
 } from "../assets/scripts/views/FriendRoomDialogLayout";
@@ -106,6 +107,14 @@ describe("friend-room dialog layout", () => {
     }
     expect(layout.seats!.height).toBeGreaterThan(84);
     expect(layout.mode!.height).toBeGreaterThan(84);
+
+    const optionTouches = Object.values(FRIEND_ROOM_CREATE_OPTION_TOUCHES);
+    optionTouches.forEach((touch) => expectInside(touch, layout.aiFill!, 0));
+    expect(
+      optionTouches[1].x -
+        optionTouches[1].width / 2 -
+        (optionTouches[0].x + optionTouches[0].width / 2),
+    ).toBeGreaterThanOrEqual(20);
   });
 
   it("keeps every join-room band ordered and inside the lacquer frame", () => {

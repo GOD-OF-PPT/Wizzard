@@ -26,6 +26,24 @@ type WechatCloudApi = {
   init(options: { traceUser: boolean }): Promise<unknown> | unknown;
 };
 
+type WechatFileSystemManager = {
+  accessSync?(path: string): void;
+  copyFileSync(srcPath: string, destPath: string): void;
+};
+
+export type WechatShareAppMessage = {
+  imageUrl?: string;
+  query?: string;
+  title: string;
+};
+
+type WechatShareAppMessageListener = () => WechatShareAppMessage;
+export type WechatLaunchOptions = {
+  query?: Record<string, unknown>;
+};
+type WechatShowListener = (options: WechatLaunchOptions) => void;
+type WechatShareMenu = "shareAppMessage" | "shareTimeline";
+
 export type WechatPlatformApi = {
   cloud?: Partial<WechatCloudApi>;
   connectSocket?(options: {
@@ -33,13 +51,25 @@ export type WechatPlatformApi = {
     tcpNoDelay?: boolean;
     url: string;
   }): WechatSocketTask;
+  env?: { USER_DATA_PATH?: string };
+  getFileSystemManager?(): Partial<WechatFileSystemManager>;
+  getLaunchOptionsSync?(): WechatLaunchOptions;
   getStorageSync(key: string): unknown;
+  offShareAppMessage?(listener: WechatShareAppMessageListener): void;
+  offShow?(listener: WechatShowListener): void;
+  onShareAppMessage?(listener: WechatShareAppMessageListener): void;
+  onShow?(listener: WechatShowListener): void;
   removeStorageSync(key: string): void;
   setClipboardData?(options: {
     data: string;
     fail?: (error: { errMsg?: string }) => void;
     success?: () => void;
   }): void;
+  showShareMenu?(options: {
+    menus: WechatShareMenu[];
+    withShareTicket: boolean;
+  }): void;
+  shareAppMessage?(message: WechatShareAppMessage): void;
   setStorageSync(key: string, value: unknown): void;
   vibrateShort?(options: {
     fail?: (error: { errMsg?: string }) => void;

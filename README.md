@@ -54,6 +54,10 @@ npm run build:wechat
 
 This runs asset sync, shared-package compilation, Cocos type checking, and the Creator 3.8.8 release build. The output is `cocos-client/build/wechatgame/`; open that directory in WeChat DevTools, then clear its cache and recompile. The build script also verifies the shipping AppID, base-library version, Cloud Hosting target, and private transport marker.
 
+### Cocos 编辑器 dist 依赖
+
+The Cocos Creator editor and `@wizzard/cocos-client` type checks consume the compiled `packages/game-core/dist` and `packages/room-protocol/dist` outputs (the cocos-client `file:` workspace links resolve to these dist directories, not source). `cocos:prepare` and `cocos:typecheck` rebuild these automatically, but opening the editor directly or running type checks without a prior build will fail if the dist directories are missing. Run `npm run cocos:check` to verify the dist outputs exist before opening the editor — it exits non-zero with a message naming the missing directory if either `packages/game-core/dist` or `packages/room-protocol/dist` is absent, then runs the cocos-client typecheck.
+
 ## 当前已实现
 
 ### 共享权威规则核心
@@ -93,7 +97,7 @@ This runs asset sync, shared-package compilation, Cocos type checking, and the C
 - `GameBootstrap`、好友房控制器、`IMatchAdapter`、本地/网络适配器与视图已建立房间、输入、资源和渲染分层，Cocos Node 不持有权威比赛状态；
 - 正式客户端通过 `@wizzard/game-core` 的构建产物复用同一状态机，没有复制第二份规则源码；
 - 首个本地牌桌切片已覆盖选择王牌、预测、合法选牌、确认出牌、AI 行动、30 秒托管、一墩结算、轮结算、8 轮总榜和重新开始；
-- 好友房首页、大厅和联网牌桌复用同一个 `RoomSocketClient`，已支持 3–6 人房、准备/取消、至少两名在线真人后由房主显式增删机器人、可选开局自动补位、房主开始、断线恢复和重赛返回原大厅；
+- 好友房首页、大厅和联网牌桌复用同一个 `RoomSocketClient`，已支持 3–6 人房、准备/取消、至少两名在线真人后由房主显式增删机器人、可选开局自动补位、默认关闭真人行动倒计时、房主开始、断线恢复和重赛返回原大厅；
 - 首页“规则与设置”已接入四章规则手册和本机体验设置；合法牌提示与回合震动均真实作用于 Cocos 牌桌并独立持久化；
 - `tools/sync-cocos-assets.mjs` 从 `art/asset-manifest.json` 生成稳定语义地址，当前核心切片同步 48 张 PNG 与两套精简 Noto SC 字体；
 - 牌桌只使用正式背景、卡牌、头像、漆器/羊皮纸 UI 和反馈 FX，动态王牌使用正式花色卡面裁切，不依赖错误的通用 `ui.trumpTile`；
@@ -101,7 +105,7 @@ This runs asset sync, shared-package compilation, Cocos type checking, and the C
 - 当前机器已安装 Creator 3.8.8，并已成功生成 Web Desktop 与微信小游戏 release 构建；微信产物的 `game.json` 为 `deviceOrientation: landscape`，`project.config.json` 固定 AppID `wx4376a5b67a747d28` 与基础库 `2.23.0`；
 - 好友房权威服务已部署到该 AppID 直属微信云托管：环境 `prod-d9g3qr6rqdbba6605`、服务 `wizzard-room-server`、`GET /healthz` 已返回 200，且实例策略固定为最小/最大 `1 / 1`；
 - 正式小游戏通过 `wx.cloud.connectContainer({ path: "/ws" })` 访问云托管私有协议，不需要公网 IP、Cloudflare 域名或微信后台 Socket 合法域名。该能力要求基础库 2.21.1+，项目固定使用 2.23.0；
-- 微信构建已把 `resources` 配置为普通分包；最大的 8 张 PNG 均通过逐像素 `AE=0` 的无损重编码验证，其中 7 张产生体积缩减。最新正式构建主包为 2,013,782 B（1.9205 MiB）、资源分包为 28,514,601 B（27.1936 MiB）、总包为 30,528,383 B（29.1141 MiB），已满足 4 MiB 主包和 30 MiB 总包门槛；
+- 微信构建已把 `resources` 配置为普通分包；最大的 8 张 PNG 均通过逐像素 `AE=0` 的无损重编码验证，其中 7 张产生体积缩减。最新正式构建主包为 2,211,407 B（2.1090 MiB）、资源分包为 28,514,601 B（27.1936 MiB）、总包为 30,726,008 B（29.3026 MiB），已满足 4 MiB 主包和 30 MiB 总包门槛；
 - 构建脚本会在缺少 `resources` 分包、主包超过 4 MiB 或总包超过 30 MiB 时直接失败，避免后续改动静默破坏上传预算。
 
 ## 当前边界

@@ -61,15 +61,15 @@ describe("WeChat Mini Game friend-room lobby navigation", () => {
     const layout = FRIEND_ROOM_LOBBY_LAYOUT;
     const upperLeftSeat = getFriendRoomLobbySeatRect(1);
     const lowerRightSeat = getFriendRoomLobbySeatRect(4);
-    const aiStandbySeat = getFriendRoomLobbySeatRect(5);
+    const addAiSeat = getFriendRoomLobbySeatRect(5);
     const settingsStatus = childRect(layout.settings, layout.settingsStatus);
     expect(rectSeparation(layout.roomTitle, upperLeftSeat)).toBeGreaterThanOrEqual(
       15,
     );
-    expect(rectSeparation(aiStandbySeat, layout.readyButton)).toBeGreaterThanOrEqual(
+    expect(rectSeparation(addAiSeat, layout.readyButton)).toBeGreaterThanOrEqual(
       8,
     );
-    expect(rectSeparation(aiStandbySeat, layout.notice)).toBeGreaterThanOrEqual(
+    expect(rectSeparation(addAiSeat, layout.notice)).toBeGreaterThanOrEqual(
       64,
     );
     expect(rectSeparation(layout.notice, layout.readyButton)).toBeGreaterThanOrEqual(
@@ -103,13 +103,13 @@ describe("WeChat Mini Game friend-room lobby navigation", () => {
       44,
     );
     expect(layout.aiAddTouch.height * (402 / 1080)).toBeGreaterThanOrEqual(44);
-    expect(rectSeparation(layout.aiStandbyTouch, layout.notice)).toBeGreaterThanOrEqual(
+    expect(rectSeparation(layout.aiAddSeatTouch, layout.notice)).toBeGreaterThanOrEqual(
       64,
     );
-    expect(rectSeparation(layout.aiStandbyTouch, layout.readyButton)).toBeGreaterThanOrEqual(
+    expect(rectSeparation(layout.aiAddSeatTouch, layout.readyButton)).toBeGreaterThanOrEqual(
       64,
     );
-    expect(layout.aiStandbyBadge.width / layout.aiStandbyBadge.height).toBeCloseTo(
+    expect(layout.aiAddSeatBadge.width / layout.aiAddSeatBadge.height).toBeCloseTo(
       215 / 169,
       3,
     );
@@ -197,6 +197,11 @@ describe("WeChat Mini Game friend-room lobby navigation", () => {
     expect(source).toContain('assetKey: "ui.results.button.green.v2"');
     expect(source).toContain('"添加机器人"');
     expect(source).toContain('"移除机器人"');
+    expect(source).toContain("LobbySeat:AddAi");
+    expect(source).toContain('addAiTarget ? "添加机器人" : "等待好友"');
+    expect(source).toContain("index === activeSlots.length - 1 && canAddAi");
+    expect(source).not.toContain('"AI 待命"');
+    expect(source).not.toContain("LobbySeat:AiStandby");
     expect(source).toContain("this.controller.setAiCount");
     expect(source).toContain("`${readyHumans}/${humans.length} 真人已准备`");
     expect(source).toContain("this.fillWithAi = false");
@@ -206,4 +211,5 @@ describe("WeChat Mini Game friend-room lobby navigation", () => {
     expect(source).toContain('player.ready ? "ui.match.stat.green" : "ui.match.stat.paper"');
     expect(source).not.toContain('createSprite(seat, this.assets, "ui.status.green"');
   });
+
 });

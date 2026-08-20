@@ -31,8 +31,8 @@ export const FRIEND_ROOM_LOBBY_LAYOUT = {
   aiAddTouch: { height: 120, width: 192, x: -607, y: -386 },
   aiRemoveButton: { height: 64, width: 154, x: -792, y: -386 },
   aiRemoveTouch: { height: 120, width: 154, x: -792, y: -386 },
-  aiStandbyBadge: { height: 148, width: (148 * 215) / 169, x: 0, y: 34 },
-  aiStandbyTouch: { height: 240, width: 250, x: 9, y: -205 },
+  aiAddSeatBadge: { height: 148, width: (148 * 215) / 169, x: 0, y: 34 },
+  aiAddSeatTouch: { height: 240, width: 250, x: 9, y: -205 },
   inviteButton: { height: 125, width: 300, x: 420, y: -245 },
   leaveDialog: {
     body: { height: 108, width: 650, x: 0, y: 18 },

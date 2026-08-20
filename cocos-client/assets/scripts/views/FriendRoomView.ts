@@ -39,7 +39,11 @@ import {
   type RulesSettingsTab,
 } from "./RulesSettingsView";
 import { getHomeBackgroundLayout } from "./HomeBackgroundLayout";
-import { FRIEND_ROOM_DIALOG_LAYOUT } from "./FriendRoomDialogLayout";
+import {
+  FRIEND_ROOM_CREATE_OPTION_TOUCHES,
+  FRIEND_ROOM_DIALOG_LAYOUT,
+  type FriendRoomDialogRect,
+} from "./FriendRoomDialogLayout";
 import {
   FRIEND_ROOM_LOBBY_LAYOUT,
   FRIEND_ROOM_LOBBY_SEAT_POSITIONS,
@@ -93,14 +97,6 @@ const PAPER_BUTTON: ButtonStyle = {
   outlineWidth: 0,
   sliced: true,
   textColor: new Color(70, 39, 21, 255),
-};
-
-const AI_FILL_BUTTON: ButtonStyle = {
-  assetKey: "ui.friendRoom.row.ai.v2",
-  fontKey: "font.display",
-  fontSize: 25,
-  outlineWidth: 1,
-  textColor: new Color(247, 226, 184, 255),
 };
 
 const LOBBY_HOME_BUTTON: ButtonStyle = {
@@ -198,7 +194,7 @@ const LEAVE_CANCEL_BUTTON: ButtonStyle = {
 };
 
 export type FriendRoomViewOptions = {
-  onInvite: (roomCode: string) => Promise<void>;
+  onInvite: (roomCode: string) => Promise<"copied" | "shared">;
   onPreferencesChange: (preferences: GamePreferences) => void;
   onPractice: () => void;
   preferences: GamePreferences;
@@ -254,6 +250,7 @@ export class FriendRoomView {
   private maxPlayers: 3 | 4 | 5 | 6 = 6;
   private mode: "classic" | "quick" = "quick";
   private nameInput: TextInputView | null = null;
+  private noTurnTimer = true;
   private notice: string | null = null;
   private preferences: GamePreferences;
   private roomCode = "";
@@ -365,6 +362,7 @@ export class FriendRoomView {
       displayName: this.displayName,
       maxPlayers: this.maxPlayers,
       mode: this.mode,
+      turnTimerEnabled: !this.noTurnTimer,
     });
   }
 
@@ -380,12 +378,15 @@ export class FriendRoomView {
   private invite(roomCode: string): void {
     void this.options
       .onInvite(roomCode)
-      .then(() => {
+      .then((result) => {
         if (this.disposed) {
           return;
         }
 
-        this.notice = "房间码已复制，可以发给好友";
+        this.notice =
+          result === "shared"
+            ? "已打开微信分享，可以直接发送给好友"
+            : "房间码已复制，可以发给好友";
         this.render(this.latestState);
       })
       .catch(() => {
@@ -400,6 +401,9 @@ export class FriendRoomView {
 
   private openEntryDialog(mode: "create" | "join"): void {
     this.displayName = generateRandomFriendRoomNickname();
+    if (mode === "create") {
+      this.noTurnTimer = true;
+    }
     this.entryMode = mode;
     this.controller.clearError();
     this.render(this.latestState);
@@ -670,7 +674,7 @@ export class FriendRoomView {
       createText(
         overlay,
         this.assets,
-        "机器人",
+        "选项",
         ENTRY_LABEL_WIDTH,
         54,
         ENTRY_LABEL_X,
@@ -681,27 +685,79 @@ export class FriendRoomView {
           fontSize: 25,
         },
       );
-      const aiFillButton = createButton(
+      createSprite(
         overlay,
         this.assets,
-        this.fillWithAi
-          ? `开启 · 至少 ${MIN_HUMAN_PLAYERS} 真人后补位`
-          : "关闭 · 不添加机器人",
+        layout.aiFill!.assetKey,
         layout.aiFill!.width,
         layout.aiFill!.height,
-        ENTRY_CONTROL_X,
+        layout.aiFill!.x,
         layout.aiFill!.y,
+        layout.aiFill!.sliced,
+      );
+      const renderRoomOption = (
+        name: string,
+        label: string,
+        enabled: boolean,
+        bounds: FriendRoomDialogRect,
+        onActivate: () => void,
+      ): void => {
+        const option = createContainer(
+          overlay,
+          `RoomOption:${name}`,
+          bounds.width,
+          bounds.height,
+          bounds.x,
+          bounds.y,
+        );
+        createText(
+          option,
+          this.assets,
+          label,
+          bounds.width - 12,
+          bounds.height - 12,
+          0,
+          1,
+          {
+            color: new Color(247, 226, 184, 255),
+            fontKey: "font.display",
+            fontSize: 23,
+            outlineColor: new Color(44, 21, 13, 255),
+            outlineWidth: 1,
+          },
+        );
+        if (!enabled) {
+          option.addComponent(UIOpacity).opacity = 190;
+        }
+        option.on(Node.EventType.TOUCH_END, (event: EventTouch) => {
+          event.propagationStopped = true;
+          onActivate();
+        });
+      };
+      renderRoomOption(
+        "AiFill",
+        this.fillWithAi
+          ? `AI 补位 · 开（${MIN_HUMAN_PLAYERS} 真人）`
+          : "AI 补位 · 关",
+        this.fillWithAi,
+        FRIEND_ROOM_CREATE_OPTION_TOUCHES.aiFill,
         () => {
           this.captureInputs();
           this.fillWithAi = !this.fillWithAi;
           this.render(this.latestState);
         },
-        true,
-        AI_FILL_BUTTON,
       );
-      if (!this.fillWithAi) {
-        aiFillButton.addComponent(UIOpacity).opacity = 200;
-      }
+      renderRoomOption(
+        "NoTurnTimer",
+        this.noTurnTimer ? "出牌不倒计时 · 开" : "出牌不倒计时 · 关",
+        this.noTurnTimer,
+        FRIEND_ROOM_CREATE_OPTION_TOUCHES.noTurnTimer,
+        () => {
+          this.captureInputs();
+          this.noTurnTimer = !this.noTurnTimer;
+          this.render(this.latestState);
+        },
+      );
       createText(
         overlay,
         this.assets,
@@ -1382,25 +1438,25 @@ export class FriendRoomView {
   }
 
   private renderOpenSeat(
-    aiStandby: boolean,
+    addAiTarget: boolean,
     x: number,
     y: number,
     onAddAi: () => void,
   ): void {
-    const touchBounds = aiStandby
-      ? FRIEND_ROOM_LOBBY_LAYOUT.aiStandbyTouch
+    const touchBounds = addAiTarget
+      ? FRIEND_ROOM_LOBBY_LAYOUT.aiAddSeatTouch
       : FRIEND_ROOM_LOBBY_LAYOUT.seat;
     const seat = createContainer(
       this.contentRoot,
-      aiStandby ? "LobbySeat:AiStandby" : "LobbySeat:Open",
+      addAiTarget ? "LobbySeat:AddAi" : "LobbySeat:Open",
       touchBounds.width,
       touchBounds.height,
       x,
       y,
     );
     createSprite(seat, this.assets, "fx.card.selected", 208, 208, 0, 34);
-    if (aiStandby) {
-      const badge = FRIEND_ROOM_LOBBY_LAYOUT.aiStandbyBadge;
+    if (addAiTarget) {
+      const badge = FRIEND_ROOM_LOBBY_LAYOUT.aiAddSeatBadge;
       createSprite(
         seat,
         this.assets,
@@ -1442,7 +1498,7 @@ export class FriendRoomView {
     createText(
       seat,
       this.assets,
-      aiStandby ? "AI 待命" : "等待好友",
+      addAiTarget ? "添加机器人" : "等待好友",
       180,
       42,
       0,

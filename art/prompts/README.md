@@ -77,8 +77,16 @@ Create a 1920x1080 landscape home screen extending the Enchanted Teahouse refere
 ## 好友房
 
 ```text
-Create a 1920x1080 friend-room screen on the lacquer table with six natural seat positions: four occupied, one "等待好友", one "AI 待命". Show "好友房 628315", "快速局 · 8 轮", "6 人桌", "AI 补位：开", "4/6 已准备", "邀请好友" and primary "开始游戏". Keep the center clear and avoid profile-card dashboard layouts.
+Create a 1920x1080 friend-room screen on the lacquer table with six natural seat positions: four occupied, one "等待好友", one explicit "添加机器人" action seat. Show "好友房 628315", "快速局 · 8 轮", "6 人桌", "AI 补位：开", "4/6 已准备", "邀请好友" and primary "开始游戏". Keep the center clear and avoid profile-card dashboard layouts.
 ```
+
+## 微信分享卡片
+
+```text
+Create a distinctive 5:4 landscape WeChat Mini Game share card in the approved Enchanted Teahouse style. Show the red-panda traveler in a woven straw hat and red scarf inviting friends to the vermilion lacquer table, presenting four original parchment cards with blue mountain, red knot, green leaf and ochre sun symbols. Keep the crane traveler and flower fox secondary in the same warm lantern-lit midnight teahouse. One strong central focal group, readable at 800x640, coherent painterly 2D lighting and proportions. No text, letters, numbers, logos, watermark, title plaque, UI controls, split layout, photorealism or pasted-on portrait look.
+```
+
+正式母版为 `source/social/wechat-share-card-v1.png`（1400×1120），运行图为 `runtime/social/wechat-share-card-v1.jpg`（800×640，高质量渐进 JPEG）。分享标题由运行时代码提供，图片内不得烘焙文字。
 
 ## 轮次结算
 

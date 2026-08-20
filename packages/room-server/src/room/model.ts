@@ -58,6 +58,7 @@ export type RoomRecord = RevisionedRoom & {
   players: RoomPlayerRecord[];
   randomState: HmacCounterRandomState;
   schemaVersion: 1;
+  turnTimerEnabled?: boolean;
   updatedAt: number;
 };
 
@@ -107,7 +108,9 @@ export function isRoomRecord(value: unknown): value is RoomRecord {
     isRandomState(room.randomState) &&
     (room.match === null ||
       (typeof room.match === "object" && room.match !== null)) &&
-    (room.deadline === null || isRoomDeadline(room.deadline))
+    (room.deadline === null || isRoomDeadline(room.deadline)) &&
+    (room.turnTimerEnabled === undefined ||
+      typeof room.turnTimerEnabled === "boolean")
     )
   ) {
     return false;

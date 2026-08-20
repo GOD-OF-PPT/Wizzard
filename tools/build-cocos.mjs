@@ -1,8 +1,10 @@
 import {
+  copyFileSync,
   existsSync,
   readFileSync,
   readdirSync,
   statSync,
+  utimesSync,
   writeFileSync,
 } from "node:fs";
 import { spawn } from "node:child_process";
@@ -23,6 +25,7 @@ const TARGETS = {
       "game.json",
       "game.js",
       "application.js",
+      "share-card-v1.jpg",
       "src/settings.json",
       "assets/main/index.js",
     ],
@@ -30,6 +33,7 @@ const TARGETS = {
       "game.json",
       "project.config.json",
       "first-screen.js",
+      "share-card-v1.jpg",
       "assets/main/index.js",
     ],
     requiredMarkers: [
@@ -40,6 +44,21 @@ const TARGETS = {
       { file: "game.js", text: 'serviceName: "wizzard-room-server"' },
       { file: "game.js", text: 'path: "/ws"' },
       { file: "assets/main/index.js", text: "connectContainer" },
+      { file: "assets/main/index.js", text: "onShareAppMessage" },
+      { file: "assets/main/index.js", text: "showShareMenu" },
+      { file: "assets/main/index.js", text: ".shareAppMessage" },
+      { file: "assets/main/index.js", text: "getLaunchOptionsSync" },
+      { file: "assets/main/index.js", text: "onShow" },
+      { file: "assets/main/index.js", text: "offShow" },
+      { file: "assets/main/index.js", text: "share-card-v1.jpg" },
+      { file: "assets/main/index.js", text: "wizzard-share-card-v1.jpg" },
+      { file: "assets/main/index.js", text: "getFileSystemManager" },
+    ],
+    staticCopies: [
+      {
+        destination: "share-card-v1.jpg",
+        source: "art/runtime/social/wechat-share-card-v1.jpg",
+      },
     ],
     forbiddenTexts: [
       "sh.run.tcloudbase.com",
@@ -147,6 +166,16 @@ const result = await new Promise((resolveResult, rejectResult) => {
   child.once("error", rejectResult);
   child.once("close", (code, signal) => resolveResult({ code, output, signal }));
 });
+
+for (const copy of targetConfig.staticCopies ?? []) {
+  const source = resolve(projectRoot, copy.source);
+  const destination = resolve(outputPath, copy.destination);
+  if (existsSync(source) && existsSync(outputPath)) {
+    copyFileSync(source, destination);
+    const copiedAt = new Date();
+    utimesSync(destination, copiedAt, copiedAt);
+  }
+}
 
 let expectedWechatAppId = null;
 let expectedWechatLibVersion = null;

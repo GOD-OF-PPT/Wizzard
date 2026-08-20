@@ -69,6 +69,23 @@ function roomRecord(): RoomRecord {
 }
 
 describe("isRoomRecord", () => {
+  it("accepts legacy and boolean turn-timer persistence values", () => {
+    const legacy = roomRecord();
+    expect(isRoomRecord(legacy)).toBe(true);
+
+    const enabled = roomRecord();
+    enabled.turnTimerEnabled = true;
+    expect(isRoomRecord(enabled)).toBe(true);
+
+    const disabled = roomRecord();
+    disabled.turnTimerEnabled = false;
+    expect(isRoomRecord(disabled)).toBe(true);
+
+    const malformed = roomRecord() as unknown as Record<string, unknown>;
+    malformed.turnTimerEnabled = "false";
+    expect(isRoomRecord(malformed)).toBe(false);
+  });
+
   it("rejects rosters that exceed the configured seat capacity", () => {
     const valid = roomRecord();
     expect(isRoomRecord(valid)).toBe(true);

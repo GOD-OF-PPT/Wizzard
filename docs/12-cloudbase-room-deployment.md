@@ -100,6 +100,12 @@ usage/alerting reminders.
 
 ## Build and release checks
 
+For the turn-timer rollout, first deploy a server version that accepts optional
+`room.create.turnTimerEnabled`, verify its private health endpoint, and only
+then upload the Mini Game client that sends `false` by default. Older clients
+omit the field and continue to receive the established 30-second behavior; an
+older strict server rejects the new payload key.
+
 Before publishing a new version:
 
 ```powershell
@@ -121,11 +127,13 @@ The WeChat build script verifies all of the following:
 - the declared `resources` ordinary subpackage;
 - the 4 MiB main-package and 30 MiB total-package limits.
 
-The latest local release build measures 2,013,782 bytes in the main package,
-28,514,601 bytes in the `resources` subpackage, and 30,528,383 bytes total.
+The latest local release build measures 2,211,407 bytes in the main package,
+28,514,601 bytes in the `resources` subpackage, and 30,726,008 bytes total.
 These automated measurements remove the local size blocker but do not replace
 WeChat DevTools package analysis.
 
 After deployment, verify private `GET /healthz`, service health, one running
 instance, and then manually test two-device create/join/ready/AI-fill/start,
 heartbeat, reconnect, and session resume through the WeChat Mini Game carrier.
+Verify one default room with no human countdown and one room with the option
+disabled so the 30-second server takeover path is also covered.

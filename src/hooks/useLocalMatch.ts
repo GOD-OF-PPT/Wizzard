@@ -14,7 +14,12 @@ import {
   type AuthoritativeMatchState,
   type MatchTransition,
 } from "@wizzard/game-core/authority";
-import { chooseAiIntent } from "@wizzard/game-core";
+import {
+  executeMatchAction,
+  planNextMatchAction,
+  type MatchPacingConfig,
+  type PlayerPacingInfo,
+} from "@wizzard/game-core";
 import type {
   MatchEvent,
   MatchIntent,
@@ -25,10 +30,25 @@ import type {
 } from "@wizzard/game-core/contracts";
 
 const HUMAN_PLAYER_ID = "player-you";
-const TURN_DURATION_SECONDS = 30;
 // The deterministic practice seed opens with a highest-card reveal so the
 // first round exercises the dealer trump-choice flow before bidding.
 const DEFAULT_SEED = 1;
+
+/** Convert seconds to milliseconds (rounded) for pacing configuration. */
+const toMs = (seconds: number): number => Math.round(seconds * 1000);
+
+/**
+ * Pacing configuration for the local practice match. AI actions and trick
+ * results advance automatically through `planNextMatchAction`; round scores
+ * advance manually via `advance()` (`roundScoreDelayMs: null`). The turn
+ * timer is always enabled for local practice.
+ */
+const PACING_CONFIG: MatchPacingConfig = {
+  aiActionDelayMs: toMs(0.42),
+  trickResultDelayMs: toMs(1.5),
+  roundScoreDelayMs: null,
+  turnTimeoutMs: toMs(30),
+};
 
 const PRACTICE_PLAYERS: readonly MatchPlayerSeed[] = [
   {
@@ -141,7 +161,7 @@ export function useLocalMatch(): LocalMatchController {
   );
   const [turnSecondsRemaining, setTurnSecondsRemaining] = useState<
     number | null
-  >(TURN_DURATION_SECONDS);
+  >(null);
   const snapshot = useMemo(
     () => createPlayerSnapshot(session.state, HUMAN_PLAYER_ID),
     [session.state],
@@ -181,83 +201,84 @@ export function useLocalMatch(): LocalMatchController {
   }, []);
 
   useEffect(() => {
-    if (session.state.phase === "trick-result") {
-      const timeout = window.setTimeout(() => {
-        dispatch({
-          transition: advanceAuthoritativeMatch(
-            session.state,
-            "resolve-trick",
-            randomRef.current,
-          ),
-          type: "transition",
-        });
-      }, 1500);
+    // Build the per-player pacing metadata the shared driver needs. The local
+    // human is always connected and human-controlled; AI seats are automated.
+    // Clients ignore `playerPacingChanges` (consecutive-timeout takeover is a
+    // server concern), so `consecutiveTimeouts` stays at 0 here.
+    const players: PlayerPacingInfo[] = session.state.players.map((player) => ({
+      playerId: player.id,
+      isAi: !player.isHuman,
+      control: player.isHuman ? "human" : "ai",
+      connected: true,
+      consecutiveTimeouts: 0,
+    }));
 
-      return () => window.clearTimeout(timeout);
-    }
-
-    const currentPlayer = session.state.players.find(
-      (player) => player.id === session.state.currentPlayerId,
+    const now = Date.now();
+    const action = planNextMatchAction(
+      session.state,
+      players,
+      now,
+      PACING_CONFIG,
+      { turnTimerEnabled: true },
     );
 
-    if (!currentPlayer) {
-      return undefined;
-    }
-
-    const isLocalHuman = currentPlayer.id === HUMAN_PLAYER_ID;
-
-    const timeout = window.setTimeout(() => {
-      const snapshot = createPlayerSnapshot(session.state, currentPlayer.id);
-      commandCounterRef.current += 1;
-      const intent = chooseAiIntent(
-        snapshot,
-        `${isLocalHuman ? "local-timeout" : "local-ai"}:${commandCounterRef.current}`,
-      );
-
-      if (intent) {
-        dispatch({
-          transition: applyMatchIntent(
-            session.state,
-            currentPlayer.id,
-            intent,
-          ),
-          type: "transition",
-        });
-      }
-    }, isLocalHuman ? TURN_DURATION_SECONDS * 1000 : 420);
-
-    return () => window.clearTimeout(timeout);
-  }, [session.state]);
-
-  useEffect(() => {
-    const hasActiveTurn =
-      session.state.currentPlayerId !== null &&
-      (session.state.phase === "trump-select" ||
-        session.state.phase === "bid" ||
-        session.state.phase === "trick-play");
-
-    if (!hasActiveTurn) {
+    if (!action) {
       setTurnSecondsRemaining(null);
       return undefined;
     }
 
-    const deadline = Date.now() + TURN_DURATION_SECONDS * 1000;
-    setTurnSecondsRemaining(TURN_DURATION_SECONDS);
+    // Schedule the next match action at its absolute `dueAt`. The countdown
+    // HUD is derived from this same `dueAt` rather than a hardcoded constant.
+    const pacingDelay = Math.max(0, action.dueAt - now);
 
-    const interval = window.setInterval(() => {
-      const remaining = Math.max(
-        0,
-        Math.ceil((deadline - Date.now()) / 1000),
+    const timeout = window.setTimeout(() => {
+      let commandIdPrefix: string;
+      if (action.kind === "turn") {
+        commandCounterRef.current += 1;
+        commandIdPrefix = action.isTimeout
+          ? `local-timeout:${commandCounterRef.current}`
+          : `local-ai:${commandCounterRef.current}`;
+      } else {
+        commandIdPrefix = "local-advance";
+      }
+
+      const execution = executeMatchAction(
+        session.state,
+        action,
+        randomRef.current,
+        players,
+        commandIdPrefix,
       );
-      setTurnSecondsRemaining(remaining);
-    }, 250);
 
-    return () => window.clearInterval(interval);
-  }, [
-    session.state.currentPlayerId,
-    session.state.phase,
-    session.state.version,
-  ]);
+      // Only dispatch when the action produced a new state. A no-op (e.g. the
+      // AI had no intent) returns the same state reference, matching the prior
+      // `if (intent)` guard. `playerPacingChanges` is ignored by clients.
+      if (execution.transition.state !== session.state) {
+        dispatch({ transition: execution.transition, type: "transition" });
+      }
+    }, pacingDelay);
+
+    // The countdown HUD only applies to turn phases; trick-result and
+    // round-score advance silently behind their scheduled action.
+    let interval: number | undefined;
+    if (action.kind === "turn") {
+      const tick = () =>
+        setTurnSecondsRemaining(
+          Math.max(0, Math.ceil((action.dueAt - Date.now()) / 1000)),
+        );
+      tick();
+      interval = window.setInterval(tick, 250);
+    } else {
+      setTurnSecondsRemaining(null);
+    }
+
+    return () => {
+      window.clearTimeout(timeout);
+      if (interval !== undefined) {
+        window.clearInterval(interval);
+      }
+    };
+  }, [session.state]);
 
   return {
     advance,

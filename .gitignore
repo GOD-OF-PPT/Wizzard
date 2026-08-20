@@ -10,6 +10,9 @@ Thumbs.db
 .npm-cache/
 coverage/
 
+# Local temporary working directory.
+tmp/
+
 # Cocos Creator local import/build state accidentally emitted at repo root.
 /library/
 /local/

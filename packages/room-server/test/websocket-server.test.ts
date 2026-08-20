@@ -382,6 +382,108 @@ describe("friend-room WebSocket service", () => {
     expect(started.match?.snapshot.publicState.players).toHaveLength(3);
   });
 
+  it("keeps a no-timer room countdown hidden during disconnected-player grace", async () => {
+    service = createRoomService({
+      config: {
+        aiActionDelayMs: 60_000,
+        heartbeatIntervalMs: 60_000,
+        idleConnectionTimeoutMs: 120_000,
+        turnTimeoutMs: 60_000,
+      },
+    });
+    const address = await service.listen(0);
+    const players = await Promise.all(
+      Array.from({ length: 3 }, () => SocketProbe.connect(address.wsUrl)),
+    );
+    probes.push(...players);
+
+    players[0].send({
+      payload: {
+        avatarKey: "bamboo-cat",
+        displayName: "No Timer Host",
+        maxPlayers: 3,
+        mode: "quick",
+        turnTimerEnabled: false,
+      },
+      requestId: "no-timer-room-create",
+      type: "room.create",
+      v: 1,
+    });
+    const hostEstablished = await players[0].waitFor(
+      (message): message is Extract<
+        ServerRoomMessage,
+        { type: "session.established" }
+      > => message.type === "session.established",
+    );
+    const established = [hostEstablished];
+
+    for (const [index, player] of players.slice(1).entries()) {
+      player.send({
+        payload: {
+          avatarKey: index === 0 ? "flower-fox" : "wandering-crane",
+          displayName: `No Timer Guest ${index + 1}`,
+          inviteToken: hostEstablished.session.inviteToken!,
+        },
+        requestId: `no-timer-room-join-${index + 1}`,
+        type: "room.join",
+        v: 1,
+      });
+      established.push(
+        await player.waitFor(
+          (message): message is Extract<
+            ServerRoomMessage,
+            { type: "session.established" }
+          > => message.type === "session.established",
+        ),
+      );
+    }
+
+    for (const [index, player] of players.entries()) {
+      const requestId = `no-timer-room-ready-${index}`;
+      player.send({
+        payload: { ready: true },
+        requestId,
+        type: "room.set-ready",
+        v: 1,
+      });
+      await player.waitFor(
+        (message) =>
+          message.type === "room.update" &&
+          message.ackCommandId === requestId,
+      );
+    }
+
+    players[0].send({
+      payload: { fillWithAi: false },
+      requestId: "no-timer-room-start",
+      type: "room.start",
+      v: 1,
+    });
+    const started = await players[0].waitFor(
+      (message): message is Extract<ServerRoomMessage, { type: "room.update" }> =>
+        message.type === "room.update" &&
+        message.ackCommandId === "no-timer-room-start",
+    );
+    expect(started.match?.turnDeadlineAt).toBeNull();
+
+    const currentPlayerId = started.match!.snapshot.publicState.currentPlayerId!;
+    const currentIndex = established.findIndex(
+      (entry) => entry.session.playerId === currentPlayerId,
+    );
+    expect(currentIndex).toBeGreaterThanOrEqual(0);
+    const observer = players[(currentIndex + 1) % players.length];
+    await players[currentIndex].close();
+
+    const disconnected = await observer.waitFor(
+      (message): message is Extract<ServerRoomMessage, { type: "room.update" }> =>
+        message.type === "room.update" &&
+        message.room.players.some(
+          (player) => player.playerId === currentPlayerId && !player.connected,
+        ),
+    );
+    expect(disconnected.match?.turnDeadlineAt).toBeNull();
+  });
+
   it("acknowledges a lobby leave before removing the socket identity", async () => {
     service = createRoomService();
     const address = await service.listen(0);

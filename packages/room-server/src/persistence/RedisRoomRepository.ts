@@ -83,6 +83,7 @@ export type RedisEvalOptions = {
 export interface RedisClientLike {
   eval(script: string, options: RedisEvalOptions): Promise<unknown>;
   get(key: string): Promise<string | null>;
+  scanKeys(pattern: string): Promise<string[]>;
 }
 
 export type RedisRoomRepositoryOptions<TRoom extends RevisionedRoom> = {
@@ -186,6 +187,11 @@ export class RedisRoomRepository<TRoom extends RevisionedRoom>
     return result === -1 ? "missing" : "conflict";
   }
 
+  public async countActive(now: number): Promise<number> {
+    const keys = await this.client.scanKeys(`${this.keyPrefix}:room:*`);
+    return keys.length;
+  }
+
   public async create(room: TRoom): Promise<boolean> {
     const ttl = this.getTtl(room);
 
@@ -259,6 +265,13 @@ export class RedisRoomRepository<TRoom extends RevisionedRoom>
       inviteTokenHash,
       (room) => room.inviteTokenHash,
     );
+  }
+
+  public async sweepExpired(_now: number): Promise<number> {
+    // Redis TTL (PX) automatically removes expired room keys, so there is
+    // nothing to sweep manually.  Returning 0 keeps the interface contract
+    // uniform with MemoryRoomRepository.
+    return 0;
   }
 
   private codeKey(code: string): string {

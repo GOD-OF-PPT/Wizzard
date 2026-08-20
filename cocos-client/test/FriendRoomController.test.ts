@@ -193,6 +193,90 @@ function establishBoundRoom(
 }
 
 describe("FriendRoomController", () => {
+  it("persists the creator invite token with the room session", () => {
+    const harness = createHarness();
+    const inviteToken =
+      "i1.room-controller-test.abcdefghijklmnopqrstuvwxyz0123456789";
+    expect(
+      harness.controller.createRoom({
+        avatarKey: "bamboo-cat",
+        displayName: "Self",
+        maxPlayers: 3,
+        mode: "quick",
+      }),
+    ).toBe(true);
+
+    const socket = harness.socketFactory.sockets[0];
+    socket.receive(connectionReady("creator-invite-stream"));
+    const createMessage = decodeSent(socket, 0);
+    const established = establishSession(
+      createMessage.requestId,
+      createRoomUpdate("creator-invite-stream", 1),
+    );
+    if (established.type !== "session.established") {
+      throw new Error("Expected a session grant.");
+    }
+    established.session.inviteToken = inviteToken;
+    socket.receive(established);
+
+    expect(harness.sessionStore.load()).toMatchObject({ inviteToken });
+    expect(harness.controller.getInviteToken()).toBe(inviteToken);
+    harness.controller.dispose();
+  });
+
+  it("preserves the creator invite token when the same room resumes", () => {
+    const harness = createHarness();
+    const inviteToken =
+      "i1.room-controller-test.abcdefghijklmnopqrstuvwxyz0123456789";
+    harness.sessionStore.save({
+      inviteToken,
+      playerId: "player-self",
+      resumeToken: "resume-token-before-restart",
+      roomCode: "123456",
+      roomId: "room-controller-test",
+    });
+
+    expect(harness.controller.resumeRoom()).toBe(true);
+    establishBoundRoom(harness, "creator-resume-stream");
+
+    expect(harness.sessionStore.load()).toMatchObject({
+      inviteToken,
+      resumeToken: "resume-token-123456789",
+      roomId: "room-controller-test",
+    });
+    harness.controller.dispose();
+  });
+
+  it("persists the invite used to join from a share card", () => {
+    const harness = createHarness();
+    const inviteToken =
+      "i1.room-controller-test.abcdefghijklmnopqrstuvwxyz0123456789";
+    expect(
+      harness.controller.joinRoomWithInvite({
+        avatarKey: "flower-fox",
+        displayName: "Shared Guest",
+        inviteToken,
+      }),
+    ).toBe(true);
+
+    const socket = harness.socketFactory.sockets[0];
+    socket.receive(connectionReady("shared-join-stream"));
+    const joinMessage = decodeSent(socket, 0);
+    expect(joinMessage).toMatchObject({
+      payload: { inviteToken },
+      type: "room.join",
+    });
+    socket.receive(
+      establishSession(
+        joinMessage.requestId,
+        createRoomUpdate("shared-join-stream", 1),
+      ),
+    );
+
+    expect(harness.sessionStore.load()).toMatchObject({ inviteToken });
+    harness.controller.dispose();
+  });
+
   it("normalizes entry input before creating a socket binding", () => {
     const harness = createHarness();
 
@@ -236,6 +320,39 @@ describe("FriendRoomController", () => {
     harness.controller.dispose();
   });
 
+  it("defaults direct room creation to no timer and preserves an explicit opt-in", () => {
+    const defaultHarness = createHarness();
+    expect(
+      defaultHarness.controller.createRoom({
+        avatarKey: "bamboo-cat",
+        displayName: "Default Room",
+        maxPlayers: 3,
+        mode: "quick",
+      }),
+    ).toBe(true);
+    expect(defaultHarness.bindings[0]).toMatchObject({
+      payload: { turnTimerEnabled: false },
+      type: "create",
+    });
+    defaultHarness.controller.dispose();
+
+    const timedHarness = createHarness();
+    expect(
+      timedHarness.controller.createRoom({
+        avatarKey: "flower-fox",
+        displayName: "Timed Room",
+        maxPlayers: 3,
+        mode: "quick",
+        turnTimerEnabled: true,
+      }),
+    ).toBe(true);
+    expect(timedHarness.bindings[0]).toMatchObject({
+      payload: { turnTimerEnabled: true },
+      type: "create",
+    });
+    timedHarness.controller.dispose();
+  });
+
   it("deduplicates ready and start commands until ack or request error", () => {
     const harness = createHarness();
     expect(
@@ -244,13 +361,14 @@ describe("FriendRoomController", () => {
         displayName: "  Self  ",
         maxPlayers: 3,
         mode: "quick",
+        turnTimerEnabled: false,
       }),
     ).toBe(true);
     const socket = establishBoundRoom(harness, "controller-stream");
     expect(harness.controller.state.connection).toBe("connected");
     expect(harness.controller.state.pending.binding).toBeNull();
     expect(decodeSent(socket, 0)).toMatchObject({
-      payload: { displayName: "Self" },
+      payload: { displayName: "Self", turnTimerEnabled: false },
       type: "room.create",
     });
 

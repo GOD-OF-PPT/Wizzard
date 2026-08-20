@@ -64,6 +64,7 @@ const REQUEST_ERROR_CODES = [
   "INVITE_TOKEN_INVALID",
   "COMMAND_REJECTED",
   "RATE_LIMITED",
+  "ROOM_LIMIT_REACHED",
   "INTERNAL_ERROR",
 ] as const;
 
@@ -176,15 +177,16 @@ function decodeClientValue(value: unknown): DecodeResult<ClientRoomMessage> {
     if (
       !hasOnlyKeys(value, ["v", "type", "requestId", "payload"]) ||
       !isRecord(value.payload) ||
-      !hasOnlyKeys(value.payload, [
-        "avatarKey",
-        "displayName",
-        "maxPlayers",
-        "mode",
-      ]) ||
+      !hasOnlyKeys(
+        value.payload,
+        ["avatarKey", "displayName", "maxPlayers", "mode"],
+        ["turnTimerEnabled"],
+      ) ||
       !isAvatarKey(value.payload.avatarKey) ||
       !isMaxPlayers(value.payload.maxPlayers) ||
-      !isMode(value.payload.mode)
+      !isMode(value.payload.mode) ||
+      (hasOwn(value.payload, "turnTimerEnabled") &&
+        typeof value.payload.turnTimerEnabled !== "boolean")
     ) {
       return failure("room.create payload is invalid.");
     }
@@ -201,6 +203,9 @@ function decodeClientValue(value: unknown): DecodeResult<ClientRoomMessage> {
         displayName,
         maxPlayers: value.payload.maxPlayers,
         mode: value.payload.mode,
+        ...(hasOwn(value.payload, "turnTimerEnabled")
+          ? { turnTimerEnabled: value.payload.turnTimerEnabled as boolean }
+          : {}),
       },
       requestId: value.requestId,
       type: "room.create",

@@ -5,7 +5,13 @@ import {
   createPlayerSnapshot,
   type AuthoritativeMatchState,
 } from "@wizzard/game-core/authority";
-import { chooseAiIntent } from "@wizzard/game-core";
+import {
+  executeMatchAction,
+  planNextMatchAction,
+  type MatchPacingConfig,
+  type PlayerPacingInfo,
+  type ScheduledMatchAction,
+} from "@wizzard/game-core";
 import type {
   MatchEvent,
   MatchIntent,
@@ -19,12 +25,25 @@ import type {
 } from "./IMatchAdapter";
 
 const HUMAN_PLAYER_ID = "player-you";
-const TURN_DURATION_SECONDS = 30;
-const AI_THINK_SECONDS = 0.42;
-const TRICK_RESULT_SECONDS = 1.5;
 const UINT32_RANGE = 0x1_0000_0000;
 const SEED_SEQUENCE_STEP = 0x9e3779b9;
 const OPENING_HAND_REROLL_LIMIT = 16;
+
+/** Convert seconds to milliseconds (rounded) for pacing configuration. */
+const toMs = (seconds: number): number => Math.round(seconds * 1000);
+
+/**
+ * Pacing configuration for the local practice match. AI actions and trick
+ * results advance automatically through `planNextMatchAction`; round scores
+ * advance manually via `requestContinueRound()` (`roundScoreDelayMs: null`).
+ * The turn timer is always enabled for local practice.
+ */
+const PACING_CONFIG: MatchPacingConfig = {
+  aiActionDelayMs: toMs(0.42),
+  trickResultDelayMs: toMs(1.5),
+  roundScoreDelayMs: null,
+  turnTimeoutMs: toMs(30),
+};
 
 export type PracticeSeedSource = () => number;
 
@@ -142,15 +161,6 @@ function getOpeningHandSignature(state: AuthoritativeMatchState): string {
   return JSON.stringify(cardIds);
 }
 
-function isActiveTurn(state: AuthoritativeMatchState): boolean {
-  return (
-    state.currentPlayerId !== null &&
-    (state.phase === "trump-select" ||
-      state.phase === "bid" ||
-      state.phase === "trick-play")
-  );
-}
-
 export class LocalMatchAdapter implements IMatchAdapter {
   private readonly avoidImmediateOpeningRepeat: boolean;
   private commandCounter = 0;
@@ -160,8 +170,9 @@ export class LocalMatchAdapter implements IMatchAdapter {
   private listener: MatchUpdateListener | null = null;
   private random: RandomSource;
   private readonly seedSource: PracticeSeedSource;
+  private scheduledAction: ScheduledMatchAction | null = null;
   private state: AuthoritativeMatchState;
-  private turnElapsedSeconds = 0;
+  private turnElapsedMs = 0;
   private turnKey = "";
 
   public constructor(options: LocalMatchAdapterOptions = {}) {
@@ -232,53 +243,39 @@ export class LocalMatchAdapter implements IMatchAdapter {
 
     this.ensureTurnClockMatchesState();
 
-    if (this.state.phase === "trick-result") {
-      this.turnElapsedSeconds += deltaSeconds;
+    if (!this.scheduledAction) {
+      return;
+    }
 
-      if (this.turnElapsedSeconds >= TRICK_RESULT_SECONDS) {
-        const transition = advanceAuthoritativeMatch(
-          this.state,
-          "resolve-trick",
-          this.random,
-        );
-        this.commit(transition.state, transition.events);
+    this.turnElapsedMs += deltaSeconds * 1000;
+
+    // Emit countdown HUD updates for human turn deadlines. AI actions and
+    // trick-result/round-score advances fire silently behind their schedule.
+    if (this.scheduledAction.kind === "turn" && this.scheduledAction.isTimeout) {
+      const remaining = this.getTurnSecondsRemaining();
+
+      if (remaining !== this.lastCountdownValue) {
+        this.lastCountdownValue = remaining;
+        this.emit([]);
       }
-
-      return;
     }
 
-    if (!isActiveTurn(this.state)) {
-      return;
+    if (this.turnElapsedMs >= this.scheduledAction.dueAt) {
+      this.executeScheduledAction(this.scheduledAction);
     }
+  }
 
-    this.turnElapsedSeconds += deltaSeconds;
-    const currentPlayerId = this.state.currentPlayerId;
-
-    if (currentPlayerId === null) {
-      return;
-    }
-
-    if (currentPlayerId !== HUMAN_PLAYER_ID) {
-      if (this.turnElapsedSeconds >= AI_THINK_SECONDS) {
-        this.submitAiIntent(currentPlayerId, "ai");
-      }
-
-      return;
-    }
-
-    const remaining = Math.max(
-      0,
-      Math.ceil(TURN_DURATION_SECONDS - this.turnElapsedSeconds),
-    );
-
-    if (remaining !== this.lastCountdownValue) {
-      this.lastCountdownValue = remaining;
-      this.emit([]);
-    }
-
-    if (this.turnElapsedSeconds >= TURN_DURATION_SECONDS) {
-      this.submitAiIntent(HUMAN_PLAYER_ID, "timeout");
-    }
+  private buildPlayerPacingInfo(): PlayerPacingInfo[] {
+    // The local human is always connected and human-controlled; AI seats are
+    // automated. Clients ignore `playerPacingChanges` (consecutive-timeout
+    // takeover is a server concern), so `consecutiveTimeouts` stays at 0.
+    return this.state.players.map((player) => ({
+      playerId: player.id,
+      isAi: !player.isHuman,
+      control: player.isHuman ? "human" : "ai",
+      connected: true,
+      consecutiveTimeouts: 0,
+    }));
   }
 
   private commit(state: AuthoritativeMatchState, events: MatchEvent[]): void {
@@ -339,14 +336,37 @@ export class LocalMatchAdapter implements IMatchAdapter {
     }
   }
 
+  private executeScheduledAction(action: ScheduledMatchAction): void {
+    const players = this.buildPlayerPacingInfo();
+    const commandIdPrefix =
+      action.kind === "turn"
+        ? this.nextCommandId(action.isTimeout ? "timeout" : "ai")
+        : "cocos-advance";
+
+    const execution = executeMatchAction(
+      this.state,
+      action,
+      this.random,
+      players,
+      commandIdPrefix,
+    );
+
+    // Only commit when the action produced a new state. A no-op (e.g. the AI
+    // had no intent) returns the same state reference, matching the prior
+    // `if (intent)` guard. Clients ignore `playerPacingChanges`.
+    if (execution.transition.state !== this.state) {
+      this.commit(execution.transition.state, execution.transition.events);
+    }
+  }
+
   private getTurnSecondsRemaining(): number | null {
-    if (!isActiveTurn(this.state)) {
+    if (!this.scheduledAction || this.scheduledAction.kind !== "turn") {
       return null;
     }
 
     return Math.max(
       0,
-      Math.ceil(TURN_DURATION_SECONDS - this.turnElapsedSeconds),
+      Math.ceil((this.scheduledAction.dueAt - this.turnElapsedMs) / 1000),
     );
   }
 
@@ -356,21 +376,23 @@ export class LocalMatchAdapter implements IMatchAdapter {
   }
 
   private resetTurnClock(): void {
-    this.turnElapsedSeconds = 0;
+    this.turnElapsedMs = 0;
+    this.scheduledAction = this.planAction();
     this.lastCountdownValue = this.getTurnSecondsRemaining();
     this.turnKey = `${this.state.phase}:${this.state.currentPlayerId ?? "none"}:${this.state.version}`;
   }
 
-  private submitAiIntent(playerId: string, origin: string): void {
-    const snapshot = createPlayerSnapshot(this.state, playerId);
-    const intent = chooseAiIntent(snapshot, this.nextCommandId(origin));
-
-    if (!intent) {
-      return;
-    }
-
-    const transition = applyMatchIntent(this.state, playerId, intent);
-    this.commit(transition.state, transition.events);
+  private planAction(): ScheduledMatchAction | null {
+    // The frame-driven clock is an accumulated delta that resets to 0 at each
+    // state change, so `now = 0` yields `dueAt = delay` (in ms). The `update`
+    // loop then compares the growing accumulator against this fixed `dueAt`.
+    return planNextMatchAction(
+      this.state,
+      this.buildPlayerPacingInfo(),
+      0,
+      PACING_CONFIG,
+      { turnTimerEnabled: true },
+    );
   }
 
   private toMatchIntent(draft: MatchIntentDraft, origin: string): MatchIntent {

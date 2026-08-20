@@ -34,6 +34,8 @@ type ConnectionContext = {
   processing: Promise<void>;
   rateCount: number;
   rateWindowStartedAt: number;
+  roomCreationCount: number;
+  roomCreationWindowStartedAt: number;
   sequence: number;
   session: BoundRoomSession | null;
   socket: WebSocket;
@@ -120,6 +122,8 @@ export class RoomWebSocketGateway {
       processing: Promise.resolve(),
       rateCount: 0,
       rateWindowStartedAt: now,
+      roomCreationCount: 0,
+      roomCreationWindowStartedAt: now,
       sequence: 0,
       session: null,
       socket,
@@ -295,6 +299,12 @@ export class RoomWebSocketGateway {
 
     let established: EstablishedRoomSession;
     if (message.type === "room.create") {
+      if (!this.consumeRoomCreationLimit(context)) {
+        throw new RoomServiceError(
+          "RATE_LIMITED",
+          "Too many room creations from this connection; retry shortly.",
+        );
+      }
       established = await this.coordinator.createRoom(message, this.now());
     } else if (message.type === "room.join") {
       established = await this.coordinator.joinRoom(message, this.now());
@@ -485,6 +495,19 @@ export class RoomWebSocketGateway {
     }
     context.rateCount += 1;
     return context.rateCount <= 60;
+  }
+
+  private consumeRoomCreationLimit(context: ConnectionContext): boolean {
+    const now = this.now();
+    if (
+      now - context.roomCreationWindowStartedAt >=
+      this.config.roomCreationWindowMs
+    ) {
+      context.roomCreationWindowStartedAt = now;
+      context.roomCreationCount = 0;
+    }
+    context.roomCreationCount += 1;
+    return context.roomCreationCount <= this.config.maxRoomCreationsPerWindow;
   }
 
   private isOriginAllowed(request: IncomingMessage): boolean {

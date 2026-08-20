@@ -31,6 +31,7 @@
 | 轮次结算操作按钮 | `source/ui/score-button-{paper,green}-master.png` | `runtime/ui/score-button-paper.png`、`runtime/ui/score-button-green-v2.png`，最终比例 SIMPLE；绿色按钮使用版本化路径防止小游戏旧纹理缓存 | passed |
 | 好友房创建/加入弹窗 | `source/ui/friend-room-{create,join}-panel-master.png` | `runtime/ui/friend-room-{create,join}-panel-v2.png`，最终比例高清 SIMPLE；无烘焙文字与控件，版本化路径防止小游戏旧纹理缓存 | passed |
 | 好友房输入与 AI 行 | `source/ui/friend-room-blue-row-master.png` | `runtime/ui/friend-room-{input,code,ai}-row-v2.png`，最终比例高清 SIMPLE；中央无花饰，不遮挡动态文字 | passed |
+| 微信分享卡片 | `source/social/wechat-share-card-v1.png`，1400×1120 | `runtime/social/wechat-share-card-v1.jpg`，800×640、5:4；构建时复制到小游戏包根目录 | passed |
 | 中文字体 | `source/fonts/` 字符集、来源与 OFL 许可证 | `runtime/fonts/NotoSerifSC-SemiBold-Subset.ttf`、`NotoSansSC-Medium-Subset.ttf` | passed |
 | 核心界面 | — | `mockups/*.png` | passed |
 

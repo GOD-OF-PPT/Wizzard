@@ -153,6 +153,58 @@ describe("client protocol decoder", () => {
     });
   });
 
+  it("accepts an explicit friend-room turn-timer choice", () => {
+    const result = decodeClientMessage(
+      JSON.stringify({
+        payload: {
+          avatarKey: "bamboo-cat",
+          displayName: "阿竹",
+          maxPlayers: 6,
+          mode: "quick",
+          turnTimerEnabled: false,
+        },
+        requestId: "stream-1:no-turn-timer",
+        type: "room.create",
+        v: 1,
+      }),
+    );
+
+    expect(result).toEqual({
+      ok: true,
+      value: {
+        payload: {
+          avatarKey: "bamboo-cat",
+          displayName: "阿竹",
+          maxPlayers: 6,
+          mode: "quick",
+          turnTimerEnabled: false,
+        },
+        requestId: "stream-1:no-turn-timer",
+        type: "room.create",
+        v: 1,
+      },
+    });
+  });
+
+  it("rejects a non-boolean friend-room turn-timer choice", () => {
+    expect(
+      decodeClientMessage(
+        JSON.stringify({
+          payload: {
+            avatarKey: "bamboo-cat",
+            displayName: "阿竹",
+            maxPlayers: 6,
+            mode: "quick",
+            turnTimerEnabled: "false",
+          },
+          requestId: "stream-1:invalid-turn-timer",
+          type: "room.create",
+          v: 1,
+        }),
+      ).ok,
+    ).toBe(false);
+  });
+
   it("accepts a host request that sets the lobby AI count", () => {
     expect(
       decodeClientMessage(

@@ -34,6 +34,7 @@ export async function createConfiguredRoomRepository(
   const adapter: RedisClientLike = {
     eval: (script, options) => client.eval(script, options),
     get: (key) => client.get(key),
+    scanKeys: (pattern) => client.keys(pattern),
   };
   const repository = new RedisRoomRepository<RoomRecord>(adapter, {
     codec: createJsonRoomCodec(isRoomRecord),

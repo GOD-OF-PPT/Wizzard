@@ -6,6 +6,7 @@ import {
   GAMEPLAY_SLOT_MAPS,
   getGameplayLocalChoiceHandVisualRect,
   getGameplayLocalHandCardRect,
+  getGameplayLocalHandPlacement,
   getGameplayLocalHandVisualRect,
   getGameplayOpponentCountX,
   getGameplayPlayedCardsRect,
@@ -99,13 +100,18 @@ describe("WeChat Mini Game gameplay layout", () => {
       choiceHeight: 220,
       choiceMaxSpacing: 112,
       choiceWidth: 146,
+      confirmPulseScale: 1.035,
+      confirmPulseStepSeconds: 0.08,
       effectExtraHeight: 34,
       effectExtraWidth: 28,
       height: 280,
       maxSpacing: 140,
       maxSpread: 960,
       risePerStep: 2,
-      selectedLift: 4,
+      selectedAnimationSeconds: 0.14,
+      selectedLift: 12,
+      selectedHaloOffsetY: -8,
+      selectedNeighborGap: 9,
       width: 186,
     });
     expect(GAMEPLAY_LAYOUT.trumpStatus).toEqual({
@@ -363,6 +369,65 @@ describe("WeChat Mini Game gameplay layout", () => {
     }
   });
 
+  it("makes the selected local card prominent without widening the authored hand span", () => {
+    const hand = GAMEPLAY_LAYOUT.localHand;
+
+    for (let handCount = 3; handCount <= 20; handCount += 1) {
+      for (let selectedIndex = 0; selectedIndex < handCount; selectedIndex += 1) {
+        const placements = Array.from({ length: handCount }, (_, index) =>
+          getGameplayLocalHandPlacement(handCount, index, selectedIndex),
+        );
+        const selected = placements[selectedIndex];
+
+        expect(selected.angle).toBe(0);
+        expect(selected.y).toBe(
+          hand.baseY +
+            Math.abs(selectedIndex - (handCount - 1) / 2) * hand.risePerStep +
+            hand.selectedLift,
+        );
+        expect(selected.renderOrder).toBe(handCount);
+        expect(
+          Math.max(...placements.map((placement) => placement.x)) -
+            Math.min(...placements.map((placement) => placement.x)),
+        ).toBeLessThanOrEqual(hand.maxSpread + Number.EPSILON * 1_000);
+
+        for (let index = 1; index < placements.length; index += 1) {
+          expect(placements[index].x).toBeGreaterThan(placements[index - 1].x);
+        }
+
+        if (selectedIndex > 0) {
+          const baseGap =
+            selected.x -
+            placements[selectedIndex - 1].x -
+            hand.selectedNeighborGap;
+          expect(baseGap).toBeGreaterThanOrEqual(0);
+        }
+        if (selectedIndex < handCount - 1) {
+          const baseGap =
+            placements[selectedIndex + 1].x -
+            selected.x -
+            hand.selectedNeighborGap;
+          expect(baseGap).toBeGreaterThanOrEqual(0);
+        }
+
+        for (let index = 0; index < handCount; index += 1) {
+          const visualRect = getGameplayLocalHandVisualRect(
+            handCount,
+            index,
+            index === selectedIndex ? "selected" : "normal",
+            selectedIndex,
+          );
+          expect(
+            rectSeparation(
+              visualRect,
+              GAMEPLAY_LAYOUT.turnAction,
+            ),
+          ).toBeGreaterThanOrEqual(24);
+        }
+      }
+    }
+  });
+
   it("keeps the round label inside its authored sign and the empty status below the top cards", () => {
     expectInside(
       GAMEPLAY_LAYOUT.roundHeaderLabel,
@@ -428,6 +493,12 @@ describe("WeChat Mini Game gameplay layout", () => {
     );
     expect(() => getGameplayPlayedCardsRect(7)).toThrow(
       "INVALID_GAMEPLAY_PLAY_COUNT:7",
+    );
+    expect(() => getGameplayLocalHandPlacement(3, 0, -1)).toThrow(
+      "INVALID_GAMEPLAY_SELECTED_INDEX:-1",
+    );
+    expect(() => getGameplayLocalHandPlacement(3, 0, 3)).toThrow(
+      "INVALID_GAMEPLAY_SELECTED_INDEX:3",
     );
   });
 });

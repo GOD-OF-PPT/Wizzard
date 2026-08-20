@@ -28,6 +28,11 @@ export type FriendRoomDialogLayout = Readonly<{
   title: FriendRoomDialogRect;
 }>;
 
+export const FRIEND_ROOM_CREATE_OPTION_TOUCHES = {
+  aiFill: { height: 76, width: 250, x: -75, y: -92 },
+  noTurnTimer: { height: 76, width: 250, x: 195, y: -92 },
+} as const satisfies Readonly<Record<string, FriendRoomDialogRect>>;
+
 export const FRIEND_ROOM_DIALOG_LAYOUT: Readonly<
   Record<FriendRoomDialogMode, FriendRoomDialogLayout>
 > = {

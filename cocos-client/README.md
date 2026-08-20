@@ -8,7 +8,7 @@
 - 默认启动页是好友房首页，可创建/加入房间或进入单人练习。
 - `FriendRoomController` 只处理房间协议状态；`NetworkMatchAdapter` 只提交比赛 Intent；表现层消费按查看者过滤的快照与事件。
 - 大厅、联网牌桌和重赛返回复用同一个 `RoomSocketClient`，不会在开局时重新建房或恢复会话。
-- 浏览器 `WebSocket`、微信 `wx.cloud.connectContainer`、显式本地 WebSocket 诊断、存储与剪贴板 API 只存在于 `assets/scripts/platform/`，不会进入规则或表现层；正式构建不配置公网 `wx.connectSocket` 回退。
+- 浏览器 `WebSocket`、微信 `wx.cloud.connectContainer`、显式本地 WebSocket 诊断、存储、剪贴板与原生分享 API 只存在于 `assets/scripts/platform/`，不会进入规则或表现层；正式构建不配置公网 `wx.connectSocket` 回退。
 - 正式美术通过 `art/asset-manifest.json` 的语义键加载，不把文件名当作组件 API。
 
 ## 生成资源与静态检查
@@ -21,11 +21,13 @@ npm run cocos:prepare
 
 该命令会构建 `@wizzard/game-core` 与 `@wizzard/room-protocol`、同步正式美术资源并执行 Cocos TypeScript 检查。当前核心切片为 48 张 PNG 和 2 套精简字体；资源同步生成 `assets/resources/game-art/`、`AssetAddresses.generated.ts` 与同步报告，不使用占位图。微信构建会把整个 `resources` Asset Bundle 输出为普通分包。
 
-首页“规则与设置”使用正式 `tutorial.ruleHint`、卡牌和九宫格面板渲染四章规则手册。体验设置以 `wizzard.client-preferences.v1` 独立保存在浏览器 `localStorage` 或微信同步存储中，当前真实控制合法牌高亮和轮到本人行动时的轻震提示，不提供尚未接入音频资源的假音效开关。
+首页“规则与设置”使用正式 `tutorial.ruleHint`、卡牌和九宫格面板渲染四章规则手册。体验设置以 `wizzard.client-preferences.v1` 独立保存在浏览器 `localStorage` 或微信同步存储中，当前真实控制合法牌高亮和轮到本人行动时的轻震提示，不提供尚未接入音频资源的假音效开关。微信小游戏会在首页出现前注册一次动态分享模块：普通首页返回通用卡片，好友房大厅通过系统菜单或“邀请好友”按钮分享只含 `inviteToken` 的房间卡片，并消费冷启动/`onShow` 参数自动加入；两种卡片都使用包根目录的 5:4 `share-card-v1.jpg` 独特插图。浏览器运行时使用复制数字房间码作为诊断回退。
 
 ## 好友房网络接入
 
 `assets/scripts/config/MatchRuntimeConfig.ts` 保存应用级公开配置。仓库默认打开好友房首页并连接本地 `ws://127.0.0.1:8787/ws`；只有玩家点击创建或加入后才建立 Socket，“单人练习”仍使用 `LocalMatchAdapter`。
+
+创建好友房弹窗把“AI 补位”和“出牌不倒计时”作为两个独立选项；每次重新打开创建弹窗时，“出牌不倒计时”默认开启，并通过 `room.create.turnTimerEnabled:false` 发送。该选择取消联网房内真人的选王牌、叫墩和出牌 deadline，但不影响 AI 与回合过渡。旧客户端省略字段时仍使用 30 秒；发布时必须先部署支持该字段的云托管服务端，再上传新小游戏客户端。
 
 `LocalMatchAdapter` 默认在每次进入练习或本地重赛时生成新的会话种子，因此牌序会变化。由于快速模式第一轮只向玩家展示一张手牌，若新牌序碰巧与上一局首手完全相同，正式练习入口会在 16 次上限内重新生成；测试与故障重放可注入固定种子源并默认关闭该保护，继续保持确定性。
 
@@ -68,10 +70,10 @@ npm run room:dev
 
 最短冒烟路径：创建 3 人快速局 → 两名真人加入并准备 → 房主添加/移除机器人，或保持 AI 补位开启 → 开始游戏。双客户端测试时，把预览 URL 分别放入普通窗口和无痕窗口（或两个浏览器），避免同源 `localStorage` 覆盖双方恢复令牌：
 
-1. A 创建房间并复制 6 位纯数字房间码，B 输入不同昵称加入；
+1. A 保持默认“出牌不倒计时 · 开”创建房间并复制 6 位纯数字房间码，B 输入不同昵称加入；
 2. A、B 都准备；A 验证机器人可增删，再选择显式补满阵容或开启开局自动补位并开始；
 3. 确认两端自动进入联网牌桌、公开状态一致、私有手牌不同；
-4. 完成自己的王牌/叫墩/出牌操作，并确认倒计时归零后只等待服务端推进；
+4. 完成自己的王牌/叫墩/出牌操作，确认真人行动无倒计时；再创建一间关闭“不倒计时”的房，确认倒计时归零后只等待服务端推进；
 5. 短暂离线再恢复，确认重连到同一局；
 6. 完成快速局并由房主重赛，确认回到原大厅且房间码不变。
 
@@ -94,6 +96,6 @@ npm run cocos:build:wechat
 
 Creator 在当前环境中可能在日志已经出现 `build Task (wechatgame) Finished` 后仍返回退出码 `36`；验收命令行构建时应同时检查完成日志、输出目录和生成的 `game.json`，不能只依据进程退出码。
 
-最新微信 release 构建的 `game.json` 与 `settings.json` 均声明 `resources` 普通分包。最大的 8 张 PNG 经无损重编码后逐像素比较均为 `AE=0`，其中 7 张产生体积缩减，`teahouse-table` 输出字节数不变；主包为 2,013,782 B（1.9205 MiB）、资源分包为 28,514,601 B（27.1936 MiB）、总包为 30,528,383 B（29.1141 MiB），已满足 4 MiB 主包和 30 MiB 总包限制。构建脚本会在缺少分包、主包超限或总包超限时直接失败；仍需由人工在微信开发者工具中复核包体分析。
+最新微信 release 构建的 `game.json` 与 `settings.json` 均声明 `resources` 普通分包。最大的 8 张 PNG 经无损重编码后逐像素比较均为 `AE=0`，其中 7 张产生体积缩减，`teahouse-table` 输出字节数不变；主包为 2,211,407 B（2.1090 MiB）、资源分包为 28,514,601 B（27.1936 MiB）、总包为 30,726,008 B（29.3026 MiB），已满足 4 MiB 主包和 30 MiB 总包限制。构建脚本会在缺少分包、主包超限或总包超限时直接失败；仍需由人工在微信开发者工具中复核包体分析。
 
-当前好友房大厅已支持二次确认后主动离房并返回首页。尚未完成微信开发者工具导入与人工包体分析、双真机完整人工闭环、原生登录/分享、`connectContainer` 弱网与恢复联调、可见的冷启动恢复和联网牌局主动离房入口、微信后台发布资料确认，以及 Prefab/Auto Atlas/平台纹理压缩等后续优化和小游戏载体上的 Cocos 视觉 QA。Web Desktop 或浏览器联调通过不能替代这些验收。
+当前好友房大厅已支持二次确认后主动离房并返回首页；首页通用分享、房间原生分享以及冷启动/`onShow` 邀请直入也已接通。房间分享 query 只携带 `inviteToken`，创建者会随会话保存该令牌，好友无需输入数字房间码即可通过现有 `room.join` 流程入座。尚未完成微信开发者工具导入与人工包体分析、双真机完整人工闭环、原生登录、`connectContainer` 弱网与恢复联调、联网牌局主动离房入口、微信后台发布资料确认，以及 Prefab/Auto Atlas/平台纹理压缩等后续优化和小游戏载体上的 Cocos 视觉 QA。Web Desktop 或浏览器联调通过不能替代这些验收。

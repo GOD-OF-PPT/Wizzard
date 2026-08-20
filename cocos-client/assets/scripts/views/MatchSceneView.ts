@@ -1,4 +1,4 @@
-import { Color, Node, Sprite, Vec3, view } from "cc";
+import { Color, Node, Sprite, Vec3, tween, view } from "cc";
 import type {
   Card,
   MatchEvent,
@@ -23,6 +23,7 @@ import {
   GAMEPLAY_LAYOUT,
   GAMEPLAY_SEAT_POSITIONS,
   GAMEPLAY_SLOT_MAPS,
+  getGameplayLocalHandPlacement,
   getGameplayRightActionOccupant,
   getGameplayTrumpStatusRects,
   getPracticeHomeActionPlacement,
@@ -254,6 +255,8 @@ export class MatchSceneView {
   private lastTurnPlayerId: string | null = null;
   private lastVibrationActionKey: string | null = null;
   private readonly options: MatchSceneViewOptions;
+  private pendingConfirmActionPulse = false;
+  private pendingSelectedCardAnimationId: string | null = null;
   private selectedCardId: string | null = null;
   private showRoundRanking = false;
   private readonly viewRoot: Node;
@@ -478,11 +481,6 @@ export class MatchSceneView {
     const compactChoiceHand =
       state.phase === "bid" || state.phase === "trump-select";
     const handLayout = GAMEPLAY_LAYOUT.localHand;
-    const spacing = Math.min(
-      compactChoiceHand ? handLayout.choiceMaxSpacing : handLayout.maxSpacing,
-      hand.length > 1 ? handLayout.maxSpread / (hand.length - 1) : 0,
-    );
-    const center = (hand.length - 1) / 2;
     const handBaseY = handLayout.baseY;
     const cardHeight = compactChoiceHand
       ? handLayout.choiceHeight
@@ -491,40 +489,106 @@ export class MatchSceneView {
       ? handLayout.choiceWidth
       : handLayout.width;
 
-    hand.forEach((card, index) => {
+    const selectedIndex = hand.findIndex(
+      (card) => card.id === this.selectedCardId,
+    );
+    const selectedAnimationId = this.pendingSelectedCardAnimationId;
+    this.pendingSelectedCardAnimationId = null;
+    const pulseConfirmAction = this.pendingConfirmActionPulse;
+    this.pendingConfirmActionPulse = false;
+    const handLayer = createContainer(
+      this.dynamicRoot,
+      "LocalHandLayer",
+      1920,
+      420,
+      0,
+      0,
+    );
+    const cards = hand.map((card, index) => {
       const legal = legalCardIds.has(card.id);
       const selected = card.id === this.selectedCardId;
-      const cardNode = createCardView(this.dynamicRoot, this.assets, card, {
-        height: cardHeight,
-        onActivate:
-          canPlay && legal
-            ? () => {
-                this.selectedCardId = card.id;
-                this.feedbackText = null;
-                this.refreshPresentation();
-              }
-            : undefined,
-        state: selected
-          ? "selected"
-          : canPlay && this.options.preferences.showLegalHints
-            ? legal
-              ? "legal"
-              : "illegal"
-            : "normal",
-        width: cardWidth,
-      });
-      const offset = index - center;
-      cardNode.setPosition(
-        new Vec3(
-          offset * spacing,
-          handBaseY +
-            (selected ? handLayout.selectedLift : 0) +
-            Math.abs(offset) * handLayout.risePerStep,
-          index,
-        ),
-      );
-      cardNode.angle = offset * handLayout.anglePerStep;
+      const placement = compactChoiceHand
+        ? {
+            angle: (index - (hand.length - 1) / 2) * handLayout.anglePerStep,
+            renderOrder: index,
+            x:
+              (index - (hand.length - 1) / 2) *
+              Math.min(
+                handLayout.choiceMaxSpacing,
+                hand.length > 1
+                  ? handLayout.maxSpread / (hand.length - 1)
+                  : 0,
+              ),
+            y:
+              handBaseY +
+              Math.abs(index - (hand.length - 1) / 2) * handLayout.risePerStep,
+          }
+        : getGameplayLocalHandPlacement(
+            hand.length,
+            index,
+            selectedIndex >= 0 ? selectedIndex : null,
+          );
+      const restingPlacement = compactChoiceHand
+        ? placement
+        : getGameplayLocalHandPlacement(hand.length, index, null);
+      return { card, index, legal, placement, restingPlacement, selected };
     });
+    cards
+      .sort(
+        (left, right) =>
+          left.placement.renderOrder - right.placement.renderOrder,
+      )
+      .forEach(
+        ({ card, legal, placement, restingPlacement, selected }) => {
+          const cardNode = createCardView(handLayer, this.assets, card, {
+            height: cardHeight,
+            onActivate:
+              canPlay && legal
+                ? () => {
+                    if (this.selectedCardId === card.id) {
+                      return;
+                    }
+                    this.pendingConfirmActionPulse =
+                      this.selectedCardId === null;
+                    this.selectedCardId = card.id;
+                    this.pendingSelectedCardAnimationId = card.id;
+                    this.feedbackText = null;
+                    if (this.options.preferences.vibrationEnabled) {
+                      void this.options.onVibrate().catch(() => {
+                        // Selection haptics are optional and never block play.
+                      });
+                    }
+                    this.refreshPresentation();
+                  }
+                : undefined,
+            selectedHaloOffsetY: handLayout.selectedHaloOffsetY,
+            state: selected
+              ? "selected"
+              : canPlay && this.options.preferences.showLegalHints
+                ? legal
+                  ? "legal"
+                  : "illegal"
+                : "normal",
+            width: cardWidth,
+          });
+          const targetPosition = new Vec3(placement.x, placement.y, 0);
+          cardNode.setPosition(targetPosition);
+          cardNode.angle = placement.angle;
+          if (selected && selectedAnimationId === card.id) {
+            cardNode.setPosition(
+              new Vec3(restingPlacement.x, restingPlacement.y, 0),
+            );
+            cardNode.angle = restingPlacement.angle;
+            tween(cardNode)
+              .to(
+                handLayout.selectedAnimationSeconds,
+                { angle: placement.angle, position: targetPosition },
+                { easing: "cubicOut" },
+              )
+              .start();
+          }
+        },
+      );
 
     if (!canPlay) {
       return;
@@ -532,7 +596,7 @@ export class MatchSceneView {
 
     if (this.selectedCardId) {
       const action = GAMEPLAY_LAYOUT.turnAction;
-      createButton(
+      const confirmButton = createButton(
         this.dynamicRoot,
         this.assets,
         "确认\n出牌",
@@ -553,6 +617,26 @@ export class MatchSceneView {
         true,
         TURN_ACTION_BUTTON,
       );
+      if (pulseConfirmAction) {
+        tween(confirmButton)
+          .to(
+            handLayout.confirmPulseStepSeconds,
+            {
+              scale: new Vec3(
+                handLayout.confirmPulseScale,
+                handLayout.confirmPulseScale,
+                1,
+              ),
+            },
+            { easing: "cubicOut" },
+          )
+          .to(
+            handLayout.confirmPulseStepSeconds,
+            { scale: new Vec3(1, 1, 1) },
+            { easing: "cubicOut" },
+          )
+          .start();
+      }
       return;
     }
 

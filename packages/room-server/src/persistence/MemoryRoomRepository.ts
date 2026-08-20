@@ -68,6 +68,16 @@ export class MemoryRoomRepository<TRoom extends RevisionedRoom>
     return "saved";
   }
 
+  public async countActive(now: number): Promise<number> {
+    let count = 0;
+    for (const room of this.rooms.values()) {
+      if (room.expiresAt > now) {
+        count += 1;
+      }
+    }
+    return count;
+  }
+
   public async create(room: TRoom): Promise<boolean> {
     this.pruneRoom(room.id);
     this.pruneIndexedOwner(this.codeIndex, room.code);
@@ -118,7 +128,7 @@ export class MemoryRoomRepository<TRoom extends RevisionedRoom>
     );
   }
 
-  public sweepExpired(now = this.now()): number {
+  public async sweepExpired(now = this.now()): Promise<number> {
     let removed = 0;
 
     for (const [id, room] of this.rooms) {

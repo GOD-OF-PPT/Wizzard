@@ -3,6 +3,7 @@ import type { WechatPlatformApi } from "./WechatSocketTransport";
 const SESSION_STORAGE_KEY = "wizzard.room-session.v1";
 
 export type StoredRoomSession = {
+  inviteToken?: string;
   playerId: string;
   resumeToken: string;
   roomCode: string;
@@ -22,6 +23,8 @@ function isStoredRoomSession(value: unknown): value is StoredRoomSession {
 
   const candidate = value as Record<string, unknown>;
   return (
+    (candidate.inviteToken === undefined ||
+      typeof candidate.inviteToken === "string") &&
     typeof candidate.playerId === "string" &&
     typeof candidate.resumeToken === "string" &&
     typeof candidate.roomCode === "string" &&

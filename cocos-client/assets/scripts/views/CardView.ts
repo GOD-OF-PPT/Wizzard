@@ -15,6 +15,7 @@ type CardViewOptions = {
   faceDown?: boolean;
   height?: number;
   onActivate?: () => void;
+  selectedHaloOffsetY?: number;
   state?: CardVisualState;
   width?: number;
   winner?: boolean;
@@ -61,6 +62,8 @@ export function createCardView(
       (state === "selected" ? "fx.card.selected" : "fx.card.legal") as AssetKey,
       width + 28,
       height + 34,
+      0,
+      state === "selected" ? (options.selectedHaloOffsetY ?? 0) : 0,
     );
   }
 
@@ -127,10 +130,6 @@ export function createCardView(
     );
     top.setPosition(new Vec3(top.position.x, top.position.y, 1));
     bottom.angle = 180;
-  }
-
-  if (state === "selected") {
-    root.setPosition(new Vec3(0, 22, 0));
   }
 
   if (options.onActivate && state !== "illegal") {

@@ -11,6 +11,13 @@ export type GameplayPlayerCount = 3 | 4 | 5 | 6;
 export type GameplaySeatSlot = 0 | 1 | 2 | 3 | 4 | 5;
 export type GameplayLocalHandVisualState = "normal" | "legal" | "selected";
 
+export type GameplayLocalHandPlacement = Readonly<{
+  angle: number;
+  renderOrder: number;
+  x: number;
+  y: number;
+}>;
+
 export type GameplayRightActionOccupant =
   "bid-trump-status" | "turn-action" | null;
 
@@ -108,13 +115,18 @@ export const GAMEPLAY_LAYOUT = {
     choiceHeight: 220,
     choiceMaxSpacing: 112,
     choiceWidth: 146,
+    confirmPulseScale: 1.035,
+    confirmPulseStepSeconds: 0.08,
     effectExtraHeight: 34,
     effectExtraWidth: 28,
     height: 280,
     maxSpacing: 140,
     maxSpread: 960,
     risePerStep: 2,
-    selectedLift: 4,
+    selectedAnimationSeconds: 0.14,
+    selectedLift: 12,
+    selectedHaloOffsetY: -8,
+    selectedNeighborGap: 9,
     width: 186,
   },
   trumpStatus: { height: 72, width: 257, x: 0, y: -161 },
@@ -333,36 +345,90 @@ export function getGameplayLocalHandCardRect(
   };
 }
 
-export function getGameplayLocalHandVisualRect(
+export function getGameplayLocalHandPlacement(
   handCount: number,
   index: number,
-  state: GameplayLocalHandVisualState,
-): GameplayLayoutRect {
+  selectedIndex: number | null,
+): GameplayLocalHandPlacement {
   if (!Number.isInteger(handCount) || handCount < 1 || handCount > 20) {
     throw new Error(`INVALID_GAMEPLAY_HAND_COUNT:${handCount}`);
   }
   if (!Number.isInteger(index) || index < 0 || index >= handCount) {
     throw new Error(`INVALID_GAMEPLAY_HAND_INDEX:${index}`);
   }
+  if (
+    selectedIndex !== null &&
+    (!Number.isInteger(selectedIndex) ||
+      selectedIndex < 0 ||
+      selectedIndex >= handCount)
+  ) {
+    throw new Error(`INVALID_GAMEPLAY_SELECTED_INDEX:${selectedIndex}`);
+  }
 
   const hand = GAMEPLAY_LAYOUT.localHand;
+  const selected = index === selectedIndex;
+  const reservedSelectionWidth = selectedIndex === null
+    ? 0
+    : hand.selectedNeighborGap * 2;
   const spacing =
     handCount === 1
       ? 0
-      : Math.min(hand.maxSpacing, hand.maxSpread / (handCount - 1));
+      : Math.min(
+          hand.maxSpacing,
+          (hand.maxSpread - reservedSelectionWidth) / (handCount - 1),
+        );
   const center = (handCount - 1) / 2;
   const offset = index - center;
-  const decorated = state === "legal" || state === "selected";
+  const selectionShift =
+    selectedIndex === null || selected
+      ? 0
+      : index < selectedIndex
+        ? -hand.selectedNeighborGap
+        : hand.selectedNeighborGap;
 
-  return getRotatedRect(
-    hand.width + (decorated ? hand.effectExtraWidth : 0),
-    hand.height + (decorated ? hand.effectExtraHeight : 0),
-    offset * spacing,
-    hand.baseY +
+  return {
+    angle: selected ? 0 : offset * hand.anglePerStep,
+    renderOrder: selected ? handCount : index,
+    x: offset * spacing + selectionShift,
+    y:
+      hand.baseY +
       Math.abs(offset) * hand.risePerStep +
-      (state === "selected" ? hand.selectedLift : 0),
-    offset * hand.anglePerStep,
+      (selected ? hand.selectedLift : 0),
+  };
+}
+
+export function getGameplayLocalHandVisualRect(
+  handCount: number,
+  index: number,
+  state: GameplayLocalHandVisualState,
+  selectedIndex: number | null = state === "selected" ? index : null,
+): GameplayLayoutRect {
+  const hand = GAMEPLAY_LAYOUT.localHand;
+  const placement = getGameplayLocalHandPlacement(
+    handCount,
+    index,
+    selectedIndex,
   );
+  const decorated = state === "legal" || state === "selected";
+  const cardRect = getRotatedRect(
+    hand.width,
+    hand.height,
+    placement.x,
+    placement.y,
+    placement.angle,
+  );
+  if (!decorated) {
+    return cardRect;
+  }
+
+  const effectRect = getRotatedRect(
+    hand.width + hand.effectExtraWidth,
+    hand.height + hand.effectExtraHeight,
+    placement.x,
+    placement.y + (state === "selected" ? hand.selectedHaloOffsetY : 0),
+    placement.angle,
+  );
+  return unionRects([cardRect, effectRect]);
 }
 
 export function getGameplayLocalChoiceHandVisualRect(

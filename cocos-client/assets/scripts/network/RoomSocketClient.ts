@@ -118,6 +118,10 @@ export class RoomSocketClient {
     return this.connectionState;
   }
 
+  public getInviteToken(): string | null {
+    return this.session?.inviteToken ?? null;
+  }
+
   public getLatestUpdate(): RoomUpdatePayload | null {
     return this.latestUpdate;
   }
@@ -388,7 +392,18 @@ export class RoomSocketClient {
     }
 
     if (message.type === "session.established") {
+      const bindingInviteToken =
+        this.options.binding.type === "join"
+          ? this.options.binding.payload.inviteToken
+          : undefined;
+      const inviteToken =
+        message.session.inviteToken ??
+        (this.session?.roomId === message.session.roomId
+          ? this.session.inviteToken
+          : undefined) ??
+        bindingInviteToken;
       const session: StoredRoomSession = {
+        ...(inviteToken ? { inviteToken } : {}),
         playerId: message.session.playerId,
         resumeToken: message.session.resumeToken,
         roomCode: message.session.roomCode,

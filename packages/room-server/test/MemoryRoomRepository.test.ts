@@ -84,7 +84,7 @@ describe("MemoryRoomRepository", () => {
         room({ expiresAt: 4_000, id: "room-2" }),
       ),
     ).toBe(true);
-    expect(repository.sweepExpired(4_000)).toBe(1);
+    expect(await repository.sweepExpired(4_000)).toBe(1);
   });
 
   it("deletes a room and its indexes", async () => {

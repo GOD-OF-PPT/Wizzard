@@ -51,8 +51,11 @@ export class GameBootstrap extends Component {
   private friendRoomView: FriendRoomView | null = null;
   private loadingNode: Node | null = null;
   private matchView: MatchSceneView | null = null;
+  private pendingRoomInviteToken: string | null = null;
   private platformServices: PlatformServices | null = null;
   private preferences: GamePreferences = DEFAULT_GAME_PREFERENCES;
+  private resumeFallbackInviteToken: string | null = null;
+  private unregisterSharing: (() => void) | null = null;
   private routeQueued = false;
 
   public start(): void {
@@ -79,6 +82,15 @@ export class GameBootstrap extends Component {
   }
 
   public onDestroy(): void {
+    console.info("[WIZZARD_SHARE_DIAG_8F21]", {
+      activeSurface: this.activeSurface,
+      hasRegistration: Boolean(this.unregisterSharing),
+      isValid: this.isValid,
+      stage: "unbind",
+    });
+    this.platformServices?.sharing.setRoomInvite(null);
+    this.unregisterSharing?.();
+    this.unregisterSharing = null;
     this.friendRoomRouteUnsubscribe?.();
     this.friendRoomRouteUnsubscribe = null;
     this.adapter?.dispose();
@@ -95,6 +107,12 @@ export class GameBootstrap extends Component {
 
   private async boot(): Promise<void> {
     try {
+      this.platformServices = createPlatformServices();
+      this.unregisterSharing?.();
+      this.unregisterSharing = this.platformServices.sharing.register(
+        (inviteToken) => this.receiveRoomInvite(inviteToken),
+      );
+
       const assets = new AssetRegistry();
       await assets.preload();
 
@@ -103,12 +121,13 @@ export class GameBootstrap extends Component {
       }
 
       this.assets = assets;
-      this.platformServices = createPlatformServices();
       this.preferences = this.platformServices.preferenceStore.load();
       this.loadingNode?.destroy();
       this.loadingNode = null;
 
-      if (APP_RUNTIME_CONFIG.startup === "practice") {
+      if (this.pendingRoomInviteToken && APP_RUNTIME_CONFIG.friendRoom) {
+        this.startFriendRoomFlow(false);
+      } else if (APP_RUNTIME_CONFIG.startup === "practice") {
         this.startPractice();
       } else {
         this.startFriendRoomFlow();
@@ -204,6 +223,109 @@ export class GameBootstrap extends Component {
     }
   }
 
+  private handleFriendRoomState(state: FriendRoomState): void {
+    this.syncRoomShare(state);
+
+    const fallbackToken = this.resumeFallbackInviteToken;
+    const shouldRetryInvite =
+      fallbackToken !== null &&
+      state.update === null &&
+      state.pending.binding === null &&
+      (state.error?.code === "AUTH_REQUIRED" ||
+        state.error?.code === "PLAYER_NOT_FOUND" ||
+        state.error?.code === "ROOM_NOT_FOUND" ||
+        state.error?.code === "SESSION_NOT_FOUND");
+
+    if (state.update) {
+      this.resumeFallbackInviteToken = null;
+    } else if (shouldRetryInvite) {
+      this.resumeFallbackInviteToken = null;
+      const controller = this.friendRoomController;
+      void Promise.resolve().then(() => {
+        if (
+          !controller ||
+          controller !== this.friendRoomController ||
+          controller.state.update ||
+          controller.state.pending.binding
+        ) {
+          return;
+        }
+        controller.clearError();
+        controller.joinRoomWithInvite({
+          avatarKey: "bamboo-cat",
+          displayName: generateRandomFriendRoomNickname(),
+          inviteToken: fallbackToken,
+        });
+      });
+    }
+
+    this.handleFriendRoomRoute(state);
+  }
+
+  private receiveRoomInvite(inviteToken: string): void {
+    const controller = this.friendRoomController;
+    if (controller?.getInviteToken() === inviteToken) {
+      return;
+    }
+    if (controller?.state.update || controller?.state.pending.binding) {
+      return;
+    }
+
+    this.pendingRoomInviteToken = inviteToken;
+    if (!this.assets || !this.platformServices || !APP_RUNTIME_CONFIG.friendRoom) {
+      return;
+    }
+
+    if (this.activeSurface === "practice") {
+      this.activeSurface = "boot";
+      this.startFriendRoomFlow(false);
+      return;
+    }
+
+    if (controller) {
+      this.connectPendingRoomInvite(controller);
+    }
+  }
+
+  private connectPendingRoomInvite(
+    controller: FriendRoomController,
+  ): boolean {
+    const inviteToken = this.pendingRoomInviteToken;
+    if (
+      !inviteToken ||
+      controller.state.update ||
+      controller.state.pending.binding
+    ) {
+      return false;
+    }
+
+    this.pendingRoomInviteToken = null;
+    controller.clearError();
+    const storedSession = this.platformServices?.sessionStore.load();
+    if (storedSession?.inviteToken === inviteToken) {
+      this.resumeFallbackInviteToken = inviteToken;
+      return controller.resumeRoom();
+    }
+
+    this.resumeFallbackInviteToken = null;
+    return controller.joinRoomWithInvite({
+      avatarKey: "bamboo-cat",
+      displayName: generateRandomFriendRoomNickname(),
+      inviteToken,
+    });
+  }
+
+  private syncRoomShare(state: FriendRoomState): void {
+    const sharing = this.platformServices?.sharing;
+    const room = state.update?.room;
+    const inviteToken = this.friendRoomController?.getInviteToken();
+    if (sharing && room?.phase === "lobby" && inviteToken) {
+      sharing.setRoomInvite({ inviteToken });
+      return;
+    }
+    sharing?.setRoomInvite(null);
+  }
+
   private showFriendRoomSurface(): void {
     const assets = this.assets;
     const controller = this.friendRoomController;
@@ -222,8 +344,15 @@ export class GameBootstrap extends Component {
       assets,
       controller,
       {
-        onInvite: async (roomCode) =>
-          platformServices.copyText(`奇术茶馆 6 位数字房间码：${roomCode}`),
+        onInvite: async (roomCode) => {
+          if (platformServices.sharing.shareRoom()) {
+            return "shared";
+          }
+          await platformServices.copyText(
+            `奇术茶馆 6 位数字房间码：${roomCode}`,
+          );
+          return "copied";
+        },
         onPreferencesChange: (preferences) => {
           this.preferences = preferences;
           platformServices.preferenceStore.save(preferences);
@@ -271,10 +400,13 @@ export class GameBootstrap extends Component {
     );
     this.friendRoomController = controller;
     this.friendRoomRouteUnsubscribe = controller.subscribe((state) =>
-      this.handleFriendRoomRoute(state),
+      this.handleFriendRoomState(state),
     );
     this.showFriendRoomSurface();
 
+    if (this.connectPendingRoomInvite(controller)) {
+      return;
+    }
     if (connectInitialBinding && friendRoomConfig.initialBinding) {
       this.connectInitialBinding(friendRoomConfig.initialBinding);
     }
@@ -305,6 +437,8 @@ export class GameBootstrap extends Component {
     if (!assets) {
       throw new Error("PRACTICE_ASSETS_NOT_READY");
     }
+
+    this.platformServices?.sharing.setRoomInvite(null);
 
     this.friendRoomRouteUnsubscribe?.();
     this.friendRoomRouteUnsubscribe = null;

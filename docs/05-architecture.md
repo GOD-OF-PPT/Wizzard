@@ -173,6 +173,7 @@ React 验证工具消费转换事件，并在每次权威状态变化后重新�
 - `MatchSceneView` 根据查看者快照构建横版牌桌、相对座位、手牌、一墩、状态条、倒计时、王牌/预测面板和结算总榜；
 - `FriendRoomView` 根据房间快照构建首页、创建/加入表单和动态大厅，并与联网牌桌复用同一个 `RoomSocketClient`；
 - `RulesSettingsView` 在首页内渲染规则分页与本机体验设置；偏好经平台存储适配器持久化，只影响提示与震动，不进入规则核心或房间协议；
+- `PlatformServices` 在微信首页出现前一次性注册动态分享模块，统一处理 `showShareMenu`、`onShareAppMessage`、主动 `shareAppMessage` 以及冷启动/`onShow` 邀请；首页和房间卡片统一引用包根目录的版本化 5:4 `share-card-v1.jpg`，`GameBootstrap` 在销毁时解绑，浏览器实现仅保留复制房间码回退；
 - `CardView`、`PlayerSeatView` 与 `UiFactory` 已形成可继续保存为 Prefab 的组件边界；
 - `AssetRegistry` 只接受生成的语义键，运行时文件地址由 `tools/sync-cocos-assets.mjs` 从美术清单生成；
 - 当前核心切片同步 48 张 PNG 与两套精简字体，其中包含规则页所需的 `tutorial.ruleHint`；该切片已随 `resources` Asset Bundle 进入微信普通分包，角色其他表情和教程手势仍保留在完整清单中，待后续按页面接入；
@@ -197,6 +198,6 @@ WebSocket 连接在鉴权后绑定玩家身份；房间服务把该身份作为 
 
 当前云托管版本使用进程内仓储、Socket、计时器和广播，因此服务必须保持最小/最大实例 `1 / 1`。增加 Redis 只能改善重启恢复；在实现分布式房间所有权、lease 与 pub/sub 之前，不得横向扩容。私有 `GET /healthz` 已返回 HTTP 200，但该结果不证明 WebSocket 升级和双端比赛闭环。
 
-微信小游戏构建已经把 `resources` 声明为普通分包。最大的 8 张 PNG 均通过逐像素 `AE=0` 的无损重编码验证，其中 7 张产生体积缩减，`teahouse-table` 输出字节数不变。最新产物的主包为 2,013,782 B（1.9205 MiB）、资源分包为 28,514,601 B（27.1936 MiB）、总包为 30,528,383 B（29.1141 MiB）；构建脚本会自动拒绝缺少分包、主包超过 4 MiB 或总包超过 30 MiB 的产物。
+微信小游戏构建已经把 `resources` 声明为普通分包。最大的 8 张 PNG 均通过逐像素 `AE=0` 的无损重编码验证，其中 7 张产生体积缩减，`teahouse-table` 输出字节数不变。最新产物的主包为 2,211,407 B（2.1090 MiB）、资源分包为 28,514,601 B（27.1936 MiB）、总包为 30,726,008 B（29.3026 MiB）；构建脚本会自动拒绝缺少分包、主包超过 4 MiB 或总包超过 30 MiB 的产物。
 
-Cocos 工程、好友房大厅、本地/联网动态牌桌、WebSocket 房间生命周期、好友房大厅二次确认主动离房、Redis 仓储 seam、断线恢复、网络适配器、AppID 直属云托管部署和本地包体门槛已经建立。Creator 3.8.8 已完成首次导入，并产出 Web Desktop 与横屏微信小游戏 release 构建。尚未完成的是微信开发者工具人工包体分析、双真机 `connectContainer` 闭环、Cocos 视觉与弱网人工验收、微信登录/原生分享、可见的冷启动恢复，以及联网牌局主动离房入口；Web 构建或浏览器联调通过不能替代这些验收。
+Cocos 工程、好友房大厅、本地/联网动态牌桌、WebSocket 房间生命周期、好友房大厅二次确认主动离房、首页通用分享、携带邀请令牌的房间原生分享、冷启动/`onShow` 邀请直入、Redis 仓储 seam、断线恢复、网络适配器、AppID 直属云托管部署和本地包体门槛已经建立。Creator 3.8.8 已完成首次导入，并产出 Web Desktop 与横屏微信小游戏 release 构建。尚未完成的是微信开发者工具人工包体分析、双真机 `connectContainer` 分享直入闭环、Cocos 视觉与弱网人工验收、微信登录，以及联网牌局主动离房入口；Web 构建或浏览器联调通过不能替代这些验收。

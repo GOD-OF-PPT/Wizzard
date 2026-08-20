@@ -72,6 +72,7 @@ export type CreateRoomMessage = {
     displayName: string;
     maxPlayers: 3 | 4 | 5 | 6;
     mode: GameMode;
+    turnTimerEnabled?: boolean;
   };
   requestId: string;
   type: "room.create";
@@ -207,6 +208,7 @@ export type RequestErrorCode =
   | "INVITE_TOKEN_INVALID"
   | "COMMAND_REJECTED"
   | "RATE_LIMITED"
+  | "ROOM_LIMIT_REACHED"
   | "INTERNAL_ERROR";
 
 export type RequestErrorMessage = {

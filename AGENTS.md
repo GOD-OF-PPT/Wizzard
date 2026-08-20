@@ -81,10 +81,10 @@ When implementing from a selected generated mock, treat that image as the source
 - The practice final-ranking footer uses the existing paper secondary-action slot for `返回首页` beside `再来一局`. Only local practice receives this action; network matches require a separate explicit leave-room flow.
 - Returning from practice must dispose the local match surface, rebuild the friend-room home flow exactly once, and must not replay an initial invite/resume binding.
 - The friend-room lobby room-information scroll and all six seat bounds must remain disjoint. Its scroll may extend only through the horizontally sliced quiet center band; do not compress the authored scroll pillars with ordinary nine-slice geometry.
-- The six-player bottom AI-standby seat must remain above the ready/notice bands with explicit layout gaps. Do not solve the collision by shrinking the AI badge independently from the other empty-seat furniture.
+- Superseded on 2026-08-11: the six-player bottom AI-standby seat must remain above the ready/notice bands with explicit layout gaps.
 - The friend-room lobby exposes a paper `返回首页` action in the left safe column. It must open a blocking second-confirmation modal; only `确认离开` sends `room.leave`, while `继续等待` keeps the room and session intact. Return to the home screen only after the server acknowledges the leave and the persisted resume session has been cleared.
 - The friend-room AI management panel owns separate title, status, and action bands. Keep both AI button touch targets inside the secondary panel's quiet center, outside its 64px side caps and 42px bottom ornament band.
-- The lobby AI standby badge preserves the authored 215:169 aspect ratio. Its seat is a redundant add-AI target only while the host is allowed to add a robot, and its touch target must remain disjoint from notices and ready actions.
+- Superseded on 2026-08-11: the lobby AI standby badge is a redundant add-AI target while the host is allowed to add a robot.
 - Once a friend room has been established, clear the create/join entry-dialog mode. A later protocol or session failure may return to the home entry with an error, but must never reopen the stale create-room dialog.
 - Friend-room occupied-seat status uses the final-ratio SIMPLE `ui.match.stat.paper/green` assets. The local prepare action uses the final-ratio green results button, cancel-prepare uses the paper results button, and the ready counter counts connected ready humans over total humans only.
 - The lobby must expose explicit host-only `添加机器人` / `移除机器人` controls after at least two connected humans are present. Commands set an absolute AI count; a successful manual adjustment disables the host's local start-time auto-fill choice so a removed AI is not silently restored.
@@ -95,5 +95,33 @@ When implementing from a selected generated mock, treat that image as the source
 - The Cocos `resources` Asset Bundle uses bundle config ID `wizzard-wechat-resources-v1`; its WeChat compression mode is persisted in `settings/v2/packages/builder.json` as `subpackage`. Do not try to persist this platform override as a direct `compressionType` field in `assets/resources.meta`.
 - Shipping builds must keep the generated `resources` ordinary subpackage, the main package at or below 4 MiB, and the total package at or below 30 MiB. `tools/build-cocos.mjs` is the automated gate for these conditions and for the AppID, base library, cloud-container target, `/ws`, and removal of the legacy public endpoint.
 - The eight largest PNGs were checked through a lossless re-encode; seven became smaller and all eight compare at `AE=0`. Do not replace this with lossy PNG8/JPEG/WebP solely to reduce size without Mini Game device QA.
-- The latest local release build is 2,013,782 bytes in the main package, 28,514,601 bytes in the `resources` subpackage, and 30,528,383 bytes total. These are build-gate measurements, not substitutes for WeChat DevTools package analysis or two-device acceptance.
+- The latest local release build is 2,213,320 bytes in the main package, 28,514,601 bytes in the `resources` subpackage, and 30,727,921 bytes total. These are build-gate measurements, not substitutes for WeChat DevTools package analysis or two-device acceptance.
 - `room.set-ai-count` is a backward-compatible server-response change but a new strict v1 client command. Deploy the supporting Cloud Hosting server before uploading a client that can send it; do not roll the service back to a build that rejects that command while the new experience version is active.
+
+### Latest Visual QA Decisions (2026-08-11)
+
+- An unoccupied lobby seat must never be described as an AI player state. Only an AI present in `room.players` renders an avatar, name, ready state, and small AI badge.
+- While the host may add a robot, at most the final open seat becomes a redundant action target labeled `添加机器人`; otherwise every open seat remains `等待好友`. Never restore the `AI 待命` label or `LobbySeat:AiStandby` semantics.
+- The add-AI action seat keeps the authored 215:169 robot badge and its existing disjoint touch bounds, but its command wording must distinguish it from occupied AI players.
+
+### Latest Gameplay Decisions (2026-08-11)
+
+- New friend rooms default to `出牌不倒计时 · 开`. The create-room dialog keeps this as an explicit toggle and restores the default whenever a fresh create dialog is opened.
+- Disabling the turn timer removes deadlines and timeout takeover for every human action phase (`trump-select`, `bid`, and `trick-play`). AI action delay, trick-result display delay, and cross-round advancement remain server-authoritative and timed.
+- If the current human disconnects from a no-timer room, schedule one hidden 30-second reconnect grace so an abandoned client cannot deadlock the match. Resuming within the grace cancels it; expiry performs the established server takeover path without exposing a player-facing countdown.
+- `room.create.payload.turnTimerEnabled` is an optional v1 compatibility field. Omitted values keep the established 30-second human deadline, while the current Mini Game sends `false` explicitly. Deploy the accepting Cloud Hosting server before uploading a client that sends this field because the previous strict server rejects unknown create payload keys.
+
+### Latest Platform Decisions (2026-08-11)
+
+- Before the friend-room home surface appears, the WeChat Mini Game registers one dynamic sharing module through `wx.onShareAppMessage` and `wx.showShareMenu`; `GameBootstrap` owns the single registration and removes both share and `onShow` listeners on destroy so view redraws cannot stack listeners.
+- The generic home share contains no room locator. While a shareable friend-room lobby is active, both the lobby `邀请好友` action and the system share menu use the same native room card. Its query carries only the room-scoped `inviteToken`, never the numeric room code, resume token, player identity, room secret, or full state.
+- A valid room invite from `getLaunchOptionsSync` or `onShow` takes priority over the configured startup surface and joins through the existing `room.join({ inviteToken })` flow with a fresh random nickname. It may switch out of local practice, but it must never silently disconnect a player who is already bound to another friend room or network match.
+- Persist the creator's invite token with its local room session because the server cannot reconstruct or resend the plaintext token during resume. Preserve it only when the resumed `roomId` matches, and clear it with the rest of the session after an acknowledged leave or terminal session error.
+- The automated `wechatgame` build gate must reject output that no longer contains the compiled `onShareAppMessage`, `showShareMenu`, `shareAppMessage`, `getLaunchOptionsSync`, `onShow`, and `offShow` paths.
+- Native home and room share cards use the versioned 5:4 `share-card-v1.jpg` artwork. Keep the lossless master and runtime JPEG under `art/source/social` and `art/runtime/social`; `tools/build-cocos.mjs` owns copying the runtime image to the Mini Game package root and must count it against package limits.
+
+### Latest Gameplay Visual Decisions (2026-08-12)
+
+- On the local player's trick-play turn, selecting a legal card must combine the existing gold selected halo with a 12px lift, zero-degree rotation, topmost hand-layer ordering, and a 9px outward shift on both sides of the selection. Reserve that extra width inside the existing 960px hand span so the right action lane remains disjoint.
+- Keep the selected halo optically 8px below the lifted card center so the stronger selection reduces decoration pressure near the center trump-status band without moving that primary HUD.
+- Play the selection lift once over 140ms with a restrained cubic-out motion. Pulse the confirm action only when it first appears after the initial selection; changing the selected card must not pulse it again. Countdown or network redraws must not replay either animation.

@@ -15,6 +15,7 @@ function createMessage(name: string) {
       displayName: name,
       maxPlayers: 3 as const,
       mode: "quick" as const,
+      turnTimerEnabled: true,
     },
     requestId: `create-${name}`,
     type: "room.create" as const,
@@ -667,6 +668,169 @@ describe("RoomCoordinator", () => {
         now,
       ),
     ).rejects.toMatchObject({ code: "COMMAND_REJECTED" });
+  });
+
+  it("keeps legacy rooms timed and lets new rooms disable human turn deadlines", async () => {
+    const now = 2_900_000;
+    const repository = new MemoryRoomRepository<RoomRecord>(() => now);
+    const coordinator = new RoomCoordinator({
+      clock: () => now,
+      config: { aiActionDelayMs: 25, turnTimeoutMs: 100 },
+      repository,
+    });
+    const legacyMessage = createMessage("Legacy");
+    const {
+      turnTimerEnabled: _legacyTimer,
+      ...legacyPayload
+    } = legacyMessage.payload;
+    const legacy = await coordinator.createRoom({
+      ...legacyMessage,
+      payload: legacyPayload,
+    });
+    expect(legacy.room.turnTimerEnabled).toBe(true);
+
+    const host = await coordinator.createRoom({
+      ...createMessage("NoTimerHost"),
+      payload: {
+        ...createMessage("NoTimerHost").payload,
+        turnTimerEnabled: false,
+      },
+    });
+    const second = await join(
+      coordinator,
+      host.grant.inviteToken!,
+      "NoTimerSecond",
+    );
+    const third = await join(
+      coordinator,
+      host.grant.inviteToken!,
+      "NoTimerThird",
+    );
+    const members = [host, second, third];
+    const sessions = new Map<string, BoundRoomSession>(
+      members.map((member) => [member.session.playerId, member.session]),
+    );
+    for (const member of members) {
+      await coordinator.execute(
+        member.session,
+        readyMessage(`no-timer-ready-${member.session.playerId}`),
+        now,
+      );
+    }
+
+    const started = await coordinator.execute(
+      host.session,
+      {
+        payload: { fillWithAi: false },
+        requestId: "start-without-turn-timer",
+        type: "room.start",
+        v: 1,
+      },
+      now,
+    );
+    expect(started.room.turnTimerEnabled).toBe(false);
+    expect(started.room.deadline).toBeNull();
+
+    const currentPlayerId = started.room.match!.currentPlayerId!;
+    const departed = await coordinator.execute(
+      sessions.get(currentPlayerId)!,
+      {
+        payload: {},
+        requestId: "current-player-leaves-no-timer-room",
+        type: "room.leave",
+        v: 1,
+      },
+      now,
+    );
+    expect(departed.room.deadline).toMatchObject({
+      dueAt: now + 25,
+      kind: "turn",
+      playerId: currentPlayerId,
+    });
+  });
+
+  it("uses a hidden reconnect grace when the current player disconnects from a no-timer room", async () => {
+    const startTime = 2_950_000;
+    const repository = new MemoryRoomRepository<RoomRecord>(() => startTime);
+    const coordinator = new RoomCoordinator({
+      clock: () => startTime,
+      config: { aiActionDelayMs: 25, turnTimeoutMs: 100 },
+      repository,
+    });
+    const host = await coordinator.createRoom({
+      ...createMessage("GraceHost"),
+      payload: {
+        ...createMessage("GraceHost").payload,
+        turnTimerEnabled: false,
+      },
+    });
+    const second = await join(
+      coordinator,
+      host.grant.inviteToken!,
+      "GraceSecond",
+    );
+    const third = await join(
+      coordinator,
+      host.grant.inviteToken!,
+      "GraceThird",
+    );
+    const members = [host, second, third];
+    for (const member of members) {
+      await coordinator.execute(
+        member.session,
+        readyMessage(`grace-ready-${member.session.playerId}`),
+        startTime,
+      );
+    }
+
+    const started = await coordinator.execute(
+      host.session,
+      {
+        payload: { fillWithAi: false },
+        requestId: "start-reconnect-grace-room",
+        type: "room.start",
+        v: 1,
+      },
+      startTime,
+    );
+    const currentPlayerId = started.room.match!.currentPlayerId!;
+    const currentMember = members.find(
+      (member) => member.session.playerId === currentPlayerId,
+    )!;
+
+    const disconnected = await coordinator.disconnect(
+      currentMember.session,
+      startTime,
+    );
+    expect(disconnected!.room.deadline).toMatchObject({
+      dueAt: startTime + 100,
+      kind: "turn",
+      playerId: currentPlayerId,
+    });
+    const resumed = await coordinator.resumeSession(
+      {
+        payload: { resumeToken: currentMember.grant.resumeToken },
+        requestId: "resume-within-hidden-grace",
+        type: "session.resume",
+        v: 1,
+      },
+      startTime + 50,
+    );
+    expect(resumed.room.deadline).toBeNull();
+
+    const disconnectedAgain = await coordinator.disconnect(
+      resumed.session,
+      startTime + 50,
+    );
+    expect(disconnectedAgain!.room.deadline?.dueAt).toBe(startTime + 150);
+
+    const advanced = await coordinator.wake(
+      resumed.room.id,
+      startTime + 150,
+    );
+    expect(advanced!.room.match!.version).toBeGreaterThan(
+      disconnectedAgain!.room.match!.version,
+    );
   });
 
   it("advances an expired authoritative deadline only once", async () => {

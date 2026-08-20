@@ -141,7 +141,11 @@ export class FriendRoomController {
     }
 
     return this.bindRoom("create", {
-      payload: { ...input, displayName },
+      payload: {
+        ...input,
+        displayName,
+        turnTimerEnabled: input.turnTimerEnabled ?? false,
+      },
       type: "create",
     });
   }
@@ -164,6 +168,10 @@ export class FriendRoomController {
 
   public getRoomClient(): RoomSocketClient | null {
     return this.roomClient;
+  }
+
+  public getInviteToken(): string | null {
+    return this.roomClient?.getInviteToken() ?? null;
   }
 
   public joinRoom(input: JoinFriendRoomInput): boolean {

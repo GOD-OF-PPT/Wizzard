@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "artDirection": "enchanted-teahouse",
   "orientation": "landscape",
   "designViewport": [1920, 1080],
@@ -434,6 +434,18 @@
       "predictionSuccess": "fx.prediction.success",
       "predictionMiss": "fx.prediction.miss",
       "reconnectSpinner": "fx.connection.reconnecting"
+    }
+  },
+  "social": {
+    "wechatShareCardV1": {
+      "semanticKey": "social.wechat.shareCard.v1",
+      "source": "art/source/social/wechat-share-card-v1.png",
+      "runtime": "art/runtime/social/wechat-share-card-v1.jpg",
+      "buildPath": "share-card-v1.jpg",
+      "sourcePixelSize": [1400, 1120],
+      "runtimePixelSize": [800, 640],
+      "aspectRatio": "5:4",
+      "notes": "Versioned native WeChat Mini Game share card. Copied to the wechatgame package root by tools/build-cocos.mjs; not loaded through Cocos resources."
     }
   },
   "fonts": {

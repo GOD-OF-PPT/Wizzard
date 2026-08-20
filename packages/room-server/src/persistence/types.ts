@@ -13,11 +13,13 @@ export interface RoomRepository<TRoom extends RevisionedRoom> {
     room: TRoom,
     expectedRevision: number,
   ): Promise<SaveRoomResult>;
+  countActive(now: number): Promise<number>;
   create(room: TRoom): Promise<boolean>;
   delete(id: string): Promise<void>;
   loadByCode(code: string): Promise<TRoom | null>;
   loadById(id: string): Promise<TRoom | null>;
   loadByInviteHash(inviteTokenHash: string): Promise<TRoom | null>;
+  sweepExpired(now: number): Promise<number>;
 }
 
 export type RoomRecordGuard<TRoom extends RevisionedRoom> = (

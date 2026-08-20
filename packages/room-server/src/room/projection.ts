@@ -95,7 +95,11 @@ export function createRoomUpdatePayload(
         ? {
             events: events.map((event) => structuredClone(event)),
             snapshot: createPlayerSnapshot(room.match, viewerPlayerId),
-            turnDeadlineAt: room.deadline?.dueAt ?? null,
+            turnDeadlineAt:
+              room.turnTimerEnabled !== false &&
+              room.deadline?.kind === "turn"
+                ? room.deadline.dueAt
+                : null,
           }
         : null,
     permissions: createRoomPermissions(room, viewerPlayerId),

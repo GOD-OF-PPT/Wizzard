@@ -16,6 +16,14 @@ The checked-in runtime is intentionally single-active-instance. Horizontal
 scaling still requires a distributed room lease plus Redis pub/sub so timers
 and broadcasts have one owner.
 
+New Mini Game rooms send `room.create.turnTimerEnabled:false` by default, so
+human trump selection, bidding, and card-play turns have no deadline. AI turns,
+trick-result display, and round advancement remain timed by the server. Older
+clients omit this optional field and retain the established 30-second human
+deadline. A disconnected current player receives a hidden 30-second reconnect
+grace; resuming cancels it, while expiry prevents an abandoned room from
+deadlocking. Deploy the accepting server before a client that sends the new key.
+
 Useful workspace commands:
 
 ```text
@@ -81,8 +89,8 @@ tests do not replace that release acceptance.
 
 The matching Mini Game release build now declares the `resources` ordinary
 subpackage and passes the repository's automated 4 MiB main-package / 30 MiB
-total-package gates (2,013,782 B / 1.9205 MiB main, 28,514,601 B / 27.1936 MiB
-resources, 30,528,383 B / 29.1141 MiB total). This removes the local upload-size
+total-package gates (2,211,407 B / 2.1090 MiB main, 28,514,601 B / 27.1936 MiB
+resources, 30,726,008 B / 29.3026 MiB total). This removes the local upload-size
 blocker but does not replace manual package analysis in WeChat DevTools or the
 two-device private-transport test.
 
