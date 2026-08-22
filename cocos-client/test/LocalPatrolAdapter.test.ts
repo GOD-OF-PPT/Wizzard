@@ -70,6 +70,28 @@ describe("LocalPatrolAdapter", () => {
     );
   });
 
+  it("uses the latest edited target when the selection timer expires", () => {
+    const adapter = new LocalPatrolAdapter();
+    const updates: PatrolUpdate[] = [];
+    adapter.start((update) => updates.push(update));
+
+    adapter.update(5);
+    adapter.setTargetDraft(6);
+    adapter.update(8);
+
+    expect(updates.at(-1)?.state.phase).toBe("patrol");
+    expect(updates.at(-1)?.state.players[0]?.target).toBe(6);
+    expect(updates.at(-1)?.events).toEqual(
+      expect.arrayContaining([
+        {
+          playerId: "traveler-you",
+          target: 6,
+          type: "target-selected",
+        },
+      ]),
+    );
+  });
+
   it("accepts target and movement controls only in their matching phases", () => {
     const adapter = new LocalPatrolAdapter();
     const updates: PatrolUpdate[] = [];
@@ -171,6 +193,7 @@ describe("LocalPatrolAdapter", () => {
     const updateCount = updates.length;
     adapter.update(100);
     adapter.selectTarget(4);
+    adapter.setTargetDraft(6);
     adapter.slow();
     adapter.queueSwitch();
     adapter.fast();

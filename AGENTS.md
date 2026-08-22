@@ -125,3 +125,17 @@ When implementing from a selected generated mock, treat that image as the source
 - On the local player's trick-play turn, selecting a legal card must combine the existing gold selected halo with a 12px lift, zero-degree rotation, topmost hand-layer ordering, and a 9px outward shift on both sides of the selection. Reserve that extra width inside the existing 960px hand span so the right action lane remains disjoint.
 - Keep the selected halo optically 8px below the lifted card center so the stronger selection reduces decoration pressure near the center trump-status band without moving that primary HUD.
 - Play the selection lift once over 140ms with a restrained cubic-out motion. Pulse the confirm action only when it first appears after the initial selection; changing the selected card must not pulse it again. Countdown or network redraws must not replay either animation.
+
+### Latest Release Review Strategy (2026-08-21)
+
+- For a genuine non-card reclassification attempt, validate the review-facing experience before rebuilding the full product: first produce the replacement gameplay visual, a truthful local Cocos playable slice, the revised rules/metadata, and a continuous review video. Do not invest in protocol, room-server, or full network migration until manual category feedback supports the new direction.
+- Internal architecture changes have no direct classification value. Implement only enough pure local rules to make the first review slice genuinely behave like the proposed non-card experience; the visible interaction grammar, not merely the artwork or terminology, must stop resembling a hand/deck/suit/trump/trick game.
+- A submission build may not retain the original card experience behind hidden routes, practice bindings, resume sessions, remote flags, or packaged assets. The visual-first checkpoint is an investigation artifact; final submission still requires a clean, consistent build and matching screenshots, rules, share artwork, and backend behavior.
+- The standalone patrol review artifact uses the versioned 5:4 `share-card-patrol-v2.jpg` artwork. It may not copy or reference the legacy card-themed `share-card-v1.jpg`; `tools/build-patrol-review.mjs` owns the compiled-path replacement, package-root copy, legacy-file removal, and manifest evidence for this review-only carrier.
+
+### Latest Non-Card Prototype Visual Decision (2026-08-21)
+
+- The selected review-slice gameplay direction is option 1, “漆环巡游”, stored at `art/mockups/patrol-gameplay-screen-v1.png`. Treat that image as the source of truth for the patrol prototype's layout, component anatomy, density, spacing, color, typography, visible content, and hierarchy.
+- The first playable patrol slice is an independent local Cocos surface: one human plus two AI travelers, two continuous concentric routes, six bridge gates, one same-value tea-spirit type, observe → choose target → 60-second simultaneous patrol → results, and the three controls `减速` / `预备换轨` / `加速`.
+- Preserve the selected mock's near-top-down full-course composition, compact left player progress, top round/timer/target HUD, and broad bottom control rail. Do not reintroduce a private hand, deck, uniform card rectangles, suits, ranks, trump, trick pile, or turn-by-turn play into this surface.
+- Until the review-first gate passes, keep patrol local and isolated from `packages/room-protocol`, Cloud Hosting, Redis, resume sessions, and friend-room networking. The existing networked card experience remains a regression surface only and is not part of the patrol evidence build.

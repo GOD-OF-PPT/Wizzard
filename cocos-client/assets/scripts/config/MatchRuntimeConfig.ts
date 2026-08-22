@@ -19,10 +19,15 @@ export type FriendRoomRuntimeConfig = FriendRoomBindingConfig &
       }
   );
 
-export type AppRuntimeConfig = {
-  friendRoom: FriendRoomRuntimeConfig | null;
-  startup: "home" | "practice";
-};
+export type AppRuntimeConfig =
+  | {
+      friendRoom: null;
+      startup: "patrol";
+    }
+  | {
+      friendRoom: FriendRoomRuntimeConfig | null;
+      startup: "home" | "practice";
+    };
 
 type LegacyMatchRuntimeConfig =
   | { mode: "local" }
@@ -97,13 +102,18 @@ function readInjectedRuntimeConfig(): AppRuntimeConfig | null {
     const friendRoom = candidate.friendRoom;
 
     if (
-      (startup !== "home" && startup !== "practice") ||
-      (friendRoom !== null && !isFriendRoomRuntimeConfig(friendRoom))
+      (startup !== "home" && startup !== "patrol" && startup !== "practice") ||
+      (friendRoom !== null && !isFriendRoomRuntimeConfig(friendRoom)) ||
+      (startup === "patrol" && friendRoom !== null)
     ) {
       throw new Error("INVALID_APP_RUNTIME_CONFIG");
     }
 
-    return { friendRoom: friendRoom ?? null, startup };
+    const normalizedFriendRoom = friendRoom ?? null;
+    if (startup === "patrol") {
+      return { friendRoom: null, startup };
+    }
+    return { friendRoom: normalizedFriendRoom, startup };
   }
 
   const legacy = globals.__WIZZARD_MATCH_RUNTIME_CONFIG__;

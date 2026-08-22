@@ -18,6 +18,10 @@
 | 首页背景 | `mockups/home-screen.png`，设计真值 | `runtime/backgrounds/home-screen-hd.png`，1920×1080 无损 PNG | passed |
 | 首页小游戏超宽母版 | 单张连续茶馆场景；中央保留 16:9 核心信息，右上预留微信胶囊安全区 | `runtime/backgrounds/home-screen-wechat-ultrawide.png`，2560×1080 | passed |
 | 牌桌背景 | — | `runtime/backgrounds/teahouse-table.png`，1920×1080 | passed |
+| 巡游玩法选定稿 | `mockups/patrol-gameplay-screen-v1.png`，方案 1“漆环巡游”视觉真值 | — | selected |
+| 巡游双环赛道 | `source/patrol/patrol-track-scene-v1-master.png` | `runtime/patrol/patrol-track-scene-v1.png`，1920×1080 | passed |
+| 巡游旅者 | `source/patrol/travelers/*-v1-master.png`，3 个原创角色 | `runtime/patrol/travelers/*-v1.png`，384×384 RGBA | passed |
+| 巡游茶灵、控制栏与拖尾 | `source/patrol/{collectibles,ui,fx}/` | `runtime/patrol/` 下 256×256 茶灵、1920×240 控制栏、512×128 拖尾 | passed |
 | 七张卡牌 | `source/cards/*.png`，1024×1536 | `runtime/cards/*.png`，256×384 | passed |
 | 六角色四表情 | `source/avatars/<character>/*.png`，1024×1024 | `runtime/avatars/<character>/*.png`，512×512 | passed |
 | 规则提示插图 | `source/tutorial/rule-hint-illustration.png`，1536×1024 | `runtime/tutorial/rule-hint-illustration-hd.png`，1536×910，金框外透明 | passed |
@@ -32,6 +36,7 @@
 | 好友房创建/加入弹窗 | `source/ui/friend-room-{create,join}-panel-master.png` | `runtime/ui/friend-room-{create,join}-panel-v2.png`，最终比例高清 SIMPLE；无烘焙文字与控件，版本化路径防止小游戏旧纹理缓存 | passed |
 | 好友房输入与 AI 行 | `source/ui/friend-room-blue-row-master.png` | `runtime/ui/friend-room-{input,code,ai}-row-v2.png`，最终比例高清 SIMPLE；中央无花饰，不遮挡动态文字 | passed |
 | 微信分享卡片 | `source/social/wechat-share-card-v1.png`，1400×1120 | `runtime/social/wechat-share-card-v1.jpg`，800×640、5:4；构建时复制到小游戏包根目录 | passed |
+| 巡游评审分享卡片 | `source/social/patrol-share-card-v2.png`，1400×1120 | `runtime/social/patrol-share-card-v2.jpg`，800×640、5:4；仅由巡游评审构建复制为 `share-card-patrol-v2.jpg` | passed |
 | 中文字体 | `source/fonts/` 字符集、来源与 OFL 许可证 | `runtime/fonts/NotoSerifSC-SemiBold-Subset.ttf`、`NotoSansSC-Medium-Subset.ttf` | passed |
 | 核心界面 | — | `mockups/*.png` | passed |
 
@@ -79,7 +84,7 @@ node tools/sync-cocos-assets.mjs cocos-client/assets/resources/game-art
 node tools/sync-cocos-assets.mjs --target cocos-client/assets/resources/game-art --generated-ts cocos-client/assets/scripts/assets/AssetAddresses.generated.ts --core-only
 ```
 
-完整模式固定同步 78 张非重复图片与 2 个字体。脚本会排除 6 张与各角色 `normal.png` 内容相同的顶层头像，以及 `ui-chrome-sheet.png`、`feedback-fx-sheet.png` 两张尚未切片的合成图。当前可玩切片使用 `--core-only`，同步 3 张背景、7 张卡牌、6 张常态头像、1 张规则提示插图、31 张 UI/FX 和 2 个字体；它不会删除目标目录中以前同步的文件。
+完整模式固定同步 85 张非重复图片与 2 个字体。脚本会排除 6 张与各角色 `normal.png` 内容相同的顶层头像，以及 `ui-chrome-sheet.png`、`feedback-fx-sheet.png` 两张尚未切片的合成图。当前可玩切片使用 `--core-only`，同步 3 张背景、7 张巡游资源、7 张卡牌、6 张常态头像、1 张规则提示插图、31 张 UI/FX 和 2 个字体，共 55 张图片与 2 个字体；它不会删除目标目录中以前同步的文件。
 
 目标目录通常为 `<cocos-project>/assets/resources/game-art`。同步报告位于目标目录的 `_generated/`；TypeScript 默认也写入该目录，可用 `--generated-ts` 指向 Cocos 的脚本目录。图片地址不含扩展名并以 `/texture` 结尾；`AssetRegistry` 将 Creator 默认导入的 `Texture2D` 包装为 `SpriteFrame`。字体地址同样不含扩展名，可直接交给 Cocos `resources.load`。
 

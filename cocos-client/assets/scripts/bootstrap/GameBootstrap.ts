@@ -13,7 +13,10 @@ import {
   view,
 } from "cc";
 import { AssetRegistry } from "../assets/AssetRegistry";
+import { PATROL_REVIEW_ASSET_KEYS } from "../assets/AssetAddresses.generated";
+import { isStandalonePatrolReviewConfig } from "./PatrolReviewNavigation";
 import type { IMatchAdapter } from "../adapters/IMatchAdapter";
+import { LocalPatrolAdapter } from "../adapters/LocalPatrolAdapter";
 import {
   createLocalMatchAdapter,
   createNetworkMatchAdapter,
@@ -36,10 +39,18 @@ import {
 import { FriendRoomView } from "../views/FriendRoomView";
 import { generateRandomFriendRoomNickname } from "../views/FriendRoomNickname";
 import { MatchSceneView } from "../views/MatchSceneView";
+import { PatrolPrototypeView } from "../views/PatrolPrototypeView";
+import { PatrolReviewHomeView } from "../views/PatrolReviewHomeView";
 
 const { ccclass } = _decorator;
 
-type ActiveSurface = "boot" | "friend-room" | "network-match" | "practice";
+type ActiveSurface =
+  | "boot"
+  | "friend-room"
+  | "network-match"
+  | "patrol"
+  | "patrol-review-home"
+  | "practice";
 
 @ccclass("GameBootstrap")
 export class GameBootstrap extends Component {
@@ -51,6 +62,9 @@ export class GameBootstrap extends Component {
   private friendRoomView: FriendRoomView | null = null;
   private loadingNode: Node | null = null;
   private matchView: MatchSceneView | null = null;
+  private patrolAdapter: LocalPatrolAdapter | null = null;
+  private patrolReviewHomeView: PatrolReviewHomeView | null = null;
+  private patrolView: PatrolPrototypeView | null = null;
   private pendingRoomInviteToken: string | null = null;
   private platformServices: PlatformServices | null = null;
   private preferences: GamePreferences = DEFAULT_GAME_PREFERENCES;
@@ -73,12 +87,19 @@ export class GameBootstrap extends Component {
         camera.clearColor = new Color(8, 8, 12, 255);
       }
     }
-    this.loadingNode = this.showMessage("正在准备奇术茶馆…");
+    this.loadingNode = this.showMessage(
+      APP_RUNTIME_CONFIG.startup === "patrol" &&
+        APP_RUNTIME_CONFIG.friendRoom === null
+        ? "正在准备漆环巡游…"
+        : "正在准备奇术茶馆…",
+    );
     void this.boot();
   }
 
   public update(deltaTime: number): void {
     this.adapter?.update(deltaTime);
+    this.patrolAdapter?.update(deltaTime);
+    this.patrolView?.update(deltaTime);
   }
 
   public onDestroy(): void {
@@ -95,10 +116,16 @@ export class GameBootstrap extends Component {
     this.friendRoomRouteUnsubscribe = null;
     this.adapter?.dispose();
     this.matchView?.dispose();
+    this.patrolAdapter?.dispose();
+    this.patrolReviewHomeView?.dispose();
+    this.patrolView?.dispose();
     this.friendRoomView?.dispose();
     this.friendRoomController?.dispose();
     this.adapter = null;
     this.matchView = null;
+    this.patrolAdapter = null;
+    this.patrolReviewHomeView = null;
+    this.patrolView = null;
     this.friendRoomView = null;
     this.friendRoomController = null;
     this.assets = null;
@@ -114,7 +141,11 @@ export class GameBootstrap extends Component {
       );
 
       const assets = new AssetRegistry();
-      await assets.preload();
+      const isStandalonePatrolReview =
+        isStandalonePatrolReviewConfig(APP_RUNTIME_CONFIG);
+      await assets.preload(
+        isStandalonePatrolReview ? PATROL_REVIEW_ASSET_KEYS : undefined,
+      );
 
       if (!this.isValid) {
         return;
@@ -127,6 +158,8 @@ export class GameBootstrap extends Component {
 
       if (this.pendingRoomInviteToken && APP_RUNTIME_CONFIG.friendRoom) {
         this.startFriendRoomFlow(false);
+      } else if (isStandalonePatrolReview) {
+        this.showPatrolReviewHome();
       } else if (APP_RUNTIME_CONFIG.startup === "practice") {
         this.startPractice();
       } else {
@@ -336,9 +369,15 @@ export class GameBootstrap extends Component {
 
     this.adapter?.dispose();
     this.matchView?.dispose();
+    this.patrolAdapter?.dispose();
+    this.patrolReviewHomeView?.dispose();
+    this.patrolView?.dispose();
     this.friendRoomView?.dispose();
     this.adapter = null;
     this.matchView = null;
+    this.patrolAdapter = null;
+    this.patrolReviewHomeView = null;
+    this.patrolView = null;
     this.friendRoomView = new FriendRoomView(
       this.node,
       assets,
@@ -421,6 +460,12 @@ export class GameBootstrap extends Component {
 
     this.friendRoomView?.dispose();
     this.friendRoomView = null;
+    this.patrolAdapter?.dispose();
+    this.patrolReviewHomeView?.dispose();
+    this.patrolView?.dispose();
+    this.patrolAdapter = null;
+    this.patrolReviewHomeView = null;
+    this.patrolView = null;
     this.adapter?.dispose();
     this.matchView?.dispose();
     this.adapter = createNetworkMatchAdapter(roomClient, false);
@@ -446,6 +491,12 @@ export class GameBootstrap extends Component {
     this.friendRoomView = null;
     this.friendRoomController?.dispose();
     this.friendRoomController = null;
+    this.patrolAdapter?.dispose();
+    this.patrolReviewHomeView?.dispose();
+    this.patrolView?.dispose();
+    this.patrolAdapter = null;
+    this.patrolReviewHomeView = null;
+    this.patrolView = null;
     this.adapter?.dispose();
     this.matchView?.dispose();
     this.adapter = createLocalMatchAdapter();
@@ -460,6 +511,77 @@ export class GameBootstrap extends Component {
     this.adapter.start((update) => this.matchView?.render(update));
   }
 
+  private startPatrol(): void {
+    const assets = this.assets;
+    if (!assets) {
+      throw new Error("PATROL_ASSETS_NOT_READY");
+    }
+
+    const isStandalonePatrolReview =
+      isStandalonePatrolReviewConfig(APP_RUNTIME_CONFIG);
+
+    this.platformServices?.sharing.setRoomInvite(null);
+    this.friendRoomRouteUnsubscribe?.();
+    this.friendRoomRouteUnsubscribe = null;
+    this.friendRoomView?.dispose();
+    this.friendRoomView = null;
+    this.friendRoomController?.dispose();
+    this.friendRoomController = null;
+    this.adapter?.dispose();
+    this.matchView?.dispose();
+    this.adapter = null;
+    this.matchView = null;
+    this.patrolAdapter?.dispose();
+    this.patrolReviewHomeView?.dispose();
+    this.patrolView?.dispose();
+    this.patrolReviewHomeView = null;
+
+    const patrolAdapter = new LocalPatrolAdapter();
+    const patrolView = new PatrolPrototypeView(
+      this.node,
+      assets,
+      patrolAdapter,
+      {
+        onReturnHome: isStandalonePatrolReview
+          ? () => this.returnPatrolReviewToHome()
+          : null,
+      },
+    );
+    this.patrolAdapter = patrolAdapter;
+    this.patrolView = patrolView;
+    this.activeSurface = "patrol";
+    patrolAdapter.start((update) => this.patrolView?.render(update));
+  }
+
+  private showPatrolReviewHome(): void {
+    const assets = this.assets;
+    if (!assets) {
+      throw new Error("PATROL_REVIEW_HOME_ASSETS_NOT_READY");
+    }
+
+    this.platformServices?.sharing.setRoomInvite(null);
+    this.friendRoomRouteUnsubscribe?.();
+    this.friendRoomRouteUnsubscribe = null;
+    this.friendRoomView?.dispose();
+    this.friendRoomView = null;
+    this.friendRoomController?.dispose();
+    this.friendRoomController = null;
+    this.adapter?.dispose();
+    this.matchView?.dispose();
+    this.adapter = null;
+    this.matchView = null;
+    this.patrolAdapter?.dispose();
+    this.patrolView?.dispose();
+    this.patrolAdapter = null;
+    this.patrolView = null;
+    this.patrolReviewHomeView?.dispose();
+
+    this.patrolReviewHomeView = new PatrolReviewHomeView(this.node, assets, {
+      onStart: () => this.startPatrol(),
+    });
+    this.activeSurface = "patrol-review-home";
+  }
+
   private returnPracticeToHome(): void {
     if (this.activeSurface !== "practice" || !APP_RUNTIME_CONFIG.friendRoom) {
       return;
@@ -470,5 +592,18 @@ export class GameBootstrap extends Component {
     // the local adapter and match view.
     this.activeSurface = "boot";
     this.startFriendRoomFlow(false);
+  }
+
+  private returnPatrolReviewToHome(): void {
+    if (
+      this.activeSurface !== "patrol" ||
+      APP_RUNTIME_CONFIG.startup !== "patrol" ||
+      APP_RUNTIME_CONFIG.friendRoom !== null
+    ) {
+      return;
+    }
+
+    this.activeSurface = "boot";
+    this.showPatrolReviewHome();
   }
 }

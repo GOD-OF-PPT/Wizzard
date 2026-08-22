@@ -26,6 +26,7 @@ export class LocalPatrolAdapter {
   private phaseElapsedSeconds = 0;
   private started = false;
   private state = createPatrolPrototype();
+  private targetDraft = 4;
 
   public dispose(): void {
     this.disposed = true;
@@ -48,6 +49,7 @@ export class LocalPatrolAdapter {
 
     this.state = createPatrolPrototype();
     this.phaseElapsedSeconds = 0;
+    this.targetDraft = 4;
 
     if (this.started) {
       this.emit([]);
@@ -55,7 +57,23 @@ export class LocalPatrolAdapter {
   }
 
   public selectTarget(target: number): void {
+    this.setTargetDraft(target);
     this.submitIntent("target-select", { target, type: "select-target" });
+  }
+
+  public setTargetDraft(target: number): void {
+    if (
+      this.disposed ||
+      !this.started ||
+      this.state.phase !== "target-select" ||
+      !Number.isInteger(target) ||
+      target < 0 ||
+      target > 9
+    ) {
+      return;
+    }
+
+    this.targetDraft = target;
   }
 
   public slow(): void {
@@ -101,7 +119,7 @@ export class LocalPatrolAdapter {
         remainingSeconds = this.consumeTimedPhase(
           remainingSeconds,
           TARGET_SELECT_SECONDS,
-          { target: 4, type: "select-target" },
+          { target: this.targetDraft, type: "select-target" },
           events,
         );
         continue;

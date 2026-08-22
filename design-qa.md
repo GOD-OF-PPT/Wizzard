@@ -179,6 +179,67 @@
 
 final result: passed
 
+## 漆环巡游独立微信评审切片 — 2026-08-23
+
+- Source visual truth: `art/mockups/patrol-gameplay-screen-v1.png`.
+- Rendered implementation: `art/review/patrol-active-wechat-devtools-final-847x392.png` and `art/review/patrol-home-wechat-devtools-final-847x392.png`.
+- Viewport: WeChat DevTools iPhone 12/13 landscape simulator, captured at `847×392`; normalized comparison content is `694×390`.
+- State: independent review home → 5-second observe → target 4 changed to 5 → 60-second simultaneous patrol → queued/cancelled bridge switch → results → return to the independent review home.
+- Full-view comparison evidence: `art/review/patrol-active-wechat-comparison-final.png`, containing the selected visual source and the WeChat implementation in one image.
+- Flow evidence: `art/review/patrol-review-video-contact-sheet-v2.png` and the uncut `art/review/patrol-wechat-devtools-review-flow-v2.mp4`.
+- Focused evidence: `art/review/patrol-active-wechat-content-final-694x390.png`, plus the individually inspected home, observe, target, active-control, results, and returned-home captures. No smaller focused crop was needed because the normalized implementation crop keeps the required HUD, labels, traveler sprites, tea spirits, bridge geometry, and controls readable at native evidence scale.
+
+### Findings
+
+- No actionable P0, P1, P2, or P3 findings remain.
+- The final independent audit confirmed that the visible interaction grammar is real-time movement, same-kind tea-spirit collection, speed control, and bridge switching. No hand, deck, suit, rank, trump, trick, dealt-card, or turn-by-turn play surface is visible.
+- Intentional runtime differences from the concept image are accepted: the playable slice uses one same-value green tea-spirit type, dynamic traveler positions, target `5`, live counts, a persistent return-home action, and larger bottom touch controls. These changes support truthful behavior and Mini Game usability without changing the selected art direction or layout hierarchy.
+
+### Required fidelity surfaces
+
+- Fonts and typography: passed. The display/interface font split is retained; home, phase, timer, target, control, and result text is readable at `847×392`, with no clipping or unintended wrapping.
+- Spacing and layout rhythm: passed. Round, return, timer, target, traveler progress, route, and control bands remain disjoint. The right target HUD clears the WeChat capsule, and the bottom controls clear the system home indicator.
+- Colors and visual tokens: passed. Warm lacquer, parchment, old-gold trim, midnight-blue panels, green secondary action, and red/green speed controls match the selected Enchanted Teahouse language.
+- Image quality and asset fidelity: passed. The implementation uses synchronized raster masters and the two shipped CJK fonts; no CSS drawing, inline SVG, emoji, placeholder, or unrelated icon asset is present.
+- Copy and content: passed. `漆环巡游`, observe, target adjustment, `减速 / 预备换轨 / 取消换轨 / 加速`, target/actual/difference, results, replay, and return-home labels describe the behavior actually demonstrated.
+
+### Comparison history
+
+#### Iteration P1 — blocked
+
+The first WeChat comparison exposed three review-facing problems: no complete return-home path, core copy too small at phone scale, and a right HUD placement that competed with the WeChat capsule. The inherited card-themed share image was also still packaged at the root.
+
+Fixes: added a standalone patrol-native home; added return-home actions during observe, target, patrol, and results; enlarged review-critical typography; moved the target HUD left under an explicit capsule exclusion contract; and replaced the share image with the original non-card `share-card-patrol-v2.jpg`.
+
+#### Iteration P2 — passed after evidence correction
+
+Post-fix evidence: `patrol-home-wechat-devtools-final-847x392.png`, `patrol-target-edited-wechat-devtools-final-847x392.png`, `patrol-active-controls-wechat-devtools-final-847x392.png`, `patrol-results-wechat-devtools-final-847x392.png`, and `patrol-active-wechat-comparison-final.png`.
+
+An independent evidence review found that `patrol-returned-home-wechat-devtools-final-847x392.png` had been overwritten with a results frame even though the video proved the route. The file was recaptured from the final `22:20` WeChat build and now shows the actual independent home. The return action also owns a `152×132` touch rect around its `144×60` paper visual while preserving a 24px design gap from the round scroll. A second independent review found no remaining P0/P1/P2/P3 issue.
+
+### Interactions and console check
+
+- Tested in WeChat DevTools: start, automatic observe transition, target `4→5`, confirm, continuous traveler movement, prepare/cancel switch, accelerate, decelerate, results, replay, and return home.
+- The 82-second H.264/yuv420p recording demonstrates the full flow without edits and holds results long enough to read before returning home.
+- The Windows simulator emitted one DevTools-side `WAService` device-orientation bridge diagnostic while the flow remained fully rendered and operable; no application blank state, crash, or interrupted transition was observed. Real-device GPU, safe-area, and touch behavior remains a required release check.
+
+### Build evidence and limits
+
+- Latest isolated review build: `cocos-client/build/wechatgame-patrol-review/`.
+- Exact package sizes: main `2,271,498` bytes, resources `8,126,228` bytes, total `10,397,726` bytes.
+- The package contains exactly 19 whitelisted runtime assets and the original patrol share image; its compiled home/start/return markers are gated.
+- Final static captures were taken only after the DevTools touch-feedback circle faded; the uncut video intentionally retains touch feedback as interaction evidence.
+- Final repository gates: `npm test` passed 50 files / 445 tests; `npm run typecheck`, `npm run build`, `npm run cocos:build:web`, and `npm run cocos:build:wechat:patrol-review` passed.
+- This is intentionally a category-investigation artifact. `legacyCodePathsIncluded: true` and `submissionReady: false` remain accurate; blind testing, platform manual category feedback, a clean final submission carrier without old compiled paths, and iPhone/Android real-device acceptance are still pending.
+
+final result: passed
+
+## Latest authoritative verdict — patrol review slice — 2026-08-23
+
+The current `wechatgame-patrol-review` evidence set supersedes earlier patrol captures. The selected source and refreshed Mini Game implementation were compared at the same normalized `694×390` content size; the 82-second uncut recording and its eight-frame contact sheet cover home, observe, target editing, live controls, results, and the confirmed return-home state. No actionable visual issue remains in this investigation slice. Release acceptance still requires blind testing, platform category feedback, a clean final carrier without compiled legacy paths, and iPhone/Android device checks.
+
+final result: passed
+
 ## Mobile rules and settings comparison — latest user screenshot (2026-08-04)
 
 - Evidence: `art/qa/user-screenshot-pass-2026-08-04-5/04-design-vs-user.png` and `03-latest-marked-before.png`.

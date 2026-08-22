@@ -15,12 +15,12 @@ const WECHAT_TOTAL_PACKAGE_LIMIT_BYTES = 30 * 1024 * 1024;
 
 const TARGETS = {
   "web-desktop": {
-    config: "cocos-client/build-config/web-desktop.json",
+    config: "build-config/web-desktop.json",
     requiredFiles: ["index.html"],
     freshFiles: ["index.html"],
   },
   wechatgame: {
-    config: "cocos-client/build-config/wechatgame.json",
+    config: "build-config/wechatgame.json",
     requiredFiles: [
       "game.json",
       "game.js",
@@ -114,9 +114,13 @@ if (!targetConfig) {
   process.exit(1);
 }
 
-const projectRoot = resolve(import.meta.dirname, "..");
-const configPath = resolve(projectRoot, targetConfig.config);
-const outputPath = resolve(projectRoot, "cocos-client", "build", target);
+const repositoryRoot = resolve(import.meta.dirname, "..");
+const cocosProjectRoot = resolve(
+  process.env.COCOS_PROJECT_DIRECTORY ??
+    resolve(repositoryRoot, "cocos-client"),
+);
+const configPath = resolve(cocosProjectRoot, targetConfig.config);
+const outputPath = resolve(cocosProjectRoot, "build", target);
 const creatorPath =
   process.env.COCOS_CREATOR ??
   (process.platform === "win32"
@@ -137,7 +141,7 @@ if (process.platform === "win32" && !existsSync(creatorPath)) {
 
 const args = [
   "--project",
-  resolve(projectRoot, "cocos-client"),
+  cocosProjectRoot,
   "--build",
   `configPath=${configPath.replaceAll("\\", "/")}`,
 ];
@@ -149,7 +153,7 @@ console.log(`Output: ${outputPath}`);
 
 const result = await new Promise((resolveResult, rejectResult) => {
   const child = spawn(creatorPath, args, {
-    cwd: projectRoot,
+    cwd: repositoryRoot,
     stdio: ["ignore", "pipe", "pipe"],
     windowsHide: true,
   });
@@ -168,7 +172,7 @@ const result = await new Promise((resolveResult, rejectResult) => {
 });
 
 for (const copy of targetConfig.staticCopies ?? []) {
-  const source = resolve(projectRoot, copy.source);
+  const source = resolve(repositoryRoot, copy.source);
   const destination = resolve(outputPath, copy.destination);
   if (existsSync(source) && existsSync(outputPath)) {
     copyFileSync(source, destination);

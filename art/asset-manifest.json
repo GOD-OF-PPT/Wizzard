@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 7,
   "artDirection": "enchanted-teahouse",
   "orientation": "landscape",
   "designViewport": [1920, 1080],
@@ -69,6 +69,93 @@
       "anchor": [0.5, 0.5],
       "importProfile": "background"
     }
+  },
+  "patrol": {
+    "selectedMockup": {
+      "source": "art/mockups/patrol-gameplay-screen-v1.png",
+      "pixelSize": [1672, 941],
+      "notes": "Selected option 1, 漆环巡游; layout and visual source of truth for the local non-card review slice."
+    },
+    "anchor": [0.5, 0.5],
+    "assets": {
+      "trackV1": {
+        "semanticKey": "scene.patrol.track.v1",
+        "source": "art/source/patrol/patrol-track-scene-v1-master.png",
+        "runtime": "art/runtime/patrol/patrol-track-scene-v1.png",
+        "sourcePixelSize": [1920, 1080],
+        "runtimePixelSize": [1920, 1080],
+        "importProfile": "background"
+      },
+      "bambooCatV1": {
+        "semanticKey": "patrol.traveler.bambooCat.v1",
+        "source": "art/source/patrol/travelers/bamboo-cat-v1-master.png",
+        "runtime": "art/runtime/patrol/travelers/bamboo-cat-v1.png",
+        "sourcePixelSize": [1024, 1024],
+        "runtimePixelSize": [384, 384],
+        "importProfile": "alphaUi"
+      },
+      "wanderingCraneV1": {
+        "semanticKey": "patrol.traveler.wanderingCrane.v1",
+        "source": "art/source/patrol/travelers/wandering-crane-v1-master.png",
+        "runtime": "art/runtime/patrol/travelers/wandering-crane-v1.png",
+        "sourcePixelSize": [1024, 1024],
+        "runtimePixelSize": [384, 384],
+        "importProfile": "alphaUi"
+      },
+      "flowerFoxV1": {
+        "semanticKey": "patrol.traveler.flowerFox.v1",
+        "source": "art/source/patrol/travelers/flower-fox-v1-master.png",
+        "runtime": "art/runtime/patrol/travelers/flower-fox-v1.png",
+        "sourcePixelSize": [1024, 1024],
+        "runtimePixelSize": [384, 384],
+        "importProfile": "alphaUi"
+      },
+      "teaSpiritV1": {
+        "semanticKey": "patrol.collectible.teaSpirit.v1",
+        "source": "art/source/patrol/collectibles/tea-spirit-v1-master.png",
+        "runtime": "art/runtime/patrol/collectibles/tea-spirit-v1.png",
+        "sourcePixelSize": [1024, 1024],
+        "runtimePixelSize": [256, 256],
+        "importProfile": "alphaUi"
+      },
+      "controlRailV1": {
+        "semanticKey": "ui.patrol.controlRail.v1",
+        "source": "art/source/patrol/ui/control-rail-v1-master.png",
+        "runtime": "art/runtime/patrol/ui/control-rail-v1.png",
+        "sourcePixelSize": [1920, 240],
+        "runtimePixelSize": [1920, 240],
+        "importProfile": "alphaUi"
+      },
+      "motionTrailV1": {
+        "semanticKey": "fx.patrol.motionTrail.v1",
+        "source": "art/source/patrol/fx/motion-trail-v1-master.png",
+        "runtime": "art/runtime/patrol/fx/motion-trail-v1.png",
+        "sourcePixelSize": [1024, 256],
+        "runtimePixelSize": [512, 128],
+        "importProfile": "alphaUi"
+      }
+    },
+    "reviewAssetKeys": [
+      "avatar.bambooCat.normal",
+      "avatar.flowerFox.normal",
+      "avatar.wanderingCrane.normal",
+      "font.display",
+      "font.interface",
+      "fx.patrol.motionTrail.v1",
+      "patrol.collectible.teaSpirit.v1",
+      "patrol.traveler.bambooCat.v1",
+      "patrol.traveler.flowerFox.v1",
+      "patrol.traveler.wanderingCrane.v1",
+      "scene.patrol.track.v1",
+      "ui.countdownRing",
+      "ui.match.stat.paper",
+      "ui.panel.secondary",
+      "ui.patrol.controlRail.v1",
+      "ui.results.button.green.v2",
+      "ui.results.button.paper",
+      "ui.results.panel",
+      "ui.scoreRibbon"
+    ]
   },
   "cards": {
     "sourcePixelSize": [1024, 1536],
@@ -437,6 +524,17 @@
     }
   },
   "social": {
+    "patrolShareCardV2": {
+      "semanticKey": "social.wechat.patrolShareCard.v2",
+      "source": "art/source/social/patrol-share-card-v2.png",
+      "runtime": "art/runtime/social/patrol-share-card-v2.jpg",
+      "buildPath": "share-card-patrol-v2.jpg",
+      "sourcePixelSize": [1400, 1120],
+      "runtimePixelSize": [800, 640],
+      "aspectRatio": "5:4",
+      "runtimeSha256": "6CC40C316F2C7FD68C60DC9602A10AD0A45BE2DB13B5D1BFC6C137FE5AAFC261",
+      "notes": "Versioned native share card for the standalone non-card patrol review artifact. tools/build-patrol-review.mjs copies it to the package root and removes the legacy card-themed share image."
+    },
     "wechatShareCardV1": {
       "semanticKey": "social.wechat.shareCard.v1",
       "source": "art/source/social/wechat-share-card-v1.png",

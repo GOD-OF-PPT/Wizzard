@@ -54,4 +54,31 @@ describe("APP_RUNTIME_CONFIG", () => {
       endpoint: "ws://127.0.0.1:8787/ws",
     });
   });
+
+  it("accepts the isolated local patrol startup surface", async () => {
+    runtimeGlobals.__WIZZARD_APP_RUNTIME_CONFIG__ = {
+      friendRoom: null,
+      startup: "patrol",
+    };
+
+    const { APP_RUNTIME_CONFIG } = await import(
+      "../assets/scripts/config/MatchRuntimeConfig"
+    );
+
+    expect(APP_RUNTIME_CONFIG).toEqual({
+      friendRoom: null,
+      startup: "patrol",
+    });
+  });
+
+  it("rejects patrol startup when friend-room networking is configured", async () => {
+    runtimeGlobals.__WIZZARD_APP_RUNTIME_CONFIG__ = {
+      friendRoom: { endpoint: "ws://127.0.0.1:8787/ws" },
+      startup: "patrol",
+    };
+
+    await expect(
+      import("../assets/scripts/config/MatchRuntimeConfig"),
+    ).rejects.toThrow("INVALID_APP_RUNTIME_CONFIG");
+  });
 });

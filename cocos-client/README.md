@@ -11,6 +11,18 @@
 - 浏览器 `WebSocket`、微信 `wx.cloud.connectContainer`、显式本地 WebSocket 诊断、存储、剪贴板与原生分享 API 只存在于 `assets/scripts/platform/`，不会进入规则或表现层；正式构建不配置公网 `wx.connectSocket` 回退。
 - 正式美术通过 `art/asset-manifest.json` 的语义键加载，不把文件名当作组件 API。
 
+## 独立巡游评审构建
+
+为先验证非牌类理解而不提前迁移好友房协议，仓库提供独立评审构建：
+
+```powershell
+npm run build:wechat:patrol-review
+```
+
+输出位于 `build/wechatgame-patrol-review/`。该载体固定使用 `startup: "patrol"`、`friendRoom: null`，只预载 `PATROL_REVIEW_ASSET_KEYS` 中的 17 张 PNG 与 2 套字体，并把原创 `share-card-patrol-v2.jpg` 放在包根目录。`patrol-review-build.json` 记录精确包体、资源键、分享图哈希，以及 `legacyCodePathsIncluded: true`、`submissionReady: false` 两项限制。
+
+这个构建用于微信开发者工具、真机理解度验证和人工类目咨询，不是正式提交包。收到支持继续的人工反馈后，仍需建立干净 bootstrap/scene，删除旧玩法的编译代码、会话入口和全部残留资源，再迁移好友房与服务端。
+
 ## 生成资源与静态检查
 
 在仓库根依赖安装完成后运行：

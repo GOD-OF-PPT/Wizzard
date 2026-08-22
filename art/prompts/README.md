@@ -88,6 +88,14 @@ Create a distinctive 5:4 landscape WeChat Mini Game share card in the approved E
 
 正式母版为 `source/social/wechat-share-card-v1.png`（1400×1120），运行图为 `runtime/social/wechat-share-card-v1.jpg`（800×640，高质量渐进 JPEG）。分享标题由运行时代码提供，图片内不得烘焙文字。
 
+### 巡游评审分享卡片
+
+```text
+Create an original 5:4 WeChat Mini Game share card for “漆环巡游” in the approved Enchanted Teahouse style. Show three animal travelers moving around a warm lacquer double-loop track, collecting identical green tea spirits and using small wooden lane-change bridges. Use lantern warmth, an indigo mountain night, antique gold inlay and clear motion trails. Keep every important subject inside the central 80%. No text, logo, watermark, interface chrome, playing cards, card backs, card hands, decks, suits, pips, trump symbols, poker chips, mahjong tiles, dice or rectangular card-like objects.
+```
+
+巡游评审母版为 `source/social/patrol-share-card-v2.png`（1400×1120），运行图为 `runtime/social/patrol-share-card-v2.jpg`（800×640，高质量渐进 JPEG）。`tools/build-patrol-review.mjs` 仅在独立巡游评审包中复制该版本，并移除旧分享图。
+
 ## 轮次结算
 
 ```text

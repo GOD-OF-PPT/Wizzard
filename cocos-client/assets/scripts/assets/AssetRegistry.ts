@@ -1,6 +1,7 @@
 import { resources, SpriteFrame, Texture2D, TTFFont } from "cc";
 import {
   ASSET_ADDRESSES,
+  ASSET_KEYS,
   type AssetKey,
 } from "./AssetAddresses.generated";
 
@@ -89,10 +90,12 @@ export class AssetRegistry {
     return frame;
   }
 
-  public async preload(): Promise<void> {
-    const entries = Object.entries(ASSET_ADDRESSES) as Array<
-      [AssetKey, (typeof ASSET_ADDRESSES)[AssetKey]]
-    >;
+  public async preload(
+    keys: readonly AssetKey[] = ASSET_KEYS,
+  ): Promise<void> {
+    const entries = keys.map(
+      (key) => [key, ASSET_ADDRESSES[key]] as const,
+    );
 
     await Promise.all(
       entries.map(async ([key, address]) => {

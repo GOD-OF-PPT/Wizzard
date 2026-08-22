@@ -2,6 +2,8 @@
 
 面向微信好友的小范围、非商业化预测型墩牌游戏。仓库名称沿用 `Wizzard`，正式产品名尚未确定。
 
+> 2026-08-22：仓库正在并行验证“真实改造成非牌类”的评审优先路线。已完成方案 1“漆环巡游”的独立本地 Cocos 可玩切片、从审核首页到结算并返回首页的微信开发者工具证据、连续视频与隔离资源构建；原墩牌产品仍是仓库既有基线，巡游调查制品尚不是最终提交包。范围与停止条件见 [`docs/14-non-card-review-first-plan.md`](docs/14-non-card-review-first-plan.md)。
+
 当前基线已经确认：
 
 - 横版 16:9，3–6 个玩家座位；
@@ -24,6 +26,9 @@
 - [构建目标与微信开发者工具导入](docs/11-build-targets.md)
 - [WebSocket 好友房服务](docs/09-friend-room-service.md)
 - [规则与设置页面](docs/10-rules-settings.md)
+- [非牌类审查优先改造方案](docs/14-non-card-review-first-plan.md)
+- [“漆环巡游”玩法事实说明](docs/15-patrol-review-fact-sheet.md)
+- [“漆环巡游”规则与审核元数据草案](docs/16-patrol-review-metadata-draft.md)
 - [关键决策记录](docs/decisions/README.md)
 - [美术资源包与界面稿](art/README.md)
 - [Cocos 正式客户端](cocos-client/README.md)
@@ -44,6 +49,7 @@ npm test
 npm run typecheck
 npm run build
 npm run cocos:prepare
+npm run build:wechat:patrol-review
 ```
 
 `npm run build` is the React/Vite validation build. It refreshes `dist/` and does not build the Cocos WeChat Mini Game. To refresh the directory opened by WeChat DevTools, run:
@@ -53,6 +59,8 @@ npm run build:wechat
 ```
 
 This runs asset sync, shared-package compilation, Cocos type checking, and the Creator 3.8.8 release build. The output is `cocos-client/build/wechatgame/`; open that directory in WeChat DevTools, then clear its cache and recompile. The build script also verifies the shipping AppID, base-library version, Cloud Hosting target, and private transport marker.
+
+`npm run build:wechat:patrol-review` 生成独立的 `cocos-client/build/wechatgame-patrol-review/` 分类调查制品。它只预载巡游白名单资源、使用原创 `share-card-patrol-v2.jpg`，并写入精确包体和限制声明；该命令不把制品标记为可提交版本。
 
 ### Cocos 编辑器 dist 依赖
 
