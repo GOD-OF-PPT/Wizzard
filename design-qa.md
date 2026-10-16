@@ -186,7 +186,7 @@ final result: passed
 - Viewports: 1280×720 landscape and 390×844 portrait.
 - Live capture: clean Wizzard Vite instance at `http://localhost:5173/`; the earlier port-conflict page from another app was discarded and never used as evidence.
 - Accepted evidence contact sheet: `art/review/web-patrol-contact-sheet.jpg`.
-- Individual evidence: `art/review/web-patrol-{home,room,match,results,rules}-{landscape,portrait}.jpg`.
+- Individual evidence: `art/review/web-patrol-{home,room,match,play,results,rules}-{landscape,portrait}.jpg`.
 
 ### Findings and fixes
 
