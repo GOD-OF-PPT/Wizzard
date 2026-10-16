@@ -16,6 +16,7 @@
 | 类别 | 正式源文件 | 运行时文件 | 状态 |
 | --- | --- | --- | --- |
 | 首页背景 | `mockups/home-screen.png`，设计真值 | `runtime/backgrounds/home-screen-hd.png`，1920×1080 无损 PNG | passed |
+| 网页竖屏首页 | ImageGen 依据首页真值重排的 9:16 网页母版 | `runtime/backgrounds/home-screen-portrait-v1.png`，941×1672 | selected for internal web |
 | 首页小游戏超宽母版 | 单张连续茶馆场景；中央保留 16:9 核心信息，右上预留微信胶囊安全区 | `runtime/backgrounds/home-screen-wechat-ultrawide.png`，2560×1080 | passed |
 | 牌桌背景 | — | `runtime/backgrounds/teahouse-table.png`，1920×1080 | passed |
 | 巡游玩法选定稿 | `mockups/patrol-gameplay-screen-v1.png`，方案 1“漆环巡游”视觉真值 | — | selected |

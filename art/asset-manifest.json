@@ -53,6 +53,14 @@
       "anchor": [0.5, 0.5],
       "importProfile": "background"
     },
+    "homePortraitWeb": {
+      "semanticKey": "screen.home.web.portrait.v1",
+      "runtime": "art/runtime/backgrounds/home-screen-portrait-v1.png",
+      "pixelSize": [941, 1672],
+      "anchor": [0.5, 0.5],
+      "importProfile": "background",
+      "notes": "Dedicated internal web 9:16 home master; preserves the approved tea-house visual language with vertically reflowed entry plaques."
+    },
     "homeWechatUltrawide": {
       "semanticKey": "screen.home.wechat.ultrawide",
       "source": "art/source/backgrounds/home-screen-wechat-ultrawide-master.png",

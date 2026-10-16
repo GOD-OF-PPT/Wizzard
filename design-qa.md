@@ -179,6 +179,40 @@
 
 final result: passed
 
+## Internal PC Web 微信视觉重设计巡查 — 2026-10-16
+
+- Audit scope: React/Vite internal web home, anonymous friend-room shell, local practice table, trump chooser, bid panel, round results, and rules/settings dialog.
+- Design source: `art/mockups/web-pc-experience-v1.png` plus the approved WeChat runtime masters under `art/runtime/`.
+- Viewports: 1280×720 landscape and 390×844 portrait.
+- Live capture: clean Wizzard Vite instance at `http://localhost:5173/`; the earlier port-conflict page from another app was discarded and never used as evidence.
+- Accepted evidence contact sheet: `art/review/web-patrol-contact-sheet.jpg`.
+- Individual evidence: `art/review/web-patrol-{home,room,match,results,rules}-{landscape,portrait}.jpg`.
+
+### Findings and fixes
+
+- P1 fixed — room controls and footer labels were hidden by the home-only transparent hit-target rule. Room action buttons now retain readable labels and distinct lacquer-blue / lacquer-brown states.
+- P1 fixed — the room shell had an implicit fifth grid row, producing a scrollbar and clipping the footer. The shell now has explicit rows, a bounded player region, and no desktop overflow.
+- P1 fixed — raw `SOCKET_TRANSPORT_ERROR` was shown to users. The room surface now maps transport failure to `房间服务暂不可用，可先进行单人练习。`.
+- P1 fixed — the full-width PC utility bar covered the gameplay round scroll. Match screens now use a compact top-right utility rail that clears the round HUD and timer.
+- P1 fixed — portrait home previously cropped the 16:9 master, cutting off the create plaque and producing a false landscape layout. ImageGen produced and the web runtime now selects `art/runtime/backgrounds/home-screen-portrait-v1.png` for 9:16, with portrait-aligned hit targets.
+- P1 fixed — portrait match and room layouts produced horizontal overflow. Portrait stage overflow is clipped, room bands reflow, seat cards shrink to fit, and the footer remains visible.
+- P1 fixed — portrait rules dialog reused a short landscape height and pushed copy/actions outside the panel. It now uses a dedicated responsive vertical band with contained copy and actions.
+- P2 fixed — local practice could retain a stale room adapter when leaving. Local practice exit now disposes the preview surface and returns to the home screen directly; network matches keep the acknowledged leave path.
+
+### Required fidelity surfaces
+
+- Visual language: passed. Warm lacquer, parchment, midnight-blue, old-gold, lantern, and animal-traveler assets remain the visible system across every captured surface.
+- Layout hierarchy: passed. Desktop uses the compact PC utility rail, lacquered room shell, central table, bottom action band, and parchment results hierarchy; portrait uses independent vertical reflow.
+- Interaction clarity: passed. Home entry hit targets, room controls, practice exit, rules close, trump selection, prediction controls, and round continuation were all present and reachable in the captured states.
+- Asset fidelity: passed. No CSS art, inline SVG, emoji, or generic icon replacements were introduced. The only new bitmap is the versioned portrait home master generated from the approved home reference.
+- Responsive containment: passed. The final evidence set has no document-level horizontal overflow, no clipped room footer, no hidden room labels, and no rules-dialog action outside the authored frame.
+
+### Evidence limits
+
+These captures verify browser layout, visible hierarchy, interaction state, and responsive containment. They do not replace WeChat DevTools/device acceptance, real GPU texture checks, screen-reader verification, or a live room-server connection. The friend-room evidence intentionally records the disconnected internal-preview state.
+
+final result: passed (internal web visual patrol)
+
 ## 漆环巡游独立微信评审切片 — 2026-08-23
 
 - Source visual truth: `art/mockups/patrol-gameplay-screen-v1.png`.

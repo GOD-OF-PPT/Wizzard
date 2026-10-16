@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
 import homeScreen from "../art/runtime/backgrounds/home-screen-hd.png";
+import homeScreenPortrait from "../art/runtime/backgrounds/home-screen-portrait-v1.png";
 import primaryPanel from "../art/runtime/ui/primary-panel.png";
 import secondaryPanel from "../art/runtime/ui/secondary-panel.png";
 import smallPlaque from "../art/runtime/ui/small-plaque.png";
@@ -71,7 +72,10 @@ function HomeScreen({
   return (
     <section aria-labelledby="home-title" className="screen-stage web-home-stage">
       <h1 className="sr-only" id="home-title">奇术茶馆</h1>
-      <img alt="奇术茶馆首页背景" className="screen-art" draggable="false" src={homeScreen} />
+      <picture className="screen-art-picture">
+        <source media="(orientation: portrait)" srcSet={homeScreenPortrait} />
+        <img alt="奇术茶馆首页背景" className="screen-art" draggable="false" src={homeScreen} />
+      </picture>
       <WebUtilityBar status="内部 PC 体验" title="奇术茶馆" />
       <div className="web-home-content">
         <div className="web-home-actions">
@@ -121,7 +125,7 @@ function FriendRoomScreen({ onBack, onInvite, onJoin, onReady, onAddAi, onStart,
             return <article className={`web-room-seat ${player ? "is-occupied" : "is-open"}`} key={player?.playerId ?? index}>{player ? <><img alt="" aria-hidden="true" src={gameArt.smallPlaque} /><strong>{player.name}</strong><span>{player.isAi ? "AI" : player.ready ? "已准备" : "等待准备"}</span></> : <span>等待好友</span>}</article>;
           })}
         </div>
-        {(roomState.error || !room) ? <p className="web-room-status" role="status">{roomState.error ?? "本地预览可直接开始单人牌桌；连接房间服务后会显示真实座位。"}</p> : null}
+        {(roomState.error || !room) ? <p className="web-room-status" role="status">{roomState.error ? "房间服务暂不可用，可先进行单人练习。" : "本地预览可直接开始单人牌桌；连接房间服务后会显示真实座位。"}</p> : null}
         <footer className="web-room-footer"><button className="web-secondary-action" onClick={() => void onBack()} type="button">离开</button><button className="web-primary-action" disabled={!canStart} onClick={onStart} type="button">{canStart ? "开始游戏" : "等待准备"}</button></footer>
       </div>
     </section>
@@ -176,6 +180,6 @@ export function App() {
   return <main className="game-prototype" data-viewport-mode={viewport.mode} data-viewport-visible={viewport.visible ? "true" : "false"}><div aria-hidden={rulesOpen || undefined} className="screen-layer" inert={rulesOpen}>
     {screen === "home" ? <HomeScreen onCreateRoom={openRoom} onJoinRoom={() => setScreen("room")} onPractice={() => setScreen("match")} onRules={() => setRulesOpen(true)} rulesButtonRef={rulesButtonRef} /> : null}
     {screen === "room" ? <FriendRoomScreen onBack={leaveRoom} onInvite={() => { const code = room.state.room?.roomCode; if (!code) { setNotice("请先连接房间服务"); return; } void navigator.clipboard?.writeText(code).then(() => setNotice(`房间码 ${code} 已复制`), () => setNotice(`房间码：${code}`)); }} onJoin={(displayName, code) => code.length === 6 ? room.joinRoom(displayName || "茶客", code) : setNotice("请输入六位数字房间码")} onReady={() => { const self = room.state.room?.players.find((player) => player.playerId === room.state.room?.selfPlayerId); room.setReady(!(self?.ready ?? false)); }} onAddAi={() => room.setAiCount(Math.min(4, (room.state.room?.players.filter((player) => player.isAi).length ?? 0) + 1))} onStart={() => room.state.room ? room.startRoom(true) : setScreen("match")} roomState={room.state} /> : null}
-    {screen === "match" ? (networkMatch ? <MatchScreen controller={networkMatch} onExit={leaveRoom} /> : <MatchScreen onExit={() => setScreen(room.state.room ? "room" : "home")} />) : null}
+    {screen === "match" ? (room.state.match && networkMatch ? <MatchScreen controller={networkMatch} onExit={leaveRoom} /> : <MatchScreen onExit={() => { room.dispose(); setScreen("home"); }} />) : null}
   </div>{rulesOpen ? <RulesDialog onClose={() => setRulesOpen(false)} onToggleSound={() => setSoundEnabled((enabled) => !enabled)} returnFocusRef={rulesButtonRef} soundEnabled={soundEnabled} /> : null}{notice ? <Notice message={notice} /> : null}</main>;
 }
