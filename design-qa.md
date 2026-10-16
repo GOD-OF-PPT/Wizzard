@@ -222,6 +222,22 @@ final result: passed (internal web visual patrol)
 
 final result: passed (friend-room iteration 2)
 
+## ImageGen PC design implementation coverage — 2026-10-16
+
+The ImageGen composite `art/mockups/web-pc-experience-v1.png` is implemented as four runtime surfaces rather than shipped as a flattened background:
+
+| Design region | Runtime implementation | Current evidence |
+| --- | --- | --- |
+| Home entry | `HomeScreen` uses the authored landscape master and dedicated portrait master with transparent semantic hit targets | `web-patrol-home-landscape.jpg`, `web-patrol-home-portrait.jpg` |
+| Friend-room table | `FriendRoomScreen` uses the clean teahouse table, oval seat positions, real avatar/green-status assets, room info plaque, lower-left controls, and lower-right actions | `web-patrol-room-landscape-v2.jpg`, `web-patrol-room-portrait-v2.jpg`, `web-patrol-room-comparison-v2.jpg` |
+| Gameplay | `MatchScreen` composes the table, round scroll, six seats, hand, turn HUD, chooser, bid panel, and compact PC utility rail from runtime assets | `web-patrol-match-landscape.jpg`, `web-patrol-match-portrait.jpg`, `web-patrol-play-landscape.jpg`, `web-patrol-play-portrait.jpg` |
+| Results | `ResultsPanel` uses the parchment score ribbon, authored footer actions, dynamic player rows, and responsive portrait reflow | `web-patrol-results-landscape.jpg`, `web-patrol-results-portrait.jpg` |
+| Rules/settings | `RulesDialog` uses the authored lacquer panel, runtime text/actions, and a portrait-specific contained layout | `web-patrol-rules-landscape.jpg`, `web-patrol-rules-portrait.jpg` |
+
+Coverage verdict: passed for the internal browser carrier. The composite reference is fully represented by live components and formal raster assets; no flattened composite image is used as a runtime screen.
+
+final result: passed (ImageGen PC implementation coverage)
+
 ## 漆环巡游独立微信评审切片 — 2026-08-23
 
 - Source visual truth: `art/mockups/patrol-gameplay-screen-v1.png`.
