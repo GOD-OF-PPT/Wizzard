@@ -17,6 +17,7 @@ import type {
 const SESSION_STORAGE_KEY = "wizzard.room-session.web.v1";
 const TOKEN_PATTERN = /^[A-Za-z0-9._-]{16,512}$/;
 const ROOM_CODE_PATTERN = /^\d{6}$/;
+const TAB_LEASE_KEY = "wizzard.room-tab-lease.v1";
 
 export class WebRoomSessionStore implements RoomSessionStore {
   public clear(): void {
@@ -73,6 +74,40 @@ export class WebRoomSessionStore implements RoomSessionStore {
 
 export function hasStoredWebRoomSession(): boolean {
   return new WebRoomSessionStore().load() !== null;
+}
+
+export class WebRoomTabLease {
+  private readonly tabId = `tab-${Math.random().toString(36).slice(2)}`;
+  private roomId: string | null = null;
+
+  public acquire(roomId: string, ttlMs = 15_000): boolean {
+    const now = Date.now();
+    try {
+      const raw = window.localStorage.getItem(TAB_LEASE_KEY);
+      const current = raw ? (JSON.parse(raw) as { expiresAt?: number; roomId?: string; tabId?: string }) : null;
+      if (current && current.expiresAt && current.expiresAt > now && current.roomId === roomId && current.tabId !== this.tabId) return false;
+      window.localStorage.setItem(TAB_LEASE_KEY, JSON.stringify({ expiresAt: now + ttlMs, roomId, tabId: this.tabId }));
+      this.roomId = roomId;
+      return true;
+    } catch {
+      return true;
+    }
+  }
+
+  public renew(ttlMs = 15_000): void {
+    if (this.roomId) this.acquire(this.roomId, ttlMs);
+  }
+
+  public release(): void {
+    try {
+      const raw = window.localStorage.getItem(TAB_LEASE_KEY);
+      const current = raw ? (JSON.parse(raw) as { tabId?: string }) : null;
+      if (current?.tabId === this.tabId) window.localStorage.removeItem(TAB_LEASE_KEY);
+    } catch {
+      // Storage may be unavailable in private browsing.
+    }
+    this.roomId = null;
+  }
 }
 
 class BrowserTextSocket implements TextSocket {

@@ -10,6 +10,7 @@ import {
 import {
   createWebRoomClient,
   hasStoredWebRoomSession,
+  WebRoomTabLease,
   type WebRoomClientOptions,
 } from "../web/platform";
 import type {
@@ -46,6 +47,7 @@ export function useFriendRoom(endpoint?: string) {
   const [state, setState] = useState<FriendRoomState>(EMPTY_STATE);
   const channelRef = useRef<BroadcastChannel | null>(null);
   const tabIdRef = useRef(`web-tab-${Math.random().toString(36).slice(2)}`);
+  const leaseRef = useRef(new WebRoomTabLease());
 
   const dispose = useCallback(() => {
     unsubscribeRef.current?.();
@@ -55,6 +57,7 @@ export function useFriendRoom(endpoint?: string) {
     setClient(null);
     channelRef.current?.close();
     channelRef.current = null;
+    leaseRef.current.release();
     setState(EMPTY_STATE);
   }, []);
 
@@ -96,6 +99,10 @@ export function useFriendRoom(endpoint?: string) {
           return;
         }
 
+        if (!leaseRef.current.acquire(event.payload.room.roomId)) {
+          setState((current) => ({ ...current, error: "该房间已在另一个标签页打开" }));
+          return;
+        }
         setState({
           connection: client.getConnectionState(),
           error: null,
@@ -106,6 +113,12 @@ export function useFriendRoom(endpoint?: string) {
         channelRef.current?.postMessage({ roomId: event.payload.room.roomId, tabId: tabIdRef.current, type: "room-active" });
       });
       client.start();
+      const leaseTimer = window.setInterval(() => leaseRef.current.renew(), 5_000);
+      const previousDispose = unsubscribeRef.current;
+      unsubscribeRef.current = () => {
+        window.clearInterval(leaseTimer);
+        previousDispose?.();
+      };
     },
     [dispose, endpoint],
   );
