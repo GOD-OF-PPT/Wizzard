@@ -408,6 +408,180 @@ button {
   transform: scale(0.98);
 }
 
+.rules-dialog--v2 {
+  width: min(86vw, 1180px);
+  height: min(82vh, 720px);
+  min-height: 0;
+}
+
+.rules-dialog--v2 .rules-dialog-art {
+  object-fit: fill;
+}
+
+.rules-dialog--v2 .rules-dialog-content {
+  padding: 7% 7% 5.5%;
+  text-align: left;
+}
+
+.rules-dialog-close {
+  position: absolute;
+  z-index: 4;
+  top: 4.8%;
+  right: 3.5%;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 2px solid #f5d78b;
+  border-radius: 0.5rem;
+  color: #f8e4b4;
+  background: rgb(46 28 20 / 78%);
+  cursor: pointer;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.rules-dialog-header {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.rules-dialog-header h2 {
+  margin: 0;
+  color: #ffe7a8;
+  font-family: "Noto Serif SC", serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.8rem);
+  text-align: center;
+  text-shadow: 0 2px 0 #4b2413;
+}
+
+.rules-dialog-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.rules-dialog-tabs button,
+.rules-dialog-nav button {
+  border: 1px solid rgb(213 167 77 / 58%);
+  color: #e7cc97;
+  background: rgb(52 31 22 / 84%);
+  cursor: pointer;
+  font-family: "Noto Serif SC", serif;
+  font-weight: 700;
+}
+
+.rules-dialog-tabs button {
+  min-width: 8rem;
+  padding: 0.55rem 1rem;
+  border-radius: 0.45rem;
+}
+
+.rules-dialog-tabs button.is-active,
+.rules-dialog-nav button.is-active {
+  color: #4c2c18;
+  background: #f2dca7;
+}
+
+.rules-dialog-body {
+  min-height: 0;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(10rem, 20%) minmax(0, 1fr);
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.rules-dialog-nav {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+}
+
+.rules-dialog-nav button {
+  padding: 0.75rem 0.8rem;
+  border-radius: 0.45rem;
+  text-align: left;
+}
+
+.rules-dialog-card {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.rules-dialog-card > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+}
+
+.rules-dialog-card-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: grid;
+  align-content: start;
+  gap: 0.8rem;
+  padding: 7% 8%;
+  color: #f1dfb6;
+}
+
+.rules-dialog-card-content h3 {
+  margin: 0;
+  color: #f9db8e;
+  font-family: "Noto Serif SC", serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.8rem);
+}
+
+.rules-dialog-card-content p {
+  margin: 0;
+  color: #ead5a9;
+  font-size: clamp(0.85rem, 1.1vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.rules-dialog-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid rgb(221 176 84 / 30%);
+  color: #e9d4a3;
+}
+
+.rules-dialog-setting-row strong { color: #f4cb6b; }
+
+.rules-dialog--v2 .rules-dialog-actions {
+  justify-content: flex-end;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  flex: 0 0 auto;
+  min-height: 3.2rem;
+}
+
+.rules-dialog--v2 .rules-dialog-actions .art-button:first-child {
+  width: 15%;
+  min-width: 10rem;
+  aspect-ratio: 2.04;
+}
+
+.rules-dialog-primary {
+  min-width: 9rem;
+  min-height: 3rem;
+  border: 1px solid #c89a42;
+  border-radius: 0.5rem;
+  color: #4a2c18;
+  background: #f2dca7;
+  cursor: pointer;
+  font-family: "Noto Serif SC", serif;
+  font-weight: 700;
+}
+
 .notice {
   position: fixed;
   z-index: 30;
@@ -1918,7 +2092,7 @@ button.game-card {
 }
 
 .web-home-content {
-  inset: 8% 7% 8% 7%;
+  inset: 0;
   display: block;
   pointer-events: none;
 }
@@ -1930,6 +2104,22 @@ button.game-card {
 .web-home-actions {
   position: absolute;
   inset: 0;
+}
+
+.web-home-brand {
+  position: absolute;
+  z-index: 3;
+  top: 8%;
+  left: 28%;
+  width: 42%;
+  color: #ffe7a7;
+  font-family: "Noto Serif SC", serif;
+  font-size: clamp(2rem, 5vw, 5.4rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-shadow: 0 4px 0 #593019, 0 0 24px rgb(255 183 67 / 48%);
+  pointer-events: none;
 }
 
 .web-home-action,
@@ -2007,10 +2197,26 @@ button.game-card {
 }
 
 .web-home-action span,
-.web-home-rules span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.web-home-action--primary { left: 24%; top: 39%; width: 22%; height: 37%; border-radius: 50%; }
-.web-home-action--secondary { left: 49%; top: 43%; width: 23%; height: 16%; }
-.web-home-action--practice { left: 49%; top: 60%; width: 23%; height: 17%; }
+.web-home-rules span {
+  position: relative;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  color: #f9e6b4;
+  font-family: "Noto Serif SC", serif;
+  font-size: clamp(1rem, 1.8vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  text-shadow: 0 2px 0 #4b2c18;
+}
+
+.web-home-action { display: grid; place-items: center; }
+.web-home-action--primary { left: 6%; top: 23%; width: 24%; height: 10.5%; }
+.web-home-action--secondary { left: 6%; top: 34.5%; width: 24%; height: 10.5%; }
+.web-home-action--practice { left: 6%; top: 46%; width: 24%; height: 10.5%; }
+.web-home-rules { left: 6%; top: 57.5%; right: auto; width: 24%; height: 10.5%; display: grid; place-items: center; }
 
 .web-room-shell {
   inset: 0;
@@ -2223,10 +2429,13 @@ button.game-card {
   .web-home-stage .screen-art { object-fit: cover; object-position: 60% 50%; }
 
   .web-home-content { inset: 0; }
+  .web-home-brand { display: none; }
+  .web-home-action span,
+  .web-home-rules span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); color: transparent; white-space: nowrap; }
   .web-home-action--primary { left: 22%; top: 57%; width: 56%; height: 17%; }
   .web-home-action--secondary { left: 22%; top: 74%; width: 56%; height: 10%; }
   .web-home-action--practice { left: 22%; top: 85%; width: 56%; height: 11%; }
-  .web-home-rules { top: 1%; right: 3%; width: 42%; height: 9%; }
+  .web-home-rules { top: 1%; right: 3%; left: auto; width: 42%; height: 9%; }
 
   .web-pc-utility--match {
     top: 1.4%;
@@ -2302,6 +2511,20 @@ button.game-card {
   .rules-dialog-actions { gap: 4%; }
   .rules-dialog-actions .art-button { min-width: 0; width: 40%; }
   .rules-dialog-actions .art-button:first-child { width: 32%; }
+  .rules-dialog--v2 .rules-dialog-content { padding: 10% 8% 7%; }
+  .rules-dialog--v2 .rules-dialog-header { gap: 0.7rem; }
+  .rules-dialog--v2 .rules-dialog-tabs { overflow-x: auto; justify-content: flex-start; }
+  .rules-dialog--v2 .rules-dialog-tabs,
+  .rules-dialog--v2 .rules-dialog-nav { scrollbar-width: none; }
+  .rules-dialog--v2 .rules-dialog-tabs::-webkit-scrollbar,
+  .rules-dialog--v2 .rules-dialog-nav::-webkit-scrollbar { display: none; }
+  .rules-dialog--v2 .rules-dialog-tabs button { min-width: 6.5rem; padding: 0.45rem 0.6rem; }
+  .rules-dialog--v2 .rules-dialog-body { grid-template-columns: 1fr; gap: 0.7rem; overflow: auto; }
+  .rules-dialog--v2 .rules-dialog-nav { display: flex; overflow-x: auto; }
+  .rules-dialog--v2 .rules-dialog-nav button { flex: 0 0 auto; padding: 0.5rem 0.7rem; }
+  .rules-dialog--v2 .rules-dialog-card { min-height: 14rem; }
+  .rules-dialog--v2 .rules-dialog-actions { margin-top: 0.7rem; }
+  .rules-dialog--v2 .rules-dialog-actions .art-button:first-child { width: 32%; min-width: 7rem; }
 
   .match-stage { overflow: hidden; min-width: 0; }
   .match-stage__background { object-fit: cover; }

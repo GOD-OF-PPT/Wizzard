@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
 import homeScreen from "../art/runtime/backgrounds/home-screen-hd.png";
 import homeScreenPortrait from "../art/runtime/backgrounds/home-screen-portrait-v1.png";
+import homeScreenWebPc from "../art/runtime/backgrounds/home-screen-web-pc-v2.png";
 import primaryPanel from "../art/runtime/ui/primary-panel.png";
 import secondaryPanel from "../art/runtime/ui/secondary-panel.png";
 import smallPlaque from "../art/runtime/ui/small-plaque.png";
+import rulesSettingsPanel from "../art/runtime/ui/rules-settings-panel.png";
+import rulesTextPanel from "../art/runtime/ui/rules-text-panel.png";
 import { avatarImages, gameArt, type AvatarKey } from "./game-assets";
 import { MatchScreen } from "./components/MatchScreen";
 import { useFriendRoom, type FriendRoomState } from "./hooks/useFriendRoom";
@@ -74,10 +77,12 @@ function HomeScreen({
       <h1 className="sr-only" id="home-title">奇术茶馆</h1>
       <picture className="screen-art-picture">
         <source media="(orientation: portrait)" srcSet={homeScreenPortrait} />
+        <source media="(orientation: landscape)" srcSet={homeScreenWebPc} />
         <img alt="奇术茶馆首页背景" className="screen-art" draggable="false" src={homeScreen} />
       </picture>
       <WebUtilityBar status="内部 PC 体验" title="奇术茶馆" />
       <div className="web-home-content">
+        <div aria-hidden="true" className="web-home-brand">奇术茶馆</div>
         <div className="web-home-actions">
           <button aria-label="创建房间" className="web-home-action web-home-action--primary" onClick={onCreateRoom} type="button"><span>创建房间</span></button>
           <button aria-label="加入房间" className="web-home-action web-home-action--secondary" onClick={onJoinRoom} type="button"><span>加入房间</span></button>
@@ -135,13 +140,17 @@ function FriendRoomScreen({ onBack, onInvite, onJoin, onReady, onAddAi, onStart,
 
 function RulesDialog({ onClose, onToggleSound, returnFocusRef, soundEnabled }: { onClose: () => void; onToggleSound: () => void; returnFocusRef: RefObject<HTMLButtonElement | null>; soundEnabled: boolean }) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const [activeTab, setActiveTab] = useState("游戏规则");
+  const [activeChapter, setActiveChapter] = useState("基础规则");
+  const tabs = ["游戏规则", "对局设置", "音效设置"];
+  const chapters = ["基础规则", "计分方式", "特殊牌型", "关于奇术茶馆"];
   useEffect(() => {
     function closeOnEscape(event: KeyboardEvent) { if (event.key === "Escape") onClose(); }
     window.addEventListener("keydown", closeOnEscape);
     closeButtonRef.current?.focus();
     return () => { window.removeEventListener("keydown", closeOnEscape); returnFocusRef.current?.focus(); };
   }, [onClose, returnFocusRef]);
-  return <div className="dialog-scrim"><section aria-labelledby="rules-dialog-title" aria-modal="true" className="rules-dialog" role="dialog"><img alt="" aria-hidden="true" className="rules-dialog-art" draggable="false" src={primaryPanel} /><div className="rules-dialog-content"><h2 id="rules-dialog-title">规则与设置</h2><p>每轮先决定王牌，再依次预测自己会赢几墩。出牌时必须跟随领出花色，至高牌与虚无牌可随时打出。</p><div className="rules-summary"><span>快速局：8 轮</span><span>座位：3–6 人</span><span>匿名内网房</span></div><div className="rules-dialog-actions"><ArtButton image={smallPlaque} onClick={onToggleSound}>音效：{soundEnabled ? "开" : "关"}</ArtButton><ArtButton buttonRef={closeButtonRef} image={secondaryPanel} label="关闭规则与设置" onClick={onClose}>关闭</ArtButton></div></div></section></div>;
+  return <div className="dialog-scrim"><section aria-labelledby="rules-dialog-title" aria-modal="true" className="rules-dialog rules-dialog--v2" role="dialog"><img alt="" aria-hidden="true" className="rules-dialog-art" draggable="false" src={rulesSettingsPanel} /><button aria-label="关闭规则与设置" className="rules-dialog-close" onClick={onClose} ref={closeButtonRef} type="button">×</button><div className="rules-dialog-content"><header className="rules-dialog-header"><h2 id="rules-dialog-title">规则与设置</h2><div className="rules-dialog-tabs" role="tablist">{tabs.map((tab) => <button aria-selected={activeTab === tab} className={activeTab === tab ? "is-active" : ""} key={tab} onClick={() => setActiveTab(tab)} role="tab" type="button">{tab}</button>)}</div></header><div className="rules-dialog-body"><nav aria-label="规则章节" className="rules-dialog-nav">{chapters.map((chapter) => <button className={activeChapter === chapter ? "is-active" : ""} key={chapter} onClick={() => setActiveChapter(chapter)} type="button">{chapter}</button>)}</nav><article className="rules-dialog-card"><img alt="" aria-hidden="true" draggable="false" src={rulesTextPanel} /><div className="rules-dialog-card-content"><h3>{activeChapter}</h3>{activeTab === "对局设置" ? <><p>好友房默认支持 3–6 人，可选择 AI 补位和出牌倒计时。设置会在创建房间时保存。</p><div className="rules-dialog-setting-row"><span>出牌不倒计时</span><strong>开</strong></div><div className="rules-dialog-setting-row"><span>AI 补位</span><strong>按房主选择</strong></div></> : activeTab === "音效设置" ? <><p>调整浏览器内的提示音和操作反馈，设置只保存在当前匿名会话。</p><div className="rules-dialog-setting-row"><span>音效</span><strong>{soundEnabled ? "开启" : "关闭"}</strong></div></> : <><p>每轮先决定王牌，再依次预测自己会赢几墩。出牌时必须跟随领出花色，至高牌与虚无牌可随时打出。</p><div className="rules-summary"><span>快速局：8 轮</span><span>座位：3–6 人</span><span>匿名内网房</span></div></>}</div></article></div><footer className="rules-dialog-actions"><ArtButton image={smallPlaque} onClick={onToggleSound}>音效：{soundEnabled ? "开" : "关"}</ArtButton><button className="rules-dialog-primary" onClick={onClose} type="button">关闭</button></footer></div></section></div>;
 }
 
 function Notice({ message }: { message: string }) {

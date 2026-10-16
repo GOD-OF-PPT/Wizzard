@@ -61,6 +61,15 @@
       "importProfile": "background",
       "notes": "Dedicated internal web 9:16 home master; preserves the approved tea-house visual language with vertically reflowed entry plaques."
     },
+    "homeWebPcV2": {
+      "semanticKey": "screen.home.web.pc.v2",
+      "source": "art/mockups/web-pc-experience-v2.png",
+      "runtime": "art/runtime/backgrounds/home-screen-web-pc-v2.png",
+      "pixelSize": [1672, 941],
+      "anchor": [0.5, 0.5],
+      "importProfile": "background",
+      "notes": "ImageGen v2 PC browser home master with authored left action plaques and a quiet utility rail safe area."
+    },
     "homeWechatUltrawide": {
       "semanticKey": "screen.home.wechat.ultrawide",
       "source": "art/source/backgrounds/home-screen-wechat-ultrawide-master.png",

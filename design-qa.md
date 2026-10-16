@@ -238,6 +238,27 @@ Coverage verdict: passed for the internal browser carrier. The composite referen
 
 final result: passed (ImageGen PC implementation coverage)
 
+## ImageGen v2 browser design implementation — 2026-10-16
+
+- New design board: `art/mockups/web-pc-experience-v2.png`.
+- Dedicated PC home master: `art/runtime/backgrounds/home-screen-web-pc-v2.png`.
+- Fresh browser evidence: `art/review/web-imagegen-v2-home-landscape.jpg` and `art/review/web-imagegen-v2-room-landscape.jpg`.
+- Home implementation now uses the v2 master at landscape breakpoints, with authored left action plaques, visible runtime labels, centered brand title, and the baked top-right utility rail. Portrait keeps the independent v1 portrait master and reflow contract.
+- Friend-room implementation now keeps the same v2 scene language: transparent table field, oval seats, waiting plaques, room info, lower-left controls, and lower-right actions.
+- The v2 board is a design source only; runtime remains composed from page components and versioned raster assets so room/player/score state stays dynamic.
+
+Current v2 implementation status: home and friend-room PC surfaces have been migrated and visually rechecked. Gameplay, results, and rules continue to use the existing runtime asset composition while the remaining v2 state-specific overlays are being brought into the same visual contract.
+
+### V2 implementation evidence update
+
+- Home: `art/review/web-imagegen-v2-home-landscape.jpg` — dedicated ImageGen v2 master with authored action plaques, visible runtime labels, brand title, and top utility rail.
+- Friend room: `art/review/web-imagegen-v2-room-landscape.jpg` — table-first lobby with oval waiting seats, room info, control panel, and action lane.
+- Gameplay: `art/review/web-imagegen-v2-gameplay-landscape.jpg` — live local practice state with round scroll, seats, central trick, prediction panel, timer, and compact browser utility rail.
+- Results: `art/review/web-imagegen-v2-results-landscape.jpg` — parchment score sheet with six rows and contained footer actions.
+- Rules/settings: `art/review/web-imagegen-v2-rules-landscape.jpg` — redesigned tabbed rules modal with chapter navigation, content card, sound toggle, and close action.
+
+The v2 browser carrier now has live evidence for every named design state. Remaining platform limits are the existing internal disconnected-room preview and the separate WeChat carrier acceptance boundary.
+
 ## 漆环巡游独立微信评审切片 — 2026-08-23
 
 - Source visual truth: `art/mockups/patrol-gameplay-screen-v1.png`.
