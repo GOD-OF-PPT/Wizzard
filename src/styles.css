@@ -52,8 +52,8 @@ button {
 
 .screen-stage {
   position: relative;
-  width: min(100vw, 177.6833vh);
-  height: min(100vh, 56.2804vw);
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   background: #17100e;
   box-shadow: 0 24px 80px rgb(0 0 0 / 55%);
@@ -64,7 +64,9 @@ button {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  image-rendering: auto;
+  transform: translateZ(0);
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
@@ -447,6 +449,9 @@ button {
 .match-stage__background {
   z-index: -3;
   object-fit: cover;
+  image-rendering: auto;
+  transform: translateZ(0) scale(1.001);
+  backface-visibility: hidden;
   pointer-events: none;
 }
 
@@ -1984,6 +1989,8 @@ button.game-card {
 }
 
 .web-room-footer { justify-content: flex-end; }
+.web-room-footer .web-primary-action,
+.web-room-footer .web-secondary-action { min-width: 9rem; min-height: 3rem; }
 .web-secondary-action { background: rgb(77 46 30 / 92%); }
 .web-primary-action:disabled { cursor: wait; filter: grayscale(0.7); opacity: 0.55; }
 
@@ -1995,8 +2002,8 @@ button.game-card {
   }
 
   .screen-stage {
-    width: min(100vw, 56.25vh);
-    height: min(100vh, 177.7778vw);
+    width: 100%;
+    height: 100%;
     min-height: 0;
   }
 
