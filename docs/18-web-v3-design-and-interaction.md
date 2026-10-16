@@ -57,11 +57,12 @@
 - Chrome完整首轮操作：选朱结→预测0→选择唯一合法手牌→确认出牌→第1轮结算。证据：`art/review/web-v3/11-chooser-live.jpg`、`10-bid-live.jpg`、`05-selected-live.jpg`、`06-results-live.jpg`。
 - 选牌computed style实测：translateY=-12，zIndex=30，transition=0.14s；确认按钮启用并播放0.56s单次动画。此证据只覆盖首轮单张牌，不能代替多手牌切换/倒计时重绘验证。
 - `?design-review=results|ranking|rules`仅在Vite开发模式加载冻结排版样例，不连接房间服务，不承担规则逻辑。构建产物已检查不包含此入口或样例标记。样例截图仅证明指定内容排版，不证明完整游戏流程。
+- 2026-10-17 已新增 portrait 9:16 设计稿：`art/mockups/web-v3/portrait/02-create.png`、`03-join.png`、`08-rules.png`；创建/加入使用清理动态值的 `art/runtime/web-v3/portrait/create.png`、`join.png`。Chrome 390×694 实测创建页不再裁切横屏底板，字段、座位、开关和按钮均落入竖屏表单坐标系。
 - `06-results-comparison.png`为同内容源稿与Chrome无损截图并排对照，仍可见字体/头像差异，未通过像素级验收。
 
 ## 接续优先级
 
 1. 完成当前横屏字体、头像、统计牌和选中光效的同状态对照；复拍修复后的规则/大厅/牌桌。
 2. 补齐总榜真实状态、多人手牌/选择切换、键盘焦点和服务器错误态证据。
-3. 完成各页竖屏独立设计与重排；新横屏底板不得直接cover裁切用于竖屏表单。
+3. 完成规则竖屏动态值清理、加入页竖屏Chrome复拍和各页竖屏交互；新横屏底板不得直接cover裁切用于竖屏表单。
 4. 保存每页比较图和可核验测量，修复所有P0/P1/P2后才更改整体结论和目标状态。

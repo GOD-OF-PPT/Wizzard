@@ -3,6 +3,8 @@ import createArt from "../../art/runtime/web-v3/create.png";
 import joinArt from "../../art/runtime/web-v3/join.png";
 import switchOn from "../../art/runtime/web-v3/switch-on.png";
 import switchOff from "../../art/runtime/web-v3/switch-off.png";
+import portraitCreate from "../../art/runtime/web-v3/portrait/create.png";
+import portraitJoin from "../../art/runtime/web-v3/portrait/join.png";
 
 export type RoomOptions = { name: string; seats: 3 | 4 | 5 | 6; fillAi: boolean; timer: boolean; code: string };
 type Props = { mode: "create" | "join"; pending: boolean; error: string | null; onBack: () => void; onSubmit: (options: RoomOptions) => void };
@@ -21,7 +23,11 @@ export function RoomEntry({ mode, pending, error, onBack, onSubmit }: Props) {
   const [validation, setValidation] = useState("");
   const root = useRef<HTMLElement>(null);
   const title = mode === "create" ? "创建房间" : "加入房间";
-  useEffect(() => { root.current?.querySelector<HTMLInputElement>("input")?.focus(); }, []);
+  useEffect(() => {
+    // A phone should show the form before the user asks for its keyboard.
+    if (window.matchMedia?.("(orientation: portrait)").matches) root.current?.focus({ preventScroll: true });
+    else root.current?.querySelector<HTMLInputElement>("input")?.focus();
+  }, []);
   function submit(event: FormEvent) {
     event.preventDefault();
     if (pending) return;
@@ -30,15 +36,16 @@ export function RoomEntry({ mode, pending, error, onBack, onSubmit }: Props) {
     setValidation("");
     onSubmit({ name: name.trim(), seats, fillAi, timer, code });
   }
-  return <section ref={root} className={`screen-stage v3-entry v3-entry--${mode}`} aria-labelledby="entry-title" onKeyDown={event => {
+  return <section ref={root} tabIndex={-1} className={`screen-stage v3-entry v3-entry--${mode}`} aria-labelledby="entry-title" onKeyDown={event => {
     if (event.key === "Escape" && !pending) onBack();
   }}>
-    <img className="screen-art" src={mode === "create" ? createArt : joinArt} alt="" draggable={false} />
+    <div className="v3-entry-canvas">
+    <picture className="v3-entry-art"><source media="(orientation: portrait)" srcSet={mode === "create" ? portraitCreate : portraitJoin} /><img className="screen-art" src={mode === "create" ? createArt : joinArt} alt="" draggable={false} /></picture>
     <h1 id="entry-title" className="sr-only">{title}</h1>
-    <form onSubmit={submit} aria-busy={pending}>
+    <form onSubmit={submit} aria-busy={pending} aria-label={title}>
       <label className="v3-entry-name"><span className="v3-mobile-label">昵称</span><input aria-label="昵称" autoComplete="off" maxLength={12} value={name} disabled={pending} onChange={event => setName(event.target.value)} /></label>
       {mode === "create" ? <>
-        <fieldset className="v3-seat-options" disabled={pending}><legend className="sr-only">选择座位</legend>{([3, 4, 5, 6] as const).map(value => <button type="button" key={value} aria-pressed={value === seats} onClick={() => setSeats(value)}>{value}人</button>)}</fieldset>
+        <fieldset className="v3-seat-options" disabled={pending}><legend className="sr-only">选择座位</legend>{([3, 4, 5, 6] as const).map(value => <button type="button" key={value} aria-pressed={value === seats} onClick={() => setSeats(value)}><span>{value}人</span></button>)}</fieldset>
         <label className="v3-entry-toggle v3-entry-ai"><span className="v3-mobile-label">AI补位</span><span className="v3-switch-art"><img src={fillAi ? switchOn : switchOff} alt="" /></span><input type="checkbox" checked={fillAi} disabled={pending} onChange={event => setFillAi(event.target.checked)} aria-label="AI补位" /><span>{fillAi ? "开启" : "关闭"}</span></label>
         <label className="v3-entry-toggle v3-entry-timer"><span className="v3-mobile-label">出牌倒计时</span><span className="v3-switch-art"><img src={timer ? switchOn : switchOff} alt="" /></span><input type="checkbox" checked={timer} disabled={pending} onChange={event => setTimer(event.target.checked)} aria-label="出牌倒计时" /><span>{timer ? "开启" : "关闭"}</span></label>
       </> : <label className="v3-entry-code"><span className="v3-mobile-label">房间码</span><span aria-hidden="true" className="v3-code-digits">{Array.from({ length: 6 }, (_, index) => <span key={index}>{code[index] ?? ""}</span>)}</span><input aria-label="六位房间码" inputMode="numeric" autoComplete="off" maxLength={6} value={code} disabled={pending} onChange={event => setCode(event.target.value.replace(/\D/g, "").slice(0, 6))} /></label>}
@@ -46,5 +53,6 @@ export function RoomEntry({ mode, pending, error, onBack, onSubmit }: Props) {
       <button type="submit" aria-label={pending ? "正在连接" : title} className="v3-entry-submit v3-baked-hit" disabled={pending}><span className="v3-mobile-label">{title}</span></button>
       {(validation || error || pending) && <p className="v3-entry-feedback" role={pending ? "status" : "alert"}>{validation || error || "正在连接茶馆，请稍候…"}</p>}
     </form>
+    </div>
   </section>;
 }

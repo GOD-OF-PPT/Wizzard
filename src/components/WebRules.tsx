@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
 import art from "../../art/runtime/web-v3/rules.png";
+import portraitArt from "../../art/mockups/web-v3/portrait/08-rules.png";
 
 export type WebPreferences = { legalHints: boolean; reducedMotion: boolean };
 export const defaultWebPreferences: WebPreferences = { legalHints: true, reducedMotion: false };
@@ -36,7 +37,7 @@ export function WebRules({ onClose, returnFocusRef, preferences, onPreferences }
       if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
     }
   }}>
-    <img src={art} alt="" className="screen-art" />
+    <picture className="v3-rules-art"><source media="(orientation: portrait)" srcSet={portraitArt} /><img src={art} alt="" className="screen-art" /></picture>
     <h2 id="rules-title" className="sr-only">规则与设置</h2>
     <button aria-label="关闭规则与设置" className="v3-rules-close v3-baked-hit" onClick={onClose} />
     <div className="v3-rules-tabs" role="tablist" aria-label="规则设置标签">{(["rules", "settings"] as const).map((value, index) => <button role="tab" id={`tab-${value}`} aria-controls="rules-content" aria-selected={tab === value} key={value} onClick={() => setTab(value)}>{index === 0 ? "游戏规则" : "体验设置"}</button>)}</div>
