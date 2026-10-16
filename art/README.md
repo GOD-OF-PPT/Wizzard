@@ -20,6 +20,8 @@
 | 网页 PC 首页 v2 | ImageGen v2 设计稿首页独立浏览器母版 | `runtime/backgrounds/home-screen-web-pc-v2.png`，1672×941 | selected for internal web |
 | 首页小游戏超宽母版 | 单张连续茶馆场景；中央保留 16:9 核心信息，右上预留微信胶囊安全区 | `runtime/backgrounds/home-screen-wechat-ultrawide.png`，2560×1080 | passed |
 | 牌桌背景 | — | `runtime/backgrounds/teahouse-table.png`，1920×1080 | passed |
+| 网页 PC 好友房背景 v2 | ImageGen v2 独立好友房场景母版 | `runtime/backgrounds/friend-room-web-pc-v2.png`，1672×941 | selected for internal web |
+| 网页 PC 牌桌背景 v2 | ImageGen v2 独立牌桌场景母版 | `runtime/backgrounds/gameplay-web-pc-v2.png`，1672×941 | selected for internal web |
 | 巡游玩法选定稿 | `mockups/patrol-gameplay-screen-v1.png`，方案 1“漆环巡游”视觉真值 | — | selected |
 | 巡游双环赛道 | `source/patrol/patrol-track-scene-v1-master.png` | `runtime/patrol/patrol-track-scene-v1.png`，1920×1080 | passed |
 | 巡游旅者 | `source/patrol/travelers/*-v1-master.png`，3 个原创角色 | `runtime/patrol/travelers/*-v1.png`，384×384 RGBA | passed |

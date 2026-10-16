@@ -30,6 +30,8 @@ import lowestSpecial from "../art/runtime/cards/lowest-special.png";
 import mountainFace from "../art/runtime/cards/mountain-face.png";
 import sunFace from "../art/runtime/cards/sun-face.png";
 import teahouseTable from "../art/runtime/backgrounds/teahouse-table.png";
+import friendRoomWebPc from "../art/runtime/backgrounds/friend-room-web-pc-v2.png";
+import gameplayWebPc from "../art/runtime/backgrounds/gameplay-web-pc-v2.png";
 import aiBadge from "../art/runtime/ui/ai-badge.png";
 import countdownRing from "../art/runtime/ui/countdown-ring.png";
 import greenStatus from "../art/runtime/ui/green-status.png";
@@ -136,6 +138,8 @@ export const gameArt = {
   selectedHalo,
   smallPlaque,
   table: teahouseTable,
+  friendRoomWebPc,
+  gameplayWebPc,
   trickWin,
   trumpTile,
   turnButton,

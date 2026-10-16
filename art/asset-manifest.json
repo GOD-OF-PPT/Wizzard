@@ -85,6 +85,22 @@
       "pixelSize": [1920, 1080],
       "anchor": [0.5, 0.5],
       "importProfile": "background"
+    },
+    "friendRoomWebPcV2": {
+      "semanticKey": "scene.friendRoom.web.pc.v2",
+      "runtime": "art/runtime/backgrounds/friend-room-web-pc-v2.png",
+      "pixelSize": [1672, 941],
+      "anchor": [0.5, 0.5],
+      "importProfile": "background",
+      "notes": "Dedicated ImageGen v2 PC browser friend-room table field; dynamic seats and controls remain runtime-rendered."
+    },
+    "gameplayWebPcV2": {
+      "semanticKey": "scene.gameplay.web.pc.v2",
+      "runtime": "art/runtime/backgrounds/gameplay-web-pc-v2.png",
+      "pixelSize": [1672, 941],
+      "anchor": [0.5, 0.5],
+      "importProfile": "background",
+      "notes": "Dedicated ImageGen v2 PC browser gameplay table field; HUD, hand, trick and action controls remain runtime-rendered."
     }
   },
   "patrol": {

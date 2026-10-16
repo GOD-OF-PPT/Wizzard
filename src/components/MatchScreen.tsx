@@ -653,12 +653,15 @@ export function MatchScreen({ controller: providedController, onExit }: MatchScr
       <h1 className="sr-only" id="match-title">
         奇术茶馆快速局牌桌
       </h1>
-      <img
-        alt="夜间奇术茶馆漆木圆桌"
-        className="match-stage__background"
-        draggable="false"
-        src={gameArt.table}
-      />
+      <picture className="match-stage__background-picture">
+        <source media="(orientation: landscape)" srcSet={gameArt.gameplayWebPc} />
+        <img
+          alt="夜间奇术茶馆漆木圆桌"
+          className="match-stage__background"
+          draggable="false"
+          src={gameArt.table}
+        />
+      </picture>
       <div className="match-stage__shade" />
 
       <RoundHeader

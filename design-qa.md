@@ -246,6 +246,7 @@ final result: passed (ImageGen PC implementation coverage)
 - Fresh browser evidence: `art/review/web-imagegen-v2-home-landscape.jpg` and `art/review/web-imagegen-v2-room-landscape.jpg`.
 - Home implementation now uses the v2 master at landscape breakpoints, with authored left action plaques, visible runtime labels, centered brand title, and the baked top-right utility rail. Portrait keeps the independent v1 portrait master and reflow contract.
 - Friend-room implementation now keeps the same v2 scene language: transparent table field, oval seats, waiting plaques, room info, lower-left controls, and lower-right actions.
+- Friend-room and gameplay now consume dedicated ImageGen v2 scene masters (`friend-room-web-pc-v2.png` and `gameplay-web-pc-v2.png`) at the landscape breakpoint; dynamic UI remains layered from React and formal assets.
 - The v2 board is a design source only; runtime remains composed from page components and versioned raster assets so room/player/score state stays dynamic.
 
 Current v2 implementation status: home and friend-room PC surfaces have been migrated and visually rechecked. Gameplay, results, and rules continue to use the existing runtime asset composition while the remaining v2 state-specific overlays are being brought into the same visual contract.

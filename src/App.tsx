@@ -112,7 +112,10 @@ function FriendRoomScreen({ onBack, onInvite, onJoin, onReady, onAddAi, onStart,
 
   return (
     <section aria-labelledby="room-title" className="screen-stage web-room-stage">
-      <img alt="茶馆桌面背景" className="screen-art" draggable="false" src={gameArt.table} />
+      <picture className="screen-art-picture">
+        <source media="(orientation: landscape)" srcSet={gameArt.friendRoomWebPc} />
+        <img alt="茶馆桌面背景" className="screen-art" draggable="false" src={gameArt.table} />
+      </picture>
       <WebUtilityBar connection={roomState.connection} onExit={onBack} status="好友房大厅" title={room?.roomCode ? `好友房 ${room.roomCode}` : "好友房大厅"} />
       <div className="web-room-shell">
         <header className="web-room-header">

@@ -631,6 +631,18 @@ button {
   height: 100%;
 }
 
+.match-stage__background-picture {
+  position: absolute;
+  z-index: -3;
+  inset: 0;
+  display: block;
+}
+
+.match-stage__background-picture > .match-stage__background {
+  position: absolute;
+  inset: 0;
+}
+
 .match-stage__background {
   z-index: -3;
   object-fit: cover;
