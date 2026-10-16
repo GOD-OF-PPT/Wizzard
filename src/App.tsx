@@ -47,15 +47,12 @@ function HomeScreen({
       <h1 className="sr-only" id="home-title">奇术茶馆</h1>
       <img alt="奇术茶馆首页背景" className="screen-art" draggable="false" src={homeScreen} />
       <div className="web-home-content">
-        <p className="web-home-kicker">内部网页体验 · 匿名访客</p>
-        <h2>茶馆入口</h2>
-        <p className="web-home-copy">好友房、单人练习与规则验证</p>
         <div className="web-home-actions">
-          <button className="web-home-action web-home-action--primary" onClick={onCreateRoom} type="button">创建房间</button>
-          <button className="web-home-action web-home-action--secondary" onClick={onJoinRoom} type="button">加入房间</button>
-          <button className="web-home-action web-home-action--practice" onClick={onPractice} type="button">单人练习</button>
+          <button aria-label="创建房间" className="web-home-action web-home-action--primary" onClick={onCreateRoom} type="button"><span>创建房间</span></button>
+          <button aria-label="加入房间" className="web-home-action web-home-action--secondary" onClick={onJoinRoom} type="button"><span>加入房间</span></button>
+          <button aria-label="单人练习" className="web-home-action web-home-action--practice" onClick={onPractice} type="button"><span>单人练习</span></button>
         </div>
-        <button className="web-home-rules" onClick={onRules} ref={rulesButtonRef} type="button">规则与设置</button>
+        <button aria-label="规则与设置" className="web-home-rules" onClick={onRules} ref={rulesButtonRef} type="button"><span>规则与设置</span></button>
       </div>
     </section>
   );

@@ -1804,11 +1804,7 @@ button.game-card {
 
 .web-home-content {
   inset: 8% 7% 8% 7%;
-  display: grid;
-  grid-template-columns: 1fr minmax(260px, 0.82fr);
-  grid-template-rows: auto auto 1fr auto;
-  align-items: center;
-  gap: 1rem 5%;
+  display: block;
   pointer-events: none;
 }
 
@@ -1816,40 +1812,9 @@ button.game-card {
   pointer-events: auto;
 }
 
-.web-home-content h2 {
-  grid-column: 1;
-  margin: 0;
-  color: #ffe6ad;
-  font-family: "Noto Serif SC", serif;
-  font-size: clamp(2.5rem, 6vw, 6.5rem);
-  letter-spacing: 0.12em;
-  text-shadow: 0 5px 14px rgb(0 0 0 / 65%);
-}
-
-.web-home-kicker,
-.web-home-copy {
-  grid-column: 1;
-  margin: 0;
-  color: #f7d994;
-  text-shadow: 0 3px 8px rgb(0 0 0 / 70%);
-}
-
-.web-home-kicker {
-  align-self: end;
-  font-size: clamp(0.8rem, 1.2vw, 1.2rem);
-}
-
-.web-home-copy {
-  align-self: start;
-  font-size: clamp(0.95rem, 1.6vw, 1.5rem);
-}
-
 .web-home-actions {
-  grid-column: 2;
-  grid-row: 1 / span 3;
-  display: grid;
-  gap: 1rem;
-  align-self: center;
+  position: absolute;
+  inset: 0;
 }
 
 .web-home-action,
@@ -1858,16 +1823,13 @@ button.game-card {
 .web-secondary-action,
 .web-room-control-actions button,
 .web-text-button {
-  min-height: 3rem;
-  padding: 0.7rem 1.2rem;
-  border: 1px solid rgb(255 221 145 / 75%);
-  border-radius: 1rem;
-  color: #ffe8b1;
-  background: linear-gradient(160deg, rgb(26 99 72 / 95%), rgb(9 51 40 / 96%));
-  box-shadow: 0 8px 22px rgb(0 0 0 / 35%), inset 0 0 0 2px rgb(255 210 116 / 18%);
+  padding: 0;
+  border: 0;
+  border-radius: 1.2rem;
+  color: transparent;
+  background: transparent;
+  box-shadow: none;
   cursor: pointer;
-  font-family: "Noto Serif SC", serif;
-  font-weight: 700;
   transition: transform 140ms ease, filter 140ms ease;
 }
 
@@ -1889,23 +1851,24 @@ button.game-card {
   transform: translateY(-2px);
 }
 
-.web-home-action--primary,
-.web-primary-action {
-  background: linear-gradient(160deg, #b77a22, #713713);
-}
-
-.web-home-action--practice {
-  background: linear-gradient(160deg, #254a72, #162946);
-}
-
 .web-home-rules {
-  grid-column: 2;
-  justify-self: end;
-  align-self: end;
-  min-height: 2.4rem;
-  background: rgb(66 37 22 / 88%);
-  font-size: clamp(0.8rem, 1vw, 1rem);
+  position: absolute;
+  top: 1.3%;
+  right: 1.6%;
+  width: 18%;
+  height: 10%;
+  padding: 0;
+  border: 0;
+  color: transparent;
+  background: transparent;
+  cursor: pointer;
 }
+
+.web-home-action span,
+.web-home-rules span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.web-home-action--primary { left: 24%; top: 39%; width: 22%; height: 37%; border-radius: 50%; }
+.web-home-action--secondary { left: 49%; top: 43%; width: 23%; height: 16%; }
+.web-home-action--practice { left: 49%; top: 60%; width: 23%; height: 17%; }
 
 .web-room-shell {
   inset: 6% 7%;
@@ -2039,25 +2002,11 @@ button.game-card {
 
   .web-home-stage .screen-art { object-fit: cover; object-position: 50% 50%; }
 
-  .web-home-content {
-    inset: 6% 7%;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto 1fr auto;
-    align-content: center;
-    gap: 0.7rem;
-    text-align: center;
-  }
-
-  .web-home-content h2,
-  .web-home-kicker,
-  .web-home-copy,
-  .web-home-actions,
-  .web-home-rules { grid-column: 1; }
-  .web-home-content h2 { font-size: clamp(2.2rem, 12vw, 4rem); }
-  .web-home-kicker { align-self: end; }
-  .web-home-copy { align-self: start; }
-  .web-home-actions { grid-row: 4; width: min(86%, 22rem); justify-self: center; gap: 0.65rem; }
-  .web-home-rules { grid-row: 5; justify-self: center; }
+  .web-home-content { inset: 0; }
+  .web-home-action--primary { left: 22%; top: 38%; width: 56%; height: 25%; }
+  .web-home-action--secondary { left: 22%; top: 65%; width: 56%; height: 11%; }
+  .web-home-action--practice { left: 22%; top: 78%; width: 56%; height: 11%; }
+  .web-home-rules { top: 1%; right: 3%; width: 42%; height: 9%; }
 
   .web-room-shell { inset: 3% 4%; padding: 1rem; border-radius: 1rem; }
   .web-room-header { align-items: flex-start; }
