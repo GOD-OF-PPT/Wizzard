@@ -17,7 +17,7 @@ import type {
   RoomSocketClient,
   RoomSocketConnectionState,
   RoomSocketEvent,
-} from "../../cocos-client/assets/scripts/network/RoomSocketClient";
+} from "../web/shared/RoomSocketClient";
 
 export type FriendRoomState = Readonly<{
   connection: RoomSocketConnectionState;

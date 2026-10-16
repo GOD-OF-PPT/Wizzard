@@ -1,18 +1,18 @@
 import type {
   RoomBinding,
   RoomSocketClientOptions,
-} from "../../cocos-client/assets/scripts/network/RoomSocketClient";
-import { RoomSocketClient } from "../../cocos-client/assets/scripts/network/RoomSocketClient";
+} from "./shared/RoomSocketClient";
+import { RoomSocketClient } from "./shared/RoomSocketClient";
 import type {
   RoomSessionStore,
   StoredRoomSession,
-} from "../../cocos-client/assets/scripts/platform/SessionStore";
+} from "./shared/SessionStore";
 import type {
   SocketObserver,
   TextSocket,
   TextSocketFactory,
   TextSocketTarget,
-} from "../../cocos-client/assets/scripts/platform/SocketTransport";
+} from "./shared/SocketTransport";
 
 const SESSION_STORAGE_KEY = "wizzard.room-session.web.v1";
 const TOKEN_PATTERN = /^[A-Za-z0-9._-]{16,512}$/;

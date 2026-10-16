@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { NetworkMatchAdapter } from "../../cocos-client/assets/scripts/adapters/NetworkMatchAdapter";
-import type { RoomSocketClient } from "../../cocos-client/assets/scripts/network/RoomSocketClient";
+import { NetworkMatchAdapter } from "../web/shared/NetworkMatchAdapter";
+import type { RoomSocketClient } from "../web/shared/RoomSocketClient";
 import type {
   IMatchAdapter,
   MatchIntentDraft,
   MatchUpdate,
-} from "../../cocos-client/assets/scripts/adapters/IMatchAdapter";
+} from "../web/shared/IMatchAdapter";
 import type { LocalMatchController } from "./useLocalMatch";
 import { BrowserFrameScheduler } from "../web/frame";
 
