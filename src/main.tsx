@@ -3,8 +3,11 @@ import { createRoot } from "react-dom/client";
 import { App } from "./App";
 import "./styles.css";
 
-createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
+const root = createRoot(document.getElementById("root")!);
+const reviewState = import.meta.env.DEV ? new URLSearchParams(location.search).get("design-review") : null;
+if (reviewState && ["results", "ranking", "rules"].includes(reviewState)) {
+  document.title = "设计验收样例 · 奇术茶馆";
+  void import("./web/DesignReview").then(({ default: Review }) => root.render(<Review state={reviewState} />));
+} else {
+  root.render(<React.StrictMode><App /></React.StrictMode>);
+}

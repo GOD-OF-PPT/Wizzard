@@ -45,6 +45,8 @@ export function useFriendRoom(endpoint?: string) {
   const unsubscribeRef = useRef<(() => void) | null>(null);
   const [client, setClient] = useState<RoomSocketClient | null>(null);
   const [state, setState] = useState<FriendRoomState>(EMPTY_STATE);
+  const [pendingCommand, setPendingCommand] = useState<string | null>(null);
+  const pendingCommandRef = useRef<string | null>(null);
   const channelRef = useRef<BroadcastChannel | null>(null);
   const tabIdRef = useRef(`web-tab-${Math.random().toString(36).slice(2)}`);
   const leaseRef = useRef(new WebRoomTabLease());
@@ -59,6 +61,8 @@ export function useFriendRoom(endpoint?: string) {
     channelRef.current = null;
     leaseRef.current.release();
     setState(EMPTY_STATE);
+    pendingCommandRef.current = null;
+    setPendingCommand(null);
   }, []);
 
   const attach = useCallback(
@@ -91,14 +95,20 @@ export function useFriendRoom(endpoint?: string) {
         }
 
         if (event.type === "error") {
+          pendingCommandRef.current = null;
+          setPendingCommand(null);
           setState((current) => ({
             ...current,
-            connection: toConnectionState(event),
+            connection: client.getConnectionState(),
             error: event.message,
           }));
           return;
         }
 
+        if (event.payload.ackCommandId === pendingCommandRef.current) {
+          pendingCommandRef.current = null;
+          setPendingCommand(null);
+        }
         if (!leaseRef.current.acquire(event.payload.room.roomId)) {
           setState((current) => ({ ...current, error: "该房间已在另一个标签页打开" }));
           return;
@@ -125,23 +135,28 @@ export function useFriendRoom(endpoint?: string) {
 
   const send = useCallback((message: Omit<ClientRoomMessage, "requestId" | "v">) => {
     const client = clientRef.current;
-    if (!client || client.getConnectionState() !== "connected") return false;
-    return client.sendTracked({
+    if (!client || client.getConnectionState() !== "connected" || pendingCommandRef.current) return false;
+    const requestId = client.nextRequestId();
+    pendingCommandRef.current = requestId;
+    setPendingCommand(message.type);
+    const sent = client.sendTracked({
       ...message,
-      requestId: client.nextRequestId(),
+      requestId,
       v: PROTOCOL_VERSION,
     } as ClientRoomMessage);
+    if (!sent) { pendingCommandRef.current = null; setPendingCommand(null); }
+    return sent;
   }, []);
 
   const createRoom = useCallback(
-    (displayName: string, maxPlayers: 3 | 4 | 5 | 6 = 6) => {
+    (displayName: string, maxPlayers: 3 | 4 | 5 | 6 = 6, turnTimerEnabled = false) => {
       attach({
         payload: {
           avatarKey: "bamboo-cat",
           displayName,
           maxPlayers,
           mode: "quick",
-          turnTimerEnabled: false,
+          turnTimerEnabled,
         },
         type: "create",
       });
@@ -215,6 +230,7 @@ export function useFriendRoom(endpoint?: string) {
     leaveRoom,
     state,
     client,
+    pendingCommand,
   };
 }
 

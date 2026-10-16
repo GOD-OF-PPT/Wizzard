@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "carrier": "react-web",
+  "generator": "built-in image_gen",
+  "designRoot": "art/mockups/web-v3/",
+  "runtimeRoot": "art/runtime/web-v3/",
+  "designContract": "docs/18-web-v3-design-and-interaction.md",
+  "acceptance": "in-progress",
+  "assets": {
+    "web.v3.home": { "design": "01-home.png", "runtime": "home.png", "content": "static scene and entry plaques" },
+    "web.v3.create": { "design": "02-create.png", "runtime": "create.png", "content": "empty editable fields; actual values rendered by RoomEntry" },
+    "web.v3.join": { "design": "03-join.png", "runtime": "join.png", "content": "empty nickname and six code slots" },
+    "web.v3.lobby": { "design": "04-lobby.png", "runtime": "lobby.png", "content": "empty table, header and action frames; no players or room data" },
+    "web.v3.gameplay": { "design": "05-gameplay-final.png", "runtime": "gameplay.png", "content": "empty table and HUD frames; no player/card/state data" },
+    "web.v3.results": { "design": "06-results.png", "runtime": "results.png", "content": "static columns and empty rows/actions" },
+    "web.v3.ranking": { "design": "07-ranking.png", "runtime": "ranking.png", "content": "static columns and empty ranks/rows/actions" },
+    "web.v3.rules": { "design": "08-rules.png", "runtime": "rules.png", "content": "frame and fox art; dynamic tabs and chapter content" },
+    "web.v3.confirm": { "design": "09-confirm.png", "runtime": "confirm.png", "content": "static confirmation copy and controls with semantic live hit targets" },
+    "web.v3.bid": { "design": "10-bid.png", "runtime": "bid.png", "content": "transparent panel, empty range and prediction value" },
+    "web.v3.chooser": { "design": "11-chooser.png", "runtime": "chooser.png", "content": "transparent overlay with four invariant suit choices" },
+    "web.v3.switch.on": { "design": "02-create.png", "runtime": "switch-on.png" },
+    "web.v3.switch.off": { "design": "02-create.png", "runtime": "switch-off.png" },
+    "web.v3.emptySeat": { "design": "04-lobby.png", "runtime": "empty-seat.png" },
+    "web.v3.activeNav": { "design": "08-rules.png", "runtime": "active-nav.png" },
+    "web.v3.stepBadge": { "design": "08-rules.png", "runtime": "step-badge.png" },
+    "web.v3.selectedHalo": { "design": "05-gameplay-final.png", "runtime": "selected-halo.png" }
+  },
+  "notes": [
+    "Generated scene size is 1672x941; measure actual output rather than assuming requested 1920x1080.",
+    "Runtime extraction preserves backgrounds but removes mutable data, never changing the immutable design reference to match implementation.",
+    "Cocos resource generation is unchanged; this manifest belongs exclusively to the internal browser carrier.",
+    "Existing authoritative avatar and card resources are reused. Differences from generated portraits remain explicit visual QA findings."
+  ]
+}

@@ -157,3 +157,9 @@ When implementing from a selected generated mock, treat that image as the source
 - Chrome pixel calibration on 2026-10-16 keeps landscape runtime stages on a centered 16:9 canvas; wide browser windows use quiet side letterboxing so authored scene coordinates and hit targets do not drift under `cover` cropping.
 - The PC friend-room rail stays compact in the upper-right pocket, the room title sits on a centered parchment plaque, and the return action remains in the left safe column. Do not restore a full-width dark utility strip over the scene.
 - Web motion timing follows the selected gameplay contract: page enter 240ms, modal fade 220ms, controls 180ms, selection lift 140ms with a 12px zero-degree lift, and one 560ms confirm pulse only when the action first appears after selection.
+
+### Web v3 redesign acceptance (2026-10-16)
+
+- User requests a fresh ImageGen design for every page and its interactions, saved to the repository before implementation. Track the full page/state coverage in `docs/18-web-v3-design-and-interaction.md`; preserve the selected WeChat Enchanted Teahouse art direction.
+- Final acceptance uses Chrome only and requires same-viewport, same-state source-versus-implementation comparisons. Standalone implementation screenshots, passing builds, and earlier `passed` claims do not prove pixel fidelity.
+- Do not mark the redesign complete while page designs, interactive states, responsive views, or post-fix visual evidence remain missing. Record current gaps explicitly.

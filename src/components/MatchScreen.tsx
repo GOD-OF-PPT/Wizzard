@@ -25,10 +25,14 @@ import {
 import { useLocalMatch } from "../hooks/useLocalMatch";
 import type { LocalMatchController } from "../hooks/useLocalMatch";
 import { CardView, type CardVisualState } from "./CardView";
+import { WebResults } from "./WebResults";
+import gameplayV3 from "../../art/runtime/web-v3/gameplay.png";
+import { WebTrumpChooser, WebBidPanel } from "./WebMatchChoices";
 
 type MatchScreenProps = {
   controller?: LocalMatchController;
   onExit: () => void;
+  showLegalHints?: boolean;
 };
 
 const phaseLabels = {
@@ -165,10 +169,10 @@ function RoundHeader({
       <img alt="" aria-hidden="true" draggable="false" src={gameArt.roundTitleScroll} />
       <div>
         <strong>
-          第 {roundNumber} / {totalRounds} 轮
+          第 {roundNumber} 轮
         </strong>
         <span>
-          每人 {handSize} 张 · {phaseLabels[phase]}
+          每人 {handSize} 张
         </span>
       </div>
     </header>
@@ -255,256 +259,21 @@ function TrickArea({
 function trickCardStyle(index: number, count: number): CSSProperties {
   const midpoint = (count - 1) / 2;
   const offset = index - midpoint;
-  const spread = count === 1 ? 0 : Math.min(18, 72 / (count - 1));
+  const spread = count === 1 ? 0 : Math.min(25, 100 / (count - 1));
 
   return {
     "--trick-left": `${50 + offset * spread}%`,
-    "--trick-rotation": `${offset * 3.5}deg`,
-    "--trick-top": `${4 + Math.abs(offset) * 4.2}%`,
+    "--trick-rotation": "0deg",
+    "--trick-top": "0%",
   } as CSSProperties;
 }
 
-function TrumpChooser({ onChoose }: { onChoose: (trump: Suit) => void }) {
-  const firstChoiceRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => firstChoiceRef.current?.focus(), []);
-
-  return (
-    <div className="blocking-overlay">
-      <section
-        aria-labelledby="trump-title"
-        aria-modal="true"
-        className="choice-panel trump-chooser"
-        role="dialog"
-      >
-        <img alt="" aria-hidden="true" draggable="false" src={gameArt.primaryPanel} />
-        <div className="choice-panel__content">
-          <span className="choice-panel__eyebrow">翻出至高牌</span>
-          <h2 id="trump-title">请选择本轮王牌</h2>
-          <p>你是本轮发牌者。选择后，所有玩家开始依次预测。</p>
-          <div className="trump-chooser__grid">
-            {SUITS.map((suit) => (
-              <button
-                aria-label={`选择${suitNames[suit]}为王牌`}
-                className={`trump-choice trump-choice--${suit}`}
-                key={suit}
-                onClick={() => onChoose(suit)}
-                ref={suit === SUITS[0] ? firstChoiceRef : undefined}
-                type="button"
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  className="trump-choice__card"
-                  draggable="false"
-                  src={cardImages[suit]}
-                />
-                <span className="trump-choice__label">
-                  <img alt="" aria-hidden="true" draggable="false" src={gameArt.smallPlaque} />
-                  <span>
-                    {suitLabels[suit]} · {suitNames[suit]}
-                  </span>
-                </span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
-
-function BidPanel({
-  handSize,
-  onSubmit,
-}: {
-  handSize: number;
-  onSubmit: (bid: number) => void;
-}) {
-  const [bid, setBid] = useState(0);
-  const confirmRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => setBid(0), [handSize]);
-  useEffect(() => confirmRef.current?.focus(), []);
-
-  return (
-    <section
-      aria-labelledby="bid-title"
-      aria-modal="true"
-      className="bid-panel"
-      role="dialog"
-    >
-      <img alt="" aria-hidden="true" draggable="false" src={gameArt.primaryPanel} />
-      <div className="bid-panel__content">
-        <span>轮到你预测</span>
-        <h2 id="bid-title">预计赢几墩？</h2>
-        <div className="bid-stepper">
-          <button
-            aria-label="减少预测"
-            disabled={bid === 0}
-            onClick={() => setBid((value) => Math.max(0, value - 1))}
-            type="button"
-          >
-            <img alt="" aria-hidden="true" draggable="false" src={gameArt.smallPlaque} />
-            <span>减少</span>
-          </button>
-          <strong>{bid}</strong>
-          <button
-            aria-label="增加预测"
-            disabled={bid === handSize}
-            onClick={() => setBid((value) => Math.min(handSize, value + 1))}
-            type="button"
-          >
-            <img alt="" aria-hidden="true" draggable="false" src={gameArt.smallPlaque} />
-            <span>增加</span>
-          </button>
-        </div>
-        <button
-          className="lacquer-action"
-          onClick={() => onSubmit(bid)}
-          ref={confirmRef}
-          type="button"
-        >
-          <img alt="" aria-hidden="true" draggable="false" src={gameArt.secondaryPanel} />
-          <span>确认预测 {bid}</span>
-        </button>
-      </div>
-    </section>
-  );
-}
-
-function ResultsOverlay({
-  isMatchEnd,
-  onContinue,
-  onExit,
-  onRestart,
-  players,
-  roundNumber,
-}: {
-  isMatchEnd: boolean;
-  onContinue: () => void;
-  onExit: () => void;
-  onRestart: () => void;
-  players: readonly MatchPlayerState[];
-  roundNumber: number;
-}) {
-  const primaryActionRef = useRef<HTMLButtonElement>(null);
-  const orderedPlayers = [...players].sort(
-    (left, right) => right.totalScore - left.totalScore,
-  );
-  const topScore = orderedPlayers[0]?.totalScore ?? 0;
-  const winners = orderedPlayers.filter((player) => player.totalScore === topScore);
-  const summaryText = isMatchEnd
-    ? `${winners.map((player) => player.name).join("、")} 获得最高分`
-    : "预测准确可获得 20 分基础分";
-
-  useEffect(() => primaryActionRef.current?.focus(), []);
-
-  return (
-    <div className="blocking-overlay blocking-overlay--results">
-      <section
-        aria-describedby="results-summary"
-        aria-labelledby="results-title"
-        aria-modal="true"
-        className="results-panel"
-        role="dialog"
-      >
-        <div className="results-panel__content">
-          <div className="results-panel__title">
-            <img alt="" aria-hidden="true" draggable="false" src={gameArt.smallPlaque} />
-            <h2 id="results-title">
-              {isMatchEnd ? "快速局总榜" : `第 ${roundNumber} 轮结算`}
-            </h2>
-          </div>
-          <div aria-label="本轮计分" className="score-table" role="table">
-            <div className="score-table__row score-table__head" role="row">
-              <span role="columnheader">玩家</span>
-              <span role="columnheader">预测</span>
-              <span role="columnheader">赢墩</span>
-              <span role="columnheader">本轮</span>
-              <span role="columnheader">总分</span>
-            </div>
-            {orderedPlayers.map((player) => {
-              const avatarKey = asAvatarKey(player.avatarKey);
-              const isWinner = winners.some((winner) => winner.id === player.id);
-              const expression: AvatarExpression =
-                isMatchEnd && isWinner
-                  ? "proud"
-                  : (player.roundScore ?? 0) < 0
-                    ? "mistake"
-                    : "normal";
-
-              return (
-                <div className="score-table__row" key={player.id} role="row">
-                  <span className="score-table__player" role="cell">
-                    <img
-                      alt=""
-                      aria-hidden="true"
-                      draggable="false"
-                      src={avatarImages[avatarKey][expression]}
-                    />
-                    <span>{player.name}</span>
-                  </span>
-                  <span role="cell">{player.bid ?? "—"}</span>
-                  <span role="cell">{player.tricksWon}</span>
-                  <span
-                    className={(player.roundScore ?? 0) >= 0 ? "is-positive" : "is-negative"}
-                    role="cell"
-                  >
-                    {player.roundScore === null
-                      ? "—"
-                      : `${player.roundScore >= 0 ? "+" : ""}${player.roundScore}`}
-                  </span>
-                  <strong role="cell">{player.totalScore}</strong>
-                </div>
-              );
-            })}
-          </div>
-          <div className="results-panel__footer">
-            <div className="results-panel__summary">
-              <img alt="" aria-hidden="true" draggable="false" src={gameArt.smallPlaque} />
-              <p id="results-summary">{summaryText}</p>
-            </div>
-            <div className="results-panel__actions">
-              {isMatchEnd ? (
-                <>
-                  <button
-                    className="result-action result-action--paper"
-                    onClick={onExit}
-                    ref={primaryActionRef}
-                    type="button"
-                  >
-                    <img alt="" aria-hidden="true" draggable="false" src={gameArt.smallPlaque} />
-                    <span>返回好友房</span>
-                  </button>
-                  <button className="result-action" onClick={onRestart} type="button">
-                    <img alt="" aria-hidden="true" draggable="false" src={gameArt.secondaryPanel} />
-                    <span>再来一局</span>
-                  </button>
-                </>
-              ) : (
-                <button
-                  className="result-action"
-                  onClick={onContinue}
-                  ref={primaryActionRef}
-                  type="button"
-                >
-                  <img alt="" aria-hidden="true" draggable="false" src={gameArt.secondaryPanel} />
-                  <span>继续下一轮</span>
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
 
 function handCardStyle(index: number, count: number): CSSProperties {
   const midpoint = (count - 1) / 2;
   const offset = index - midpoint;
-  const spread = Math.min(8.8, 68 / Math.max(1, count - 1));
+  const spread = Math.min(14.8, 80 / Math.max(1, count - 1));
   const customStyle = {
     "--fan-left": `${50 + offset * spread}%`,
     "--fan-rotation": `${offset * Math.min(3.7, 18 / Math.max(1, count - 1))}deg`,
@@ -563,14 +332,14 @@ function TurnTimer({
   );
 }
 
-export function MatchScreen({ controller: providedController, onExit }: MatchScreenProps) {
+export function MatchScreen({ controller: providedController, onExit, showLegalHints = true }: MatchScreenProps) {
   const localController = useLocalMatch();
   const controller = providedController ?? localController;
   const { privateState, publicState } = controller.snapshot;
   const [feedback, setFeedback] = useState<string | null>(null);
   const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
   const [confirmPulse, setConfirmPulse] = useState(false);
-  const previousSelectedCardRef = useRef<string | null>(null);
+  const hasSelectedThisTurn = useRef(false);
   const currentPlayer = publicState.players.find(
     (player) => player.id === publicState.currentPlayerId,
   );
@@ -595,22 +364,17 @@ export function MatchScreen({ controller: providedController, onExit }: MatchScr
 
   useEffect(() => {
     if (!humanTurn || publicState.phase !== "trick-play") {
-      previousSelectedCardRef.current = null;
+      hasSelectedThisTurn.current = false;
+      setConfirmPulse(false);
       setSelectedCardId(null);
     }
   }, [humanTurn, publicState.phase]);
 
   useEffect(() => {
-    const previous = previousSelectedCardRef.current;
-    previousSelectedCardRef.current = selectedCardId;
-    if (!selectedCardId || previous) {
-      return undefined;
-    }
-
-    setConfirmPulse(true);
+    if (!confirmPulse) return;
     const timeout = window.setTimeout(() => setConfirmPulse(false), 560);
     return () => window.clearTimeout(timeout);
-  }, [selectedCardId]);
+  }, [confirmPulse]);
 
   useEffect(() => {
     const rejection = controller.events.find(
@@ -642,6 +406,10 @@ export function MatchScreen({ controller: providedController, onExit }: MatchScr
       return;
     }
 
+    if (!hasSelectedThisTurn.current) {
+      hasSelectedThisTurn.current = true;
+      setConfirmPulse(true);
+    }
     setSelectedCardId((current) => (current === card.id ? null : card.id));
   }
 
@@ -657,19 +425,17 @@ export function MatchScreen({ controller: providedController, onExit }: MatchScr
   return (
     <section
       aria-labelledby="match-title"
-      className="screen-stage match-stage"
+      className="screen-stage match-stage v3-match"
       data-phase={publicState.phase}
+      data-local-phase={humanTurn ? publicState.phase : "waiting"}
     >
-      <div className="web-pc-utility web-pc-utility--match" role="status">
-        <div className="web-pc-utility__identity"><span className="web-pc-utility__seal" aria-hidden="true">茶</span><div><strong>奇术茶馆</strong><span>第 {publicState.roundIndex + 1} / {publicState.roundHandCounts.length} 轮 · PC 牌桌</span></div></div>
-        <div className="web-pc-utility__chips"><span>{controller.connection === "local" ? "单人练习" : controller.connection === "connected" ? "已连接" : "重连中"}</span></div>
-        <button className="web-pc-utility__exit" onClick={onExit} type="button">退出</button>
-      </div>
+      <button className="v3-match-back v3-baked-hit" onClick={onExit} aria-label="返回首页"><span>返回首页</span></button>
+      <div className="v3-match-mode" role="status">{controller.connection === "local" ? "单人练习" : controller.connection === "connected" ? "好友对局" : "重连中"}</div>
       <h1 className="sr-only" id="match-title">
         奇术茶馆快速局牌桌
       </h1>
       <picture className="match-stage__background-picture">
-        <source media="(orientation: landscape)" srcSet={gameArt.gameplayWebPc} />
+        <source media="(orientation: landscape)" srcSet={gameplayV3} />
         <img
           alt="夜间奇术茶馆漆木圆桌"
           className="match-stage__background"
@@ -744,7 +510,7 @@ export function MatchScreen({ controller: providedController, onExit }: MatchScr
         {privateState.hand.map((card, index) => {
           let visualState: CardVisualState = "normal";
 
-          if (humanTurn && publicState.phase === "trick-play") {
+          if (showLegalHints && humanTurn && publicState.phase === "trick-play") {
             visualState = legalCardIds.has(card.id) ? "legal" : "illegal";
           }
 
@@ -762,8 +528,9 @@ export function MatchScreen({ controller: providedController, onExit }: MatchScr
               state={visualState}
               style={{
                 ...handCardStyle(index, privateState.hand.length),
+                "--selection-offset": selectedCardId && selectedCardId !== card.id ? (index < privateState.hand.findIndex(item => item.id === selectedCardId) ? "-9px" : "9px") : "0px",
                 ...(selectedCardId === card.id ? { zIndex: 30 } : {}),
-              }}
+              } as CSSProperties}
             />
           );
         })}
@@ -783,7 +550,8 @@ export function MatchScreen({ controller: providedController, onExit }: MatchScr
       </button>
 
       {humanTurn && publicState.phase === "trump-select" ? (
-        <TrumpChooser
+        <WebTrumpChooser
+          onExit={onExit}
           onChoose={(trump) =>
             controller.sendIntent({ trump, type: "choose-trump" })
           }
@@ -791,7 +559,7 @@ export function MatchScreen({ controller: providedController, onExit }: MatchScr
       ) : null}
 
       {humanTurn && publicState.phase === "bid" ? (
-        <BidPanel
+        <WebBidPanel
           handSize={publicState.handSize}
           onSubmit={(bid) => controller.sendIntent({ bid, type: "submit-bid" })}
         />
@@ -810,19 +578,21 @@ export function MatchScreen({ controller: providedController, onExit }: MatchScr
       ) : null}
 
       {publicState.phase === "round-score" ? (
-        <ResultsOverlay
+        <WebResults
           isMatchEnd={false}
           onContinue={controller.advance}
           onExit={onExit}
           onRestart={controller.restart}
           players={publicState.players}
           roundNumber={publicState.roundIndex + 1}
+          network={!!providedController}
         />
       ) : null}
 
       {publicState.phase === "match-end" ? (
-        <ResultsOverlay
+        <WebResults
           isMatchEnd
+          network={!!providedController}
           onContinue={controller.advance}
           onExit={onExit}
           onRestart={controller.restart}

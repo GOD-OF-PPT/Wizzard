@@ -6,6 +6,7 @@ import {
   suitNames,
 } from "../game-assets";
 import type { Card } from "@wizzard/game-core/contracts";
+import webSelectedHalo from "../../art/runtime/web-v3/selected-halo.png";
 
 export type CardVisualState =
   | "normal"
@@ -72,7 +73,7 @@ export function CardView({
           aria-hidden="true"
           className="game-card__state-fx game-card__state-fx--selected"
           draggable="false"
-          src={gameArt.selectedHalo}
+          src={webSelectedHalo}
         />
       ) : null}
       {winner ? (

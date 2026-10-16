@@ -2,17 +2,8 @@ import { fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { App } from "./App";
 
-function enterFriendRoom() {
-  fireEvent.click(screen.getByRole("button", { name: "创建房间" }));
-
-  expect(
-    screen.getByRole("heading", { name: /好友房/ }),
-  ).toBeInTheDocument();
-}
-
 function enterMatch() {
-  enterFriendRoom();
-  fireEvent.click(screen.getByRole("button", { name: "开始游戏" }));
+  fireEvent.click(screen.getByRole("button", { name: "单人练习" }));
 
   expect(
     screen.getByRole("heading", { name: "奇术茶馆快速局牌桌" }),
@@ -20,14 +11,17 @@ function enterMatch() {
 }
 
 describe("friends-only game prototype", () => {
-  it("lets a player create a friend room from the home screen", () => {
+  it("opens editable room options before submitting a creation request", () => {
     render(<App />);
 
     expect(
       screen.getByRole("heading", { name: "奇术茶馆" }),
     ).toBeInTheDocument();
 
-    enterFriendRoom();
+    fireEvent.click(screen.getByRole("button", { name: "创建房间" }));
+    expect(screen.getByRole("heading", { name: "创建房间" })).toBeInTheDocument();
+    expect(screen.getByRole("textbox", { name: "昵称" })).not.toHaveValue("");
+    expect(screen.getByRole("checkbox", { name: "出牌倒计时" })).not.toBeChecked();
   });
 
   it("starts a dynamic match with private hand state and trump selection", () => {
