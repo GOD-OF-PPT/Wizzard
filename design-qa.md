@@ -241,6 +241,7 @@ final result: passed (ImageGen PC implementation coverage)
 ## ImageGen v2 browser design implementation — 2026-10-16
 
 - New design board: `art/mockups/web-pc-experience-v2.png`.
+- Combined evidence sheet: `art/review/web-imagegen-v2-contact-sheet.jpg`.
 - Dedicated PC home master: `art/runtime/backgrounds/home-screen-web-pc-v2.png`.
 - Fresh browser evidence: `art/review/web-imagegen-v2-home-landscape.jpg` and `art/review/web-imagegen-v2-room-landscape.jpg`.
 - Home implementation now uses the v2 master at landscape breakpoints, with authored left action plaques, visible runtime labels, centered brand title, and the baked top-right utility rail. Portrait keeps the independent v1 portrait master and reflow contract.
