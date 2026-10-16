@@ -135,6 +135,7 @@ function sessionReducer(_session: Session, action: SessionAction): Session {
 
 export type LocalMatchController = {
   advance: () => void;
+  connection?: "local" | "connected" | "reconnecting" | "disconnected";
   events: MatchEvent[];
   humanPlayerId: string;
   restart: () => void;
@@ -282,6 +283,7 @@ export function useLocalMatch(): LocalMatchController {
 
   return {
     advance,
+    connection: "local",
     events: session.events,
     humanPlayerId: HUMAN_PLAYER_ID,
     restart,

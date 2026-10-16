@@ -1807,6 +1807,86 @@ button.game-card {
   z-index: 3;
 }
 
+.web-pc-utility {
+  position: absolute;
+  z-index: 8;
+  top: 1.4%;
+  right: 1.5%;
+  left: 1.5%;
+  min-height: 5.8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid rgb(223 177 87 / 72%);
+  border-radius: 0.75rem;
+  color: #f5dfad;
+  background: rgb(7 22 38 / 88%);
+  box-shadow: 0 5px 18px rgb(0 0 0 / 38%), inset 0 0 0 1px rgb(255 223 145 / 12%);
+  pointer-events: auto;
+}
+
+.web-pc-utility__identity,
+.web-pc-utility__chips {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.web-pc-utility__identity > div {
+  display: grid;
+  gap: 0.08rem;
+}
+
+.web-pc-utility__identity strong {
+  color: #ffe7aa;
+  font-family: "Noto Serif SC", serif;
+  font-size: clamp(0.85rem, 1.2vw, 1.2rem);
+}
+
+.web-pc-utility__identity span:last-child {
+  color: #bba477;
+  font-size: clamp(0.58rem, 0.7vw, 0.78rem);
+}
+
+.web-pc-utility__seal {
+  width: 2.2rem;
+  height: 2.2rem;
+  display: grid;
+  place-items: center;
+  border: 2px solid #d7a84f;
+  border-radius: 50%;
+  color: #f7d788;
+  background: #1d2b3d;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.1rem;
+}
+
+.web-pc-utility__chips > span:first-child {
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgb(216 170 82 / 48%);
+  border-radius: 999px;
+  color: #d6ba7f;
+  background: rgb(28 47 64 / 78%);
+  font-size: clamp(0.62rem, 0.72vw, 0.8rem);
+}
+
+.web-pc-utility__exit {
+  min-width: 4rem;
+  min-height: 2rem;
+  border: 1px solid rgb(216 170 82 / 60%);
+  border-radius: 0.55rem;
+  color: #f5db9c;
+  background: #1e3c56;
+  cursor: pointer;
+  font-family: "Noto Serif SC", serif;
+  font-weight: 700;
+}
+
+.web-pc-utility--match { top: 1%; }
+.web-home-stage .web-pc-utility { display: none; }
+
 .web-home-content {
   inset: 8% 7% 8% 7%;
   display: block;
@@ -1877,15 +1957,15 @@ button.game-card {
 .web-home-action--practice { left: 49%; top: 60%; width: 23%; height: 17%; }
 
 .web-room-shell {
-  inset: 6% 7%;
+  inset: 9% 5% 5%;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
   gap: 1rem;
   padding: max(1rem, var(--safe-area-top)) max(1rem, var(--safe-area-right)) max(1rem, var(--safe-area-bottom)) max(1rem, var(--safe-area-left));
-  border: 1px solid rgb(255 218 143 / 78%);
-  border-radius: 1.5rem;
-  background: linear-gradient(135deg, rgb(18 29 50 / 95%), rgb(29 27 37 / 92%));
-  box-shadow: 0 20px 60px rgb(0 0 0 / 55%), inset 0 0 0 2px rgb(255 215 143 / 12%);
+  border: 1px solid rgb(223 177 87 / 84%);
+  border-radius: 0.65rem;
+  background: rgb(7 22 38 / 86%);
+  box-shadow: 0 20px 60px rgb(0 0 0 / 52%), inset 0 0 0 2px rgb(255 215 143 / 11%);
   overflow: auto;
 }
 
@@ -1901,6 +1981,8 @@ button.game-card {
 .web-room-header {
   justify-content: space-between;
   gap: 1.5rem;
+  padding: 0.4rem 0.8rem 0.65rem;
+  border-bottom: 1px solid rgb(221 176 84 / 48%);
 }
 
 .web-room-header h1,
@@ -1934,7 +2016,8 @@ button.game-card {
   flex-wrap: wrap;
   padding: 1rem;
   border-radius: 1rem;
-  background: rgb(255 240 201 / 9%);
+  border: 1px solid rgb(222 176 86 / 24%);
+  background: rgb(23 43 59 / 72%);
 }
 
 .web-room-controls label {
@@ -1971,14 +2054,14 @@ button.game-card {
   justify-items: center;
   gap: 0.25rem;
   padding: 0.7rem;
-  border: 1px solid rgb(255 220 146 / 28%);
-  border-radius: 0.9rem;
+  border: 1px solid rgb(220 173 77 / 42%);
+  border-radius: 0.65rem;
   color: #ead8ac;
-  background: rgb(14 20 34 / 66%);
+  background: rgb(8 27 44 / 88%);
   text-align: center;
 }
 
-.web-room-seat.is-open { color: #9e9d96; border-style: dashed; }
+.web-room-seat.is-open { color: #b4a580; border-style: dashed; }
 .web-room-seat img { width: 4rem; height: 1.3rem; object-fit: fill; opacity: 0.8; }
 .web-room-seat strong { font-family: "Noto Serif SC", serif; }
 .web-room-seat span { font-size: 0.8rem; }
@@ -1989,7 +2072,7 @@ button.game-card {
   font-size: 0.85rem;
 }
 
-.web-room-footer { justify-content: flex-end; }
+.web-room-footer { justify-content: flex-end; padding-top: 0.5rem; border-top: 1px solid rgb(221 176 84 / 38%); }
 .web-room-footer .web-primary-action,
 .web-room-footer .web-secondary-action { min-width: 9rem; min-height: 3rem; }
 .web-secondary-action { background: rgb(77 46 30 / 92%); }

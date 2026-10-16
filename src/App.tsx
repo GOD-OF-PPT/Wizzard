@@ -11,6 +11,32 @@ import { useViewport } from "./hooks/useViewport";
 
 type Screen = "home" | "room" | "match";
 
+function WebUtilityBar({
+  connection,
+  onExit,
+  status,
+  title,
+}: {
+  connection?: string;
+  onExit?: () => void;
+  status: string;
+  title: string;
+}) {
+  return (
+    <div className="web-pc-utility" role="status">
+      <div className="web-pc-utility__identity">
+        <span className="web-pc-utility__seal" aria-hidden="true">茶</span>
+        <div><strong>{title}</strong><span>{status}</span></div>
+      </div>
+      <div className="web-pc-utility__chips">
+        <span>匿名访客</span>
+        {connection ? <span className={`web-connection web-connection--${connection}`}>{connection === "connected" ? "已连接" : connection}</span> : null}
+      </div>
+      {onExit ? <button className="web-pc-utility__exit" onClick={onExit} type="button">退出</button> : null}
+    </div>
+  );
+}
+
 type ArtButtonProps = {
   buttonRef?: RefObject<HTMLButtonElement | null>;
   children: React.ReactNode;
@@ -46,6 +72,7 @@ function HomeScreen({
     <section aria-labelledby="home-title" className="screen-stage web-home-stage">
       <h1 className="sr-only" id="home-title">奇术茶馆</h1>
       <img alt="奇术茶馆首页背景" className="screen-art" draggable="false" src={homeScreen} />
+      <WebUtilityBar status="内部 PC 体验" title="奇术茶馆" />
       <div className="web-home-content">
         <div className="web-home-actions">
           <button aria-label="创建房间" className="web-home-action web-home-action--primary" onClick={onCreateRoom} type="button"><span>创建房间</span></button>
@@ -76,6 +103,7 @@ function FriendRoomScreen({ onBack, onInvite, onJoin, onReady, onAddAi, onStart,
   return (
     <section aria-labelledby="room-title" className="screen-stage web-room-stage">
       <img alt="茶馆桌面背景" className="screen-art" draggable="false" src={gameArt.table} />
+      <WebUtilityBar connection={roomState.connection} onExit={onBack} status="好友房大厅" title={room?.roomCode ? `好友房 ${room.roomCode}` : "好友房大厅"} />
       <div className="web-room-shell">
         <header className="web-room-header">
           <button className="web-text-button" onClick={() => void onBack()} type="button">返回首页</button>

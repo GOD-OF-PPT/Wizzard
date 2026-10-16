@@ -645,6 +645,11 @@ export function MatchScreen({ controller: providedController, onExit }: MatchScr
       className="screen-stage match-stage"
       data-phase={publicState.phase}
     >
+      <div className="web-pc-utility web-pc-utility--match" role="status">
+        <div className="web-pc-utility__identity"><span className="web-pc-utility__seal" aria-hidden="true">茶</span><div><strong>奇术茶馆</strong><span>第 {publicState.roundIndex + 1} / {publicState.roundHandCounts.length} 轮 · PC 牌桌</span></div></div>
+        <div className="web-pc-utility__chips"><span>{controller.connection === "local" ? "单人练习" : controller.connection === "connected" ? "已连接" : "重连中"}</span></div>
+        <button className="web-pc-utility__exit" onClick={onExit} type="button">退出</button>
+      </div>
       <h1 className="sr-only" id="match-title">
         奇术茶馆快速局牌桌
       </h1>
