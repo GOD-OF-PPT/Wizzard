@@ -1829,6 +1829,7 @@ button.game-card {
 .web-room-control-actions button,
 .web-text-button {
   padding: 0;
+  position: absolute;
   border: 0;
   border-radius: 1.2rem;
   color: transparent;
