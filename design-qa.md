@@ -213,6 +213,15 @@ These captures verify browser layout, visible hierarchy, interaction state, and 
 
 final result: passed (internal web visual patrol)
 
+### Web patrol iteration 2 — friend-room composition
+
+- Previous evidence: `art/review/web-patrol-room-landscape.jpg` and `art/review/web-patrol-room-portrait.jpg`.
+- New evidence: `art/review/web-patrol-room-landscape-v2.jpg` and `art/review/web-patrol-room-portrait-v2.jpg`.
+- Finding fixed: the first web room pass used a full dark shell with grid cards, which hid the lacquer table and diverged from the friend-room design. The revised composition exposes the table as the visual field, places waiting plaques around the oval, moves room controls to the lower-left safe column, keeps actions in the lower-right lane, and separates the utility rail from room information.
+- Responsive result: desktop and portrait both keep all six seat targets, room inputs, status copy, and footer actions inside the viewport with no document overflow.
+
+final result: passed (friend-room iteration 2)
+
 ## 漆环巡游独立微信评审切片 — 2026-08-23
 
 - Source visual truth: `art/mockups/patrol-gameplay-screen-v1.png`.

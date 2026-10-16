@@ -4,7 +4,7 @@ import homeScreenPortrait from "../art/runtime/backgrounds/home-screen-portrait-
 import primaryPanel from "../art/runtime/ui/primary-panel.png";
 import secondaryPanel from "../art/runtime/ui/secondary-panel.png";
 import smallPlaque from "../art/runtime/ui/small-plaque.png";
-import { gameArt } from "./game-assets";
+import { avatarImages, gameArt, type AvatarKey } from "./game-assets";
 import { MatchScreen } from "./components/MatchScreen";
 import { useFriendRoom, type FriendRoomState } from "./hooks/useFriendRoom";
 import { useNetworkMatch } from "./hooks/useNetworkMatch";
@@ -103,6 +103,7 @@ function FriendRoomScreen({ onBack, onInvite, onJoin, onReady, onAddAi, onStart,
   const room = roomState.room;
   const players = room?.players ?? [];
   const canStart = roomState.permissions?.canStart ?? true;
+  const roomAvatarKeys: AvatarKey[] = ["bamboo-cat", "wandering-crane", "flower-fox", "ink-panda", "sleepy-star-cat", "masked-traveler"];
 
   return (
     <section aria-labelledby="room-title" className="screen-stage web-room-stage">
@@ -122,7 +123,7 @@ function FriendRoomScreen({ onBack, onInvite, onJoin, onReady, onAddAi, onStart,
         <div className="web-room-players" aria-label="房间座位">
           {Array.from({ length: room?.maxPlayers ?? 6 }, (_, index) => {
             const player = players[index];
-            return <article className={`web-room-seat ${player ? "is-occupied" : "is-open"}`} key={player?.playerId ?? index}>{player ? <><img alt="" aria-hidden="true" src={gameArt.smallPlaque} /><strong>{player.name}</strong><span>{player.isAi ? "AI" : player.ready ? "已准备" : "等待准备"}</span></> : <span>等待好友</span>}</article>;
+            return <article className={`web-room-seat ${player ? "is-occupied" : "is-open"}`} key={player?.playerId ?? index}>{player ? <><img alt={`${player.name}头像`} className="web-room-seat__avatar" src={avatarImages[roomAvatarKeys[index]].normal} /><span className="web-room-seat__name">{player.name}</span><span className="web-room-seat__state">{player.isAi ? "AI" : player.ready ? "已准备" : "等待准备"}</span></> : <span className="web-room-seat__empty">等待好友</span>}</article>;
           })}
         </div>
         {(roomState.error || !room) ? <p className="web-room-status" role="status">{roomState.error ? "房间服务暂不可用，可先进行单人练习。" : "本地预览可直接开始单人牌桌；连接房间服务后会显示真实座位。"}</p> : null}
