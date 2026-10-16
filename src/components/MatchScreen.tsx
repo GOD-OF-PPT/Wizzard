@@ -569,6 +569,8 @@ export function MatchScreen({ controller: providedController, onExit }: MatchScr
   const { privateState, publicState } = controller.snapshot;
   const [feedback, setFeedback] = useState<string | null>(null);
   const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
+  const [confirmPulse, setConfirmPulse] = useState(false);
+  const previousSelectedCardRef = useRef<string | null>(null);
   const currentPlayer = publicState.players.find(
     (player) => player.id === publicState.currentPlayerId,
   );
@@ -593,9 +595,22 @@ export function MatchScreen({ controller: providedController, onExit }: MatchScr
 
   useEffect(() => {
     if (!humanTurn || publicState.phase !== "trick-play") {
+      previousSelectedCardRef.current = null;
       setSelectedCardId(null);
     }
   }, [humanTurn, publicState.phase]);
+
+  useEffect(() => {
+    const previous = previousSelectedCardRef.current;
+    previousSelectedCardRef.current = selectedCardId;
+    if (!selectedCardId || previous) {
+      return undefined;
+    }
+
+    setConfirmPulse(true);
+    const timeout = window.setTimeout(() => setConfirmPulse(false), 560);
+    return () => window.clearTimeout(timeout);
+  }, [selectedCardId]);
 
   useEffect(() => {
     const rejection = controller.events.find(
@@ -745,7 +760,10 @@ export function MatchScreen({ controller: providedController, onExit }: MatchScr
               key={card.id}
               onClick={() => selectCard(card)}
               state={visualState}
-              style={handCardStyle(index, privateState.hand.length)}
+              style={{
+                ...handCardStyle(index, privateState.hand.length),
+                ...(selectedCardId === card.id ? { zIndex: 30 } : {}),
+              }}
             />
           );
         })}
@@ -753,7 +771,7 @@ export function MatchScreen({ controller: providedController, onExit }: MatchScr
 
       <button
         aria-label="确认出牌"
-        className="turn-action"
+        className={`turn-action ${confirmPulse ? "turn-action--pulse" : ""}`}
         disabled={
           !selectedCard || !humanTurn || publicState.phase !== "trick-play"
         }

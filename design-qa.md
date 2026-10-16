@@ -261,6 +261,18 @@ Current v2 implementation status: home and friend-room PC surfaces have been mig
 
 The v2 browser carrier now has live evidence for every named design state. Remaining platform limits are the existing internal disconnected-room preview and the separate WeChat carrier acceptance boundary.
 
+### ImageGen v2 pixel and motion calibration — Chrome — 2026-10-16
+
+- Chrome viewport: `2048×971`, device scale factor `1.25`; the authored landscape canvas is now held at `16:9` (`1726.6×971.2`) with quiet side letterboxing so percentage coordinates stay on the source master.
+- Chrome evidence captured after the fixes: `art/review/chrome-calibration-2026-10-16/home.png`, `room.png`, `gameplay-chooser.png`, `results.png`, and `rules.png`.
+- Refreshed review derivatives: `art/review/web-imagegen-v2-home-landscape.jpg`, `web-imagegen-v2-room-landscape.jpg`, `web-imagegen-v2-gameplay-landscape.jpg`, `web-imagegen-v2-results-landscape.jpg`, `web-imagegen-v2-rules-landscape.jpg`, and `web-imagegen-v2-contact-sheet.jpg`.
+- Home action centers now map to the authored plaque bands without the prior ultra-wide vertical drift. Friend-room room information is centered on a parchment plaque, the return action is in the left safe column, the connection rail is compact in the upper-right pocket, and the lower-left control panel no longer crowds the table edge.
+- Runtime motion is calibrated to the design rhythm: screen enter `240ms` cubic-out, modal fade `220ms` cubic-out, control hover `180ms`, selected hand lift `140ms` with a `12px` lift and zero-degree rotation, and a one-shot `560ms` confirmation pulse only when the confirm action first appears after selection.
+- Chrome interaction checks: home → rules/settings tabs and close; home → friend-room entry and return; home → local practice → trump chooser → bid → trick play → round results. No layout clipping or stale scene asset was observed in the final captures.
+- Static gates after calibration: `npm test` (51 files / 447 tests), `npm run typecheck`, and `git diff --check` passed.
+
+final result: passed
+
 ## 漆环巡游独立微信评审切片 — 2026-08-23
 
 - Source visual truth: `art/mockups/patrol-gameplay-screen-v1.png`.
