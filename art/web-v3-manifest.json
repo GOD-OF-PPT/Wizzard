@@ -28,6 +28,10 @@
     "web.v3.portrait.create": { "design": "portrait/02-create.png", "runtime": "portrait/create.png", "pixelSize": [941, 1672] },
     "web.v3.portrait.join": { "design": "portrait/03-join.png", "runtime": "portrait/join.png", "pixelSize": [941, 1672] },
     "web.v3.portrait.rules": { "design": "portrait/08-rules.png", "runtime": "portrait/08-rules.png", "pixelSize": [941, 1672], "notes": "Dynamic clean extraction remains open." }
+    ,"web.v3.portrait.home": { "design": "portrait/01-home.png", "runtime": "portrait/home.png", "pixelSize": [941, 1672] }
+    ,"web.v3.portrait.lobby": { "design": "portrait/04-lobby.png", "runtime": null, "pixelSize": [941, 1672], "notes": "Design only; dynamic clean extraction open." }
+    ,"web.v3.portrait.gameplay": { "design": "portrait/05-gameplay.png", "runtime": null, "pixelSize": [941, 1672], "notes": "Design only; dynamic clean extraction open." }
+    ,"web.v3.portrait.results": { "design": "portrait/06-results.png", "runtime": null, "pixelSize": [941, 1672], "notes": "Design only; dynamic clean extraction open." }
   },
   "notes": [
     "Generated scene size is 1672x941; measure actual output rather than assuming requested 1920x1080.",

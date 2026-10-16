@@ -1,6 +1,6 @@
 import type { RefObject } from "react";
 import home from "../../art/runtime/web-v3/home.png";
-import portrait from "../../art/runtime/backgrounds/home-screen-portrait-v1.png";
+import portrait from "../../art/runtime/web-v3/portrait/home.png";
 import "../web-v3.css";
 
 type Props = {
