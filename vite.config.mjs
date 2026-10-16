@@ -31,6 +31,12 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     allowedHosts: ["terminal.local"],
+    proxy: {
+      "/ws": {
+        target: "http://127.0.0.1:8787",
+        ws: true,
+      },
+    },
     warmup: {
       clientFiles: ["./src/main.tsx"],
     },

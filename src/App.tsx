@@ -1,20 +1,15 @@
-import { useEffect, useRef, useState } from "react";
-import type { RefObject } from "react";
-import friendRoomScreen from "../art/mockups/friend-room-screen.png";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import homeScreen from "../art/runtime/backgrounds/home-screen-hd.png";
 import primaryPanel from "../art/runtime/ui/primary-panel.png";
 import secondaryPanel from "../art/runtime/ui/secondary-panel.png";
 import smallPlaque from "../art/runtime/ui/small-plaque.png";
+import { gameArt } from "./game-assets";
 import { MatchScreen } from "./components/MatchScreen";
+import { useFriendRoom, type FriendRoomState } from "./hooks/useFriendRoom";
+import { useNetworkMatch } from "./hooks/useNetworkMatch";
+import { useViewport } from "./hooks/useViewport";
 
 type Screen = "home" | "room" | "match";
-
-type HotspotProps = {
-  buttonRef?: RefObject<HTMLButtonElement | null>;
-  className: string;
-  label: string;
-  onClick: () => void;
-};
 
 type ArtButtonProps = {
   buttonRef?: RefObject<HTMLButtonElement | null>;
@@ -25,34 +20,9 @@ type ArtButtonProps = {
   onClick: () => void;
 };
 
-function Hotspot({ buttonRef, className, label, onClick }: HotspotProps) {
+function ArtButton({ buttonRef, children, className = "", image, label, onClick }: ArtButtonProps) {
   return (
-    <button
-      aria-label={label}
-      className={`hotspot ${className}`}
-      onClick={onClick}
-      ref={buttonRef}
-      type="button"
-    />
-  );
-}
-
-function ArtButton({
-  buttonRef,
-  children,
-  className = "",
-  image,
-  label,
-  onClick,
-}: ArtButtonProps) {
-  return (
-    <button
-      aria-label={label}
-      className={`art-button ${className}`}
-      onClick={onClick}
-      ref={buttonRef}
-      type="button"
-    >
+    <button aria-label={label} className={`art-button ${className}`} onClick={onClick} ref={buttonRef} type="button">
       <img alt="" aria-hidden="true" draggable="false" src={image} />
       <span>{children}</span>
     </button>
@@ -61,144 +31,91 @@ function ArtButton({
 
 function HomeScreen({
   onCreateRoom,
+  onJoinRoom,
   onPractice,
   onRules,
   rulesButtonRef,
 }: {
   onCreateRoom: () => void;
+  onJoinRoom: () => void;
   onPractice: () => void;
   onRules: () => void;
   rulesButtonRef: RefObject<HTMLButtonElement | null>;
 }) {
   return (
-    <section aria-labelledby="home-title" className="screen-stage">
-      <h1 className="sr-only" id="home-title">
-        奇术茶馆
-      </h1>
-      <img
-        alt="奇术茶馆首页，包含创建房间、加入房间和单人练习入口"
-        className="screen-art"
-        draggable="false"
-        src={homeScreen}
-      />
-      <Hotspot className="home-create" label="创建房间" onClick={onCreateRoom} />
-      <Hotspot className="home-join" label="加入房间" onClick={onCreateRoom} />
-      <Hotspot className="home-practice" label="单人练习" onClick={onPractice} />
-      <Hotspot
-        buttonRef={rulesButtonRef}
-        className="home-rules"
-        label="规则与设置"
-        onClick={onRules}
-      />
+    <section aria-labelledby="home-title" className="screen-stage web-home-stage">
+      <h1 className="sr-only" id="home-title">奇术茶馆</h1>
+      <img alt="奇术茶馆首页背景" className="screen-art" draggable="false" src={homeScreen} />
+      <div className="web-home-content">
+        <p className="web-home-kicker">内部网页体验 · 匿名访客</p>
+        <h2>茶馆入口</h2>
+        <p className="web-home-copy">好友房、单人练习与规则验证</p>
+        <div className="web-home-actions">
+          <button className="web-home-action web-home-action--primary" onClick={onCreateRoom} type="button">创建房间</button>
+          <button className="web-home-action web-home-action--secondary" onClick={onJoinRoom} type="button">加入房间</button>
+          <button className="web-home-action web-home-action--practice" onClick={onPractice} type="button">单人练习</button>
+        </div>
+        <button className="web-home-rules" onClick={onRules} ref={rulesButtonRef} type="button">规则与设置</button>
+      </div>
     </section>
   );
 }
 
-function FriendRoomScreen({
-  onInvite,
-  onStart,
-}: {
+function FriendRoomScreen({ onBack, onInvite, onJoin, onReady, onAddAi, onStart, roomState }: {
+  onBack: () => void | Promise<void>;
   onInvite: () => void;
+  onJoin: (displayName: string, roomCode: string) => void;
+  onReady: () => void;
+  onAddAi: () => void;
   onStart: () => void;
+  roomState: FriendRoomState;
 }) {
+  const [displayName, setDisplayName] = useState("茶客");
+  const [roomCode, setRoomCode] = useState("");
+  const room = roomState.room;
+  const players = room?.players ?? [];
+  const canStart = roomState.permissions?.canStart ?? true;
+
   return (
-    <section aria-labelledby="room-title" className="screen-stage">
-      <h1 className="sr-only" id="room-title">
-        好友房 628315
-      </h1>
-      <img
-        alt="六人好友房，四位好友已经准备，包含一个等待座位和一个 AI 座位"
-        className="screen-art"
-        draggable="false"
-        src={friendRoomScreen}
-      />
-      <Hotspot className="room-invite" label="邀请好友" onClick={onInvite} />
-      <Hotspot className="room-start" label="开始游戏" onClick={onStart} />
+    <section aria-labelledby="room-title" className="screen-stage web-room-stage">
+      <img alt="茶馆桌面背景" className="screen-art" draggable="false" src={gameArt.table} />
+      <div className="web-room-shell">
+        <header className="web-room-header">
+          <button className="web-text-button" onClick={() => void onBack()} type="button">返回首页</button>
+          <div><p className="web-eyebrow">匿名内部房间</p><h1 id="room-title">好友房 {room?.roomCode ?? "内部预览"}</h1></div>
+          <span className={`web-connection web-connection--${roomState.connection}`}>{roomState.connection === "connected" ? "已连接" : roomState.connection}</span>
+        </header>
+        <div className="web-room-controls">
+          <label>昵称<input maxLength={12} onChange={(event) => setDisplayName(event.target.value)} value={displayName} /></label>
+          <label>六位房间码<input inputMode="numeric" maxLength={6} onChange={(event) => setRoomCode(event.target.value.replace(/\D/g, "").slice(0, 6))} placeholder="创建后自动显示" value={roomCode} /></label>
+          <div className="web-room-control-actions"><button onClick={() => onJoin(displayName, roomCode)} type="button">加入</button><button onClick={onInvite} type="button">复制邀请</button>{room ? <button onClick={onReady} type="button">准备/取消</button> : null}{room ? <button onClick={onAddAi} type="button">添加 AI</button> : null}</div>
+        </div>
+        <div className="web-room-players" aria-label="房间座位">
+          {Array.from({ length: room?.maxPlayers ?? 6 }, (_, index) => {
+            const player = players[index];
+            return <article className={`web-room-seat ${player ? "is-occupied" : "is-open"}`} key={player?.playerId ?? index}>{player ? <><img alt="" aria-hidden="true" src={gameArt.smallPlaque} /><strong>{player.name}</strong><span>{player.isAi ? "AI" : player.ready ? "已准备" : "等待准备"}</span></> : <span>等待好友</span>}</article>;
+          })}
+        </div>
+        {(roomState.error || !room) ? <p className="web-room-status" role="status">{roomState.error ?? "本地预览可直接开始单人牌桌；连接房间服务后会显示真实座位。"}</p> : null}
+        <footer className="web-room-footer"><button className="web-secondary-action" onClick={() => void onBack()} type="button">离开</button><button className="web-primary-action" disabled={!canStart} onClick={onStart} type="button">{canStart ? "开始游戏" : "等待准备"}</button></footer>
+      </div>
     </section>
   );
 }
 
-function RulesDialog({
-  onClose,
-  onToggleSound,
-  returnFocusRef,
-  soundEnabled,
-}: {
-  onClose: () => void;
-  onToggleSound: () => void;
-  returnFocusRef: RefObject<HTMLButtonElement | null>;
-  soundEnabled: boolean;
-}) {
+function RulesDialog({ onClose, onToggleSound, returnFocusRef, soundEnabled }: { onClose: () => void; onToggleSound: () => void; returnFocusRef: RefObject<HTMLButtonElement | null>; soundEnabled: boolean }) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-
   useEffect(() => {
-    function closeOnEscape(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        onClose();
-      }
-    }
-
+    function closeOnEscape(event: KeyboardEvent) { if (event.key === "Escape") onClose(); }
     window.addEventListener("keydown", closeOnEscape);
     closeButtonRef.current?.focus();
-
-    return () => {
-      window.removeEventListener("keydown", closeOnEscape);
-      returnFocusRef.current?.focus();
-    };
+    return () => { window.removeEventListener("keydown", closeOnEscape); returnFocusRef.current?.focus(); };
   }, [onClose, returnFocusRef]);
-
-  return (
-    <div className="dialog-scrim">
-      <section
-        aria-labelledby="rules-dialog-title"
-        aria-modal="true"
-        className="rules-dialog"
-        role="dialog"
-      >
-        <img
-          alt=""
-          aria-hidden="true"
-          className="rules-dialog-art"
-          draggable="false"
-          src={primaryPanel}
-        />
-        <div className="rules-dialog-content">
-          <h2 id="rules-dialog-title">规则与设置</h2>
-          <p>
-            每轮先决定王牌，再依次预测自己会赢几墩。出牌时必须跟随领出花色，至高牌与虚无牌可随时打出。
-            每次操作限时 30 秒，超时后由茶馆托管完成本次行动。
-          </p>
-          <div className="rules-summary">
-            <span>快速局：8 轮</span>
-            <span>座位：3–6 人</span>
-            <span>空位：AI 可补位</span>
-          </div>
-          <div className="rules-dialog-actions">
-            <ArtButton image={smallPlaque} onClick={onToggleSound}>
-              音效：{soundEnabled ? "开" : "关"}
-            </ArtButton>
-            <ArtButton
-              buttonRef={closeButtonRef}
-              image={secondaryPanel}
-              label="关闭规则与设置"
-              onClick={onClose}
-            >
-              关闭
-            </ArtButton>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+  return <div className="dialog-scrim"><section aria-labelledby="rules-dialog-title" aria-modal="true" className="rules-dialog" role="dialog"><img alt="" aria-hidden="true" className="rules-dialog-art" draggable="false" src={primaryPanel} /><div className="rules-dialog-content"><h2 id="rules-dialog-title">规则与设置</h2><p>每轮先决定王牌，再依次预测自己会赢几墩。出牌时必须跟随领出花色，至高牌与虚无牌可随时打出。</p><div className="rules-summary"><span>快速局：8 轮</span><span>座位：3–6 人</span><span>匿名内网房</span></div><div className="rules-dialog-actions"><ArtButton image={smallPlaque} onClick={onToggleSound}>音效：{soundEnabled ? "开" : "关"}</ArtButton><ArtButton buttonRef={closeButtonRef} image={secondaryPanel} label="关闭规则与设置" onClick={onClose}>关闭</ArtButton></div></div></section></div>;
 }
 
 function Notice({ message }: { message: string }) {
-  return (
-    <div className="notice" role="status">
-      <img alt="" aria-hidden="true" draggable="false" src={smallPlaque} />
-      <span>{message}</span>
-    </div>
-  );
+  return <div className="notice" role="status"><img alt="" aria-hidden="true" draggable="false" src={smallPlaque} /><span>{message}</span></div>;
 }
 
 export function App() {
@@ -207,54 +124,33 @@ export function App() {
   const [screen, setScreen] = useState<Screen>("home");
   const [soundEnabled, setSoundEnabled] = useState(true);
   const rulesButtonRef = useRef<HTMLButtonElement>(null);
+  const room = useFriendRoom();
+  const networkMatch = useNetworkMatch(room.client);
+  const viewport = useViewport();
 
   useEffect(() => {
-    if (!notice) {
-      return undefined;
+    if (room.state.match && screen !== "match") {
+      setScreen("match");
+    } else if (room.state.room && !room.state.match && screen === "home") {
+      setScreen("room");
     }
+  }, [room.state.match, room.state.room, screen]);
+  useEffect(() => { if (!notice) return undefined; const timeout = window.setTimeout(() => setNotice(null), 2400); return () => window.clearTimeout(timeout); }, [notice]);
 
-    const timeout = window.setTimeout(() => setNotice(null), 2400);
-    return () => window.clearTimeout(timeout);
-  }, [notice]);
+  const openRoom = () => { room.createRoom("茶客"); setScreen("room"); };
+  const leaveRoom = async () => {
+    const left = await room.leaveRoom();
+    if (left) {
+      room.dispose();
+      setScreen("home");
+    } else {
+      setNotice("离开请求未确认，请保持房间连接后重试");
+    }
+  };
 
-  return (
-    <main className="game-prototype">
-      <div
-        aria-hidden={rulesOpen || undefined}
-        className="screen-layer"
-        inert={rulesOpen}
-      >
-        {screen === "home" ? (
-          <HomeScreen
-            onCreateRoom={() => setScreen("room")}
-            onPractice={() => setScreen("match")}
-            onRules={() => setRulesOpen(true)}
-            rulesButtonRef={rulesButtonRef}
-          />
-        ) : null}
-
-        {screen === "room" ? (
-          <FriendRoomScreen
-            onInvite={() => setNotice("邀请链接已准备")}
-            onStart={() => setScreen("match")}
-          />
-        ) : null}
-
-        {screen === "match" ? (
-          <MatchScreen onExit={() => setScreen("room")} />
-        ) : null}
-      </div>
-
-      {rulesOpen ? (
-        <RulesDialog
-          onClose={() => setRulesOpen(false)}
-          onToggleSound={() => setSoundEnabled((enabled) => !enabled)}
-          returnFocusRef={rulesButtonRef}
-          soundEnabled={soundEnabled}
-        />
-      ) : null}
-
-      {notice ? <Notice message={notice} /> : null}
-    </main>
-  );
+  return <main className="game-prototype" data-viewport-mode={viewport.mode} data-viewport-visible={viewport.visible ? "true" : "false"}><div aria-hidden={rulesOpen || undefined} className="screen-layer" inert={rulesOpen}>
+    {screen === "home" ? <HomeScreen onCreateRoom={openRoom} onJoinRoom={() => setScreen("room")} onPractice={() => setScreen("match")} onRules={() => setRulesOpen(true)} rulesButtonRef={rulesButtonRef} /> : null}
+    {screen === "room" ? <FriendRoomScreen onBack={leaveRoom} onInvite={() => { const code = room.state.room?.roomCode; if (!code) { setNotice("请先连接房间服务"); return; } void navigator.clipboard?.writeText(code).then(() => setNotice(`房间码 ${code} 已复制`), () => setNotice(`房间码：${code}`)); }} onJoin={(displayName, code) => code.length === 6 ? room.joinRoom(displayName || "茶客", code) : setNotice("请输入六位数字房间码")} onReady={() => { const self = room.state.room?.players.find((player) => player.playerId === room.state.room?.selfPlayerId); room.setReady(!(self?.ready ?? false)); }} onAddAi={() => room.setAiCount(Math.min(4, (room.state.room?.players.filter((player) => player.isAi).length ?? 0) + 1))} onStart={() => room.state.room ? room.startRoom(true) : setScreen("match")} roomState={room.state} /> : null}
+    {screen === "match" ? (networkMatch ? <MatchScreen controller={networkMatch} onExit={leaveRoom} /> : <MatchScreen onExit={() => setScreen(room.state.room ? "room" : "home")} />) : null}
+  </div>{rulesOpen ? <RulesDialog onClose={() => setRulesOpen(false)} onToggleSound={() => setSoundEnabled((enabled) => !enabled)} returnFocusRef={rulesButtonRef} soundEnabled={soundEnabled} /> : null}{notice ? <Notice message={notice} /> : null}</main>;
 }

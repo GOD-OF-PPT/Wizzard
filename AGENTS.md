@@ -139,3 +139,11 @@ When implementing from a selected generated mock, treat that image as the source
 - The first playable patrol slice is an independent local Cocos surface: one human plus two AI travelers, two continuous concentric routes, six bridge gates, one same-value tea-spirit type, observe → choose target → 60-second simultaneous patrol → results, and the three controls `减速` / `预备换轨` / `加速`.
 - Preserve the selected mock's near-top-down full-course composition, compact left player progress, top round/timer/target HUD, and broad bottom control rail. Do not reintroduce a private hand, deck, uniform card rectangles, suits, ranks, trump, trick pile, or turn-by-turn play into this surface.
 - Until the review-first gate passes, keep patrol local and isolated from `packages/room-protocol`, Cloud Hosting, Redis, resume sessions, and friend-room networking. The existing networked card experience remains a regression surface only and is not part of the patrol evidence build.
+
+### Latest Web Migration Decisions (2026-10-16)
+
+- The next delivery target is an internal browser web platform, fully decoupled from WeChat. The web runtime does not require `wx`, WeChat login, WeChat sharing, Cloud Hosting `connectContainer`, a formal domain, TLS, or public internet exposure.
+- React/Vite becomes the formal web host for the internal migration. Cocos Web remains optional as a visual reference or fallback carrier; it is not a required dependency of the web product.
+- Internal web rooms use anonymous guest sessions and a same-origin or LAN WebSocket path such as `/ws` or `ws://host:port/ws`. Session and room tokens remain in validated messages/storage and never in URLs.
+- The web migration must preserve `packages/game-core` as the only rules source and `packages/room-protocol` as the shared wire contract. The existing WeChat/Cocos client remains a regression surface while the web carrier is introduced.
+- Web layout has independent 16:9 landscape and 9:16 portrait profiles. Portrait is a real information reflow with its own safe-area and touch-target contract, not a scaled or rotated landscape canvas.

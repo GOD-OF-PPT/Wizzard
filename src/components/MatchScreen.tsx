@@ -23,9 +23,11 @@ import {
   type Suit,
 } from "@wizzard/game-core/contracts";
 import { useLocalMatch } from "../hooks/useLocalMatch";
+import type { LocalMatchController } from "../hooks/useLocalMatch";
 import { CardView, type CardVisualState } from "./CardView";
 
 type MatchScreenProps = {
+  controller?: LocalMatchController;
   onExit: () => void;
 };
 
@@ -561,8 +563,9 @@ function TurnTimer({
   );
 }
 
-export function MatchScreen({ onExit }: MatchScreenProps) {
-  const controller = useLocalMatch();
+export function MatchScreen({ controller: providedController, onExit }: MatchScreenProps) {
+  const localController = useLocalMatch();
+  const controller = providedController ?? localController;
   const { privateState, publicState } = controller.snapshot;
   const [feedback, setFeedback] = useState<string | null>(null);
   const [selectedCardId, setSelectedCardId] = useState<string | null>(null);

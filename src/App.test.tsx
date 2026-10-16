@@ -6,7 +6,7 @@ function enterFriendRoom() {
   fireEvent.click(screen.getByRole("button", { name: "创建房间" }));
 
   expect(
-    screen.getByRole("heading", { name: "好友房 628315" }),
+    screen.getByRole("heading", { name: /好友房/ }),
   ).toBeInTheDocument();
 }
 

@@ -29,6 +29,7 @@
 - [非牌类审查优先改造方案](docs/14-non-card-review-first-plan.md)
 - [“漆环巡游”玩法事实说明](docs/15-patrol-review-fact-sheet.md)
 - [“漆环巡游”规则与审核元数据草案](docs/16-patrol-review-metadata-draft.md)
+- [网页平台迁移方案（竖屏 9:16 / 横屏 16:9）](docs/17-web-platform-migration-plan.md)
 - [关键决策记录](docs/decisions/README.md)
 - [美术资源包与界面稿](art/README.md)
 - [Cocos 正式客户端](cocos-client/README.md)
@@ -42,6 +43,13 @@ npm install
 npm run dev
 ```
 
+网页迁移后的内部运行入口使用 React/Vite；它不依赖微信登录、微信 API 或正式域名。单人练习可只启动 `npm run web:dev`，好友房联调再另开 `npm run web:room`。网页默认连接当前主机 `8787` 端口的匿名房间服务，局域网设备可使用当前机器的局域网地址访问；Vite 也保留 `/ws` 代理配置供同源部署使用。
+
+```bash
+npm run web:dev
+npm run web:room
+```
+
 辅助验证命令：
 
 ```bash
@@ -52,7 +60,7 @@ npm run cocos:prepare
 npm run build:wechat:patrol-review
 ```
 
-`npm run build` is the React/Vite validation build. It refreshes `dist/` and does not build the Cocos WeChat Mini Game. To refresh the directory opened by WeChat DevTools, run:
+`npm run build` is the React/Vite internal web build. It refreshes `dist/` and does not build the optional Cocos WeChat regression carrier. To refresh the directory opened by WeChat DevTools, run:
 
 ```powershell
 npm run build:wechat
@@ -118,7 +126,7 @@ The Cocos Creator editor and `@wizzard/cocos-client` type checks consume the com
 
 ## 当前边界
 
-React/Vite 版本仍是交互与架构验证工具，不是正式发布客户端。正式客户端入口已经转移到 `cocos-client/`；单人练习使用进程内本地权威适配器，好友房则通过 AppID 直属微信云托管连接 Node.js 权威服务。Web/浏览器预览只能用于诊断，不能作为体验版视觉、网络或发布验收结论。
+在 `codex/web-platform-migration` 分支上，React/Vite 是正式内部网页入口；`cocos-client/` 保留为微信回归和可选视觉对照载体。网页单人练习使用进程内本地权威适配器，网页好友房使用匿名访客会话连接内部 Node.js 房间服务。微信小游戏仍按原构建链独立维护，不能替代网页的浏览器、内网 WebSocket 和双会话验收。
 
 以下工作尚未完成或尚未在目标工具链验证：
 
