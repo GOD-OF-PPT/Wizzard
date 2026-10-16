@@ -217,32 +217,33 @@
 .v3-home-hit:focus-visible { outline: 3px solid #ffe7ac; outline-offset: 5px; }
 .v3-home-hit:active { box-shadow: inset 0 0 25px rgb(255 205 111 / 40%); }
 @media (orientation: portrait) {
-  .v3-entry { width: 100%; height: 100%; }
-  .v3-entry-canvas { width: 100%; height: 100%; }
+  .v3-entry { width: 100%; height: 100%; overflow-y: auto; }
+  .v3-entry-canvas { width: 100%; height: auto; aspect-ratio: 941 / 1672; }
   .v3-entry-art > .screen-art { width: 100%; height: 100%; object-fit: fill; }
   .v3-entry form { inset: 0; }
   .v3-entry-name input { font-size: clamp(15px, 4.4vw, 22px); padding: 0 6%; }
-  .v3-entry--create .v3-entry-name { left: 37%; top: 24.8%; width: 49%; height: 5.7%; }
-  .v3-seat-options { left: 20%; top: 37.5%; width: 64%; height: 5.9%; gap: 3%; }
+  .v3-entry--create .v3-entry-name { left: 37.5%; top: 25.48%; width: 41.9%; height: 5.98%; }
+  .v3-seat-options { left: 20.19%; top: 40.25%; width: 60%; height: 5.02%; gap: 2.6%; }
   .v3-seat-options button { font-size: clamp(13px, 4vw, 20px); }
-  .v3-entry-toggle { left: 61%; width: 30%; height: 5%; font-size: clamp(12px, 3.5vw, 18px); gap: 4%; }
-  .v3-entry-ai { top: 49%; }
-  .v3-entry-timer { top: 59%; }
+  .v3-entry-toggle { left: 60.36%; width: 19%; height: 3.3%; font-size: clamp(12px, 3.5vw, 18px); gap: 5%; }
+  .v3-entry-ai { top: 50.54%; }
+  .v3-entry-timer { top: 58.61%; }
   .v3-switch-art { width: 44px; height: 25px; }
-  .v3-entry--create .v3-entry-back { left: 22%; top: 81.3%; width: 28%; height: 6.5%; }
-  .v3-entry--create .v3-entry-submit { left: 51%; top: 81.3%; width: 28%; height: 6.5%; }
-  .v3-entry--join .v3-entry-name { left: 34%; top: 37.2%; width: 49%; height: 5.5%; }
+  .v3-entry--create .v3-entry-back { left: 22.4%; top: 78.35%; width: 26.9%; height: 6.1%; }
+  .v3-entry--create .v3-entry-submit { left: 51%; top: 78.35%; width: 30%; height: 6.1%; }
+  .v3-entry--join .v3-entry-name { left: 33.9%; top: 41.2%; width: 49.2%; height: 5%; }
   .v3-code-digits { gap: 2%; }
   .v3-code-digits > span { font-size: clamp(18px, 6vw, 30px); }
-  .v3-entry-code { left: 18%; top: 51.8%; width: 64%; height: 6.8%; }
-  .v3-entry--join .v3-entry-back { left: 22%; top: 68.5%; width: 28%; height: 6.5%; }
-  .v3-entry--join .v3-entry-submit { left: 51%; top: 68.5%; width: 28%; height: 6.5%; }
+  .v3-entry-code { left: 17.96%; top: 56.46%; width: 64.2%; height: 6.22%; }
+  .v3-entry--join .v3-entry-back { left: 15.9%; top: 69.1%; width: 31.9%; height: 5.6%; }
+  .v3-entry--join .v3-entry-submit { left: 49.5%; top: 69.1%; width: 34%; height: 5.6%; }
   .v3-entry-feedback { left: 10%; width: 80%; bottom: 2%; font-size: 13px; }
-  .v3-home-hit { left: 22%; width: 56%; }
-  .v3-home-create { top: 57%; height: 17%; }
-  .v3-home-join { top: 74%; height: 10%; }
-  .v3-home-practice { top: 85%; height: 11%; }
-  .v3-home-rules { top: 1%; left: auto; right: 3%; width: 42%; height: 9%; }
+  .v3-home { width: min(100vw, 56.28vh); height: min(100vh, 177.68vw); }
+  .v3-home-hit { left: 20.7%; width: 58.4%; height: 6.9%; }
+  .v3-home-create { top: 28.65%; }
+  .v3-home-join { top: 36.9%; }
+  .v3-home-practice { top: 45.1%; }
+  .v3-home-rules { top: 53.3%; right: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
   .v3-home-hit { transition: none; }
