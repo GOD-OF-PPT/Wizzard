@@ -50,6 +50,15 @@
     ,"web.v3.portrait.rules.play": { "design": "portrait/08-rules-play.png", "runtime": "portrait/rules-play.png", "pixelSize": [941, 1672] }
     ,"web.v3.portrait.rules.scoring": { "design": "portrait/08-rules-scoring.png", "runtime": "portrait/rules-scoring.png", "pixelSize": [941, 1672] }
     ,"web.v3.portrait.settings": { "design": "portrait/08-settings.png", "runtime": "portrait/settings.png", "pixelSize": [941, 1672] }
+    ,"web.v3.connectionError": { "design": "12-connection-error.png", "runtime": "connection-error-v1.png", "content": "Invariant failure copy and live return/retry semantic targets" }
+    ,"web.v3.connecting": { "design": "13-connecting.png", "runtime": "connecting-v1.png", "content": "Invariant waiting copy and live cancel-to-edit target" }
+    ,"web.v3.portrait.connectionError": { "design": "portrait/12-connection-error.png", "runtime": "portrait/connection-error-v1.png", "pixelSize": [941, 1672] }
+    ,"web.v3.portrait.connecting": { "design": "portrait/13-connecting.png", "runtime": "portrait/connecting-v1.png", "pixelSize": [941, 1672] }
+    ,"web.v3.lobby.name": { "design": "04-lobby.png", "runtime": "lobby-name-v1.png", "pixelSize": [900, 250], "notes": "Cloud-ended green name plaque; transparent source alpha retained." }
+    ,"web.v3.lobby.ready": { "design": "04-lobby.png", "runtime": "lobby-ready-v2.png", "pixelSize": [650, 220], "visibleSize": [620, 201] }
+    ,"web.v3.lobby.waiting": { "design": "04-lobby.png", "runtime": "lobby-waiting-v1.png", "pixelSize": [650, 220], "visibleSize": [620, 201] }
+    ,"web.v3.lobby.readyCheck": { "design": "04-lobby.png", "runtime": "lobby-ready-check-v1.png", "pixelSize": [512, 512] }
+    ,"web.v3.lobby.traveler": { "design": "04-lobby.png", "runtime": "avatars/lobby-masked-traveler-v1.png", "pixelSize": [1254, 1254], "notes": "Animal traveler matching the lobby, not the human ranking portrait." }
   },
   "notes": [
     "Generated scene size is 1672x941; measure actual output rather than assuming requested 1920x1080.",

@@ -8,12 +8,17 @@
 - `02-create-masked-{landscape,portrait}-final-20261018.jpg`与`03-join-masked-{landscape,portrait}-final-20261018.jpg`：当前静态原像素+动态字段合成后的最终表单。相应comparison/focus为当前对照。
 - `02-create-empty-masked-portrait-20261018.jpg`、`03-join-empty-masked-portrait-20261018.jpg`：只证明空值未透出设计样例，未把它们当成源稿同内容比较。
 - `02-create-3seat-masked-portrait-20261018.jpg`：只选3人，6人没有残留勾；仍为真实DOM控件。设置恢复默认和昵称校验均已实际操作。
+- `12-connection-error-{portrait,landscape}-live-20261018.jpg`：真实不存在房间错误；对应comparison/focus为独立12号设计对照。返回修改、重试和修改后加入是真实流程，字段没有丢失。
+- `13-connecting-{portrait,landscape}-live-20261018.jpg`：最终复拍是真实WebSocket握手等待，使用界面“减少动效”排除过渡帧，opacity=1。临时延迟器随后关闭，正式8787房间服务已恢复，偏好已恢复默认。
+- `04-lobby-fixture-{portrait,landscape}-refined-20261018.jpg`：当前组件同内容排版样例，已包含动物AI头像、云瓣昵称牌、状态胶囊、上移且不被名字牌遮住的准备勾。它不是联机运行证据。竖屏头像最后按源稿放大并重新叠放名字牌，末席底439.25、管理区顶520.25。
+- `04-lobby-3seat-portrait-network-20261018.jpg`：双真人准备+AI后可开始，且均通过确认正常退出。4/5/6席network截图只覆盖单真人容量和碰撞检查。上述联机图在最后的头像美术细化之前，不是当前像素最终图。
 
 ## 历史或修复前，不能代替当前验收
 
 - 所有不带`final`的规则截图：固定分带/正文换行/关闭标签重复等修复之前。
 - `02-create-{landscape,portrait}-final-20261018.jpg`和`03-join-{landscape,portrait}-final-20261018.jpg`：整幅清理层作底图的旧版本；后续改成局部遮罩。当前必须采用带`masked`的文件。
 - 历史comparison对应其自己的JPG；原文件被修复后复拍时，需要重新运行比较工具，不沿用旧比较。
+- `04-lobby-*-before-20261018.jpg`是昵称板/头像/安全区修复之前。最初断开端口时，连接中画面很快进入失败，不能拿初次截图当等待态；当前同名13号文件已在受控握手延迟下重新复拍，并重新生成对照。
 
 ## 被拒用的候选
 

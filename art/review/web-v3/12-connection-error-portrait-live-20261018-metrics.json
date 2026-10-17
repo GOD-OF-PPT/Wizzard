@@ -1,0 +1,20 @@
+{
+  "design": "art/mockups/web-v3/portrait/12-connection-error.png",
+  "capture": "art/review/web-v3/12-connection-error-portrait-live-20261018.jpg",
+  "viewport": [
+    390,
+    694
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 40,
+    "top": 160,
+    "width": 310,
+    "height": 300
+  },
+  "meanAbsoluteChannelDifference": 7.5793837286632675,
+  "fractionPixelsOver24": 0.1406044483854282,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}

@@ -1,0 +1,20 @@
+{
+  "design": "art/mockups/web-v3/04-lobby.png",
+  "capture": "art/review/web-v3/04-lobby-fixture-landscape-refined-20261018.jpg",
+  "viewport": [
+    1672,
+    941
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 1080,
+    "top": 500,
+    "width": 550,
+    "height": 405
+  },
+  "meanAbsoluteChannelDifference": 14.31767504453337,
+  "fractionPixelsOver24": 0.1761996044114731,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}
