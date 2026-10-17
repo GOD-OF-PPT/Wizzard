@@ -30,6 +30,7 @@ import type {
 } from "@wizzard/game-core/contracts";
 
 const HUMAN_PLAYER_ID = "player-you";
+const FAST_EVIDENCE_PACING = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("fast") === "1";
 // The deterministic practice seed opens with a highest-card reveal so the
 // first round exercises the dealer trump-choice flow before bidding.
 const DEFAULT_SEED = 1;
@@ -44,10 +45,10 @@ const toMs = (seconds: number): number => Math.round(seconds * 1000);
  * timer is always enabled for local practice.
  */
 const PACING_CONFIG: MatchPacingConfig = {
-  aiActionDelayMs: toMs(0.42),
-  trickResultDelayMs: toMs(1.5),
+  aiActionDelayMs: toMs(FAST_EVIDENCE_PACING ? 0.1 : 0.42),
+  trickResultDelayMs: toMs(FAST_EVIDENCE_PACING ? 0.18 : 1.5),
   roundScoreDelayMs: null,
-  turnTimeoutMs: toMs(30),
+  turnTimeoutMs: toMs(FAST_EVIDENCE_PACING ? 1.2 : 30),
 };
 
 const PRACTICE_PLAYERS: readonly MatchPlayerSeed[] = [
