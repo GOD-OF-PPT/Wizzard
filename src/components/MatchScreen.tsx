@@ -27,6 +27,7 @@ import type { LocalMatchController } from "../hooks/useLocalMatch";
 import { CardView, type CardVisualState } from "./CardView";
 import { WebResults } from "./WebResults";
 import gameplayV3 from "../../art/runtime/web-v3/gameplay.png";
+import gameplayPortraitV3 from "../../art/runtime/web-v3/portrait/gameplay.png";
 import { WebTrumpChooser, WebBidPanel } from "./WebMatchChoices";
 
 type MatchScreenProps = {
@@ -435,6 +436,7 @@ export function MatchScreen({ controller: providedController, onExit, showLegalH
         奇术茶馆快速局牌桌
       </h1>
       <picture className="match-stage__background-picture">
+        <source media="(orientation: portrait)" srcSet={gameplayPortraitV3} />
         <source media="(orientation: landscape)" srcSet={gameplayV3} />
         <img
           alt="夜间奇术茶馆漆木圆桌"

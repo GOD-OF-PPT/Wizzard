@@ -2,6 +2,7 @@ import { avatarImages } from "../game-assets";
 import type { FriendRoomController } from "../hooks/useFriendRoom";
 import lobby from "../../art/runtime/web-v3/lobby.png";
 import emptySeat from "../../art/runtime/web-v3/empty-seat.png";
+import portraitLobby from "../../art/runtime/web-v3/portrait/lobby.png";
 
 export function WebLobby({ controller, fillAi, onManualAi, onExit, onInvite }: {
   controller: FriendRoomController; fillAi: boolean; onManualAi: () => void; onExit: () => void; onInvite: () => void;
@@ -19,7 +20,8 @@ export function WebLobby({ controller, fillAi, onManualAi, onExit, onInvite }: {
   const startReason = connected.length < 2 ? "等待好友" : ready.length < humans.length ? "等待准备" : (!fillAi && room.players.length < room.maxPlayers) ? "补齐座位" : "开始游戏";
   const canStart = !!permissions?.canStart && startReason === "开始游戏" && !busy;
   return <section className="screen-stage v3-lobby" aria-labelledby="room-title">
-    <img src={lobby} className="screen-art" alt="灯下漆木茶桌" draggable={false} />
+    <div className="v3-lobby-canvas">
+    <picture className="v3-lobby-art"><source media="(orientation: portrait)" srcSet={portraitLobby} /><img src={lobby} className="screen-art" alt="灯下漆木茶桌" draggable={false} /></picture>
     <button className="v3-lobby-back v3-baked-hit" aria-label="返回首页" onClick={onExit} disabled={busy} />
     <header className="v3-lobby-title"><h1 id="room-title">好友房 {room.roomCode}</h1><p>快速局 · 8轮</p></header>
     <p className="v3-lobby-connection" role="status">{connection === "connected" ? "已连接" : "正在重连"}</p>
@@ -36,5 +38,6 @@ export function WebLobby({ controller, fillAi, onManualAi, onExit, onInvite }: {
     <button className="v3-lobby-ready v3-baked-hit" disabled={busy || !permissions?.canSetReady} onClick={() => controller.setReady(!self?.ready)}>{self?.ready ? "取消准备" : "准备"}</button>
     <button className="v3-lobby-start v3-baked-hit" disabled={!canStart || !host} onClick={() => controller.startRoom(fillAi)}>{host ? startReason : "等待房主"}</button>
     {(error || controller.pendingCommand) && <p className="v3-lobby-feedback" role="status">{error ? "操作未完成，请确认连接与房间状态后重试。" : "正在确认，请稍候…"}</p>}
+    </div>
   </section>;
 }
