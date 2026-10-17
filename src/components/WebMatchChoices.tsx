@@ -2,13 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { SUITS, type Suit } from "@wizzard/game-core/contracts";
 import { suitNames } from "../game-assets";
 import chooser from "../../art/runtime/web-v3/chooser.png";
+import portraitChooser from "../../art/runtime/web-v3/portrait/chooser.png";
 import bidArt from "../../art/runtime/web-v3/bid.png";
 
 export function WebTrumpChooser({ onChoose, onExit }: { onChoose: (suit: Suit) => void; onExit: () => void }) {
   const first = useRef<HTMLButtonElement>(null);
   useEffect(() => { first.current?.focus(); }, []);
   return <section className="v3-chooser" role="dialog" aria-modal="true" aria-labelledby="trump-title">
-    <img className="v3-chooser-art" src={chooser} alt="" />
+    <picture className="v3-chooser-art"><source media="(orientation: portrait)" srcSet={portraitChooser} /><img src={chooser} alt="" /></picture>
     <h2 id="trump-title" className="sr-only">请选择本轮王牌</h2>
     <p className="sr-only">翻出至高牌，由发牌者选择。</p>
     <button className="v3-match-back v3-baked-hit" onClick={onExit} aria-label="返回首页" />

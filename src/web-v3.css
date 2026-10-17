@@ -191,7 +191,8 @@
 .v3-match .match-stage__background { transform: none; }
 .v3-chooser, .v3-bid { position: absolute; inset: 0; z-index: 30; }
 .v3-chooser { background: rgb(3 5 10 / 40%); animation: dialog-fade-in 220ms ease-out both; }
-.v3-chooser-art, .v3-bid-art { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.v3-chooser-art, .v3-bid-art { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; display:block; }
+.v3-chooser-art img, .v3-bid-art img { position:absolute; inset:0; width:100%; height:100%; }
 .v3-chooser-art { transform: scale(0.99); }
 .v3-suit-hit { top: 41.7%; width: 9.5%; height: 28.5%; border-radius: 8px; }
 .v3-suit-0 { left: 26.8%; }
@@ -294,4 +295,53 @@
   .v3-results:not(.v3-ranking) .v3-results-note { top: 73.7%; left: 31%; width: 40%; font-size: 3.3cqw; }
   .v3-results:not(.v3-ranking) .v3-results-secondary { left: 15%; top: 82.4%; width: 70%; height: 5.5%; font-size: 6.3cqw; min-height: 38px; }
   .v3-results:not(.v3-ranking) .v3-results-primary { left: 15%; top: 89%; width: 70%; height: 6.3%; font-size: 6.3cqw; min-height: 44px; }
+}
+
+/* Portrait gameplay is a separate composition: every position is relative to
+   the same undistorted 941×1672 frame, including the baked timer/action art. */
+@media (orientation: portrait) {
+  .v3-match { width: min(100vw, 56.28vh); height: min(100vh, 177.68vw); }
+  .v3-match .match-stage__background { object-fit: fill; }
+  .v3-match .v3-match-back { left: 2.8%; top: 1.4%; width: 25%; height: 3.8%; min-height: 32px; }
+  .v3-match .v3-match-back > span { display: inline; color: #f6e2b4; font: 700 4.4cqw "Noto Serif SC",serif; padding-left: 12%; }
+  .v3-match .v3-match-mode { right: 2%; top: 3.5%; width: 26%; font-size: 3.2cqw; }
+  .v3-match .match-round-header { left: 3.8%; top: 8.7%; width: 22%; height: 6.8%; }
+  .v3-match .match-round-header strong { font-size: 5.3cqw; }
+  .v3-match .match-round-header span { font-size: 3.7cqw; }
+  .v3-match .player-seat { width: 21%; font-size: 2.65cqw; }
+  .v3-match .player-seat--0 { left: 1.5%; top: 54.2%; bottom: auto; }
+  .v3-match .player-seat--1 { left: 17.5%; top: 19.3%; }
+  .v3-match .player-seat--2 { left: 40%; top: 14.7%; }
+  .v3-match .player-seat--3 { left: 62.4%; right: auto; top: 19.3%; }
+  .v3-match .player-seat--4 { left: 78.5%; right: auto; top: 29%; }
+  .v3-match .player-seat--5 { left: 1%; top: 29%; }
+  .v3-match .player-seat__portrait-wrap { width: 88%; }
+  .v3-match .player-seat > strong { font-size: 3.5cqw; padding: 0.8cqw 0.4cqw; line-height: 1.25; }
+  .v3-match .player-seat__stats { width: 102%; }
+  .v3-match .player-seat__stat { height: 5cqw; }
+  .v3-match .player-seat__dealer { font-size: 2.1cqw; }
+  .v3-match .trick-area { left: 22%; top: 43.6%; width: 56%; height: 11%; }
+  .v3-match .trick-area .trick-card { width: 23%; }
+  .v3-match .trick-area__empty { font-size: 3cqw; }
+  .v3-match .game-card__rank { font-size: 4.6cqw; }
+  .v3-match .trump-status { left: 32%; top: 55.5%; width: 36%; height: 4.5%; }
+  .v3-match .trump-status__content span, .v3-match .trump-status__content strong { font-size: 3cqw; }
+  .v3-match .match-status-strip { left: 28%; top: 65%; width: 45%; height: 4%; font-size: 3.2cqw; }
+  .v3-match .match-status-strip span { display: none; }
+  .v3-match .turn-timer { top: 72%; right: 2.2%; width: 18%; }
+  .v3-match .turn-timer strong { font-size: 6cqw; }
+  .v3-match .turn-timer span { font-size: 3cqw; }
+  .v3-match .player-hand { left: 6%; right: auto; bottom: 13.5%; width: 66%; height: 14%; }
+  .v3-match .hand-card, .v3-match .hand-card.game-card--selected, .v3-match .player-hand.is-active .hand-card.game-card--selected { width: 24%; left: var(--portrait-fan-left); }
+  .v3-match .turn-action, .v3-match .v3-bid-confirm { left: 72%; right: auto; bottom: 9.2%; width: 26%; height: 6.9%; min-height: 44px; }
+  .v3-match .turn-action > span, .v3-match .v3-bid-confirm { font-size: 4.7cqw; }
+  .v3-match .match-feedback { width: 52%; bottom: 31%; }
+  .v3-match .match-feedback span { font-size: 3.4cqw; }
+  .v3-match .trick-result-banner { left: 23%; width: 54%; top: 43%; font-size: 4cqw; }
+  .v3-chooser-art { transform:none; }
+  .v3-suit-hit { width: 25%; height: 17%; top: 34.5%; }
+  .v3-suit-0 { left: 21%; }
+  .v3-suit-1 { left: 53%; }
+  .v3-suit-2 { left: 21%; top: 55%; }
+  .v3-suit-3 { left: 53%; top: 55%; }
 }

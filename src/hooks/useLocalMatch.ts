@@ -30,7 +30,7 @@ import type {
 } from "@wizzard/game-core/contracts";
 
 const HUMAN_PLAYER_ID = "player-you";
-const FAST_EVIDENCE_PACING = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("fast") === "1";
+const FAST_EVIDENCE_PACING = import.meta.env.DEV && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("fast") === "1";
 // The deterministic practice seed opens with a highest-card reveal so the
 // first round exercises the dealer trump-choice flow before bidding.
 const DEFAULT_SEED = 1;

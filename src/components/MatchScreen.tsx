@@ -27,7 +27,7 @@ import type { LocalMatchController } from "../hooks/useLocalMatch";
 import { CardView, type CardVisualState } from "./CardView";
 import { WebResults } from "./WebResults";
 import gameplayV3 from "../../art/runtime/web-v3/gameplay.png";
-import gameplayPortraitV3 from "../../art/runtime/web-v3/portrait/gameplay.png";
+import gameplayPortraitV3 from "../../art/runtime/web-v3/portrait/gameplay-v2.png";
 import { WebTrumpChooser, WebBidPanel } from "./WebMatchChoices";
 
 type MatchScreenProps = {
@@ -275,8 +275,10 @@ function handCardStyle(index: number, count: number): CSSProperties {
   const midpoint = (count - 1) / 2;
   const offset = index - midpoint;
   const spread = Math.min(14.8, 80 / Math.max(1, count - 1));
+  const portraitSpread = Math.min(24, 66 / Math.max(1, count - 1));
   const customStyle = {
     "--fan-left": `${50 + offset * spread}%`,
+    "--portrait-fan-left": `${50 + offset * portraitSpread}%`,
     "--fan-rotation": `${offset * Math.min(3.7, 18 / Math.max(1, count - 1))}deg`,
     "--fan-rise": `${Math.abs(offset) * 0.55}%`,
     zIndex: index + 1,
