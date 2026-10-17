@@ -29,6 +29,7 @@ final result: blocked
 - 新增竖屏设计稿：`art/mockups/web-v3/portrait/01-home.png`、`04-lobby.png`、`05-gameplay.png`、`06-results.png`。这些稿件已入库但对应动态清理底板和Chrome同状态实现复拍尚未完成，不能计入通过页数。
 - 竖屏后续复拍：`04-lobby-portrait-after.jpg`、`05-gameplay-portrait-chooser-after.jpg`、`06-results-portrait-after.jpg`、`08-rules-portrait-v2.jpg`。大厅/牌桌/结算已接入独立竖屏底板并在390×694 Chrome运行；规则清理底板已更新但正文仍需继续压缩校准，整体保持blocked。
 - 规则最终竖屏复拍：`08-rules-portrait-final.jpg`。在390×694 Chrome中，标签、章节、正文标题、四步和狐狸插画已落入独立内容带，正文不再发生步骤重叠；页脚仍需最终同稿裁区比对。
+- 规则同视口并排：`08-rules-portrait-comparison.png`。结构和主要边界对齐；实现的正文/步骤字号较稿件小，底部页脚在390×694中压到边缘，保留为P2差异，不宣称通过。
 
 #### 五项视觉标准
 
