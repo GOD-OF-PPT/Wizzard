@@ -6,13 +6,11 @@ import {
   type CSSProperties,
 } from "react";
 import {
-  avatarImages,
   cardImages,
   gameArt,
   suitLabels,
   suitNames,
   type AvatarExpression,
-  type AvatarKey,
 } from "../game-assets";
 import {
   SUITS,
@@ -28,7 +26,9 @@ import { CardView, type CardVisualState } from "./CardView";
 import { WebResults } from "./WebResults";
 import gameplayV3 from "../../art/runtime/web-v3/gameplay.png";
 import gameplayPortraitV3 from "../../art/runtime/web-v3/portrait/gameplay-v2.png";
+import gameplayChoicesPortraitV3 from "../../art/runtime/web-v3/portrait/gameplay-choices-v1.png";
 import { WebTrumpChooser, WebBidPanel } from "./WebMatchChoices";
+import { webAvatar } from "../web/avatar-assets";
 
 type MatchScreenProps = {
   controller?: LocalMatchController;
@@ -57,10 +57,6 @@ const errorMessages: Record<MatchErrorCode, string> = {
   STALE_VERSION: "牌桌已更新，请按最新状态操作",
   WRONG_PHASE: "当前阶段不能执行这个操作",
 };
-
-function asAvatarKey(value: string): AvatarKey {
-  return value in avatarImages ? (value as AvatarKey) : "masked-traveler";
-}
 
 function getPlayerExpression(
   player: MatchPlayerState,
@@ -106,7 +102,6 @@ function PlayerSeat({
     completedWinnerId,
     phase,
   );
-  const avatarKey = asAvatarKey(player.avatarKey);
   const isActive = currentPlayerId === player.id;
 
   return (
@@ -117,8 +112,9 @@ function PlayerSeat({
         <img
           alt={`${player.name}头像`}
           className="player-seat__portrait"
+          data-expression={expression}
           draggable="false"
-          src={avatarImages[avatarKey][expression]}
+          src={webAvatar(player.avatarKey)}
         />
         {!player.isHuman ? (
           <img
@@ -291,7 +287,7 @@ const displaySlotsByPlayerCount: Record<number, readonly number[]> = {
   3: [0, 1, 3],
   4: [0, 1, 2, 3],
   5: [0, 1, 2, 3, 4],
-  6: [0, 1, 2, 3, 4, 5],
+  6: [0, 2, 3, 1, 4, 5],
 };
 
 function getDisplaySlotMap(
@@ -413,6 +409,8 @@ export function MatchScreen({ controller: providedController, onExit, showLegalH
       hasSelectedThisTurn.current = true;
       setConfirmPulse(true);
     }
+    // A successful selection supersedes the earlier illegal-card explanation.
+    setFeedback(null);
     setSelectedCardId((current) => (current === card.id ? null : card.id));
   }
 
@@ -438,7 +436,7 @@ export function MatchScreen({ controller: providedController, onExit, showLegalH
         奇术茶馆快速局牌桌
       </h1>
       <picture className="match-stage__background-picture">
-        <source media="(orientation: portrait)" srcSet={gameplayPortraitV3} />
+        <source media="(orientation: portrait)" srcSet={humanTurn && (publicState.phase === "bid" || publicState.phase === "trump-select") ? gameplayChoicesPortraitV3 : gameplayPortraitV3} />
         <source media="(orientation: landscape)" srcSet={gameplayV3} />
         <img
           alt="夜间奇术茶馆漆木圆桌"
@@ -565,6 +563,7 @@ export function MatchScreen({ controller: providedController, onExit, showLegalH
       {humanTurn && publicState.phase === "bid" ? (
         <WebBidPanel
           handSize={publicState.handSize}
+          onExit={onExit}
           onSubmit={(bid) => controller.sendIntent({ bid, type: "submit-bid" })}
         />
       ) : null}

@@ -1,0 +1,20 @@
+{
+  "design": "art/mockups/web-v3/portrait/07-ranking.png",
+  "capture": "art/review/web-v3/07-ranking-portrait-refined-20261017.jpg",
+  "viewport": [
+    390,
+    694
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 84,
+    "top": 230,
+    "width": 234,
+    "height": 269
+  },
+  "meanAbsoluteChannelDifference": 13.59924012906722,
+  "fractionPixelsOver24": 0.17178009310574152,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}

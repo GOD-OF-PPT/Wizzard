@@ -122,15 +122,17 @@
   .v3-rules-close-label { display: block; padding-left: 30%; color: #33200f; font: 700 3.6cqw "Noto Serif SC",serif; }
   .v3-rules-tabs { left: 10%; top: 19.4%; width: 80%; height: 4.8%; gap: 2%; }
   .v3-rules-tabs button { font-size: 4.6cqw; }
-  .v3-rules-tabs button[aria-selected="false"] { background: url('../art/runtime/ui/secondary-panel.png') center / 100% 100% no-repeat; }
+  .v3-rules-tabs button, .v3-rules-tabs button[aria-selected="true"], .v3-rules-tabs button[aria-selected="false"] { background: none; margin: 0; }
   .v3-rules-chapters { top: 26.1%; left: 6%; width: 88%; height: 15.2%; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap: 5.5% 2.5%; }
-  .v3-rules-chapters button { font-size: 4.3cqw; padding: 0 6%; }
-  .v3-rules-chapters button:not([aria-current]) { background: url('../art/runtime/ui/secondary-panel.png') center / 100% 100% no-repeat; }
-  .v3-rules-body { top: 44%; left: 10%; width: 80%; height: 43%; overflow: visible; }
-  .v3-rules-body h3 { font-size: 6.8cqw; margin: 0 0 1.8cqw; line-height: 1.2; }
-  .v3-rules-body p { font-size: 3.5cqw; line-height:1.45; }
-  .v3-rules-body ol { width: 68%; grid-template-columns: 1fr 1fr; font-size: 3.4cqw; gap: 0.8cqw 3cqw; margin: 1.8cqw 0 0 2cqw; }
-  .v3-step-number { width: 10cqw; height: 10cqw; font-size: 6.2cqw; }
+  .v3-rules-chapters button, .v3-rules-chapters button:not([aria-current]), .v3-rules-chapters button[aria-current] { background: none; font-size: 4.3cqw; padding: 0 11% 0 24%; white-space: nowrap; }
+  .v3-rules-chapters button[aria-current]:not(:first-child) { outline: 2px solid #eac876; outline-offset: -4px; }
+  .v3-rules-body { top: 46.1%; left: 10.6%; width: 79.4%; height: 41.2%; overflow-y: auto; }
+  .v3-rules-body h3 { font-size: 9.2cqw; margin: 0 0 3.5cqw; line-height: 1.2; }
+  .v3-rules-body p { font-size: 3.7cqw; line-height:1.7; }
+  .v3-rules-body ol { width: 74.5%; grid-template-columns: 1fr 1fr; font-size: 4cqw; gap: 2.5cqw 3cqw; margin: 2.4cqw 0 0; }
+  .v3-rules-body li { gap: 0; }
+  .v3-rules-body li > span:last-child { display: grid; place-items: center; width: 100%; height: 8.2cqw; margin-top: -1cqw; background: url('../art/runtime/web-v3/step-label-v2.png') center/100% auto no-repeat; white-space: nowrap; }
+  .v3-step-number { width: 13.3cqw; height: 13.3cqw; font-size: 9.3cqw; }
   .v3-rules-footer { top: 88.5%; left: 15%; width: 48%; font-size: 3.4cqw; }
   .v3-rules .v3-setting { font-size: 4cqw; width: 84%; min-height: 44px; margin-top: 2cqw; padding: 2cqw; }
 }
@@ -201,6 +203,7 @@
 .v3-suit-3 { left: 63.5%; }
 .v3-chooser button:focus-visible, .v3-bid button:focus-visible { outline: 3px solid #ffe3a1; outline-offset: 4px; }
 .v3-match[data-local-phase="trump-select"] > .v3-match-back { display: none; }
+.v3-match[data-local-phase="bid"] > .v3-match-back { display: none; }
 .v3-match[data-local-phase="trump-select"] > .turn-action, .v3-match[data-local-phase="bid"] > .turn-action { display: none; }
 .v3-match[data-local-phase="bid"] .trump-status { top: 63.5%; }
 .v3-match[data-local-phase="bid"] .match-status-strip { display: none; }
@@ -236,10 +239,10 @@
   .v3-entry--create .v3-entry-name { left: 37.5%; top: 25.48%; width: 41.9%; height: 5.98%; }
   .v3-seat-options { left: 20.19%; top: 40.25%; width: 60%; height: 5.02%; gap: 2.6%; }
   .v3-seat-options button { font-size: clamp(13px, 4vw, 20px); }
-  .v3-entry-toggle { left: 60.36%; width: 19%; height: 3.3%; font-size: clamp(12px, 3.5vw, 18px); gap: 5%; }
+  .v3-entry-toggle { left: 60.36%; width: 22%; height: 3.3%; font-size: clamp(12px, 3.7vw, 18px); gap: 1.4cqw; white-space: nowrap; }
   .v3-entry-ai { top: 50.54%; }
   .v3-entry-timer { top: 58.61%; }
-  .v3-switch-art { width: 44px; height: 25px; }
+  .v3-switch-art { width: 10.6cqw; height: 5.8cqw; }
   .v3-entry--create .v3-entry-back { left: 22.4%; top: 78.35%; width: 26.9%; height: 6.1%; }
   .v3-entry--create .v3-entry-submit { left: 51%; top: 78.35%; width: 30%; height: 6.1%; }
   .v3-entry--join .v3-entry-name { left: 33.9%; top: 41.2%; width: 49.2%; height: 5%; }
@@ -262,9 +265,9 @@
 
 /* Independent portrait composition, measured from the 941 × 1672 masters. */
 @media (orientation: portrait) {
-  .v3-lobby, .v3-results:not(.v3-ranking) { overflow-y: auto; }
-  .v3-lobby-canvas, .v3-results:not(.v3-ranking) .v3-results-canvas { height: auto; aspect-ratio: 941 / 1672; }
-  .v3-lobby-art img, .v3-results:not(.v3-ranking) .v3-results-art img { object-fit: fill; }
+  .v3-lobby, .v3-results { overflow-y: auto; }
+  .v3-lobby-canvas, .v3-results-canvas { height: auto; aspect-ratio: 941 / 1672; }
+  .v3-lobby-art img, .v3-results-art img { object-fit: fill; }
   .v3-lobby-back { left: 2.5%; top: 1.9%; width: 22%; height: 4.1%; min-height: 36px; }
   .v3-lobby-title { left: 30.8%; top: 6.1%; width: 38.3%; }
   .v3-lobby-title h1 { font-size: 4.2cqw; }
@@ -295,6 +298,19 @@
   .v3-results:not(.v3-ranking) .v3-results-note { top: 73.7%; left: 31%; width: 40%; font-size: 3.3cqw; }
   .v3-results:not(.v3-ranking) .v3-results-secondary { left: 15%; top: 82.4%; width: 70%; height: 5.5%; font-size: 6.3cqw; min-height: 38px; }
   .v3-results:not(.v3-ranking) .v3-results-primary { left: 15%; top: 89%; width: 70%; height: 6.3%; font-size: 6.3cqw; min-height: 44px; }
+  .v3-ranking .v3-results-title { top: 17.9%; left: 26%; width: 48%; font-size: 6cqw; }
+  .v3-ranking-subtitle { top: 24.3%; left: 30%; width: 40%; font-size: 2.9cqw; }
+  .v3-ranking .v3-results-table { left: 22.3%; top: 32.98%; width: 57.9%; height: 38.58%; }
+  .v3-ranking .v3-results-row { grid-template-columns: 16.2% 62% 21.8%; font-size: 5cqw; }
+  .v3-ranking .v3-results-row:first-of-type > span:first-child { color: #ffedb6; }
+  .v3-ranking .v3-results-player { padding-left: 3.2cqw; gap: 2.5cqw; font-size: 4.4cqw; overflow: visible; }
+  .v3-ranking .v3-results-player > img { width: 10.6cqw; height: 10.6cqw; }
+  .v3-ranking .v3-results-secondary { left: 20%; top: 80.05%; width: 60%; height: 6.6%; font-size: 5.4cqw; min-height: 44px; }
+  .v3-ranking .v3-results-primary { left: 20%; top: 87.6%; width: 60%; height: 6.6%; font-size: 5.4cqw; min-height: 44px; }
+  .v3-confirm { width: min(100vw, 56.28vh); height: min(100vh, 177.68vw); }
+  .v3-confirm .screen-art { object-fit: fill; }
+  .v3-confirm-cancel { left: 18.1%; top: 47.7%; width: 63.9%; height: 7.4%; }
+  .v3-confirm-submit { left: 18.1%; top: 56%; width: 63.9%; height: 7.4%; }
 }
 
 /* Portrait gameplay is a separate composition: every position is relative to
@@ -318,6 +334,7 @@
   .v3-match .player-seat__portrait-wrap { width: 88%; }
   .v3-match .player-seat > strong { font-size: 3.5cqw; padding: 0.8cqw 0.4cqw; line-height: 1.25; }
   .v3-match .player-seat__stats { width: 102%; }
+  .v3-match .player-seat__stat > span { font-size: 3cqw; }
   .v3-match .player-seat__stat { height: 5cqw; }
   .v3-match .player-seat__dealer { font-size: 2.1cqw; }
   .v3-match .trick-area { left: 22%; top: 43.6%; width: 56%; height: 11%; }
@@ -331,7 +348,7 @@
   .v3-match .turn-timer { top: 72%; right: 2.2%; width: 18%; }
   .v3-match .turn-timer strong { font-size: 6cqw; }
   .v3-match .turn-timer span { font-size: 3cqw; }
-  .v3-match .player-hand { left: 6%; right: auto; bottom: 13.5%; width: 66%; height: 14%; }
+  .v3-match .player-hand { left: 14%; right: auto; bottom: 11%; width: 66%; height: 14%; }
   .v3-match .hand-card, .v3-match .hand-card.game-card--selected, .v3-match .player-hand.is-active .hand-card.game-card--selected { width: 24%; left: var(--portrait-fan-left); }
   .v3-match .turn-action, .v3-match .v3-bid-confirm { left: 72%; right: auto; bottom: 9.2%; width: 26%; height: 6.9%; min-height: 44px; }
   .v3-match .turn-action > span, .v3-match .v3-bid-confirm { font-size: 4.7cqw; }
@@ -344,4 +361,12 @@
   .v3-suit-1 { left: 53%; }
   .v3-suit-2 { left: 21%; top: 55%; }
   .v3-suit-3 { left: 53%; top: 55%; }
+  .v3-match .v3-bid-art { transform: none; }
+  .v3-match .v3-bid-range { left: 29%; top: 44.6%; width: 42%; font-size: 3.6cqw; }
+  .v3-match .v3-bid-value { left: 39%; top: 48.6%; width: 22%; height: 7.7%; font-size: 9.7cqw; }
+  .v3-match .v3-bid-minus { left: 21.4%; top: 48.8%; width: 14.4%; height: 6.9%; min-height: 44px; }
+  .v3-match .v3-bid-plus { left: 64.2%; top: 48.8%; width: 14.4%; height: 6.9%; min-height: 44px; }
+  .v3-match .v3-bid-confirm { left: 24.4%; top: 58%; bottom: auto; width: 53.7%; height: 7.8%; font-size: 6.2cqw; }
+  .v3-match[data-local-phase="bid"] .player-seat--0 { top: 63.1%; }
+  .v3-match[data-local-phase="bid"] .trump-status { display: none; }
 }

@@ -1,0 +1,14 @@
+{
+  "design": "art/mockups/web-v3/portrait/02-create.png",
+  "capture": "art/review/web-v3/02-create-portrait-20261017.jpg",
+  "viewport": [
+    390,
+    694
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "meanAbsoluteChannelDifference": 10.129934234833371,
+  "fractionPixelsOver24": 0.18521022685287816,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}

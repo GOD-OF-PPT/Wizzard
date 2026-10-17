@@ -1,4 +1,4 @@
-import { avatarImages } from "../game-assets";
+import { webAvatar } from "../web/avatar-assets";
 import type { FriendRoomController } from "../hooks/useFriendRoom";
 import lobby from "../../art/runtime/web-v3/lobby.png";
 import emptySeat from "../../art/runtime/web-v3/empty-seat.png";
@@ -28,7 +28,7 @@ export function WebLobby({ controller, fillAi, onManualAi, onExit, onInvite }: {
     <div className="v3-lobby-seats" aria-label="房间座位">{Array.from({ length: room.maxPlayers }, (_, index) => {
       const player = room.players[index];
       return <article className={`v3-lobby-seat v3-lobby-seat-${index} ${!player ? "is-empty" : ""}`} key={player?.playerId ?? `empty-${index}`}>
-        {player ? <><img className="v3-lobby-avatar" src={avatarImages[player.avatarKey].normal} alt={`${player.name}头像`} /><strong>{player.name}</strong><span>{!player.connected ? "已离线" : player.isAi ? "AI · 已准备" : player.ready ? "已准备" : "等待准备"}</span></> : <><img className="v3-lobby-avatar" src={emptySeat} alt="" /><strong>等待好友</strong></>}
+        {player ? <><img className="v3-lobby-avatar" src={webAvatar(player.avatarKey)} alt={`${player.name}头像`} /><strong>{player.name}</strong><span>{!player.connected ? "已离线" : player.isAi ? "AI · 已准备" : player.ready ? "已准备" : "等待准备"}</span></> : <><img className="v3-lobby-avatar" src={emptySeat} alt="" /><strong>等待好友</strong></>}
       </article>;
     })}</div>
     <button className="v3-lobby-invite v3-baked-hit" onClick={onInvite}>邀请好友</button>

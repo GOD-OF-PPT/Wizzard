@@ -1,0 +1,6 @@
+Use case: background-extraction
+Asset type: standalone game avatar RGBA PNG, square 512x512 or closest native square.
+Input image: reference is the previously inspected ranking screen; edit/extract ONLY the sixth-row circular portrait centered near pixel (379,1144), the enigmatic human traveler named AI旅人. Enlarge and faithfully reproduce this specific avatar, not the fox or other ranking portraits.
+Subject: mysterious original human traveler with a low wide dark conical straw hat and small round finial, subtle brown rim, pale angular face mostly under deep hat shadow, visible narrow eyes, long straight black hair, brown/charcoal layered robe. Head and upper shoulders in a restrained three-quarter pose facing slightly viewer-left. Match the small reference very closely; keep the hat low over the eyes, no animal ears, no face mask covering mouth.
+Style: warm original painterly 2D Chinese fantasy teahouse game avatar, richly shaded charcoal, umber and muted gold, matching the supplied ranking avatar. Opaque dark teal interior and thin double gold circular ring.
+Composition: complete centered circular portrait fills 92–96% of canvas, narrow even exterior margin; genuine transparent alpha outside ring only. All interior pixels opaque. No name, score, rank, parchment, neighboring avatars, text, UI, watermark or rectangular background.

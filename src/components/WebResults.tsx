@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import type { MatchPlayerState } from "@wizzard/game-core/contracts";
-import { avatarImages, type AvatarKey } from "../game-assets";
+import { webAvatar } from "../web/avatar-assets";
 import results from "../../art/runtime/web-v3/results.png";
 import rankingArt from "../../art/runtime/web-v3/ranking.png";
 import portraitResults from "../../art/runtime/web-v3/portrait/results.png";
+import portraitRanking from "../../art/runtime/web-v3/portrait/ranking-v2.png";
+import { trapDialogTab } from "../web/dialog-focus";
 
 export function WebResults({ isMatchEnd, onContinue, onExit, onRestart, players, roundNumber, network = false }: {
   isMatchEnd: boolean; onContinue: () => void; onExit: () => void; onRestart: () => void;
@@ -14,19 +16,21 @@ export function WebResults({ isMatchEnd, onContinue, onExit, onRestart, players,
   const primary = useRef<HTMLButtonElement>(null);
   const ordered = [...players].sort((a, b) => b.totalScore - a.totalScore);
   useEffect(() => { primary.current?.focus(); }, [rank]);
-  return <section className={`v3-results ${rank ? "v3-ranking" : ""}`} role="dialog" aria-modal="true" aria-labelledby="results-title">
+  return <section className={`v3-results ${rank ? "v3-ranking" : ""}`} role="dialog" aria-modal="true" aria-labelledby="results-title" onKeyDown={event => {
+    trapDialogTab(event);
+    if (event.key === "Escape" && showRanking && !isMatchEnd) setShowRanking(false);
+  }}>
     <div className="v3-results-canvas">
-    <picture className="v3-results-art">{!rank && <source media="(orientation: portrait)" srcSet={portraitResults} />}<img src={rank ? rankingArt : results} className="screen-art" alt="" /></picture>
+    <picture className="v3-results-art"><source media="(orientation: portrait)" srcSet={rank ? portraitRanking : portraitResults} /><img src={rank ? rankingArt : results} className="screen-art" alt="" /></picture>
     <h2 id="results-title" className="v3-results-title">{rank ? isMatchEnd ? "快速局总榜" : "当前总榜" : `第${roundNumber}轮结算`}</h2>
     {rank && <p className="v3-ranking-subtitle">{isMatchEnd ? "八轮已毕 · 下回再会" : `已完成第${roundNumber}轮`}</p>}
     <div className="v3-results-table" role="table" aria-label={rank ? "总分排名" : "本轮计分"}>
       <div className="sr-only" role="row">{(rank ? ["名次", "玩家", "总分"] : ["玩家", "预测", "赢墩", "本轮", "总分"]).map(label => <span key={label} role="columnheader">{label}</span>)}</div>
       {ordered.map((player, index) => {
-        const avatar = player.avatarKey in avatarImages ? player.avatarKey as AvatarKey : "masked-traveler";
         const standing = ordered.findIndex(other => other.totalScore === player.totalScore) + 1;
         return <div className="v3-results-row" role="row" key={player.id}>
           {rank && <span role="cell">{standing}</span>}
-          <span className="v3-results-player" role="cell"><img src={avatarImages[avatar].normal} alt="" /><span>{player.name}</span></span>
+          <span className="v3-results-player" role="cell"><img src={webAvatar(player.avatarKey)} alt="" /><span>{player.name}</span></span>
           {!rank && <><span role="cell">{player.bid ?? "—"}</span><span role="cell">{player.tricksWon}</span><span role="cell" className={(player.roundScore ?? 0) >= 0 ? "is-positive" : "is-negative"}>{player.roundScore === null ? "—" : `${player.roundScore >= 0 ? "+" : ""}${player.roundScore}`}</span></>}
           <span role="cell">{player.totalScore}</span>
         </div>;
