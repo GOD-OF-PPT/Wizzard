@@ -25,5 +25,3 @@ Corrective prompt:
 ```text
 Use case: precise-object-edit. Edit this plaque into a visibly MUCH TALLER compact label. Current visible shape1986x446 ratio4.45 is WRONG. Required visible shape approximately1800x520, ratio3.46. Increase parchment body height by30%, leaving width unchanged. Top/bottom edges farther apart; cloud ornaments stay modest and vertically centered. Canvas should tightly enclose this taller plaque at approximately1850x550, with less than3% transparent padding. Remove ALL exterior glow/shadow, background must genuine alpha0 immediately outside crisp paper/cloud silhouette. Maintain ivory paper, double restrainedgoldoutline, cloud ends and blank quiet center. NO TEXT. Must actual visible opaque alpha-bound ratio3.2–3.8, not padding. Do not output old longthin plaque. Make taller centralpaper.
 ```
-
-

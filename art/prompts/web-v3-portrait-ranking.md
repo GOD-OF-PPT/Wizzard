@@ -36,4 +36,3 @@ Everything else must remain identical: column labels 名次 玩家 总分, their
 ```
 
 Runtime destination: `art/runtime/web-v3/portrait/ranking-v2.png` (941×1672).
-
