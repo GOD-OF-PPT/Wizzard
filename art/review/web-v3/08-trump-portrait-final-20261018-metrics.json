@@ -1,0 +1,20 @@
+{
+  "design": "art/mockups/web-v3/portrait/08-rules-trump.png",
+  "capture": "art/review/web-v3/08-trump-portrait-final-20261018.jpg",
+  "viewport": [
+    390,
+    694
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 35,
+    "top": 315,
+    "width": 325,
+    "height": 310
+  },
+  "meanAbsoluteChannelDifference": 15.385297667430232,
+  "fractionPixelsOver24": 0.18631123919308357,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}

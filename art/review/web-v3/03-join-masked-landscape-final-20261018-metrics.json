@@ -1,0 +1,20 @@
+{
+  "design": "art/mockups/web-v3/03-join.png",
+  "capture": "art/review/web-v3/03-join-masked-landscape-final-20261018.jpg",
+  "viewport": [
+    1672,
+    941
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 620,
+    "top": 320,
+    "width": 605,
+    "height": 270
+  },
+  "meanAbsoluteChannelDifference": 4.769668622575664,
+  "fractionPixelsOver24": 0.051497058509475314,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}

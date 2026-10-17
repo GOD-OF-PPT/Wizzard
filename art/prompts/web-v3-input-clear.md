@@ -1,0 +1,4 @@
+Use case: background-extraction
+Asset type: standalone nickname input clear icon, square 256x256 or closest native square RGBA PNG.
+Input image: extract the small clear icon centered near x706 y478 in the supplied portrait create-room UI. Reproduce only this exact simple control: a muted cool gray flat circular disc with a dark navy X mark centered inside. The reference X consists of two clean diagonal strokes, soft slight rounded ends, width approximately one half the disc diameter. Disc is uniform muted blue-gray with no border and no dimensional decoration. Keep original simple flat UI appearance.
+Composition: tightly centered circle occupying 90% of square canvas, even transparent outside margin. Genuine alpha transparency outside disc only, opaque disc interior. Match the reference's subdued gray and almost-black navy. No gold frame, no shadow, no gloss, no ornament, no white opaque background, no nickname, no letters, no extra UI elements.

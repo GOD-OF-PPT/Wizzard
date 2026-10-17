@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "carrier": "react-web",
   "generator": "built-in image_gen",
   "designRoot": "art/mockups/web-v3/",
@@ -9,26 +9,29 @@
   "acceptance": "in-progress",
   "assets": {
     "web.v3.home": { "design": "01-home.png", "runtime": "home.png", "content": "static scene and entry plaques" },
-    "web.v3.create": { "design": "02-create.png", "runtime": "create.png", "content": "empty editable fields; actual values rendered by RoomEntry" },
-    "web.v3.join": { "design": "03-join.png", "runtime": "join.png", "content": "empty nickname and six code slots" },
+    "web.v3.create": { "design": "02-create.png", "runtime": "create.png", "staticRuntime": "create-static-v1.png", "maskContract": "src/web/form-art-masks.tsx", "content": "source static pixels plus field-only cleanup; actual values rendered by RoomEntry" },
+    "web.v3.join": { "design": "03-join.png", "runtime": "join.png", "staticRuntime": "join-static-v1.png", "maskContract": "src/web/form-art-masks.tsx", "content": "source static pixels with nickname and six digit content masks" },
     "web.v3.lobby": { "design": "04-lobby.png", "runtime": "lobby.png", "content": "empty table, header and action frames; no players or room data" },
     "web.v3.gameplay": { "design": "05-gameplay-final.png", "runtime": "gameplay.png", "content": "empty table and HUD frames; no player/card/state data" },
     "web.v3.results": { "design": "06-results.png", "runtime": "results.png", "content": "static columns and empty rows/actions" },
     "web.v3.ranking": { "design": "07-ranking.png", "runtime": "ranking.png", "content": "static columns and empty ranks/rows/actions" },
-    "web.v3.rules": { "design": "08-rules.png", "runtime": "rules.png", "content": "frame and fox art; dynamic tabs and chapter content" },
+    "web.v3.rules": { "design": "08-rules.png", "runtime": "rules-quick-v3.png", "content": "frame, fox and empty step furniture; dynamic labels, numerals and body" },
     "web.v3.confirm": { "design": "09-confirm.png", "runtime": "confirm.png", "content": "static confirmation copy and controls with semantic live hit targets" },
     "web.v3.bid": { "design": "10-bid.png", "runtime": "bid.png", "content": "transparent panel, empty range and prediction value" },
     "web.v3.chooser": { "design": "11-chooser.png", "runtime": "chooser.png", "content": "transparent overlay with four invariant suit choices" },
-    "web.v3.switch.on": { "design": "02-create.png", "runtime": "switch-on.png" },
-    "web.v3.switch.off": { "design": "02-create.png", "runtime": "switch-off.png" },
+    "web.v3.switch.on": { "design": "02-create.png", "runtime": "switch-on-opaque-v3.png", "hasAlpha": false, "renderMask": "normal pill corner clipping" },
+    "web.v3.switch.off": { "design": "02-create.png", "runtime": "switch-off-opaque-v3.png", "hasAlpha": false, "renderMask": "normal pill corner clipping" },
+    "web.v3.inputClear": { "design": "02-create.png", "runtime": "input-clear.png" },
+    "web.v3.seatSelected": { "design": "02-create.png", "runtime": "seat-selected-landscape-v2.png", "notes": "Dynamic label plus generated frame/check; solid green state matte behind partial alpha." },
+    "web.v3.portrait.seatSelected": { "design": "portrait/02-create.png", "runtime": "seat-selected-portrait-v2.png" },
     "web.v3.emptySeat": { "design": "04-lobby.png", "runtime": "empty-seat.png" },
     "web.v3.activeNav": { "design": "08-rules.png", "runtime": "active-nav.png" },
     "web.v3.stepBadge": { "design": "08-rules.png", "runtime": "step-badge.png" },
     "web.v3.stepLabel": { "design": "portrait/08-rules.png", "runtime": "step-label-v2.png", "notes": "Proportional background rendering preserves authored cloud ends and transparent padding." },
     "web.v3.selectedHalo": { "design": "05-gameplay-final.png", "runtime": "selected-halo.png" },
-    "web.v3.portrait.create": { "design": "portrait/02-create.png", "runtime": "portrait/create.png", "pixelSize": [941, 1672] },
-    "web.v3.portrait.join": { "design": "portrait/03-join.png", "runtime": "portrait/join.png", "pixelSize": [941, 1672] },
-    "web.v3.portrait.rules": { "design": "portrait/08-rules.png", "runtime": "portrait/rules-v2.png", "pixelSize": [941, 1672], "notes": "Dynamic clean extraction uses the v2 clean backing layer; dynamic DOM text remains live." }
+    "web.v3.portrait.create": { "design": "portrait/02-create.png", "runtime": "portrait/create.png", "staticRuntime": "portrait/create-static-v1.png", "maskContract": "src/web/form-art-masks.tsx", "pixelSize": [941, 1672] },
+    "web.v3.portrait.join": { "design": "portrait/03-join.png", "runtime": "portrait/join.png", "staticRuntime": "portrait/join-static-v1.png", "maskContract": "src/web/form-art-masks.tsx", "pixelSize": [941, 1672] },
+    "web.v3.portrait.rules": { "design": "portrait/08-rules.png", "runtime": "portrait/rules-quick-v3.png", "pixelSize": [941, 1672], "notes": "Original empty step circles and label furniture retained; live DOM text/numerals overlay authored bands." }
     ,"web.v3.portrait.home": { "design": "portrait/01-home.png", "runtime": "portrait/home.png", "pixelSize": [941, 1672] }
     ,"web.v3.portrait.lobby": { "design": "portrait/04-lobby.png", "runtime": "portrait/lobby.png", "pixelSize": [941, 1672] }
     ,"web.v3.portrait.gameplay": { "design": "portrait/05-gameplay.png", "runtime": "portrait/gameplay-v2.png", "pixelSize": [941, 1672] }
@@ -39,11 +42,21 @@
     ,"web.v3.portrait.chooser": { "design": "portrait/11-chooser.png", "runtime": "portrait/chooser.png", "pixelSize": [941, 1672] }
     ,"web.v3.portrait.gameplayChoices": { "design": "portrait/05-gameplay.png", "runtime": "portrait/gameplay-choices-v1.png", "pixelSize": [941, 1672], "notes": "Local choice phases omit the duplicate empty green action plaque; timer remains visible." }
     ,"web.v3.avatars": { "design": "portrait/07-ranking.png", "runtime": "avatars/", "notes": "Six original v3 round portraits, ImageGen extraction with alpha. Web-only; does not replace Mini Game expression atlas. Small likeness drift remains a QA item." }
+    ,"web.v3.rules.trump": { "design": "08-rules-trump.png", "runtime": "rules-trump.png" }
+    ,"web.v3.rules.play": { "design": "08-rules-play.png", "runtime": "rules-play.png" }
+    ,"web.v3.rules.scoring": { "design": "08-rules-scoring.png", "runtime": "rules-scoring.png" }
+    ,"web.v3.settings": { "design": "08-settings.png", "runtime": "settings.png" }
+    ,"web.v3.portrait.rules.trump": { "design": "portrait/08-rules-trump.png", "runtime": "portrait/rules-trump.png", "pixelSize": [941, 1672] }
+    ,"web.v3.portrait.rules.play": { "design": "portrait/08-rules-play.png", "runtime": "portrait/rules-play.png", "pixelSize": [941, 1672] }
+    ,"web.v3.portrait.rules.scoring": { "design": "portrait/08-rules-scoring.png", "runtime": "portrait/rules-scoring.png", "pixelSize": [941, 1672] }
+    ,"web.v3.portrait.settings": { "design": "portrait/08-settings.png", "runtime": "portrait/settings.png", "pixelSize": [941, 1672] }
   },
   "notes": [
     "Generated scene size is 1672x941; measure actual output rather than assuming requested 1920x1080.",
     "Runtime extraction preserves backgrounds but removes mutable data, never changing the immutable design reference to match implementation.",
     "Cocos resource generation is unchanged; this manifest belongs exclusively to the internal browser carrier.",
     "Card resources remain from the authoritative art bundle. Six browser-only portraits now follow the v3 reference; individual likeness and typography differences remain explicit QA findings."
+    ,"Form staticRuntime layers are unchanged copies of the selected ImageGen page. Mandatory field masks hide all baked editable values/checks before live DOM controls render; cleanup imagery never replaces unrelated static scenery."
+    ,"The transparent switch-on-v2 candidate is rejected because generation removed green interior pixels. Only opaque-v3 switch files are consumed."
   ]
 }

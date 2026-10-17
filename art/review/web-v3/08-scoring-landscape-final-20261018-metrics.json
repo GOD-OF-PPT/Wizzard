@@ -1,0 +1,20 @@
+{
+  "design": "art/mockups/web-v3/08-rules-scoring.png",
+  "capture": "art/review/web-v3/08-scoring-landscape-final-20261018.jpg",
+  "viewport": [
+    1672,
+    941
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 500,
+    "top": 330,
+    "width": 800,
+    "height": 420
+  },
+  "meanAbsoluteChannelDifference": 10.009593530246251,
+  "fractionPixelsOver24": 0.08700214573725397,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}

@@ -1,0 +1,20 @@
+{
+  "design": "art/mockups/web-v3/portrait/03-join.png",
+  "capture": "art/review/web-v3/03-join-masked-portrait-final-20261018.jpg",
+  "viewport": [
+    390,
+    694
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 68,
+    "top": 283,
+    "width": 257,
+    "height": 156
+  },
+  "meanAbsoluteChannelDifference": 8.256053104756274,
+  "fractionPixelsOver24": 0.13928914505283382,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}

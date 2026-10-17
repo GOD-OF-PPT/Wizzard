@@ -1,0 +1,20 @@
+{
+  "design": "art/mockups/web-v3/02-create.png",
+  "capture": "art/review/web-v3/02-create-masked-landscape-final-20261018.jpg",
+  "viewport": [
+    1672,
+    941
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 700,
+    "top": 215,
+    "width": 545,
+    "height": 430
+  },
+  "meanAbsoluteChannelDifference": 5.803878174326745,
+  "fractionPixelsOver24": 0.07491839079875323,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}

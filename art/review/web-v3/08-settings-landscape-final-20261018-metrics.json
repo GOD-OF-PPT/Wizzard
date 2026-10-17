@@ -1,0 +1,20 @@
+{
+  "design": "art/mockups/web-v3/08-settings.png",
+  "capture": "art/review/web-v3/08-settings-landscape-final-20261018.jpg",
+  "viewport": [
+    1672,
+    941
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 490,
+    "top": 329,
+    "width": 745,
+    "height": 420
+  },
+  "meanAbsoluteChannelDifference": 8.631925129701852,
+  "fractionPixelsOver24": 0.08153293096522583,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}

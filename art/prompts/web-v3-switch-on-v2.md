@@ -1,0 +1,4 @@
+Use case: background-extraction
+Edit target: supplied105x59 original compact switch ON crop.
+Change ONLY outside dark navy background into genuine transparent alpha. Uniformly upscale source switch keeping EXACT likeness, anatomy and relative proportions. This is a compact pill width:height approximately1.85:1, NOT a long2.7:1 pill. Flat green lacquer, very thin warm gold rim, cream perfectly round knob on RIGHT. Preserve source's restrained flat illustration and existing colors. No redesign, no3Dgloss/bevel, no reflections, no extra border, no shadow, no text.
+Visible switch body fills95–98%canvas width andheight; tight transparent margin. Target aspect105:59. Every green, gold and cream pixel inside body MUST have opaquealpha255; only outside silhouette transparentalpha0 with edge antialiasing. Do not make the green interior semitransparent. FinalRGBA PNG.
