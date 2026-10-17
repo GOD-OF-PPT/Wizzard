@@ -129,9 +129,9 @@
   .v3-rules-body { top: 44%; left: 10%; width: 80%; height: 43%; overflow: visible; }
   .v3-rules-body h3 { font-size: 6.8cqw; margin: 0 0 1.8cqw; line-height: 1.2; }
   .v3-rules-body p { font-size: 3.5cqw; line-height:1.45; }
-  .v3-rules-body ol { width: 68%; grid-template-columns: 1fr 1fr; font-size: 3cqw; gap: 0.8cqw 3cqw; margin: 1.8cqw 0 0 2cqw; }
+  .v3-rules-body ol { width: 68%; grid-template-columns: 1fr 1fr; font-size: 3.4cqw; gap: 0.8cqw 3cqw; margin: 1.8cqw 0 0 2cqw; }
   .v3-step-number { width: 10cqw; height: 10cqw; font-size: 6.2cqw; }
-  .v3-rules-footer { top: 91%; left: 15%; width: 48%; font-size: 3cqw; }
+  .v3-rules-footer { top: 88.5%; left: 15%; width: 48%; font-size: 3.4cqw; }
   .v3-rules .v3-setting { font-size: 4cqw; width: 84%; min-height: 44px; margin-top: 2cqw; padding: 2cqw; }
 }
 .game-prototype[data-reduced-motion="true"] *, .game-prototype[data-reduced-motion="true"] *::before, .game-prototype[data-reduced-motion="true"] *::after { animation: none !important; transition: none !important; }
