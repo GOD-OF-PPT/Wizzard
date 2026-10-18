@@ -1,0 +1,32 @@
+{
+  "source": "art/mockups/web-v3/05-gameplay-final.png",
+  "sourceSha256": "6bfe13fcc5cf85779cab92742e5733621039d73fbcfcb5958b7c069c3c4c273f",
+  "use": "ImageGen reference only, not runtime assets or new visual truth",
+  "boxes": {
+    "leaf": {
+      "left": 540,
+      "top": 668,
+      "width": 150,
+      "height": 213
+    },
+    "mountain": {
+      "left": 690,
+      "top": 670,
+      "width": 146,
+      "height": 204
+    },
+    "knot": {
+      "left": 837,
+      "top": 670,
+      "width": 145,
+      "height": 204
+    },
+    "sun": {
+      "left": 976,
+      "top": 674,
+      "width": 159,
+      "height": 211
+    }
+  },
+  "magnification": 3
+}

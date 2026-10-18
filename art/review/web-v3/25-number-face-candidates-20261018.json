@@ -1,0 +1,143 @@
+{
+  "status": "artwork-review-not-browser-QA",
+  "columns": [
+    "immutable source crop",
+    "runtime v2",
+    "ImageGen v3 candidate",
+    "targeted retry candidate"
+  ],
+  "rowOrder": [
+    "leaf",
+    "mountain",
+    "knot",
+    "sun"
+  ],
+  "reports": [
+    {
+      "suit": "leaf",
+      "column": "immutable source crop",
+      "path": "art/reference/web-v3/cards/leaf-source-hand-v1.png",
+      "pixelSize": [
+        450,
+        639
+      ]
+    },
+    {
+      "suit": "leaf",
+      "column": "runtime v2",
+      "path": "art/runtime/web-v3/cards/leaf-v2.png",
+      "pixelSize": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "suit": "leaf",
+      "column": "ImageGen v3 candidate",
+      "path": "art/source/web-v3/cards/leaf-v3.png",
+      "pixelSize": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "suit": "leaf",
+      "column": "targeted retry candidate",
+      "path": "art/source/web-v3/cards/leaf-v3-retry.png",
+      "pixelSize": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "suit": "mountain",
+      "column": "immutable source crop",
+      "path": "art/reference/web-v3/cards/mountain-source-hand-v1.png",
+      "pixelSize": [
+        438,
+        612
+      ]
+    },
+    {
+      "suit": "mountain",
+      "column": "runtime v2",
+      "path": "art/runtime/web-v3/cards/mountain-v2.png",
+      "pixelSize": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "suit": "mountain",
+      "column": "ImageGen v3 candidate",
+      "path": "art/source/web-v3/cards/mountain-v3.png",
+      "pixelSize": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "suit": "knot",
+      "column": "immutable source crop",
+      "path": "art/reference/web-v3/cards/knot-source-hand-v1.png",
+      "pixelSize": [
+        435,
+        612
+      ]
+    },
+    {
+      "suit": "knot",
+      "column": "runtime v2",
+      "path": "art/runtime/web-v3/cards/knot-v2.png",
+      "pixelSize": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "suit": "knot",
+      "column": "ImageGen v3 candidate",
+      "path": "art/source/web-v3/cards/knot-v3.png",
+      "pixelSize": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "suit": "knot",
+      "column": "targeted retry candidate",
+      "path": "art/source/web-v3/cards/knot-v3-retry.png",
+      "pixelSize": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "suit": "sun",
+      "column": "immutable source crop",
+      "path": "art/reference/web-v3/cards/sun-source-hand-v1.png",
+      "pixelSize": [
+        477,
+        633
+      ]
+    },
+    {
+      "suit": "sun",
+      "column": "runtime v2",
+      "path": "art/runtime/web-v3/cards/sun-v2.png",
+      "pixelSize": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "suit": "sun",
+      "column": "ImageGen v3 candidate",
+      "path": "art/source/web-v3/cards/sun-v3.png",
+      "pixelSize": [
+        1024,
+        1536
+      ]
+    }
+  ]
+}

@@ -601,6 +601,13 @@
 .v3-lobby-seat .v3-lobby-seat-state, .v3-lobby-status button,
 .v3-lobby-ready, .v3-lobby-start { font-family: "Teahouse UI", "Noto Serif SC", serif; font-synthesis: weight; }
 .v3-lobby-seat strong, .v3-lobby-seat .v3-lobby-seat-state { font-weight: 500; font-synthesis: none; }
+.v3-match .player-seat > strong,
+.v3-match .player-seat__you,
+.v3-match .trump-status__content span,
+.v3-match .trump-status__content strong,
+.v3-match .turn-action > span,
+.v3-match .match-status-strip strong { font-family: "Teahouse UI", "Noto Serif SC", serif; }
+.v3-match .player-seat > strong { font-weight: 500; font-synthesis: none; }
 .v3-results-player > img { border-radius: 0; object-fit: contain; }
 .v3-results-round-number { font-family: "Noto Serif SC", serif; }
 .v3-ranking .v3-results-row.is-leading > span:first-child { color: #ffedb6; }
