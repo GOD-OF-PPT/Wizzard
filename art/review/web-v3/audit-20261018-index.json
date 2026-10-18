@@ -107,7 +107,7 @@
       "profile": "landscape",
       "prefix": "art/review/web-v3/audit-04-lobby-landscape-20261018",
       "design": "art/mockups/web-v3/04-lobby-waiting-v2.png",
-      "capture": "art/review/web-v3/audit-04-lobby-landscape-20261018.jpg",
+      "capture": "art/review/web-v3/04-lobby-ink-landscape-20261018.jpg",
       "viewport": [
         1672,
         941
@@ -121,7 +121,7 @@
         "width": 500,
         "height": 165
       },
-      "meanAbsoluteChannelDifference": 13.368566178028397,
+      "meanAbsoluteChannelDifference": 12.95741914926433,
       "originalSourceSize": [
         1672,
         941
@@ -131,7 +131,7 @@
         941
       ],
       "relativeCaptureAspectError": 0,
-      "fractionPixelsOver24": 0.17330768956978476,
+      "fractionPixelsOver24": 0.16421817876737055,
       "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
     },
     {
@@ -140,7 +140,7 @@
       "profile": "landscape",
       "prefix": "art/review/web-v3/audit-04-lobby-ready-landscape-20261018",
       "design": "art/mockups/web-v3/04-lobby-ready-v2.png",
-      "capture": "art/review/web-v3/audit-04-lobby-ready-landscape-20261018.jpg",
+      "capture": "art/review/web-v3/04-lobby-ready-ink-landscape-20261018.jpg",
       "viewport": [
         1672,
         941
@@ -154,7 +154,7 @@
         "width": 500,
         "height": 165
       },
-      "meanAbsoluteChannelDifference": 13.566193494314474,
+      "meanAbsoluteChannelDifference": 13.188800090507401,
       "originalSourceSize": [
         1672,
         941
@@ -164,7 +164,7 @@
         941
       ],
       "relativeCaptureAspectError": 0,
-      "fractionPixelsOver24": 0.17828178309748868,
+      "fractionPixelsOver24": 0.16913951868367663,
       "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
     },
     {
@@ -206,7 +206,7 @@
       "profile": "landscape",
       "prefix": "art/review/web-v3/audit-06-results-landscape-20261018",
       "design": "art/mockups/web-v3/06-results.png",
-      "capture": "art/review/web-v3/audit-06-results-landscape-20261018.jpg",
+      "capture": "art/review/web-v3/06-results-ink-landscape-20261018.jpg",
       "viewport": [
         1672,
         941
@@ -220,7 +220,7 @@
         "width": 1030,
         "height": 590
       },
-      "meanAbsoluteChannelDifference": 9.385140345792507,
+      "meanAbsoluteChannelDifference": 10.272208211089021,
       "originalSourceSize": [
         1672,
         941
@@ -230,7 +230,7 @@
         941
       ],
       "relativeCaptureAspectError": 0,
-      "fractionPixelsOver24": 0.08414010342250176,
+      "fractionPixelsOver24": 0.1002286837274812,
       "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
     },
     {
@@ -239,7 +239,7 @@
       "profile": "landscape",
       "prefix": "art/review/web-v3/audit-07-ranking-landscape-20261018",
       "design": "art/mockups/web-v3/07-ranking.png",
-      "capture": "art/review/web-v3/audit-07-ranking-landscape-20261018.jpg",
+      "capture": "art/review/web-v3/07-ranking-ink-landscape-20261018.jpg",
       "viewport": [
         1672,
         941
@@ -253,7 +253,7 @@
         "width": 830,
         "height": 590
       },
-      "meanAbsoluteChannelDifference": 8.583472314735248,
+      "meanAbsoluteChannelDifference": 9.675920582298176,
       "originalSourceSize": [
         1672,
         941
@@ -263,7 +263,7 @@
         941
       ],
       "relativeCaptureAspectError": 0,
-      "fractionPixelsOver24": 0.0772319226721039,
+      "fractionPixelsOver24": 0.09694079900746941,
       "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
     },
     {
@@ -800,7 +800,7 @@
       "profile": "portrait",
       "prefix": "art/review/web-v3/audit-04-lobby-portrait-20261018",
       "design": "art/mockups/web-v3/portrait/04-lobby-waiting-v2.png",
-      "capture": "art/review/web-v3/audit-04-lobby-portrait-20261018.jpg",
+      "capture": "art/review/web-v3/04-lobby-ink-portrait-20261018.jpg",
       "viewport": [
         390,
         694
@@ -814,7 +814,7 @@
         "width": 270,
         "height": 355
       },
-      "meanAbsoluteChannelDifference": 19.06407916451144,
+      "meanAbsoluteChannelDifference": 18.848352176161974,
       "originalSourceSize": [
         941,
         1672
@@ -824,7 +824,7 @@
         694
       ],
       "relativeCaptureAspectError": 0,
-      "fractionPixelsOver24": 0.27718909332742186,
+      "fractionPixelsOver24": 0.2754452080100495,
       "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
     },
     {
@@ -833,7 +833,7 @@
       "profile": "portrait",
       "prefix": "art/review/web-v3/audit-04-lobby-ready-portrait-20261018",
       "design": "art/mockups/web-v3/portrait/04-lobby-ready-v2.png",
-      "capture": "art/review/web-v3/audit-04-lobby-ready-portrait-20261018.jpg",
+      "capture": "art/review/web-v3/04-lobby-ready-ink-portrait-20261018.jpg",
       "viewport": [
         390,
         694
@@ -847,7 +847,7 @@
         "width": 270,
         "height": 355
       },
-      "meanAbsoluteChannelDifference": 19.484882632577158,
+      "meanAbsoluteChannelDifference": 19.27365575506786,
       "originalSourceSize": [
         941,
         1672
@@ -857,7 +857,7 @@
         694
       ],
       "relativeCaptureAspectError": 0,
-      "fractionPixelsOver24": 0.2964161678859085,
+      "fractionPixelsOver24": 0.29469814527451416,
       "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
     },
     {
@@ -899,7 +899,7 @@
       "profile": "portrait",
       "prefix": "art/review/web-v3/audit-06-results-portrait-20261018",
       "design": "art/mockups/web-v3/portrait/06-results.png",
-      "capture": "art/review/web-v3/audit-06-results-portrait-20261018.jpg",
+      "capture": "art/review/web-v3/06-results-ink-portrait-20261018.jpg",
       "viewport": [
         390,
         694
@@ -913,7 +913,7 @@
         "width": 315,
         "height": 430
       },
-      "meanAbsoluteChannelDifference": 14.707943545407522,
+      "meanAbsoluteChannelDifference": 14.52478386167147,
       "originalSourceSize": [
         941,
         1672
@@ -923,7 +923,7 @@
         694
       ],
       "relativeCaptureAspectError": 0,
-      "fractionPixelsOver24": 0.17289588413507723,
+      "fractionPixelsOver24": 0.1740744845932166,
       "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
     },
     {
@@ -932,7 +932,7 @@
       "profile": "portrait",
       "prefix": "art/review/web-v3/audit-07-ranking-portrait-20261018",
       "design": "art/mockups/web-v3/portrait/07-ranking.png",
-      "capture": "art/review/web-v3/audit-07-ranking-portrait-20261018.jpg",
+      "capture": "art/review/web-v3/07-ranking-ink-portrait-20261018.jpg",
       "viewport": [
         390,
         694
@@ -946,7 +946,7 @@
         "width": 245,
         "height": 420
       },
-      "meanAbsoluteChannelDifference": 13.720342865587822,
+      "meanAbsoluteChannelDifference": 14.007028498238872,
       "originalSourceSize": [
         941,
         1672
@@ -956,7 +956,7 @@
         694
       ],
       "relativeCaptureAspectError": 0,
-      "fractionPixelsOver24": 0.17260031035247173,
+      "fractionPixelsOver24": 0.17357200916278726,
       "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
     },
     {

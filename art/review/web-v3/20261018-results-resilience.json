@@ -1,0 +1,29 @@
+{
+  "source": "Chrome read-only DOM measurements; DEV layout samples, not server authority",
+  "viewports": { "landscape": [1672,942], "portrait": [390,694] },
+  "cases": [
+    {"profile":"landscape","state":"results","players":3,"renderedRows":3,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"landscape","state":"ranking","players":3,"renderedRows":3,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"landscape","state":"results","players":4,"renderedRows":4,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"landscape","state":"ranking","players":4,"renderedRows":4,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"landscape","state":"results","players":5,"renderedRows":5,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"landscape","state":"ranking","players":5,"renderedRows":5,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"landscape","state":"results","players":6,"renderedRows":6,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"landscape","state":"ranking","players":6,"renderedRows":6,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"portrait","state":"results","players":3,"renderedRows":3,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"portrait","state":"ranking","players":3,"renderedRows":3,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"portrait","state":"results","players":4,"renderedRows":4,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"portrait","state":"ranking","players":4,"renderedRows":4,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"portrait","state":"results","players":5,"renderedRows":5,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"portrait","state":"ranking","players":5,"renderedRows":5,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"portrait","state":"results","players":6,"renderedRows":6,"outsideStage":0,"shortNamesClipped":false},
+    {"profile":"portrait","state":"ranking","players":6,"renderedRows":6,"outsideStage":0,"shortNamesClipped":false}
+  ],
+  "labelCases": [
+    {"profile":"landscape","state":"results","text":"竹下听雨的第十二位茶客","client":144,"scroll":395,"titlePreservesFullName":true,"overflow":"ellipsis"},
+    {"profile":"portrait","state":"results","text":"竹下听雨的第十二位茶客","client":50,"scroll":172,"titlePreservesFullName":true,"overflow":"ellipsis"},
+    {"profile":"landscape","state":"ranking","text":"漢笙亭茶客","client":180,"scroll":180,"titlePreservesFullName":true,"overflow":"ellipsis"},
+    {"profile":"portrait","state":"ranking","text":"漢笙亭茶客","client":77,"scroll":86,"titlePreservesFullName":true,"overflow":"ellipsis"}
+  ],
+  "limitation": "Scroll/client equality proves no element truncation, not visual identity. Long labels intentionally truncate; native title and DOM preserve the full text. Name-variant capture dimensions were checked separately."
+}

@@ -1,0 +1,244 @@
+{
+  "profile": "landscape",
+  "viewport": [
+    1672,
+    941
+  ],
+  "source": [
+    {
+      "name": "cat",
+      "runs": [
+        {
+          "type": "narrow-status",
+          "top": 312,
+          "bottom": 315,
+          "left": 409,
+          "right": 526
+        },
+        {
+          "type": "wide-name",
+          "top": 322,
+          "bottom": 361,
+          "left": 376,
+          "right": 542
+        },
+        {
+          "type": "narrow-status",
+          "top": 362,
+          "bottom": 393,
+          "left": 402,
+          "right": 515
+        }
+      ]
+    },
+    {
+      "name": "crane",
+      "runs": [
+        {
+          "type": "wide-name",
+          "top": 311,
+          "bottom": 351,
+          "left": 748,
+          "right": 922
+        },
+        {
+          "type": "narrow-status",
+          "top": 352,
+          "bottom": 382,
+          "left": 778,
+          "right": 891
+        }
+      ]
+    },
+    {
+      "name": "fox",
+      "runs": [
+        {
+          "type": "narrow-status",
+          "top": 307,
+          "bottom": 309,
+          "left": 1181,
+          "right": 1276
+        },
+        {
+          "type": "wide-name",
+          "top": 318,
+          "bottom": 356,
+          "left": 1124,
+          "right": 1295
+        },
+        {
+          "type": "narrow-status",
+          "top": 357,
+          "bottom": 388,
+          "left": 1151,
+          "right": 1264
+        }
+      ]
+    },
+    {
+      "name": "panda",
+      "runs": [
+        {
+          "type": "narrow-status",
+          "top": 515,
+          "bottom": 519,
+          "left": 126,
+          "right": 233
+        },
+        {
+          "type": "wide-name",
+          "top": 534,
+          "bottom": 574,
+          "left": 97,
+          "right": 286
+        }
+      ]
+    },
+    {
+      "name": "traveler",
+      "runs": [
+        {
+          "type": "wide-name",
+          "top": 690,
+          "bottom": 731,
+          "left": 1196,
+          "right": 1378
+        },
+        {
+          "type": "narrow-status",
+          "top": 732,
+          "bottom": 763,
+          "left": 1231,
+          "right": 1350
+        }
+      ]
+    }
+  ],
+  "capture": [
+    {
+      "name": "cat",
+      "runs": [
+        {
+          "type": "narrow-status",
+          "top": 305,
+          "bottom": 311,
+          "left": 430,
+          "right": 539
+        },
+        {
+          "type": "wide-name",
+          "top": 312,
+          "bottom": 314,
+          "left": 384,
+          "right": 539
+        },
+        {
+          "type": "narrow-status",
+          "top": 315,
+          "bottom": 317,
+          "left": 434,
+          "right": 540
+        },
+        {
+          "type": "wide-name",
+          "top": 324,
+          "bottom": 364,
+          "left": 373,
+          "right": 543
+        },
+        {
+          "type": "narrow-status",
+          "top": 370,
+          "bottom": 395,
+          "left": 402,
+          "right": 513
+        }
+      ]
+    },
+    {
+      "name": "crane",
+      "runs": [
+        {
+          "type": "wide-name",
+          "top": 311,
+          "bottom": 351,
+          "left": 751,
+          "right": 920
+        },
+        {
+          "type": "narrow-status",
+          "top": 358,
+          "bottom": 382,
+          "left": 781,
+          "right": 890
+        }
+      ]
+    },
+    {
+      "name": "fox",
+      "runs": [
+        {
+          "type": "wide-name",
+          "top": 318,
+          "bottom": 359,
+          "left": 1122,
+          "right": 1295
+        },
+        {
+          "type": "narrow-status",
+          "top": 364,
+          "bottom": 389,
+          "left": 1152,
+          "right": 1261
+        }
+      ]
+    },
+    {
+      "name": "panda",
+      "runs": [
+        {
+          "type": "wide-name",
+          "top": 529,
+          "bottom": 573,
+          "left": 99,
+          "right": 288
+        }
+      ]
+    },
+    {
+      "name": "traveler",
+      "runs": [
+        {
+          "type": "narrow-status",
+          "top": 688,
+          "bottom": 696,
+          "left": 1207,
+          "right": 1360
+        },
+        {
+          "type": "wide-name",
+          "top": 697,
+          "bottom": 723,
+          "left": 1197,
+          "right": 1392
+        },
+        {
+          "type": "narrow-status",
+          "top": 724,
+          "bottom": 730,
+          "left": 1209,
+          "right": 1355
+        },
+        {
+          "type": "narrow-status",
+          "top": 736,
+          "bottom": 761,
+          "left": 1227,
+          "right": 1337
+        }
+      ]
+    }
+  ],
+  "limitation": "Green-band threshold diagnostic; irregular gold caps/text excluded."
+}

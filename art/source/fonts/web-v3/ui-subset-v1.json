@@ -1,0 +1,13 @@
+{
+  "source": "art\\source\\fonts\\web-v3\\LXGWWenKai-Medium.ttf",
+  "sourceSha256": "F4B8A34D1F838FE411540CB7C97B1C384AC9738A876C4104500BC42508B2312A",
+  "runtime": "art\\runtime\\fonts\\WebV3UI-WenKai-Medium-v1.woff2",
+  "runtimeSha256": "DFCBCA7D92004B07EB2EDBBB3B4EFF6E53E44AA84CB35140D17B0151A729827D",
+  "bytes": 1672512,
+  "glyphs": 7544,
+  "charset": "art\\source\\fonts\\web-v3\\ui-charset-v1.txt",
+  "charsetSha256": "7FBE31A8C0DEA13441FA1EA607A22F64C7489BDB54AFF8B40721E3C013F354C5",
+  "recipe": "GB2312 + all current src .ts/.tsx characters + ASCII/punctuation; all layout/name/license features retained",
+  "fallbackCodepoints": [],
+  "limitation": "Not a universal nickname font. Unsupported glyphs use existing Noto fallback; no user text enters build artifacts."
+}

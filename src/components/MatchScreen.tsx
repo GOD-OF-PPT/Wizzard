@@ -605,6 +605,7 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
       {publicState.phase === "round-score" ? (
         <WebResults
           isMatchEnd={false}
+          isFinalRound={publicState.roundIndex + 1 >= publicState.roundHandCounts.length}
           onContinue={controller.advance}
           onExit={onExit}
           onRestart={controller.restart}

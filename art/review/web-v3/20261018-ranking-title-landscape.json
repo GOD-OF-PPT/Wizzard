@@ -1,0 +1,40 @@
+{
+  "viewport": [
+    1672,
+    941
+  ],
+  "region": [
+    640,
+    80,
+    400,
+    75
+  ],
+  "threshold": "all RGB channels <90, >=3 ink pixels per row",
+  "source": {
+    "path": "art/mockups/web-v3/07-ranking.png",
+    "runs": [
+      {
+        "top": 88,
+        "bottom": 148,
+        "left": 675,
+        "right": 1001,
+        "pixels": 6833
+      }
+    ],
+    "inkPixels": 6833
+  },
+  "capture": {
+    "path": "art/review/web-v3/07-ranking-ink-landscape-20261018.jpg",
+    "runs": [
+      {
+        "top": 87,
+        "bottom": 148,
+        "left": 674,
+        "right": 998,
+        "pixels": 7893
+      }
+    ],
+    "inkPixels": 7893
+  },
+  "limitation": "Bounding ink and row rhythm only; not a font identity, legibility or full visual pass."
+}

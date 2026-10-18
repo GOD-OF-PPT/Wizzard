@@ -37,7 +37,7 @@ for (const profile of ["landscape", "portrait"]) {
     const source = `art/mockups/web-v3/${profile === "portrait" ? "portrait/" : ""}${sourceName}`;
     const prefix = `${folder}/audit-${number}-${state}-${profile}-${date}`;
     const ruleKey = { rules:"quick", "rules-trump":"trump", "rules-play":"play", "rules-scoring":"scoring", settings:"settings" }[state];
-    const capture = number === "08" ? `${folder}/08-${ruleKey}-${profile}-wenkai-final-${date}.jpg` : Number(number) < 12 ? `${prefix}.jpg` : `${folder}/${number}-${state}-${profile}${number === "12" || number === "13" ? "-live" : ""}-${date}.jpg`;
+    const capture = number === "08" ? `${folder}/08-${ruleKey}-${profile}-wenkai-final-${date}.jpg` : ["04","06","07"].includes(number) ? `${folder}/${number}-${state}-ink-${profile}-${date}.jpg` : Number(number) < 12 ? `${prefix}.jpg` : `${folder}/${number}-${state}-${profile}${number === "12" || number === "13" ? "-live" : ""}-${date}.jpg`;
     const result = spawnSync(process.execPath, ["tools/compare-web-design.mjs", source, capture, prefix, sharpPath, String(width), String(height), (profile === "landscape" ? wideFocus : tallFocus).join(",")], { encoding: "utf8" });
     if (result.status !== 0) throw new Error(`${prefix}: ${result.stderr}`);
     reports.push({ number, state, profile, prefix, ...JSON.parse(result.stdout) });

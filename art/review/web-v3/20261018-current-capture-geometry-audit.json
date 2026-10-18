@@ -92,7 +92,7 @@
     },
     {
       "metric": "art\\review\\web-v3\\audit-04-lobby-landscape-20261018-metrics.json",
-      "capture": "art/review/web-v3/audit-04-lobby-landscape-20261018.jpg",
+      "capture": "art/review/web-v3/04-lobby-ink-landscape-20261018.jpg",
       "originalSize": [
         1672,
         941
@@ -106,7 +106,7 @@
     },
     {
       "metric": "art\\review\\web-v3\\audit-04-lobby-portrait-20261018-metrics.json",
-      "capture": "art/review/web-v3/audit-04-lobby-portrait-20261018.jpg",
+      "capture": "art/review/web-v3/04-lobby-ink-portrait-20261018.jpg",
       "originalSize": [
         390,
         694
@@ -120,7 +120,7 @@
     },
     {
       "metric": "art\\review\\web-v3\\audit-04-lobby-ready-landscape-20261018-metrics.json",
-      "capture": "art/review/web-v3/audit-04-lobby-ready-landscape-20261018.jpg",
+      "capture": "art/review/web-v3/04-lobby-ready-ink-landscape-20261018.jpg",
       "originalSize": [
         1672,
         941
@@ -134,7 +134,7 @@
     },
     {
       "metric": "art\\review\\web-v3\\audit-04-lobby-ready-portrait-20261018-metrics.json",
-      "capture": "art/review/web-v3/audit-04-lobby-ready-portrait-20261018.jpg",
+      "capture": "art/review/web-v3/04-lobby-ready-ink-portrait-20261018.jpg",
       "originalSize": [
         390,
         694
@@ -176,7 +176,7 @@
     },
     {
       "metric": "art\\review\\web-v3\\audit-06-results-landscape-20261018-metrics.json",
-      "capture": "art/review/web-v3/audit-06-results-landscape-20261018.jpg",
+      "capture": "art/review/web-v3/06-results-ink-landscape-20261018.jpg",
       "originalSize": [
         1672,
         941
@@ -190,7 +190,7 @@
     },
     {
       "metric": "art\\review\\web-v3\\audit-06-results-portrait-20261018-metrics.json",
-      "capture": "art/review/web-v3/audit-06-results-portrait-20261018.jpg",
+      "capture": "art/review/web-v3/06-results-ink-portrait-20261018.jpg",
       "originalSize": [
         390,
         694
@@ -204,7 +204,7 @@
     },
     {
       "metric": "art\\review\\web-v3\\audit-07-ranking-landscape-20261018-metrics.json",
-      "capture": "art/review/web-v3/audit-07-ranking-landscape-20261018.jpg",
+      "capture": "art/review/web-v3/07-ranking-ink-landscape-20261018.jpg",
       "originalSize": [
         1672,
         941
@@ -218,7 +218,7 @@
     },
     {
       "metric": "art\\review\\web-v3\\audit-07-ranking-portrait-20261018-metrics.json",
-      "capture": "art/review/web-v3/audit-07-ranking-portrait-20261018.jpg",
+      "capture": "art/review/web-v3/07-ranking-ink-portrait-20261018.jpg",
       "originalSize": [
         390,
         694

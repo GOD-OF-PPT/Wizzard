@@ -1,0 +1,15 @@
+{
+  "source":"Current Chrome DEV full-seat geometry samples after final plaque/font changes; not real-room command validation",
+  "cases":[
+    {"profile":"landscape","seats":3,"rendered":3,"outside":0,"controlIntersections":0,"lowestSeatBottom":765.3375},
+    {"profile":"landscape","seats":4,"rendered":4,"outside":0,"controlIntersections":0,"lowestSeatBottom":765.3375},
+    {"profile":"landscape","seats":5,"rendered":5,"outside":0,"controlIntersections":0,"lowestSeatBottom":765.3375},
+    {"profile":"landscape","seats":6,"rendered":6,"outside":0,"controlIntersections":0,"lowestSeatBottom":765.3375},
+    {"profile":"portrait","seats":3,"rendered":3,"outside":0,"controlIntersections":0,"lowestSeatBottom":437.35},
+    {"profile":"portrait","seats":4,"rendered":4,"outside":0,"controlIntersections":0,"lowestSeatBottom":437.35},
+    {"profile":"portrait","seats":5,"rendered":5,"outside":0,"controlIntersections":0,"lowestSeatBottom":437.35},
+    {"profile":"portrait","seats":6,"rendered":6,"outside":0,"controlIntersections":0,"lowestSeatBottom":492.8375}
+  ],
+  "controlRegions":["ready","start","AI management"],
+  "limitation":"Rectangular layout checks only. Frame artwork, optical alignment and input handling require their separate comparisons/real-flow evidence."
+}

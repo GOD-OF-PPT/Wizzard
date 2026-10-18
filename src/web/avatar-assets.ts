@@ -37,6 +37,13 @@ export function webLobbyAvatar(key: string): string {
   return key === "masked-traveler" ? lobbyTraveler : webAvatar(key);
 }
 
+// The round/results masters use the same small-eyed, half-body cat/crane/fox/
+// panda portraits as the lobby. Keep their framing instead of ranking-closeups;
+// the human traveler and sleepy cat retain their separate authored identities.
+export function webResultsAvatar(key: string): string {
+  return key === "masked-traveler" || key === "sleepy-star-cat" ? webAvatar(key) : webLobbyAvatar(key);
+}
+
 export function webGameplayAvatar(key: string): string {
   return key === "masked-traveler" ? gameplayTraveler : webAvatar(key);
 }

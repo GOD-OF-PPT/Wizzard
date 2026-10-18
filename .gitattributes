@@ -8,3 +8,6 @@
 art/source/fonts/web-v3/OFL-LXGW-WenKai.txt -text whitespace=-blank-at-eol,cr-at-eol
 art/source/fonts/web-v3/OFL-LXGW-ZhenKai.txt -text whitespace=-blank-at-eol,cr-at-eol
 public/licenses/LXGW-WenKai-OFL.txt -text whitespace=-blank-at-eol,cr-at-eol
+
+# Canonical glyph input is pinned byte-for-byte by ui-subset-v1.json.
+art/source/fonts/web-v3/ui-charset-v1.txt -text whitespace=cr-at-eol

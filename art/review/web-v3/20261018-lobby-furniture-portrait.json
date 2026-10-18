@@ -1,0 +1,195 @@
+{
+  "profile": "portrait",
+  "viewport": [
+    390,
+    694
+  ],
+  "source": [
+    {
+      "name": "cat",
+      "runs": [
+        {
+          "type": "wide-name",
+          "top": 269,
+          "bottom": 288,
+          "left": 34,
+          "right": 115
+        },
+        {
+          "type": "narrow-status",
+          "top": 289,
+          "bottom": 304,
+          "left": 48,
+          "right": 102
+        }
+      ]
+    },
+    {
+      "name": "crane",
+      "runs": [
+        {
+          "type": "wide-name",
+          "top": 222,
+          "bottom": 241,
+          "left": 153,
+          "right": 235
+        },
+        {
+          "type": "narrow-status",
+          "top": 242,
+          "bottom": 255,
+          "left": 166,
+          "right": 221
+        }
+      ]
+    },
+    {
+      "name": "fox",
+      "runs": [
+        {
+          "type": "wide-name",
+          "top": 270,
+          "bottom": 289,
+          "left": 274,
+          "right": 358
+        },
+        {
+          "type": "narrow-status",
+          "top": 290,
+          "bottom": 304,
+          "left": 287,
+          "right": 343
+        }
+      ]
+    },
+    {
+      "name": "panda",
+      "runs": [
+        {
+          "type": "wide-name",
+          "top": 402,
+          "bottom": 420,
+          "left": 30,
+          "right": 108
+        }
+      ]
+    },
+    {
+      "name": "traveler",
+      "runs": [
+        {
+          "type": "wide-name",
+          "top": 401,
+          "bottom": 420,
+          "left": 279,
+          "right": 360
+        },
+        {
+          "type": "narrow-status",
+          "top": 421,
+          "bottom": 435,
+          "left": 294,
+          "right": 347
+        }
+      ]
+    }
+  ],
+  "capture": [
+    {
+      "name": "cat",
+      "runs": [
+        {
+          "type": "narrow-status",
+          "top": 261,
+          "bottom": 263,
+          "left": 103,
+          "right": 120
+        },
+        {
+          "type": "wide-name",
+          "top": 270,
+          "bottom": 288,
+          "left": 35,
+          "right": 119
+        },
+        {
+          "type": "narrow-status",
+          "top": 292,
+          "bottom": 302,
+          "left": 49,
+          "right": 102
+        }
+      ]
+    },
+    {
+      "name": "crane",
+      "runs": [
+        {
+          "type": "wide-name",
+          "top": 222,
+          "bottom": 241,
+          "left": 154,
+          "right": 234
+        },
+        {
+          "type": "narrow-status",
+          "top": 244,
+          "bottom": 255,
+          "left": 168,
+          "right": 222
+        }
+      ]
+    },
+    {
+      "name": "fox",
+      "runs": [
+        {
+          "type": "wide-name",
+          "top": 270,
+          "bottom": 288,
+          "left": 275,
+          "right": 359
+        },
+        {
+          "type": "narrow-status",
+          "top": 292,
+          "bottom": 302,
+          "left": 289,
+          "right": 342
+        }
+      ]
+    },
+    {
+      "name": "panda",
+      "runs": [
+        {
+          "type": "wide-name",
+          "top": 401,
+          "bottom": 420,
+          "left": 32,
+          "right": 113
+        }
+      ]
+    },
+    {
+      "name": "traveler",
+      "runs": [
+        {
+          "type": "wide-name",
+          "top": 401,
+          "bottom": 420,
+          "left": 278,
+          "right": 361
+        },
+        {
+          "type": "narrow-status",
+          "top": 424,
+          "bottom": 434,
+          "left": 291,
+          "right": 344
+        }
+      ]
+    }
+  ],
+  "limitation": "Green-band threshold diagnostic; irregular gold caps/text excluded."
+}

@@ -1,0 +1,22 @@
+{
+  "base": "art/runtime/web-v3/ranking.png",
+  "baseSha256": "22c626380aa9a877d6522eea43aca05a160d33291ef92dd783c7d4392e7f4f09",
+  "generated": "art/source/web-v3/ranking-empty-avatars-landscape-v1.png",
+  "generatedSha256": "6aa4582f0ebce9ba02ea2779680fd2d722ec9d7aca9183d0ebdb44aefbad92a6",
+  "output": "art/runtime/web-v3/ranking-clean-v3.png",
+  "outputSha256": "10bff9ed112110e584acbf3a7e72169b82629872e44bf1d41f9e329693b1d679",
+  "size": [
+    1672,
+    941
+  ],
+  "regions": [
+    {
+      "left": 625,
+      "top": 282,
+      "width": 92,
+      "height": 462
+    }
+  ],
+  "changedOutside": 0,
+  "limitation": "Local composition only; inspect texture/line seams in Chrome."
+}

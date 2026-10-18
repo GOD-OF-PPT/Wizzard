@@ -4,7 +4,11 @@
 
 ## 当前有效
 
-- `audit-20261018-index.html`：当前21页/状态的42组横竖source/Chrome全景、聚焦和尺寸记录，新增大厅可开始、规则其余三章及设置。04使用语义一致的waiting/ready-v2，08使用字体加载后的wenkai-final。05竖屏改用独立安全区v2设计，14竖屏采用safe-v3；旧稿自己覆盖最后手牌，不继续把该缺陷当保真要求。图像数量不等于通过。
+- 大厅等待/可开始及结算/总榜现在使用`04-lobby[-ready]-ink-*`、`06-results-ink-*`、`07-ranking-ink-*`；42组audit入口已更新。旧audit原始JPG仍保留，但其路径不再是这些页当前像素输入。最新PNG全景/聚焦和metrics才对应现代码。
+- `20261018-lobby-ink-layout.json`为新名牌3–6席双画幅8组；`20261018-results-resilience.json`为3–6人结算/总榜双画幅16组，长昵称/生僻字另存图片。`20261018-ranking-clean-patch.json`绑定原始/生成/最终图哈希，确认头像清理竖条外变更0。
+- `20261018-practice-flow.json`与`06-results-round8-practice-*`、`07-ranking-{current,final}-practice-*`为真实无fast/fixture参数练习，观察8轮、并列、负分、再开和回首页。部分真人超时托管，且仍为硬编码种子1；这些图不是与稿件同内容的像素对照，亦早于最后标题/头像尺寸修正。
+
+- `audit-20261018-index.html`：当前21页/状态的42组横竖source/Chrome全景、聚焦和尺寸记录。04使用语义一致的waiting/ready-v2，04/06/07为最新ink图，08为字体加载后的wenkai-final。05竖屏改用独立安全区v2设计，14竖屏采用safe-v3；旧稿自己覆盖最后手牌，不继续把该缺陷当保真要求。图像数量不等于通过。
 - `20261018-current-capture-geometry-audit.json`：42组均为正确完整画幅，无错误裁图或读图失败。该审计不是视觉自动通过。
 - `20261018-rule-ink-calibration.json`与`20261018-lobby-rules-geometry.json`：指定字块暗字边界及Chrome正文/步骤/页脚安全区；当前规则标题/正文/步骤采用61KB WenKai字集，不把字块对齐扩展为字形AE=0。
 - `04-lobby-{readiness,full-ready}-{landscape,portrait}-network-20261018.jpg`：本批次真实六席房498262，双真人准备/取消、AI增减、禁用原因、满席可开始。双方确认离开后停止临时代理。它们早于最后大厅头像替换，不能代表新头像最终像素。

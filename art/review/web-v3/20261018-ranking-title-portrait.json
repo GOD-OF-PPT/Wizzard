@@ -1,0 +1,40 @@
+{
+  "viewport": [
+    390,
+    694
+  ],
+  "region": [
+    128,
+    120,
+    142,
+    31
+  ],
+  "threshold": "all RGB channels <90, >=3 ink pixels per row",
+  "source": {
+    "path": "art/mockups/web-v3/portrait/07-ranking.png",
+    "runs": [
+      {
+        "top": 125,
+        "bottom": 149,
+        "left": 137,
+        "right": 257,
+        "pixels": 964
+      }
+    ],
+    "inkPixels": 964
+  },
+  "capture": {
+    "path": "art/review/web-v3/07-ranking-ink-portrait-20261018.jpg",
+    "runs": [
+      {
+        "top": 124,
+        "bottom": 148,
+        "left": 133,
+        "right": 257,
+        "pixels": 1147
+      }
+    ],
+    "inkPixels": 1147
+  },
+  "limitation": "Bounding ink and row rhythm only; not a font identity, legibility or full visual pass."
+}

@@ -79,20 +79,31 @@ export default function DesignReview({ state }: { state: string }) {
     [data-review-typeface="${typeface}"] .v3-rules-body h3,
     [data-review-typeface="${typeface}"] .v3-rules-body p,
     [data-review-typeface="${typeface}"] .v3-rules-body li,
-    [data-review-typeface="${typeface}"] .v3-results-row,
-    [data-review-typeface="${typeface}"] .v3-results-player,
+    [data-review-typeface="${typeface}"] .v3-results-player > span,
     [data-review-typeface="${typeface}"] .v3-results-title,
+    [data-review-typeface="${typeface}"] .v3-ranking-subtitle,
+    [data-review-typeface="${typeface}"] .v3-results-note,
     [data-review-typeface="${typeface}"] .v3-results-primary,
-    [data-review-typeface="${typeface}"] .v3-results-secondary { font-family:${proofFamily},serif; font-weight:700; font-synthesis:weight; }
+    [data-review-typeface="${typeface}"] .v3-results-secondary,
+    [data-review-typeface="${typeface}"] .v3-lobby-title,
+    [data-review-typeface="${typeface}"] .v3-lobby-seat,
+    [data-review-typeface="${typeface}"] .v3-lobby-connection,
+    [data-review-typeface="${typeface}"] .v3-lobby-status,
+    [data-review-typeface="${typeface}"] .v3-lobby-status button,
+    [data-review-typeface="${typeface}"] .v3-lobby-ready,
+    [data-review-typeface="${typeface}"] .v3-lobby-start { font-family:${proofFamily},serif; font-weight:700; font-synthesis:weight; }
     ${typeface === "wenkai" && params.get("weight") === "500" ? '[data-review-typeface="wenkai"] .v3-rules-body p,[data-review-typeface="wenkai"] .v3-rules-body li {font-weight:500;font-synthesis:none;}' : ''}
+    ${typeface === "wenkai" && params.get("weight") === "500" ? '[data-review-typeface="wenkai"] .v3-lobby-seat strong,[data-review-typeface="wenkai"] .v3-lobby-seat-state {font-weight:500;font-synthesis:none;}' : ''}
   `}</style>;
   if (state === "reconnecting" || state === "session-ended") return <main className="game-prototype" data-reduced-motion="true" data-room-recovery="true" data-review-typeface={typeface} aria-label="设计验收样例，不连接房间服务">{typographyProof}
     <div className="screen-layer" inert aria-hidden="true"><MatchScreen controller={{ ...reviewMatchController("trick-play"), connection: "reconnecting" }} showLegalHints={false} onExit={ignore} /></div>
     <RecoveryDialog terminal={state === "session-ended"} onRetry={ignore} onHome={ignore} />
   </main>;
-  const players: MatchPlayerState[] = scoreRows.map(([bid, tricksWon, roundScore, totalScore], index) => ({
+  const requestedPlayers = Number(params.get("players") ?? "6");
+  const playerCount = Number.isInteger(requestedPlayers) ? Math.min(6, Math.max(3, requestedPlayers)) : 6;
+  const players: MatchPlayerState[] = scoreRows.slice(0, playerCount).map(([bid, tricksWon, roundScore, totalScore], index) => ({
     bid, tricksWon, roundScore, totalScore: state === "ranking" ? [180,150,120,100,80,60][index] : totalScore,
-    id: `design-${index}`, name: names[index], avatarKey: avatars[index], isHuman: index < 5, seatIndex: index,
+    id: `design-${index}`, name: index === 0 && params.get("label") === "long" ? "竹下听雨的第十二位茶客" : index === 0 && params.get("label") === "rare" ? "漢笙亭茶客" : names[index], avatarKey: avatars[index], isHuman: index < 5, seatIndex: index,
   }));
   if (["gameplay", "bid", "chooser"].includes(state)) return <main className="game-prototype" data-reduced-motion="true" data-review-typeface={typeface} aria-label="设计验收样例，不连接房间服务">{typographyProof}
     <MatchScreen controller={reviewMatchController(state === "bid" ? "bid" : state === "chooser" ? "trump-select" : "trick-play", handCount, params.get("timer") !== "off", trump)} showLegalHints={false} onExit={ignore} />

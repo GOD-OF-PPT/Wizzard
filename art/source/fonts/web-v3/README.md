@@ -1,6 +1,6 @@
 # Web v3 typography sources and adopted rules subset
 
-The rules content adopts LXGW WenKai Medium after same-state Chrome comparison. Other pages and the Cocos carrier retain their existing fonts. The full source fonts below are DEV comparison material, not production imports.
+The rules content adopts LXGW WenKai Medium after same-state Chrome comparison. Lobby/results/ranking Chinese labels also use the separate common-character UI subset below. Forms, gameplay and the Cocos carrier retain their existing fonts. The full source fonts below are DEV comparison material, not production imports.
 
 - Adopted source: LXGW WenKai Medium, unchanged upstream TTF.
 - Upstream: https://github.com/lxgw/LxgwWenKai
@@ -35,3 +35,15 @@ Scope: rules headings, body, step labels, and settings labels only. Body uses we
 DEV-only examples: `?design-review=rules&typeface=wenkai`, `typeface=kai`, or `typeface=zhenkai`. The full-font URLs are DEV proof fixtures, not imports. Production JS must exclude the proof selector and fixture routes; neither full TTF should be emitted into `dist/assets`. The unused first WOFF2 candidate is not consumed.
 
 Current Chrome evidence and limitations: `docs/22-web-v3-lobby-and-typography-calibration.md`; neither glyph similarity nor aligned ink bounds means the entire product has passed pixel fidelity.
+
+## Common-character UI subset
+
+`WebV3UI-WenKai-Medium-v1.woff2` is 1,672,512 bytes with 7,544 selected codepoints. SHA-256: `DFCBCA7D92004B07EB2EDBBB3B4EFF6E53E44AA84CB35140D17B0151A729827D`. It uses the same pinned TTF and unchanged shipped OFL license as the rules subset. `ui-charset-v1.txt` is the canonical saved glyph selection; `ui-subset-v1.json` records hashes and build limitations.
+
+Scope: Chinese lobby labels and results/ranking title/name/action text, not numeric columns or Latin prefixes. The `Teahouse UI` CSS face has Unicode range `U+2E80-9FFF,U+F900-FAFF`, so ASCII digits, room codes and the `AI` prefix continue to use Noto Serif. Rare names not covered by this subset also fall back. Arbitrary user nickname data is never harvested into build artifacts.
+
+`python tools/build-web-ui-font.py --version v2` builds a new version from GB2312 plus current source text; it refuses to overwrite existing evidence. Since current source may change, exact v1 reconstruction must use the saved `ui-charset-v1.txt` with the same FontTools subset options above, not rescan newer source text. New versions require an intentional CSS path update and fresh Chrome checks.
+
+The v1 canonical charset retains its original Windows line ending with `-text` so its recorded SHA stays valid on checkout; future generator versions write explicit LF. Line endings do not change the selected glyph set, but do change the input-file hash.
+
+Current comparison and live-flow evidence: `docs/23-web-v3-lobby-results-ink-calibration.md`. This change intentionally keeps Chinese optical ink separate from serif numeric columns; it is not a claim that ImageGen originally used this font.

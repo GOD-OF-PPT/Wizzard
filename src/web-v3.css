@@ -6,6 +6,14 @@
   font-weight: 500;
   font-display: swap;
 }
+@font-face {
+  font-family: "Teahouse UI";
+  src: url('../art/runtime/fonts/WebV3UI-WenKai-Medium-v1.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  unicode-range: U+2E80-9FFF, U+F900-FAFF;
+}
 .v3-entry { container-type: inline-size; }
 .v3-entry-canvas { position: relative; width: 100%; height: 100%; }
 .v3-entry-art { position: absolute; inset: 0; display: block; }
@@ -583,6 +591,44 @@
   .v3-rules-body h3 { left: 0.1cqw; top: -0.36cqw; font-size: 4.44cqw; letter-spacing: -0.15cqw; }
   .v3-rules-canvas[data-rules-chapter="0"][data-rules-tab="rules"] .v3-rules-body .v3-rule-copy { left: 0.28cqw; top: 6.31cqw; line-height: 1.42; }
   .v3-rules-canvas[data-rules-chapter="0"][data-rules-tab="rules"] .v3-rules-body ol { font-size: 1.9cqw; }
+}
+
+/* Chinese ink lettering is deliberately separate from the table's serif
+   numeric columns. Common guest-name glyphs ship locally; rare names fall back. */
+.v3-results-title, .v3-ranking-subtitle, .v3-results-note,
+.v3-results-player > span, .v3-results-primary, .v3-results-secondary,
+.v3-lobby-title, .v3-lobby-connection, .v3-lobby-seat strong,
+.v3-lobby-seat .v3-lobby-seat-state, .v3-lobby-status button,
+.v3-lobby-ready, .v3-lobby-start { font-family: "Teahouse UI", "Noto Serif SC", serif; font-synthesis: weight; }
+.v3-lobby-seat strong, .v3-lobby-seat .v3-lobby-seat-state { font-weight: 500; font-synthesis: none; }
+.v3-results-player > img { border-radius: 0; object-fit: contain; }
+.v3-results-round-number { font-family: "Noto Serif SC", serif; }
+.v3-ranking .v3-results-row.is-leading > span:first-child { color: #ffedb6; }
+.v3-lobby-seat strong { height: auto; min-height: 0; aspect-ratio: 2105 / 724; background-image: url('../art/runtime/web-v3/lobby-name-v2.png'); background-size: 100% auto; background-repeat: no-repeat; }
+.v3-lobby-seat .v3-lobby-seat-state { width: 60%; }
+@media (orientation: landscape) {
+  .v3-results-primary, .v3-results-secondary { font-size: 2.5cqw; letter-spacing: 0.15cqw; text-indent: 0.15cqw; }
+  .v3-ranking .v3-results-player { padding-left: 4.2cqw; gap: 1.95cqw; }
+  .v3-ranking .v3-results-player > img { width: 4.6cqw; height: 4.6cqw; }
+  .v3-ranking .v3-results-title { top: 7.9%; font-size: 3.85cqw; letter-spacing: 0.1cqw; text-indent: 0.1cqw; }
+  .v3-results:not(.v3-ranking) .v3-results-player { gap: 0.9cqw; }
+  .v3-results:not(.v3-ranking) .v3-results-player > img { width: 4.6cqw; height: 4.6cqw; }
+  .v3-lobby-seat strong { margin-top: -1.9cqw; font-size: 2cqw; }
+  .v3-lobby-seat .v3-lobby-seat-state { margin-top: -1.05cqw; }
+  .v3-lobby-seat-0 strong { margin-top: -2.1cqw; }
+  .v3-lobby-seat-1 strong { margin-top: -1.18cqw; }
+  .v3-lobby-seat-3 { left: 5.65%; }
+  .v3-lobby-seat-3 strong { width: 100%; margin-top: -1.15cqw; }
+}
+@media (orientation: portrait) {
+  .v3-ranking .v3-results-secondary, .v3-ranking .v3-results-primary { font-size: 5.8cqw; letter-spacing: 0.3cqw; text-indent: 0.3cqw; }
+  .v3-ranking .v3-results-title { top: 17.2%; font-size: 6.8cqw; letter-spacing: -0.35cqw; text-indent: -0.35cqw; }
+  .v3-results:not(.v3-ranking) .v3-results-player { gap: 0.8cqw; }
+  .v3-results:not(.v3-ranking) .v3-results-row { grid-template-columns: 33.25% 14.25% 16.5% 18% 18%; }
+  .v3-results:not(.v3-ranking) .v3-results-player > img { width: 10.6cqw; height: 10.6cqw; }
+  .v3-lobby-seat strong { font-size: 4.3cqw; margin-top: -8cqw; }
+  .v3-lobby-seat-1 strong { margin-top: -6.45cqw; }
+  .v3-lobby-seat .v3-lobby-seat-state { width: 68%; margin-top: -2.2cqw; }
 }
 @media (orientation: portrait) {
   .v3-rules-body h3 { position: relative; left: -0.75cqw; top: 0.25cqw; font-size: 9.7cqw; }

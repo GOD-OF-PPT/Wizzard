@@ -1,7 +1,8 @@
 // Pixel analysis only: dark text on a light authored paper region. It does not
 // modify images or auto-pass a font. Use a region without dark illustrations.
 import { createRequire } from "node:module";
-const [source, capture, modulePath = "sharp", widthArg = "1672", heightArg = "941", rectArg = "500,300,340,120"] = process.argv.slice(2);
+import { writeFile } from "node:fs/promises";
+const [source, capture, modulePath = "sharp", widthArg = "1672", heightArg = "941", rectArg = "500,300,340,120", output] = process.argv.slice(2);
 const sharp = createRequire(import.meta.url)(modulePath);
 const width = Number(widthArg), height = Number(heightArg);
 const [x,y,w,h] = rectArg.split(",").map(Number);
@@ -25,4 +26,6 @@ async function measure(path) {
   }
   return { path, runs:runs.filter(run=>run.bottom>run.top), inkPixels:rows.reduce((sum,row)=>sum+row.count,0) };
 }
-console.log(JSON.stringify({viewport:[width,height],region:[x,y,w,h],threshold:"all RGB channels <90, >=3 ink pixels per row",source:await measure(source),capture:await measure(capture),limitation:"Bounding ink and row rhythm only; not a font identity, legibility or full visual pass."},null,2));
+const result={viewport:[width,height],region:[x,y,w,h],threshold:"all RGB channels <90, >=3 ink pixels per row",source:await measure(source),capture:await measure(capture),limitation:"Bounding ink and row rhythm only; not a font identity, legibility or full visual pass."};
+if(output) await writeFile(output,JSON.stringify(result,null,2)+"\n");
+console.log(JSON.stringify(result,null,2));
