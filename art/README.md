@@ -2,7 +2,7 @@
 
 本目录是正式编码实现使用的视觉真值。所有资源均延续用户选择的第二套“奇术茶馆 / Enchanted Teahouse”方向，界面不得退回通用仪表盘、纯色占位或与本目录不一致的视觉语言。
 
-当前内部浏览器载体以 `mockups/web-v3/` 逐页设计、`web-v3-manifest.json` 和 `docs/18-web-v3-design-and-interaction.md` 为准。最新竖屏牌桌使用 `05-gameplay-safe-v2.png`、无倒计时使用 `14-gameplay-notimer-safe-v3.png`，避免原稿动作牌匾压住末张手牌。16页/状态的Chrome双画幅对照入口为 `review/web-v3/audit-20261018-index.html`；整体仍未通过，详见根目录 `design-qa.md`。以下旧 `passed` 只适用于各自历史资源或小游戏范围，不代表Web v3通过。
+当前内部浏览器载体以 `mockups/web-v3/` 逐页设计、`web-v3-manifest.json` 和 `docs/18-web-v3-design-and-interaction.md` 为准。最新竖屏牌桌使用 `05-gameplay-safe-v2.png`、无倒计时使用 `14-gameplay-notimer-safe-v3.png`，避免原稿动作牌匾压住末张手牌。大厅使用人数/准备文案一致的 `04-lobby-{waiting,ready}-v2.png` 两状态；旧稿另存，不修改服务端权限迁就旧稿。21页/状态的42组Chrome双画幅对照入口为 `review/web-v3/audit-20261018-index.html`；整体仍未通过，详见根目录 `design-qa.md`。以下旧 `passed` 只适用于各自历史资源或小游戏范围，不代表Web v3通过。
 
 ## 目录
 

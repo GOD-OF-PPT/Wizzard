@@ -1,0 +1,29 @@
+{
+  "design": "art/mockups/web-v3/08-rules.png",
+  "capture": "art/review/web-v3/08-rules-wenkai500-landscape-proof-20261018.jpg",
+  "viewport": [
+    1672,
+    941
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 500,
+    "top": 330,
+    "width": 800,
+    "height": 420
+  },
+  "meanAbsoluteChannelDifference": 11.581747335201108,
+  "originalSourceSize": [
+    1672,
+    941
+  ],
+  "originalCaptureSize": [
+    1672,
+    941
+  ],
+  "relativeCaptureAspectError": 0,
+  "fractionPixelsOver24": 0.12009454972568122,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}

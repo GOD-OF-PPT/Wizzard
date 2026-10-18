@@ -1,0 +1,193 @@
+{
+  "browser": "Chrome",
+  "comparisons": [
+    {
+      "viewport": [
+        1672,
+        941
+      ],
+      "region": [
+        500,
+        300,
+        340,
+        120
+      ],
+      "threshold": "all RGB channels <90, >=3 ink pixels per row",
+      "source": {
+        "path": "art/mockups/web-v3/08-rules.png",
+        "runs": [
+          {
+            "top": 339,
+            "bottom": 408,
+            "left": 506,
+            "right": 790,
+            "pixels": 6700
+          }
+        ],
+        "inkPixels": 6700
+      },
+      "capture": {
+        "path": "art/review/web-v3/08-quick-landscape-wenkai-final-20261018.jpg",
+        "runs": [
+          {
+            "top": 339,
+            "bottom": 408,
+            "left": 506,
+            "right": 790,
+            "pixels": 6896
+          }
+        ],
+        "inkPixels": 6896
+      },
+      "limitation": "Bounding ink and row rhythm only; not a font identity, legibility or full visual pass."
+    },
+    {
+      "viewport": [
+        1672,
+        941
+      ],
+      "region": [
+        500,
+        430,
+        800,
+        115
+      ],
+      "threshold": "all RGB channels <90, >=3 ink pixels per row",
+      "source": {
+        "path": "art/mockups/web-v3/08-rules.png",
+        "runs": [
+          {
+            "top": 444,
+            "bottom": 473,
+            "left": 509,
+            "right": 1272,
+            "pixels": 4268
+          },
+          {
+            "top": 493,
+            "bottom": 522,
+            "left": 512,
+            "right": 1047,
+            "pixels": 3169
+          }
+        ],
+        "inkPixels": 7437
+      },
+      "capture": {
+        "path": "art/review/web-v3/08-quick-landscape-wenkai-final-20261018.jpg",
+        "runs": [
+          {
+            "top": 445,
+            "bottom": 474,
+            "left": 509,
+            "right": 1273,
+            "pixels": 4521
+          },
+          {
+            "top": 493,
+            "bottom": 521,
+            "left": 511,
+            "right": 1052,
+            "pixels": 3210
+          }
+        ],
+        "inkPixels": 7731
+      },
+      "limitation": "Bounding ink and row rhythm only; not a font identity, legibility or full visual pass."
+    },
+    {
+      "viewport": [
+        390,
+        694
+      ],
+      "region": [
+        35,
+        315,
+        190,
+        50
+      ],
+      "threshold": "all RGB channels <90, >=3 ink pixels per row",
+      "source": {
+        "path": "art/mockups/web-v3/portrait/08-rules.png",
+        "runs": [
+          {
+            "top": 321,
+            "bottom": 355,
+            "left": 41,
+            "right": 189,
+            "pixels": 1731
+          }
+        ],
+        "inkPixels": 1731
+      },
+      "capture": {
+        "path": "art/review/web-v3/08-quick-portrait-wenkai-final-20261018.jpg",
+        "runs": [
+          {
+            "top": 321,
+            "bottom": 355,
+            "left": 42,
+            "right": 188,
+            "pixels": 1623
+          }
+        ],
+        "inkPixels": 1623
+      },
+      "limitation": "Bounding ink and row rhythm only; not a font identity, legibility or full visual pass."
+    },
+    {
+      "viewport": [
+        390,
+        694
+      ],
+      "region": [
+        35,
+        365,
+        320,
+        68
+      ],
+      "threshold": "all RGB channels <90, >=3 ink pixels per row",
+      "source": {
+        "path": "art/mockups/web-v3/portrait/08-rules.png",
+        "runs": [
+          {
+            "top": 377,
+            "bottom": 390,
+            "left": 42,
+            "right": 343,
+            "pixels": 847
+          },
+          {
+            "top": 402,
+            "bottom": 415,
+            "left": 42,
+            "right": 344,
+            "pixels": 906
+          }
+        ],
+        "inkPixels": 1753
+      },
+      "capture": {
+        "path": "art/review/web-v3/08-quick-portrait-wenkai-final-20261018.jpg",
+        "runs": [
+          {
+            "top": 377,
+            "bottom": 391,
+            "left": 42,
+            "right": 343,
+            "pixels": 1243
+          },
+          {
+            "top": 402,
+            "bottom": 415,
+            "left": 42,
+            "right": 345,
+            "pixels": 1158
+          }
+        ],
+        "inkPixels": 2401
+      },
+      "limitation": "Bounding ink and row rhythm only; not a font identity, legibility or full visual pass."
+    }
+  ]
+}

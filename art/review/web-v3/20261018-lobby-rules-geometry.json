@@ -1,0 +1,26 @@
+{
+  "evidence": "Read-only Chrome DOM measurement after final WenKai rules calibration. DEV geometry samples are not server validation.",
+  "viewports": { "landscape": [1672, 942], "portrait": [390, 694] },
+  "lobbyOneHuman": [
+    { "profile": "landscape", "seats": 3, "empty": 2, "overflow": 0, "addEnabled": false, "lowestSeatBottom": 762.9875, "managementTop": 760.8625, "startTop": 790.9625 },
+    { "profile": "landscape", "seats": 4, "empty": 3, "overflow": 0, "addEnabled": false, "lowestSeatBottom": 762.9875, "managementTop": 760.8625, "startTop": 790.9625 },
+    { "profile": "landscape", "seats": 5, "empty": 4, "overflow": 0, "addEnabled": false, "lowestSeatBottom": 762.9875, "managementTop": 760.8625, "startTop": 790.9625 },
+    { "profile": "landscape", "seats": 6, "empty": 5, "overflow": 0, "addEnabled": false, "lowestSeatBottom": 762.9875, "managementTop": 760.8625, "startTop": 790.9625 },
+    { "profile": "portrait", "seats": 3, "empty": 2, "overflow": 0, "addEnabled": false, "lowestSeatBottom": 431.9625, "managementTop": 520.25, "startTop": 601.4125 },
+    { "profile": "portrait", "seats": 4, "empty": 3, "overflow": 0, "addEnabled": false, "lowestSeatBottom": 431.9625, "managementTop": 520.25, "startTop": 601.4125 },
+    { "profile": "portrait", "seats": 5, "empty": 4, "overflow": 0, "addEnabled": false, "lowestSeatBottom": 431.9625, "managementTop": 520.25, "startTop": 601.4125 },
+    { "profile": "portrait", "seats": 6, "empty": 5, "overflow": 0, "addEnabled": false, "lowestSeatBottom": 487.45, "managementTop": 520.25, "startTop": 601.4125 }
+  ],
+  "rules": [
+    { "profile": "landscape", "state": "quick", "client": 433, "scroll": 433, "paragraphBottom": 530.575, "stepsTop": 570.8875, "stepsBottom": 720.175, "footerTop": 790.9625 },
+    { "profile": "landscape", "state": "trump", "client": 433, "scroll": 433, "paragraphBottom": 519.8125, "stepsTop": 570.8875, "stepsBottom": 714.5, "footerTop": 790.9625 },
+    { "profile": "landscape", "state": "play", "client": 433, "scroll": 433, "paragraphBottom": 519.8125, "stepsTop": 570.8875, "stepsBottom": 714.5, "footerTop": 790.9625 },
+    { "profile": "landscape", "state": "scoring", "client": 433, "scroll": 433, "paragraphBottom": 561.575, "stepsTop": 582.5875, "stepsBottom": 754.6125, "footerTop": 790.9625 },
+    { "profile": "landscape", "state": "settings", "client": 433, "scroll": 433, "paragraphBottom": 462.3, "stepsBottom": null, "footerTop": 790.9625, "note": "Recaptured with setting labels and explanatory p using the loaded final font." },
+    { "profile": "portrait", "state": "quick", "client": 286, "scroll": 286, "paragraphBottom": 421.2375, "stepsTop": 435.525, "stepsBottom": 601.4375, "footerTop": 613.9 },
+    { "profile": "portrait", "state": "trump", "client": 286, "scroll": 286, "paragraphBottom": 431.1375, "stepsTop": 435.525, "stepsBottom": 601.4375, "footerTop": 613.9 },
+    { "profile": "portrait", "state": "play", "client": 286, "scroll": 286, "paragraphBottom": 428.0625, "stepsTop": 435.525, "stepsBottom": 601.4375, "footerTop": 613.9 },
+    { "profile": "portrait", "state": "scoring", "client": 289, "scroll": 289, "paragraphBottom": 428.0625, "stepsTop": 446.0625, "stepsBottom": 608.075, "footerTop": 613.9 },
+    { "profile": "portrait", "state": "settings", "client": 286, "scroll": 286, "paragraphBottom": 399.225, "stepsBottom": null, "footerTop": 613.9, "note": "Recaptured with final font loaded." }
+  ]
+}

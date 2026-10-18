@@ -1,4 +1,11 @@
 /* Measured against immutable 1672 × 941 ImageGen page masters in web-v3. */
+@font-face {
+  font-family: "Teahouse Rules";
+  src: url('../art/runtime/fonts/WebV3Rules-WenKai-Medium-v2.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
 .v3-entry { container-type: inline-size; }
 .v3-entry-canvas { position: relative; width: 100%; height: 100%; }
 .v3-entry-art { position: absolute; inset: 0; display: block; }
@@ -47,7 +54,8 @@
 .v3-lobby-title { position: absolute; left: 38%; top: 4.2%; width: 24%; text-align: center; color: #392210; font-family: "Noto Serif SC",serif; }
 .v3-lobby-title h1 { margin: 0; font-size: 2.45cqw; line-height: 1.1; }
 .v3-lobby-title p { margin: 0.2em 0 0; font-size: 1.8cqw; line-height: 1.2; font-weight: 700; }
-.v3-lobby-connection { position: absolute; right: 2%; top: 2.7%; width: 10%; margin: 0; color: #a5d783; text-align: center; font: 700 1.65cqw "Noto Serif SC", serif; }
+.v3-lobby-connection { position: absolute; right: 2%; top: 2.7%; width: 10%; margin: 0; color: #a5d783; text-align: center; font: 700 1.65cqw "Noto Serif SC", serif; display: flex; align-items: center; justify-content: center; gap: 0.8cqw; }
+.v3-lobby-connection > img { width: 1.9cqw; height: 1.7cqw; object-fit: contain; }
 .v3-lobby-back { left: 2%; top: 2.3%; width: 12%; height: 6.2%; }
 .v3-lobby-seat { position: absolute; width: 12%; display: flex; flex-direction: column; align-items: center; text-align: center; font-family: "Noto Serif SC",serif; }
 .v3-lobby-seat-0 { left: 21.4%; top: 19%; }
@@ -56,7 +64,7 @@
 .v3-lobby-seat-3 { left: 5.2%; top: 39%; }
 .v3-lobby-seat-4 { right: 4.8%; top: 38%; }
 .v3-lobby-seat-5 { left: 70.7%; top: 57.5%; }
-.v3-lobby-avatar { width: 88%; aspect-ratio: 1; border-radius: 50%; object-fit: cover; }
+.v3-lobby-avatar { width: 88%; aspect-ratio: 1; border-radius: 0; object-fit: contain; }
 .v3-lobby-portrait { position: relative; width: 88%; aspect-ratio: 1; }
 .v3-lobby-portrait .v3-lobby-avatar { width: 100%; }
 .v3-lobby-check { position: absolute; right: -3%; bottom: 6%; width: 28%; height: auto; z-index: 2; }
@@ -64,12 +72,21 @@
 .v3-lobby-seat .v3-lobby-seat-state { width: 68%; height: 2.4cqw; display: grid; place-items: center; font-size: 1.2cqw; padding: 0; color: #c6ee86; background: url('../art/runtime/web-v3/lobby-ready-v2.png') center/100% 100% no-repeat; }
 .v3-lobby-seat .v3-lobby-seat-state.is-waiting { background-image: url('../art/runtime/web-v3/lobby-waiting-v1.png'); color: #ffe8a2; }
 .v3-lobby-seat.is-empty { padding-top: 0; }
-.v3-lobby-seat.is-empty strong { background-image: url('../art/runtime/ui/score-button-paper.png'); color: #392210; }
-.v3-lobby-invite { left: 41.5%; top: 49%; width: 17%; height: 9.5%; color: #392210; font: 700 2.1cqw "Noto Serif SC",serif; }
+.v3-lobby-empty-art { width: 116%; height: auto; max-width: none; }
+.v3-lobby-seat-4.is-empty { right: 5.8%; }
+.v3-lobby-invite { left: 39.3%; top: 48.2%; width: 21%; height: 11.8%; }
+.v3-lobby-invite > img { display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
 .v3-lobby-status { position: absolute; left: 4.2%; top: 80.8%; width: 25.5%; font-family: "Noto Serif SC",serif; }
-.v3-lobby-status p { margin: 0 0 1.25cqw; text-align: center; font-size: 1.65cqw; }
+.v3-lobby-status p { margin: 0 0 1.25cqw; display: flex; align-items: center; justify-content: center; gap: 0.5cqw; white-space: nowrap; font-size: 1.8cqw; line-height: 1.2; font-weight: 700; }
+.v3-lobby-status p > img { width: 2.8cqw; height: 2.5cqw; object-fit: contain; }
+.v3-lobby-ready-count { color: #65ba56; }
 .v3-lobby-status > div { display: flex; gap: 4%; }
-.v3-lobby-status button { width: 48%; height: 3cqw; padding: 0; border: 0; color: #ffe4a5; background: transparent; cursor: pointer; font: 700 1.4cqw "Noto Serif SC",serif; }
+.v3-lobby-status button { position: relative; width: 48%; height: 3.15cqw; padding: 0; border: 0; color: #ffe4a5; background: transparent; cursor: pointer; font: 700 1.4cqw "Noto Serif SC",serif; }
+.v3-lobby-status button > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+.v3-lobby-status button > .v3-lobby-ai-frame { display: none; }
+.v3-lobby-status button > .v3-lobby-ai-icon { left: 9%; top: 16%; width: 18%; height: 68%; }
+.v3-lobby-status button:last-child > .v3-lobby-ai-icon { left: 9.5%; top: 22%; width: 14.5%; height: 56%; }
+.v3-lobby-status button > span { position: absolute; left: 29%; right: 4%; top: 0; bottom: 0; display: grid; place-items: center; white-space: nowrap; }
 .v3-lobby-ready { left: 63%; top: 86%; width: 13%; height: 8.6%; color: #392210; font: 700 2cqw "Noto Serif SC",serif; }
 .v3-lobby-start { left: 78%; top: 84%; width: 19%; height: 10.5%; color: #f9e9b5; font: 700 2.7cqw "Noto Serif SC",serif; }
 .v3-lobby button:disabled { cursor: not-allowed; color: #aa9e86; }
@@ -297,13 +314,14 @@
   .v3-lobby-title { left: 30.8%; top: 6.1%; width: 38.3%; }
   .v3-lobby-title h1 { font-size: 4.2cqw; }
   .v3-lobby-title p { font-size: 3.9cqw; margin-top: 0.4em; }
-  .v3-lobby-connection { top: 15%; right: 30%; width: 40%; font-size: 3.5cqw; }
+  .v3-lobby-connection { left: -10000px; right: auto; top: auto; width: 1px; height: 1px; overflow: hidden; }
   .v3-lobby-seat { width: 23%; }
   .v3-lobby-seat-0 { left: 8%; top: 29%; }
   .v3-lobby-seat-1 { left: 38.5%; top: 21.3%; }
   .v3-lobby-seat-2 { right: auto; left: 69.5%; top: 29%; }
   .v3-lobby-seat-3 { left: 7%; top: 48%; }
   .v3-lobby-seat-4 { right: auto; left: 38.5%; top: 56%; }
+  .v3-lobby-seat-4.is-empty { right: auto; }
   .v3-lobby-seat-5 { left: 70%; top: 48%; }
   .v3-lobby-avatar { width: 85%; }
   .v3-lobby-portrait { width: 100%; }
@@ -311,10 +329,13 @@
   .v3-lobby-seat strong { display: grid; place-items: center; font-size: 4cqw; line-height: 1.2; min-height: 0; height: 6cqw; padding: 0 1.5cqw; margin-top: -7.8cqw; z-index: 1; }
   .v3-lobby-seat span { font-size: 3.3cqw; padding: 0.12em 0.5em; }
   .v3-lobby-seat .v3-lobby-seat-state { height: 4.8cqw; font-size: 3.3cqw; }
-  .v3-lobby-invite { left: 31%; top: 43.3%; width: 38%; height: 7%; min-height: 44px; font-size: 4.8cqw; background: url('../art/runtime/ui/score-button-paper.png') center/100% 100% no-repeat; }
+  .v3-lobby-invite { left: 31%; top: 43.3%; width: 38%; height: 7%; min-height: 44px; }
   .v3-lobby-status { left: 24%; top: 75%; width: 52%; }
-  .v3-lobby-status p { font-size: 3.6cqw; margin-bottom: 0.8cqw; }
-  .v3-lobby-status button { font-size: 3.1cqw; height: 7cqw; min-height: 32px; background: url('../art/runtime/ui/secondary-panel.png') center/100% 100% no-repeat; }
+  .v3-lobby-status p { font-size: 3.6cqw; margin-bottom: 1.5cqw; gap: 1cqw; }
+  .v3-lobby-status p > img { width: 5.6cqw; height: 5.4cqw; }
+  .v3-lobby-status button { font-size: 3.1cqw; height: 7cqw; min-height: 32px; }
+  .v3-lobby-status button > .v3-lobby-ai-frame { display: block; }
+  .v3-lobby-status button > .v3-lobby-ai-icon { display: none; }
   .v3-lobby-ready { left: 11.5%; top: 86.7%; width: 35%; height: 6.6%; min-height: 44px; font-size: 5.6cqw; }
   .v3-lobby-start { left: 49.3%; top: 86.7%; width: 41%; height: 6.6%; min-height: 44px; font-size: 5.6cqw; }
   .v3-lobby-feedback { left: 10%; width: 80%; bottom: 2%; font-size: 3.5cqw; }
@@ -546,4 +567,25 @@
   .v3-match .match-status-strip strong { font-size: 3.5cqw; }
   .v3-match .match-status-strip { left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
   .v3-match .v3-match-mode { display: none; }
+}
+
+/* Text remains live and selectable. The web-only OFL font matches the mock's
+   ink lettering; numeric step badges retain their calibrated serif face. */
+.v3-rules-body h3,
+.v3-rules-body > p,
+.v3-rules-body .v3-setting,
+.v3-rules-body li > span:last-child { font-family: "Teahouse Rules", "Noto Serif SC", serif; }
+.v3-rules-body h3,
+.v3-rules-body .v3-setting,
+.v3-rules-body li > span:last-child { font-weight: 700; font-synthesis: weight; }
+.v3-rules-body > p { font-weight: 500; font-synthesis: none; }
+@media (orientation: landscape) {
+  .v3-rules-body h3 { left: 0.1cqw; top: -0.36cqw; font-size: 4.44cqw; letter-spacing: -0.15cqw; }
+  .v3-rules-canvas[data-rules-chapter="0"][data-rules-tab="rules"] .v3-rules-body .v3-rule-copy { left: 0.28cqw; top: 6.31cqw; line-height: 1.42; }
+  .v3-rules-canvas[data-rules-chapter="0"][data-rules-tab="rules"] .v3-rules-body ol { font-size: 1.9cqw; }
+}
+@media (orientation: portrait) {
+  .v3-rules-body h3 { position: relative; left: -0.75cqw; top: 0.25cqw; font-size: 9.7cqw; }
+  .v3-rules-body > p { font-weight: 700; font-synthesis: weight; font-feature-settings: "halt" 1; }
+  .v3-rules-canvas[data-rules-chapter="0"][data-rules-tab="rules"] .v3-rules-body .v3-rule-copy { font-size: 4cqw; left: -0.2cqw; top: 13.6cqw; line-height: 1.55; letter-spacing: 0.15cqw; }
 }

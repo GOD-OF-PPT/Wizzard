@@ -1,6 +1,6 @@
 {
   "design": "art/mockups/web-v3/08-rules.png",
-  "capture": "art/review/web-v3/audit-08-rules-landscape-20261018.jpg",
+  "capture": "art/review/web-v3/08-quick-landscape-wenkai-final-20261018.jpg",
   "viewport": [
     1672,
     941
@@ -14,7 +14,7 @@
     "width": 800,
     "height": 420
   },
-  "meanAbsoluteChannelDifference": 10.246101953027676,
+  "meanAbsoluteChannelDifference": 11.16371119325703,
   "originalSourceSize": [
     1672,
     941
@@ -24,6 +24,6 @@
     941
   ],
   "relativeCaptureAspectError": 0,
-  "fractionPixelsOver24": 0.09852086500668636,
+  "fractionPixelsOver24": 0.11847889092841271,
   "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
 }

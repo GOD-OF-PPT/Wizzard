@@ -10,11 +10,16 @@ const pages = [
   ["01", "home", "01-home.png", [80,280,680,570], [65,180,270,260]],
   ["02", "create", "02-create.png", [385,195,910,620], [55,155,280,400]],
   ["03", "join", "03-join.png", [430,280,825,490], [50,260,295,275]],
-  ["04", "lobby", "04-lobby.png", [1080,500,550,405], [15,145,360,340]],
+  ["04", "lobby", "04-lobby-waiting-v2.png", [40,735,500,165], [65,300,270,355]],
+  ["04", "lobby-ready", "04-lobby-ready-v2.png", [40,735,500,165], [65,300,270,355]],
   ["05", "gameplay", "05-gameplay-final.png", [525,300,630,600], [25,300,360,385]],
   ["06", "results", "06-results.png", [340,240,1030,590], [40,205,315,430]],
   ["07", "ranking", "07-ranking.png", [440,240,830,590], [75,215,245,420]],
   ["08", "rules", "08-rules.png", [500,330,800,420], [35,315,325,310]],
+  ["08", "rules-trump", "08-rules-trump.png", [500,330,800,430], [35,315,325,310]],
+  ["08", "rules-play", "08-rules-play.png", [500,330,800,430], [35,315,325,310]],
+  ["08", "rules-scoring", "08-rules-scoring.png", [500,330,800,430], [35,315,325,310]],
+  ["08", "settings", "08-settings.png", [500,330,800,430], [35,315,325,310]],
   ["09", "confirm", "09-confirm.png", [395,200,885,525], [40,160,310,300]],
   ["10", "bid", "10-bid.png", [450,280,780,400], [50,240,305,250]],
   ["11", "chooser", "11-chooser.png", [320,240,1030,455], [50,195,305,360]],
@@ -31,7 +36,8 @@ for (const profile of ["landscape", "portrait"]) {
     const sourceName = profile === "portrait" && number === "05" ? "05-gameplay-safe-v2.png" : profile === "portrait" && number === "14" ? "14-gameplay-notimer-safe-v3.png" : sourceFile;
     const source = `art/mockups/web-v3/${profile === "portrait" ? "portrait/" : ""}${sourceName}`;
     const prefix = `${folder}/audit-${number}-${state}-${profile}-${date}`;
-    const capture = Number(number) < 12 ? `${prefix}.jpg` : `${folder}/${number}-${state}-${profile}${number === "12" || number === "13" ? "-live" : ""}-${date}.jpg`;
+    const ruleKey = { rules:"quick", "rules-trump":"trump", "rules-play":"play", "rules-scoring":"scoring", settings:"settings" }[state];
+    const capture = number === "08" ? `${folder}/08-${ruleKey}-${profile}-wenkai-final-${date}.jpg` : Number(number) < 12 ? `${prefix}.jpg` : `${folder}/${number}-${state}-${profile}${number === "12" || number === "13" ? "-live" : ""}-${date}.jpg`;
     const result = spawnSync(process.execPath, ["tools/compare-web-design.mjs", source, capture, prefix, sharpPath, String(width), String(height), (profile === "landscape" ? wideFocus : tallFocus).join(",")], { encoding: "utf8" });
     if (result.status !== 0) throw new Error(`${prefix}: ${result.stderr}`);
     reports.push({ number, state, profile, prefix, ...JSON.parse(result.stdout) });
@@ -51,5 +57,5 @@ for (const profile of ["landscape", "portrait"]) {
 }
 await writeFile(`${folder}/audit-${date}-index.json`, JSON.stringify({ status: "review-required-not-a-pass", note: "Frozen layout samples and real form inputs. Actual game/transport evidence is separate. Image metrics are diagnostic only.", reports }, null, 2) + "\n");
 const figures = reports.map(report => { const name = report.prefix.slice(folder.length + 1); return `<figure><figcaption>${report.number} ${report.state} · ${report.profile}</figcaption><a href="${name}-comparison.png"><img loading="lazy" src="${name}-comparison.png" alt="Left design, right Chrome implementation"></a><p><a href="${name}-focus.png">Focused comparison</a> · <a href="${report.capture.slice(folder.length + 1)}">Chrome capture</a> · <a href="${name}-metrics.json">Geometry and diagnostic metrics</a></p></figure>`; }).join("\n");
-await writeFile(`${folder}/audit-${date}-index.html`, `<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Web v3 当前逐页对照</title><style>body{margin:0;padding:24px;background:#10151d;color:#f4e1b5;font:16px/1.5 system-ui}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,560px),1fr));gap:24px}figure{margin:0}img{width:100%;display:block}a{color:inherit}</style><h1>Web v3 当前逐页对照 · ${date}</h1><p>左：不可变ImageGen设计；右：Chrome实现。16页/状态双画幅，不等于整体通过。冻结排版样例与真实流程证据分开；规则其他章节另有聚焦对照。</p><main>${figures}</main></html>`);
+await writeFile(`${folder}/audit-${date}-index.html`, `<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Web v3 当前逐页对照</title><style>body{margin:0;padding:24px;background:#10151d;color:#f4e1b5;font:16px/1.5 system-ui}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,560px),1fr));gap:24px}figure{margin:0}img{width:100%;display:block}a{color:inherit}</style><h1>Web v3 当前逐页对照 · ${date}</h1><p>左：不可变ImageGen设计；右：Chrome实现。${pages.length}组页面/状态双画幅（含大厅等待/可开始、四章规则及设置），不等于整体通过。冻结排版样例与真实流程证据分开；最终结论见根目录design-qa.md。</p><main>${figures}</main></html>`);
 console.log(JSON.stringify({ comparisons: reports.length, index: `${folder}/audit-${date}-index.html`, status: "review-required-not-a-pass" }));

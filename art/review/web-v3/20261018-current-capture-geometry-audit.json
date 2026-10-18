@@ -1,7 +1,7 @@
 {
   "limitation": "Geometry compatibility is necessary, never a visual or interaction pass.",
   "counts": {
-    "geometry-compatible": 32,
+    "geometry-compatible": 42,
     "invalid-crop-or-wrong-viewport": 0,
     "unreadable": 0
   },
@@ -119,6 +119,34 @@
       "status": "geometry-compatible"
     },
     {
+      "metric": "art\\review\\web-v3\\audit-04-lobby-ready-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-04-lobby-ready-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-04-lobby-ready-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-04-lobby-ready-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
       "metric": "art\\review\\web-v3\\audit-05-gameplay-landscape-20261018-metrics.json",
       "capture": "art/review/web-v3/audit-05-gameplay-landscape-20261018.jpg",
       "originalSize": [
@@ -204,7 +232,7 @@
     },
     {
       "metric": "art\\review\\web-v3\\audit-08-rules-landscape-20261018-metrics.json",
-      "capture": "art/review/web-v3/audit-08-rules-landscape-20261018.jpg",
+      "capture": "art/review/web-v3/08-quick-landscape-wenkai-final-20261018.jpg",
       "originalSize": [
         1672,
         941
@@ -217,8 +245,120 @@
       "status": "geometry-compatible"
     },
     {
+      "metric": "art\\review\\web-v3\\audit-08-rules-play-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/08-play-landscape-wenkai-final-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-08-rules-play-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/08-play-portrait-wenkai-final-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
       "metric": "art\\review\\web-v3\\audit-08-rules-portrait-20261018-metrics.json",
-      "capture": "art/review/web-v3/audit-08-rules-portrait-20261018.jpg",
+      "capture": "art/review/web-v3/08-quick-portrait-wenkai-final-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-08-rules-scoring-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/08-scoring-landscape-wenkai-final-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-08-rules-scoring-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/08-scoring-portrait-wenkai-final-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-08-rules-trump-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/08-trump-landscape-wenkai-final-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-08-rules-trump-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/08-trump-portrait-wenkai-final-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-08-settings-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/08-settings-landscape-wenkai-final-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-08-settings-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/08-settings-portrait-wenkai-final-20261018.jpg",
       "originalSize": [
         390,
         694

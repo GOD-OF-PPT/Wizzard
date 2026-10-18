@@ -106,7 +106,7 @@
       "state": "lobby",
       "profile": "landscape",
       "prefix": "art/review/web-v3/audit-04-lobby-landscape-20261018",
-      "design": "art/mockups/web-v3/04-lobby.png",
+      "design": "art/mockups/web-v3/04-lobby-waiting-v2.png",
       "capture": "art/review/web-v3/audit-04-lobby-landscape-20261018.jpg",
       "viewport": [
         1672,
@@ -116,12 +116,12 @@
       "right": "Chrome implementation",
       "normalizedForComparison": true,
       "focus": {
-        "left": 1080,
-        "top": 500,
-        "width": 550,
-        "height": 405
+        "left": 40,
+        "top": 735,
+        "width": 500,
+        "height": 165
       },
-      "meanAbsoluteChannelDifference": 14.213183487653536,
+      "meanAbsoluteChannelDifference": 13.368566178028397,
       "originalSourceSize": [
         1672,
         941
@@ -131,7 +131,40 @@
         941
       ],
       "relativeCaptureAspectError": 0,
-      "fractionPixelsOver24": 0.16906515515917608,
+      "fractionPixelsOver24": 0.17330768956978476,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "04",
+      "state": "lobby-ready",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-04-lobby-ready-landscape-20261018",
+      "design": "art/mockups/web-v3/04-lobby-ready-v2.png",
+      "capture": "art/review/web-v3/audit-04-lobby-ready-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 40,
+        "top": 735,
+        "width": 500,
+        "height": 165
+      },
+      "meanAbsoluteChannelDifference": 13.566193494314474,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.17828178309748868,
       "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
     },
     {
@@ -239,7 +272,7 @@
       "profile": "landscape",
       "prefix": "art/review/web-v3/audit-08-rules-landscape-20261018",
       "design": "art/mockups/web-v3/08-rules.png",
-      "capture": "art/review/web-v3/audit-08-rules-landscape-20261018.jpg",
+      "capture": "art/review/web-v3/08-quick-landscape-wenkai-final-20261018.jpg",
       "viewport": [
         1672,
         941
@@ -253,7 +286,7 @@
         "width": 800,
         "height": 420
       },
-      "meanAbsoluteChannelDifference": 10.246101953027676,
+      "meanAbsoluteChannelDifference": 11.16371119325703,
       "originalSourceSize": [
         1672,
         941
@@ -263,7 +296,139 @@
         941
       ],
       "relativeCaptureAspectError": 0,
-      "fractionPixelsOver24": 0.09852086500668636,
+      "fractionPixelsOver24": 0.11847889092841271,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "08",
+      "state": "rules-trump",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-08-rules-trump-landscape-20261018",
+      "design": "art/mockups/web-v3/08-rules-trump.png",
+      "capture": "art/review/web-v3/08-trump-landscape-wenkai-final-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 500,
+        "top": 330,
+        "width": 800,
+        "height": 430
+      },
+      "meanAbsoluteChannelDifference": 11.318772701001853,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.1164780672093721,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "08",
+      "state": "rules-play",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-08-rules-play-landscape-20261018",
+      "design": "art/mockups/web-v3/08-rules-play.png",
+      "capture": "art/review/web-v3/08-play-landscape-wenkai-final-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 500,
+        "top": 330,
+        "width": 800,
+        "height": 430
+      },
+      "meanAbsoluteChannelDifference": 11.905159599801358,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.11706407720586366,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "08",
+      "state": "rules-scoring",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-08-rules-scoring-landscape-20261018",
+      "design": "art/mockups/web-v3/08-rules-scoring.png",
+      "capture": "art/review/web-v3/08-scoring-landscape-wenkai-final-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 500,
+        "top": 330,
+        "width": 800,
+        "height": 430
+      },
+      "meanAbsoluteChannelDifference": 11.361576854172917,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.11869753240215794,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "08",
+      "state": "settings",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-08-settings-landscape-20261018",
+      "design": "art/mockups/web-v3/08-settings.png",
+      "capture": "art/review/web-v3/08-settings-landscape-wenkai-final-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 500,
+        "top": 330,
+        "width": 800,
+        "height": 430
+      },
+      "meanAbsoluteChannelDifference": 10.26799639665292,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.10962581799876951,
       "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
     },
     {
@@ -634,7 +799,7 @@
       "state": "lobby",
       "profile": "portrait",
       "prefix": "art/review/web-v3/audit-04-lobby-portrait-20261018",
-      "design": "art/mockups/web-v3/portrait/04-lobby.png",
+      "design": "art/mockups/web-v3/portrait/04-lobby-waiting-v2.png",
       "capture": "art/review/web-v3/audit-04-lobby-portrait-20261018.jpg",
       "viewport": [
         390,
@@ -644,12 +809,12 @@
       "right": "Chrome implementation",
       "normalizedForComparison": true,
       "focus": {
-        "left": 15,
-        "top": 145,
-        "width": 360,
-        "height": 340
+        "left": 65,
+        "top": 300,
+        "width": 270,
+        "height": 355
       },
-      "meanAbsoluteChannelDifference": 21.5610076602872,
+      "meanAbsoluteChannelDifference": 19.06407916451144,
       "originalSourceSize": [
         941,
         1672
@@ -659,7 +824,40 @@
         694
       ],
       "relativeCaptureAspectError": 0,
-      "fractionPixelsOver24": 0.30457030961353726,
+      "fractionPixelsOver24": 0.27718909332742186,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "04",
+      "state": "lobby-ready",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-04-lobby-ready-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/04-lobby-ready-v2.png",
+      "capture": "art/review/web-v3/audit-04-lobby-ready-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 65,
+        "top": 300,
+        "width": 270,
+        "height": 355
+      },
+      "meanAbsoluteChannelDifference": 19.484882632577158,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.2964161678859085,
       "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
     },
     {
@@ -767,7 +965,7 @@
       "profile": "portrait",
       "prefix": "art/review/web-v3/audit-08-rules-portrait-20261018",
       "design": "art/mockups/web-v3/portrait/08-rules.png",
-      "capture": "art/review/web-v3/audit-08-rules-portrait-20261018.jpg",
+      "capture": "art/review/web-v3/08-quick-portrait-wenkai-final-20261018.jpg",
       "viewport": [
         390,
         694
@@ -781,7 +979,7 @@
         "width": 325,
         "height": 310
       },
-      "meanAbsoluteChannelDifference": 14.485376487105594,
+      "meanAbsoluteChannelDifference": 13.826217394517107,
       "originalSourceSize": [
         941,
         1672
@@ -791,7 +989,139 @@
         694
       ],
       "relativeCaptureAspectError": 0,
-      "fractionPixelsOver24": 0.18324466119855168,
+      "fractionPixelsOver24": 0.1789810093844676,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "08",
+      "state": "rules-trump",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-08-rules-trump-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/08-rules-trump.png",
+      "capture": "art/review/web-v3/08-trump-portrait-wenkai-final-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 35,
+        "top": 315,
+        "width": 325,
+        "height": 310
+      },
+      "meanAbsoluteChannelDifference": 15.145422301041897,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.18272001773442695,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "08",
+      "state": "rules-play",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-08-rules-play-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/08-rules-play.png",
+      "capture": "art/review/web-v3/08-play-portrait-wenkai-final-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 35,
+        "top": 315,
+        "width": 325,
+        "height": 310
+      },
+      "meanAbsoluteChannelDifference": 15.504019803443434,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.1840168477056085,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "08",
+      "state": "rules-scoring",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-08-rules-scoring-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/08-rules-scoring.png",
+      "capture": "art/review/web-v3/08-scoring-portrait-wenkai-final-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 35,
+        "top": 315,
+        "width": 325,
+        "height": 310
+      },
+      "meanAbsoluteChannelDifference": 16.12370501736496,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.1916537353136777,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "08",
+      "state": "settings",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-08-settings-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/08-settings.png",
+      "capture": "art/review/web-v3/08-settings-portrait-wenkai-final-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 35,
+        "top": 315,
+        "width": 325,
+        "height": 310
+      },
+      "meanAbsoluteChannelDifference": 15.477798714254046,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.19325352841202986,
       "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
     },
     {

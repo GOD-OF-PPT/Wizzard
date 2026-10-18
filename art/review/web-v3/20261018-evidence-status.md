@@ -4,12 +4,15 @@
 
 ## 当前有效
 
-- `audit-20261018-index.html`：当前16页/状态的32组横竖source/Chrome全景、聚焦和尺寸记录。05竖屏改用独立安全区v2设计，14竖屏采用safe-v3；旧稿自己覆盖最后手牌，不继续把该缺陷当保真要求。修复后05/06/10/11/14/15/16竖屏均重新抓取；图像数量不等于通过。
+- `audit-20261018-index.html`：当前21页/状态的42组横竖source/Chrome全景、聚焦和尺寸记录，新增大厅可开始、规则其余三章及设置。04使用语义一致的waiting/ready-v2，08使用字体加载后的wenkai-final。05竖屏改用独立安全区v2设计，14竖屏采用safe-v3；旧稿自己覆盖最后手牌，不继续把该缺陷当保真要求。图像数量不等于通过。
+- `20261018-current-capture-geometry-audit.json`：42组均为正确完整画幅，无错误裁图或读图失败。该审计不是视觉自动通过。
+- `20261018-rule-ink-calibration.json`与`20261018-lobby-rules-geometry.json`：指定字块暗字边界及Chrome正文/步骤/页脚安全区；当前规则标题/正文/步骤采用61KB WenKai字集，不把字块对齐扩展为字形AE=0。
+- `04-lobby-{readiness,full-ready}-{landscape,portrait}-network-20261018.jpg`：本批次真实六席房498262，双真人准备/取消、AI增减、禁用原因、满席可开始。双方确认离开后停止临时代理。它们早于最后大厅头像替换，不能代表新头像最终像素。
 - `20261018-hand-safety.json`、`05-eight-hand-{landscape,portrait}-20261018.jpg`：实际DOM键盘选择1–8张，两个画幅均无舞台溢出或动作矩形交集。八张截图在正确新建的目标画幅标签重拍；早期把390×694命名landscape的临时帧已被正确1672×941覆盖，未用于验收。
 - `15-reconnecting-*-20261018.jpg`、`16-session-ended-*-20261018.jpg`：冻结同内容排版；真实网络图必须带network。后者来自独立真实8791房间服务和5174回环transport代理，不是页面状态注入。
 - `15-reconnecting-*-network-20261018.jpg`、`15-recovered-landscape-network-20261018.jpg`、`16-session-ended-*-network-20261018.jpg`：实际房874422断线、保留原牌桌、同身份恢复、QA服务重启导致真实失效、显式返回后刷新仍在首页。状态与第4轮稿件不同，只证明交互/服务行为。
 
-- `08-{quick,trump,play,scoring,settings}-{landscape,portrait}-final-20261018.jpg`：五种规则/设置状态的真实UI。新状态设计位于`art/mockups/web-v3/`及`portrait/`；非首章时没有旧绿色首章高亮，设置没有任何章节高亮。
+- `08-{quick,trump,play,scoring,settings}-{landscape,portrait}-wenkai-final-20261018.jpg`：五种规则/设置状态的最新UI。状态切换真实，DEV偏好回调不持久化，真实偏好操作见此前记录。设置标签和说明字体遗漏已单独修正并复拍；非首章时没有旧绿色首章高亮，设置没有任何章节高亮。
 - `02-create-masked-{landscape,portrait}-final-20261018.jpg`与`03-join-masked-{landscape,portrait}-final-20261018.jpg`：当前静态原像素+动态字段合成后的最终表单。相应comparison/focus为当前对照。
 - `02-create-empty-masked-portrait-20261018.jpg`、`03-join-empty-masked-portrait-20261018.jpg`：只证明空值未透出设计样例，未把它们当成源稿同内容比较。
 - `02-create-3seat-masked-portrait-20261018.jpg`：只选3人，6人没有残留勾；仍为真实DOM控件。设置恢复默认和昵称校验均已实际操作。
@@ -19,6 +22,9 @@
 - `04-lobby-3seat-portrait-network-20261018.jpg`：双真人准备+AI后可开始，且均通过确认正常退出。4/5/6席network截图只覆盖单真人容量和碰撞检查。上述联机图在最后的头像美术细化之前，不是当前像素最终图。
 
 ## 历史或修复前，不能代替当前验收
+
+- `08-rules-*-proof-20261018*`为四种字体光学试字；KaiTi未复制/分发，ZhenKai未采纳；WenKai最初加载/缺少布局功能帧不能作为最终页。当前必须用wenkai-final及重新生成的audit08比较。
+- 早期`04-lobby-components-*`和`04-lobby-fixture-*`保留当时图；最新大厅头像或家具变化后，必须使用重拍的audit04，不能沿用这些旧图。
 
 - 所有不带`final`的规则截图：固定分带/正文换行/关闭标签重复等修复之前。
 - `02-create-{landscape,portrait}-final-20261018.jpg`和`03-join-{landscape,portrait}-final-20261018.jpg`：整幅清理层作底图的旧版本；后续改成局部遮罩。当前必须采用带`masked`的文件。

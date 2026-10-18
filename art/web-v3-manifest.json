@@ -11,7 +11,7 @@
     "web.v3.home": { "design": "01-home.png", "runtime": "home.png", "content": "static scene and entry plaques" },
     "web.v3.create": { "design": "02-create.png", "runtime": "create.png", "staticRuntime": "create-static-v1.png", "maskContract": "src/web/form-art-masks.tsx", "content": "source static pixels plus field-only cleanup; actual values rendered by RoomEntry" },
     "web.v3.join": { "design": "03-join.png", "runtime": "join.png", "staticRuntime": "join-static-v1.png", "maskContract": "src/web/form-art-masks.tsx", "content": "source static pixels with nickname and six digit content masks" },
-    "web.v3.lobby": { "design": "04-lobby.png", "runtime": "lobby.png", "content": "empty table, header and action frames; no players or room data" },
+    "web.v3.lobby": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby.png", "content": "empty table, header and action frames; no players or room data. Truthful four-human/three-ready waiting state; never weaken start permissions to match the old contradictory mock." },
     "web.v3.gameplay": { "design": "05-gameplay-final.png", "runtime": "gameplay.png", "content": "empty table and HUD frames; no player/card/state data" },
     "web.v3.results": { "design": "06-results.png", "runtime": "results.png", "content": "static columns and empty rows/actions" },
     "web.v3.ranking": { "design": "07-ranking.png", "runtime": "ranking.png", "content": "static columns and empty ranks/rows/actions" },
@@ -24,7 +24,7 @@
     "web.v3.inputClear": { "design": "02-create.png", "runtime": "input-clear.png" },
     "web.v3.seatSelected": { "design": "02-create.png", "runtime": "seat-selected-landscape-v2.png", "notes": "Dynamic label plus generated frame/check; solid green state matte behind partial alpha." },
     "web.v3.portrait.seatSelected": { "design": "portrait/02-create.png", "runtime": "seat-selected-portrait-v2.png" },
-    "web.v3.emptySeat": { "design": "04-lobby.png", "runtime": "empty-seat.png" },
+    "web.v3.emptySeat": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-empty-seat-v2.png", "pixelSize": [1277,1214], "notes": "Independent complete empty-seat ring, silhouette, cloud and invariant waiting label. Never represents an occupied AI." },
     "web.v3.activeNav": { "design": "08-rules.png", "runtime": "active-nav.png" },
     "web.v3.stepBadge": { "design": "08-rules.png", "runtime": "step-badge.png" },
     "web.v3.stepLabel": { "design": "portrait/08-rules.png", "runtime": "step-label-v2.png", "notes": "Proportional background rendering preserves authored cloud ends and transparent padding." },
@@ -33,7 +33,7 @@
     "web.v3.portrait.join": { "design": "portrait/03-join.png", "runtime": "portrait/join.png", "staticRuntime": "portrait/join-static-v1.png", "maskContract": "src/web/form-art-masks.tsx", "pixelSize": [941, 1672] },
     "web.v3.portrait.rules": { "design": "portrait/08-rules.png", "runtime": "portrait/rules-quick-v3.png", "pixelSize": [941, 1672], "notes": "Original empty step circles and label furniture retained; live DOM text/numerals overlay authored bands." }
     ,"web.v3.portrait.home": { "design": "portrait/01-home.png", "runtime": "portrait/home.png", "pixelSize": [941, 1672] }
-    ,"web.v3.portrait.lobby": { "design": "portrait/04-lobby.png", "runtime": "portrait/lobby.png", "pixelSize": [941, 1672] }
+    ,"web.v3.portrait.lobby": { "design": "portrait/04-lobby-waiting-v2.png", "runtime": "portrait/lobby.png", "pixelSize": [941, 1672] }
     ,"web.v3.portrait.gameplay": { "design": "portrait/05-gameplay-safe-v2.png", "runtime": "portrait/gameplay-choices-v1.png", "pixelSize": [941, 1672], "notes": "Same scene with action now an independent bitmap below the hand. Original source overlapped its last card." }
     ,"web.v3.portrait.results": { "design": "portrait/06-results.png", "runtime": "portrait/results.png", "pixelSize": [941, 1672] }
     ,"web.v3.portrait.ranking": { "design": "portrait/07-ranking.png", "runtime": "portrait/ranking-v2.png", "pixelSize": [941, 1672], "notes": "Dynamic title, subtitle, rank, avatar, player, score and action labels." }
@@ -59,6 +59,7 @@
     ,"web.v3.lobby.waiting": { "design": "04-lobby.png", "runtime": "lobby-waiting-v1.png", "pixelSize": [650, 220], "visibleSize": [620, 201] }
     ,"web.v3.lobby.readyCheck": { "design": "04-lobby.png", "runtime": "lobby-ready-check-v1.png", "pixelSize": [512, 512] }
     ,"web.v3.lobby.traveler": { "design": "04-lobby.png", "runtime": "avatars/lobby-masked-traveler-v1.png", "pixelSize": [1254, 1254], "notes": "Animal traveler matching the lobby, not the human ranking portrait." }
+    ,"web.v3.lobby.avatars": { "design": "04-lobby-waiting-v2.png", "runtime": "avatars/lobby-{bamboo-cat,wandering-crane,flower-fox,ink-panda}-v2.png", "notes": "Separate ImageGen half-body lobby portraits, not the close-up ranking set. Alpha silhouette retained without circular CSS clipping. Some linework/gold thickness differs from source; no source-pixel identity claim." }
     ,"web.v3.cards": { "design": "05-gameplay-final.png", "runtime": "cards/{leaf,mountain,knot,sun}-v2.png", "pixelSize": [1024,1536], "notes": "Independent ImageGen faces, no baked ranks. V1 faces with continuous double frames rejected. Highest/lowest/back retain original authoritative art." }
     ,"web.v3.gameplay.stats": { "design": "05-gameplay-final.png", "runtime": "gameplay-stats-v1.png", "pixelSize": [584,108] }
     ,"web.v3.gameplay.trumpPaper": { "design": "05-gameplay-final.png", "runtime": "trump-status-v2.png", "pixelSize": [2007,448], "visibleSize": [1967,400], "notes": "Blank cloud-ended parchment, intrinsic aspect preserved. V1 not consumed." }
@@ -73,6 +74,15 @@
     ,"web.v3.portrait.sessionEnded": { "design": "portrait/16-session-ended-v2.png", "runtime": "session-ended-panel-portrait-v2.png", "pixelSize": [1215,1295], "notes": "Retains independent portrait layout; small red fringe remains a QA finding." }
     ,"web.v3.portrait.playAction": { "design": "portrait/05-gameplay-safe-v2.png", "runtime": "play-action-portrait-v1.png", "pixelSize": [1725,806], "visibleSize": [1701,782], "notes": "Independent blank plaque, intrinsic aspect preserved. Slight proportion and brush drift remain; no stretched baked action over card targets." }
     ,"web.v3.gameplay.noAction": { "design": "11-chooser.png", "runtime": "gameplay-no-action-patch-v1.png", "pixelSize": [425,170], "notes": "Quiet scene-only crop x1235 y665 from independent ImageGen cleanup; removes the baked empty action during chooser/recovery only. Bid still uses that action lane." }
+    ,"web.v3.lobby.invite": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-invite-v1.png", "pixelSize": [1840,515], "visibleSize": [1816,491], "notes": "Independent cloud-ended parchment with invariant group/label painted in; accessible live button remains semantic. Intrinsic proportions retained." }
+    ,"web.v3.lobby.addControl": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-add-control-v2.png", "pixelSize": [2132,510], "visibleSize": [2108,486], "notes": "Independent generated dark-gold frame/robot, no baked mutable label; alpha canvas trimmed only." }
+    ,"web.v3.lobby.removeControl": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-remove-control-v2.png", "pixelSize": [2053,519], "visibleSize": [2029,495], "notes": "Independent generated dark-gold frame/minus, no baked mutable label." }
+    ,"web.v3.lobby.groupIcon": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-group-v2.png", "pixelSize": [1111,831], "visibleSize": [1087,807] }
+    ,"web.v3.lobby.wifiIcon": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-wifi-v2.png", "pixelSize": [1268,926], "visibleSize": [1244,902], "notes": "PC only; portrait source has no extra connection chip. Recovery remains blocking in both profiles." }
+    ,"web.v3.lobby.robotIcon": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-robot-v2.png", "pixelSize": [1138,1055], "visibleSize": [1114,1031], "notes": "Standalone PC icon over the scene's existing button frame. Portrait uses the complete generated control instead, never two frames." }
+    ,"web.v3.lobby.minusIcon": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-minus-v2.png", "pixelSize": [790,785], "visibleSize": [766,761] }
+    ,"web.v3.lobby.readyState": { "design": "04-lobby-ready-v2.png", "portraitDesign": "portrait/04-lobby-ready-v2.png", "content": "Same four humans all ready, one AI and one empty; creator auto-fill allows start. State source only; actual permission and text remain server-backed." }
+    ,"web.v3.rules.font": { "runtime": "../fonts/WebV3Rules-WenKai-Medium-v2.woff2", "source": "art/source/fonts/web-v3/LXGWWenKai-Medium.ttf", "license": "public/licenses/LXGW-WenKai-OFL.txt", "notes": "Rules h3/body/step labels only. Preserve all shaping features; portrait punctuation uses halt. Numeric badges, other pages and Cocos unchanged." }
   },
   "notes": [
     "Generated scene size is 1672x941; measure actual output rather than assuming requested 1920x1080.",

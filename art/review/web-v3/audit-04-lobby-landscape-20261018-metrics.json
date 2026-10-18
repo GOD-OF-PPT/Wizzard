@@ -1,5 +1,5 @@
 {
-  "design": "art/mockups/web-v3/04-lobby.png",
+  "design": "art/mockups/web-v3/04-lobby-waiting-v2.png",
   "capture": "art/review/web-v3/audit-04-lobby-landscape-20261018.jpg",
   "viewport": [
     1672,
@@ -9,12 +9,12 @@
   "right": "Chrome implementation",
   "normalizedForComparison": true,
   "focus": {
-    "left": 1080,
-    "top": 500,
-    "width": 550,
-    "height": 405
+    "left": 40,
+    "top": 735,
+    "width": 500,
+    "height": 165
   },
-  "meanAbsoluteChannelDifference": 14.213183487653536,
+  "meanAbsoluteChannelDifference": 13.368566178028397,
   "originalSourceSize": [
     1672,
     941
@@ -24,6 +24,6 @@
     941
   ],
   "relativeCaptureAspectError": 0,
-  "fractionPixelsOver24": 0.16906515515917608,
+  "fractionPixelsOver24": 0.17330768956978476,
   "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
 }

@@ -1,0 +1,9 @@
+# Lobby ink panda avatar v2
+
+Built-in ImageGen, transparent background. Input reference-only crop: `art/reference/web-v3/lobby-ink-panda-v2-reference.png`, 184 × 174 from `art/mockups/web-v3/04-lobby-waiting-v2.png` at (105,368). The crop is not runtime artwork.
+
+Exact prompt:
+
+Use case: precise-object-edit. Extract/reconstruct only the complete gold-ringed half-body PANDA TRAVELER avatar in supplied exact lobby source crop. Preserve original head-to-body ratio and expression with absolutely NO zoomed-in large face. Panda has a relatively small ivory face, round black ears, large BLACK EYE PATCHES around small gold-rimmed round eyes, friendly gentle smile, tiny black nose, restrained rosy cheeks. Face occupies about middle 50 percent of portrait width; include generous gray-green traveler robe, wide olive scarf/collar and shoulders in lower third. Original bamboo leaves and tiny bamboo sprout hair ornament at upper forehead and viewer left, small warm apricot flower near viewer upper right ear. Original frontal slight right-facing pose and head/body proportions, not an enlarged close-up, no new objects. Thin warm gold circular frame around entire half-body, deep navy opaque interior background. Outside ring genuinely transparent, small transparent margin, complete ring without clipping. Remove all name plaque/text/ready/checkmark UI and surrounding red table or wood. Match source warm painterly Enchanted Teahouse illustration and muted gray olive clothing. One avatar only at high resolution, no text or icons.
+
+Raw output: `art/source/web-v3/lobby-ink-panda-v2.png`. Runtime output: `art/runtime/web-v3/avatars/lobby-ink-panda-v2.png`, mechanical alpha trim and 12px padding only. Small 160px preview checked. Generated reconstruction has a thicker gold rim and brighter gold eyes than source; gray-green clothing/shoulders remain visible, no name/check badge/text.

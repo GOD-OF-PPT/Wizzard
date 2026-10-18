@@ -7,6 +7,10 @@ import starCat from "../../art/runtime/web-v3/avatars/sleepy-star-cat.png";
 import traveler from "../../art/runtime/web-v3/avatars/masked-traveler.png";
 import lobbyTraveler from "../../art/runtime/web-v3/avatars/lobby-masked-traveler-v1.png";
 import gameplayTraveler from "../../art/runtime/web-v3/avatars/gameplay-masked-traveler-v1.png";
+import lobbyCat from "../../art/runtime/web-v3/avatars/lobby-bamboo-cat-v2.png";
+import lobbyCrane from "../../art/runtime/web-v3/avatars/lobby-wandering-crane-v2.png";
+import lobbyFox from "../../art/runtime/web-v3/avatars/lobby-flower-fox-v2.png";
+import lobbyPanda from "../../art/runtime/web-v3/avatars/lobby-ink-panda-v2.png";
 
 // The browser's selected v3 references use this portrait treatment. Keep it
 // separate from the versioned Mini Game expression atlas and its asset keys.
@@ -26,6 +30,10 @@ export function webAvatar(key: string): string {
 // The selected lobby reference authors this animal traveler; the ranking
 // illustration uses a different portrait. Do not substitute a human in lobby QA.
 export function webLobbyAvatar(key: string): string {
+  if (key === "bamboo-cat") return lobbyCat;
+  if (key === "wandering-crane") return lobbyCrane;
+  if (key === "flower-fox") return lobbyFox;
+  if (key === "ink-panda") return lobbyPanda;
   return key === "masked-traveler" ? lobbyTraveler : webAvatar(key);
 }
 
