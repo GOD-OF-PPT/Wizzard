@@ -9,6 +9,15 @@ if (!design || !capture || !output) throw new Error("Provide design, Chrome capt
 const sharp = createRequire(import.meta.url)(modulePath);
 const width = Number(widthArg);
 const height = Number(heightArg);
+const [sourceMetadata, captureMetadata] = await Promise.all([sharp(design).metadata(), sharp(capture).metadata()]);
+const targetAspect = width / height;
+const relativeAspectError = metadata => Math.abs((metadata.width / metadata.height) / targetAspect - 1);
+// Small Windows/DPR rounding is allowed. A cropped Chrome viewport must never
+// be stretched into a plausible-looking design comparison.
+if (relativeAspectError(captureMetadata) > 0.005) {
+  throw new Error(`Capture is ${captureMetadata.width}x${captureMetadata.height}, not the requested ${width}x${height} frame. Recapture the full page or authored stage; do not normalize a clipped viewport.`);
+}
+if (relativeAspectError(sourceMetadata) > 0.005) throw new Error("Source design has a different aspect ratio from the requested comparison frame.");
 const normalize = path => sharp(path).resize(width, height, { fit: "fill" }).removeAlpha().png().toBuffer();
 const [source, actual] = await Promise.all([normalize(design), normalize(capture)]);
 await sharp({ create: { width: width * 2 + 16, height, channels: 3, background: "#10151d" } })
@@ -42,6 +51,9 @@ await sharp(overlay, { raw: { width, height, channels: 3 } }).png().toFile(`${ou
 const report = {
   design, capture, viewport: [width, height], left: "immutable ImageGen design", right: "Chrome implementation",
   normalizedForComparison: true, focus, meanAbsoluteChannelDifference: absolute / a.length,
+  originalSourceSize: [sourceMetadata.width, sourceMetadata.height],
+  originalCaptureSize: [captureMetadata.width, captureMetadata.height],
+  relativeCaptureAspectError: relativeAspectError(captureMetadata),
   fractionPixelsOver24: changed / (width * height),
   interpretation: "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions.",
 };

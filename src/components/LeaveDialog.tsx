@@ -1,13 +1,17 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type RefObject } from "react";
 import art from "../../art/runtime/web-v3/confirm.png";
 import portraitArt from "../../art/runtime/web-v3/portrait/confirm.png";
 
-export function LeaveDialog({ pending, error, onCancel, onConfirm }: { pending: boolean; error: string | null; onCancel: () => void; onConfirm: () => void }) {
+export function LeaveDialog({ pending, error, onCancel, onConfirm, returnFocusRef }: { pending: boolean; error: string | null; onCancel: () => void; onConfirm: () => void; returnFocusRef?: RefObject<HTMLElement | null> }) {
   const cancel = useRef<HTMLButtonElement>(null);
   const confirm = useRef<HTMLButtonElement>(null);
   const onCancelRef = useRef(onCancel);
   onCancelRef.current = onCancel;
-  useEffect(() => { cancel.current?.focus(); }, []);
+  useEffect(() => {
+    const trigger = returnFocusRef?.current ?? (document.activeElement instanceof HTMLElement ? document.activeElement : null);
+    cancel.current?.focus();
+    return () => { if (trigger?.isConnected) trigger.focus({ preventScroll: true }); };
+  }, [returnFocusRef]);
   return <div className="v3-confirm-scrim"><section className="screen-stage v3-confirm" role="dialog" aria-modal="true" aria-labelledby="leave-title" aria-describedby="leave-description" onKeyDown={event => {
     if (event.key === "Escape" && !pending) onCancelRef.current();
     if (event.key === "Tab") { event.preventDefault(); (document.activeElement === cancel.current ? confirm.current : cancel.current)?.focus(); }

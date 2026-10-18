@@ -23,6 +23,7 @@ import type {
 export type FriendRoomState = Readonly<{
   connection: RoomSocketConnectionState;
   error: string | null;
+  terminalError?: boolean;
   permissions: RoomPermissions | null;
   room: FriendRoomSnapshot | null;
   match: RoomUpdatePayload["match"];
@@ -31,6 +32,7 @@ export type FriendRoomState = Readonly<{
 const EMPTY_STATE: FriendRoomState = {
   connection: "disconnected",
   error: null,
+  terminalError: false,
   match: null,
   permissions: null,
   room: null,
@@ -95,12 +97,17 @@ export function useFriendRoom(endpoint?: string) {
         }
 
         if (event.type === "error") {
-          pendingCommandRef.current = null;
-          setPendingCommand(null);
+          // Transport loss is not a negative acknowledgement. Keep the pending
+          // command owned until its own ACK/rejection or an ended session.
+          if (event.terminal || event.requestId === pendingCommandRef.current) {
+            pendingCommandRef.current = null;
+            setPendingCommand(null);
+          }
           setState((current) => ({
             ...current,
             connection: client.getConnectionState(),
             error: event.message,
+            terminalError: event.terminal === true,
           }));
           return;
         }
@@ -116,6 +123,7 @@ export function useFriendRoom(endpoint?: string) {
         setState({
           connection: client.getConnectionState(),
           error: null,
+          terminalError: false,
           match: event.payload.match,
           permissions: event.payload.permissions,
           room: event.payload.room,
@@ -228,6 +236,8 @@ export function useFriendRoom(endpoint?: string) {
     startRoom: (fillWithAi: boolean) =>
       send({ payload: { fillWithAi }, type: "room.start" }),
     leaveRoom,
+    reconnect: () => clientRef.current?.reconnectNow() ?? false,
+    clearEndedSession: () => clientRef.current?.clearEndedSession() ?? false,
     state,
     client,
     pendingCommand,

@@ -1,0 +1,29 @@
+{
+  "design": "art/mockups/web-v3/16-session-ended-v2.png",
+  "capture": "art/review/web-v3/16-session-ended-landscape-20261018.jpg",
+  "viewport": [
+    1672,
+    941
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 440,
+    "top": 220,
+    "width": 800,
+    "height": 490
+  },
+  "meanAbsoluteChannelDifference": 14.034023537008883,
+  "originalSourceSize": [
+    1672,
+    941
+  ],
+  "originalCaptureSize": [
+    1672,
+    941
+  ],
+  "relativeCaptureAspectError": 0,
+  "fractionPixelsOver24": 0.17627905262140958,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}

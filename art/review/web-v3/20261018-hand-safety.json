@@ -1,0 +1,22 @@
+{
+  "browser": "Chrome",
+  "source": "DEV review-match-fixture, real DOM interaction; not a legal game replay",
+  "interaction": "Enter selects leaf 5 in each fresh 1-8 hand; one selected, transformed bounds compared with action and stage",
+  "portraitBefore": { "viewport": [390,694], "4CardOverlap": [12.10,30.50], "8CardOverlap": [17.40,31.22] },
+  "landscapeBefore": { "viewport": [1672,942], "6CardOverlap": [58.88,117.56], "8CardOverlap": [87.98,117.56] },
+  "after": {
+    "landscape": {
+      "viewport": [1672,942], "capture": [1672,941], "actionLeft": 1254.01,
+      "handCounts": [1,2,3,4,5,6,7,8], "rightmost": [909.69,997.89,1077.03,1156.07,1229.20,1235.32,1235.32,1235.32],
+      "selectedCounts": [1,1,1,1,1,1,1,1], "stageOverflow": [0,0,0,0,0,0,0,0], "actionIntersections": [0,0,0,0,0,0,0,0],
+      "evidence": "05-eight-hand-landscape-20261018.jpg"
+    },
+    "portrait": {
+      "viewport": [390,694], "capture": [390,694], "actionLeft": 276.20,
+      "handCounts": [1,2,3,4,5,6,7,8], "rightmost": [194.22,237.11,270.96,293.19,296.05,298.49,298.49,298.49],
+      "selectedCounts": [1,1,1,1,1,1,1,1], "stageOverflow": [0,0,0,0,0,0,0,0], "actionIntersections": [0,0,0,0,0,0,0,0],
+      "evidence": "05-eight-hand-portrait-20261018.jpg"
+    }
+  },
+  "limitation": "This is measured geometry and keyboard selection, not an all-card touch pass, all legal rules coverage, animation timing proof or whole design fidelity pass. Source four-card portrait corrected separately because it overlapped its own last hand card."
+}

@@ -43,6 +43,7 @@ export type RoomSocketEvent =
       code: RequestErrorCode | "PROTOCOL_ERROR" | "TRANSPORT_ERROR";
       message: string;
       requestId?: string;
+      terminal?: boolean;
       type: "error";
     }
   | {
@@ -126,6 +127,22 @@ export class RoomSocketClient {
     return this.latestUpdate;
   }
 
+  /** Retry the same session, never create a replacement room or command. */
+  public reconnectNow(): boolean {
+    if (!this.started || this.disposed || this.terminal || this.connectionState === "connected") return false;
+    this.reconnectAttempt = 0;
+    this.connect(true);
+    return true;
+  }
+
+  /** Only the explicit terminal-screen home action may discard a failed resume. */
+  public clearEndedSession(): boolean {
+    if (!this.terminal || this.disposed) return false;
+    this.options.sessionStore.clear();
+    this.session = null;
+    return true;
+  }
+
   public nextRequestId(): string {
     if (!this.streamId) {
       throw new Error("ROOM_STREAM_NOT_READY");
@@ -160,12 +177,10 @@ export class RoomSocketClient {
         : null;
 
     if (this.options.binding.type === "resume" && !this.session) {
-      this.emitError(
+      this.failTerminal(
         "SESSION_NOT_FOUND",
         "No saved friend-room session is available.",
       );
-      this.setConnectionState("disconnected");
-      this.terminal = true;
       return;
     }
 
@@ -322,6 +337,7 @@ export class RoomSocketClient {
       code,
       message,
       ...(requestId ? { requestId } : {}),
+      ...(this.terminal ? { terminal: true } : {}),
       type: "error",
     });
   }

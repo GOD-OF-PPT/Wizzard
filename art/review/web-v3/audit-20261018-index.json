@@ -1,0 +1,1062 @@
+{
+  "status": "review-required-not-a-pass",
+  "note": "Frozen layout samples and real form inputs. Actual game/transport evidence is separate. Image metrics are diagnostic only.",
+  "reports": [
+    {
+      "number": "01",
+      "state": "home",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-01-home-landscape-20261018",
+      "design": "art/mockups/web-v3/01-home.png",
+      "capture": "art/review/web-v3/audit-01-home-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 80,
+        "top": 280,
+        "width": 680,
+        "height": 570
+      },
+      "meanAbsoluteChannelDifference": 5.202797170203065,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.06443186267281574,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "02",
+      "state": "create",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-02-create-landscape-20261018",
+      "design": "art/mockups/web-v3/02-create.png",
+      "capture": "art/review/web-v3/audit-02-create-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 385,
+        "top": 195,
+        "width": 910,
+        "height": 620
+      },
+      "meanAbsoluteChannelDifference": 6.094553115471512,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.07056335772287448,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "03",
+      "state": "join",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-03-join-landscape-20261018",
+      "design": "art/mockups/web-v3/03-join.png",
+      "capture": "art/review/web-v3/audit-03-join-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 430,
+        "top": 280,
+        "width": 825,
+        "height": 490
+      },
+      "meanAbsoluteChannelDifference": 5.151473414722198,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.04972631680641077,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "04",
+      "state": "lobby",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-04-lobby-landscape-20261018",
+      "design": "art/mockups/web-v3/04-lobby.png",
+      "capture": "art/review/web-v3/audit-04-lobby-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 1080,
+        "top": 500,
+        "width": 550,
+        "height": 405
+      },
+      "meanAbsoluteChannelDifference": 14.213183487653536,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.16906515515917608,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "05",
+      "state": "gameplay",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-05-gameplay-landscape-20261018",
+      "design": "art/mockups/web-v3/05-gameplay-final.png",
+      "capture": "art/review/web-v3/audit-05-gameplay-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 525,
+        "top": 300,
+        "width": 630,
+        "height": 600
+      },
+      "meanAbsoluteChannelDifference": 20.987051424813604,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.2947159948949758,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "06",
+      "state": "results",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-06-results-landscape-20261018",
+      "design": "art/mockups/web-v3/06-results.png",
+      "capture": "art/review/web-v3/audit-06-results-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 340,
+        "top": 240,
+        "width": 1030,
+        "height": 590
+      },
+      "meanAbsoluteChannelDifference": 9.385140345792507,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.08414010342250176,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "07",
+      "state": "ranking",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-07-ranking-landscape-20261018",
+      "design": "art/mockups/web-v3/07-ranking.png",
+      "capture": "art/review/web-v3/audit-07-ranking-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 440,
+        "top": 240,
+        "width": 830,
+        "height": 590
+      },
+      "meanAbsoluteChannelDifference": 8.583472314735248,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.0772319226721039,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "08",
+      "state": "rules",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-08-rules-landscape-20261018",
+      "design": "art/mockups/web-v3/08-rules.png",
+      "capture": "art/review/web-v3/audit-08-rules-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 500,
+        "top": 330,
+        "width": 800,
+        "height": 420
+      },
+      "meanAbsoluteChannelDifference": 10.246101953027676,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.09852086500668636,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "09",
+      "state": "confirm",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-09-confirm-landscape-20261018",
+      "design": "art/mockups/web-v3/09-confirm.png",
+      "capture": "art/review/web-v3/audit-09-confirm-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 395,
+        "top": 200,
+        "width": 885,
+        "height": 525
+      },
+      "meanAbsoluteChannelDifference": 3.9323226249858054,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.03800421011954096,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "10",
+      "state": "bid",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-10-bid-landscape-20261018",
+      "design": "art/mockups/web-v3/10-bid.png",
+      "capture": "art/review/web-v3/audit-10-bid-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 450,
+        "top": 280,
+        "width": 780,
+        "height": 400
+      },
+      "meanAbsoluteChannelDifference": 20.001330280827176,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.24118951131088276,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "11",
+      "state": "chooser",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-11-chooser-landscape-20261018",
+      "design": "art/mockups/web-v3/11-chooser.png",
+      "capture": "art/review/web-v3/audit-11-chooser-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 320,
+        "top": 240,
+        "width": 1030,
+        "height": 455
+      },
+      "meanAbsoluteChannelDifference": 14.322792992286532,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.1906261281645811,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "12",
+      "state": "connection-error",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-12-connection-error-landscape-20261018",
+      "design": "art/mockups/web-v3/12-connection-error.png",
+      "capture": "art/review/web-v3/12-connection-error-landscape-live-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 400,
+        "top": 250,
+        "width": 880,
+        "height": 450
+      },
+      "meanAbsoluteChannelDifference": 3.5048262139262754,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        942
+      ],
+      "relativeCaptureAspectError": 0.0010615711252653925,
+      "fractionPixelsOver24": 0.03592012467648689,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "13",
+      "state": "connecting",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-13-connecting-landscape-20261018",
+      "design": "art/mockups/web-v3/13-connecting.png",
+      "capture": "art/review/web-v3/13-connecting-landscape-live-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 400,
+        "top": 250,
+        "width": 880,
+        "height": 450
+      },
+      "meanAbsoluteChannelDifference": 3.20391304679436,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        942
+      ],
+      "relativeCaptureAspectError": 0.0010615711252653925,
+      "fractionPixelsOver24": 0.030062567054289186,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "14",
+      "state": "gameplay-notimer",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-14-gameplay-notimer-landscape-20261018",
+      "design": "art/mockups/web-v3/14-gameplay-notimer.png",
+      "capture": "art/review/web-v3/14-gameplay-notimer-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 1200,
+        "top": 430,
+        "width": 440,
+        "height": 400
+      },
+      "meanAbsoluteChannelDifference": 21.239223009218534,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.3129623885818304,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "15",
+      "state": "reconnecting",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-15-reconnecting-landscape-20261018",
+      "design": "art/mockups/web-v3/15-reconnecting.png",
+      "capture": "art/review/web-v3/15-reconnecting-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 440,
+        "top": 220,
+        "width": 800,
+        "height": 490
+      },
+      "meanAbsoluteChannelDifference": 13.847544393541094,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.17050793465162278,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "16",
+      "state": "session-ended",
+      "profile": "landscape",
+      "prefix": "art/review/web-v3/audit-16-session-ended-landscape-20261018",
+      "design": "art/mockups/web-v3/16-session-ended-v2.png",
+      "capture": "art/review/web-v3/16-session-ended-landscape-20261018.jpg",
+      "viewport": [
+        1672,
+        941
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 440,
+        "top": 220,
+        "width": 800,
+        "height": 490
+      },
+      "meanAbsoluteChannelDifference": 14.034023537008883,
+      "originalSourceSize": [
+        1672,
+        941
+      ],
+      "originalCaptureSize": [
+        1672,
+        941
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.17627905262140958,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "01",
+      "state": "home",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-01-home-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/01-home.png",
+      "capture": "art/review/web-v3/audit-01-home-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 65,
+        "top": 180,
+        "width": 270,
+        "height": 260
+      },
+      "meanAbsoluteChannelDifference": 9.87359540875391,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.21596837360526122,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "02",
+      "state": "create",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-02-create-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/02-create.png",
+      "capture": "art/review/web-v3/audit-02-create-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 55,
+        "top": 155,
+        "width": 280,
+        "height": 400
+      },
+      "meanAbsoluteChannelDifference": 9.166821842902534,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.15799896549176087,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "03",
+      "state": "join",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-03-join-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/03-join.png",
+      "capture": "art/review/web-v3/audit-03-join-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 50,
+        "top": 260,
+        "width": 295,
+        "height": 275
+      },
+      "meanAbsoluteChannelDifference": 8.486510751496342,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.13981378851695855,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "04",
+      "state": "lobby",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-04-lobby-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/04-lobby.png",
+      "capture": "art/review/web-v3/audit-04-lobby-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 15,
+        "top": 145,
+        "width": 360,
+        "height": 340
+      },
+      "meanAbsoluteChannelDifference": 21.5610076602872,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.30457030961353726,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "05",
+      "state": "gameplay",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-05-gameplay-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/05-gameplay-safe-v2.png",
+      "capture": "art/review/web-v3/audit-05-gameplay-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 25,
+        "top": 300,
+        "width": 360,
+        "height": 385
+      },
+      "meanAbsoluteChannelDifference": 25.340510850020937,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.34986699179782754,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "06",
+      "state": "results",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-06-results-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/06-results.png",
+      "capture": "art/review/web-v3/audit-06-results-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 40,
+        "top": 205,
+        "width": 315,
+        "height": 430
+      },
+      "meanAbsoluteChannelDifference": 14.707943545407522,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.17289588413507723,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "07",
+      "state": "ranking",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-07-ranking-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/07-ranking.png",
+      "capture": "art/review/web-v3/audit-07-ranking-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 75,
+        "top": 215,
+        "width": 245,
+        "height": 420
+      },
+      "meanAbsoluteChannelDifference": 13.720342865587822,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.17260031035247173,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "08",
+      "state": "rules",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-08-rules-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/08-rules.png",
+      "capture": "art/review/web-v3/audit-08-rules-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 35,
+        "top": 315,
+        "width": 325,
+        "height": 310
+      },
+      "meanAbsoluteChannelDifference": 14.485376487105594,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.18324466119855168,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "09",
+      "state": "confirm",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-09-confirm-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/09-confirm.png",
+      "capture": "art/review/web-v3/audit-09-confirm-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 40,
+        "top": 160,
+        "width": 310,
+        "height": 300
+      },
+      "meanAbsoluteChannelDifference": 10.020416759033473,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.2024200103450824,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "10",
+      "state": "bid",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-10-bid-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/10-bid.png",
+      "capture": "art/review/web-v3/audit-10-bid-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 50,
+        "top": 240,
+        "width": 305,
+        "height": 250
+      },
+      "meanAbsoluteChannelDifference": 32.34568708588881,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.3988324835587083,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "11",
+      "state": "chooser",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-11-chooser-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/11-chooser.png",
+      "capture": "art/review/web-v3/audit-11-chooser-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 50,
+        "top": 195,
+        "width": 305,
+        "height": 360
+      },
+      "meanAbsoluteChannelDifference": 14.657241557673835,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.24478681740929578,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "12",
+      "state": "connection-error",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-12-connection-error-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/12-connection-error.png",
+      "capture": "art/review/web-v3/12-connection-error-portrait-live-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 45,
+        "top": 265,
+        "width": 305,
+        "height": 245
+      },
+      "meanAbsoluteChannelDifference": 7.5793837286632675,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.1406044483854282,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "13",
+      "state": "connecting",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-13-connecting-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/13-connecting.png",
+      "capture": "art/review/web-v3/13-connecting-portrait-live-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 45,
+        "top": 265,
+        "width": 305,
+        "height": 245
+      },
+      "meanAbsoluteChannelDifference": 7.220211088943078,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.13099830045075,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "14",
+      "state": "gameplay-notimer",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-14-gameplay-notimer-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/14-gameplay-notimer-safe-v3.png",
+      "capture": "art/review/web-v3/14-gameplay-notimer-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 255,
+        "top": 440,
+        "width": 130,
+        "height": 245
+      },
+      "meanAbsoluteChannelDifference": 24.825421808418927,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.3598536909776103,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "15",
+      "state": "reconnecting",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-15-reconnecting-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/15-reconnecting.png",
+      "capture": "art/review/web-v3/15-reconnecting-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 65,
+        "top": 205,
+        "width": 265,
+        "height": 275
+      },
+      "meanAbsoluteChannelDifference": 21.780716273799847,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.37601788221384763,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    },
+    {
+      "number": "16",
+      "state": "session-ended",
+      "profile": "portrait",
+      "prefix": "art/review/web-v3/audit-16-session-ended-portrait-20261018",
+      "design": "art/mockups/web-v3/portrait/16-session-ended-v2.png",
+      "capture": "art/review/web-v3/16-session-ended-portrait-20261018.jpg",
+      "viewport": [
+        390,
+        694
+      ],
+      "left": "immutable ImageGen design",
+      "right": "Chrome implementation",
+      "normalizedForComparison": true,
+      "focus": {
+        "left": 65,
+        "top": 205,
+        "width": 265,
+        "height": 275
+      },
+      "meanAbsoluteChannelDifference": 22.903163871031307,
+      "originalSourceSize": [
+        941,
+        1672
+      ],
+      "originalCaptureSize": [
+        390,
+        694
+      ],
+      "relativeCaptureAspectError": 0,
+      "fractionPixelsOver24": 0.4143131604226705,
+      "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+    }
+  ]
+}

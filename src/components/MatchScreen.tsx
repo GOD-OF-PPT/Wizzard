@@ -25,10 +25,15 @@ import type { LocalMatchController } from "../hooks/useLocalMatch";
 import { CardView, type CardVisualState } from "./CardView";
 import { WebResults } from "./WebResults";
 import gameplayV3 from "../../art/runtime/web-v3/gameplay.png";
-import gameplayPortraitV3 from "../../art/runtime/web-v3/portrait/gameplay-v2.png";
 import gameplayChoicesPortraitV3 from "../../art/runtime/web-v3/portrait/gameplay-choices-v1.png";
 import { WebTrumpChooser, WebBidPanel } from "./WebMatchChoices";
-import { webAvatar } from "../web/avatar-assets";
+import { webGameplayAvatar } from "../web/avatar-assets";
+import hourglass from "../../art/runtime/web-v3/hourglass-v1.png";
+import trumpStatusArt from "../../art/runtime/web-v3/trump-status-v2.png";
+import { webSuitIcons } from "../web/suit-assets";
+import noTimerPatch from "../../art/runtime/web-v3/no-timer-patch-v1.png";
+import noTimerPortraitPatch from "../../art/runtime/web-v3/portrait/no-timer-patch-v1.png";
+import noActionPatch from "../../art/runtime/web-v3/gameplay-no-action-patch-v1.png";
 
 type MatchScreenProps = {
   controller?: LocalMatchController;
@@ -85,6 +90,7 @@ function PlayerSeat({
   displaySlot,
   handCount,
   isDealer,
+  isLocal,
   phase,
   player,
 }: {
@@ -93,6 +99,7 @@ function PlayerSeat({
   displaySlot: number;
   handCount: number;
   isDealer: boolean;
+  isLocal: boolean;
   phase: MatchPhase;
   player: MatchPlayerState;
 }) {
@@ -107,6 +114,7 @@ function PlayerSeat({
   return (
     <article
       className={`player-seat player-seat--${displaySlot} ${isActive ? "is-active" : ""} ${player.isHuman ? "is-human" : "is-ai"}`}
+      aria-label={`${player.name}${!player.isHuman ? "，AI" : ""}${isDealer ? "，发牌者" : ""}`}
     >
       <div className="player-seat__portrait-wrap">
         <img
@@ -114,7 +122,7 @@ function PlayerSeat({
           className="player-seat__portrait"
           data-expression={expression}
           draggable="false"
-          src={webAvatar(player.avatarKey)}
+          src={webGameplayAvatar(player.avatarKey)}
         />
         {!player.isHuman ? (
           <img
@@ -134,14 +142,13 @@ function PlayerSeat({
       <strong>{player.name}</strong>
       <div className="player-seat__stats">
         <span className="player-seat__stat">
-          <img alt="" aria-hidden="true" draggable="false" src={gameArt.smallPlaque} />
           <span>预测 {player.bid ?? "—"}</span>
         </span>
         <span className="player-seat__stat player-seat__stat--won">
-          <img alt="" aria-hidden="true" draggable="false" src={gameArt.greenStatus} />
-          <span>已赢 {player.tricksWon}</span>
+          <span>赢墩 {player.tricksWon}</span>
         </span>
       </div>
+      {isLocal && <span className="player-seat__you">你</span>}
       <div className="player-seat__hand-count" aria-label={`剩余 ${handCount} 张牌`}>
         <img alt="" aria-hidden="true" draggable="false" src={cardImages.back} />
         <span>{handCount}</span>
@@ -192,7 +199,7 @@ function TrumpStatus({
         aria-hidden="true"
         className="trump-status__panel"
         draggable="false"
-        src={gameArt.smallPlaque}
+        src={trumpStatusArt}
       />
       {trump ? (
         <img
@@ -200,11 +207,11 @@ function TrumpStatus({
           aria-hidden="true"
           className="trump-status__suit"
           draggable="false"
-          src={cardImages[trump]}
+          src={webSuitIcons[trump]}
         />
       ) : null}
       <div className="trump-status__content">
-        <span>本轮王牌</span>
+        <span>本轮王牌 ·</span>
         <strong>
           {trump
             ? suitNames[trump]
@@ -270,8 +277,10 @@ function trickCardStyle(index: number, count: number): CSSProperties {
 function handCardStyle(index: number, count: number): CSSProperties {
   const midpoint = (count - 1) / 2;
   const offset = index - midpoint;
-  const spread = Math.min(14.8, 80 / Math.max(1, count - 1));
-  const portraitSpread = Math.min(24, 66 / Math.max(1, count - 1));
+  // Reserve the right action lane, including card rotation and the 9px
+  // selection-neighbour shift. The four-card reference remains unchanged.
+  const spread = Math.min(14.8, 58 / Math.max(1, count - 1));
+  const portraitSpread = Math.min(24, 63 / Math.max(1, count - 1));
   const customStyle = {
     "--fan-left": `${50 + offset * spread}%`,
     "--portrait-fan-left": `${50 + offset * portraitSpread}%`,
@@ -324,16 +333,23 @@ function TurnTimer({
     >
       <img alt="" aria-hidden="true" draggable="false" src={gameArt.countdownRing} />
       <div>
-        <strong>{secondsRemaining}</strong>
-        <span>秒</span>
+        <img className="turn-timer__hourglass" src={hourglass} alt="" />
+        <span className="turn-timer__value"><strong>{secondsRemaining}</strong><span>秒</span></span>
       </div>
     </div>
   );
 }
 
-export function MatchScreen({ controller: providedController, onExit, showLegalHints = true }: MatchScreenProps) {
-  const localController = useLocalMatch();
-  const controller = providedController ?? localController;
+export function MatchScreen({ controller, ...props }: MatchScreenProps) {
+  return controller ? <MatchSurface {...props} controller={controller} network={controller.connection !== undefined && controller.connection !== "local"} /> : <PracticeSurface {...props} />;
+}
+
+function PracticeSurface(props: Omit<MatchScreenProps, "controller">) {
+  const controller = useLocalMatch();
+  return <MatchSurface {...props} controller={controller} network={false} />;
+}
+
+function MatchSurface({ controller, network, onExit, showLegalHints = true }: Omit<MatchScreenProps, "controller"> & { controller: LocalMatchController; network: boolean }) {
   const { privateState, publicState } = controller.snapshot;
   const [feedback, setFeedback] = useState<string | null>(null);
   const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
@@ -342,6 +358,8 @@ export function MatchScreen({ controller: providedController, onExit, showLegalH
   const currentPlayer = publicState.players.find(
     (player) => player.id === publicState.currentPlayerId,
   );
+  const connectionReady = !network || controller.connection === "connected";
+  const timerSeconds = connectionReady && currentPlayer?.isHuman ? controller.turnSecondsRemaining : null;
   const humanTurn = publicState.currentPlayerId === controller.humanPlayerId;
   const displaySlotByPlayerId = useMemo(
     () => getDisplaySlotMap(publicState.players, controller.humanPlayerId),
@@ -429,14 +447,15 @@ export function MatchScreen({ controller: providedController, onExit, showLegalH
       className="screen-stage match-stage v3-match"
       data-phase={publicState.phase}
       data-local-phase={humanTurn ? publicState.phase : "waiting"}
+      data-has-timer={timerSeconds !== null}
     >
       <button className="v3-match-back v3-baked-hit" onClick={onExit} aria-label="返回首页"><span>返回首页</span></button>
-      <div className="v3-match-mode" role="status">{controller.connection === "local" ? "单人练习" : controller.connection === "connected" ? "好友对局" : "重连中"}</div>
+      <div className="v3-match-mode" role="status">{!network ? "单人练习" : controller.connection === "connected" ? "好友对局" : "重连中"}</div>
       <h1 className="sr-only" id="match-title">
         奇术茶馆快速局牌桌
       </h1>
       <picture className="match-stage__background-picture">
-        <source media="(orientation: portrait)" srcSet={humanTurn && (publicState.phase === "bid" || publicState.phase === "trump-select") ? gameplayChoicesPortraitV3 : gameplayPortraitV3} />
+        <source media="(orientation: portrait)" srcSet={gameplayChoicesPortraitV3} />
         <source media="(orientation: landscape)" srcSet={gameplayV3} />
         <img
           alt="夜间奇术茶馆漆木圆桌"
@@ -445,6 +464,8 @@ export function MatchScreen({ controller: providedController, onExit, showLegalH
           src={gameArt.table}
         />
       </picture>
+      {timerSeconds === null && <picture className="v3-no-timer-patch"><source media="(orientation: portrait)" srcSet={noTimerPortraitPatch} /><img src={noTimerPatch} alt="" /></picture>}
+      {(!connectionReady || humanTurn && publicState.phase === "trump-select") && <img className="v3-no-action-patch" src={noActionPatch} alt="" />}
       <div className="match-stage__shade" />
 
       <RoundHeader
@@ -468,6 +489,7 @@ export function MatchScreen({ controller: providedController, onExit, showLegalH
             displaySlot={displaySlotByPlayerId.get(player.id) ?? player.seatIndex}
             handCount={publicState.handCounts[player.id] ?? 0}
             isDealer={player.seatIndex === publicState.dealerIndex}
+            isLocal={player.id === controller.humanPlayerId}
             key={player.id}
             phase={publicState.phase}
             player={player}
@@ -488,7 +510,7 @@ export function MatchScreen({ controller: providedController, onExit, showLegalH
           <strong>
             {currentPlayer
               ? currentPlayer.id === controller.humanPlayerId
-                ? "轮到你"
+                ? publicState.phase === "trick-play" ? "轮到你出牌" : "轮到你"
                 : `${currentPlayer.name}${currentPlayer.isHuman ? "操作中" : "思考中"}`
               : publicState.completedTrick
                 ? `${publicState.players.find((player) => player.id === publicState.completedTrick?.winnerId)?.name ?? "玩家"}赢得本墩`
@@ -497,10 +519,10 @@ export function MatchScreen({ controller: providedController, onExit, showLegalH
         </div>
       </div>
 
-      {currentPlayer && controller.turnSecondsRemaining !== null ? (
+      {currentPlayer && timerSeconds !== null ? (
         <TurnTimer
           playerName={currentPlayer.name}
-          secondsRemaining={controller.turnSecondsRemaining}
+          secondsRemaining={timerSeconds}
         />
       ) : null}
 
@@ -588,14 +610,18 @@ export function MatchScreen({ controller: providedController, onExit, showLegalH
           onRestart={controller.restart}
           players={publicState.players}
           roundNumber={publicState.roundIndex + 1}
-          network={!!providedController}
+          network={network}
+          canContinue={!network || controller.connection === "connected" && controller.controls?.canContinueRound === true}
+          blockedLabel={network && controller.connection !== "connected" ? "等待恢复连接" : undefined}
         />
       ) : null}
 
       {publicState.phase === "match-end" ? (
         <WebResults
           isMatchEnd
-          network={!!providedController}
+          network={network}
+          canRestart={!network || controller.connection === "connected" && controller.controls?.canRematch === true}
+          blockedLabel={network && controller.connection !== "connected" ? "等待恢复连接" : undefined}
           onContinue={controller.advance}
           onExit={onExit}
           onRestart={controller.restart}

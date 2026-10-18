@@ -320,7 +320,7 @@
   .v3-lobby-feedback { left: 10%; width: 80%; bottom: 2%; font-size: 3.5cqw; }
   .v3-results:not(.v3-ranking) .v3-results-title { top: 16.5%; left: 27%; width: 46%; font-size: 6.8cqw; }
   .v3-results:not(.v3-ranking) .v3-results-table { left: 13.8%; top: 31.4%; width: 73%; height: 39%; }
-  .v3-results:not(.v3-ranking) .v3-results-row { grid-template-columns: 32% 15.5% 16.5% 18% 18%; font-size: 4.4cqw; }
+  .v3-results:not(.v3-ranking) .v3-results-row { grid-template-columns: 32.5% 15% 16.5% 18% 18%; font-size: 4.4cqw; }
   .v3-results:not(.v3-ranking) .v3-results-player { gap: 1.4cqw; font-size: 4cqw; }
   .v3-results:not(.v3-ranking) .v3-results-player img { width: 9.5cqw; height: 9.5cqw; }
   .v3-results:not(.v3-ranking) .v3-results-note { top: 73.7%; left: 31%; width: 40%; font-size: 3.3cqw; }
@@ -463,4 +463,87 @@
   .v3-step-number > span { transform: translateY(0.05cqw); }
   .v3-rules-canvas[data-baked-steps="true"] .v3-rules-body h3 { transform: translateY(-1.4cqw); }
   .v3-rules-canvas[data-baked-steps="true"] .v3-rules-body p { top: 14.1cqw; }
+}
+
+/* Gameplay v3 authored anatomy: one name plaque and one shared stat band.
+   Card size remains 2:3; played cards use the mock's orthographic table tilt. */
+.v3-match .game-card { container-type: inline-size; }
+.v3-no-timer-patch { position: absolute; z-index: 1; pointer-events: none; left: 78.947368%; top: 47.821466%; width: 16.148325%; height: 22.848034%; }
+.v3-no-timer-patch img { display: block; width: 100%; height: 100%; }
+.v3-no-action-patch { position: absolute; z-index: 1; pointer-events: none; left: 73.863636%; top: 70.669501%; width: 25.418660%; height: 18.065887%; }
+.v3-match .game-card__rank { font-size: 34cqw; color: #21170d; text-shadow: none; }
+.v3-match .game-card__rank--top { left: 17%; top: 8.5%; }
+.v3-match .trick-area .trick-card { width: 25%; transform: translateX(-50%) rotateX(30deg); transform-origin: center top; }
+.v3-match .player-seat { width: 10.5%; }
+.v3-match .player-seat--0 { width: 12%; }
+.v3-match .player-seat--2 { left: 39.4%; }
+.v3-match .player-seat__portrait-wrap { width: 94%; }
+.v3-match .player-seat.is-active { filter: none; transform: none; }
+.v3-match .player-seat.is-active .player-seat__portrait { filter: drop-shadow(0 0 6px #f8bc42); }
+.v3-match .player-seat > strong { z-index: 1; display: grid; place-items: center; width: 92%; height: 2.35cqw; margin-top: -1.95cqw; padding: 0 0.4cqw; font-size: 1.45cqw; background: url('../art/runtime/web-v3/lobby-name-v1.png') center/100% 100% no-repeat; }
+.v3-match .player-seat__stats { width: 90%; height: 1.75cqw; margin-top: -0.1cqw; padding: 0 0.4cqw; align-items: center; background: url('../art/runtime/web-v3/gameplay-stats-v1.png') center/100% 100% no-repeat; }
+.v3-match .player-seat__stat { height: auto; padding: 0; font-size: 1.02cqw; line-height: 1; white-space: nowrap; }
+.v3-match .player-seat__stat > span { font-size: inherit; color: #f5e3b6; }
+.v3-match .player-seat__ai-badge, .v3-match .player-seat__dealer { display: none; }
+.v3-match .player-seat--0 > strong { margin-top: -3cqw; height: 2.6cqw; font-size: 1.8cqw; }
+.v3-match .player-seat--0 .player-seat__stats { height: 1.9cqw; }
+.v3-match .player-seat__you { display: grid; place-items: center; width: 50%; height: 2.05cqw; margin-top: 0.4cqw; font: 700 1.65cqw "Noto Serif SC",serif; color: #ffe4a1; background: url('../art/runtime/web-v3/lobby-waiting-v1.png') center/100% 100% no-repeat; }
+.v3-match .hand-card, .v3-match .hand-card.game-card--selected, .v3-match .player-hand.is-active .hand-card.game-card--selected { width: 15.2%; }
+.v3-match .hand-card .game-card__state-fx--selected { z-index: 3; opacity: 1; filter: drop-shadow(0 0 2px rgb(255 180 40 / 85%)); }
+.v3-match .trump-status { top: 54.2%; height: 7%; }
+.v3-match .trump-status__panel { left: -0.5%; top: 50%; bottom: auto; width: 101%; height: auto; transform: translateY(-50%); object-fit: contain; }
+.v3-match .trump-status__suit { left: 8.5%; top: 5%; width: 20%; height: 90%; object-fit: contain; border: 0; border-radius: 0; }
+.v3-match .trump-status__content { position: absolute; left: 25%; top: 0; bottom: 0; width: 70%; margin: 0; display: flex; align-items: center; justify-content: center; gap: 0.25em; white-space: nowrap; color: #921d16; }
+.v3-match .trump-status__content span, .v3-match .trump-status__content strong { font-size: 1.45cqw; }
+.v3-match .turn-timer { top: 51%; right: 8%; width: 9%; }
+.v3-match .turn-timer > div { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; }
+.v3-match .turn-timer__hourglass { position: absolute; top: 9%; width: 48%; height: 48%; object-fit: contain; }
+.v3-match .turn-timer__value { position: absolute; top: 48%; display: flex; align-items: baseline; justify-content: center; gap: 0.15em; }
+.v3-match .turn-timer__value strong { font-size: 2.25cqw; line-height: 1; }
+.v3-match .turn-timer__value > span { margin: 0; font-size: 1.5cqw; }
+.v3-match .match-status-strip > div > span { display: none; }
+.v3-match .match-status-strip strong { font: 700 1.85cqw "Noto Serif SC",serif; color: #ffdda0; }
+.v3-recovery-scrim { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; background: rgb(0 0 0 / 53%); }
+.v3-recovery { background: transparent; box-shadow: none; animation: dialog-fade-in 220ms ease-out both; }
+.v3-recovery-panel { position: absolute; left: 25.25%; top: 23.2%; width: 49.4%; }
+.v3-recovery-panel img { display: block; width: 100%; height: auto; }
+.v3-recovery.is-terminal .v3-recovery-panel { left: 24.22%; top: 23.85%; width: 51.54%; }
+.v3-recovery-action { left: 39.75%; top: 60.1%; width: 20.55%; height: 9.3%; }
+.v3-recovery-action:focus-visible { outline: 3px solid #ffe4a5; outline-offset: 4px; }
+.game-prototype[data-room-recovery="true"] .v3-match .turn-action,
+.game-prototype[data-room-recovery="true"] .v3-match .turn-timer,
+.game-prototype[data-room-recovery="true"] .v3-match .match-status-strip,
+.game-prototype[data-room-recovery="true"] .v3-match .v3-bid,
+.game-prototype[data-room-recovery="true"] .v3-match .v3-chooser { visibility: hidden; }
+@media (orientation: portrait) {
+  .v3-no-action-patch { display: none; }
+  .v3-recovery-panel { left: 15.66%; top: 28.82%; width: 68.23%; }
+  .v3-recovery.is-terminal .v3-recovery-panel { left: 14.94%; top: 29.68%; width: 70.1%; }
+  .v3-recovery-action { left: 25.5%; top: 58.8%; width: 49%; height: 6.4%; min-height: 44px; }
+  .v3-no-timer-patch { left: 75.770457%; top: 69.258373%; width: 24.229543%; height: 14.114833%; }
+  .v3-match .player-seat { width: 21%; }
+  .v3-match .player-seat--0 { width: 22.5%; }
+  .v3-match .player-seat--1, .v3-match .player-seat--3 { top: 18.8%; }
+  .v3-match .player-seat--2 { left: 40%; top: 14.2%; }
+  .v3-match .player-seat--4, .v3-match .player-seat--5 { top: 28.5%; }
+  .v3-match .player-seat > strong { width: 92%; height: 5.2cqw; margin-top: -3cqw; padding: 0 0.8cqw; font-size: 4cqw; }
+  .v3-match .player-seat__stats { height: 3.5cqw; margin-top: -0.1cqw; padding: 0 0.8cqw; }
+  .v3-match .player-seat__stat { font-size: 3cqw; }
+  .v3-match .player-seat--0 .player-seat__portrait-wrap { width: 102%; }
+  .v3-match .player-seat--0 > strong { height: 5.6cqw; margin-top: -7.5cqw; font-size: 4.2cqw; }
+  .v3-match .player-seat--0 .player-seat__stats { height: 3.8cqw; }
+  .v3-match .player-seat__you { height: 4.5cqw; margin-top: 0.5cqw; font-size: 3.7cqw; }
+  .v3-match .player-hand { left: 9.23%; bottom: 12%; }
+  /* The original portrait mock overlapped its final card. Safe-v2 gives play
+     its own lower band; bid retains the independent central modal action. */
+  .v3-match .turn-action { left: 70.75%; top: 89.7%; bottom: auto; width: 29%; height: 7.8%; min-height: 44px; background: url('../art/runtime/web-v3/play-action-portrait-v1.png') center/contain no-repeat; }
+  .v3-match .hand-card, .v3-match .hand-card.game-card--selected, .v3-match .player-hand.is-active .hand-card.game-card--selected { width: 22.8%; }
+  .v3-match .trump-status { top: 55.3%; height: 4.5%; }
+  .v3-match .trump-status__content span, .v3-match .trump-status__content strong { font-size: 3cqw; }
+  .v3-match .turn-timer { top: 72%; right: 2.2%; width: 18%; }
+  .v3-match .turn-timer__value strong { font-size: 6cqw; }
+  .v3-match .turn-timer__value > span { font-size: 3.4cqw; }
+  .v3-match .match-status-strip strong { font-size: 3.5cqw; }
+  .v3-match .match-status-strip { left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+  .v3-match .v3-match-mode { display: none; }
 }

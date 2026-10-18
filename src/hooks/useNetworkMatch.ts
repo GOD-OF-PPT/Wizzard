@@ -47,6 +47,7 @@ export function useNetworkMatch(
   return {
     advance: () => adapterRef.current?.requestContinueRound(),
     connection: update.connection,
+    controls: update.controls,
     events: [...update.events],
     humanPlayerId: update.snapshot.privateState.playerId,
     restart: () => adapterRef.current?.requestRematch(),

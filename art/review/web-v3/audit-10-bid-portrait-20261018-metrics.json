@@ -1,0 +1,29 @@
+{
+  "design": "art/mockups/web-v3/portrait/10-bid.png",
+  "capture": "art/review/web-v3/audit-10-bid-portrait-20261018.jpg",
+  "viewport": [
+    390,
+    694
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 50,
+    "top": 240,
+    "width": 305,
+    "height": 250
+  },
+  "meanAbsoluteChannelDifference": 32.34568708588881,
+  "originalSourceSize": [
+    941,
+    1672
+  ],
+  "originalCaptureSize": [
+    390,
+    694
+  ],
+  "relativeCaptureAspectError": 0,
+  "fractionPixelsOver24": 0.3988324835587083,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}

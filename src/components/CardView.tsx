@@ -2,11 +2,11 @@ import type { CSSProperties } from "react";
 import {
   cardImages,
   gameArt,
-  getCardImage,
   suitNames,
 } from "../game-assets";
 import type { Card } from "@wizzard/game-core/contracts";
 import webSelectedHalo from "../../art/runtime/web-v3/selected-halo.png";
+import { webCardImage } from "../web/card-assets";
 
 export type CardVisualState =
   | "normal"
@@ -90,14 +90,11 @@ export function CardView({
         aria-hidden="true"
         className="game-card__art"
         draggable="false"
-        src={faceDown ? cardImages.back : getCardImage(card)}
+        src={faceDown ? cardImages.back : webCardImage(card)}
       />
       {!faceDown && cornerText ? (
         <>
           <span className="game-card__rank game-card__rank--top">
-            {cornerText}
-          </span>
-          <span className="game-card__rank game-card__rank--bottom">
             {cornerText}
           </span>
         </>

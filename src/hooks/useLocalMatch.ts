@@ -28,6 +28,7 @@ import type {
   RandomSource,
   Suit,
 } from "@wizzard/game-core/contracts";
+import type { MatchControls } from "../web/shared/IMatchAdapter";
 
 const HUMAN_PLAYER_ID = "player-you";
 const FAST_EVIDENCE_MODE = import.meta.env.DEV && typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("fast") : null;
@@ -59,7 +60,7 @@ const PRACTICE_PLAYERS: readonly MatchPlayerSeed[] = [
     avatarKey: "bamboo-cat",
     id: HUMAN_PLAYER_ID,
     isHuman: true,
-    name: "你",
+    name: "青竹客",
   },
   {
     avatarKey: "wandering-crane",
@@ -84,7 +85,7 @@ const PRACTICE_PLAYERS: readonly MatchPlayerSeed[] = [
   {
     avatarKey: "masked-traveler",
     id: "player-traveler",
-    name: "面具旅人",
+    name: "AI旅人",
   },
 ];
 
@@ -140,6 +141,7 @@ function sessionReducer(_session: Session, action: SessionAction): Session {
 export type LocalMatchController = {
   advance: () => void;
   connection?: "local" | "connected" | "reconnecting" | "disconnected";
+  controls?: MatchControls;
   events: MatchEvent[];
   humanPlayerId: string;
   restart: () => void;

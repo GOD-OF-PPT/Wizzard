@@ -1,0 +1,29 @@
+{
+  "design": "art/mockups/web-v3/07-ranking.png",
+  "capture": "art/review/web-v3/audit-07-ranking-landscape-20261018.jpg",
+  "viewport": [
+    1672,
+    941
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 440,
+    "top": 240,
+    "width": 830,
+    "height": 590
+  },
+  "meanAbsoluteChannelDifference": 8.583472314735248,
+  "originalSourceSize": [
+    1672,
+    941
+  ],
+  "originalCaptureSize": [
+    1672,
+    941
+  ],
+  "relativeCaptureAspectError": 0,
+  "fractionPixelsOver24": 0.0772319226721039,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}

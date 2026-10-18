@@ -1,0 +1,9 @@
+# Portrait play-action extraction
+
+Built-in ImageGen, transparent background. Input: `art/mockups/web-v3/portrait/05-gameplay-safe-v2.png`.
+
+Prompt: Extract ONLY the complete green confirmation action plaque in bottom right, source approximately x669–938 y1502–1633. Preserve the exact original shape and anatomy: wide short green lacquer label plaque, dark emerald patterned interior, delicate straight gold inner line and curled corner ornaments, rounded ivory-gold outer rim, and the complete peach-gold cloud ornament projecting from lower right. The entire visible plaque including cloud has original aspect approximately 269:131 = 2.05:1. Keep every border thickness, green hue, ornament proportion, corner construction and cloud location unchanged. ONLY remove the four white Chinese characters “确认出牌”, seamlessly restoring the underlying quiet dark green patterned label area. No text or lettering of any kind remains. Deliver a high resolution wide transparent PNG, one plaque centered with small transparent border, exact 2.05:1 visible proportions. Exterior is genuinely transparent, interior green lacquer and cloud opaque. No wood/table, tea house, cards, characters, black/dark backdrop or other screen content. Do not redesign, do not add glow or shadows.
+
+Second targeted ImageGen refinement: Correct visible entire plaque to exactly 2.05:1 including cloud, increase body height to match original, remove all detached specks and halos, retain blank label, opaque interior and genuine transparent exterior. Original screenshot remains geometric authority.
+
+Selected output: `art/runtime/web-v3/play-action-portrait-v1.png`. ImageMagick trimmed generated alpha bounds and added a 12px transparent border, without redrawing. Caveat: generated plaque remains visibly wider than the original 2.05:1 target and has faint fringe specks, so this asset is a candidate requiring source comparison, not final fidelity acceptance.

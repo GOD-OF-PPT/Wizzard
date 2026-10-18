@@ -1,0 +1,458 @@
+{
+  "limitation": "Geometry compatibility is necessary, never a visual or interaction pass.",
+  "counts": {
+    "geometry-compatible": 32,
+    "invalid-crop-or-wrong-viewport": 0,
+    "unreadable": 0
+  },
+  "reports": [
+    {
+      "metric": "art\\review\\web-v3\\audit-01-home-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-01-home-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-01-home-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-01-home-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-02-create-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-02-create-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-02-create-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-02-create-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-03-join-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-03-join-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-03-join-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-03-join-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-04-lobby-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-04-lobby-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-04-lobby-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-04-lobby-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-05-gameplay-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-05-gameplay-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-05-gameplay-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-05-gameplay-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-06-results-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-06-results-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-06-results-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-06-results-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-07-ranking-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-07-ranking-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-07-ranking-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-07-ranking-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-08-rules-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-08-rules-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-08-rules-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-08-rules-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-09-confirm-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-09-confirm-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-09-confirm-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-09-confirm-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-10-bid-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-10-bid-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-10-bid-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-10-bid-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-11-chooser-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-11-chooser-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-11-chooser-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/audit-11-chooser-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-12-connection-error-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/12-connection-error-landscape-live-20261018.jpg",
+      "originalSize": [
+        1672,
+        942
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0.0010615711252653925,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-12-connection-error-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/12-connection-error-portrait-live-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-13-connecting-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/13-connecting-landscape-live-20261018.jpg",
+      "originalSize": [
+        1672,
+        942
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0.0010615711252653925,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-13-connecting-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/13-connecting-portrait-live-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-14-gameplay-notimer-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/14-gameplay-notimer-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-14-gameplay-notimer-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/14-gameplay-notimer-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-15-reconnecting-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/15-reconnecting-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-15-reconnecting-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/15-reconnecting-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-16-session-ended-landscape-20261018-metrics.json",
+      "capture": "art/review/web-v3/16-session-ended-landscape-20261018.jpg",
+      "originalSize": [
+        1672,
+        941
+      ],
+      "target": [
+        1672,
+        941
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    },
+    {
+      "metric": "art\\review\\web-v3\\audit-16-session-ended-portrait-20261018-metrics.json",
+      "capture": "art/review/web-v3/16-session-ended-portrait-20261018.jpg",
+      "originalSize": [
+        390,
+        694
+      ],
+      "target": [
+        390,
+        694
+      ],
+      "relativeAspectError": 0,
+      "status": "geometry-compatible"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import panda from "../../art/runtime/web-v3/avatars/ink-panda.png";
 import starCat from "../../art/runtime/web-v3/avatars/sleepy-star-cat.png";
 import traveler from "../../art/runtime/web-v3/avatars/masked-traveler.png";
 import lobbyTraveler from "../../art/runtime/web-v3/avatars/lobby-masked-traveler-v1.png";
+import gameplayTraveler from "../../art/runtime/web-v3/avatars/gameplay-masked-traveler-v1.png";
 
 // The browser's selected v3 references use this portrait treatment. Keep it
 // separate from the versioned Mini Game expression atlas and its asset keys.
@@ -26,4 +27,8 @@ export function webAvatar(key: string): string {
 // illustration uses a different portrait. Do not substitute a human in lobby QA.
 export function webLobbyAvatar(key: string): string {
   return key === "masked-traveler" ? lobbyTraveler : webAvatar(key);
+}
+
+export function webGameplayAvatar(key: string): string {
+  return key === "masked-traveler" ? gameplayTraveler : webAvatar(key);
 }

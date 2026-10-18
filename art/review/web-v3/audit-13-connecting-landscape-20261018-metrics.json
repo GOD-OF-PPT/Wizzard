@@ -1,0 +1,29 @@
+{
+  "design": "art/mockups/web-v3/13-connecting.png",
+  "capture": "art/review/web-v3/13-connecting-landscape-live-20261018.jpg",
+  "viewport": [
+    1672,
+    941
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 400,
+    "top": 250,
+    "width": 880,
+    "height": 450
+  },
+  "meanAbsoluteChannelDifference": 3.20391304679436,
+  "originalSourceSize": [
+    1672,
+    941
+  ],
+  "originalCaptureSize": [
+    1672,
+    942
+  ],
+  "relativeCaptureAspectError": 0.0010615711252653925,
+  "fractionPixelsOver24": 0.030062567054289186,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}

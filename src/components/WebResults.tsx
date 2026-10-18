@@ -7,9 +7,10 @@ import portraitResults from "../../art/runtime/web-v3/portrait/results.png";
 import portraitRanking from "../../art/runtime/web-v3/portrait/ranking-v2.png";
 import { trapDialogTab } from "../web/dialog-focus";
 
-export function WebResults({ isMatchEnd, onContinue, onExit, onRestart, players, roundNumber, network = false }: {
+export function WebResults({ isMatchEnd, onContinue, onExit, onRestart, players, roundNumber, network = false, canContinue = true, canRestart = true, blockedLabel }: {
   isMatchEnd: boolean; onContinue: () => void; onExit: () => void; onRestart: () => void;
   players: readonly MatchPlayerState[]; roundNumber: number; network?: boolean;
+  canContinue?: boolean; canRestart?: boolean; blockedLabel?: string;
 }) {
   const [showRanking, setShowRanking] = useState(false);
   const rank = isMatchEnd || showRanking;
@@ -38,7 +39,7 @@ export function WebResults({ isMatchEnd, onContinue, onExit, onRestart, players,
     </div>
     {!rank && <p className="v3-results-note">预测准确获得20分基础分</p>}
     <button className="v3-results-secondary v3-baked-hit" onClick={rank ? isMatchEnd ? onExit : () => setShowRanking(false) : () => setShowRanking(true)}>{rank ? isMatchEnd ? network ? "离开房间" : "返回首页" : "返回结算" : "查看总榜"}</button>
-    <button ref={primary} className="v3-results-primary v3-baked-hit" onClick={isMatchEnd ? onRestart : onContinue}>{isMatchEnd ? "再来一局" : "继续下一轮"}</button>
+    <button ref={primary} className="v3-results-primary v3-baked-hit" disabled={isMatchEnd ? !canRestart : !canContinue} onClick={isMatchEnd ? onRestart : onContinue}>{(isMatchEnd ? !canRestart : !canContinue) ? blockedLabel ?? (isMatchEnd ? "等待房主再开" : "等待牌桌继续") : isMatchEnd ? "再来一局" : "继续下一轮"}</button>
     </div>
   </section>;
 }

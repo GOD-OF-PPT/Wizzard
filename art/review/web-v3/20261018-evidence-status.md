@@ -4,6 +4,11 @@
 
 ## 当前有效
 
+- `audit-20261018-index.html`：当前16页/状态的32组横竖source/Chrome全景、聚焦和尺寸记录。05竖屏改用独立安全区v2设计，14竖屏采用safe-v3；旧稿自己覆盖最后手牌，不继续把该缺陷当保真要求。修复后05/06/10/11/14/15/16竖屏均重新抓取；图像数量不等于通过。
+- `20261018-hand-safety.json`、`05-eight-hand-{landscape,portrait}-20261018.jpg`：实际DOM键盘选择1–8张，两个画幅均无舞台溢出或动作矩形交集。八张截图在正确新建的目标画幅标签重拍；早期把390×694命名landscape的临时帧已被正确1672×941覆盖，未用于验收。
+- `15-reconnecting-*-20261018.jpg`、`16-session-ended-*-20261018.jpg`：冻结同内容排版；真实网络图必须带network。后者来自独立真实8791房间服务和5174回环transport代理，不是页面状态注入。
+- `15-reconnecting-*-network-20261018.jpg`、`15-recovered-landscape-network-20261018.jpg`、`16-session-ended-*-network-20261018.jpg`：实际房874422断线、保留原牌桌、同身份恢复、QA服务重启导致真实失效、显式返回后刷新仍在首页。状态与第4轮稿件不同，只证明交互/服务行为。
+
 - `08-{quick,trump,play,scoring,settings}-{landscape,portrait}-final-20261018.jpg`：五种规则/设置状态的真实UI。新状态设计位于`art/mockups/web-v3/`及`portrait/`；非首章时没有旧绿色首章高亮，设置没有任何章节高亮。
 - `02-create-masked-{landscape,portrait}-final-20261018.jpg`与`03-join-masked-{landscape,portrait}-final-20261018.jpg`：当前静态原像素+动态字段合成后的最终表单。相应comparison/focus为当前对照。
 - `02-create-empty-masked-portrait-20261018.jpg`、`03-join-empty-masked-portrait-20261018.jpg`：只证明空值未透出设计样例，未把它们当成源稿同内容比较。
@@ -21,6 +26,11 @@
 - `04-lobby-*-before-20261018.jpg`是昵称板/头像/安全区修复之前。最初断开端口时，连接中画面很快进入失败，不能拿初次截图当等待态；当前同名13号文件已在受控握手延迟下重新复拍，并重新生成对照。
 
 ## 被拒用的候选
+
+- `cards/*-v1.png`：连续双边框、角标过大，消费v2；`trump-status-v1.png`纸芯5.59:1不符，改内在4.92:1的v2，不拉伸。
+- `16-session-ended.png`及其v1面板：座位失效文案不能泛指所有协议终止，正式用通用结束连接的v2。
+- `portrait/14-gameplay-notimer-safe-v2.png`：按钮下移后底边余量/位置漂移，正式源稿使用从05-safe-v2只去计时器的safe-v3。
+- `05-active-native-debug.jpg`：1672×744物理裁图；`05-active-full-debug.jpg`仅调试。旧`05-gameplay-*-refined`早于最终纸签和竖屏动作分带；当前以audit05为准。
 
 - `switch-on-v2.png`：绿色内部透明孔洞。
 - `seat-selected-{portrait,landscape}.png`：首版高光/边框与可见比例跑偏。采用精确源图控件参考生成的`*-v2.png`，其部分alpha由真实状态色作为底层合成。

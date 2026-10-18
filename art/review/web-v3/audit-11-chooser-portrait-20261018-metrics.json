@@ -1,0 +1,29 @@
+{
+  "design": "art/mockups/web-v3/portrait/11-chooser.png",
+  "capture": "art/review/web-v3/audit-11-chooser-portrait-20261018.jpg",
+  "viewport": [
+    390,
+    694
+  ],
+  "left": "immutable ImageGen design",
+  "right": "Chrome implementation",
+  "normalizedForComparison": true,
+  "focus": {
+    "left": 50,
+    "top": 195,
+    "width": 305,
+    "height": 360
+  },
+  "meanAbsoluteChannelDifference": 14.657241557673835,
+  "originalSourceSize": [
+    941,
+    1672
+  ],
+  "originalCaptureSize": [
+    390,
+    694
+  ],
+  "relativeCaptureAspectError": 0,
+  "fractionPixelsOver24": 0.24478681740929578,
+  "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
+}
