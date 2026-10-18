@@ -1,5 +1,12 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+
+// Explicit highest-reveal replay for this test, never a production seed/URL.
+vi.mock("./hooks/useLocalMatch", async importOriginal => {
+  const actual = await importOriginal<typeof import("./hooks/useLocalMatch")>();
+  const seedSource = () => 1;
+  return { ...actual, useLocalMatch: () => actual.useLocalMatch({ seedSource }) };
+});
 import { App } from "./App";
 
 function enterMatch() {

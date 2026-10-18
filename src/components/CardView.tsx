@@ -109,6 +109,7 @@ export function CardView({
         aria-pressed={state === "selected"}
         className={classNames}
         disabled={disabled}
+        data-card-id={card.id}
         onClick={onClick}
         style={style}
         type="button"

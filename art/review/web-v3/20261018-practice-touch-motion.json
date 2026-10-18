@@ -1,0 +1,33 @@
+{
+  "status": "partial-evidence-not-global-visual-pass",
+  "browser": "Chrome",
+  "defaultPracticeEntries": ["青叶 2", "赭日 12", "靛山 9", "朱结 3", "青叶 9", "朱结 2", "青叶 6", "青叶 11"],
+  "interruptedNormalRun": { "opening": "朱结 9", "observedRounds": [1,2,3], "reason": "Vite review HTML full reload; not a complete match" },
+  "completedRematchRun": {
+    "url": "http://127.0.0.1:5173/?fast=2", "aiPacingAccelerated": true, "humanTimeoutMs": 30000,
+    "opening": "赭日 1", "observedRounds": [1,2,3,4,5,6,7,8],
+    "finalAction": "查看最终总榜", "rankingOpened": true, "rematchAction": "再来一局",
+    "rematchOpening": "靛山 8", "rematchBidsEmpty": true, "rematchWonAllZero": true,
+    "returnedHome": true, "someHumanTimeoutsOccurred": true
+  },
+  "nativeInputs": {
+    "handCounts": [1,2,3,4,5,6,7,8], "everyVisibleCardOncePerCount": true,
+    "profiles": [{"input":"mouse","viewport":[1672,942],"stage":[1672,941],"cases":36,"failures":0},{"input":"touch","viewport":[1672,942],"stage":[1672,941],"cases":36,"failures":0},{"input":"mouse","viewport":[390,694],"stage":[390,694],"cases":36,"failures":0},{"input":"touch","viewport":[390,694],"stage":[390,694],"cases":36,"failures":0}],
+    "total": 144, "failures": 0,
+    "preFixPortraitTouchFailures": [{"handCount":7,"index":4,"label":"青叶 11","selected":"青叶 5"},{"handCount":7,"index":6,"label":"至高牌","selected":"青叶 5"}],
+    "minimizedContact": {"x":203.43594,"y":566.27892,"visibleCard":"青叶 11","nativePointerDownTarget":"赭日 6","nativePointerUpTarget":"赭日 6","nativeClickTarget":"赭日 6"},
+    "fixtureIsNotRulesReplay": true, "touchEmulationReset": true, "allEdgesOrRealPhoneTested": false
+  },
+  "motion": {
+    "route": "actual practice fast=2; no state injection", "reducedMotion": false,
+    "selectedCard": "靛山 8", "inFlightY": -4.88879, "finishedY": -12, "finishedRotationDegrees": 0,
+    "zIndex": 30, "haloTranslateY": 8,
+    "transition": "transform 0.14s cubic-bezier(0.22, 0.8, 0.3, 1), filter 0.14s",
+    "firstPulse": "0.56s cubic-bezier(0.22, 0.8, 0.3, 1) both turn-action-pulse",
+    "pulseClearedAtLaterRead": true, "sameTurnDeselectReselectPulse": "none",
+    "continuousFrameTimingMeasured": false
+  },
+  "sourceOfTruthUnchanged": true,
+  "remaining": ["precise selected-completion ImageGen source", "visible gameplay art and type differences", "current multi-legal selection timing", "pending/ACK recovery and network final combinations"],
+  "details": "docs/24-web-v3-practice-and-touch-calibration.md"
+}

@@ -14,7 +14,7 @@
     "width": 630,
     "height": 600
   },
-  "meanAbsoluteChannelDifference": 20.987051424813604,
+  "meanAbsoluteChannelDifference": 20.93487810314115,
   "originalSourceSize": [
     1672,
     941
@@ -24,6 +24,6 @@
     941
   ],
   "relativeCaptureAspectError": 0,
-  "fractionPixelsOver24": 0.2947159948949758,
+  "fractionPixelsOver24": 0.2940410029033554,
   "interpretation": "Diagnostic only, not an acceptance threshold. Antialiasing, JPEG capture, dynamic content and art differences all contribute. Inspect both full view and focused regions."
 }

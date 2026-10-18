@@ -7,6 +7,14 @@
   "portraitDesignRoot": "art/mockups/web-v3/portrait/",
   "designContract": "docs/18-web-v3-design-and-interaction.md",
   "acceptance": "in-progress",
+  "selectionContract": {
+    "liftCssPx": 12, "haloOffsetBelowCardCssPx": 8, "neighborOutwardCssPx": 9,
+    "durationMs": 140, "confirmPulseMs": 560,
+    "finishFrameStatus": "candidates-rejected-not-source-of-truth",
+    "promptPaths": ["art/prompts/web-v3-selected-finish-landscape-v1.md", "art/prompts/web-v3-selected-finish-portrait-v1.md"],
+    "nativeInputAudit": "docs/24-web-v3-practice-and-touch-calibration.md",
+    "nativeInputCases": 144, "nativeInputFailures": 0
+  },
   "assets": {
     "web.v3.home": { "design": "01-home.png", "runtime": "home.png", "content": "static scene and entry plaques" },
     "web.v3.create": { "design": "02-create.png", "runtime": "create.png", "staticRuntime": "create-static-v1.png", "maskContract": "src/web/form-art-masks.tsx", "content": "source static pixels plus field-only cleanup; actual values rendered by RoomEntry" },

@@ -33,7 +33,12 @@ export default defineConfig({
     allowedHosts: ["terminal.local"],
     // Native Windows file events missed entry-module replacements during
     // visual calibration, leaving a served module older than the worktree.
-    watch: process.platform === "win32" ? { usePolling: true, interval: 400, binaryInterval: 800 } : undefined,
+    watch: {
+      ...(process.platform === "win32" ? { usePolling: true, interval: 400, binaryInterval: 800 } : {}),
+      // Writing comparison HTML must not reset an in-progress local match.
+      // Runtime assets stay watched; review output is served on explicit reload.
+      ignored: ["**/art/review/**"],
+    },
     proxy: {
       "/ws": {
         target: "http://127.0.0.1:8787",

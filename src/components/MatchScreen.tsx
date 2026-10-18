@@ -355,6 +355,7 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
   const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
   const [confirmPulse, setConfirmPulse] = useState(false);
   const hasSelectedThisTurn = useRef(false);
+  const touchedCardId = useRef<string | null>(null);
   const currentPlayer = publicState.players.find(
     (player) => player.id === publicState.currentPlayerId,
   );
@@ -372,6 +373,7 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
   const selectedCard = privateState.hand.find(
     (card) => card.id === selectedCardId,
   );
+  const selectedCardIndex = privateState.hand.findIndex(card => card.id === selectedCardId);
 
   useEffect(() => {
     if (!privateState.hand.some((card) => card.id === selectedCardId)) {
@@ -530,6 +532,26 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
         aria-label="你的手牌"
         className={`player-hand ${humanTurn && publicState.phase === "trick-play" ? "is-active" : "is-locked"}`}
         role="group"
+        onPointerDownCapture={event => {
+          touchedCardId.current = null;
+          if (event.pointerType !== "touch") return;
+          // Chrome can retarget a touch to a neighbouring overlapping button.
+          // Keep the card actually visible under the original contact point.
+          const hit = document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLButtonElement>(".hand-card");
+          if (hit && event.currentTarget.contains(hit) && !hit.disabled) {
+            touchedCardId.current = hit.dataset.cardId ?? null;
+          }
+        }}
+        onPointerCancel={() => { touchedCardId.current = null; }}
+        onClickCapture={event => {
+          const cardId = touchedCardId.current;
+          touchedCardId.current = null;
+          if ((event.nativeEvent as PointerEvent).pointerType !== "touch" || !cardId) return;
+          const card = privateState.hand.find(candidate => candidate.id === cardId);
+          if (!card) return;
+          event.stopPropagation();
+          selectCard(card);
+        }}
       >
         {privateState.hand.map((card, index) => {
           let visualState: CardVisualState = "normal";
@@ -552,8 +574,11 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
               state={visualState}
               style={{
                 ...handCardStyle(index, privateState.hand.length),
-                "--selection-offset": selectedCardId && selectedCardId !== card.id ? (index < privateState.hand.findIndex(item => item.id === selectedCardId) ? "-9px" : "9px") : "0px",
-                ...(selectedCardId === card.id ? { zIndex: 30 } : {}),
+                "--selection-offset": selectedCardIndex >= 0 && index !== selectedCardIndex ? (index < selectedCardIndex ? "-9px" : "9px") : "0px",
+                // Reveal the outward edge on either side of the raised card.
+                // An always-increasing right stack sandwiches the immediate
+                // neighbour on dense portrait hands between two higher cards.
+                zIndex: index === selectedCardIndex ? 30 : selectedCardIndex < 0 || index < selectedCardIndex ? index + 1 : privateState.hand.length - index,
               } as CSSProperties}
             />
           );

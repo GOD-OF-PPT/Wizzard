@@ -518,7 +518,7 @@
 .v3-match .player-seat--0 .player-seat__stats { height: 1.9cqw; }
 .v3-match .player-seat__you { display: grid; place-items: center; width: 50%; height: 2.05cqw; margin-top: 0.4cqw; font: 700 1.65cqw "Noto Serif SC",serif; color: #ffe4a1; background: url('../art/runtime/web-v3/lobby-waiting-v1.png') center/100% 100% no-repeat; }
 .v3-match .hand-card, .v3-match .hand-card.game-card--selected, .v3-match .player-hand.is-active .hand-card.game-card--selected { width: 15.2%; }
-.v3-match .hand-card .game-card__state-fx--selected { z-index: 3; opacity: 1; filter: drop-shadow(0 0 2px rgb(255 180 40 / 85%)); }
+.v3-match .hand-card .game-card__state-fx--selected { z-index: 3; opacity: 1; transform: translateY(8px); filter: drop-shadow(0 0 2px rgb(255 180 40 / 85%)); }
 .v3-match .trump-status { top: 54.2%; height: 7%; }
 .v3-match .trump-status__panel { left: -0.5%; top: 50%; bottom: auto; width: 101%; height: auto; transform: translateY(-50%); object-fit: contain; }
 .v3-match .trump-status__suit { left: 8.5%; top: 5%; width: 20%; height: 90%; object-fit: contain; border: 0; border-radius: 0; }

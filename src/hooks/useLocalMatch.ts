@@ -9,7 +9,6 @@ import {
 import {
   advanceAuthoritativeMatch,
   applyMatchIntent,
-  createMatch,
   createPlayerSnapshot,
   type AuthoritativeMatchState,
   type MatchTransition,
@@ -25,17 +24,14 @@ import type {
   MatchIntent,
   MatchPlayerSeed,
   PlayerMatchSnapshot,
-  RandomSource,
   Suit,
 } from "@wizzard/game-core/contracts";
 import type { MatchControls } from "../web/shared/IMatchAdapter";
+import { createWebPracticeSession, type PracticeSessionOptions } from "../web/practice-session";
 
 const HUMAN_PLAYER_ID = "player-you";
 const FAST_EVIDENCE_MODE = import.meta.env.DEV && typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("fast") : null;
 const FAST_EVIDENCE_PACING = FAST_EVIDENCE_MODE === "1" || FAST_EVIDENCE_MODE === "2";
-// The deterministic practice seed opens with a highest-card reveal so the
-// first round exercises the dealer trump-choice flow before bidding.
-const DEFAULT_SEED = 1;
 
 /** Convert seconds to milliseconds (rounded) for pacing configuration. */
 const toMs = (seconds: number): number => Math.round(seconds * 1000);
@@ -103,30 +99,6 @@ type SessionAction =
   | { transition: MatchTransition; type: "transition" }
   | { state: AuthoritativeMatchState; type: "reset" };
 
-function createSeededRandom(seed: number): RandomSource {
-  let value = seed >>> 0;
-
-  return () => {
-    value += 0x6d2b79f5;
-    let result = value;
-    result = Math.imul(result ^ (result >>> 15), result | 1);
-    result ^= result + Math.imul(result ^ (result >>> 7), result | 61);
-    return ((result ^ (result >>> 14)) >>> 0) / 4_294_967_296;
-  };
-}
-
-function createPracticeState(random: RandomSource): AuthoritativeMatchState {
-  return createMatch(
-    {
-      dealerIndex: 0,
-      matchId: "practice-quick",
-      mode: "quick",
-      players: PRACTICE_PLAYERS,
-    },
-    random,
-  );
-}
-
 function sessionReducer(_session: Session, action: SessionAction): Session {
   if (action.type === "reset") {
     return { events: [], state: action.state };
@@ -150,15 +122,18 @@ export type LocalMatchController = {
   turnSecondsRemaining: number | null;
 };
 
-export function useLocalMatch(): LocalMatchController {
-  const randomRef = useRef<RandomSource>(createSeededRandom(DEFAULT_SEED));
+export function useLocalMatch(options: PracticeSessionOptions = {}): LocalMatchController {
+  const optionsRef = useRef(options);
+  const openingRef = useRef<ReturnType<typeof createWebPracticeSession> | null>(null);
+  if (!openingRef.current) openingRef.current = createWebPracticeSession(PRACTICE_PLAYERS, HUMAN_PLAYER_ID, optionsRef.current);
+  const randomRef = useRef(openingRef.current.random);
   const commandCounterRef = useRef(0);
   const initialSessionRef = useRef<Session | null>(null);
 
   if (!initialSessionRef.current) {
     initialSessionRef.current = {
       events: [],
-      state: createPracticeState(randomRef.current),
+      state: openingRef.current.state,
     };
   }
 
@@ -173,6 +148,7 @@ export function useLocalMatch(): LocalMatchController {
     () => createPlayerSnapshot(session.state, HUMAN_PLAYER_ID),
     [session.state],
   );
+  useEffect(() => { openingRef.current?.commitOpening(); }, [session.state.matchId]);
 
   const sendIntent = useCallback(
     (payload: IntentPayload) => {
@@ -202,9 +178,11 @@ export function useLocalMatch(): LocalMatchController {
   }, [session.state]);
 
   const restart = useCallback(() => {
-    randomRef.current = createSeededRandom(DEFAULT_SEED);
+    const next = createWebPracticeSession(PRACTICE_PLAYERS, HUMAN_PLAYER_ID, optionsRef.current);
+    openingRef.current = next;
+    randomRef.current = next.random;
     commandCounterRef.current = 0;
-    dispatch({ state: createPracticeState(randomRef.current), type: "reset" });
+    dispatch({ state: next.state, type: "reset" });
   }, []);
 
   useEffect(() => {
