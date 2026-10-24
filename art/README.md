@@ -100,7 +100,7 @@ node tools/sync-cocos-assets.mjs --target cocos-client/assets/resources/game-art
 
 ## Web v3 复核证据归档（2026-10-24）
 
-此次推送将原先未跟踪的 1,723 份截图、对比图与复核记录保存为 GitHub 草稿发布 `web-v3-evidence-20261024` 的分卷 tar 附件，避免把约 2.69 GB 的复核输出加入 Git 历史。正式源图、运行资源、页面设计稿和原有已跟踪证据仍随发布分支提交；本地原始文件完整保留。
+此次推送将原先未跟踪的 1,723 份截图、对比图与复核记录保存为 [GitHub 草稿发布 `web-v3-evidence-20261024`](https://github.com/GOD-OF-PPT/Wizzard/releases/tag/untagged-302f2751fa75a896551d) 的分卷 tar 附件，避免把约 2.69 GB 的复核输出加入 Git 历史。正式源图、运行资源、页面设计稿和原有已跟踪证据仍随发布分支提交；本地原始文件完整保留。
 
 [归档清单](review/web-v3/evidence-archive-20261024.json) 记录每个文件的原路径、字节数、SHA-256 和所属分卷，以及各分卷的校验值。恢复时下载全部分卷，校验 SHA-256 后在仓库根目录逐个解包，原相对路径即可恢复。草稿附件仅仓库协作者可访问。
 

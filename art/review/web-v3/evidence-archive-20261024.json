@@ -14,37 +14,61 @@
       "name": "web-v3-evidence-20261024-part-01.tar",
       "bytes": 470695936,
       "sha256": "8fc1be22069d73c4cb9753044fdb52f4cb1cf212842f7f36236f2f88443ed559",
-      "fileCount": 300
+      "fileCount": 300,
+      "githubAssetId": 672220295,
+      "githubDigest": "sha256:8fc1be22069d73c4cb9753044fdb52f4cb1cf212842f7f36236f2f88443ed559",
+      "downloadUrl": "https://github.com/GOD-OF-PPT/Wizzard/releases/download/untagged-302f2751fa75a896551d/web-v3-evidence-20261024-part-01.tar",
+      "uploaded": true
     },
     {
       "name": "web-v3-evidence-20261024-part-02.tar",
       "bytes": 469480960,
       "sha256": "650acb946ef734e51705a1a1b3c34496478d55b585d5b8e5d1030f2f8d9ea72f",
-      "fileCount": 316
+      "fileCount": 316,
+      "githubAssetId": 672223798,
+      "githubDigest": "sha256:650acb946ef734e51705a1a1b3c34496478d55b585d5b8e5d1030f2f8d9ea72f",
+      "downloadUrl": "https://github.com/GOD-OF-PPT/Wizzard/releases/download/untagged-302f2751fa75a896551d/web-v3-evidence-20261024-part-02.tar",
+      "uploaded": true
     },
     {
       "name": "web-v3-evidence-20261024-part-03.tar",
       "bytes": 469885952,
       "sha256": "b3ab3558af2d0e3dce97cebd12efb70154869f31c1e8db784338deede9b80e67",
-      "fileCount": 305
+      "fileCount": 305,
+      "githubAssetId": 672227266,
+      "githubDigest": "sha256:b3ab3558af2d0e3dce97cebd12efb70154869f31c1e8db784338deede9b80e67",
+      "downloadUrl": "https://github.com/GOD-OF-PPT/Wizzard/releases/download/untagged-302f2751fa75a896551d/web-v3-evidence-20261024-part-03.tar",
+      "uploaded": true
     },
     {
       "name": "web-v3-evidence-20261024-part-04.tar",
       "bytes": 467102720,
       "sha256": "5bf737cf3fda45cba8622411b1a70bf2fc91e11eb891554c2d03a7e7472e3f59",
-      "fileCount": 293
+      "fileCount": 293,
+      "githubAssetId": 672230945,
+      "githubDigest": "sha256:5bf737cf3fda45cba8622411b1a70bf2fc91e11eb891554c2d03a7e7472e3f59",
+      "downloadUrl": "https://github.com/GOD-OF-PPT/Wizzard/releases/download/untagged-302f2751fa75a896551d/web-v3-evidence-20261024-part-04.tar",
+      "uploaded": true
     },
     {
       "name": "web-v3-evidence-20261024-part-05.tar",
       "bytes": 470736896,
       "sha256": "f0fd5e0ecb824276afb64ca57b5f7a7f93cab5856405d3441783cfa02130953d",
-      "fileCount": 302
+      "fileCount": 302,
+      "githubAssetId": 672234362,
+      "githubDigest": "sha256:f0fd5e0ecb824276afb64ca57b5f7a7f93cab5856405d3441783cfa02130953d",
+      "downloadUrl": "https://github.com/GOD-OF-PPT/Wizzard/releases/download/untagged-302f2751fa75a896551d/web-v3-evidence-20261024-part-05.tar",
+      "uploaded": true
     },
     {
       "name": "web-v3-evidence-20261024-part-06.tar",
       "bytes": 343507456,
       "sha256": "88b2c06b413b1f3191950c2b5a4ae5c21ab4683fa4f18af1ae2caf465d45dd6a",
-      "fileCount": 207
+      "fileCount": 207,
+      "githubAssetId": 672238202,
+      "githubDigest": "sha256:88b2c06b413b1f3191950c2b5a4ae5c21ab4683fa4f18af1ae2caf465d45dd6a",
+      "downloadUrl": "https://github.com/GOD-OF-PPT/Wizzard/releases/download/untagged-302f2751fa75a896551d/web-v3-evidence-20261024-part-06.tar",
+      "uploaded": true
     }
   ],
   "files": [
@@ -10386,5 +10410,8 @@
       "sha256": "dacf6683b1e7760f2d73433c7d3b91a18941a999055e2789279a3cad3e9ef993",
       "archive": "web-v3-evidence-20261024-part-06.tar"
     }
-  ]
+  ],
+  "releaseId": 422720111,
+  "releaseUrl": "https://github.com/GOD-OF-PPT/Wizzard/releases/tag/untagged-302f2751fa75a896551d",
+  "uploadVerifiedAt": "2026-10-24T12:41:57.373Z"
 }
