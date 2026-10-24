@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import createArt from "../../art/runtime/web-v3/create.png";
 import joinArt from "../../art/runtime/web-v3/join.png";
-import switchOn from "../../art/runtime/web-v3/switch-on-opaque-v3.png";
-import switchOff from "../../art/runtime/web-v3/switch-off-opaque-v3.png";
+import { WebSwitchArt } from "./WebSwitchArt";
 import portraitCreate from "../../art/runtime/web-v3/portrait/create.png";
 import portraitJoin from "../../art/runtime/web-v3/portrait/join.png";
 import clearArt from "../../art/runtime/web-v3/input-clear.png";
@@ -62,8 +61,8 @@ export function RoomEntry({ mode, pending, error, onBack, onSubmit, onEditConnec
       <div className="v3-entry-name"><span className="v3-mobile-label">昵称</span><input ref={nickname} aria-label="昵称" autoComplete="off" maxLength={12} value={name} disabled={pending} onChange={event => { setName(event.target.value); setValidation(""); }} />{mode === "create" && name && <button type="button" className="v3-name-clear" aria-label="清空昵称" disabled={pending} onClick={() => { setName(""); nickname.current?.focus(); }}><img src={clearArt} alt="" /></button>}</div>
       {mode === "create" ? <>
         <fieldset className="v3-seat-options" disabled={pending}><legend className="sr-only">选择座位</legend>{([3, 4, 5, 6] as const).map(value => <button type="button" key={value} aria-pressed={value === seats} onClick={() => setSeats(value)}><span>{value}人</span></button>)}</fieldset>
-        <label className="v3-entry-toggle v3-entry-ai"><span className="v3-mobile-label">AI补位</span><span className="v3-switch-art"><img src={fillAi ? switchOn : switchOff} alt="" /></span><input type="checkbox" checked={fillAi} disabled={pending} onChange={event => setFillAi(event.target.checked)} aria-label="AI补位" /><span>{fillAi ? "开启" : "关闭"}</span></label>
-        <label className="v3-entry-toggle v3-entry-timer"><span className="v3-mobile-label">出牌倒计时</span><span className="v3-switch-art"><img src={timer ? switchOn : switchOff} alt="" /></span><input type="checkbox" checked={timer} disabled={pending} onChange={event => setTimer(event.target.checked)} aria-label="出牌倒计时" /><span>{timer ? "开启" : "关闭"}</span></label>
+        <label className="v3-entry-toggle v3-entry-ai" data-enabled={fillAi}><span className="v3-mobile-label">AI补位</span><WebSwitchArt family="entry" checked={fillAi} /><input type="checkbox" checked={fillAi} disabled={pending} onChange={event => setFillAi(event.target.checked)} aria-label="AI补位" /><span>{fillAi ? "开启" : "关闭"}</span></label>
+        <label className="v3-entry-toggle v3-entry-timer" data-enabled={timer}><span className="v3-mobile-label">出牌倒计时</span><WebSwitchArt family="entry" checked={timer} /><input type="checkbox" checked={timer} disabled={pending} onChange={event => setTimer(event.target.checked)} aria-label="出牌倒计时" /><span>{timer ? "开启" : "关闭"}</span></label>
       </> : <label className="v3-entry-code"><span className="v3-mobile-label">房间码</span><span aria-hidden="true" className="v3-code-digits">{Array.from({ length: 6 }, (_, index) => <span key={index}>{code[index] ?? ""}</span>)}</span><input aria-label="六位房间码" inputMode="numeric" autoComplete="off" maxLength={6} value={code} disabled={pending} onChange={event => { setCode(event.target.value.replace(/\D/g, "").slice(0, 6)); setValidation(""); }} /></label>}
       <button type="button" aria-label="返回首页" className="v3-entry-back v3-baked-hit" disabled={pending} onClick={onBack}><span className="v3-mobile-label">返回首页</span></button>
       <button type="submit" aria-label={pending ? "正在连接" : title} className="v3-entry-submit v3-baked-hit" disabled={pending}><span className="v3-mobile-label">{title}</span></button>

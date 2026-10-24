@@ -76,6 +76,10 @@ export function hasStoredWebRoomSession(): boolean {
   return new WebRoomSessionStore().load() !== null;
 }
 
+export function storedWebRoomId(): string | null {
+  return new WebRoomSessionStore().load()?.roomId ?? null;
+}
+
 export class WebRoomTabLease {
   private readonly tabId = `tab-${Math.random().toString(36).slice(2)}`;
   private roomId: string | null = null;

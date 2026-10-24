@@ -111,6 +111,7 @@ function sessionReducer(_session: Session, action: SessionAction): Session {
 }
 
 export type LocalMatchController = {
+  pendingIntent?: boolean;
   advance: () => void;
   connection?: "local" | "connected" | "reconnecting" | "disconnected";
   controls?: MatchControls;

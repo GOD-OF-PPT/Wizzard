@@ -23,20 +23,22 @@
 .v3-entry form { position: absolute; inset: 0; }
 .v3-entry-name, .v3-entry-code, .v3-seat-options, .v3-entry-toggle, .v3-baked-hit { position: absolute; }
 .v3-mobile-label { display: none; }
-.v3-entry-name input { width: 100%; height: 100%; border: 0; background: transparent; color: #f6e7bf; font: 700 2.15cqw "Noto Serif SC", serif; padding: 0 5%; }
+.v3-entry-name input { width: 100%; height: 100%; border: 0; background: transparent; color: #f6e7bf; font: 500 2.15cqw "Teahouse UI", "Noto Serif SC", serif; font-synthesis: none; padding: 0 5%; }
 .v3-entry--create .v3-entry-name input { padding-right: 18%; }
 .v3-name-clear { position: absolute; top: 0; right: 0; width: 14%; height: 100%; min-width: 32px; padding: 0; border: 0; background: transparent; cursor: pointer; display: grid; place-items: center; }
 .v3-name-clear img { width: 60%; height: auto; pointer-events: none; }
 .v3-entry--create .v3-entry-name { left: 42.6%; top: 23.5%; width: 31.4%; height: 7.9%; }
 .v3-seat-options { left: 37.9%; top: 38.6%; width: 36.7%; height: 6.8%; margin: 0; border: 0; padding: 0; display: flex; gap: 3.5%; }
-.v3-seat-options button { flex: 1; padding: 0; border: 0; background: transparent; color: #f9e9bf; font: 700 2.1cqw "Noto Serif SC", serif; cursor: pointer; border-radius: 10px; }
+.v3-seat-options button { flex: 1; padding: 0; border: 0; background: transparent; color: #f9e9bf; font: 500 2.1cqw "Teahouse UI", "Noto Serif SC", serif; font-synthesis: none; cursor: pointer; border-radius: 10px; }
 .v3-seat-options button[aria-pressed="true"] { background: #07551d url('../art/runtime/web-v3/seat-selected-landscape-v2.png') center/100% 100% no-repeat; outline: none; box-shadow: none; }
 .v3-seat-options button[aria-pressed="true"] > span { display: block; width: 70%; }
-.v3-entry-toggle { left: 64%; width: 10.5%; height: 7%; display: flex; align-items: center; gap: 10%; color: #f6e7bf; font: 700 1.8cqw "Noto Serif SC", serif; }
+.v3-entry-toggle { left: 64%; width: 10.5%; height: 7%; display: flex; align-items: center; gap: 10%; color: #f6e7bf; font: 500 1.8cqw "Teahouse UI", "Noto Serif SC", serif; font-synthesis: none; }
 .v3-entry-toggle input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
 .v3-entry-toggle:focus-within { outline: 3px solid #ffe4a5; outline-offset: 3px; }
-.v3-switch-art { position: relative; display: block; width: 5.2cqw; height: 2.9cqw; flex-shrink: 0; overflow: hidden; border-radius: 999px; }
-.v3-switch-art img { position: absolute; width: 100%; left: 0; top: 0; height: 100%; object-fit: fill; }
+.v3-switch-art { position: relative; display: block; width: 5.62201cqw; height: 3.229665cqw; flex-shrink: 0; overflow: hidden; border-radius: 999px; pointer-events: none; }
+.v3-switch-art picture { position: absolute; inset: 0; display: block; }
+.v3-switch-art img { position: absolute; width: 100%; left: 0; top: 0; height: 100%; object-fit: contain; }
+.v3-entry-toggle[data-enabled="false"] > span:last-child { color: #969ca4; }
 .v3-entry-ai { top: 49.8%; }
 .v3-entry-timer { top: 60%; }
 .v3-baked-hit { background: transparent; border: 0; border-radius: 16px; cursor: pointer; padding: 0; }
@@ -192,6 +194,8 @@
 .v3-match[data-phase="round-score"] > .v3-match-back > span,
 .v3-match[data-phase="match-end"] > .v3-match-back > span { display: inline; }
 .v3-match-mode { position: absolute; z-index: 8; top: 2.1%; right: 2.3%; width: 10%; color: #f7e6be; text-align: center; font: 700 1.7cqw "Noto Serif SC",serif; }
+.v3-match-mode { display: flex; align-items: center; justify-content: center; gap: 0.55cqw; top: 2.3%; right: 2.1%; width: 10.2%; font: 500 1.45cqw "Teahouse UI", "Noto Serif SC", serif; white-space: nowrap; }
+.v3-match-mode > img { width: 2cqw; height: 2cqw; object-fit: contain; flex: 0 0 auto; pointer-events: none; }
 .v3-match .match-round-header { top: 12.5%; left: 1.5%; width: 11.5%; height: 12%; }
 .v3-match .match-round-header > img { display: none; }
 .v3-match .match-round-header > div { width: 100%; margin: 0; gap: 0.6cqw; }
@@ -228,17 +232,28 @@
 .v3-match .turn-timer strong { font-size: 3cqw; }
 .v3-match .turn-timer span { font-size: 1.4cqw; margin-top: 0.5cqw; }
 .v3-match .player-hand { left: 21%; right: auto; width: 58%; bottom: 6.5%; height: 27%; }
-.v3-match .hand-card { width: 14.2%; transform: translateX(calc(-50% + var(--selection-offset, 0px))) rotate(var(--fan-rotation)); transition: transform 140ms cubic-bezier(0.22,0.8,0.3,1), filter 140ms ease; }
-.v3-match .player-hand.is-active .hand-card:hover, .v3-match .player-hand.is-active .hand-card:focus-visible { bottom: var(--fan-rise); transform: translateX(calc(-50% + var(--selection-offset, 0px))) translateY(-6px) rotate(var(--fan-rotation)); }
-.v3-match .hand-card.game-card--selected, .v3-match .player-hand.is-active .hand-card.game-card--selected { width: 14.2%; bottom: var(--fan-rise); transform: translateX(-50%) translateY(-12px) rotate(0deg); animation: none; }
+/* Authored card box: 140 x 210. Relative transform lengths scale the
+   12px lift / 9px neighbour shift with that card in both screen profiles.
+   Fixed CSS pixels made a 390px portrait use about 2.4x the authored motion. */
+.v3-match .hand-card { --hand-neighbor-offset: 6.428571%; width: 14.2%; transform: translateX(calc(-50% + var(--selection-offset, 0px))) rotate(var(--fan-rotation)); transition: transform 140ms cubic-bezier(0.22,0.8,0.3,1), filter 140ms ease; }
+.v3-match .player-hand.is-active .hand-card:hover, .v3-match .player-hand.is-active .hand-card:focus-visible { bottom: var(--fan-rise); transform: translateX(calc(-50% + var(--selection-offset, 0px))) translateY(-2.857143%) rotate(var(--fan-rotation)); }
+.v3-match .hand-card.game-card--selected, .v3-match .player-hand.is-active .hand-card.game-card--selected { width: 14.2%; bottom: var(--fan-rise); transform: translateX(-50%) translateY(-5.714286%) rotate(0deg); animation: none; }
 .v3-match .hand-card .game-card__state-fx--selected { inset: -9% -12.5%; width: 125%; height: 118%; filter: none; opacity: 0.85; }
 .v3-match .turn-action { right: 2.6%; bottom: 14.5%; width: 22.4%; height: 12.5%; aspect-ratio: auto; }
 .v3-match .turn-action > img { display: none; }
 .v3-match .turn-action > span { width: 100%; height: 100%; margin: 0; font-size: 3cqw; color: #f9e7bb; }
+.v3-match[data-pending-intent="true"] .turn-action:disabled {
+  opacity: 1;
+  filter: none;
+  cursor: wait;
+}
+.v3-match[data-pending-intent="true"] .turn-action:disabled > span { color: #f9e7bb; }
 .v3-match .match-stage__shade { display: none; }
 .v3-match .match-stage__background { transform: none; }
 .v3-chooser, .v3-bid { position: absolute; inset: 0; z-index: 30; }
 .v3-chooser { background: rgb(3 5 10 / 40%); animation: dialog-fade-in 220ms ease-out both; }
+.v3-match[data-local-phase="trump-select"][data-pending-intent="true"] > .v3-match-mode { visibility: hidden; }
+.v3-suit-hit:disabled { cursor: wait; background: none; }
 .v3-chooser-art, .v3-bid-art { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; display:block; }
 .v3-chooser-art img, .v3-bid-art img { position:absolute; inset:0; width:100%; height:100%; }
 .v3-chooser-art { transform: scale(0.99); }
@@ -262,6 +277,15 @@
 .v3-bid-plus { left: 57.2%; top: 47.8%; width: 7.1%; height: 9.7%; }
 .v3-bid-confirm { right: 2.6%; bottom: 14.5%; width: 22.4%; height: 12.5%; color: #f9e7bb; font: 700 3cqw "Noto Serif SC",serif; }
 .v3-bid button:disabled { cursor: not-allowed; box-shadow: inset 0 0 0 999px rgb(22 10 3 / 30%); }
+.v3-bid[aria-busy="true"] .v3-bid-minus,
+.v3-bid[aria-busy="true"] .v3-bid-plus { box-shadow: inset 0 0 0 999px rgb(22 10 3 / 60%); cursor: wait; }
+.v3-bid[aria-busy="true"] .v3-bid-confirm { box-shadow: none; cursor: wait; }
+@media (orientation: landscape) {
+  .v3-bid-art { transform: translateY(-5.4%) scale(0.84); }
+  .v3-bid-range { top: 40.45%; }
+  .v3-bid-value { top: 46.7%; }
+  .v3-bid-minus, .v3-bid-plus { top: 47.4%; height: 10.4%; }
+}
 .v3-home-nav { position: absolute; inset: 0; pointer-events: none; }
 .v3-home-hit {
   position: absolute; left: 9.1%; width: 30%; height: 10.5%; padding: 0;
@@ -276,6 +300,9 @@
 .v3-home-hit:hover { box-shadow: 0 0 22px rgb(255 205 111 / 45%); }
 .v3-home-hit:focus-visible { outline: 3px solid #ffe7ac; outline-offset: 5px; }
 .v3-home-hit:active { box-shadow: inset 0 0 25px rgb(255 205 111 / 40%); }
+.v3-home-hit:disabled { cursor: not-allowed; box-shadow: none; }
+.v3-home-refresh { left: 66.6%; top: 16.6%; width: 11.1%; height: 5%; }
+.v3-home-refresh:focus-visible { outline: 3px solid #ffe7ac; outline-offset: 5px; }
 @media (orientation: portrait) {
   .v3-entry { width: 100%; height: 100%; overflow-y: auto; }
   .v3-entry-canvas { width: 100%; height: auto; aspect-ratio: 941 / 1672; }
@@ -289,10 +316,11 @@
   .v3-seat-options { left: 20.19%; top: 40.25%; width: 60%; height: 5.02%; gap: 2.6%; }
   .v3-seat-options button { font-size: 3.9cqw; }
   .v3-seat-options button[aria-pressed="true"] { background-image: url('../art/runtime/web-v3/seat-selected-portrait-v2.png'); }
-  .v3-entry-toggle { left: 60.36%; width: 22%; height: 3.3%; font-size: 3.4cqw; gap: 2cqw; white-space: nowrap; }
-  .v3-entry-ai { top: 50.54%; }
+  .v3-entry-toggle { left: 60.14878%; width: 22%; height: 3.3%; font-size: 3.4cqw; gap: 1.4cqw; white-space: nowrap; }
+  .v3-entry-toggle input { inset: auto 0; top: 50%; height: max(100%, 44px); margin: 0; transform: translateY(-50%); }
+  .v3-entry-ai { top: 50.44%; }
   .v3-entry-timer { top: 58.61%; }
-  .v3-switch-art { width: 10.6cqw; height: 5.8cqw; }
+  .v3-switch-art { width: 11.26461cqw; height: 6.376196cqw; }
   .v3-entry--create .v3-entry-back { left: 22.4%; top: 78.35%; width: 26.9%; height: 6.1%; }
   .v3-entry--create .v3-entry-submit { left: 51%; top: 78.35%; width: 30%; height: 6.1%; }
   .v3-entry--join .v3-entry-name { left: 33.9%; top: 41.2%; width: 49.2%; height: 5%; }
@@ -308,6 +336,7 @@
   .v3-home-join { top: 36.9%; }
   .v3-home-practice { top: 45.1%; }
   .v3-home-rules { top: 53.3%; right: auto; }
+  .v3-home-refresh { left: 30.5%; top: 87.5%; width: 39%; height: 4.7%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .v3-home-hit { transition: none; }
@@ -413,7 +442,9 @@
   .v3-match .match-feedback { width: 52%; bottom: 31%; }
   .v3-match .match-feedback span { font-size: 3.4cqw; }
   .v3-match .trick-result-banner { left: 23%; width: 54%; top: 43%; font-size: 4cqw; }
-  .v3-chooser-art { transform:none; }
+  /* The extracted transparent panel includes 8px extra outer trim at source
+     scale. Match the selected portrait frame without shifting the hand. */
+  .v3-chooser-art { transform:scale(0.98); }
   .v3-suit-hit { width: 25%; height: 17%; top: 34.5%; }
   .v3-suit-0 { left: 21%; }
   .v3-suit-1 { left: 53%; }
@@ -426,6 +457,7 @@
   .v3-match .v3-bid-plus { left: 64.2%; top: 48.8%; width: 14.4%; height: 6.9%; min-height: 44px; }
   .v3-match .v3-bid-confirm { left: 24.4%; top: 58%; bottom: auto; width: 53.7%; height: 7.8%; font-size: 6.2cqw; }
   .v3-match[data-local-phase="bid"] .player-seat--0 { top: 63.1%; }
+  .v3-match[data-local-phase="bid"] .player-hand { left: 16.4%; bottom: 9.25%; }
   .v3-match[data-local-phase="bid"] .trump-status { display: none; }
 }
 
@@ -440,8 +472,10 @@
 .v3-rules .v3-setting:nth-of-type(2) { top: 14.65cqw; }
 .v3-rules .v3-setting:nth-of-type(3) { top: 20.1cqw; }
 .v3-rules .v3-setting--restore { justify-content: center; }
-.v3-setting-state { display: flex; align-items: center; gap: 1cqw; }
-.v3-setting-state .v3-switch-art { width: 5.7cqw; height: 2.8cqw; }
+.v3-setting-state { position: absolute; left: 28.98517cqw; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 0.8cqw; }
+.v3-setting-state .v3-switch-art { width: 5.921053cqw; height: 2.930622cqw; }
+.v3-setting[aria-pressed="true"] .v3-setting-state > strong { color: #155737; }
+.v3-setting[aria-pressed="false"] .v3-setting-state > strong { color: #293747; }
 @media (orientation: portrait) {
   .v3-rules-chapters button[aria-current]:not(:first-child) { outline: none; }
   .v3-rules-canvas[data-baked-steps="true"] .v3-rules-close-label,
@@ -457,10 +491,11 @@
   .v3-rules-canvas[data-rules-chapter="3"][data-baked-steps="true"] .v3-rules-body { height: 41.6%; }
   .v3-rules-canvas[data-rules-tab="settings"] .v3-rules-body p { top: 14.8cqw; line-height: 1.5; }
   .v3-rules .v3-setting { left: -2cqw; top: 20.6cqw; width: 61.6cqw; height: 14.3cqw; padding: 0 4.1cqw 0 4.8cqw; font-size: 4.5cqw; }
-  .v3-rules .v3-setting:nth-of-type(2) { top: 37.1cqw; height: 13.8cqw; }
+  .v3-rules .v3-setting:nth-of-type(2) { top: 36.8cqw; height: 13.8cqw; }
   .v3-rules .v3-setting:nth-of-type(3) { top: 53.1cqw; height: 11.8cqw; }
-  .v3-setting-state { gap: 1.8cqw; }
-  .v3-setting-state .v3-switch-art { width: 14.2cqw; height: 7.3cqw; }
+  .v3-setting-state { left: 31.99511cqw; gap: 2.2cqw; }
+  .v3-setting:first-of-type .v3-setting-state { top: calc(50% + 0.11cqw); }
+  .v3-setting-state .v3-switch-art { width: 14.559cqw; height: 7.864cqw; }
 }
 @media (orientation: landscape) {
   .v3-lobby-portrait { width: 82%; }
@@ -503,6 +538,13 @@
 .v3-match .game-card__rank { font-size: 34cqw; color: #21170d; text-shadow: none; }
 .v3-match .game-card__rank--top { left: 17%; top: 8.5%; }
 .v3-match .trick-area .trick-card { width: 25%; transform: translateX(-50%) rotateX(30deg); transform-origin: center top; }
+@media (orientation: landscape) {
+  .v3-match .trick-area .trick-card {
+    left: var(--trick-perspective-left);
+    width: 23%;
+    transform: translateX(-50%) perspective(84cqw) rotateX(32deg) skewX(var(--trick-skew));
+  }
+}
 .v3-match .player-seat { width: 10.5%; }
 .v3-match .player-seat--0 { width: 12%; }
 .v3-match .player-seat--2 { left: 39.4%; }
@@ -517,8 +559,9 @@
 .v3-match .player-seat--0 > strong { margin-top: -3cqw; height: 2.6cqw; font-size: 1.8cqw; }
 .v3-match .player-seat--0 .player-seat__stats { height: 1.9cqw; }
 .v3-match .player-seat__you { display: grid; place-items: center; width: 50%; height: 2.05cqw; margin-top: 0.4cqw; font: 700 1.65cqw "Noto Serif SC",serif; color: #ffe4a1; background: url('../art/runtime/web-v3/lobby-waiting-v1.png') center/100% 100% no-repeat; }
-.v3-match .hand-card, .v3-match .hand-card.game-card--selected, .v3-match .player-hand.is-active .hand-card.game-card--selected { width: 15.2%; }
-.v3-match .hand-card .game-card__state-fx--selected { z-index: 3; opacity: 1; transform: translateY(8px); filter: drop-shadow(0 0 2px rgb(255 180 40 / 85%)); }
+.v3-match .hand-card, .v3-match .hand-card.game-card--selected, .v3-match .player-hand.is-active .hand-card.game-card--selected { width: 14.2%; }
+/* Halo height is 118% of the card: 8 / (210 * 1.18) = 3.228410%. */
+.v3-match .hand-card .game-card__state-fx--selected { z-index: 3; opacity: 1; transform: translateY(3.228410%); filter: drop-shadow(0 0 2px rgb(255 180 40 / 85%)); }
 .v3-match .trump-status { top: 54.2%; height: 7%; }
 .v3-match .trump-status__panel { left: -0.5%; top: 50%; bottom: auto; width: 101%; height: auto; transform: translateY(-50%); object-fit: contain; }
 .v3-match .trump-status__suit { left: 8.5%; top: 5%; width: 20%; height: 90%; object-fit: contain; border: 0; border-radius: 0; }
@@ -531,6 +574,8 @@
 .v3-match .turn-timer__value strong { font-size: 2.25cqw; line-height: 1; }
 .v3-match .turn-timer__value > span { margin: 0; font-size: 1.5cqw; }
 .v3-match .match-status-strip > div > span { display: none; }
+.v3-match .match-status-strip > div { gap: 1.1cqw; }
+.v3-match .turn-status-flourish { width: 4.2cqw; height: auto; flex: 0 0 auto; pointer-events: none; }
 .v3-match .match-status-strip strong { font: 700 1.85cqw "Noto Serif SC",serif; color: #ffdda0; }
 .v3-recovery-scrim { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; background: rgb(0 0 0 / 53%); }
 .v3-recovery { background: transparent; box-shadow: none; animation: dialog-fade-in 220ms ease-out both; }
@@ -551,15 +596,15 @@
   .v3-recovery-action { left: 25.5%; top: 58.8%; width: 49%; height: 6.4%; min-height: 44px; }
   .v3-no-timer-patch { left: 75.770457%; top: 69.258373%; width: 24.229543%; height: 14.114833%; }
   .v3-match .player-seat { width: 21%; }
-  .v3-match .player-seat--0 { width: 22.5%; }
+  .v3-match .player-seat--0 { width: 21%; }
   .v3-match .player-seat--1, .v3-match .player-seat--3 { top: 18.8%; }
   .v3-match .player-seat--2 { left: 40%; top: 14.2%; }
   .v3-match .player-seat--4, .v3-match .player-seat--5 { top: 28.5%; }
-  .v3-match .player-seat > strong { width: 92%; height: 5.2cqw; margin-top: -3cqw; padding: 0 0.8cqw; font-size: 4cqw; }
+  .v3-match .player-seat > strong { width: 92%; height: 5.2cqw; margin-top: -3cqw; padding: 0 0.8cqw; font-size: 3.3cqw; }
   .v3-match .player-seat__stats { height: 3.5cqw; margin-top: -0.1cqw; padding: 0 0.8cqw; }
   .v3-match .player-seat__stat { font-size: 3cqw; }
-  .v3-match .player-seat--0 .player-seat__portrait-wrap { width: 102%; }
-  .v3-match .player-seat--0 > strong { height: 5.6cqw; margin-top: -7.5cqw; font-size: 4.2cqw; }
+  .v3-match .player-seat--0 .player-seat__portrait-wrap { width: 92%; }
+  .v3-match .player-seat--0 > strong { height: 5.6cqw; margin-top: -3cqw; font-size: 3.4cqw; }
   .v3-match .player-seat--0 .player-seat__stats { height: 3.8cqw; }
   .v3-match .player-seat__you { height: 4.5cqw; margin-top: 0.5cqw; font-size: 3.7cqw; }
   .v3-match .player-hand { left: 9.23%; bottom: 12%; }
@@ -570,8 +615,12 @@
   .v3-match .trump-status { top: 55.3%; height: 4.5%; }
   .v3-match .trump-status__content span, .v3-match .trump-status__content strong { font-size: 3cqw; }
   .v3-match .turn-timer { top: 72%; right: 2.2%; width: 18%; }
-  .v3-match .turn-timer__value strong { font-size: 6cqw; }
-  .v3-match .turn-timer__value > span { font-size: 3.4cqw; }
+  /* Match the compact two-glyph value inside the portrait source's ring;
+     the landscape size made the numeral spill into its bottom cloud. */
+  .v3-match .turn-timer__hourglass { top: 6%; width: 40%; height: 40%; }
+  .v3-match .turn-timer__value { top: 42.5%; }
+  .v3-match .turn-timer__value strong { font-size: 4cqw; }
+  .v3-match .turn-timer__value > span { font-size: 2.8cqw; }
   .v3-match .match-status-strip strong { font-size: 3.5cqw; }
   .v3-match .match-status-strip { left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
   .v3-match .v3-match-mode { display: none; }
@@ -608,6 +657,29 @@
 .v3-match .turn-action > span,
 .v3-match .match-status-strip strong { font-family: "Teahouse UI", "Noto Serif SC", serif; }
 .v3-match .player-seat > strong { font-weight: 500; font-synthesis: none; }
+.v3-match .v3-bid-confirm, .v3-match .v3-bid-range { font-family: "Teahouse UI", "Noto Serif SC", serif; }
+.v3-match .v3-bid-range { white-space: nowrap; }
+.v3-match .player-seat__portrait { border-radius: 0; object-fit: contain; }
+.v3-match .player-seat > strong { height: auto; min-height: 0; aspect-ratio: 2105 / 724; background-image: url('../art/runtime/web-v3/lobby-name-v2.png'); background-size: 100% auto; background-repeat: no-repeat; }
+.v3-match .player-seat__stat > span { font-family: "Teahouse UI", "Noto Serif SC", serif; font-weight: 500; }
+@media (orientation: landscape) {
+  .v3-match .player-seat > strong { margin-top: -1.85cqw; }
+  .v3-match .player-seat--4 { top: 17.6%; }
+  .v3-match .player-seat--4 .player-seat__portrait-wrap { width: 98%; }
+  .v3-match .player-seat--4 > strong { margin-top: -2.25cqw; }
+  .v3-match .player-seat--0 > strong { margin-top: -2.9cqw; }
+  .v3-match .player-seat__stats { margin-top: -0.55cqw; }
+  .v3-match .player-seat__stat { font-size: 1.1cqw; }
+}
+@media (orientation: portrait) {
+  .v3-match .player-seat > strong { margin-top: -3.8cqw; }
+  .v3-match .player-seat--0 > strong { margin-top: -3cqw; }
+  .v3-match .player-seat__stats { margin-top: -1.35cqw; }
+  .v3-match .player-seat__stat > span { font-size: 2.4cqw; }
+  .v3-match .v3-match-back > span { font-family: "Teahouse UI", "Noto Serif SC", serif; font-size: 4cqw; }
+  .v3-match .v3-bid-value { top: 48.2%; }
+  .v3-match .v3-bid-confirm { top: 57.6%; }
+}
 .v3-results-player > img { border-radius: 0; object-fit: contain; }
 .v3-results-round-number { font-family: "Noto Serif SC", serif; }
 .v3-ranking .v3-results-row.is-leading > span:first-child { color: #ffedb6; }
@@ -620,7 +692,7 @@
   .v3-ranking .v3-results-title { top: 7.9%; font-size: 3.85cqw; letter-spacing: 0.1cqw; text-indent: 0.1cqw; }
   .v3-results:not(.v3-ranking) .v3-results-player { gap: 0.9cqw; }
   .v3-results:not(.v3-ranking) .v3-results-player > img { width: 4.6cqw; height: 4.6cqw; }
-  .v3-lobby-seat strong { margin-top: -1.9cqw; font-size: 2cqw; }
+  .v3-lobby-seat strong { margin-top: -1.9cqw; font-size: 1.75cqw; }
   .v3-lobby-seat .v3-lobby-seat-state { margin-top: -1.05cqw; }
   .v3-lobby-seat-0 strong { margin-top: -2.1cqw; }
   .v3-lobby-seat-1 strong { margin-top: -1.18cqw; }
@@ -629,16 +701,31 @@
 }
 @media (orientation: portrait) {
   .v3-ranking .v3-results-secondary, .v3-ranking .v3-results-primary { font-size: 5.8cqw; letter-spacing: 0.3cqw; text-indent: 0.3cqw; }
+  .v3-results .v3-results-secondary, .v3-results .v3-results-primary { font-weight: 500; font-synthesis: none; }
+  .v3-results:not(.v3-ranking) .v3-results-secondary,
+  .v3-results:not(.v3-ranking) .v3-results-primary { font-size: 5.8cqw; }
+  .v3-results:not(.v3-ranking) .v3-results-secondary { font-size: 5.3cqw; }
+  .v3-results .v3-results-primary > span,
+  .v3-results .v3-results-secondary > span { display: inline-block; transform: translateY(-0.5cqw); }
   .v3-ranking .v3-results-title { top: 17.2%; font-size: 6.8cqw; letter-spacing: -0.35cqw; text-indent: -0.35cqw; }
   .v3-results:not(.v3-ranking) .v3-results-player { gap: 0.8cqw; }
   .v3-results:not(.v3-ranking) .v3-results-row { grid-template-columns: 33.25% 14.25% 16.5% 18% 18%; }
   .v3-results:not(.v3-ranking) .v3-results-player > img { width: 10.6cqw; height: 10.6cqw; }
-  .v3-lobby-seat strong { font-size: 4.3cqw; margin-top: -8cqw; }
+  .v3-lobby-seat strong { font-size: 3.9cqw; margin-top: -8cqw; }
   .v3-lobby-seat-1 strong { margin-top: -6.45cqw; }
   .v3-lobby-seat .v3-lobby-seat-state { width: 68%; margin-top: -2.2cqw; }
 }
+/* Use the authored medium ink rather than synthesized bold: numeric score
+   cells keep their independent serif weight. */
+.v3-results-title, .v3-results-player > span, .v3-ranking-subtitle,
+.v3-results-primary, .v3-results-secondary,
+.v3-lobby-ready, .v3-lobby-start, .v3-lobby-status p,
+.v3-lobby-status button, .v3-lobby-connection {
+  font-weight: 500;
+  font-synthesis: none;
+}
 @media (orientation: portrait) {
   .v3-rules-body h3 { position: relative; left: -0.75cqw; top: 0.25cqw; font-size: 9.7cqw; }
-  .v3-rules-body > p { font-weight: 700; font-synthesis: weight; font-feature-settings: "halt" 1; }
+  .v3-rules-body > p { font-weight: 500; font-synthesis: none; font-feature-settings: "halt" 1; }
   .v3-rules-canvas[data-rules-chapter="0"][data-rules-tab="rules"] .v3-rules-body .v3-rule-copy { font-size: 4cqw; left: -0.2cqw; top: 13.6cqw; line-height: 1.55; letter-spacing: 0.15cqw; }
 }

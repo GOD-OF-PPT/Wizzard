@@ -45,6 +45,7 @@ export function useNetworkMatch(
   if (!update) return null;
 
   return {
+    pendingIntent: update.pendingIntent,
     advance: () => adapterRef.current?.requestContinueRound(),
     connection: update.connection,
     controls: update.controls,

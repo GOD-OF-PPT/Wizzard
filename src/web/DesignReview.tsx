@@ -1,6 +1,6 @@
 /** Development-only, frozen content for same-state comparison with ImageGen.
  * These records are typography/layout fixtures, never gameplay authority. */
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import type { MatchPlayerState } from "@wizzard/game-core/contracts";
 import { WebResults } from "../components/WebResults";
 import { WebRules, defaultWebPreferences } from "../components/WebRules";
@@ -10,6 +10,8 @@ import type { FriendRoomState } from "../hooks/useFriendRoom";
 import { MatchScreen } from "../components/MatchScreen";
 import { reviewMatchController } from "./review-match-fixture";
 import { RecoveryDialog } from "../components/RecoveryDialog";
+import { RoomEntry } from "../components/RoomEntry";
+import { WebHome } from "../components/WebHome";
 // DEV serves the repository sources. Plain URLs keep experimental full TTFs
 // out of production emission; the shipped rules use a separate 61KB WOFF2.
 const wenkaiProof = "/art/source/fonts/web-v3/LXGWWenKai-Medium.ttf";
@@ -65,6 +67,8 @@ function lobbyLayoutSample(params: URLSearchParams): FriendRoomState {
 
 export default function DesignReview({ state }: { state: string }) {
   const focus = useRef<HTMLButtonElement>(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [entryStatus, setEntryStatus] = useState<"editing" | "pending" | "error">("editing");
   const params = new URLSearchParams(location.search);
   const requestedHand = Number(params.get("hand") ?? "4");
   const handCount = Number.isInteger(requestedHand) && requestedHand >= 1 && requestedHand <= 8 ? requestedHand : 4;
@@ -95,8 +99,16 @@ export default function DesignReview({ state }: { state: string }) {
     ${typeface === "wenkai" && params.get("weight") === "500" ? '[data-review-typeface="wenkai"] .v3-rules-body p,[data-review-typeface="wenkai"] .v3-rules-body li {font-weight:500;font-synthesis:none;}' : ''}
     ${typeface === "wenkai" && params.get("weight") === "500" ? '[data-review-typeface="wenkai"] .v3-lobby-seat strong,[data-review-typeface="wenkai"] .v3-lobby-seat-state {font-weight:500;font-synthesis:none;}' : ''}
   `}</style>;
+  if (state === "tab-protection") return <main className="game-prototype" data-reduced-motion="true" aria-label="设计验收样例，不连接房间服务">
+    <WebHome roomEntryDisabled onCreateRoom={ignore} onJoinRoom={ignore} onPractice={ignore} onRules={ignore} rulesButtonRef={focus} />
+  </main>;
+  if (["create", "join", "connecting", "connection-error"].includes(state)) return <main className="game-prototype" data-reduced-motion="true" aria-label="设计验收样例，不连接房间服务">
+    <RoomEntry mode={state === "create" ? "create" : "join"} pending={entryStatus === "pending"} error={entryStatus === "error" ? "设计验收连接失败样例" : null}
+      onBack={ignore} onEditConnection={() => setEntryStatus("editing")}
+      onSubmit={() => setEntryStatus(state === "connection-error" ? "error" : state === "connecting" ? "pending" : "editing")} />
+  </main>;
   if (state === "reconnecting" || state === "session-ended") return <main className="game-prototype" data-reduced-motion="true" data-room-recovery="true" data-review-typeface={typeface} aria-label="设计验收样例，不连接房间服务">{typographyProof}
-    <div className="screen-layer" inert aria-hidden="true"><MatchScreen controller={{ ...reviewMatchController("trick-play"), connection: "reconnecting" }} showLegalHints={false} onExit={ignore} /></div>
+    <div className="screen-layer" inert aria-hidden="true"><MatchScreen controller={{ ...reviewMatchController("trick-play"), connection: state === "session-ended" ? "disconnected" : "reconnecting" }} showLegalHints={false} onExit={ignore} /></div>
     <RecoveryDialog terminal={state === "session-ended"} onRetry={ignore} onHome={ignore} />
   </main>;
   const requestedPlayers = Number(params.get("players") ?? "6");
@@ -106,7 +118,7 @@ export default function DesignReview({ state }: { state: string }) {
     id: `design-${index}`, name: index === 0 && params.get("label") === "long" ? "竹下听雨的第十二位茶客" : index === 0 && params.get("label") === "rare" ? "漢笙亭茶客" : names[index], avatarKey: avatars[index], isHuman: index < 5, seatIndex: index,
   }));
   if (["gameplay", "bid", "chooser"].includes(state)) return <main className="game-prototype" data-reduced-motion="true" data-review-typeface={typeface} aria-label="设计验收样例，不连接房间服务">{typographyProof}
-    <MatchScreen controller={reviewMatchController(state === "bid" ? "bid" : state === "chooser" ? "trump-select" : "trick-play", handCount, params.get("timer") !== "off", trump)} showLegalHints={false} onExit={ignore} />
+    <MatchScreen controller={{ ...reviewMatchController(state === "bid" ? "bid" : state === "chooser" ? "trump-select" : "trick-play", handCount, params.get("timer") !== "off", trump), pendingIntent: params.get("pending") === "1" || submitted, sendIntent: params.get("pending") === "on-submit" ? () => setSubmitted(true) : ignore }} showLegalHints={false} onExit={ignore} />
   </main>;
   return <main className="game-prototype" data-reduced-motion="true" data-review-typeface={typeface} aria-label="设计验收样例，不连接房间服务">{typographyProof}
     {state === "lobby" ? <WebLobby controller={{ state: lobbyLayoutSample(params), pendingCommand: null, setAiCount: refuse, setReady: refuse, startRoom: refuse }} fillAi={true} onManualAi={ignore} onExit={ignore} onInvite={ignore} /> : state === "confirm" ? <LeaveDialog pending={false} error={null} onCancel={ignore} onConfirm={ignore} /> : state === "rules" ? <WebRules onClose={ignore} returnFocusRef={focus} preferences={defaultWebPreferences} onPreferences={ignore} /> : <div className="screen-stage">

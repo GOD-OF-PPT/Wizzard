@@ -9,8 +9,7 @@ import scoringArt from "../../art/runtime/web-v3/rules-scoring.png";
 import portraitScoringArt from "../../art/runtime/web-v3/portrait/rules-scoring.png";
 import settingsArt from "../../art/runtime/web-v3/settings.png";
 import portraitSettingsArt from "../../art/runtime/web-v3/portrait/settings.png";
-import switchOn from "../../art/runtime/web-v3/switch-on-opaque-v3.png";
-import switchOff from "../../art/runtime/web-v3/switch-off-opaque-v3.png";
+import { WebSwitchArt } from "./WebSwitchArt";
 
 const chapterArt = [
   { landscape: art, portrait: portraitArt },
@@ -85,8 +84,8 @@ export function WebRules({ onClose, returnFocusRef, preferences, onPreferences }
       <h3>{tab === "rules" ? chapters[chapter].title : "体验设置"}</h3>
       {tab === "rules" ? <><p className="v3-rule-copy"><span className="v3-rule-copy--landscape">{chapterCopy(chapter, false)}</span><span className="v3-rule-copy--portrait">{chapterCopy(chapter, true)}</span></p><ol>{chapters[chapter].steps.map((step, index) => <li key={step}><span className="v3-step-number" aria-hidden="true"><span>{index + 1}</span></span><span>{chapter === 3 && index < 3 ? <>{step.split(" ")[0]}<span className="v3-step-score"> {step.split(" ")[1]}</span></> : step}</span></li>)}</ol></> : <>
         <p>偏好保存在当前浏览器，仅影响本机显示。</p>
-        <button className="v3-setting" aria-pressed={preferences.legalHints} onClick={() => onPreferences({ ...preferences, legalHints: !preferences.legalHints })}><span>合法牌提示</span><span className="v3-setting-state"><span className="v3-switch-art"><img src={preferences.legalHints ? switchOn : switchOff} alt="" /></span><strong>{preferences.legalHints ? "开启" : "关闭"}</strong></span></button>
-        <button className="v3-setting" aria-pressed={preferences.reducedMotion} onClick={() => onPreferences({ ...preferences, reducedMotion: !preferences.reducedMotion })}><span>减少动效</span><span className="v3-setting-state"><span className="v3-switch-art"><img src={preferences.reducedMotion ? switchOn : switchOff} alt="" /></span><strong>{preferences.reducedMotion ? "开启" : "关闭"}</strong></span></button>
+        <button className="v3-setting" aria-pressed={preferences.legalHints} onClick={() => onPreferences({ ...preferences, legalHints: !preferences.legalHints })}><span>合法牌提示</span><span className="v3-setting-state"><WebSwitchArt family="settings" checked={preferences.legalHints} /><strong>{preferences.legalHints ? "开启" : "关闭"}</strong></span></button>
+        <button className="v3-setting" aria-pressed={preferences.reducedMotion} onClick={() => onPreferences({ ...preferences, reducedMotion: !preferences.reducedMotion })}><span>减少动效</span><span className="v3-setting-state"><WebSwitchArt family="settings" checked={preferences.reducedMotion} /><strong>{preferences.reducedMotion ? "开启" : "关闭"}</strong></span></button>
         <button className="v3-setting v3-setting--restore" onClick={() => onPreferences(defaultWebPreferences)}>恢复默认</button>
       </>}
     </article>

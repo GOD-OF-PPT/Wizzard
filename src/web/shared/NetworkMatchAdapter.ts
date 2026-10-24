@@ -122,6 +122,7 @@ export class NetworkMatchAdapter implements IMatchAdapter {
 
     this.pendingIntentCommandId = commandId;
     this.roomClient.sendTracked(message);
+    this.emitLatest([]);
   }
 
   public update(deltaSeconds: number): void {
@@ -163,6 +164,7 @@ export class NetworkMatchAdapter implements IMatchAdapter {
 
     this.latestUpdate = {
       ...this.latestUpdate,
+      pendingIntent: this.pendingIntentCommandId !== null,
       connection: this.connection,
       events,
       turnSecondsRemaining:
@@ -231,6 +233,7 @@ export class NetworkMatchAdapter implements IMatchAdapter {
         ? null
         : Math.ceil(this.countdownSeconds);
     this.latestUpdate = {
+      pendingIntent: this.pendingIntentCommandId !== null,
       connection: this.connection,
       controls: {
         canContinueRound: event.payload.permissions.canContinueRound,

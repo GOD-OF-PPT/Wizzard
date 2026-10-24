@@ -22,6 +22,7 @@ export type MatchControls = {
 };
 
 export type MatchUpdate = {
+  pendingIntent?: boolean;
   connection: MatchConnectionState;
   controls?: MatchControls;
   events: readonly MatchEvent[];

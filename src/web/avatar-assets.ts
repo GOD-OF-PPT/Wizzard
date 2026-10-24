@@ -7,6 +7,7 @@ import starCat from "../../art/runtime/web-v3/avatars/sleepy-star-cat.png";
 import traveler from "../../art/runtime/web-v3/avatars/masked-traveler.png";
 import lobbyTraveler from "../../art/runtime/web-v3/avatars/lobby-masked-traveler-v1.png";
 import gameplayTraveler from "../../art/runtime/web-v3/avatars/gameplay-masked-traveler-v1.png";
+import gameplayStarCat from "../../art/runtime/web-v3/avatars/gameplay-sleepy-cat-v1.png";
 import lobbyCat from "../../art/runtime/web-v3/avatars/lobby-bamboo-cat-v2.png";
 import lobbyCrane from "../../art/runtime/web-v3/avatars/lobby-wandering-crane-v2.png";
 import lobbyFox from "../../art/runtime/web-v3/avatars/lobby-flower-fox-v2.png";
@@ -45,5 +46,6 @@ export function webResultsAvatar(key: string): string {
 }
 
 export function webGameplayAvatar(key: string): string {
-  return key === "masked-traveler" ? gameplayTraveler : webAvatar(key);
+  if (key === "sleepy-star-cat") return gameplayStarCat;
+  return key === "masked-traveler" ? gameplayTraveler : webLobbyAvatar(key);
 }

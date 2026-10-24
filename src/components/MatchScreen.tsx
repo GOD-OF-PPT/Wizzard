@@ -34,6 +34,9 @@ import { webSuitIcons } from "../web/suit-assets";
 import noTimerPatch from "../../art/runtime/web-v3/no-timer-patch-v1.png";
 import noTimerPortraitPatch from "../../art/runtime/web-v3/portrait/no-timer-patch-v1.png";
 import noActionPatch from "../../art/runtime/web-v3/gameplay-no-action-patch-v1.png";
+import turnFlourishLeft from "../../art/runtime/web-v3/turn-status-flourish-left-v2.png";
+import turnFlourishRight from "../../art/runtime/web-v3/turn-status-flourish-right-v2.png";
+import modePlayer from "../../art/runtime/web-v3/mode-player-v1.png";
 
 type MatchScreenProps = {
   controller?: LocalMatchController;
@@ -267,6 +270,8 @@ function trickCardStyle(index: number, count: number): CSSProperties {
 
   return {
     "--trick-left": `${50 + offset * spread}%`,
+    "--trick-perspective-left": `${50.8 + offset * Math.min(23.7, spread)}%`,
+    "--trick-skew": `${offset * 3}deg`,
     "--trick-rotation": "0deg",
     "--trick-top": "0%",
   } as CSSProperties;
@@ -352,6 +357,7 @@ function PracticeSurface(props: Omit<MatchScreenProps, "controller">) {
 function MatchSurface({ controller, network, onExit, showLegalHints = true }: Omit<MatchScreenProps, "controller"> & { controller: LocalMatchController; network: boolean }) {
   const { privateState, publicState } = controller.snapshot;
   const [feedback, setFeedback] = useState<string | null>(null);
+  const [feedbackRevision, setFeedbackRevision] = useState(0);
   const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
   const [confirmPulse, setConfirmPulse] = useState(false);
   const hasSelectedThisTurn = useRef(false);
@@ -412,16 +418,24 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
 
     const timeout = window.setTimeout(() => setFeedback(null), 1900);
     return () => window.clearTimeout(timeout);
-  }, [feedback]);
+  }, [feedback, feedbackRevision]);
+
+  function showFeedback(message: string) {
+    setFeedback(message);
+    // An identical explanation is still a fresh user action. Renew its
+    // lifetime instead of letting the previous click's timer dismiss it.
+    setFeedbackRevision(revision => revision + 1);
+  }
 
   function selectCard(card: Card) {
+    if (controller.pendingIntent) return;
     if (!humanTurn || publicState.phase !== "trick-play") {
-      setFeedback("还没轮到你出牌");
+      showFeedback("还没轮到你出牌");
       return;
     }
 
     if (!legalCardIds.has(card.id)) {
-      setFeedback("必须跟随本墩领出花色");
+      showFeedback("必须跟随本墩领出花色");
       return;
     }
 
@@ -435,8 +449,9 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
   }
 
   function playSelectedCard() {
+    if (controller.pendingIntent) return;
     if (!selectedCard) {
-      setFeedback("请先选择一张合法手牌");
+      showFeedback("请先选择一张合法手牌");
       return;
     }
 
@@ -450,9 +465,10 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
       data-phase={publicState.phase}
       data-local-phase={humanTurn ? publicState.phase : "waiting"}
       data-has-timer={timerSeconds !== null}
+      data-pending-intent={controller.pendingIntent || undefined}
     >
       <button className="v3-match-back v3-baked-hit" onClick={onExit} aria-label="返回首页"><span>返回首页</span></button>
-      <div className="v3-match-mode" role="status">{!network ? "单人练习" : controller.connection === "connected" ? "好友对局" : "重连中"}</div>
+      <div className="v3-match-mode" role="status"><img src={modePlayer} alt="" aria-hidden="true" /><span>{!network ? "单人练习" : controller.connection === "connected" ? "好友对局" : controller.connection === "disconnected" ? "连接中断" : "重连中"}</span></div>
       <h1 className="sr-only" id="match-title">
         奇术茶馆快速局牌桌
       </h1>
@@ -509,6 +525,7 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
         <img alt="" aria-hidden="true" draggable="false" src={gameArt.secondaryPanel} />
         <div>
           <span>{phaseLabels[publicState.phase]}</span>
+          <img className="turn-status-flourish" alt="" aria-hidden="true" src={turnFlourishLeft} />
           <strong>
             {currentPlayer
               ? currentPlayer.id === controller.humanPlayerId
@@ -518,6 +535,7 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
                 ? `${publicState.players.find((player) => player.id === publicState.completedTrick?.winnerId)?.name ?? "玩家"}赢得本墩`
                 : "等待牌桌推进"}
           </strong>
+          <img className="turn-status-flourish" alt="" aria-hidden="true" src={turnFlourishRight} />
         </div>
       </div>
 
@@ -568,13 +586,13 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
             <CardView
               card={card}
               className="hand-card"
-              disabled={!humanTurn || publicState.phase !== "trick-play"}
+              disabled={controller.pendingIntent || !humanTurn || publicState.phase !== "trick-play"}
               key={card.id}
               onClick={() => selectCard(card)}
               state={visualState}
               style={{
                 ...handCardStyle(index, privateState.hand.length),
-                "--selection-offset": selectedCardIndex >= 0 && index !== selectedCardIndex ? (index < selectedCardIndex ? "-9px" : "9px") : "0px",
+                "--selection-offset": selectedCardIndex >= 0 && index !== selectedCardIndex ? (index < selectedCardIndex ? "calc(-1 * var(--hand-neighbor-offset, 9px))" : "var(--hand-neighbor-offset, 9px)") : "0px",
                 // Reveal the outward edge on either side of the raised card.
                 // An always-increasing right stack sandwiches the immediate
                 // neighbour on dense portrait hands between two higher cards.
@@ -586,20 +604,22 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
       </div>
 
       <button
-        aria-label="确认出牌"
+        aria-label={controller.pendingIntent ? "出牌中" : "确认出牌"}
+        aria-busy={controller.pendingIntent || undefined}
         className={`turn-action ${confirmPulse ? "turn-action--pulse" : ""}`}
         disabled={
-          !selectedCard || !humanTurn || publicState.phase !== "trick-play"
+          controller.pendingIntent || !selectedCard || !humanTurn || publicState.phase !== "trick-play"
         }
         onClick={playSelectedCard}
         type="button"
       >
         <img alt="" aria-hidden="true" draggable="false" src={gameArt.turnButton} />
-        <span>{humanTurn ? (selectedCard ? "确认出牌" : "选择手牌") : "等待回合"}</span>
+        <span>{controller.pendingIntent ? "出牌中" : humanTurn ? (selectedCard ? "确认出牌" : "选择手牌") : "等待回合"}</span>
       </button>
 
       {humanTurn && publicState.phase === "trump-select" ? (
         <WebTrumpChooser
+          pending={controller.pendingIntent}
           onExit={onExit}
           onChoose={(trump) =>
             controller.sendIntent({ trump, type: "choose-trump" })
@@ -609,6 +629,7 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
 
       {humanTurn && publicState.phase === "bid" ? (
         <WebBidPanel
+          pending={controller.pendingIntent}
           handSize={publicState.handSize}
           onExit={onExit}
           onSubmit={(bid) => controller.sendIntent({ bid, type: "submit-bid" })}

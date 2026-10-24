@@ -10,6 +10,7 @@ import {
 import {
   createWebRoomClient,
   hasStoredWebRoomSession,
+  storedWebRoomId,
   WebRoomTabLease,
   type WebRoomClientOptions,
 } from "../web/platform";
@@ -21,6 +22,7 @@ import type {
 } from "../web/shared/RoomSocketClient";
 
 export type FriendRoomState = Readonly<{
+  resumeBlocked?: boolean;
   connection: RoomSocketConnectionState;
   error: string | null;
   terminalError?: boolean;
@@ -70,6 +72,13 @@ export function useFriendRoom(endpoint?: string) {
   const attach = useCallback(
     (binding: RoomBinding) => {
       dispose();
+      if (binding.type === "resume") {
+        const storedRoomId = storedWebRoomId();
+        if (storedRoomId && !leaseRef.current.acquire(storedRoomId)) {
+          setState({ ...EMPTY_STATE, resumeBlocked: true, error: "房间已在另一个标签页打开，请返回原标签页继续。" });
+          return;
+        }
+      }
       const client = createWebRoomClient({
         binding,
         ...(endpoint ? { endpoint } : {}),
@@ -186,7 +195,19 @@ export function useFriendRoom(endpoint?: string) {
     [attach],
   );
 
-  useEffect(() => dispose, [dispose]);
+  useEffect(() => {
+    // A normal reload replaces this document before React can run unmount
+    // cleanup. Release only this tab's lease so its replacement can resume.
+    // BFCache pages retain their instance and renew their existing lease.
+    const releaseOnNavigation = (event: PageTransitionEvent) => {
+      if (!event.persisted) leaseRef.current.release();
+    };
+    window.addEventListener("pagehide", releaseOnNavigation);
+    return () => {
+      window.removeEventListener("pagehide", releaseOnNavigation);
+      dispose();
+    };
+  }, [dispose]);
 
   useEffect(() => {
     if (hasStoredWebRoomSession()) attach({ type: "resume" });

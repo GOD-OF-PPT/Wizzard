@@ -23,3 +23,11 @@ tmp/
 # Local screenshot-audit evidence; approved masters and runtime assets live in
 # art/source, art/runtime, art/mockups, and art/review.
 /art/qa/
+
+# Large, newly captured Web v3 evidence is preserved as draft-release tar assets.
+# Existing tracked evidence stays in Git; manifests retain paths and SHA-256s.
+/art/review/web-v3/*
+!/art/review/web-v3/evidence-archive-*.json
+
+# Local commit-message scratchpad, retained on disk.
+/COMMIT_MSG.txt

@@ -2,7 +2,9 @@
 
 本目录是正式编码实现使用的视觉真值。所有资源均延续用户选择的第二套“奇术茶馆 / Enchanted Teahouse”方向，界面不得退回通用仪表盘、纯色占位或与本目录不一致的视觉语言。
 
-当前内部浏览器载体以 `mockups/web-v3/` 逐页设计、`web-v3-manifest.json` 和 `docs/18-web-v3-design-and-interaction.md` 为准。最新竖屏牌桌使用 `05-gameplay-safe-v2.png`、无倒计时使用 `14-gameplay-notimer-safe-v3.png`，避免原稿动作牌匾压住末张手牌。大厅使用人数/准备文案一致的 `04-lobby-{waiting,ready}-v2.png` 两状态；旧稿另存，不修改服务端权限迁就旧稿。21页/状态的42组Chrome双画幅对照入口为 `review/web-v3/audit-20261018-index.html`；整体仍未通过，详见根目录 `design-qa.md`。以下旧 `passed` 只适用于各自历史资源或小游戏范围，不代表Web v3通过。
+2026-10-21当前验收：`review/web-v3/50-index-20261021.html`包含25状态×双画幅共50组当前Chrome设计/实现对照，原缺失8组已补齐。逐页P2、144项当前原生命中及真实多标签边界见`docs/43-web-v3-chrome-current-calibration.md`。像素级一致仍未通过；下段旧数量与阻塞为2026-10-20历史。
+
+当前内部浏览器载体以 `mockups/web-v3/` 逐页设计、`web-v3-manifest.json` 和 `docs/18-web-v3-design-and-interaction.md` 为准。最新竖屏牌桌使用 `05-gameplay-safe-v2.png`、无倒计时使用 `14-gameplay-notimer-safe-v3.png`，避免原稿动作牌匾压住末张手牌。大厅使用人数/准备文案一致的 `04-lobby-{waiting,ready}-v2.png` 两状态；旧稿另存，不修改服务端权限迁就旧稿。当前25状态×两画幅清单入口为 `review/web-v3/42-index-20261020.html`；已有48组Chrome截图中，6组因选牌位移修复降为历史、待重拍，42组保留当前对照。新增多标签保护2组实拍缺失，整体仍未通过，详见 `docs/42-web-v3-current-acceptance.md` 和根目录 `design-qa.md`。竖屏选择使用 `11-chooser-no-play-v4.png` / `18-chooser-pending-no-play-v4.png` 的语义修订，横屏恢复/终止使用network-v2/v3；旧稿保留。以下旧 `passed` 只适用于各自历史资源或小游戏范围，不代表Web v3通过。
 
 ## 目录
 
@@ -95,3 +97,11 @@ node tools/sync-cocos-assets.mjs --target cocos-client/assets/resources/game-art
 目标目录通常为 `<cocos-project>/assets/resources/game-art`。同步报告位于目标目录的 `_generated/`；TypeScript 默认也写入该目录，可用 `--generated-ts` 指向 Cocos 的脚本目录。图片地址不含扩展名并以 `/texture` 结尾；`AssetRegistry` 将 Creator 默认导入的 `Texture2D` 包装为 `SpriteFrame`。字体地址同样不含扩展名，可直接交给 Cocos `resources.load`。
 
 详细路径、语义键、尺寸、锚点、九宫格与压缩建议见 [asset-manifest.json](asset-manifest.json)。
+
+## Web v3 复核证据归档（2026-10-24）
+
+此次推送将原先未跟踪的 1,723 份截图、对比图与复核记录保存为 GitHub 草稿发布 `web-v3-evidence-20261024` 的分卷 tar 附件，避免把约 2.69 GB 的复核输出加入 Git 历史。正式源图、运行资源、页面设计稿和原有已跟踪证据仍随发布分支提交；本地原始文件完整保留。
+
+[归档清单](review/web-v3/evidence-archive-20261024.json) 记录每个文件的原路径、字节数、SHA-256 和所属分卷，以及各分卷的校验值。恢复时下载全部分卷，校验 SHA-256 后在仓库根目录逐个解包，原相对路径即可恢复。草稿附件仅仓库协作者可访问。
+
+此归档只证明证据已保存，不改变 `design-qa.md` 中的验收结论和剩余差异。

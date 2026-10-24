@@ -42,8 +42,8 @@ export function WebResults({ isMatchEnd, isFinalRound = false, onContinue, onExi
       })}
     </div>
     {!rank && <p className="v3-results-note">预测准确获得20分基础分</p>}
-    <button className="v3-results-secondary v3-baked-hit" onClick={rank ? isMatchEnd ? onExit : () => setShowRanking(false) : () => setShowRanking(true)}>{rank ? isMatchEnd ? network ? "离开房间" : "返回首页" : "返回结算" : "查看总榜"}</button>
-    <button ref={primary} className="v3-results-primary v3-baked-hit" aria-label={primaryLabel} disabled={isMatchEnd ? !canRestart : !canContinue} onClick={isMatchEnd ? onRestart : onContinue}>{primaryLabel}</button>
+    <button className="v3-results-secondary v3-baked-hit" onClick={rank ? isMatchEnd ? onExit : () => setShowRanking(false) : () => setShowRanking(true)}><span>{rank ? isMatchEnd ? network ? "离开房间" : "返回首页" : "返回结算" : "查看总榜"}</span></button>
+    <button ref={primary} className="v3-results-primary v3-baked-hit" aria-label={primaryLabel} disabled={isMatchEnd ? !canRestart : !canContinue} onClick={isMatchEnd ? onRestart : onContinue}><span>{primaryLabel}</span></button>
     </div>
   </section>;
 }
