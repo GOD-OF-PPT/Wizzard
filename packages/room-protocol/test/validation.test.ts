@@ -209,7 +209,7 @@ describe("client protocol decoder", () => {
     expect(
       decodeClientMessage(
         JSON.stringify({
-          payload: { aiCount: 4 },
+          payload: { aiCount: 5 },
           requestId: "stream-1:ai-count",
           type: "room.set-ai-count",
           v: 1,
@@ -218,7 +218,7 @@ describe("client protocol decoder", () => {
     ).toEqual({
       ok: true,
       value: {
-        payload: { aiCount: 4 },
+        payload: { aiCount: 5 },
         requestId: "stream-1:ai-count",
         type: "room.set-ai-count",
         v: 1,
@@ -226,7 +226,7 @@ describe("client protocol decoder", () => {
     });
   });
 
-  it.each([-1, 1.5, 5, "2"])("rejects invalid AI counts: %s", (aiCount) => {
+  it.each([-1, 1.5, 6, "2"])("rejects invalid AI counts: %s", (aiCount) => {
     expect(
       decodeClientMessage(
         JSON.stringify({

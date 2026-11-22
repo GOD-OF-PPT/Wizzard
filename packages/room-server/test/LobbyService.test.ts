@@ -251,7 +251,7 @@ describe("LobbyService", () => {
       );
     });
 
-    it("rejects adding AI before two humans join", async () => {
+    it("lets a newly created room's host add five AI and remove them", async () => {
       const now = 2_020_000;
       const { lobby, session, repository } = createServices(now);
       const host = await session.createRoom(
@@ -260,11 +260,13 @@ describe("LobbyService", () => {
       );
       const room = (await repository.loadById(host.grant.roomId))!;
 
-      expect(() =>
-        lobby.setAiCount(room, host.grant.playerId, 1, now),
-      ).toThrow(
-        expect.objectContaining({ code: "NOT_ENOUGH_PLAYERS" }),
-      );
+      lobby.setAiCount(room, host.grant.playerId, 5, now);
+      expect(room.players.filter((player) => player.isAi)).toHaveLength(5);
+      expect(room.players).toHaveLength(6);
+
+      lobby.setAiCount(room, host.grant.playerId, 0, now);
+      expect(room.players).toHaveLength(1);
+      expect(room.players[0].playerId).toBe(host.grant.playerId);
     });
 
     it("rejects a negative AI count", async () => {
@@ -406,7 +408,8 @@ describe("LobbyService", () => {
         FAST_CONFIG,
       );
       readyAllHumans(room);
-      // Disconnect two of three humans → only 1 connected < MIN_HUMAN_PLAYERS (2)
+      // A room still requires a connected human host; an AI-only room cannot start.
+      room.players[0].connected = false;
       room.players[1].connected = false;
       room.players[2].connected = false;
 

@@ -50,7 +50,7 @@ async function join(
 }
 
 describe("RoomCoordinator", () => {
-  it("lets the host add and remove lobby AI only after two humans join", async () => {
+  it("lets the host fill a new room with AI and keeps AI management host-only", async () => {
     const now = 1_400_000;
     const repository = new MemoryRoomRepository<RoomRecord>(() => now);
     const coordinator = new RoomCoordinator({ clock: () => now, repository });
@@ -59,18 +59,18 @@ describe("RoomCoordinator", () => {
       payload: { ...createMessage("Host").payload, maxPlayers: 6 },
     });
 
-    await expect(
-      coordinator.execute(
-        host.session,
-        {
-          payload: { aiCount: 1 },
-          requestId: "ai-before-second-human",
-          type: "room.set-ai-count",
-          v: 1,
-        },
-        now,
-      ),
-    ).rejects.toMatchObject({ code: "NOT_ENOUGH_PLAYERS" });
+    const initialFill = await coordinator.execute(
+      host.session,
+      {
+        payload: { aiCount: 5 },
+        requestId: "ai-before-second-human",
+        type: "room.set-ai-count",
+        v: 1,
+      },
+      now,
+    );
+    expect(initialFill.room.players.filter((player) => player.isAi)).toHaveLength(5);
+    expect(initialFill.room.players).toHaveLength(6);
 
     const second = await join(
       coordinator,
@@ -480,45 +480,37 @@ describe("RoomCoordinator", () => {
     expect(cleared.room.players[0].playerId).toBe(host.session.playerId);
   });
 
-  it("requires two real players before AI fills the remaining seats", async () => {
+  it.each([false, true])("starts a solo-host room with five AI (auto-fill: %s)", async (fillWithAi) => {
     const now = 1_500_000;
     const repository = new MemoryRoomRepository<RoomRecord>(() => now);
     const coordinator = new RoomCoordinator({ clock: () => now, repository });
-    const host = await coordinator.createRoom(createMessage("Host"), now);
+    const host = await coordinator.createRoom({
+      ...createMessage("Host"),
+      payload: { ...createMessage("Host").payload, maxPlayers: 6 },
+    }, now);
     await coordinator.execute(
       host.session,
       readyMessage("ready-host-for-ai"),
       now,
     );
 
-    await expect(
-      coordinator.execute(
+    if (!fillWithAi) {
+      await coordinator.execute(
         host.session,
         {
-          payload: { fillWithAi: true },
-          requestId: "start-with-only-one-human",
-          type: "room.start",
+          payload: { aiCount: 5 },
+          requestId: "fill-solo-room-with-five-ai",
+          type: "room.set-ai-count",
           v: 1,
         },
         now,
-      ),
-    ).rejects.toMatchObject({ code: "NOT_ENOUGH_PLAYERS" });
-
-    const second = await join(
-      coordinator,
-      host.grant.inviteToken!,
-      "Second",
-    );
-    await coordinator.execute(
-      second.session,
-      readyMessage("ready-second-for-ai"),
-      now,
-    );
+      );
+    }
     const started = await coordinator.execute(
       host.session,
       {
-        payload: { fillWithAi: true },
-        requestId: "start-with-two-humans",
+        payload: { fillWithAi },
+        requestId: "start-with-only-one-human",
         type: "room.start",
         v: 1,
       },
@@ -526,15 +518,15 @@ describe("RoomCoordinator", () => {
     );
 
     expect(started.room.players.filter((player) => !player.isAi)).toHaveLength(
-      2,
+      1,
     );
     expect(started.room.players.filter((player) => player.isAi)).toHaveLength(
-      1,
+      5,
     );
     expect(started.room.lifecycle).toBe("playing");
   });
 
-  it("does not count a disconnected ready player toward the human minimum", async () => {
+  it("still requires every remaining human to be connected and ready", async () => {
     const now = 1_600_000;
     const repository = new MemoryRoomRepository<RoomRecord>(() => now);
     const coordinator = new RoomCoordinator({ clock: () => now, repository });
@@ -567,7 +559,7 @@ describe("RoomCoordinator", () => {
         },
         now,
       ),
-    ).rejects.toMatchObject({ code: "NOT_ENOUGH_PLAYERS" });
+    ).rejects.toMatchObject({ code: "PLAYERS_NOT_READY" });
   });
 
   it("isolates equal client command ids by authenticated session", async () => {
