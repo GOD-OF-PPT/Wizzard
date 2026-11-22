@@ -1,0 +1,811 @@
+{
+  "method": "Builtin ImageGen blank texture normalized to source crop; only expanded original pale glyph/shadow pixels inside largest filled color interior replaced, median channel shift from quiet original interior. All source rim/studs/outside-mask RGB invariant. Source silhouette extracted from interior + adjacent original rim, no generated outline used.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "slot": 0,
+      "kind": "name",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/landscape-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "2421481ea7a16b995dd4c7c6e2caee5a72a9f3f5f1903fb36e2285f629cf50d4",
+      "candidateSize": [
+        1903,
+        826
+      ],
+      "reference": [
+        78,
+        563,
+        198,
+        86
+      ],
+      "crop": [
+        82,
+        568,
+        191,
+        43
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot0-name-v1.png",
+      "sha256": "65cea102be1b721c43f61856c2bf02f1f69d9b886be909e090de89ad568ab0d8",
+      "glyphPixels": 643,
+      "changedPixels": 1590,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 0,
+      "kind": "stats",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/landscape-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "2421481ea7a16b995dd4c7c6e2caee5a72a9f3f5f1903fb36e2285f629cf50d4",
+      "candidateSize": [
+        1903,
+        826
+      ],
+      "reference": [
+        78,
+        563,
+        198,
+        86
+      ],
+      "crop": [
+        85,
+        610,
+        181,
+        36
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot0-stats-v1.png",
+      "sha256": "7371c5d20671bbfe9a1c9b79e51149d460b2a9804366a4028e3e3185b0242cf6",
+      "glyphPixels": 699,
+      "changedPixels": 1788,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 0,
+      "kind": "you",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": null,
+      "candidateSha256": null,
+      "candidateSize": [
+        1903,
+        826
+      ],
+      "reference": [
+        78,
+        563,
+        198,
+        86
+      ],
+      "crop": [
+        128,
+        648,
+        96,
+        43
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot0-you-v1.png",
+      "sha256": "29d79144d55b8b672a46d8c4c996fdd756018630c5d15c6af36b79d71ead63f3",
+      "glyphPixels": 0,
+      "changedPixels": 0,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 1,
+      "kind": "name",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/landscape-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "2421481ea7a16b995dd4c7c6e2caee5a72a9f3f5f1903fb36e2285f629cf50d4",
+      "candidateSize": [
+        1903,
+        826
+      ],
+      "reference": [
+        78,
+        563,
+        198,
+        86
+      ],
+      "crop": [
+        392,
+        216,
+        161,
+        40
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot1-name-v1.png",
+      "sha256": "c892f5c99364b42270a4c3d1c9b50b3ba13620b562c21ef1491d68e887691352",
+      "glyphPixels": 644,
+      "changedPixels": 1453,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 1,
+      "kind": "stats",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/landscape-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "2421481ea7a16b995dd4c7c6e2caee5a72a9f3f5f1903fb36e2285f629cf50d4",
+      "candidateSize": [
+        1903,
+        826
+      ],
+      "reference": [
+        78,
+        563,
+        198,
+        86
+      ],
+      "crop": [
+        396,
+        255,
+        153,
+        31
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot1-stats-v1.png",
+      "sha256": "30312f636a58babde55c82f672b8daa2438c8beba1b8d2380f54e3c97e3000c5",
+      "glyphPixels": 492,
+      "changedPixels": 1349,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 2,
+      "kind": "name",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/landscape-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "2421481ea7a16b995dd4c7c6e2caee5a72a9f3f5f1903fb36e2285f629cf50d4",
+      "candidateSize": [
+        1903,
+        826
+      ],
+      "reference": [
+        78,
+        563,
+        198,
+        86
+      ],
+      "crop": [
+        666,
+        166,
+        160,
+        41
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot2-name-v1.png",
+      "sha256": "3101a587afe7649c08a0f567c3a4f5ea1bccc5779cddeec0aa3bafdb799c02b0",
+      "glyphPixels": 580,
+      "changedPixels": 1362,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 2,
+      "kind": "stats",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/landscape-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "2421481ea7a16b995dd4c7c6e2caee5a72a9f3f5f1903fb36e2285f629cf50d4",
+      "candidateSize": [
+        1903,
+        826
+      ],
+      "reference": [
+        78,
+        563,
+        198,
+        86
+      ],
+      "crop": [
+        669,
+        205,
+        153,
+        30
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot2-stats-v1.png",
+      "sha256": "5795d40f0b222f8796f68a5672d1cae1133c4e40f88ce877ad72f0c104ada422",
+      "glyphPixels": 502,
+      "changedPixels": 1399,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 3,
+      "kind": "name",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/landscape-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "2421481ea7a16b995dd4c7c6e2caee5a72a9f3f5f1903fb36e2285f629cf50d4",
+      "candidateSize": [
+        1903,
+        826
+      ],
+      "reference": [
+        78,
+        563,
+        198,
+        86
+      ],
+      "crop": [
+        1017,
+        202,
+        160,
+        40
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot3-name-v1.png",
+      "sha256": "3ff7026dbb6273f7636d63211e32398d526b3a56330ee300a010801b00267109",
+      "glyphPixels": 514,
+      "changedPixels": 1390,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 3,
+      "kind": "stats",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/landscape-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "2421481ea7a16b995dd4c7c6e2caee5a72a9f3f5f1903fb36e2285f629cf50d4",
+      "candidateSize": [
+        1903,
+        826
+      ],
+      "reference": [
+        78,
+        563,
+        198,
+        86
+      ],
+      "crop": [
+        1021,
+        241,
+        152,
+        30
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot3-stats-v1.png",
+      "sha256": "0cae7282c925e497443ade9490c51983871c1682ff5de9e8c77896ac8ec3ca33",
+      "glyphPixels": 487,
+      "changedPixels": 1314,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 4,
+      "kind": "name",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/landscape-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "2421481ea7a16b995dd4c7c6e2caee5a72a9f3f5f1903fb36e2285f629cf50d4",
+      "candidateSize": [
+        1903,
+        826
+      ],
+      "reference": [
+        78,
+        563,
+        198,
+        86
+      ],
+      "crop": [
+        1305,
+        306,
+        161,
+        40
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot4-name-v1.png",
+      "sha256": "2d3e20bd146c4befb3239e57ac02799d5ed8ff9b463bc3cb86a5dd56ff727058",
+      "glyphPixels": 633,
+      "changedPixels": 1433,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 4,
+      "kind": "stats",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/landscape-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "2421481ea7a16b995dd4c7c6e2caee5a72a9f3f5f1903fb36e2285f629cf50d4",
+      "candidateSize": [
+        1903,
+        826
+      ],
+      "reference": [
+        78,
+        563,
+        198,
+        86
+      ],
+      "crop": [
+        1309,
+        345,
+        153,
+        30
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot4-stats-v1.png",
+      "sha256": "9d6218f6865f797ef5d06715bc01172c433cbcee65d2f956b5cb0462fcd66e48",
+      "glyphPixels": 518,
+      "changedPixels": 1373,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 5,
+      "kind": "name",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/landscape-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "2421481ea7a16b995dd4c7c6e2caee5a72a9f3f5f1903fb36e2285f629cf50d4",
+      "candidateSize": [
+        1903,
+        826
+      ],
+      "reference": [
+        78,
+        563,
+        198,
+        86
+      ],
+      "crop": [
+        200,
+        343,
+        162,
+        40
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot5-name-v1.png",
+      "sha256": "2483074274377bd4c407c29abe6904cfc46c293aac5b36235b382541ee881516",
+      "glyphPixels": 488,
+      "changedPixels": 1330,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 5,
+      "kind": "stats",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/landscape-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "2421481ea7a16b995dd4c7c6e2caee5a72a9f3f5f1903fb36e2285f629cf50d4",
+      "candidateSize": [
+        1903,
+        826
+      ],
+      "reference": [
+        78,
+        563,
+        198,
+        86
+      ],
+      "crop": [
+        204,
+        382,
+        154,
+        30
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot5-stats-v1.png",
+      "sha256": "77cdb1c52f3eb5fe3ba1ab8565fe86d5513b2a8d8f2b0fa64f6ac0a8f6736df4",
+      "glyphPixels": 529,
+      "changedPixels": 1357,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 0,
+      "kind": "name",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/portrait-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "315c9764714bce00f7d32d54d3415f4b3d80b27efe97d062654a554e933fda4b",
+      "candidateSize": [
+        1889,
+        832
+      ],
+      "reference": [
+        14,
+        1052,
+        202,
+        89
+      ],
+      "crop": [
+        18,
+        1057,
+        196,
+        48
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot0-name-v1.png",
+      "sha256": "ba444ce2b1014d038dad33bbcaf01b545227f10153089124397fe1a9a73809a9",
+      "glyphPixels": 689,
+      "changedPixels": 1736,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 0,
+      "kind": "stats",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/portrait-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "315c9764714bce00f7d32d54d3415f4b3d80b27efe97d062654a554e933fda4b",
+      "candidateSize": [
+        1889,
+        832
+      ],
+      "reference": [
+        14,
+        1052,
+        202,
+        89
+      ],
+      "crop": [
+        20,
+        1102,
+        192,
+        39
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot0-stats-v1.png",
+      "sha256": "78a6a2dd7865aa244f3a7f8a8afab63fb3d51c55cae0265751bdd8ca92eea920",
+      "glyphPixels": 874,
+      "changedPixels": 2083,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 0,
+      "kind": "you",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": null,
+      "candidateSha256": null,
+      "candidateSize": [
+        1889,
+        832
+      ],
+      "reference": [
+        14,
+        1052,
+        202,
+        89
+      ],
+      "crop": [
+        62,
+        1144,
+        106,
+        44
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot0-you-v1.png",
+      "sha256": "1f9fbd65a71af1c18c80822a6fc31a84741fd936cc7d77300b265779d9d5f796",
+      "glyphPixels": 0,
+      "changedPixels": 0,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 1,
+      "kind": "name",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/portrait-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "315c9764714bce00f7d32d54d3415f4b3d80b27efe97d062654a554e933fda4b",
+      "candidateSize": [
+        1889,
+        832
+      ],
+      "reference": [
+        14,
+        1052,
+        202,
+        89
+      ],
+      "crop": [
+        173,
+        469,
+        185,
+        44
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot1-name-v1.png",
+      "sha256": "5ec06a76a6d9afe59ff93ece09f6d76a65c993b31ca476a36604adbe60c98f2e",
+      "glyphPixels": 804,
+      "changedPixels": 1832,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 1,
+      "kind": "stats",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/portrait-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "315c9764714bce00f7d32d54d3415f4b3d80b27efe97d062654a554e933fda4b",
+      "candidateSize": [
+        1889,
+        832
+      ],
+      "reference": [
+        14,
+        1052,
+        202,
+        89
+      ],
+      "crop": [
+        176,
+        511,
+        179,
+        37
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot1-stats-v1.png",
+      "sha256": "8264e9088c21cd47b72e4e9a745de2564c491457d76e4e8d8a17273451e2f472",
+      "glyphPixels": 817,
+      "changedPixels": 1921,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 2,
+      "kind": "name",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/portrait-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "315c9764714bce00f7d32d54d3415f4b3d80b27efe97d062654a554e933fda4b",
+      "candidateSize": [
+        1889,
+        832
+      ],
+      "reference": [
+        14,
+        1052,
+        202,
+        89
+      ],
+      "crop": [
+        382,
+        393,
+        186,
+        44
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot2-name-v1.png",
+      "sha256": "bab9b316fe0d6bfb9585be69663cf7dc4812de243cb92a1adfac3fd599cc9adf",
+      "glyphPixels": 721,
+      "changedPixels": 1746,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 2,
+      "kind": "stats",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/portrait-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "315c9764714bce00f7d32d54d3415f4b3d80b27efe97d062654a554e933fda4b",
+      "candidateSize": [
+        1889,
+        832
+      ],
+      "reference": [
+        14,
+        1052,
+        202,
+        89
+      ],
+      "crop": [
+        386,
+        435,
+        179,
+        38
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot2-stats-v1.png",
+      "sha256": "a1192917fb52e8af8e211fc6b547a1a02e295c43397dfd1ce908923b985585e2",
+      "glyphPixels": 600,
+      "changedPixels": 1561,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 3,
+      "kind": "name",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/portrait-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "315c9764714bce00f7d32d54d3415f4b3d80b27efe97d062654a554e933fda4b",
+      "candidateSize": [
+        1889,
+        832
+      ],
+      "reference": [
+        14,
+        1052,
+        202,
+        89
+      ],
+      "crop": [
+        593,
+        469,
+        184,
+        44
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot3-name-v1.png",
+      "sha256": "81814f8f5c1271abea3b8fdc66e7187c042b37036135827ee13d990291694013",
+      "glyphPixels": 693,
+      "changedPixels": 1771,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 3,
+      "kind": "stats",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/portrait-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "315c9764714bce00f7d32d54d3415f4b3d80b27efe97d062654a554e933fda4b",
+      "candidateSize": [
+        1889,
+        832
+      ],
+      "reference": [
+        14,
+        1052,
+        202,
+        89
+      ],
+      "crop": [
+        597,
+        512,
+        178,
+        36
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot3-stats-v1.png",
+      "sha256": "42428cf95f1fa07b30b384cc9c9ae91059b5ea042111eaaa1a1935e48ec1d7b4",
+      "glyphPixels": 768,
+      "changedPixels": 1805,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 4,
+      "kind": "name",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/portrait-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "315c9764714bce00f7d32d54d3415f4b3d80b27efe97d062654a554e933fda4b",
+      "candidateSize": [
+        1889,
+        832
+      ],
+      "reference": [
+        14,
+        1052,
+        202,
+        89
+      ],
+      "crop": [
+        746,
+        631,
+        178,
+        44
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot4-name-v1.png",
+      "sha256": "cbdf39e5ca0b5b2c8b5525a5629d488f41ace9e71b5a6230dfd3d653be05bd8c",
+      "glyphPixels": 770,
+      "changedPixels": 1764,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 4,
+      "kind": "stats",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/portrait-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "315c9764714bce00f7d32d54d3415f4b3d80b27efe97d062654a554e933fda4b",
+      "candidateSize": [
+        1889,
+        832
+      ],
+      "reference": [
+        14,
+        1052,
+        202,
+        89
+      ],
+      "crop": [
+        750,
+        673,
+        170,
+        36
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot4-stats-v1.png",
+      "sha256": "c801daebef86502c0cf13d1f53a9dbabdb8deccb6c8d185c9b555a177ca4c7e9",
+      "glyphPixels": 803,
+      "changedPixels": 1912,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 5,
+      "kind": "name",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/portrait-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "315c9764714bce00f7d32d54d3415f4b3d80b27efe97d062654a554e933fda4b",
+      "candidateSize": [
+        1889,
+        832
+      ],
+      "reference": [
+        14,
+        1052,
+        202,
+        89
+      ],
+      "crop": [
+        21,
+        631,
+        176,
+        43
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot5-name-v1.png",
+      "sha256": "9fd8e46a80fd117fa4782b13783a4d011caca765b4cb17d3fab29826e99055ed",
+      "glyphPixels": 557,
+      "changedPixels": 1547,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 5,
+      "kind": "stats",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": "art/source/web-v3/gameplay-seats-v1/portrait-name-stats-blank-candidate-v1.png",
+      "candidateSha256": "315c9764714bce00f7d32d54d3415f4b3d80b27efe97d062654a554e933fda4b",
+      "candidateSize": [
+        1889,
+        832
+      ],
+      "reference": [
+        14,
+        1052,
+        202,
+        89
+      ],
+      "crop": [
+        23,
+        673,
+        171,
+        36
+      ],
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot5-stats-v1.png",
+      "sha256": "b2c4b3b2cec73ef5f73e747b9e2f6d3fe9cab087236d30f1995a2e489e784a85",
+      "glyphPixels": 758,
+      "changedPixels": 1778,
+      "changedOutsideMask": 0,
+      "changedProtectedRim": 0
+    }
+  ]
+}

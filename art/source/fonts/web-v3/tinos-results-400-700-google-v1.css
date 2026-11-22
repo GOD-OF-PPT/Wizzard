@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Tinos';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/tinos/v26/buE4poGnedXvwgX8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Tinos';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/tinos/v26/buE1poGnedXvwj1AW0Fp.ttf) format('truetype');
+}
+

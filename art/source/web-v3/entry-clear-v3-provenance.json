@@ -1,0 +1,31 @@
+{
+  "method": "Lossless authored ImageGen control crop; no drawing or color change",
+  "records": [
+    {
+      "profile": "landscape",
+      "source": "art/mockups/web-v3/02-create.png",
+      "region": [
+        1184,
+        240,
+        36,
+        36
+      ],
+      "output": "art/runtime/web-v3/input-clear-landscape-v3.png",
+      "changedSourcePixels": 0,
+      "sha256": "0691d0654f99a53b252228888471f1ef96dc6ec0c2acccfb9b4cf66da05d3040"
+    },
+    {
+      "profile": "portrait",
+      "source": "art/mockups/web-v3/portrait/02-create.png",
+      "region": [
+        687,
+        457,
+        40,
+        40
+      ],
+      "output": "art/runtime/web-v3/input-clear-portrait-v3.png",
+      "changedSourcePixels": 0,
+      "sha256": "bda11100a2ac2fc2191ab76219652ed7261d923eb0d5142a4775a4a34ab4b196"
+    }
+  ]
+}

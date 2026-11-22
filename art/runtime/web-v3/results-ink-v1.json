@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "profiles": {
+    "landscape": {
+      "minus": {
+        "scaleX": 1.3,
+        "scaleY": 0.9,
+        "shiftX": 0.5,
+        "shiftY": -2,
+        "origin": "right center"
+      },
+      "variants": {
+        "results": {
+          "positive": "#a20f07",
+          "negative": "#062c54",
+          "leading": "#7b4705"
+        },
+        "final-round": {
+          "positive": "#aa130b",
+          "negative": "#042c53",
+          "leading": "#7b4705"
+        },
+        "ranking": {
+          "positive": "#a20f07",
+          "negative": "#062c54",
+          "leading": "#7b4705"
+        },
+        "current-ranking": {
+          "positive": "#a20f07",
+          "negative": "#062c54",
+          "leading": "#7e4805"
+        },
+        "current-final": {
+          "positive": "#a20f07",
+          "negative": "#062c54",
+          "leading": "#844d08"
+        },
+        "ranking3": {
+          "positive": "#a20f07",
+          "negative": "#062c54",
+          "leading": "#834b06"
+        },
+        "ranking4": {
+          "positive": "#a20f07",
+          "negative": "#062c54",
+          "leading": "#865006"
+        },
+        "ranking5": {
+          "positive": "#a20f07",
+          "negative": "#062c54",
+          "leading": "#804c05"
+        }
+      }
+    },
+    "portrait": {
+      "minus": {
+        "scaleX": 1.2,
+        "scaleY": 1,
+        "shiftX": 0,
+        "shiftY": -2.5,
+        "origin": "left center"
+      },
+      "variants": {
+        "results": {
+          "positive": "#ae0707",
+          "negative": "#063371",
+          "leading": "#804804"
+        },
+        "final-round": {
+          "positive": "#d60611",
+          "negative": "#073c7f",
+          "leading": "#804804"
+        },
+        "ranking": {
+          "positive": "#ae0707",
+          "negative": "#063371",
+          "leading": "#804804"
+        },
+        "current-ranking": {
+          "positive": "#ae0707",
+          "negative": "#063371",
+          "leading": "#864b06"
+        },
+        "current-final": {
+          "positive": "#ae0707",
+          "negative": "#063371",
+          "leading": "#955407"
+        },
+        "ranking3": {
+          "positive": "#ae0707",
+          "negative": "#063371",
+          "leading": "#824805"
+        },
+        "ranking4": {
+          "positive": "#ae0707",
+          "negative": "#063371",
+          "leading": "#894d06"
+        },
+        "ranking5": {
+          "positive": "#ae0707",
+          "negative": "#063371",
+          "leading": "#884c08"
+        }
+      }
+    }
+  }
+}

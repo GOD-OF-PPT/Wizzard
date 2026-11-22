@@ -1,0 +1,11 @@
+Built-in ImageGen local edit, two independent profiles. Selected edit targets:
+- E:/githome/Wizzard/art/mockups/web-v3/07-ranking.png (1672x941)
+- E:/githome/Wizzard/art/mockups/web-v3/portrait/07-ranking.png (941x1672)
+
+Create an authored six-player quick-final ranking state with all-negative totals and ties, in the already selected Enchanted Teahouse direction. Edit the provided image; preserve its canvas, room, lacquer/parchment, frame, flowers, lamps, portraits, names, exact title/subtitle/headers/footer and every component coordinate. Only change two rank digits and the six total-score strings. No new controls or content.
+
+Top to bottom rank labels: 1,1,3,3,5,6. Preserve the first rank's ivory ink and golden highlight; the second row's1 remains dark on its normal paper diamond. Top to bottom totals: -10,-10,-30,-30,-60,-80. Keep the first total antique-gold ink, the other totals dark ink. Retain the original source's numeral size, serif anatomy, consistent minus height/thickness and optical alignment in the total column. Center each complete signed value in the exact existing score cell. Every minus must read as part of a negative number; no added positive signs. Names stay 青竹客,云游鹤,花间狐,墨隐熊,星眠猫,AI旅人.
+
+The title remains 快速局总榜, subtitle 八轮已毕 · 下回再会, headers 名次/玩家/总分, actions 返回首页 and 再来一局. These are design reference images for a dynamic real frontend; do not flatten unrelated UI or redesign the scene. Local numeric edits only.
+
+Profile instruction: landscape retains1672x941 and the two horizontal footer actions; portrait retains941x1672 with its authored vertical footer stack. Do not rotate, crop, add device chrome, add annotations or rescale the source anatomy.

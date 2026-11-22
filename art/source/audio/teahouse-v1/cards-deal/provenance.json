@@ -1,0 +1,231 @@
+{
+  "id": "cards.deal",
+  "label": "纸牌轻展",
+  "durationSeconds": 1.2,
+  "trigger": "每轮首次收到手牌",
+  "prompt": "A short, controlled fan of thick textured paper cards being dealt gently onto a felt-covered lacquer table. Four light paper flutters in one compact gesture and a soft final landing. No aggressive shuffling. Entire sound fits within 1.2 seconds. For an enchanted Chinese teahouse game. One isolated close-up, warm tactile hit. No voice, music, ambience, beeps or harsh treble.",
+  "targetLufs": -25,
+  "cooldownMs": 600,
+  "loop": false,
+  "variants": 4,
+  "status": "generated",
+  "runtimePath": "art/runtime/audio/teahouse-v1/cards-deal-v1.mp3",
+  "sourceDirectory": "art/source/audio/teahouse-v1/cards-deal",
+  "submittedAt": "2026-10-28T07:35:22.098Z",
+  "model": "eleven_text_to_sound_v2",
+  "generatedAt": "2026-10-28T07:35:33.426Z",
+  "downloadPrefix": "A_short,_controlled__",
+  "sourceFiles": [
+    {
+      "take": 1,
+      "downloadedName": "A_short,_controlled__#1-1793172930846.mp3",
+      "path": "art/source/audio/teahouse-v1/cards-deal/take-01.mp3"
+    },
+    {
+      "take": 2,
+      "downloadedName": "A_short,_controlled__#2-1793172931083.mp3",
+      "path": "art/source/audio/teahouse-v1/cards-deal/take-02.mp3"
+    },
+    {
+      "take": 3,
+      "downloadedName": "A_short,_controlled__#3-1793172941554.mp3",
+      "path": "art/source/audio/teahouse-v1/cards-deal/take-03.mp3"
+    },
+    {
+      "take": 4,
+      "downloadedName": "A_short,_controlled__#4-1793172943389.mp3",
+      "path": "art/source/audio/teahouse-v1/cards-deal/take-04.mp3"
+    }
+  ],
+  "candidates": [
+    {
+      "take": 1,
+      "source": "art/source/audio/teahouse-v1/cards-deal/take-01.mp3",
+      "sourceSha256": "199d604f54184c7e4c2a7bf2e4427f0cac4539520015c88ea0c77d274f5fde72",
+      "sourceBytes": 29997,
+      "sourceMetrics": {
+        "duration": 1.2,
+        "peakDbfs": 1.383386549514212,
+        "rmsDbfs": -23.455037341121987,
+        "clippedSamples": 6,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.2216875,
+        "first": 0,
+        "last": 46958
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/cards-deal-take-01.mp3",
+      "sha256": "cc43a78816a2f674df6b543b3cad926e87886a65c40f3c3767a33f1e77fe5ea9",
+      "bytes": 17597,
+      "outputMetrics": {
+        "duration": 1.0383125,
+        "peakDbfs": -4.491910636080505,
+        "rmsDbfs": -28.427437883314862,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.00075,
+        "trailingSilenceSeconds": 0.05997916666666667,
+        "first": 36,
+        "last": 46959
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 1.0383125,
+        "targetRmsDbfs": -28,
+        "gainDb": -5.173427564143896,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 2,
+      "source": "art/source/audio/teahouse-v1/cards-deal/take-02.mp3",
+      "sourceSha256": "3efb0668f30269c9450892b2c15bac65619caaba370e30ef17bd1ec2b83194a1",
+      "sourceBytes": 29997,
+      "sourceMetrics": {
+        "duration": 1.2,
+        "peakDbfs": 0.8380610825211465,
+        "rmsDbfs": -25.420087209440947,
+        "clippedSamples": 4,
+        "leadingSilenceSeconds": 0.0010833333333333333,
+        "trailingSilenceSeconds": 0.2634166666666667,
+        "first": 52,
+        "last": 44955
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/cards-deal-take-02.mp3",
+      "sha256": "cbbe9ff8672db012976d20c4b94bd606ffdab28d6f93adb045fa68eb8acd375b",
+      "bytes": 17179,
+      "outputMetrics": {
+        "duration": 0.9966041666666666,
+        "peakDbfs": -3.366242017365882,
+        "rmsDbfs": -28.880838376215475,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0035625,
+        "trailingSilenceSeconds": 0.060020833333333336,
+        "first": 171,
+        "last": 44955
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.9965833333333334,
+        "targetRmsDbfs": -28,
+        "gainDb": -3.8380610825211465,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 3,
+      "source": "art/source/audio/teahouse-v1/cards-deal/take-03.mp3",
+      "sourceSha256": "5562b902b4b43edead282047cff4ae403b292073bcb0592faed7e6274726ed33",
+      "sourceBytes": 29997,
+      "sourceMetrics": {
+        "duration": 1.2,
+        "peakDbfs": -0.007845437330728006,
+        "rmsDbfs": -28.501105968507645,
+        "clippedSamples": 1,
+        "leadingSilenceSeconds": 0.06152083333333333,
+        "trailingSilenceSeconds": 0.316625,
+        "first": 2953,
+        "last": 42401
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/cards-deal-take-03.mp3",
+      "sha256": "74c2548eba7deac50df702536213e810de232319fb4a589b5b39ea819403769c",
+      "bytes": 15507,
+      "outputMetrics": {
+        "duration": 0.8898541666666666,
+        "peakDbfs": -3.4561970574350456,
+        "rmsDbfs": -30.644849646992252,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.008,
+        "trailingSilenceSeconds": 0.06,
+        "first": 384,
+        "last": 39832
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0.05352083333333333,
+        "trimEndSeconds": 0.9433750000000001,
+        "targetRmsDbfs": -28,
+        "gainDb": -2.992154562669272,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 4,
+      "source": "art/source/audio/teahouse-v1/cards-deal/take-04.mp3",
+      "sourceSha256": "4be40a24867c68931e79f4318ecaa8aa86149b21dd98acf3a0a900a75a1da487",
+      "sourceBytes": 29997,
+      "sourceMetrics": {
+        "duration": 1.2,
+        "peakDbfs": -3.15453353005147,
+        "rmsDbfs": -29.501182534043643,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.1688125,
+        "first": 0,
+        "last": 49496
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/cards-deal-take-04.mp3",
+      "sha256": "16acb48fcdba9c0a7f4ca3ff9b88930a0bd40ebfa7f52a11c5b8cc4af933a8a8",
+      "bytes": 18433,
+      "outputMetrics": {
+        "duration": 1.0912083333333333,
+        "peakDbfs": -3.519653878645296,
+        "rmsDbfs": -29.347053799000683,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.000875,
+        "trailingSilenceSeconds": 0.060145833333333336,
+        "first": 42,
+        "last": 49490
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 1.0911875,
+        "targetRmsDbfs": -28,
+        "gainDb": 0.15453353005147008,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    }
+  ],
+  "selectedTake": 1,
+  "selectionBasis": "约1秒的多次纸牌起音，高于6kHz能量约8.9%，保留发牌节奏且比候选2/4更少高频压力。",
+  "runtimeSha256": "cc43a78816a2f674df6b543b3cad926e87886a65c40f3c3767a33f1e77fe5ea9",
+  "runtimeBytes": 17597,
+  "durationActualSeconds": 1.0383125,
+  "technicalStatus": "decode-duration-peak-and-unique-takes-verified",
+  "listeningStatus": "not-human-reviewed",
+  "wiredToGame": true,
+  "selectionStatus": "agent-selected",
+  "selectionReviewMethod": "Per-candidate waveform, spectral distribution, duration, onset pattern, and role matching. This is an agent production choice, not a claim of direct auditory or human listening acceptance.",
+  "finalProcessing": {
+    "eq": null,
+    "gainDb": 0
+  },
+  "finalMetrics": {
+    "duration": 1.0383125,
+    "peakDbfs": -4.491910636080505,
+    "rmsDbfs": -28.427437883314862,
+    "clippedSamples": 0,
+    "leadingSilenceSeconds": 0.00075,
+    "trailingSilenceSeconds": 0.05997916666666667,
+    "first": 36,
+    "last": 46959
+  },
+  "integrationTarget": "react-web"
+}

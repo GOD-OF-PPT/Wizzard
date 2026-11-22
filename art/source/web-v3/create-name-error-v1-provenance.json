@@ -1,0 +1,65 @@
+{
+  "method": "Built-in ImageGen sources only; original page preserved outside empty editable field and error-line ROI",
+  "records": [
+    {
+      "profile": "landscape",
+      "source": "art/mockups/web-v3/02-create.png",
+      "clean": "art/runtime/web-v3/create.png",
+      "candidate": "art/source/web-v3/create-name-error-wide-v1-candidate.png",
+      "field": [
+        724,
+        232,
+        502,
+        54
+      ],
+      "line": [
+        713,
+        300,
+        192,
+        29
+      ],
+      "place": [
+        742,
+        301
+      ],
+      "output": "art/mockups/web-v3/21-create-name-error-v1.png",
+      "runtime": "art/runtime/web-v3/create-name-error-landscape-v1.png",
+      "changedOutsideRoi": 0,
+      "sourceSha256": "718571ab3d1b8a0758d5075ddc0d815cbf09ffde85a85a3c782af96c29408133",
+      "cleanSha256": "be54e74c6c1367f2b7510129b881552e7fed3532bf49dbcb3cb472f8c9b488b4",
+      "candidateSha256": "b0541c61af52be38ee1971453c60a948f22c0534d19ca1252e6f0492798065a5",
+      "outputSha256": "9647c7a24735b9043d3357a6679a26930acad804b1c5fc61ca2356ef48f78e2f",
+      "runtimeSha256": "5cf364b9dfa399111659370fdc0b4f6d3e83f6185337201f54859cd21b3bcb63"
+    },
+    {
+      "profile": "portrait",
+      "source": "art/mockups/web-v3/portrait/02-create.png",
+      "clean": "art/runtime/web-v3/portrait/create.png",
+      "candidate": "art/source/web-v3/create-name-error-tall-v1-candidate.png",
+      "field": [
+        365,
+        437,
+        370,
+        76
+      ],
+      "line": [
+        355,
+        531,
+        245,
+        37
+      ],
+      "place": [
+        380,
+        532
+      ],
+      "output": "art/mockups/web-v3/portrait/21-create-name-error-v1.png",
+      "runtime": "art/runtime/web-v3/create-name-error-portrait-v1.png",
+      "changedOutsideRoi": 0,
+      "sourceSha256": "104556b60ba4781a92a50e2a60b74e841f2c43e7f441ca427fade5631d3657a8",
+      "cleanSha256": "bc64064a91f9a08546fe1f4281b2cd560850f91f1aafdee9cbdf53b93d8cf983",
+      "candidateSha256": "0597ba50be314bcbf614d95a000a30227e5a69f8a2c93fa3c609fb836ad10c86",
+      "outputSha256": "abb106e84b3756fff5548364ce205af2bfe6daaa88379719f761c1c0cb9e01ef",
+      "runtimeSha256": "4498c77536a906cdedfb6dc3b228774dd97f52b139fcf2a0c720f1050ec14745"
+    }
+  ]
+}

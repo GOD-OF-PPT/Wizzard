@@ -1,0 +1,55 @@
+/* Use the quiet parchment from the same chapter master for the reading area. */
+.deck-guide {
+  position: absolute;
+  inset: 31.65% 6.85% 9.75% 27.35%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  padding: clamp(7px, 1.1cqw, 22px) clamp(12px, 1.9cqw, 38px);
+  color: #392617;
+  background: url("../../art/runtime/web-v3/rules-trump.png") 40% 47% / 500% 550% no-repeat;
+  font: 500 clamp(13px, 1.3cqw, 22px)/1.55 "Teahouse Rules", "Noto Serif SC", serif;
+}
+.deck-guide__header {
+  display: flex; justify-content: space-between; align-items: baseline; gap: .5em;
+  padding-bottom: .3em; border-bottom: 1px solid #b38a57;
+}
+.deck-guide__header h3 { margin: 0; font-size: clamp(19px, 2.55cqw, 40px); line-height: 1.2; }
+.deck-guide__header > span { white-space: nowrap; color: #64401e; }
+.deck-guide__header b { font-size: 1.25em; }
+.deck-guide__scroll {
+  min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+  padding: .35em .55em .5em .12em; scrollbar-width: thin; scrollbar-color: #a58050 transparent;
+}
+.deck-guide__scroll:focus-visible { outline: 2px solid #7b4c22; outline-offset: 1px; }
+.deck-guide__scroll section + section { border-top: 1px solid #b5966b; margin-top: .7em; padding-top: .65em; }
+.deck-guide h4 { margin: 0 0 .2em; color: #492b15; font-size: 1.15em; }
+.deck-guide small { margin-left: .3em; font-size: .86em; font-weight: 500; white-space: nowrap; }
+.deck-guide p, .deck-guide dd { margin: 0; }
+.deck-guide p + p { margin-top: .3em; }
+.deck-guide__suits {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .2em .6em; margin: .35em 0 .45em;
+}
+.deck-guide__suits > div { display: flex; flex-wrap: wrap; align-items: center; gap: 0 .35em; }
+.deck-guide__suits dt { display: inline-flex; align-items: center; gap: .15em; font-weight: 700; color: var(--trump-ink); }
+.deck-guide__suits dd { font-size: .95em; white-space: nowrap; }
+.deck-guide__symbol {
+  width: 1.55em; height: 1.55em; background: currentColor;
+  -webkit-mask: var(--symbol) center / contain no-repeat;
+  mask: var(--symbol) center / contain no-repeat;
+}
+.deck-guide__specials { margin: 0; }
+.deck-guide__specials > div { position: relative; padding: .1em 0 .1em 2.9em; min-height: 3.6em; }
+.deck-guide__specials > div + div { margin-top: .5em; }
+.deck-guide__specials dt img { position: absolute; left: 0; top: .18em; width: 2.5em; height: 3.6em; object-fit: contain; }
+.deck-guide__specials dt { color: #56331d; }
+@media (orientation: portrait) {
+  .deck-guide {
+    inset: 42.4% 4.8% 6.75% 4.8%; padding: 2.4cqw 3.6cqw;
+    background-image: url("../../art/runtime/web-v3/portrait/rules-trump.png");
+    background-size: 240% 700%; background-position: 17% 55%;
+    font-size: clamp(14px, 3.85cqw, 22px);
+  }
+  .deck-guide__header h3 { font-size: clamp(21px, 6.15cqw, 36px); }
+  .deck-guide__suits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

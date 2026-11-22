@@ -1,0 +1,158 @@
+{
+  "contract": {
+    "cardBox": [
+      140,
+      210
+    ],
+    "origin": "center",
+    "scope": "local-human four-card bid normal/pending only; prediction source measurements, never trick-play poses"
+  },
+  "profiles": {
+    "landscape": {
+      "canvas": [
+        1672,
+        941
+      ],
+      "hand": {
+        "x": 351.12,
+        "y": 625.765,
+        "width": 969.76,
+        "height": 254.07,
+        "bottom": 879.835
+      },
+      "poses": [
+        {
+          "center": [
+            615.4949,
+            775.2116
+          ],
+          "angle": -3.025
+        },
+        {
+          "center": [
+            759.6091,
+            772.3444
+          ],
+          "angle": -1.625
+        },
+        {
+          "center": [
+            905.0031,
+            773.4138
+          ],
+          "angle": 1.975
+        },
+        {
+          "center": [
+            1051.6679,
+            779.1188
+          ],
+          "angle": 4.875
+        }
+      ],
+      "pendingPoses": [
+        {
+          "center": [
+            615.4949,
+            775.2116
+          ],
+          "angle": -3.025
+        },
+        {
+          "center": [
+            759.6091,
+            772.3444
+          ],
+          "angle": -1.625
+        },
+        {
+          "center": [
+            905.0031,
+            773.4138
+          ],
+          "angle": 1.975
+        },
+        {
+          "center": [
+            1051.6679,
+            779.1188
+          ],
+          "angle": 4.875
+        }
+      ]
+    },
+    "portrait": {
+      "canvas": [
+        941,
+        1672
+      ],
+      "hand": {
+        "x": 154.324,
+        "y": 1283.26,
+        "width": 621.06,
+        "height": 234.08,
+        "bottom": 1517.34
+      },
+      "poses": [
+        {
+          "center": [
+            253.4476,
+            1418.1502
+          ],
+          "angle": -4.65
+        },
+        {
+          "center": [
+            398.9969,
+            1410.339
+          ],
+          "angle": -1.9
+        },
+        {
+          "center": [
+            542.9457,
+            1410.9937
+          ],
+          "angle": 2.3
+        },
+        {
+          "center": [
+            689.6594,
+            1419.2991
+          ],
+          "angle": 4.9
+        }
+      ],
+      "pendingPoses": [
+        {
+          "center": [
+            253.4476,
+            1418.1502
+          ],
+          "angle": -4.65
+        },
+        {
+          "center": [
+            398.9969,
+            1410.339
+          ],
+          "angle": -1.9
+        },
+        {
+          "center": [
+            542.9457,
+            1410.9937
+          ],
+          "angle": 2.3
+        },
+        {
+          "center": [
+            689.6594,
+            1419.2991
+          ],
+          "angle": 4.9
+        }
+      ]
+    }
+  }
+}

@@ -10,6 +10,7 @@ import portraitScoringArt from "../../art/runtime/web-v3/portrait/rules-scoring.
 import settingsArt from "../../art/runtime/web-v3/settings.png";
 import portraitSettingsArt from "../../art/runtime/web-v3/portrait/settings.png";
 import { WebSwitchArt } from "./WebSwitchArt";
+import { DeckGuide } from "./DeckGuide";
 
 const chapterArt = [
   { landscape: art, portrait: portraitArt },
@@ -19,17 +20,17 @@ const chapterArt = [
 ];
 const settingsPageArt = { landscape: settingsArt, portrait: portraitSettingsArt };
 
-export type WebPreferences = { legalHints: boolean; reducedMotion: boolean };
-export const defaultWebPreferences: WebPreferences = { legalHints: true, reducedMotion: false };
+export type WebPreferences = { legalHints: boolean; reducedMotion: boolean; soundEnabled: boolean };
+export const defaultWebPreferences: WebPreferences = { legalHints: true, reducedMotion: false, soundEnabled: true };
 export function loadWebPreferences(): WebPreferences {
   try {
     const value = JSON.parse(localStorage.getItem("wizzard.web.preferences.v1") || "{}");
-    return { legalHints: typeof value.legalHints === "boolean" ? value.legalHints : true, reducedMotion: value.reducedMotion === true };
+    return { legalHints: typeof value.legalHints === "boolean" ? value.legalHints : true, reducedMotion: value.reducedMotion === true, soundEnabled: value.soundEnabled !== false };
   } catch { return defaultWebPreferences; }
 }
 const chapters = [
   { title: "快速上手", body: "三至六位茶客围桌对局。每轮先预测赢墩数，再依次出牌。预测与实际相同时获得奖励分。", steps: ["决定王牌", "预测赢墩", "跟随花色", "结算分数"] },
-  { title: "王牌与牌力", body: "翻出的数字牌决定本轮王牌花色。翻出至高牌时，由发牌者选择花色；翻出虚无牌时，本轮没有王牌。", steps: ["首张至高牌", "最大王牌", "最大领出牌", "虚无牌最低"] },
+  { title: "牌型与数量" },
   { title: "出牌规则", body: "持有领出花色的数字牌时必须跟色；没有该花色时可以打出其他数字牌。至高牌和虚无牌随时可出。先选牌，再确认出牌。", steps: ["查看领出花色", "选择合法手牌", "确认出牌", "胜者领下一墩"] },
   { title: "计分与局制", body: "预测准确：20分基础分，加上每赢一墩10分。预测不准：每差一墩扣10分。总分可为负；最后总分最高者获胜，同分并列。", steps: ["预测准确 +20", "每赢一墩 +10", "每差一墩 −10", "总分最高获胜"] },
 ];
@@ -37,9 +38,8 @@ const chapters = [
 // The selected masters author deliberate line breaks. Keep one rules text and
 // change only its line rhythm between the two independent canvas profiles.
 function chapterCopy(index: number, portrait: boolean) {
-  const text = chapters[index].body;
+  const text = chapters[index].body ?? "";
   if (index === 0) return portrait ? text.replace("，再依次", "，\n再依次") : text.replace("再依次出牌", "再依次\n出牌");
-  if (index === 1) return portrait ? text.replace("至高牌时", "至高牌\n时").replace("时，本轮", "时，\n本轮") : text.replace("者选择", "者\n选择");
   if (index === 2) return portrait ? text.replace("该花色时", "该花色\n时").replace("可出。先", "可出。\n先") : text.replace("打出其他", "打出\n其他");
   return text.replace(/。(?=.)/g, "。\n");
 }
@@ -52,17 +52,15 @@ export function WebRules({ onClose, returnFocusRef, preferences, onPreferences }
   const root = useRef<HTMLElement>(null);
   const closeRef = useRef(onClose); closeRef.current = onClose;
   const selectedArt = tab === "rules" ? chapterArt[chapter] ?? chapterArt[0] : settingsPageArt;
+  const showDeck = tab === "rules" && chapter === 1;
   useEffect(() => {
     root.current?.querySelector<HTMLButtonElement>("button")?.focus();
     return () => returnFocusRef.current?.focus();
   }, [returnFocusRef]);
-  useEffect(() => {
-    for (const page of [...chapterArt, settingsPageArt]) for (const src of [page.landscape, page.portrait]) { const image = new Image(); image.src = src; }
-  }, []);
   return <div className="v3-rules-scrim"><section ref={root} className="screen-stage v3-rules" role="dialog" aria-modal="true" aria-labelledby="rules-title" onKeyDown={event => {
     if (event.key === "Escape") closeRef.current();
     if (event.key === "Tab") {
-      const controls = [...(root.current?.querySelectorAll<HTMLButtonElement>("button:not(:disabled)") ?? [])];
+      const controls = [...(root.current?.querySelectorAll<HTMLElement>('button:not(:disabled):not([tabindex="-1"]), [tabindex="0"]:not(button)') ?? [])];
       const first = controls[0], last = controls[controls.length - 1];
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
       if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
@@ -80,16 +78,17 @@ export function WebRules({ onClose, returnFocusRef, preferences, onPreferences }
       root.current?.querySelector<HTMLButtonElement>(`#tab-${next}`)?.focus();
     }}>{(["rules", "settings"] as const).map((value, index) => <button role="tab" id={`tab-${value}`} tabIndex={tab === value ? 0 : -1} aria-controls="rules-content" aria-selected={tab === value} key={value} onClick={() => setTab(value)}>{index === 0 ? "游戏规则" : "体验设置"}</button>)}</div>
     <nav className="v3-rules-chapters" aria-label="规则章节">{chapters.map((item, index) => <button key={item.title} aria-current={tab === "rules" && index === chapter ? "page" : undefined} onClick={() => { setChapter(index); setTab("rules"); }}>{item.title}</button>)}</nav>
-    <article className="v3-rules-body" role="tabpanel" id="rules-content" aria-labelledby={`tab-${tab}`}>
+    {showDeck ? <DeckGuide /> : <article className="v3-rules-body" role="tabpanel" id="rules-content" aria-labelledby={`tab-${tab}`}>
       <h3>{tab === "rules" ? chapters[chapter].title : "体验设置"}</h3>
-      {tab === "rules" ? <><p className="v3-rule-copy"><span className="v3-rule-copy--landscape">{chapterCopy(chapter, false)}</span><span className="v3-rule-copy--portrait">{chapterCopy(chapter, true)}</span></p><ol>{chapters[chapter].steps.map((step, index) => <li key={step}><span className="v3-step-number" aria-hidden="true"><span>{index + 1}</span></span><span>{chapter === 3 && index < 3 ? <>{step.split(" ")[0]}<span className="v3-step-score"> {step.split(" ")[1]}</span></> : step}</span></li>)}</ol></> : <>
-        <p>偏好保存在当前浏览器，仅影响本机显示。</p>
+      {tab === "rules" ? <><p className="v3-rule-copy"><span className="v3-rule-copy--landscape">{chapterCopy(chapter, false)}</span><span className="v3-rule-copy--portrait">{chapterCopy(chapter, true)}</span></p><ol>{chapters[chapter].steps?.map((step, index) => <li key={step}><span className="v3-step-number" aria-hidden="true"><span>{index + 1}</span></span><span>{chapter === 3 && index < 3 ? <>{step.split(" ")[0]}<span className="v3-step-score"> {step.split(" ")[1]}</span></> : step}</span></li>)}</ol></> : <>
+        <p>偏好仅在本机生效 · 按 M 切换声音</p>
         <button className="v3-setting" aria-pressed={preferences.legalHints} onClick={() => onPreferences({ ...preferences, legalHints: !preferences.legalHints })}><span>合法牌提示</span><span className="v3-setting-state"><WebSwitchArt family="settings" checked={preferences.legalHints} /><strong>{preferences.legalHints ? "开启" : "关闭"}</strong></span></button>
         <button className="v3-setting" aria-pressed={preferences.reducedMotion} onClick={() => onPreferences({ ...preferences, reducedMotion: !preferences.reducedMotion })}><span>减少动效</span><span className="v3-setting-state"><WebSwitchArt family="settings" checked={preferences.reducedMotion} /><strong>{preferences.reducedMotion ? "开启" : "关闭"}</strong></span></button>
+        <button className="v3-setting" data-audio="silent" aria-pressed={preferences.soundEnabled} onClick={() => onPreferences({ ...preferences, soundEnabled: !preferences.soundEnabled })}><span>游戏声音</span><span className="v3-setting-state"><WebSwitchArt family="settings" checked={preferences.soundEnabled} /><strong>{preferences.soundEnabled ? "开启" : "关闭"}</strong></span></button>
         <button className="v3-setting v3-setting--restore" onClick={() => onPreferences(defaultWebPreferences)}>恢复默认</button>
       </>}
-    </article>
-    <p className="v3-rules-footer">快速局共8轮 · 每轮1至8张牌</p>
+    </article>}
+    {!showDeck && <p className="v3-rules-footer">快速局共8轮 · 每轮1至8张牌</p>}
     </div>
   </section></div>;
 }

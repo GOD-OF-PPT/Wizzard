@@ -2,6 +2,7 @@
  * These records are typography/layout fixtures, never gameplay authority. */
 import { useRef, useState } from "react";
 import type { MatchPlayerState } from "@wizzard/game-core/contracts";
+import {getRoundHandCounts} from '@wizzard/game-core';
 import { WebResults } from "../components/WebResults";
 import { WebRules, defaultWebPreferences } from "../components/WebRules";
 import { LeaveDialog } from "../components/LeaveDialog";
@@ -70,10 +71,18 @@ export default function DesignReview({ state }: { state: string }) {
   const [submitted, setSubmitted] = useState(false);
   const [entryStatus, setEntryStatus] = useState<"editing" | "pending" | "error">("editing");
   const params = new URLSearchParams(location.search);
+  const seatTypographyProof = params.get("seat-typeface") === "regular" ? <style>{`
+    @font-face { font-family:"Review Seat Regular"; src:url("/art/source/fonts/web-v3/LXGWWenKai-Regular.ttf") format("truetype"); font-weight:400; font-display:block; unicode-range:U+2E80-9FFF,U+F900-FAFF; }
+    @font-face { font-family:"Review Seat Latin"; src:url("/art/source/fonts/web-v3/Tinos-Regular.ttf") format("truetype"); font-weight:400; font-display:block; unicode-range:U+0020-007E; }
+    .v3-match .player-seat.player-seat--source > strong,
+    .v3-match .player-seat--source .player-seat__stats { font-family:"Review Seat Latin","Review Seat Regular","Noto Serif SC",serif; font-weight:400; }
+  `}</style> : null;
   const requestedHand = Number(params.get("hand") ?? "4");
   const handCount = Number.isInteger(requestedHand) && requestedHand >= 1 && requestedHand <= 8 ? requestedHand : 4;
+  const requestedTrickCount = Number(params.get("trick-count") ?? "4");
+  const trickCount = Number.isInteger(requestedTrickCount) && requestedTrickCount >= 0 && requestedTrickCount <= 6 ? requestedTrickCount : 4;
   const requestedSuit = params.get("suit");
-  const trump = requestedSuit === "leaf" || requestedSuit === "mountain" || requestedSuit === "knot" ? requestedSuit : "sun";
+  const trump = requestedSuit === "none" ? null : requestedSuit === "leaf" || requestedSuit === "mountain" || requestedSuit === "knot" ? requestedSuit : "sun";
   const requestedTypeface = params.get("typeface");
   const typeface = requestedTypeface === "kai" || requestedTypeface === "wenkai" || requestedTypeface === "zhenkai" || requestedTypeface === "noto" ? requestedTypeface : "runtime";
   const proofFamily = typeface === "wenkai" ? '"Review WenKai"' : typeface === "zhenkai" ? '"Review ZhenKai"' : typeface === "kai" ? '"KaiTi"' : '"Noto Serif SC"';
@@ -112,17 +121,21 @@ export default function DesignReview({ state }: { state: string }) {
     <RecoveryDialog terminal={state === "session-ended"} onRetry={ignore} onHome={ignore} />
   </main>;
   const requestedPlayers = Number(params.get("players") ?? "6");
+  const finalRoundReview=params.get('result-state')==='final-round';
+  const resultScoreRows=finalRoundReview?[[2,2,40,180],[3,1,-20,150],[1,2,-10,120],[1,1,30,100],[0,0,20,80],[1,2,-10,60]]:scoreRows;
   const playerCount = Number.isInteger(requestedPlayers) ? Math.min(6, Math.max(3, requestedPlayers)) : 6;
-  const players: MatchPlayerState[] = scoreRows.slice(0, playerCount).map(([bid, tricksWon, roundScore, totalScore], index) => ({
-    bid, tricksWon, roundScore, totalScore: state === "ranking" ? [180,150,120,100,80,60][index] : totalScore,
-    id: `design-${index}`, name: index === 0 && params.get("label") === "long" ? "竹下听雨的第十二位茶客" : index === 0 && params.get("label") === "rare" ? "漢笙亭茶客" : names[index], avatarKey: avatars[index], isHuman: index < 5, seatIndex: index,
+  const countTotals=params.get('ranking-data')==='negative-six'&&playerCount===6?[-10,-10,-30,-30,-60,-80]:params.get('ranking-data')==='counts'?({3:[60,-10,-30],4:[120,80,80,-20],5:[120,80,80,0,-30]}as Record<number,number[]>)[playerCount]:undefined;
+  const nameCases:Record<string,string>={'wide-latin':'WWWWWWWWWWWWWWWW','narrow-latin':'iiiiiiiiiiiiiiii','mixed-wide':'茶WM漢éЖWＭ笙亭WWW雨W','long-max':'竹下听雨的第十二位茶客甲乙丙丁戊',long:'竹下听雨的第十二位茶客',rare:'漢笙亭茶客'};
+  const players: MatchPlayerState[] = resultScoreRows.slice(0, playerCount).map(([bid, tricksWon, roundScore, totalScore], index) => ({
+    bid, tricksWon, roundScore, totalScore: countTotals?.[index]??(state === "ranking" ? [180,150,120,100,80,60][index] : totalScore),
+    id: `design-${index}`, name: params.get('label')==='all-max'?`竹下听雨的第十二位茶客甲乙丙丁${['一','二','三','四','五','六'][index]}`:params.get('label')==='all-long'?['竹下听雨的第一位茶客','云外听松的第二位茶客','花间品茗的第三位茶客','墨里藏香的第四位茶客','星河煮茶的第五位茶客','山中归来的第六位茶客'][index]:index===0?nameCases[params.get('label')??'']??names[index]:names[index], avatarKey: avatars[index], isHuman: index < 5, seatIndex: index,
   }));
   if (["gameplay", "bid", "chooser"].includes(state)) return <main className="game-prototype" data-reduced-motion="true" data-review-typeface={typeface} aria-label="设计验收样例，不连接房间服务">{typographyProof}
-    <MatchScreen controller={{ ...reviewMatchController(state === "bid" ? "bid" : state === "chooser" ? "trump-select" : "trick-play", handCount, params.get("timer") !== "off", trump), pendingIntent: params.get("pending") === "1" || submitted, sendIntent: params.get("pending") === "on-submit" ? () => setSubmitted(true) : ignore }} showLegalHints={false} onExit={ignore} />
+    {seatTypographyProof}<MatchScreen controller={{ ...reviewMatchController(state === "bid" ? "bid" : state === "chooser" ? "trump-select" : "trick-play", handCount, params.get("timer") !== "off", trump, trickCount), pendingIntent: params.get("pending") === "1" || submitted, sendIntent: params.get("pending") === "on-submit" ? () => setSubmitted(true) : ignore }} showLegalHints={false} onExit={ignore} />
   </main>;
   return <main className="game-prototype" data-reduced-motion="true" data-review-typeface={typeface} aria-label="设计验收样例，不连接房间服务">{typographyProof}
     {state === "lobby" ? <WebLobby controller={{ state: lobbyLayoutSample(params), pendingCommand: null, setAiCount: refuse, setReady: refuse, startRoom: refuse }} fillAi={true} onManualAi={ignore} onExit={ignore} onInvite={ignore} /> : state === "confirm" ? <LeaveDialog pending={false} error={null} onCancel={ignore} onConfirm={ignore} /> : state === "rules" ? <WebRules onClose={ignore} returnFocusRef={focus} preferences={defaultWebPreferences} onPreferences={ignore} /> : <div className="screen-stage">
-      <WebResults isMatchEnd={state === "ranking"} onContinue={ignore} onRestart={ignore} onExit={ignore} players={players} roundNumber={4} network={params.has("network")} canRestart={params.get("network") !== "guest"} />
+      <WebResults isMatchEnd={state === "ranking"} isFinalRound={finalRoundReview} mode={params.get('mode')==='classic'?'classic':'quick'} onContinue={ignore} onRestart={ignore} onExit={ignore} players={players} roundNumber={state==='ranking'?getRoundHandCounts(playerCount as 3|4|5|6,params.get('mode')==='classic'?'classic':'quick').length:finalRoundReview?8:4} network={params.has("network")} canRestart={params.get("network") !== "guest"} nameAccess={params.get('name-access')==='list'?'list':'auto'}/>
     </div>}
   </main>;
 }

@@ -1,8 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath, URL } from "node:url";
+import { webpArt } from "./tools/vite-webp-art.mjs";
 
 export default defineConfig({
+  base: "./",
+  build: { assetsDir: "assets/build" },
   resolve: {
     alias: [
       {
@@ -49,5 +52,5 @@ export default defineConfig({
       clientFiles: ["./src/main.tsx"],
     },
   },
-  plugins: [react()],
+  plugins: [webpArt(fileURLToPath(new URL(".", import.meta.url))), react()],
 });

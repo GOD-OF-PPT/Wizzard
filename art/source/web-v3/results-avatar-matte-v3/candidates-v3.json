@@ -1,0 +1,942 @@
+{
+  "method": "Source-middle opaque-dark-outline fit only gates contaminated lower alpha caps. Restricts10landscape avatars; portraits and final traveler images unchanged. All original RGB plus entire upper/core/side-rim alpha retained. No positional/scale change; originalv2 retained. Upper-cap draft rejected before wiring to protect authored ears/rim.",
+  "wired": false,
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "results",
+      "key": "bamboo-cat",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        343,
+        259,
+        89,
+        89
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/landscape-results-bamboo-cat-v2.png",
+      "previousSha256": "794ef8a8656f8dc1e20f16896a106b3070af2d1f899506e6258ebf9e2431b3de",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/landscape-results-bamboo-cat-candidate-v3.png",
+      "candidateSha256": "52e9127ab900e7cd70c0e98f76df1fd99c86d8c511715304ef91231c34238c71",
+      "output": "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-bamboo-cat-v3.png",
+      "outputSha256": null,
+      "eligible": true,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          44,
+          43.66738425095155
+        ],
+        "radii": [
+          38.00345077269306,
+          37.859622284982954
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.17730439755143873
+      },
+      "changedAlphaPixels": 160,
+      "reducedOpaquePixels": 85,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "key": "wandering-crane",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        343,
+        334,
+        89,
+        89
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/landscape-results-wandering-crane-v2.png",
+      "previousSha256": "e5fbfe16fee1b584f78c1b08bb7cb9ed0002ef475ee3a8a49f47f1268773a81c",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/landscape-results-wandering-crane-candidate-v3.png",
+      "candidateSha256": "7928895bd2da3e99779586ca6c6a350f1d04d75714c52445195703ab8cf6b71e",
+      "output": "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-wandering-crane-v3.png",
+      "outputSha256": null,
+      "eligible": true,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          44,
+          43.156052368565156
+        ],
+        "radii": [
+          38.20545971856634,
+          37.19692888986347
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.20044261432871768
+      },
+      "changedAlphaPixels": 225,
+      "reducedOpaquePixels": 134,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "key": "flower-fox",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        343,
+        409,
+        89,
+        89
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/landscape-results-flower-fox-v2.png",
+      "previousSha256": "7ae72e985720336283172a342aadc3d9487f7519a69c12ad0ddf8a4d9cd02b64",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/landscape-results-flower-fox-candidate-v3.png",
+      "candidateSha256": "7614f2fb20987dbe8cd1d812e213b4d4c52771767e7286adaa0a67aa589846d4",
+      "output": "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-flower-fox-v3.png",
+      "outputSha256": null,
+      "eligible": true,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          44,
+          43.254008237406275
+        ],
+        "radii": [
+          38.38178697548979,
+          36.71235994965513
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.34869686686995294
+      },
+      "changedAlphaPixels": 228,
+      "reducedOpaquePixels": 143,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "key": "ink-panda",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        343,
+        484,
+        89,
+        89
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/landscape-results-ink-panda-v2.png",
+      "previousSha256": "83d41c508dabaf46946cee83978330b6f749d6094a299c29fba8e39121132ede",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/landscape-results-ink-panda-candidate-v3.png",
+      "candidateSha256": "7c39601d4180d34873e70900da7af3a8f47bf87528263eafd7e0f8a543a24c7a",
+      "output": "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-ink-panda-v3.png",
+      "outputSha256": null,
+      "eligible": true,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          44,
+          43.791985652572386
+        ],
+        "radii": [
+          38.486427248709596,
+          37.253482749533575
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.2692298406696612
+      },
+      "changedAlphaPixels": 195,
+      "reducedOpaquePixels": 112,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "key": "sleepy-star-cat",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        343,
+        559,
+        89,
+        89
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/landscape-results-sleepy-star-cat-v2.png",
+      "previousSha256": "1951c22e2e5734ff8bbe76d01ed8435295b4a0a41f7c6afb1b6c2449f10bc429",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/landscape-results-sleepy-star-cat-candidate-v3.png",
+      "candidateSha256": "c956c4486f53bb035b535065f26645acf833c23df9a9515089c5f6eacee9f333",
+      "output": "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-sleepy-star-cat-v3.png",
+      "outputSha256": null,
+      "eligible": true,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          44,
+          43.71454054405985
+        ],
+        "radii": [
+          38.44240275659582,
+          37.225728614528315
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.258607405511021
+      },
+      "changedAlphaPixels": 208,
+      "reducedOpaquePixels": 126,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "key": "masked-traveler",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        343,
+        634,
+        89,
+        89
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/landscape-results-masked-traveler-v2.png",
+      "previousSha256": "566646165a0376158d953aefe0e8e016cbb2f2390996192d37a0418f2204e6c9",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/landscape-results-masked-traveler-candidate-v3.png",
+      "candidateSha256": "566646165a0376158d953aefe0e8e016cbb2f2390996192d37a0418f2204e6c9",
+      "output": "art/runtime/web-v3/results-source-v1/landscape-results-masked-traveler-v2.png",
+      "outputSha256": null,
+      "eligible": false,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          44,
+          43.65362476952034
+        ],
+        "radii": [
+          38.35841145844621,
+          37.13455305566361
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.2567601964814371
+      },
+      "changedAlphaPixels": 0,
+      "reducedOpaquePixels": 0,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "key": "bamboo-cat",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        625,
+        280,
+        92,
+        92
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/landscape-ranking-bamboo-cat-v2.png",
+      "previousSha256": "ae8706627a709db4f731f3979298276aad45836f81cd9fec740d1df4fea26c4f",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/landscape-ranking-bamboo-cat-candidate-v3.png",
+      "candidateSha256": "67e8a3beffecbc56d8b2136416024d02561c263ed343df7ca9893a23db5a7193",
+      "output": "art/runtime/web-v3/results-avatar-matte-v3/landscape-ranking-bamboo-cat-v3.png",
+      "outputSha256": null,
+      "eligible": true,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          45.5,
+          43.15810752522938
+        ],
+        "radii": [
+          39.136032274876946,
+          38.461033547727155
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.16100669682062937
+      },
+      "changedAlphaPixels": 345,
+      "reducedOpaquePixels": 243,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "key": "wandering-crane",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        625,
+        356,
+        92,
+        92
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/landscape-ranking-wandering-crane-v2.png",
+      "previousSha256": "d205c4c99a8957133c74b09eb6007c670eb8ce0f42708f15017611927559bcd0",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/landscape-ranking-wandering-crane-candidate-v3.png",
+      "candidateSha256": "c32592d66057f19131616292ae6f8ab3685006189475d9bf42ee8263efefeca2",
+      "output": "art/runtime/web-v3/results-avatar-matte-v3/landscape-ranking-wandering-crane-v3.png",
+      "outputSha256": null,
+      "eligible": true,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          45.5,
+          43.436883165127824
+        ],
+        "radii": [
+          39.173071964004926,
+          38.21028439218319
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.24049136808068908
+      },
+      "changedAlphaPixels": 241,
+      "reducedOpaquePixels": 158,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "key": "flower-fox",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        625,
+        432,
+        92,
+        92
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/landscape-ranking-flower-fox-v2.png",
+      "previousSha256": "07849a1a38d23b30c69200ea51d74e0a5e739c308fbb249f7377f6495fab511b",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/landscape-ranking-flower-fox-candidate-v3.png",
+      "candidateSha256": "6715517389aeb173a5ee76d8af9250999f12507340b6d593c87cc3053e633042",
+      "output": "art/runtime/web-v3/results-avatar-matte-v3/landscape-ranking-flower-fox-v3.png",
+      "outputSha256": null,
+      "eligible": true,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          45.5,
+          43.12238117621413
+        ],
+        "radii": [
+          39.21902278922817,
+          38.67088215582665
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.21015449669704783
+      },
+      "changedAlphaPixels": 252,
+      "reducedOpaquePixels": 154,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "key": "ink-panda",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        625,
+        508,
+        92,
+        92
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/landscape-ranking-ink-panda-v2.png",
+      "previousSha256": "784dccd7493e28f9f7c7c4d3e0d0a640756614fc58405590cf397981115c9058",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/landscape-ranking-ink-panda-candidate-v3.png",
+      "candidateSha256": "8d4445af0219436b63b7bef85bc8eb7eb23c78623975f8fcf53c0a4fd4a21345",
+      "output": "art/runtime/web-v3/results-avatar-matte-v3/landscape-ranking-ink-panda-v3.png",
+      "outputSha256": null,
+      "eligible": true,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          45.5,
+          43.280398380592
+        ],
+        "radii": [
+          39.296013779453325,
+          38.80567733889732
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.2465985597046055
+      },
+      "changedAlphaPixels": 241,
+      "reducedOpaquePixels": 148,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "key": "sleepy-star-cat",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        625,
+        584,
+        92,
+        92
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/landscape-ranking-sleepy-star-cat-v2.png",
+      "previousSha256": "f151eb190d911e36cb1579fd6639bcd6260336026ba58d737a45c77708d335b7",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/landscape-ranking-sleepy-star-cat-candidate-v3.png",
+      "candidateSha256": "9d05cef740f6c6cacf2a1d11e764351e7732a5d356a852e0a84a95e82f02b28e",
+      "output": "art/runtime/web-v3/results-avatar-matte-v3/landscape-ranking-sleepy-star-cat-v3.png",
+      "outputSha256": null,
+      "eligible": true,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          45.5,
+          42.72342518418117
+        ],
+        "radii": [
+          39.16127286011703,
+          38.58538357552985
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.23235743306353926
+      },
+      "changedAlphaPixels": 251,
+      "reducedOpaquePixels": 158,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "key": "masked-traveler",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        625,
+        660,
+        92,
+        92
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/landscape-ranking-masked-traveler-v2.png",
+      "previousSha256": "da4f501a62e1e501eafd4fa0a4010e99cf1e14b3dc9108b453e9034b4950ee24",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/landscape-ranking-masked-traveler-candidate-v3.png",
+      "candidateSha256": "da4f501a62e1e501eafd4fa0a4010e99cf1e14b3dc9108b453e9034b4950ee24",
+      "output": "art/runtime/web-v3/results-source-v1/landscape-ranking-masked-traveler-v2.png",
+      "outputSha256": null,
+      "eligible": false,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          45.5,
+          43.35217194108566
+        ],
+        "radii": [
+          39.16032510189367,
+          38.53991671741478
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.23218926862092565
+      },
+      "changedAlphaPixels": 0,
+      "reducedOpaquePixels": 0,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "key": "bamboo-cat",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        120,
+        524,
+        112,
+        112
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/portrait-results-bamboo-cat-v2.png",
+      "previousSha256": "26f140cf0dcbb00f407c7074099d42b0ada70a8c5516876a0c1b03f691ce96d3",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/portrait-results-bamboo-cat-candidate-v3.png",
+      "candidateSha256": "26f140cf0dcbb00f407c7074099d42b0ada70a8c5516876a0c1b03f691ce96d3",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-bamboo-cat-v2.png",
+      "outputSha256": null,
+      "eligible": false,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          58,
+          54.95424042460617
+        ],
+        "radii": [
+          45.55301045546299,
+          45.093480282992815
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.19779405575337855
+      },
+      "changedAlphaPixels": 0,
+      "reducedOpaquePixels": 0,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "key": "wandering-crane",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        120,
+        632,
+        112,
+        112
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/portrait-results-wandering-crane-v2.png",
+      "previousSha256": "2f4770140184d58b26279a9fbdbde1f3c5ffc78a41b7b40285389effff3df85c",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/portrait-results-wandering-crane-candidate-v3.png",
+      "candidateSha256": "2f4770140184d58b26279a9fbdbde1f3c5ffc78a41b7b40285389effff3df85c",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-wandering-crane-v2.png",
+      "outputSha256": null,
+      "eligible": false,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          57,
+          52.65841223899267
+        ],
+        "radii": [
+          48.01708311472325,
+          47.25617176641408
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.15386289452394378
+      },
+      "changedAlphaPixels": 0,
+      "reducedOpaquePixels": 0,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "key": "flower-fox",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        120,
+        740,
+        112,
+        112
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/portrait-results-flower-fox-v2.png",
+      "previousSha256": "3631b7a5c071885a49e4385bfa9f9fff89509e01bce61d1b3cbbd2c7dd2f82fb",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/portrait-results-flower-fox-candidate-v3.png",
+      "candidateSha256": "3631b7a5c071885a49e4385bfa9f9fff89509e01bce61d1b3cbbd2c7dd2f82fb",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-flower-fox-v2.png",
+      "outputSha256": null,
+      "eligible": false,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          56.5,
+          53.6615997468386
+        ],
+        "radii": [
+          49.41324882257312,
+          48.88763288265429
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.20338587712206407
+      },
+      "changedAlphaPixels": 0,
+      "reducedOpaquePixels": 0,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "key": "ink-panda",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        120,
+        848,
+        112,
+        112
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/portrait-results-ink-panda-v2.png",
+      "previousSha256": "8327c66caf2923b9d99e2e77bd40832753f48d6545fe1e74b87a1da7f9bc0196",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/portrait-results-ink-panda-candidate-v3.png",
+      "candidateSha256": "8327c66caf2923b9d99e2e77bd40832753f48d6545fe1e74b87a1da7f9bc0196",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-ink-panda-v2.png",
+      "outputSha256": null,
+      "eligible": false,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          56,
+          54.68443769725308
+        ],
+        "radii": [
+          50.562892394966006,
+          49.52748291291397
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.1996903683149228
+      },
+      "changedAlphaPixels": 0,
+      "reducedOpaquePixels": 0,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "key": "sleepy-star-cat",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        120,
+        956,
+        112,
+        112
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/portrait-results-sleepy-star-cat-v2.png",
+      "previousSha256": "053383fe3ebc74686d42a7677408f24fbd2060468f70c7e85557628e4f4c9197",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/portrait-results-sleepy-star-cat-candidate-v3.png",
+      "candidateSha256": "053383fe3ebc74686d42a7677408f24fbd2060468f70c7e85557628e4f4c9197",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-sleepy-star-cat-v2.png",
+      "outputSha256": null,
+      "eligible": false,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          55.5,
+          54.3725369444243
+        ],
+        "radii": [
+          50.421563900312094,
+          47.95528658422021
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.28965475418689623
+      },
+      "changedAlphaPixels": 0,
+      "reducedOpaquePixels": 0,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "key": "masked-traveler",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        120,
+        1064,
+        112,
+        112
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/portrait-results-masked-traveler-v2.png",
+      "previousSha256": "2a76bb81f9fe704169bb9d0f1252defe26a544f41641a000255c4b7c4493fd18",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/portrait-results-masked-traveler-candidate-v3.png",
+      "candidateSha256": "2a76bb81f9fe704169bb9d0f1252defe26a544f41641a000255c4b7c4493fd18",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-masked-traveler-v2.png",
+      "outputSha256": null,
+      "eligible": false,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          55.5,
+          56.9531693616882
+        ],
+        "radii": [
+          50.31258717065093,
+          50.774969495931245
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.23497606217089698
+      },
+      "changedAlphaPixels": 0,
+      "reducedOpaquePixels": 0,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "key": "bamboo-cat",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        321,
+        550,
+        114,
+        114
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/portrait-ranking-bamboo-cat-v2.png",
+      "previousSha256": "4e30cd4228a193526ff896c33c168325de9c6c91aff7bd59f78c58f019cb2552",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/portrait-ranking-bamboo-cat-candidate-v3.png",
+      "candidateSha256": "4e30cd4228a193526ff896c33c168325de9c6c91aff7bd59f78c58f019cb2552",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-bamboo-cat-v2.png",
+      "outputSha256": null,
+      "eligible": false,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          58,
+          54.08326082777738
+        ],
+        "radii": [
+          48.486136511576696,
+          47.79760281136801
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.2105810770920508
+      },
+      "changedAlphaPixels": 0,
+      "reducedOpaquePixels": 0,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "key": "wandering-crane",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        321,
+        657,
+        114,
+        114
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/portrait-ranking-wandering-crane-v2.png",
+      "previousSha256": "8b3bd558eb1b31e81d5697cadcb6ed16889b37221f9dda3153fb4ccec2df5ec4",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/portrait-ranking-wandering-crane-candidate-v3.png",
+      "candidateSha256": "8b3bd558eb1b31e81d5697cadcb6ed16889b37221f9dda3153fb4ccec2df5ec4",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-wandering-crane-v2.png",
+      "outputSha256": null,
+      "eligible": false,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          57,
+          53.078882078922355
+        ],
+        "radii": [
+          50.713262516953534,
+          48.116530063881626
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.31732044634004863
+      },
+      "changedAlphaPixels": 0,
+      "reducedOpaquePixels": 0,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "key": "flower-fox",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        321,
+        764,
+        114,
+        114
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/portrait-ranking-flower-fox-v2.png",
+      "previousSha256": "4e200cee9ce8171621fda32222ea9525f5dbeea27215d0fe0a01d85261c056c2",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/portrait-ranking-flower-fox-candidate-v3.png",
+      "candidateSha256": "4e200cee9ce8171621fda32222ea9525f5dbeea27215d0fe0a01d85261c056c2",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-flower-fox-v2.png",
+      "outputSha256": null,
+      "eligible": false,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          57,
+          53.484173023272504
+        ],
+        "radii": [
+          50.98637934283282,
+          47.32867326659554
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.3776256923984721
+      },
+      "changedAlphaPixels": 0,
+      "reducedOpaquePixels": 0,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "key": "ink-panda",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        321,
+        871,
+        114,
+        114
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/portrait-ranking-ink-panda-v2.png",
+      "previousSha256": "ab8f0ab8386ee0fdda2383a1b71dba234fa60064f0850fda72d10692ed1c7e6f",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/portrait-ranking-ink-panda-candidate-v3.png",
+      "candidateSha256": "ab8f0ab8386ee0fdda2383a1b71dba234fa60064f0850fda72d10692ed1c7e6f",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-ink-panda-v2.png",
+      "outputSha256": null,
+      "eligible": false,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          56.5,
+          54.620150231675034
+        ],
+        "radii": [
+          51.16787148078669,
+          48.276151065049916
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.3696659751547935
+      },
+      "changedAlphaPixels": 0,
+      "reducedOpaquePixels": 0,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "key": "sleepy-star-cat",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        321,
+        978,
+        114,
+        114
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/portrait-ranking-sleepy-star-cat-v2.png",
+      "previousSha256": "de0c8f2cdc157df9705405b9f6a358029d4e7d861c64f5e97b5e7a5b07082438",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/portrait-ranking-sleepy-star-cat-candidate-v3.png",
+      "candidateSha256": "de0c8f2cdc157df9705405b9f6a358029d4e7d861c64f5e97b5e7a5b07082438",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-sleepy-star-cat-v2.png",
+      "outputSha256": null,
+      "eligible": false,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          56.5,
+          55.04188784001974
+        ],
+        "radii": [
+          51.27679996430054,
+          48.905525642680885
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.3527215863628831
+      },
+      "changedAlphaPixels": 0,
+      "reducedOpaquePixels": 0,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "key": "masked-traveler",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        321,
+        1085,
+        114,
+        114
+      ],
+      "previous": "art/runtime/web-v3/results-source-v1/portrait-ranking-masked-traveler-v2.png",
+      "previousSha256": "f7ee29df7af5c318f74a2e553ebb9331706e618360999d4af135719493285c11",
+      "candidate": "art/source/web-v3/results-avatar-matte-v3/portrait-ranking-masked-traveler-candidate-v3.png",
+      "candidateSha256": "f7ee29df7af5c318f74a2e553ebb9331706e618360999d4af135719493285c11",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-masked-traveler-v2.png",
+      "outputSha256": null,
+      "eligible": false,
+      "fit": {
+        "boundary": "Original opaque dark outline; excludes gold-highlight paper around leading avatar",
+        "center": [
+          56.5,
+          56.4101605277215
+        ],
+        "radii": [
+          51.284095850476305,
+          51.76451451787167
+        ],
+        "middleBandFraction": 0.65,
+        "capBandFraction": 0.78,
+        "outwardMargin": 1,
+        "residual": 0.19801524693489544
+      },
+      "changedAlphaPixels": 0,
+      "reducedOpaquePixels": 0,
+      "rgbChanged": 0,
+      "coreChanged": 0
+    }
+  ]
+}

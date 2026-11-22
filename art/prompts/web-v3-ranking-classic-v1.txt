@@ -1,0 +1,6 @@
+Built-in image_gen precise text edit of independent07-ranking sources.
+Only title changes快速局总榜→经典局总榜, five original-style brush characters centered inside unchanged plaque.
+Only subtitle changes to10轮已毕 · 下回再会. ASCII1/0 occupy a compact clear number slot followed by the original Chinese/center dot. Same centered band, optical weight/baseline and decorative rules.
+Everything else unchanged: six original avatars/names/ranks/scores180/150/120/100/80/60, dividers, first-row gold strip, actions返回首页/再来一局, parchment, frame, flowers and lantern setting.
+Independent1672x941 landscape and941x1672 portrait. No added UI or composition drift.
+Final saved design accepts only title/subtitle ROIs. Runtime retains title/fixed subtitle ink and clears ONLY the numeric slot, with actual completed rounds supplied dynamically from shared game state. Never bake10 for other player counts.

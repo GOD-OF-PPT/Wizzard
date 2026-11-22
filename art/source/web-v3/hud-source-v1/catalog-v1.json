@@ -1,0 +1,468 @@
+{
+  "profiles": {
+    "landscape": {
+      "canvas": [
+        1672,
+        941
+      ],
+      "round": [
+        8,
+        90,
+        217,
+        164
+      ],
+      "timer": [
+        1340,
+        462,
+        224,
+        195
+      ],
+      "trump": [
+        672,
+        505,
+        331,
+        75
+      ],
+      "action": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "status": [
+        650,
+        586,
+        380,
+        80
+      ]
+    },
+    "portrait": {
+      "canvas": [
+        941,
+        1672
+      ],
+      "round": [
+        6,
+        108,
+        258,
+        181
+      ],
+      "timer": [
+        723,
+        1182,
+        211,
+        193
+      ],
+      "trump": [
+        298,
+        923,
+        359,
+        80
+      ],
+      "action": [
+        660,
+        1495,
+        281,
+        153
+      ],
+      "status": [
+        342,
+        1008,
+        262,
+        52
+      ],
+      "denseAction": [
+        275,
+        1072,
+        394,
+        102
+      ],
+      "bidTimer": [
+        665,
+        1078,
+        241,
+        230
+      ]
+    }
+  },
+  "reports": [
+    {
+      "profile": "landscape",
+      "kind": "round",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "crop": [
+        8,
+        90,
+        217,
+        164
+      ],
+      "output": "art/source/web-v3/hud-source-v1/landscape-round-reference-v1.png",
+      "sha256": "c6f1260baae6b5b49bacb729a56c5a9b8ed3cd5e774646295e5eaf0c6fef9675"
+    },
+    {
+      "profile": "landscape",
+      "kind": "timer",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "crop": [
+        1340,
+        462,
+        224,
+        195
+      ],
+      "output": "art/source/web-v3/hud-source-v1/landscape-timer-reference-v1.png",
+      "sha256": "2938c5aa97d9a4b2819f77a9572a705ac1035afd231674556907c83ae3eef01c"
+    },
+    {
+      "profile": "landscape",
+      "kind": "trump",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "crop": [
+        672,
+        505,
+        331,
+        75
+      ],
+      "output": "art/source/web-v3/hud-source-v1/landscape-trump-reference-v1.png",
+      "sha256": "3b057a85932b68c6d5d2c0d3acb21572f0d1d740cadbbeae05c404992baa0d64"
+    },
+    {
+      "profile": "landscape",
+      "kind": "status",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "crop": [
+        650,
+        586,
+        380,
+        80
+      ],
+      "output": "art/source/web-v3/hud-source-v1/landscape-status-reference-v1.png",
+      "sha256": "2cb3ef4666e06ec08f2b0563792de666a4e593aee1afa60cbc6a13b3a995e890"
+    },
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/source/web-v3/hud-source-v1/landscape-action-reference-v1.png",
+      "sha256": "7b1646442f7b49e1afddb7b89a2f60090443da3e65f824f03c6e88d21cacc203"
+    },
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "state": "idle",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/source/web-v3/hud-source-v1/landscape-action-idle-reference-v1.png",
+      "sha256": "7b1646442f7b49e1afddb7b89a2f60090443da3e65f824f03c6e88d21cacc203"
+    },
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "state": "confirm",
+      "source": "art/mockups/web-v3/26-gameplay-selection-complete-v2.png",
+      "sourceSha256": "ab22d88de2d62032bd12719331aa8a9e0aa51a91d7288ae6b32cbdd3969e7561",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/source/web-v3/hud-source-v1/landscape-action-confirm-reference-v1.png",
+      "sha256": "aa704ea1332decadc7e25946cd2a050df912e1cd9039519ff44a9aafbfebb1ee"
+    },
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "state": "pending",
+      "source": "art/mockups/web-v3/19-play-pending-selection-v2.png",
+      "sourceSha256": "c4d893618d07f888945f383f59476eb2793fac465b4728e570fda1329c4904d1",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/source/web-v3/hud-source-v1/landscape-action-pending-reference-v1.png",
+      "sha256": "70a338d02c3e95c642f56028184e7e787497b19836cf87330393a481f21b3f90"
+    },
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "state": "bid",
+      "source": "art/mockups/web-v3/10-bid.png",
+      "sourceSha256": "6856f22b9c4ab348af7384ca64f2bec32bd0bcb8f0d5b16a275bc9afe07550cc",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/source/web-v3/hud-source-v1/landscape-action-bid-reference-v1.png",
+      "sha256": "e9c06551db9040c9b96aca80df0e5413f52aea834089a9721fa8e746bcf4ac58"
+    },
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "state": "bid-pending",
+      "source": "art/mockups/web-v3/17-bid-pending-v1.png",
+      "sourceSha256": "5d72cbca5b6cacbcf48a93ad73f2ec848b92fc4ee602cab960fa27c6934cf309",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/source/web-v3/hud-source-v1/landscape-action-bid-pending-reference-v1.png",
+      "sha256": "5c5c668fcbe9613909010d85af7c7a6055dd07973e0507629c206434d99fe598"
+    },
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "state": "dense-idle",
+      "source": "art/mockups/web-v3/27-dense-hand-idle-v4.png",
+      "sourceSha256": "65507dae958775324f56b58553f877165c5cd4e93e81444b92dc538cb273d729",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/source/web-v3/hud-source-v1/landscape-action-dense-idle-reference-v1.png",
+      "sha256": "1f9cd4e34276a5136c3e25649993cc9547e29f1546c0649f2c11cbdda9871480"
+    },
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "state": "dense-confirm",
+      "source": "art/mockups/web-v3/28-dense-hand-selected-v4.png",
+      "sourceSha256": "a4d6fecf46e82fe3254c023b38d0be8831249fb518276ceb23c8df045893a7d7",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/source/web-v3/hud-source-v1/landscape-action-dense-confirm-reference-v1.png",
+      "sha256": "36ea298ee668c6b940aac4d6114a0e0a3cb2a0af2c23fcfc902811e3cc4454b5"
+    },
+    {
+      "profile": "portrait",
+      "kind": "round",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "crop": [
+        6,
+        108,
+        258,
+        181
+      ],
+      "output": "art/source/web-v3/hud-source-v1/portrait-round-reference-v1.png",
+      "sha256": "74e91b1b7804a7830752e5c7b0fc0d8bfaf4460b30234bca6f068cc17309f0f3"
+    },
+    {
+      "profile": "portrait",
+      "kind": "timer",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "crop": [
+        723,
+        1182,
+        211,
+        193
+      ],
+      "output": "art/source/web-v3/hud-source-v1/portrait-timer-reference-v1.png",
+      "sha256": "edc58576adeb5c2bda37c0b5c9d8445508db73f8407be699d2e5a796b1b5b875"
+    },
+    {
+      "profile": "portrait",
+      "kind": "trump",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "crop": [
+        298,
+        923,
+        359,
+        80
+      ],
+      "output": "art/source/web-v3/hud-source-v1/portrait-trump-reference-v1.png",
+      "sha256": "0d9669ccee029c3bd13b5d168d9f13d32e0b590bf240db99e9248226ae1a4b7b"
+    },
+    {
+      "profile": "portrait",
+      "kind": "status",
+      "source": "art/mockups/web-v3/portrait/27-dense-hand-idle-v4.png",
+      "sourceSha256": "aa2ab841f7912a60cfc40c8f2bf328b659eb91a19353ce8e642e51bbde3703d1",
+      "crop": [
+        342,
+        1008,
+        262,
+        52
+      ],
+      "output": "art/source/web-v3/hud-source-v1/portrait-status-reference-v1.png",
+      "sha256": "7092325ae0ba0bd3a7186f395e039c974f7037573672fb3c754a64ebcafe20a7"
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "crop": [
+        660,
+        1495,
+        281,
+        153
+      ],
+      "output": "art/source/web-v3/hud-source-v1/portrait-action-reference-v1.png",
+      "sha256": "36596c9b9388a4e22b1c5381db7678c1b034597828e64e4ec91761c4d9f5a98d"
+    },
+    {
+      "profile": "portrait",
+      "kind": "denseAction",
+      "source": "art/mockups/web-v3/portrait/27-dense-hand-idle-v4.png",
+      "sourceSha256": "aa2ab841f7912a60cfc40c8f2bf328b659eb91a19353ce8e642e51bbde3703d1",
+      "crop": [
+        275,
+        1072,
+        394,
+        102
+      ],
+      "output": "art/source/web-v3/hud-source-v1/portrait-denseAction-reference-v1.png",
+      "sha256": "c86560c77e8a738d0990becdb8e6740fe8b2045b14f7b70ff54994187a08a171"
+    },
+    {
+      "profile": "portrait",
+      "kind": "bidTimer",
+      "source": "art/mockups/web-v3/portrait/10-bid-timer-v3.png",
+      "sourceSha256": "f0cd95a89356f6790980f62a497945c12c8a57dace1a72f7e519044585b2da19",
+      "crop": [
+        665,
+        1078,
+        241,
+        230
+      ],
+      "output": "art/source/web-v3/hud-source-v1/portrait-bidTimer-reference-v1.png",
+      "sha256": "cb5296113f9df5b60d0f3edad223f6d1207296732dba9c2bfccccf51730af906"
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "state": "idle",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "crop": [
+        660,
+        1495,
+        281,
+        153
+      ],
+      "output": "art/source/web-v3/hud-source-v1/portrait-action-idle-reference-v1.png",
+      "sha256": "36596c9b9388a4e22b1c5381db7678c1b034597828e64e4ec91761c4d9f5a98d"
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "state": "confirm",
+      "source": "art/mockups/web-v3/portrait/26-gameplay-selection-complete-v2.png",
+      "sourceSha256": "f6cbed225abfdac2f52f7d8a88d339ccd139620ee0dfba25d642772d8e66213f",
+      "crop": [
+        660,
+        1495,
+        281,
+        153
+      ],
+      "output": "art/source/web-v3/hud-source-v1/portrait-action-confirm-reference-v1.png",
+      "sha256": "c87895a88cf755beac93f4349ecd3e05b648c3b9452491fc6e930884529ac17d"
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "state": "pending",
+      "source": "art/mockups/web-v3/portrait/19-play-pending-selection-v2.png",
+      "sourceSha256": "640d67e490aaf865ae3a82ec39e2c3c9f51a30a345a1cba03461a3ab41134f97",
+      "crop": [
+        660,
+        1495,
+        281,
+        153
+      ],
+      "output": "art/source/web-v3/hud-source-v1/portrait-action-pending-reference-v1.png",
+      "sha256": "a164c577beaad21e4819e42c85657c7e2c433e43b4112793913fe9d17df4718b"
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "state": "bid",
+      "source": "art/mockups/web-v3/portrait/10-bid.png",
+      "sourceSha256": "61a1a96b219389f84c5f12a0e33b5d53f4e99b18c941b150c88873fe6825f870",
+      "crop": [
+        229,
+        963,
+        520,
+        157
+      ],
+      "output": "art/source/web-v3/hud-source-v1/portrait-action-bid-reference-v1.png",
+      "sha256": "bb68ee3c862e796be28e4a82d6172b487c17c579191aca67b9ee5bb980aff781"
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "state": "bid-pending",
+      "source": "art/mockups/web-v3/portrait/17-bid-pending-timer-v3.png",
+      "sourceSha256": "8d3e76acb7a37838f4c6f23a07d687f73131cf8c9fe4ec510449d7489c3d0882",
+      "crop": [
+        229,
+        963,
+        520,
+        157
+      ],
+      "output": "art/source/web-v3/hud-source-v1/portrait-action-bid-pending-reference-v1.png",
+      "sha256": "e82150cc7992cde7f94817f8caf32a9be20e86a6155e390612c15fb45f3592d5"
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "state": "dense-idle",
+      "source": "art/mockups/web-v3/portrait/27-dense-hand-idle-v4.png",
+      "sourceSha256": "aa2ab841f7912a60cfc40c8f2bf328b659eb91a19353ce8e642e51bbde3703d1",
+      "crop": [
+        275,
+        1072,
+        394,
+        102
+      ],
+      "output": "art/source/web-v3/hud-source-v1/portrait-action-dense-idle-reference-v1.png",
+      "sha256": "c86560c77e8a738d0990becdb8e6740fe8b2045b14f7b70ff54994187a08a171"
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "state": "dense-confirm",
+      "source": "art/mockups/web-v3/portrait/28-dense-hand-selected-v4.png",
+      "sourceSha256": "db5829fb658b34791e388832c492c6553084449488f4f82049d628fbc2695a81",
+      "crop": [
+        275,
+        1072,
+        394,
+        102
+      ],
+      "output": "art/source/web-v3/hud-source-v1/portrait-action-dense-confirm-reference-v1.png",
+      "sha256": "94569e5ebcbd90f6d3fafc3dff85cc3fd91f4edcc5eb1e32ee1dd8eefac52b79"
+    }
+  ]
+}

@@ -1,0 +1,799 @@
+{
+  "method": "Original selected result/ranking raster pixels. Avatar dark body/gold connected silhouette floodfilled, adjacent1px alpha170 edge; opaqueRGB preserved, no independently redrawn identity or baked paper halo. Original fixed furniture tiles with2px outer feather. Round-title numeric field only cleaned with the existing original runtime ImageGen blank; other fixed text retained.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "results",
+      "kind": "avatar",
+      "key": "bamboo-cat",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        343,
+        259,
+        89,
+        89
+      ],
+      "circle": [
+        388,
+        304,
+        38.5
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/landscape-results-bamboo-cat-v2.png",
+      "sha256": "794ef8a8656f8dc1e20f16896a106b3070af2d1f899506e6258ebf9e2431b3de",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "kind": "avatar",
+      "key": "wandering-crane",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        343,
+        334,
+        89,
+        89
+      ],
+      "circle": [
+        388,
+        379,
+        38.5
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/landscape-results-wandering-crane-v2.png",
+      "sha256": "e5fbfe16fee1b584f78c1b08bb7cb9ed0002ef475ee3a8a49f47f1268773a81c",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "kind": "avatar",
+      "key": "flower-fox",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        343,
+        409,
+        89,
+        89
+      ],
+      "circle": [
+        388,
+        454,
+        38.5
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/landscape-results-flower-fox-v2.png",
+      "sha256": "7ae72e985720336283172a342aadc3d9487f7519a69c12ad0ddf8a4d9cd02b64",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "kind": "avatar",
+      "key": "ink-panda",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        343,
+        484,
+        89,
+        89
+      ],
+      "circle": [
+        388,
+        529,
+        38.5
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/landscape-results-ink-panda-v2.png",
+      "sha256": "83d41c508dabaf46946cee83978330b6f749d6094a299c29fba8e39121132ede",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "kind": "avatar",
+      "key": "sleepy-star-cat",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        343,
+        559,
+        89,
+        89
+      ],
+      "circle": [
+        388,
+        604,
+        38.5
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/landscape-results-sleepy-star-cat-v2.png",
+      "sha256": "1951c22e2e5734ff8bbe76d01ed8435295b4a0a41f7c6afb1b6c2449f10bc429",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "kind": "avatar",
+      "key": "masked-traveler",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        343,
+        634,
+        89,
+        89
+      ],
+      "circle": [
+        388,
+        679,
+        38.5
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/landscape-results-masked-traveler-v2.png",
+      "sha256": "566646165a0376158d953aefe0e8e016cbb2f2390996192d37a0418f2204e6c9",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "kind": "title",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        575,
+        72,
+        520,
+        111
+      ],
+      "roundCleanup": [
+        758,
+        93,
+        49,
+        68
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/landscape-results-title-v1.png",
+      "sha256": "83fa9d8e925a1ccd78dd53237d5920f19d4bb46595ecb405029f48d6597e4f76"
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "kind": "note",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        351,
+        727,
+        442,
+        83
+      ],
+      "roundCleanup": null,
+      "output": "art/runtime/web-v3/results-source-v1/landscape-results-note-v1.png",
+      "sha256": "f8d4fedf7121995731cd43196dde81625eca1c607bbd9136e82ff68b679a2a64"
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "kind": "secondary",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        818,
+        718,
+        241,
+        94
+      ],
+      "roundCleanup": null,
+      "output": "art/runtime/web-v3/results-source-v1/landscape-results-secondary-v1.png",
+      "sha256": "7f232508dd1df11f88de1f99c6b3c4c5ae2fe6b29d09e82049b57d92bf2e288f"
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "kind": "primary",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        1075,
+        717,
+        318,
+        96
+      ],
+      "roundCleanup": null,
+      "output": "art/runtime/web-v3/results-source-v1/landscape-results-primary-v1.png",
+      "sha256": "b6bffe7ecdb042093f53962a467fb0b3818fb48c17614406c6af9985b5f603a9"
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "kind": "avatar",
+      "key": "bamboo-cat",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        625,
+        280,
+        92,
+        92
+      ],
+      "circle": [
+        671,
+        326,
+        40
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/landscape-ranking-bamboo-cat-v2.png",
+      "sha256": "ae8706627a709db4f731f3979298276aad45836f81cd9fec740d1df4fea26c4f",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "kind": "avatar",
+      "key": "wandering-crane",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        625,
+        356,
+        92,
+        92
+      ],
+      "circle": [
+        671,
+        402,
+        40
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/landscape-ranking-wandering-crane-v2.png",
+      "sha256": "d205c4c99a8957133c74b09eb6007c670eb8ce0f42708f15017611927559bcd0",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "kind": "avatar",
+      "key": "flower-fox",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        625,
+        432,
+        92,
+        92
+      ],
+      "circle": [
+        671,
+        478,
+        40
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/landscape-ranking-flower-fox-v2.png",
+      "sha256": "07849a1a38d23b30c69200ea51d74e0a5e739c308fbb249f7377f6495fab511b",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "kind": "avatar",
+      "key": "ink-panda",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        625,
+        508,
+        92,
+        92
+      ],
+      "circle": [
+        671,
+        554,
+        40
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/landscape-ranking-ink-panda-v2.png",
+      "sha256": "784dccd7493e28f9f7c7c4d3e0d0a640756614fc58405590cf397981115c9058",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "kind": "avatar",
+      "key": "sleepy-star-cat",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        625,
+        584,
+        92,
+        92
+      ],
+      "circle": [
+        671,
+        630,
+        40
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/landscape-ranking-sleepy-star-cat-v2.png",
+      "sha256": "f151eb190d911e36cb1579fd6639bcd6260336026ba58d737a45c77708d335b7",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "kind": "avatar",
+      "key": "masked-traveler",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        625,
+        660,
+        92,
+        92
+      ],
+      "circle": [
+        671,
+        706,
+        40
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/landscape-ranking-masked-traveler-v2.png",
+      "sha256": "da4f501a62e1e501eafd4fa0a4010e99cf1e14b3dc9108b453e9034b4950ee24",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "kind": "title",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        538,
+        57,
+        595,
+        118
+      ],
+      "roundCleanup": null,
+      "output": "art/runtime/web-v3/results-source-v1/landscape-ranking-title-v1.png",
+      "sha256": "07908ba7894a098b1dd07d7396caa835ba2c84775489cb3daa58bc189c1bc47c"
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "kind": "subtitle",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        606,
+        175,
+        461,
+        38
+      ],
+      "roundCleanup": null,
+      "output": "art/runtime/web-v3/results-source-v1/landscape-ranking-subtitle-v1.png",
+      "sha256": "916db30dda1ff71d5041317410f4bab54dd872ea69a2238615833f7c7ca2cdbc"
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "kind": "secondary",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        459,
+        744,
+        369,
+        101
+      ],
+      "roundCleanup": null,
+      "output": "art/runtime/web-v3/results-source-v1/landscape-ranking-secondary-v1.png",
+      "sha256": "abdd8c1844116943c2ffdcb29dc2680eaccb14a27558a454f68563175576f46e"
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "kind": "primary",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        846,
+        742,
+        370,
+        105
+      ],
+      "roundCleanup": null,
+      "output": "art/runtime/web-v3/results-source-v1/landscape-ranking-primary-v1.png",
+      "sha256": "b3428e1fe50f5a8cd61f1fe81a7ef35a7c898dd42f658ddccca87318735d20e6"
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "kind": "avatar",
+      "key": "bamboo-cat",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        120,
+        524,
+        112,
+        112
+      ],
+      "circle": [
+        176,
+        580,
+        50
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-bamboo-cat-v2.png",
+      "sha256": "26f140cf0dcbb00f407c7074099d42b0ada70a8c5516876a0c1b03f691ce96d3",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "kind": "avatar",
+      "key": "wandering-crane",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        120,
+        632,
+        112,
+        112
+      ],
+      "circle": [
+        176,
+        688,
+        50
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-wandering-crane-v2.png",
+      "sha256": "2f4770140184d58b26279a9fbdbde1f3c5ffc78a41b7b40285389effff3df85c",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "kind": "avatar",
+      "key": "flower-fox",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        120,
+        740,
+        112,
+        112
+      ],
+      "circle": [
+        176,
+        796,
+        50
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-flower-fox-v2.png",
+      "sha256": "3631b7a5c071885a49e4385bfa9f9fff89509e01bce61d1b3cbbd2c7dd2f82fb",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "kind": "avatar",
+      "key": "ink-panda",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        120,
+        848,
+        112,
+        112
+      ],
+      "circle": [
+        176,
+        904,
+        50
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-ink-panda-v2.png",
+      "sha256": "8327c66caf2923b9d99e2e77bd40832753f48d6545fe1e74b87a1da7f9bc0196",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "kind": "avatar",
+      "key": "sleepy-star-cat",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        120,
+        956,
+        112,
+        112
+      ],
+      "circle": [
+        176,
+        1012,
+        50
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-sleepy-star-cat-v2.png",
+      "sha256": "053383fe3ebc74686d42a7677408f24fbd2060468f70c7e85557628e4f4c9197",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "kind": "avatar",
+      "key": "masked-traveler",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        120,
+        1064,
+        112,
+        112
+      ],
+      "circle": [
+        176,
+        1120,
+        50
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-masked-traveler-v2.png",
+      "sha256": "2a76bb81f9fe704169bb9d0f1252defe26a544f41641a000255c4b7c4493fd18",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "kind": "title",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        214,
+        244,
+        518,
+        136
+      ],
+      "roundCleanup": [
+        392,
+        272,
+        54,
+        78
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-title-v1.png",
+      "sha256": "c3c3682e485e2250d3270946d48b4c675e716e437956041c5892e65d9a7a44db"
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "kind": "note",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        216,
+        1205,
+        509,
+        93
+      ],
+      "roundCleanup": null,
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-note-v1.png",
+      "sha256": "def5396034c09198c755a77637d9d8e0c8f5f6d5ce5dbc2177cf0f5190263313"
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "kind": "secondary",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        130,
+        1365,
+        684,
+        116
+      ],
+      "roundCleanup": null,
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-secondary-v1.png",
+      "sha256": "864014e33e02076c47f9d6204c89da57f3384fa3747fe325c06c9a9a5e416f2d"
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "kind": "primary",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        132,
+        1482,
+        680,
+        122
+      ],
+      "roundCleanup": null,
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-primary-v1.png",
+      "sha256": "dbd99cad88b145cb6923eeb651c69ea4bbcb6e3bf29e320226c3e6567e93c4fa"
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "kind": "avatar",
+      "key": "bamboo-cat",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        321,
+        550,
+        114,
+        114
+      ],
+      "circle": [
+        378,
+        607,
+        51
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-bamboo-cat-v2.png",
+      "sha256": "4e30cd4228a193526ff896c33c168325de9c6c91aff7bd59f78c58f019cb2552",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "kind": "avatar",
+      "key": "wandering-crane",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        321,
+        657,
+        114,
+        114
+      ],
+      "circle": [
+        378,
+        714,
+        51
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-wandering-crane-v2.png",
+      "sha256": "8b3bd558eb1b31e81d5697cadcb6ed16889b37221f9dda3153fb4ccec2df5ec4",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "kind": "avatar",
+      "key": "flower-fox",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        321,
+        764,
+        114,
+        114
+      ],
+      "circle": [
+        378,
+        821,
+        51
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-flower-fox-v2.png",
+      "sha256": "4e200cee9ce8171621fda32222ea9525f5dbeea27215d0fe0a01d85261c056c2",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "kind": "avatar",
+      "key": "ink-panda",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        321,
+        871,
+        114,
+        114
+      ],
+      "circle": [
+        378,
+        928,
+        51
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-ink-panda-v2.png",
+      "sha256": "ab8f0ab8386ee0fdda2383a1b71dba234fa60064f0850fda72d10692ed1c7e6f",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "kind": "avatar",
+      "key": "sleepy-star-cat",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        321,
+        978,
+        114,
+        114
+      ],
+      "circle": [
+        378,
+        1035,
+        51
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-sleepy-star-cat-v2.png",
+      "sha256": "de0c8f2cdc157df9705405b9f6a358029d4e7d861c64f5e97b5e7a5b07082438",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "kind": "avatar",
+      "key": "masked-traveler",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        321,
+        1085,
+        114,
+        114
+      ],
+      "circle": [
+        378,
+        1142,
+        51
+      ],
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-masked-traveler-v2.png",
+      "sha256": "f7ee29df7af5c318f74a2e553ebb9331706e618360999d4af135719493285c11",
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "kind": "title",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        207,
+        268,
+        528,
+        126
+      ],
+      "roundCleanup": null,
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-title-v1.png",
+      "sha256": "d156fd9fa65cc956c2ad897e4850e32804df829e6f1513cbcd1021ba783157c4"
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "kind": "subtitle",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        248,
+        401,
+        445,
+        43
+      ],
+      "roundCleanup": null,
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-subtitle-v1.png",
+      "sha256": "14ab5026629b05eadc1242eaf662c0c1858b2a9317906b4962173f38b8715198"
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "kind": "secondary",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        179,
+        1333,
+        585,
+        122
+      ],
+      "roundCleanup": null,
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-secondary-v1.png",
+      "sha256": "ff6e4f7f2b9fcac0d8a86ef42765a28841f1d68ed8858e08c3c3618372bbae76"
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "kind": "primary",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        179,
+        1457,
+        585,
+        130
+      ],
+      "roundCleanup": null,
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-primary-v1.png",
+      "sha256": "ab9e10730d7034a9b356fc02b19432b11a8fa73ec4300715a3bd588189394991"
+    }
+  ]
+}

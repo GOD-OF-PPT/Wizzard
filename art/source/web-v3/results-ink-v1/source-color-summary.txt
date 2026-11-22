@@ -1,0 +1,182 @@
+[
+  {
+    profile: 'landscape',
+    state: 'results',
+    role: 'positive',
+    hex: '#a20f07',
+    pixels: 745,
+    p05: [ 150, 2, 0 ],
+    p95: [ 174, 22, 12 ]
+  },
+  {
+    profile: 'landscape',
+    state: 'results',
+    role: 'negative',
+    hex: '#062c54',
+    pixels: 605,
+    p05: [ 0, 36, 71 ],
+    p95: [ 13, 52, 94 ]
+  },
+  {
+    profile: 'landscape',
+    state: 'final-round',
+    role: 'positive',
+    hex: '#aa130b',
+    pixels: 765,
+    p05: [ 157, 7, 2 ],
+    p95: [ 179, 27, 17 ]
+  },
+  {
+    profile: 'landscape',
+    state: 'final-round',
+    role: 'negative',
+    hex: '#042c53',
+    pixels: 586,
+    p05: [ 0, 33, 67 ],
+    p95: [ 15, 52, 96 ]
+  },
+  {
+    profile: 'landscape',
+    state: 'ranking',
+    role: 'leading',
+    hex: '#7b4705',
+    pixels: 517,
+    p05: [ 108, 59, 0 ],
+    p95: [ 135, 80, 9 ]
+  },
+  {
+    profile: 'landscape',
+    state: 'current-ranking',
+    role: 'leading',
+    hex: '#7e4805',
+    pixels: 339,
+    p05: [ 112, 59, 0 ],
+    p95: [ 137, 81, 11 ]
+  },
+  {
+    profile: 'landscape',
+    state: 'current-final',
+    role: 'leading',
+    hex: '#844d08',
+    pixels: 415,
+    p05: [ 120, 66, 0 ],
+    p95: [ 144, 86, 15 ]
+  },
+  {
+    profile: 'landscape',
+    state: 'ranking3',
+    role: 'leading',
+    hex: '#834b06',
+    pixels: 347,
+    p05: [ 117, 64, 0 ],
+    p95: [ 140, 83, 11 ]
+  },
+  {
+    profile: 'landscape',
+    state: 'ranking4',
+    role: 'leading',
+    hex: '#865006',
+    pixels: 455,
+    p05: [ 122, 68, 0 ],
+    p95: [ 146, 89, 12 ]
+  },
+  {
+    profile: 'landscape',
+    state: 'ranking5',
+    role: 'leading',
+    hex: '#804c05',
+    pixels: 462,
+    p05: [ 113, 63, 0 ],
+    p95: [ 141, 86, 10 ]
+  },
+  {
+    profile: 'portrait',
+    state: 'results',
+    role: 'positive',
+    hex: '#ae0707',
+    pixels: 964,
+    p05: [ 160, 0, 0 ],
+    p95: [ 186, 13, 14 ]
+  },
+  {
+    profile: 'portrait',
+    state: 'results',
+    role: 'negative',
+    hex: '#063371',
+    pixels: 699,
+    p05: [ 0, 37, 101 ],
+    p95: [ 13, 60, 125 ]
+  },
+  {
+    profile: 'portrait',
+    state: 'final-round',
+    role: 'positive',
+    hex: '#d60611',
+    pixels: 986,
+    p05: [ 202, 0, 6 ],
+    p95: [ 224, 14, 26 ]
+  },
+  {
+    profile: 'portrait',
+    state: 'final-round',
+    role: 'negative',
+    hex: '#073c7f',
+    pixels: 737,
+    p05: [ 0, 47, 115 ],
+    p95: [ 13, 69, 139 ]
+  },
+  {
+    profile: 'portrait',
+    state: 'ranking',
+    role: 'leading',
+    hex: '#804804',
+    pixels: 633,
+    p05: [ 115, 62, 1 ],
+    p95: [ 141, 80, 8 ]
+  },
+  {
+    profile: 'portrait',
+    state: 'current-ranking',
+    role: 'leading',
+    hex: '#864b06',
+    pixels: 441,
+    p05: [ 121, 65, 0 ],
+    p95: [ 149, 87, 10 ]
+  },
+  {
+    profile: 'portrait',
+    state: 'current-final',
+    role: 'leading',
+    hex: '#955407',
+    pixels: 552,
+    p05: [ 131, 71, 2 ],
+    p95: [ 158, 90, 12 ]
+  },
+  {
+    profile: 'portrait',
+    state: 'ranking3',
+    role: 'leading',
+    hex: '#824805',
+    pixels: 465,
+    p05: [ 115, 58, 0 ],
+    p95: [ 141, 80, 10 ]
+  },
+  {
+    profile: 'portrait',
+    state: 'ranking4',
+    role: 'leading',
+    hex: '#894d06',
+    pixels: 592,
+    p05: [ 125, 68, 2 ],
+    p95: [ 151, 86, 10 ]
+  },
+  {
+    profile: 'portrait',
+    state: 'ranking5',
+    role: 'leading',
+    hex: '#884c08',
+    pixels: 576,
+    p05: [ 123, 67, 2 ],
+    p95: [ 146, 84, 12 ]
+  }
+]

@@ -1,0 +1,533 @@
+{
+  "method": "Pale ink threshold within independently defined quiet source component bounds; diagnostic only, includes sampling/edge effects, never an acceptance threshold.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "slot": 0,
+      "part": "name",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 56,
+        "top": 8,
+        "width": 78,
+        "height": 26,
+        "pixels": 540
+      },
+      "captureBox": {
+        "left": 52,
+        "top": 9,
+        "width": 88,
+        "height": 28,
+        "pixels": 865
+      },
+      "widthRatio": 0.8863636363636364,
+      "heightRatio": 0.9285714285714286
+    },
+    {
+      "profile": "landscape",
+      "slot": 0,
+      "part": "stats",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 19,
+        "top": 10,
+        "width": 144,
+        "height": 17,
+        "pixels": 541
+      },
+      "captureBox": {
+        "left": 21,
+        "top": 9,
+        "width": 140,
+        "height": 20,
+        "pixels": 928
+      },
+      "widthRatio": 1.0285714285714285,
+      "heightRatio": 0.85
+    },
+    {
+      "profile": "landscape",
+      "slot": 1,
+      "part": "name",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 47,
+        "top": 10,
+        "width": 67,
+        "height": 20,
+        "pixels": 482
+      },
+      "captureBox": {
+        "left": 41,
+        "top": 10,
+        "width": 78,
+        "height": 24,
+        "pixels": 863
+      },
+      "widthRatio": 0.8589743589743589,
+      "heightRatio": 0.8333333333333334
+    },
+    {
+      "profile": "landscape",
+      "slot": 1,
+      "part": "stats",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 15,
+        "top": 8,
+        "width": 123,
+        "height": 15,
+        "pixels": 394
+      },
+      "captureBox": {
+        "left": 16,
+        "top": 7,
+        "width": 120,
+        "height": 18,
+        "pixels": 789
+      },
+      "widthRatio": 1.025,
+      "heightRatio": 0.8333333333333334
+    },
+    {
+      "profile": "landscape",
+      "slot": 2,
+      "part": "name",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 45,
+        "top": 9,
+        "width": 68,
+        "height": 22,
+        "pixels": 453
+      },
+      "captureBox": {
+        "left": 41,
+        "top": 10,
+        "width": 78,
+        "height": 25,
+        "pixels": 778
+      },
+      "widthRatio": 0.8717948717948718,
+      "heightRatio": 0.88
+    },
+    {
+      "profile": "landscape",
+      "slot": 2,
+      "part": "stats",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 14,
+        "top": 7,
+        "width": 125,
+        "height": 15,
+        "pixels": 420
+      },
+      "captureBox": {
+        "left": 16,
+        "top": 7,
+        "width": 121,
+        "height": 18,
+        "pixels": 807
+      },
+      "widthRatio": 1.0330578512396693,
+      "heightRatio": 0.8333333333333334
+    },
+    {
+      "profile": "landscape",
+      "slot": 3,
+      "part": "name",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 46,
+        "top": 7,
+        "width": 68,
+        "height": 22,
+        "pixels": 415
+      },
+      "captureBox": {
+        "left": 41,
+        "top": 10,
+        "width": 79,
+        "height": 24,
+        "pixels": 771
+      },
+      "widthRatio": 0.8607594936708861,
+      "heightRatio": 0.9166666666666666
+    },
+    {
+      "profile": "landscape",
+      "slot": 3,
+      "part": "stats",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 14,
+        "top": 6,
+        "width": 123,
+        "height": 15,
+        "pixels": 415
+      },
+      "captureBox": {
+        "left": 17,
+        "top": 7,
+        "width": 118,
+        "height": 18,
+        "pixels": 780
+      },
+      "widthRatio": 1.0423728813559323,
+      "heightRatio": 0.8333333333333334
+    },
+    {
+      "profile": "landscape",
+      "slot": 4,
+      "part": "name",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 47,
+        "top": 9,
+        "width": 67,
+        "height": 20,
+        "pixels": 504
+      },
+      "captureBox": {
+        "left": 41,
+        "top": 11,
+        "width": 79,
+        "height": 23,
+        "pixels": 858
+      },
+      "widthRatio": 0.8481012658227848,
+      "heightRatio": 0.8695652173913043
+    },
+    {
+      "profile": "landscape",
+      "slot": 4,
+      "part": "stats",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 15,
+        "top": 7,
+        "width": 125,
+        "height": 15,
+        "pixels": 439
+      },
+      "captureBox": {
+        "left": 16,
+        "top": 7,
+        "width": 121,
+        "height": 18,
+        "pixels": 849
+      },
+      "widthRatio": 1.0330578512396693,
+      "heightRatio": 0.8333333333333334
+    },
+    {
+      "profile": "landscape",
+      "slot": 5,
+      "part": "name",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 42,
+        "top": 9,
+        "width": 81,
+        "height": 22,
+        "pixels": 377
+      },
+      "captureBox": {
+        "left": 39,
+        "top": 9,
+        "width": 84,
+        "height": 24,
+        "pixels": 606
+      },
+      "widthRatio": 0.9642857142857143,
+      "heightRatio": 0.9166666666666666
+    },
+    {
+      "profile": "landscape",
+      "slot": 5,
+      "part": "stats",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 15,
+        "top": 8,
+        "width": 123,
+        "height": 15,
+        "pixels": 414
+      },
+      "captureBox": {
+        "left": 17,
+        "top": 7,
+        "width": 120,
+        "height": 18,
+        "pixels": 779
+      },
+      "widthRatio": 1.025,
+      "heightRatio": 0.8333333333333334
+    },
+    {
+      "profile": "portrait",
+      "slot": 0,
+      "part": "name",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 24,
+        "top": 4,
+        "width": 34,
+        "height": 11,
+        "pixels": 90
+      },
+      "captureBox": {
+        "left": 22,
+        "top": 4,
+        "width": 39,
+        "height": 12,
+        "pixels": 188
+      },
+      "widthRatio": 0.8717948717948718,
+      "heightRatio": 0.9166666666666666
+    },
+    {
+      "profile": "portrait",
+      "slot": 0,
+      "part": "stats",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 8,
+        "top": 5,
+        "width": 63,
+        "height": 7,
+        "pixels": 117
+      },
+      "captureBox": {
+        "left": 7,
+        "top": 5,
+        "width": 67,
+        "height": 9,
+        "pixels": 254
+      },
+      "widthRatio": 0.9402985074626866,
+      "heightRatio": 0.7777777777777778
+    },
+    {
+      "profile": "portrait",
+      "slot": 1,
+      "part": "name",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 22,
+        "top": 4,
+        "width": 32,
+        "height": 10,
+        "pixels": 105
+      },
+      "captureBox": {
+        "left": 20,
+        "top": 4,
+        "width": 36,
+        "height": 11,
+        "pixels": 218
+      },
+      "widthRatio": 0.8888888888888888,
+      "heightRatio": 0.9090909090909091
+    },
+    {
+      "profile": "portrait",
+      "slot": 1,
+      "part": "stats",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 8,
+        "top": 4,
+        "width": 58,
+        "height": 7,
+        "pixels": 117
+      },
+      "captureBox": {
+        "left": 6,
+        "top": 4,
+        "width": 61,
+        "height": 9,
+        "pixels": 254
+      },
+      "widthRatio": 0.9508196721311475,
+      "heightRatio": 0.7777777777777778
+    },
+    {
+      "profile": "portrait",
+      "slot": 2,
+      "part": "name",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 23,
+        "top": 5,
+        "width": 33,
+        "height": 9,
+        "pixels": 105
+      },
+      "captureBox": {
+        "left": 21,
+        "top": 5,
+        "width": 36,
+        "height": 10,
+        "pixels": 171
+      },
+      "widthRatio": 0.9166666666666666,
+      "heightRatio": 0.9
+    },
+    {
+      "profile": "portrait",
+      "slot": 2,
+      "part": "stats",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 7,
+        "top": 4,
+        "width": 61,
+        "height": 8,
+        "pixels": 107
+      },
+      "captureBox": {
+        "left": 6,
+        "top": 4,
+        "width": 63,
+        "height": 9,
+        "pixels": 262
+      },
+      "widthRatio": 0.9682539682539683,
+      "heightRatio": 0.8888888888888888
+    },
+    {
+      "profile": "portrait",
+      "slot": 3,
+      "part": "name",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 22,
+        "top": 4,
+        "width": 31,
+        "height": 10,
+        "pixels": 83
+      },
+      "captureBox": {
+        "left": 20,
+        "top": 4,
+        "width": 37,
+        "height": 11,
+        "pixels": 182
+      },
+      "widthRatio": 0.8378378378378378,
+      "heightRatio": 0.9090909090909091
+    },
+    {
+      "profile": "portrait",
+      "slot": 3,
+      "part": "stats",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 8,
+        "top": 4,
+        "width": 61,
+        "height": 7,
+        "pixels": 111
+      },
+      "captureBox": {
+        "left": 7,
+        "top": 3,
+        "width": 62,
+        "height": 9,
+        "pixels": 237
+      },
+      "widthRatio": 0.9838709677419355,
+      "heightRatio": 0.7777777777777778
+    },
+    {
+      "profile": "portrait",
+      "slot": 4,
+      "part": "name",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 21,
+        "top": 4,
+        "width": 32,
+        "height": 9,
+        "pixels": 107
+      },
+      "captureBox": {
+        "left": 20,
+        "top": 5,
+        "width": 35,
+        "height": 10,
+        "pixels": 201
+      },
+      "widthRatio": 0.9142857142857143,
+      "heightRatio": 0.9
+    },
+    {
+      "profile": "portrait",
+      "slot": 4,
+      "part": "stats",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 7,
+        "top": 4,
+        "width": 56,
+        "height": 7,
+        "pixels": 119
+      },
+      "captureBox": {
+        "left": 5,
+        "top": 4,
+        "width": 60,
+        "height": 9,
+        "pixels": 267
+      },
+      "widthRatio": 0.9333333333333333,
+      "heightRatio": 0.7777777777777778
+    },
+    {
+      "profile": "portrait",
+      "slot": 5,
+      "part": "name",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 19,
+        "top": 4,
+        "width": 35,
+        "height": 9,
+        "pixels": 79
+      },
+      "captureBox": {
+        "left": 17,
+        "top": 4,
+        "width": 38,
+        "height": 11,
+        "pixels": 147
+      },
+      "widthRatio": 0.9210526315789473,
+      "heightRatio": 0.8181818181818182
+    },
+    {
+      "profile": "portrait",
+      "slot": 5,
+      "part": "stats",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceBox": {
+        "left": 7,
+        "top": 4,
+        "width": 55,
+        "height": 7,
+        "pixels": 112
+      },
+      "captureBox": {
+        "left": 5,
+        "top": 4,
+        "width": 60,
+        "height": 9,
+        "pixels": 232
+      },
+      "widthRatio": 0.9166666666666666,
+      "heightRatio": 0.7777777777777778
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+/* Temporary Chrome-only diagnostic; not imported by product code. */
+.v3-results.v3-results--source .v3-results-row {
+  font-family:'Teahouse Seat Latin',serif;
+  font-weight:400;
+  font-size:2.631578947cqw;
+  font-synthesis:none;
+}
+.v3-results.v3-results--source.v3-ranking .v3-results-row { font-size:2.870813397cqw; }
+.v3-results.v3-results--source.v3-ranking [data-result-column='0'] { font-size:2.392344498cqw; }
+.v3-results.v3-results--source .v3-results-player > span { letter-spacing:-.04784689cqw; }
+.v3-results.v3-results--source.v3-ranking .v3-results-player > span { letter-spacing:-.053827751cqw; }
+@media (orientation:portrait) {
+  .v3-results.v3-results--source .v3-results-row { font-size:4.888416578cqw; }
+  .v3-results.v3-results--source.v3-ranking .v3-results-row { font-size:5.738575983cqw; }
+  .v3-results.v3-results--source.v3-ranking [data-result-column='0'] { font-size:5.101062699cqw; }
+  .v3-results.v3-results--source .v3-results-player > span { letter-spacing:-.063761955cqw; }
+  .v3-results.v3-results--source.v3-ranking .v3-results-player > span { letter-spacing:-.191285866cqw; }
+}

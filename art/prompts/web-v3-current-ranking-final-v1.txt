@@ -1,0 +1,7 @@
+Built-in image_gen precise edit of each independent33-current-ranking-v1 source.
+Keep title当前总榜, all six original identities/names/ranks/positions, source frame/paper/decorations/lantern scene, divider lines, and original bottom button positions/proportions.
+Only change completed numeral4 to8: 已完成第8轮.
+Green action: 查看最终总榜. Six Chinese brush characters fully inside its unchanged content-safe area, without overlapping original flowers/gold edge.
+Paper action stays返回结算.
+Totals from first to last:180,150,120,100,80,60; preserve original score centers and baselines, first gold and others dark.
+One landscape1672x941 and one independent portrait941x1672; no other changes or new objects. Final composition accepts only explicit number/action ROIs and protects all other RGB.

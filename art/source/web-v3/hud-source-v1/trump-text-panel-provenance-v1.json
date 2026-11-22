@@ -1,0 +1,41 @@
+{
+  "method": "Existing ImageGen blank master registered using the original export recipe; only the fixed-prefix interior replaced. Original border, side ornaments, and alpha retained. No new generation.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "source": "art/runtime/web-v3/hud-source-v1/landscape-trump-live-fields-v1.png",
+      "sourceSha256": "c50d02faede8b0713b6d50ea55f60d474315ea60f5ebaa24dd3d69bc940e841c",
+      "generatedPaper": "art/source/web-v3/hud-source-v1/landscape-trump-blank-candidate-v1.png",
+      "generatedPaperSha256": "fea4ae0b1d6bf3d2b8bbfc4d09e80193d45aa886a2e8e9530848d06011f52461",
+      "region": [
+        96,
+        18,
+        139,
+        38
+      ],
+      "changedPixels": 4854,
+      "changedOutsideRegion": 0,
+      "alphaChanges": 0,
+      "path": "art/runtime/web-v3/hud-source-v1/landscape-trump-text-panel-v1.png",
+      "sha256": "f2b51b18168f1b87a843d23b2b3fee71f7074c7097b534bb174b80dc9a36687c"
+    },
+    {
+      "profile": "portrait",
+      "source": "art/runtime/web-v3/hud-source-v1/portrait-trump-live-fields-v1.png",
+      "sourceSha256": "666297d03b8573ae0719e58a6a99ed8c37170418cdeb8987b7d3c62b801db5a8",
+      "generatedPaper": "art/source/web-v3/hud-source-v1/portrait-trump-blank-candidate-v1.png",
+      "generatedPaperSha256": "eb2a261ba62f62a9c1a94b17f8482c2da562f2fd02b385cf11db18c8cfcf3f9b",
+      "region": [
+        104,
+        18,
+        144,
+        41
+      ],
+      "changedPixels": 5435,
+      "changedOutsideRegion": 0,
+      "alphaChanges": 0,
+      "path": "art/runtime/web-v3/hud-source-v1/portrait-trump-text-panel-v1.png",
+      "sha256": "3d74355d206e9f5e9fbc9f9fe8aacf81e05e32f770846360ca61c6e2866f14cd"
+    }
+  ]
+}

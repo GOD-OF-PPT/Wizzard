@@ -1,0 +1,231 @@
+{
+  "id": "room.ai-join",
+  "label": "茶灵入座",
+  "durationSeconds": 1,
+  "trigger": "服务器确认添加机器人",
+  "prompt": "Two tiny hollow bamboo-wood ticks with a little playful porcelain clink at the end. Suggest a small helpful tea spirit taking its seat. Charming but restrained, no animal voice or electronic robot sound. Entire sound fits within 1 seconds. For an enchanted Chinese teahouse game. One isolated close-up, warm tactile hit. No voice, music, ambience, beeps or harsh treble.",
+  "targetLufs": -24,
+  "cooldownMs": 180,
+  "loop": false,
+  "variants": 4,
+  "status": "generated",
+  "runtimePath": "art/runtime/audio/teahouse-v1/room-ai-join-v1.mp3",
+  "sourceDirectory": "art/source/audio/teahouse-v1/room-ai-join",
+  "submittedAt": "2026-10-28T07:34:41.774Z",
+  "model": "eleven_text_to_sound_v2",
+  "generatedAt": "2026-10-28T07:35:20.218Z",
+  "downloadPrefix": "Two_tiny_hollow_bamb_",
+  "sourceFiles": [
+    {
+      "take": 1,
+      "downloadedName": "Two_tiny_hollow_bamb_#1-1793172890500.mp3",
+      "path": "art/source/audio/teahouse-v1/room-ai-join/take-01.mp3"
+    },
+    {
+      "take": 2,
+      "downloadedName": "Two_tiny_hollow_bamb_#2-1793172890459.mp3",
+      "path": "art/source/audio/teahouse-v1/room-ai-join/take-02.mp3"
+    },
+    {
+      "take": 3,
+      "downloadedName": "Two_tiny_hollow_bamb_#3-1793172928948.mp3",
+      "path": "art/source/audio/teahouse-v1/room-ai-join/take-03.mp3"
+    },
+    {
+      "take": 4,
+      "downloadedName": "Two_tiny_hollow_bamb_#4-1793172930601.wav",
+      "path": "art/source/audio/teahouse-v1/room-ai-join/take-04.wav"
+    }
+  ],
+  "candidates": [
+    {
+      "take": 1,
+      "source": "art/source/audio/teahouse-v1/room-ai-join/take-01.mp3",
+      "sourceSha256": "c67bf3d86d522c7c278c8e81cf5bdf3bfdd2551fd99d14e7c619ed7f093fffaf",
+      "sourceBytes": 25389,
+      "sourceMetrics": {
+        "duration": 1,
+        "peakDbfs": 1.612388669943199,
+        "rmsDbfs": -22.973194189226636,
+        "clippedSamples": 2,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.1981875,
+        "first": 0,
+        "last": 38486
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/room-ai-join-take-01.mp3",
+      "sha256": "ff28c71ee1e28bc5dd78d363e577139b36c90f39a0a74c6cc0e9d93b7e8f29c9",
+      "bytes": 14671,
+      "outputMetrics": {
+        "duration": 0.8618333333333333,
+        "peakDbfs": -3.5464050021762183,
+        "rmsDbfs": -27.48521933896063,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.000020833333333333333,
+        "trailingSilenceSeconds": 0.06,
+        "first": 1,
+        "last": 38487
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.8618125000000001,
+        "targetRmsDbfs": -27,
+        "gainDb": -4.67250765301711,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 2,
+      "source": "art/source/audio/teahouse-v1/room-ai-join/take-02.mp3",
+      "sourceSha256": "9b3027eb50cab20f41c20d027a40b46e5d2d81209fb79e19ac9fc411ead93da0",
+      "sourceBytes": 25389,
+      "sourceMetrics": {
+        "duration": 1,
+        "peakDbfs": -1.8454890786020655,
+        "rmsDbfs": -23.87617106662787,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0014791666666666666,
+        "trailingSilenceSeconds": 0.36125,
+        "first": 71,
+        "last": 30659
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/room-ai-join-take-02.mp3",
+      "sha256": "1325b9d2be005f410ed7fa3d7611f7eda13d9a84bed8d0fed9048ce963fd2579",
+      "bytes": 12163,
+      "outputMetrics": {
+        "duration": 0.6987708333333333,
+        "peakDbfs": -6.645104298454543,
+        "rmsDbfs": -27.40196833610822,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0041875,
+        "trailingSilenceSeconds": 0.060020833333333336,
+        "first": 201,
+        "last": 30659
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.69875,
+        "targetRmsDbfs": -27,
+        "gainDb": -4.680477349889024,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 3,
+      "source": "art/source/audio/teahouse-v1/room-ai-join/take-03.mp3",
+      "sourceSha256": "8f01c33ac1aa3d6788f27bfe3cdc16c628732651f6dd1e5d9615dbbb0c547c63",
+      "sourceBytes": 25389,
+      "sourceMetrics": {
+        "duration": 1,
+        "peakDbfs": -1.7785275835813152,
+        "rmsDbfs": -26.353609620418666,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.58875,
+        "first": 0,
+        "last": 19739
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/room-ai-join-take-03.mp3",
+      "sha256": "ec84494e7a8f54f5568e015c4eef70cb687f42d25d151fb7184a43e0de5ac2e8",
+      "bytes": 8820,
+      "outputMetrics": {
+        "duration": 0.47127083333333336,
+        "peakDbfs": -5.971796230679638,
+        "rmsDbfs": -27.437637277681915,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0006041666666666667,
+        "trailingSilenceSeconds": 0.07577083333333333,
+        "first": 29,
+        "last": 18983
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.47125,
+        "targetRmsDbfs": -27,
+        "gainDb": -3.913612388234501,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 4,
+      "source": "art/source/audio/teahouse-v1/room-ai-join/take-04.wav",
+      "sourceSha256": "df84c68bcc8b246aeca27fcf1889330c00958dc6bd6cee284c0b9329e0115c61",
+      "sourceBytes": 192078,
+      "sourceMetrics": {
+        "duration": 1,
+        "peakDbfs": 0.2999141144328321,
+        "rmsDbfs": -24.083932028226712,
+        "clippedSamples": 1,
+        "leadingSilenceSeconds": 0.0008333333333333334,
+        "trailingSilenceSeconds": 0.5202708333333333,
+        "first": 40,
+        "last": 23026
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/room-ai-join-take-04.mp3",
+      "sha256": "f0e4e765758acd9218df73c75167b1113b4f12c454a4a924d7f869671fda0e27",
+      "bytes": 9656,
+      "outputMetrics": {
+        "duration": 0.5397708333333333,
+        "peakDbfs": -6.010044854036348,
+        "rmsDbfs": -27.55463433228069,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0039375,
+        "trailingSilenceSeconds": 0.06004166666666667,
+        "first": 189,
+        "last": 23026
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.5397291666666666,
+        "targetRmsDbfs": -27,
+        "gainDb": -5.594299636249481,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    }
+  ],
+  "selectedTake": 3,
+  "selectionBasis": "约0.075和0.225秒的两个明确起音，避开其他候选的密集碎响，符合茶灵入座的短小反馈。",
+  "runtimeSha256": "0581b140ad8c9cf209af241fffd65ad514be4499dd5c04daf125b0308c62bfb1",
+  "runtimeBytes": 8820,
+  "durationActualSeconds": 0.47127083333333336,
+  "technicalStatus": "decode-duration-peak-and-unique-takes-verified",
+  "listeningStatus": "not-human-reviewed",
+  "wiredToGame": true,
+  "selectionStatus": "agent-selected",
+  "selectionReviewMethod": "Per-candidate waveform, spectral distribution, duration, onset pattern, and role matching. This is an agent production choice, not a claim of direct auditory or human listening acceptance.",
+  "finalProcessing": {
+    "eq": "highshelf=f=4500:g=-6",
+    "gainDb": 0
+  },
+  "finalMetrics": {
+    "duration": 0.47127083333333336,
+    "peakDbfs": -9.884616552749977,
+    "rmsDbfs": -31.15043330319832,
+    "clippedSamples": 0,
+    "leadingSilenceSeconds": 0.000375,
+    "trailingSilenceSeconds": 0.049375,
+    "first": 18,
+    "last": 20250
+  },
+  "integrationTarget": "react-web"
+}

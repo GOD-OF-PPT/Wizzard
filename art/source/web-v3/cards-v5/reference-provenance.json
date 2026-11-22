@@ -1,0 +1,349 @@
+{
+  "method": "Original source card pixels, inverse measured rotation, same 140x210 frame/hull mask as canonical selection design, 4x raster sampling",
+  "reports": [
+    {
+      "profile": "landscape",
+      "suit": "leaf",
+      "source": "art/mockups/web-v3/05-gameplay-final.png",
+      "sourceSha256": "6bfe13fcc5cf85779cab92742e5733621039d73fbcfcb5958b7c069c3c4c273f",
+      "reference": "art/source/web-v3/cards-v5/landscape-leaf-reference.png",
+      "referenceSha256": "cee7091c686e6ce69b761d5e162e7012004a4469a37d0c42c76287156342890f",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          614.9260839067887,
+          770.8313394048662
+        ],
+        "angle": -2.35000000000002
+      },
+      "rank": 5,
+      "rankInkBounds": [
+        114,
+        123,
+        202,
+        270
+      ],
+      "rankRoi": [
+        102,
+        111,
+        112,
+        171
+      ],
+      "rankLogicalBounds": [
+        28.5,
+        30.75,
+        50.5,
+        67.5
+      ],
+      "candidate": "art/source/web-v3/cards-v5/landscape-leaf-rank-clean-candidate.png"
+    },
+    {
+      "profile": "landscape",
+      "suit": "mountain",
+      "source": "art/mockups/web-v3/05-gameplay-final.png",
+      "sourceSha256": "6bfe13fcc5cf85779cab92742e5733621039d73fbcfcb5958b7c069c3c4c273f",
+      "reference": "art/source/web-v3/cards-v5/landscape-mountain-reference.png",
+      "referenceSha256": "1ba53a9f86bd91dd3c9511b47e734bf87124b045877f4fda86a94f2ab951b142",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          760.7328383865522,
+          768.9906482443572
+        ],
+        "angle": -2.3000000000000203
+      },
+      "rank": 8,
+      "rankInkBounds": [
+        100,
+        121,
+        190,
+        267
+      ],
+      "rankRoi": [
+        88,
+        109,
+        114,
+        170
+      ],
+      "rankLogicalBounds": [
+        25,
+        30.25,
+        47.5,
+        66.75
+      ],
+      "candidate": "art/source/web-v3/cards-v5/landscape-mountain-rank-clean-candidate.png"
+    },
+    {
+      "profile": "landscape",
+      "suit": "knot",
+      "source": "art/mockups/web-v3/05-gameplay-final.png",
+      "sourceSha256": "6bfe13fcc5cf85779cab92742e5733621039d73fbcfcb5958b7c069c3c4c273f",
+      "reference": "art/source/web-v3/cards-v5/landscape-knot-reference.png",
+      "referenceSha256": "1585522a4efa542f07359519e492b0467f3952e88effa2b3365e04fcabd69ef6",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          905.2282000023491,
+          769.6872683001642
+        ],
+        "angle": 1.799999999999981
+      },
+      "rank": 2,
+      "rankInkBounds": [
+        108,
+        122,
+        192,
+        260
+      ],
+      "rankRoi": [
+        96,
+        110,
+        108,
+        162
+      ],
+      "rankLogicalBounds": [
+        27,
+        30.5,
+        48,
+        65
+      ],
+      "candidate": "art/source/web-v3/cards-v5/landscape-knot-rank-clean-candidate.png"
+    },
+    {
+      "profile": "landscape",
+      "suit": "sun",
+      "source": "art/mockups/web-v3/05-gameplay-final.png",
+      "sourceSha256": "6bfe13fcc5cf85779cab92742e5733621039d73fbcfcb5958b7c069c3c4c273f",
+      "reference": "art/source/web-v3/cards-v5/landscape-sun-reference.png",
+      "referenceSha256": "d6c2947e94f790074ec874e26c6efad22526e5302591d4c18da700c5e45c3e46",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          1051.7059476755046,
+          778.7501564674542
+        ],
+        "angle": 4.699999999999972
+      },
+      "rank": 6,
+      "rankInkBounds": [
+        109,
+        123,
+        198,
+        269
+      ],
+      "rankRoi": [
+        97,
+        111,
+        113,
+        170
+      ],
+      "rankLogicalBounds": [
+        27.25,
+        30.75,
+        49.5,
+        67.25
+      ],
+      "candidate": "art/source/web-v3/cards-v5/landscape-sun-rank-clean-candidate.png"
+    },
+    {
+      "profile": "portrait",
+      "suit": "leaf",
+      "source": "art/mockups/web-v3/portrait/05-gameplay-safe-v2.png",
+      "sourceSha256": "563eb03f9db59bdc970937bea00fffa1267b951da32b7e3368ab9938a1d34810",
+      "reference": "art/source/web-v3/cards-v5/portrait-leaf-reference.png",
+      "referenceSha256": "3247bead5a3a0ff2d221520a1ee8cf8f95ff051986612f4e7de6d6fcf94c20b7",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          208.83399290570551,
+          1368.3128746266261
+        ],
+        "angle": -2.5000000000000195
+      },
+      "rank": 5,
+      "rankInkBounds": [
+        115,
+        122,
+        204,
+        273
+      ],
+      "rankRoi": [
+        103,
+        110,
+        113,
+        175
+      ],
+      "rankLogicalBounds": [
+        28.75,
+        30.5,
+        51,
+        68.25
+      ],
+      "candidate": "art/source/web-v3/cards-v5/portrait-leaf-rank-clean-candidate.png"
+    },
+    {
+      "profile": "portrait",
+      "suit": "mountain",
+      "source": "art/mockups/web-v3/portrait/05-gameplay-safe-v2.png",
+      "sourceSha256": "563eb03f9db59bdc970937bea00fffa1267b951da32b7e3368ab9938a1d34810",
+      "reference": "art/source/web-v3/cards-v5/portrait-mountain-reference.png",
+      "referenceSha256": "8dd6eea796ee86ba450647a21c8c6de8e349704b726609ad75124796a5181acc",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          353.5235342624809,
+          1365.1284391144372
+        ],
+        "angle": -1.8500000000000212
+      },
+      "rank": 8,
+      "rankInkBounds": [
+        103,
+        124,
+        194,
+        273
+      ],
+      "rankRoi": [
+        91,
+        112,
+        115,
+        173
+      ],
+      "rankLogicalBounds": [
+        25.75,
+        31,
+        48.5,
+        68.25
+      ],
+      "candidate": "art/source/web-v3/cards-v5/portrait-mountain-rank-clean-candidate.png"
+    },
+    {
+      "profile": "portrait",
+      "suit": "knot",
+      "source": "art/mockups/web-v3/portrait/05-gameplay-safe-v2.png",
+      "sourceSha256": "563eb03f9db59bdc970937bea00fffa1267b951da32b7e3368ab9938a1d34810",
+      "reference": "art/source/web-v3/cards-v5/portrait-knot-reference.png",
+      "referenceSha256": "fd9805d58e63b1b21e6512c7a6f3382f4b0bcf229ed33136edcb38c7a0680ff1",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          489.5512367388705,
+          1365.1240119195686
+        ],
+        "angle": 1.9999999999999811
+      },
+      "rank": 2,
+      "rankInkBounds": [
+        114,
+        126,
+        200,
+        267
+      ],
+      "rankRoi": [
+        102,
+        114,
+        110,
+        165
+      ],
+      "rankLogicalBounds": [
+        28.5,
+        31.5,
+        50,
+        66.75
+      ],
+      "candidate": "art/source/web-v3/cards-v5/portrait-knot-rank-clean-candidate.png"
+    },
+    {
+      "profile": "portrait",
+      "suit": "sun",
+      "source": "art/mockups/web-v3/portrait/05-gameplay-safe-v2.png",
+      "sourceSha256": "563eb03f9db59bdc970937bea00fffa1267b951da32b7e3368ab9938a1d34810",
+      "reference": "art/source/web-v3/cards-v5/portrait-sun-reference.png",
+      "referenceSha256": "ff41705d5cd9ba09a8537a78d64340b9f512a2ec795b232f7eaf7cc916a920a2",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          630.0256230439677,
+          1374.5556400312532
+        ],
+        "angle": 4.799999999999971
+      },
+      "rank": 6,
+      "rankInkBounds": [
+        110,
+        123,
+        202,
+        273
+      ],
+      "rankRoi": [
+        98,
+        111,
+        116,
+        174
+      ],
+      "rankLogicalBounds": [
+        27.5,
+        30.75,
+        50.5,
+        68.25
+      ],
+      "candidate": "art/source/web-v3/cards-v5/portrait-sun-rank-clean-candidate.png"
+    }
+  ]
+}

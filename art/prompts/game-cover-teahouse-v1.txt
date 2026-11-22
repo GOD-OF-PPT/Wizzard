@@ -1,0 +1,17 @@
+Use case: ads-marketing.
+Asset type: finished promotional cover key art for an existing original Chinese fantasy card game.
+Create one polished landscape cover, EXACTLY 1920 x 1080 pixels, 16:9, full bleed, opaque. This is promotional illustration, not a game UI screenshot.
+
+Game title (render EXACTLY, large and beautifully legible): "奇术茶馆".
+One small subtitle only (render EXACTLY): "好茶 · 好友 · 好对局".
+Do not add any other text, Latin letters, logos, buttons, counters, borders, watermarks, interface panels, or screenshots.
+
+Art direction: Enchanted Teahouse. A warm and inviting, hand-painted Chinese fantasy illustration with richly shaded storybook character rendering, fine ink contours, restrained carved-wood ornament, tactile materials and cinematic depth. Amber paper lanterns illuminate a deep red lacquered round table; parchment cards, old-gold details, ceramic tea cups and a small brown teapot glow warmly against an indigo moonlit mountain town. An open wooden teahouse balcony overlooks layered tiled roofs, a river reflecting small warm lights, distant mountains and a full moon. A little rising tea steam suggests gentle magic. Cozy, clever, intimate, quietly playful; friends enjoying a thoughtful evening game.
+
+Composition: use a clean, deliberate horizontal key-art hierarchy. A large gold brush-calligraphy title dominates the dark upper-left area, with the small gold subtitle below and ample breathing room. The main table and character ensemble occupy the center-right and lower half. Keep the title fully separated from faces. Leave generous outer safety margins around both lines of text. The table creates an inviting oval leading toward the group, with warm foreground tea objects creating depth. No split panels, no collage, no empty button-shaped areas.
+
+Original established travelers: a charming blue-gray tabby cat with golden eyes, woven straw hat and dark teal scarf; a tall elegant white crane with a long dark beak, distinctive red eye markings, broad woven hat and layered ochre-brown travel robe; a cream-and-orange fox traveler with graceful original mask-like facial markings, a small orange flower beside one ear and a dark green patterned robe; a gentle black-and-white panda in a moss-green cloth robe, holding a small tea cup. Two quieter supporting guests complete the gathering: a small cream-colored cat in a purple hood and a dark-haired traveler with an original understated half-mask. All six must be visually distinct, friendly, anatomically clean and grounded around the same table. Keep the main cat, crane and fox most prominent. Expressions show observation, affectionate competition, and a clever little surprise.
+
+Make the card-game theme visible through a few neatly arranged ivory paper cards and small held card fans, while preserving the tea-house warmth. Original card corner decoration in cinnabar, simple Arabic numerals, and original motifs: an indigo twin mountain, a red looped knot, a green curved leaf, and an ochre sun. Use those original motifs rather than ordinary poker suits. Clear plausible paws/hands; no floating cards or chaotic particle storms.
+
+Avoid casino imagery, chips, stacks of money, dice, wagering, weapons, battle poses, frightening magic, glossy esports graphics, modern neon, licensed characters and existing commercial card-game branding. The result should read as a premium, welcoming cover for an original friends-only game. Exact 1920 x 1080 composition and faithful Chinese title typography are essential.

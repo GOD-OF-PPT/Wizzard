@@ -1,0 +1,21 @@
+{
+  "source": "art/source/web-v3/dense-hand-portrait-idle-v2-candidate.png",
+  "sourceSha256": "36e8462ee82fefae340b34f9434f4ee40ede2460cbbff2b773d45f49856a8750",
+  "sourceRoi": {
+    "left": 275,
+    "top": 1072,
+    "width": 394,
+    "height": 102
+  },
+  "candidate": "art/source/web-v3/dense-action-portrait-blank-v1-candidate.png",
+  "candidateSha256": "f9979a0aa979402c0a871b2745bcb0d113780fc3e13af5b48c8028b172ff60ec",
+  "method": "Original plaque pixels and color/inner-content raster alpha; generated blank green contributes only285x56 text ROI, feather3px. Generated border rejected.",
+  "cleanupRoiInCrop": [
+    78,
+    22,
+    285,
+    56
+  ],
+  "output": "art/runtime/web-v3/dense-action-portrait-v1.png",
+  "sha256": "40d2a38a7b1d8741613f7e197161c5bdfed4de53660fbd5f945efba59de62f88"
+}

@@ -1,0 +1,533 @@
+{
+  "method": "Built-in ImageGen compact trigger/list panel. Cleanup candidate applied only to quiet bodyROI; original panel title/frame/flowers/alpha outside ROI retained. Uniform transparent trim/resize. Full page sources are existing42/43/44 plus one generated trigger, then generated panel and original selected avatar/name-ink rasters. No runtime font rendering in design sources; exact source geometry saved before product wiring.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "results",
+      "source": "art/mockups/web-v3/42-results-long-name-v1.png",
+      "sourceSha256": "955285a7dc0d8a0438c4af366b465e300895d29af773b8dd502ae7d9c9102f7a",
+      "entry": "art/mockups/web-v3/48-results-name-access-v1.png",
+      "entrySha256": "ccd634d1621799d0e6ea29b64ecfa53804ee1fa64f4046a476466a62a72db866",
+      "list": "art/mockups/web-v3/50-results-name-list-v1.png",
+      "listSha256": "5f50c8d82098b61f5b43eedc7a088e2d1ea93dfc7b665533e6d8aef445dcc425",
+      "trigger": "art/runtime/web-v3/results-name-access-v1/landscape-trigger-v1.png",
+      "triggerSha256": "8d21206120bf62c45c832807e5be0235b84a7e9701b11cd047df0d30a469dc89",
+      "panel": "art/runtime/web-v3/results-name-access-v1/landscape-panel-v1.png",
+      "panelSha256": "7314d473b8931428a32aed15dbd54faed577f47a3d107fda9967c5401ac6cd11",
+      "cleanROI": [
+        257,
+        264,
+        990,
+        621
+      ],
+      "sourcePanel": "art/source/web-v3/results-name-access-v1/landscape-panel-generated-v1.png",
+      "sourcePanelSha256": "f4f8e5a05712a1b3e75c917170b92a3ffe9deb3fb22bd7ad1f72a6fd6b6376bb",
+      "cleanCandidate": "art/source/web-v3/results-name-access-v1/landscape-panel-clean-candidate-v1.png",
+      "cleanCandidateSha256": "138368ad22200ee29b78eb259c7e13f9e7b74cd06b2267fae097725058aa47bc",
+      "dataInk": [
+        {
+          "source": "art/mockups/web-v3/45-results-name-dialog-v1.png",
+          "rect": [
+            580,
+            444,
+            510,
+            60
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            351,
+            165,
+            53
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            426,
+            165,
+            53
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            501,
+            165,
+            53
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            576,
+            165,
+            53
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            651,
+            165,
+            53
+          ]
+        }
+      ],
+      "avatars": [
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-bamboo-cat-v3.png",
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-wandering-crane-v3.png",
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-flower-fox-v3.png",
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-ink-panda-v3.png",
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-sleepy-star-cat-v3.png",
+        "art/runtime/web-v3/results-source-v1/landscape-results-masked-traveler-v2.png"
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "source": "art/mockups/web-v3/44-ranking-long-name-v1.png",
+      "sourceSha256": "ded81bea42a668b3964f3c3cecae2201cc2693f9838ea5902626d1be220d8c76",
+      "entry": "art/mockups/web-v3/49-ranking-name-access-v1.png",
+      "entrySha256": "73ecfb337cdbf1cd1347c6880b8d2304898679651657975dd08b98b2e94e0f9e",
+      "list": "art/mockups/web-v3/53-ranking-name-list-v1.png",
+      "listSha256": "bb8235520836323a669b2701ec590ec93050104d28adfb77a0992603ce5ec182",
+      "trigger": "art/runtime/web-v3/results-name-access-v1/landscape-trigger-v1.png",
+      "triggerSha256": "8d21206120bf62c45c832807e5be0235b84a7e9701b11cd047df0d30a469dc89",
+      "panel": "art/runtime/web-v3/results-name-access-v1/landscape-panel-v1.png",
+      "panelSha256": "7314d473b8931428a32aed15dbd54faed577f47a3d107fda9967c5401ac6cd11",
+      "cleanROI": [
+        257,
+        264,
+        990,
+        621
+      ],
+      "sourcePanel": "art/source/web-v3/results-name-access-v1/landscape-panel-generated-v1.png",
+      "sourcePanelSha256": "f4f8e5a05712a1b3e75c917170b92a3ffe9deb3fb22bd7ad1f72a6fd6b6376bb",
+      "cleanCandidate": "art/source/web-v3/results-name-access-v1/landscape-panel-clean-candidate-v1.png",
+      "cleanCandidateSha256": "138368ad22200ee29b78eb259c7e13f9e7b74cd06b2267fae097725058aa47bc",
+      "dataInk": [
+        {
+          "source": "art/mockups/web-v3/45-results-name-dialog-v1.png",
+          "rect": [
+            580,
+            444,
+            510,
+            60
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            351,
+            165,
+            53
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            426,
+            165,
+            53
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            501,
+            165,
+            53
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            576,
+            165,
+            53
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            651,
+            165,
+            53
+          ]
+        }
+      ],
+      "avatars": [
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-bamboo-cat-v3.png",
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-wandering-crane-v3.png",
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-flower-fox-v3.png",
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-ink-panda-v3.png",
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-sleepy-star-cat-v3.png",
+        "art/runtime/web-v3/results-source-v1/landscape-results-masked-traveler-v2.png"
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "current-ranking",
+      "source": "art/mockups/web-v3/43-current-ranking-long-name-v1.png",
+      "sourceSha256": "930a9e018528830fc647407fdb8e725f9a5f45af98aa4dac8f7409b378624d18",
+      "entry": "art/mockups/web-v3/51-current-ranking-name-access-v1.png",
+      "entrySha256": "8dd235cd945566b9a8a200f87e2b0719bdb3dec30a8a1aa20b883c89541393f6",
+      "list": "art/mockups/web-v3/52-current-ranking-name-list-v1.png",
+      "listSha256": "84e83ccd67b98690c1d204f2372bec9e3440d3025881041211e89ff8239a1ff8",
+      "trigger": "art/runtime/web-v3/results-name-access-v1/landscape-trigger-v1.png",
+      "triggerSha256": "8d21206120bf62c45c832807e5be0235b84a7e9701b11cd047df0d30a469dc89",
+      "panel": "art/runtime/web-v3/results-name-access-v1/landscape-panel-v1.png",
+      "panelSha256": "7314d473b8931428a32aed15dbd54faed577f47a3d107fda9967c5401ac6cd11",
+      "cleanROI": [
+        257,
+        264,
+        990,
+        621
+      ],
+      "sourcePanel": "art/source/web-v3/results-name-access-v1/landscape-panel-generated-v1.png",
+      "sourcePanelSha256": "f4f8e5a05712a1b3e75c917170b92a3ffe9deb3fb22bd7ad1f72a6fd6b6376bb",
+      "cleanCandidate": "art/source/web-v3/results-name-access-v1/landscape-panel-clean-candidate-v1.png",
+      "cleanCandidateSha256": "138368ad22200ee29b78eb259c7e13f9e7b74cd06b2267fae097725058aa47bc",
+      "dataInk": [
+        {
+          "source": "art/mockups/web-v3/45-results-name-dialog-v1.png",
+          "rect": [
+            580,
+            444,
+            510,
+            60
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            351,
+            165,
+            53
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            426,
+            165,
+            53
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            501,
+            165,
+            53
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            576,
+            165,
+            53
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/06-results-home-v2.png",
+          "rect": [
+            438,
+            651,
+            165,
+            53
+          ]
+        }
+      ],
+      "avatars": [
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-bamboo-cat-v3.png",
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-wandering-crane-v3.png",
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-flower-fox-v3.png",
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-ink-panda-v3.png",
+        "art/runtime/web-v3/results-avatar-matte-v3/landscape-results-sleepy-star-cat-v3.png",
+        "art/runtime/web-v3/results-source-v1/landscape-results-masked-traveler-v2.png"
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "source": "art/mockups/web-v3/portrait/42-results-long-name-v1.png",
+      "sourceSha256": "3d331745b7624566cdc6344a3c32189a46ecab376a492b02122d4dc8d1b3f1a8",
+      "entry": "art/mockups/web-v3/portrait/48-results-name-access-v1.png",
+      "entrySha256": "69053df9c501438bc4dea38641371d2617f83cc48424040ab71dece30530e3bf",
+      "list": "art/mockups/web-v3/portrait/50-results-name-list-v1.png",
+      "listSha256": "5b324dd212c0b77dea9cb47dfba9d08a554689d623d6a4521ab29d256a054844",
+      "trigger": "art/runtime/web-v3/results-name-access-v1/portrait-trigger-v1.png",
+      "triggerSha256": "94915b815755f43b3c3a27e5769a658c71000e7c3d66ae62b910d75744ba15c4",
+      "panel": "art/runtime/web-v3/results-name-access-v1/portrait-panel-v1.png",
+      "panelSha256": "79f0aa4177dd24f90cd349cdda5f60d4594800bd97ae517ba22f87d6c442f72b",
+      "cleanROI": [
+        212,
+        237,
+        770,
+        916
+      ],
+      "sourcePanel": "art/source/web-v3/results-name-access-v1/portrait-panel-generated-v1.png",
+      "sourcePanelSha256": "815a2e2735a0e93a3ced88ecd125fc8961d5a76541974575234051adc018b56e",
+      "cleanCandidate": "art/source/web-v3/results-name-access-v1/portrait-panel-clean-candidate-v1.png",
+      "cleanCandidateSha256": "f0a4a0c35831b0142b8900c2937fbc1dac172e6a2e93e53f670ea710577c99cf",
+      "dataInk": [
+        {
+          "source": "art/mockups/web-v3/portrait/45-results-name-dialog-v1.png",
+          "rect": [
+            160,
+            790,
+            620,
+            85
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            650,
+            145,
+            72
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            758,
+            145,
+            72
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            866,
+            145,
+            72
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            974,
+            145,
+            72
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            1082,
+            145,
+            72
+          ]
+        }
+      ],
+      "avatars": [
+        "art/runtime/web-v3/results-source-v1/portrait-results-bamboo-cat-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-wandering-crane-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-flower-fox-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-ink-panda-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-sleepy-star-cat-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-masked-traveler-v2.png"
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "source": "art/mockups/web-v3/portrait/44-ranking-long-name-v1.png",
+      "sourceSha256": "63e5e5565beaae1d05e2515b60c857132f86a8aea8ae73ba79213261b556a3e4",
+      "entry": "art/mockups/web-v3/portrait/49-ranking-name-access-v1.png",
+      "entrySha256": "d0e740da39d27b1e5147613cff00af97c11809ce62323582129efc4ea3d61151",
+      "list": "art/mockups/web-v3/portrait/53-ranking-name-list-v1.png",
+      "listSha256": "b3e273f0a393675c5dbe87ddeda79fc7ce894a5dd8c11285ec7bd29d350f5d23",
+      "trigger": "art/runtime/web-v3/results-name-access-v1/portrait-trigger-v1.png",
+      "triggerSha256": "94915b815755f43b3c3a27e5769a658c71000e7c3d66ae62b910d75744ba15c4",
+      "panel": "art/runtime/web-v3/results-name-access-v1/portrait-panel-v1.png",
+      "panelSha256": "79f0aa4177dd24f90cd349cdda5f60d4594800bd97ae517ba22f87d6c442f72b",
+      "cleanROI": [
+        212,
+        237,
+        770,
+        916
+      ],
+      "sourcePanel": "art/source/web-v3/results-name-access-v1/portrait-panel-generated-v1.png",
+      "sourcePanelSha256": "815a2e2735a0e93a3ced88ecd125fc8961d5a76541974575234051adc018b56e",
+      "cleanCandidate": "art/source/web-v3/results-name-access-v1/portrait-panel-clean-candidate-v1.png",
+      "cleanCandidateSha256": "f0a4a0c35831b0142b8900c2937fbc1dac172e6a2e93e53f670ea710577c99cf",
+      "dataInk": [
+        {
+          "source": "art/mockups/web-v3/portrait/45-results-name-dialog-v1.png",
+          "rect": [
+            160,
+            790,
+            620,
+            85
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            650,
+            145,
+            72
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            758,
+            145,
+            72
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            866,
+            145,
+            72
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            974,
+            145,
+            72
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            1082,
+            145,
+            72
+          ]
+        }
+      ],
+      "avatars": [
+        "art/runtime/web-v3/results-source-v1/portrait-results-bamboo-cat-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-wandering-crane-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-flower-fox-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-ink-panda-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-sleepy-star-cat-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-masked-traveler-v2.png"
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "current-ranking",
+      "source": "art/mockups/web-v3/portrait/43-current-ranking-long-name-v1.png",
+      "sourceSha256": "0a96d65ec5017e16b0813f18236613cc0ef32fcfe2b5325b67b00062204272da",
+      "entry": "art/mockups/web-v3/portrait/51-current-ranking-name-access-v1.png",
+      "entrySha256": "bbd951b3d8f04410a63cfec47222735e16a144d9ce0c6967239aecc5516448a4",
+      "list": "art/mockups/web-v3/portrait/52-current-ranking-name-list-v1.png",
+      "listSha256": "958f2857922b87bf2643fd3a6ac3d4811513cbfdda47f070f20a5b5231b1fce2",
+      "trigger": "art/runtime/web-v3/results-name-access-v1/portrait-trigger-v1.png",
+      "triggerSha256": "94915b815755f43b3c3a27e5769a658c71000e7c3d66ae62b910d75744ba15c4",
+      "panel": "art/runtime/web-v3/results-name-access-v1/portrait-panel-v1.png",
+      "panelSha256": "79f0aa4177dd24f90cd349cdda5f60d4594800bd97ae517ba22f87d6c442f72b",
+      "cleanROI": [
+        212,
+        237,
+        770,
+        916
+      ],
+      "sourcePanel": "art/source/web-v3/results-name-access-v1/portrait-panel-generated-v1.png",
+      "sourcePanelSha256": "815a2e2735a0e93a3ced88ecd125fc8961d5a76541974575234051adc018b56e",
+      "cleanCandidate": "art/source/web-v3/results-name-access-v1/portrait-panel-clean-candidate-v1.png",
+      "cleanCandidateSha256": "f0a4a0c35831b0142b8900c2937fbc1dac172e6a2e93e53f670ea710577c99cf",
+      "dataInk": [
+        {
+          "source": "art/mockups/web-v3/portrait/45-results-name-dialog-v1.png",
+          "rect": [
+            160,
+            790,
+            620,
+            85
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            650,
+            145,
+            72
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            758,
+            145,
+            72
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            866,
+            145,
+            72
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            974,
+            145,
+            72
+          ]
+        },
+        {
+          "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+          "rect": [
+            236,
+            1082,
+            145,
+            72
+          ]
+        }
+      ],
+      "avatars": [
+        "art/runtime/web-v3/results-source-v1/portrait-results-bamboo-cat-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-wandering-crane-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-flower-fox-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-ink-panda-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-sleepy-star-cat-v2.png",
+        "art/runtime/web-v3/results-source-v1/portrait-results-masked-traveler-v2.png"
+      ]
+    }
+  ]
+}

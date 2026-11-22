@@ -1,0 +1,62 @@
+{
+  "y": 148,
+  "canvas": [
+    941,
+    1672
+  ],
+  "source": "art/mockups/web-v3/portrait/10-bid-timer-v3.png",
+  "pending": "art/mockups/web-v3/portrait/17-bid-pending-timer-v3.png",
+  "scope": "Only local seat0 during local human bid normal/pending; source places it below the central modal. Other seats and other phases retain their independent source positions.",
+  "sourceSha256": "f0cd95a89356f6790980f62a497945c12c8a57dace1a72f7e519044585b2da19",
+  "pendingSha256": "8d3e76acb7a37838f4c6f23a07d687f73131cf8c9fe4ec510449d7489c3d0882",
+  "baseSource": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+  "parts": {
+    "slot": 0,
+    "key": "bamboo-cat",
+    "circle": [
+      115,
+      1001,
+      93,
+      93
+    ],
+    "name": [
+      18,
+      1057,
+      196,
+      48
+    ],
+    "stats": [
+      20,
+      1102,
+      192,
+      39
+    ],
+    "you": [
+      62,
+      1144,
+      106,
+      44
+    ],
+    "portrait": [
+      20,
+      906,
+      190,
+      156
+    ],
+    "portraitRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-bamboo-cat-v1.png",
+    "halo": [
+      8,
+      894,
+      214,
+      214
+    ],
+    "nameRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot0-name-v2.png",
+    "nameFont": 28.5,
+    "statsFont": 25,
+    "youFont": 32,
+    "nameShift": -2,
+    "statsShift": -1.5,
+    "statsRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot0-stats-v2.png",
+    "youRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot0-you-v2.png"
+  }
+}

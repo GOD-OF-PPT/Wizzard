@@ -1,0 +1,161 @@
+{
+  "method": "Mechanical extraction of original ImageGen fixed recovery components; panel text/ornamentRGB retained. No source mock modified.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "reconnecting",
+      "source": "art/mockups/web-v3/15-reconnecting-network-v2.png",
+      "sourceSha256": "9c4e42a51d094e3d2575e2ef448759db42b972b83070c4c7b31de7335f2955cd",
+      "canvas": [
+        1672,
+        941
+      ],
+      "roi": [
+        445,
+        230,
+        783,
+        457
+      ],
+      "body": [
+        451,
+        269,
+        769,
+        414
+      ],
+      "action": [
+        665,
+        567,
+        343,
+        87
+      ],
+      "method": "Largest connected navy/gold source component, fill enclosed holes,1px fringe; sourceRGB copied exactly",
+      "maskOpaquePixels": 321280,
+      "maskBounds": [
+        5,
+        1,
+        778,
+        454
+      ],
+      "output": "art/runtime/web-v3/recovery-source-v1/landscape-reconnecting-v1.png",
+      "sha256": "56b23fc854df2404f5ea836733fc0b6f2e9b702c33d19362418c53bc04f71fec",
+      "changedSourceRGB": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "session-ended",
+      "source": "art/mockups/web-v3/16-session-ended-network-v3.png",
+      "sourceSha256": "2aa7172ee9cfd9fb38d4e4ffc61b1dfd1db07b8f9fb774dd60184c41dc975b62",
+      "canvas": [
+        1672,
+        941
+      ],
+      "roi": [
+        445,
+        230,
+        783,
+        457
+      ],
+      "body": [
+        451,
+        269,
+        769,
+        414
+      ],
+      "action": [
+        665,
+        567,
+        343,
+        87
+      ],
+      "method": "Largest connected navy/gold source component, fill enclosed holes,1px fringe; sourceRGB copied exactly",
+      "maskOpaquePixels": 321337,
+      "maskBounds": [
+        4,
+        1,
+        778,
+        454
+      ],
+      "output": "art/runtime/web-v3/recovery-source-v1/landscape-session-ended-v1.png",
+      "sha256": "e92d9b8975b85235e1c86b91d66a06fe5c2e2ba77f60d2cb6e4682e54fb641c9",
+      "changedSourceRGB": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "reconnecting",
+      "source": "art/mockups/web-v3/portrait/15-reconnecting.png",
+      "sourceSha256": "359f6acecaddd7a675c2e56e03329fe5f6a4b2e3347bf771c733309876873c05",
+      "canvas": [
+        941,
+        1672
+      ],
+      "roi": [
+        173,
+        508,
+        609,
+        642
+      ],
+      "body": [
+        178,
+        556,
+        586,
+        578
+      ],
+      "action": [
+        242,
+        983,
+        457,
+        104
+      ],
+      "method": "Largest connected navy/gold source component, fill enclosed holes,1px fringe; sourceRGB copied exactly",
+      "maskOpaquePixels": 339723,
+      "maskBounds": [
+        3,
+        28,
+        599,
+        637
+      ],
+      "output": "art/runtime/web-v3/recovery-source-v1/portrait-reconnecting-v1.png",
+      "sha256": "dd075c88dea31923550dafe6bd21d1fdc3c7ac222110484bf78f547b3582f42f",
+      "changedSourceRGB": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "session-ended",
+      "source": "art/mockups/web-v3/portrait/16-session-ended-v2.png",
+      "sourceSha256": "38d3715c0a656c26052e5413b566cdc2297e3cc7a8264df23a33719474782fdf",
+      "canvas": [
+        941,
+        1672
+      ],
+      "roi": [
+        173,
+        508,
+        609,
+        642
+      ],
+      "body": [
+        178,
+        556,
+        586,
+        578
+      ],
+      "action": [
+        242,
+        983,
+        457,
+        104
+      ],
+      "method": "Largest connected navy/gold source component, fill enclosed holes,1px fringe; sourceRGB copied exactly",
+      "maskOpaquePixels": 339172,
+      "maskBounds": [
+        2,
+        28,
+        598,
+        636
+      ],
+      "output": "art/runtime/web-v3/recovery-source-v1/portrait-session-ended-v1.png",
+      "sha256": "76d4c0173de8235d2763c86cc6963a669f1ac27f947bde277217aa57fb008bec",
+      "changedSourceRGB": 0
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "upstreamCss": "https://fonts.googleapis.com/css2?family=Tinos:wght@700&display=swap",
+  "upstreamFont": "https://fonts.gstatic.com/s/tinos/v26/buE1poGnedXvwj1AW0Fp.ttf",
+  "licenseUrl": "https://raw.githubusercontent.com/googlefonts/tinos/main/OFL.txt",
+  "metadata": "https://raw.githubusercontent.com/google/fonts/main/ofl/tinos/METADATA.pb",
+  "downloadDate": "2026-10-25",
+  "fontTools": "4.51.0",
+  "weight": 700,
+  "codepoints": "U+0030-0039",
+  "scope": "Rejected Web rank-font candidate; not imported by production. Final ranks retain Noto Serif SC with source geometry/ink calibration.",
+  "proofs": {
+    "noto": {
+      "batch": 77,
+      "sizeCqw": 34,
+      "topPercent": 8.5,
+      "leftPercent": 17
+    },
+    "garamond": {
+      "batch": 78,
+      "sizeCqw": 40,
+      "topPercent": 9.1,
+      "leftPercent": 17,
+      "status": "rejected for rank shape"
+    },
+    "tinos": {
+      "batch": 79,
+      "sizeCqw": 40,
+      "topPercent": 10,
+      "leftPercent": 17,
+      "status": "rejected after the source ink comparison; 8/6 were too heavy"
+    }
+  },
+  "files": [
+    {
+      "path": "art/source/fonts/web-v3/Tinos-Bold.ttf",
+      "bytes": 582100,
+      "sha256": "6ce81af2cbe9244156ee0399ae1c2e029f99ed3e64d4a0d49f5d4c59a715d743"
+    },
+    {
+      "path": "art/source/fonts/web-v3/OFL-Tinos.txt",
+      "bytes": 4383,
+      "sha256": "cb3382d4643e8b02c12e322c220a3c76a5020d667e4fd4e7c75e744cca6caa6b"
+    },
+    {
+      "path": "art/runtime/fonts/WebV3Rank-Tinos-Bold-v1.woff2",
+      "bytes": 3592,
+      "sha256": "f4f963225d60be1fad2007bec7177f73ea39e7f2a4b288e69dfbcd6cdd956d82"
+    },
+    {
+      "path": "public/licenses/Tinos-OFL.txt",
+      "bytes": 4383,
+      "sha256": "cb3382d4643e8b02c12e322c220a3c76a5020d667e4fd4e7c75e744cca6caa6b"
+    }
+  ]
+}

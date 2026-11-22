@@ -1,0 +1,1435 @@
+{
+  "method": "Built-in ImageGen independent3/4/5player states. Only mutable score/rank and unoccupied identity/value/badge masks enter original07 source. Other original RGB invariant. Runtime exports only unused rank-column patch, never fixed player values or occupied badge furniture.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "count": 3,
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "candidate": "art/source/web-v3/ranking-counts-v1/landscape-ranking-3-candidate-v1.png",
+      "candidateSha256": "83b2258461772aeff5019707c3c993e21350b096e62834eff756bc98d785b772",
+      "allowed": [
+        {
+          "kind": "score",
+          "rect": [
+            1080,
+            295,
+            130,
+            62
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            484,
+            298,
+            46,
+            56
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            1080,
+            371,
+            130,
+            62
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            484,
+            374,
+            46,
+            56
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            1080,
+            447,
+            130,
+            62
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            484,
+            450,
+            46,
+            56
+          ]
+        },
+        {
+          "kind": "unused-badge",
+          "rect": [
+            470,
+            518,
+            74,
+            74
+          ]
+        },
+        {
+          "kind": "unused-badge",
+          "rect": [
+            470,
+            594,
+            74,
+            74
+          ]
+        },
+        {
+          "kind": "unused-badge",
+          "rect": [
+            470,
+            670,
+            74,
+            74
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 3,
+          "circle": [
+            671,
+            554,
+            47
+          ],
+          "rect": [
+            622,
+            505,
+            98,
+            98
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 3,
+          "rect": [
+            733,
+            529,
+            232,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 0,
+          "rect": [
+            442,
+            526,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 1,
+          "rect": [
+            1080,
+            526,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 4,
+          "circle": [
+            671,
+            630,
+            47
+          ],
+          "rect": [
+            622,
+            581,
+            98,
+            98
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 4,
+          "rect": [
+            733,
+            605,
+            232,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 0,
+          "rect": [
+            442,
+            602,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 1,
+          "rect": [
+            1080,
+            602,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 5,
+          "circle": [
+            671,
+            706,
+            47
+          ],
+          "rect": [
+            622,
+            657,
+            98,
+            98
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 5,
+          "rect": [
+            733,
+            681,
+            232,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 0,
+          "rect": [
+            442,
+            678,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 1,
+          "rect": [
+            1080,
+            678,
+            130,
+            55
+          ]
+        }
+      ],
+      "output": "art/mockups/web-v3/38-ranking-3-players-v1.png",
+      "sha256": "1bc7555940626e3f279e02a7ddd0af02c7b8316ed3476c1399c72ac69a88f498",
+      "changed": 125615,
+      "changedOutsideDynamicMasks": 0
+    },
+    {
+      "profile": "landscape",
+      "count": 4,
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "candidate": "art/source/web-v3/ranking-counts-v1/landscape-ranking-4-candidate-v1.png",
+      "candidateSha256": "a25bbdd857b8a8431171ed9ac4d3fd164501b92fb7dec5acc808e9446d697a4c",
+      "allowed": [
+        {
+          "kind": "score",
+          "rect": [
+            1080,
+            295,
+            130,
+            62
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            484,
+            298,
+            46,
+            56
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            1080,
+            371,
+            130,
+            62
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            484,
+            374,
+            46,
+            56
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            1080,
+            447,
+            130,
+            62
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            484,
+            450,
+            46,
+            56
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            1080,
+            523,
+            130,
+            62
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            484,
+            526,
+            46,
+            56
+          ]
+        },
+        {
+          "kind": "unused-badge",
+          "rect": [
+            470,
+            594,
+            74,
+            74
+          ]
+        },
+        {
+          "kind": "unused-badge",
+          "rect": [
+            470,
+            670,
+            74,
+            74
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 4,
+          "circle": [
+            671,
+            630,
+            47
+          ],
+          "rect": [
+            622,
+            581,
+            98,
+            98
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 4,
+          "rect": [
+            733,
+            605,
+            232,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 0,
+          "rect": [
+            442,
+            602,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 1,
+          "rect": [
+            1080,
+            602,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 5,
+          "circle": [
+            671,
+            706,
+            47
+          ],
+          "rect": [
+            622,
+            657,
+            98,
+            98
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 5,
+          "rect": [
+            733,
+            681,
+            232,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 0,
+          "rect": [
+            442,
+            678,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 1,
+          "rect": [
+            1080,
+            678,
+            130,
+            55
+          ]
+        }
+      ],
+      "output": "art/mockups/web-v3/39-ranking-4-players-v1.png",
+      "sha256": "b6754527810c3ef0d14be00d5ab7c3d85b5ed0e00325eb50a1f45a96084b25e2",
+      "changed": 103731,
+      "changedOutsideDynamicMasks": 0
+    },
+    {
+      "profile": "landscape",
+      "count": 5,
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "candidate": "art/source/web-v3/ranking-counts-v1/landscape-ranking-5-candidate-v1.png",
+      "candidateSha256": "ef1b3d83fe47d85b4fc7258b1adbd551a17f8a18778c0ee755b93de0e593474d",
+      "allowed": [
+        {
+          "kind": "score",
+          "rect": [
+            1080,
+            295,
+            130,
+            62
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            484,
+            298,
+            46,
+            56
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            1080,
+            371,
+            130,
+            62
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            484,
+            374,
+            46,
+            56
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            1080,
+            447,
+            130,
+            62
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            484,
+            450,
+            46,
+            56
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            1080,
+            523,
+            130,
+            62
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            484,
+            526,
+            46,
+            56
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            1080,
+            599,
+            130,
+            62
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            484,
+            602,
+            46,
+            56
+          ]
+        },
+        {
+          "kind": "unused-badge",
+          "rect": [
+            470,
+            670,
+            74,
+            74
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 5,
+          "circle": [
+            671,
+            706,
+            47
+          ],
+          "rect": [
+            622,
+            657,
+            98,
+            98
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 5,
+          "rect": [
+            733,
+            681,
+            232,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 0,
+          "rect": [
+            442,
+            678,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 1,
+          "rect": [
+            1080,
+            678,
+            130,
+            55
+          ]
+        }
+      ],
+      "output": "art/mockups/web-v3/40-ranking-5-players-v1.png",
+      "sha256": "50a17956eca4b020981318fa7c52010579733e57dab02f2e87493cf0384883fc",
+      "changed": 82361,
+      "changedOutsideDynamicMasks": 0
+    },
+    {
+      "profile": "portrait",
+      "count": 3,
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "candidate": "art/source/web-v3/ranking-counts-v1/portrait-ranking-3-candidate-v1.png",
+      "candidateSha256": "83c02ec81ac39a681e12eecd1110e88f7767e3b3f889a742f4d68a2e5ded2a6b",
+      "allowed": [
+        {
+          "kind": "score",
+          "rect": [
+            640,
+            571,
+            115,
+            72
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            224,
+            571,
+            62,
+            72
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            640,
+            678,
+            115,
+            72
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            224,
+            678,
+            62,
+            72
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            640,
+            785,
+            115,
+            72
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            224,
+            785,
+            62,
+            72
+          ]
+        },
+        {
+          "kind": "unused-badge",
+          "rect": [
+            210,
+            881,
+            90,
+            94
+          ]
+        },
+        {
+          "kind": "unused-badge",
+          "rect": [
+            210,
+            988,
+            90,
+            94
+          ]
+        },
+        {
+          "kind": "unused-badge",
+          "rect": [
+            210,
+            1095,
+            90,
+            94
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 3,
+          "circle": [
+            378,
+            928,
+            58
+          ],
+          "rect": [
+            318,
+            868,
+            120,
+            120
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 3,
+          "rect": [
+            442,
+            899,
+            164,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 0,
+          "rect": [
+            190,
+            894,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 1,
+          "rect": [
+            629,
+            894,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 4,
+          "circle": [
+            378,
+            1035,
+            58
+          ],
+          "rect": [
+            318,
+            975,
+            120,
+            120
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 4,
+          "rect": [
+            442,
+            1006,
+            164,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 0,
+          "rect": [
+            190,
+            1001,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 1,
+          "rect": [
+            629,
+            1001,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 5,
+          "circle": [
+            378,
+            1142,
+            58
+          ],
+          "rect": [
+            318,
+            1082,
+            120,
+            120
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 5,
+          "rect": [
+            442,
+            1113,
+            164,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 0,
+          "rect": [
+            190,
+            1108,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 1,
+          "rect": [
+            629,
+            1108,
+            130,
+            65
+          ]
+        }
+      ],
+      "output": "art/mockups/web-v3/portrait/38-ranking-3-players-v1.png",
+      "sha256": "0fefe3296f4c496c24b63520268d788791c6c92dc86a2373899e14fe1ac4d0ca",
+      "changed": 148268,
+      "changedOutsideDynamicMasks": 0
+    },
+    {
+      "profile": "portrait",
+      "count": 4,
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "candidate": "art/source/web-v3/ranking-counts-v1/portrait-ranking-4-candidate-v1.png",
+      "candidateSha256": "0b5f35e9ae09e75485e27de75149c10d8a494dc2e4114774b7653be8d6e6fd26",
+      "allowed": [
+        {
+          "kind": "score",
+          "rect": [
+            640,
+            571,
+            115,
+            72
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            224,
+            571,
+            62,
+            72
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            640,
+            678,
+            115,
+            72
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            224,
+            678,
+            62,
+            72
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            640,
+            785,
+            115,
+            72
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            224,
+            785,
+            62,
+            72
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            640,
+            892,
+            115,
+            72
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            224,
+            892,
+            62,
+            72
+          ]
+        },
+        {
+          "kind": "unused-badge",
+          "rect": [
+            210,
+            988,
+            90,
+            94
+          ]
+        },
+        {
+          "kind": "unused-badge",
+          "rect": [
+            210,
+            1095,
+            90,
+            94
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 4,
+          "circle": [
+            378,
+            1035,
+            58
+          ],
+          "rect": [
+            318,
+            975,
+            120,
+            120
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 4,
+          "rect": [
+            442,
+            1006,
+            164,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 0,
+          "rect": [
+            190,
+            1001,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 1,
+          "rect": [
+            629,
+            1001,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 5,
+          "circle": [
+            378,
+            1142,
+            58
+          ],
+          "rect": [
+            318,
+            1082,
+            120,
+            120
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 5,
+          "rect": [
+            442,
+            1113,
+            164,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 0,
+          "rect": [
+            190,
+            1108,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 1,
+          "rect": [
+            629,
+            1108,
+            130,
+            65
+          ]
+        }
+      ],
+      "output": "art/mockups/web-v3/portrait/39-ranking-4-players-v1.png",
+      "sha256": "bb20f361995e9a0d2594c8943fc779caaf488309ca9b2a2b17f1dc615a32ff19",
+      "changed": 123431,
+      "changedOutsideDynamicMasks": 0
+    },
+    {
+      "profile": "portrait",
+      "count": 5,
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "candidate": "art/source/web-v3/ranking-counts-v1/portrait-ranking-5-candidate-v1.png",
+      "candidateSha256": "fdfd4ae2d4fefe95bc0f294a674b569b2b626c762bfca71820aabf62f0094e33",
+      "allowed": [
+        {
+          "kind": "score",
+          "rect": [
+            640,
+            571,
+            115,
+            72
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            224,
+            571,
+            62,
+            72
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            640,
+            678,
+            115,
+            72
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            224,
+            678,
+            62,
+            72
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            640,
+            785,
+            115,
+            72
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            224,
+            785,
+            62,
+            72
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            640,
+            892,
+            115,
+            72
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            224,
+            892,
+            62,
+            72
+          ]
+        },
+        {
+          "kind": "score",
+          "rect": [
+            640,
+            999,
+            115,
+            72
+          ]
+        },
+        {
+          "kind": "rank",
+          "rect": [
+            224,
+            999,
+            62,
+            72
+          ]
+        },
+        {
+          "kind": "unused-badge",
+          "rect": [
+            210,
+            1095,
+            90,
+            94
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 5,
+          "circle": [
+            378,
+            1142,
+            58
+          ],
+          "rect": [
+            318,
+            1082,
+            120,
+            120
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 5,
+          "rect": [
+            442,
+            1113,
+            164,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 0,
+          "rect": [
+            190,
+            1108,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 1,
+          "rect": [
+            629,
+            1108,
+            130,
+            65
+          ]
+        }
+      ],
+      "output": "art/mockups/web-v3/portrait/40-ranking-5-players-v1.png",
+      "sha256": "e2a99781b789df692f5741b7ebb2009f65e367577c94884c8e92cc5a501c6ed2",
+      "changed": 97038,
+      "changedOutsideDynamicMasks": 0
+    }
+  ],
+  "runtimeReports": [
+    {
+      "profile": "landscape",
+      "count": 3,
+      "source": "art/mockups/web-v3/38-ranking-3-players-v1.png",
+      "sourceSha256": "1bc7555940626e3f279e02a7ddd0af02c7b8316ed3476c1399c72ac69a88f498",
+      "rect": [
+        470,
+        518,
+        74,
+        226
+      ],
+      "occupiedRankRects": [
+        [
+          470,
+          290,
+          74,
+          74
+        ],
+        [
+          470,
+          366,
+          74,
+          74
+        ],
+        [
+          470,
+          442,
+          74,
+          74
+        ]
+      ],
+      "output": "art/runtime/web-v3/ranking-counts-v1/landscape-empty-ranks-after-3-v1.png",
+      "sha256": "13cc233bcc0b5e3bd2ea92f8b0258eff253902236bcf7349c59b8bad26a745c3"
+    },
+    {
+      "profile": "landscape",
+      "count": 4,
+      "source": "art/mockups/web-v3/39-ranking-4-players-v1.png",
+      "sourceSha256": "b6754527810c3ef0d14be00d5ab7c3d85b5ed0e00325eb50a1f45a96084b25e2",
+      "rect": [
+        470,
+        594,
+        74,
+        150
+      ],
+      "occupiedRankRects": [
+        [
+          470,
+          290,
+          74,
+          74
+        ],
+        [
+          470,
+          366,
+          74,
+          74
+        ],
+        [
+          470,
+          442,
+          74,
+          74
+        ],
+        [
+          470,
+          518,
+          74,
+          74
+        ]
+      ],
+      "output": "art/runtime/web-v3/ranking-counts-v1/landscape-empty-ranks-after-4-v1.png",
+      "sha256": "7f409470432dc0ce7ff30e65f382a58b4aa7974711caa0dc1fcb475f49dd063c"
+    },
+    {
+      "profile": "landscape",
+      "count": 5,
+      "source": "art/mockups/web-v3/40-ranking-5-players-v1.png",
+      "sourceSha256": "50a17956eca4b020981318fa7c52010579733e57dab02f2e87493cf0384883fc",
+      "rect": [
+        470,
+        670,
+        74,
+        74
+      ],
+      "occupiedRankRects": [
+        [
+          470,
+          290,
+          74,
+          74
+        ],
+        [
+          470,
+          366,
+          74,
+          74
+        ],
+        [
+          470,
+          442,
+          74,
+          74
+        ],
+        [
+          470,
+          518,
+          74,
+          74
+        ],
+        [
+          470,
+          594,
+          74,
+          74
+        ]
+      ],
+      "output": "art/runtime/web-v3/ranking-counts-v1/landscape-empty-ranks-after-5-v1.png",
+      "sha256": "d92e150cd13db5daba2855f95e7f951c1c88e2273648f6f4e50e0505c76ab358"
+    },
+    {
+      "profile": "portrait",
+      "count": 3,
+      "source": "art/mockups/web-v3/portrait/38-ranking-3-players-v1.png",
+      "sourceSha256": "0fefe3296f4c496c24b63520268d788791c6c92dc86a2373899e14fe1ac4d0ca",
+      "rect": [
+        210,
+        881,
+        90,
+        308
+      ],
+      "occupiedRankRects": [
+        [
+          210,
+          560,
+          90,
+          94
+        ],
+        [
+          210,
+          667,
+          90,
+          94
+        ],
+        [
+          210,
+          774,
+          90,
+          94
+        ]
+      ],
+      "output": "art/runtime/web-v3/ranking-counts-v1/portrait-empty-ranks-after-3-v1.png",
+      "sha256": "01c7225beabd5a502b827dcfc3acfdcb1470ed96d2417d4b1d4c559c33a44313"
+    },
+    {
+      "profile": "portrait",
+      "count": 4,
+      "source": "art/mockups/web-v3/portrait/39-ranking-4-players-v1.png",
+      "sourceSha256": "bb20f361995e9a0d2594c8943fc779caaf488309ca9b2a2b17f1dc615a32ff19",
+      "rect": [
+        210,
+        988,
+        90,
+        201
+      ],
+      "occupiedRankRects": [
+        [
+          210,
+          560,
+          90,
+          94
+        ],
+        [
+          210,
+          667,
+          90,
+          94
+        ],
+        [
+          210,
+          774,
+          90,
+          94
+        ],
+        [
+          210,
+          881,
+          90,
+          94
+        ]
+      ],
+      "output": "art/runtime/web-v3/ranking-counts-v1/portrait-empty-ranks-after-4-v1.png",
+      "sha256": "ab7a9c2b0778f63f983fd0d92fb5b31325ff5b9408ab3445f9c875fd77e988dd"
+    },
+    {
+      "profile": "portrait",
+      "count": 5,
+      "source": "art/mockups/web-v3/portrait/40-ranking-5-players-v1.png",
+      "sourceSha256": "e2a99781b789df692f5741b7ebb2009f65e367577c94884c8e92cc5a501c6ed2",
+      "rect": [
+        210,
+        1095,
+        90,
+        94
+      ],
+      "occupiedRankRects": [
+        [
+          210,
+          560,
+          90,
+          94
+        ],
+        [
+          210,
+          667,
+          90,
+          94
+        ],
+        [
+          210,
+          774,
+          90,
+          94
+        ],
+        [
+          210,
+          881,
+          90,
+          94
+        ],
+        [
+          210,
+          988,
+          90,
+          94
+        ]
+      ],
+      "output": "art/runtime/web-v3/ranking-counts-v1/portrait-empty-ranks-after-5-v1.png",
+      "sha256": "567d1521bfa20999fd08887be6eeed85245c0ae3d7393274e2955da73e3431ac"
+    }
+  ]
+}

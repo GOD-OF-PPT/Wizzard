@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "decidedAt": "2026-10-28",
+  "status": "agent-selected",
+  "authorization": "User delegated final candidate selection to Codex.",
+  "reviewMethod": "Per-candidate waveform, spectral distribution, duration, onset pattern, and role matching. This is an agent production choice, not a claim of direct auditory or human listening acceptance.",
+  "entries": {
+    "ui.tap": { "take": 2, "reason": "0.14 秒的单次圆润起音，频谱重心约 512Hz；适合反复点击，避开近乎静音的候选4。" },
+    "ui.confirm": { "take": 2, "reason": "保留瓷盖接触与短共鸣，高于6kHz的能量约1.7%，比候选4的10.3%更克制，和木质点击有区分。" },
+    "ui.back": { "take": 1, "reason": "约0.35秒、两段轻纸质动作，与立即确认的单次点击形成区别，同时不拖慢关窗反馈。" },
+    "room.arrive": { "take": 1, "reason": "先连续轻纹理、后约0.37秒落杯的两段结构，比单个瞬态更符合入座过程。" },
+    "room.ai-join": { "take": 3, "reason": "约0.075和0.225秒的两个明确起音，避开其他候选的密集碎响，符合茶灵入座的短小反馈。", "eq": "highshelf=f=4500:g=-6" },
+    "cards.deal": { "take": 1, "reason": "约1秒的多次纸牌起音，高于6kHz能量约8.9%，保留发牌节奏且比候选2/4更少高频压力。" },
+    "card.select": { "take": 2, "reason": "约0.17秒的单次动作，比默认候选1约0.49秒更适合连续换选；高频比例也从约50%降到约13%。" },
+    "card.play": { "take": 1, "reason": "约0.41秒，前段滑动、后段落桌起音清楚，比候选2的多重碎响更像一次完整出牌。", "eq": "highshelf=f=4500:g=-3" },
+    "turn.yours": { "take": 1, "reason": "具有两次起音及清楚的共鸣带，与单次按钮/确认有区别；高于6kHz能量接近零，避免尖锐催促。" },
+    "trump.reveal": { "take": 3, "reason": "约0.74秒，高于6kHz能量约21%，明显低于其他候选70%–82%；保留短魔法共鸣。", "eq": "highshelf=f=5000:g=-3" },
+    "trick.win": { "take": 2, "reason": "约0.65秒，落杯后有数次小共鸣；比候选1/4更有奖励辨识度，又比候选3更短。" },
+    "bid.exact": { "take": 3, "reason": "保留三段起音和中频共鸣，高于6kHz能量约8%，避开其他候选约81%–100%的高频集中。", "gainDb": 3 },
+    "round.score": { "take": 4, "reason": "完整卷轴纹理与结尾起音，高于6kHz能量约35%，是四者中较收敛的版本。", "eq": "highshelf=f=5000:g=-3" },
+    "match.victory": { "take": 2, "reason": "保留较完整的低中频共鸣与2.76秒收尾；在四个候选中高频集中较低，再以高频搁架柔化亮度。", "eq": "highshelf=f=4500:g=-8", "gainDb": 2 },
+    "match.complete": { "take": 4, "reason": "约1.52秒，前后两段明确，低中频为主且高于6kHz能量约0.3%，适合作为平静收局。" },
+    "notice.soft": { "take": 3, "reason": "约0.25秒内有两次明确低木敲，与普通单次点击有区别；避开候选1过低且接近次声的频谱重心。" }
+  }
+}

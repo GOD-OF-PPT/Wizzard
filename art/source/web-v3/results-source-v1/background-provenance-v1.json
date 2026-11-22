@@ -1,0 +1,1603 @@
+{
+  "method": "Full original page is the base. Existing ImageGen blank-art used only inside explicit dynamic text/numeric/avatar masks, quiet-source median color registration and3px rectangle/2pxcircle feather. Original paper/frame/tableheaders/rowdivider pixels outside masks invariant; no whole generated background replacement.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "view": "results",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "donor": "art/runtime/web-v3/results.png",
+      "donorSha256": "633baf70b66a03ed4bfdd872b98148fda0db10c4ed03141b69aa3005e564654e",
+      "output": "art/runtime/web-v3/results-source-v1/landscape-results-background-v1.png",
+      "sha256": "a0350711f24a2ca20fbdbdfe1317630f9a075e8a590af1e9088935f49759e653",
+      "canvas": [
+        1672,
+        941
+      ],
+      "regions": [
+        {
+          "kind": "title",
+          "rect": [
+            694,
+            91,
+            301,
+            73
+          ]
+        },
+        {
+          "kind": "secondary",
+          "rect": [
+            855,
+            744,
+            176,
+            46
+          ]
+        },
+        {
+          "kind": "primary",
+          "rect": [
+            1136,
+            739,
+            216,
+            53
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 0,
+          "circle": [
+            388,
+            304,
+            45.5
+          ],
+          "rect": [
+            340,
+            256,
+            95,
+            95
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 0,
+          "rect": [
+            434,
+            279,
+            172,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 0,
+          "column": 0,
+          "rect": [
+            621,
+            276,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 0,
+          "column": 1,
+          "rect": [
+            803,
+            276,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 0,
+          "column": 2,
+          "rect": [
+            983,
+            276,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 0,
+          "column": 3,
+          "rect": [
+            1166,
+            276,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 1,
+          "circle": [
+            388,
+            379,
+            45.5
+          ],
+          "rect": [
+            340,
+            331,
+            95,
+            95
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 1,
+          "rect": [
+            434,
+            354,
+            172,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 1,
+          "column": 0,
+          "rect": [
+            621,
+            351,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 1,
+          "column": 1,
+          "rect": [
+            803,
+            351,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 1,
+          "column": 2,
+          "rect": [
+            983,
+            351,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 1,
+          "column": 3,
+          "rect": [
+            1166,
+            351,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 2,
+          "circle": [
+            388,
+            454,
+            45.5
+          ],
+          "rect": [
+            340,
+            406,
+            95,
+            95
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 2,
+          "rect": [
+            434,
+            429,
+            172,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 2,
+          "column": 0,
+          "rect": [
+            621,
+            426,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 2,
+          "column": 1,
+          "rect": [
+            803,
+            426,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 2,
+          "column": 2,
+          "rect": [
+            983,
+            426,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 2,
+          "column": 3,
+          "rect": [
+            1166,
+            426,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 3,
+          "circle": [
+            388,
+            529,
+            45.5
+          ],
+          "rect": [
+            340,
+            481,
+            95,
+            95
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 3,
+          "rect": [
+            434,
+            504,
+            172,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 0,
+          "rect": [
+            621,
+            501,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 1,
+          "rect": [
+            803,
+            501,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 2,
+          "rect": [
+            983,
+            501,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 3,
+          "rect": [
+            1166,
+            501,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 4,
+          "circle": [
+            388,
+            604,
+            45.5
+          ],
+          "rect": [
+            340,
+            556,
+            95,
+            95
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 4,
+          "rect": [
+            434,
+            579,
+            172,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 0,
+          "rect": [
+            621,
+            576,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 1,
+          "rect": [
+            803,
+            576,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 2,
+          "rect": [
+            983,
+            576,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 3,
+          "rect": [
+            1166,
+            576,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 5,
+          "circle": [
+            388,
+            679,
+            45.5
+          ],
+          "rect": [
+            340,
+            631,
+            95,
+            95
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 5,
+          "rect": [
+            434,
+            654,
+            172,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 0,
+          "rect": [
+            621,
+            651,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 1,
+          "rect": [
+            803,
+            651,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 2,
+          "rect": [
+            983,
+            651,
+            112,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 3,
+          "rect": [
+            1166,
+            651,
+            112,
+            55
+          ]
+        }
+      ],
+      "changed": 257939,
+      "changedOutsideDynamicMasks": 0,
+      "originalStaticPixels": 1309439,
+      "originalStaticFraction": 0.8322606765682441
+    },
+    {
+      "profile": "landscape",
+      "view": "ranking",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "donor": "art/runtime/web-v3/ranking-clean-v3.png",
+      "donorSha256": "10bff9ed112110e584acbf3a7e72169b82629872e44bf1d41f9e329693b1d679",
+      "output": "art/runtime/web-v3/results-source-v1/landscape-ranking-background-v1.png",
+      "sha256": "0ef3a9dc0c7da6d93e3dc6600d1dea0d0abed9428e9fdd1a74702dde0037dfb7",
+      "canvas": [
+        1672,
+        941
+      ],
+      "regions": [
+        {
+          "kind": "title",
+          "rect": [
+            665,
+            78,
+            348,
+            77
+          ]
+        },
+        {
+          "kind": "subtitle",
+          "rect": [
+            681,
+            174,
+            313,
+            40
+          ]
+        },
+        {
+          "kind": "secondary",
+          "rect": [
+            550,
+            766,
+            193,
+            59
+          ]
+        },
+        {
+          "kind": "primary",
+          "rect": [
+            938,
+            766,
+            183,
+            58
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 0,
+          "circle": [
+            671,
+            326,
+            47
+          ],
+          "rect": [
+            622,
+            277,
+            98,
+            98
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 0,
+          "rect": [
+            733,
+            301,
+            232,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 0,
+          "column": 0,
+          "rect": [
+            442,
+            298,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 0,
+          "column": 1,
+          "rect": [
+            1080,
+            298,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 1,
+          "circle": [
+            671,
+            402,
+            47
+          ],
+          "rect": [
+            622,
+            353,
+            98,
+            98
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 1,
+          "rect": [
+            733,
+            377,
+            232,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 1,
+          "column": 0,
+          "rect": [
+            442,
+            374,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 1,
+          "column": 1,
+          "rect": [
+            1080,
+            374,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 2,
+          "circle": [
+            671,
+            478,
+            47
+          ],
+          "rect": [
+            622,
+            429,
+            98,
+            98
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 2,
+          "rect": [
+            733,
+            453,
+            232,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 2,
+          "column": 0,
+          "rect": [
+            442,
+            450,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 2,
+          "column": 1,
+          "rect": [
+            1080,
+            450,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 3,
+          "circle": [
+            671,
+            554,
+            47
+          ],
+          "rect": [
+            622,
+            505,
+            98,
+            98
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 3,
+          "rect": [
+            733,
+            529,
+            232,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 0,
+          "rect": [
+            442,
+            526,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 1,
+          "rect": [
+            1080,
+            526,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 4,
+          "circle": [
+            671,
+            630,
+            47
+          ],
+          "rect": [
+            622,
+            581,
+            98,
+            98
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 4,
+          "rect": [
+            733,
+            605,
+            232,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 0,
+          "rect": [
+            442,
+            602,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 1,
+          "rect": [
+            1080,
+            602,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 5,
+          "circle": [
+            671,
+            706,
+            47
+          ],
+          "rect": [
+            622,
+            657,
+            98,
+            98
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 5,
+          "rect": [
+            733,
+            681,
+            232,
+            49
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 0,
+          "rect": [
+            442,
+            678,
+            130,
+            55
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 1,
+          "rect": [
+            1080,
+            678,
+            130,
+            55
+          ]
+        }
+      ],
+      "changed": 238476,
+      "changedOutsideDynamicMasks": 0,
+      "originalStaticPixels": 1330126,
+      "originalStaticFraction": 0.8454090375198938
+    },
+    {
+      "profile": "portrait",
+      "view": "results",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "donor": "art/runtime/web-v3/portrait/results.png",
+      "donorSha256": "eeb5492390abe9cc232ba0bfe302405be577effd192968ec3942402e152aca14",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-results-background-v1.png",
+      "sha256": "97cfcdf5eb2979c2da022e81e14481395b6c6a6f6d52a227a06d04590e6b1030",
+      "canvas": [
+        941,
+        1672
+      ],
+      "regions": [
+        {
+          "kind": "title",
+          "rect": [
+            333,
+            275,
+            307,
+            75
+          ]
+        },
+        {
+          "kind": "secondary",
+          "rect": [
+            360,
+            1385,
+            230,
+            72
+          ]
+        },
+        {
+          "kind": "primary",
+          "rect": [
+            323,
+            1510,
+            301,
+            72
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 0,
+          "circle": [
+            176,
+            580,
+            57
+          ],
+          "rect": [
+            117,
+            521,
+            118,
+            118
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 0,
+          "rect": [
+            231,
+            551,
+            150,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 0,
+          "column": 0,
+          "rect": [
+            347,
+            546,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 0,
+          "column": 1,
+          "rect": [
+            457,
+            546,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 0,
+          "column": 2,
+          "rect": [
+            576,
+            546,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 0,
+          "column": 3,
+          "rect": [
+            704,
+            546,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 1,
+          "circle": [
+            176,
+            688,
+            57
+          ],
+          "rect": [
+            117,
+            629,
+            118,
+            118
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 1,
+          "rect": [
+            231,
+            659,
+            150,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 1,
+          "column": 0,
+          "rect": [
+            347,
+            654,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 1,
+          "column": 1,
+          "rect": [
+            457,
+            654,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 1,
+          "column": 2,
+          "rect": [
+            576,
+            654,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 1,
+          "column": 3,
+          "rect": [
+            704,
+            654,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 2,
+          "circle": [
+            176,
+            796,
+            57
+          ],
+          "rect": [
+            117,
+            737,
+            118,
+            118
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 2,
+          "rect": [
+            231,
+            767,
+            150,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 2,
+          "column": 0,
+          "rect": [
+            347,
+            762,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 2,
+          "column": 1,
+          "rect": [
+            457,
+            762,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 2,
+          "column": 2,
+          "rect": [
+            576,
+            762,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 2,
+          "column": 3,
+          "rect": [
+            704,
+            762,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 3,
+          "circle": [
+            176,
+            904,
+            57
+          ],
+          "rect": [
+            117,
+            845,
+            118,
+            118
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 3,
+          "rect": [
+            231,
+            875,
+            150,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 0,
+          "rect": [
+            347,
+            870,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 1,
+          "rect": [
+            457,
+            870,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 2,
+          "rect": [
+            576,
+            870,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 3,
+          "rect": [
+            704,
+            870,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 4,
+          "circle": [
+            176,
+            1012,
+            57
+          ],
+          "rect": [
+            117,
+            953,
+            118,
+            118
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 4,
+          "rect": [
+            231,
+            983,
+            150,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 0,
+          "rect": [
+            347,
+            978,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 1,
+          "rect": [
+            457,
+            978,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 2,
+          "rect": [
+            576,
+            978,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 3,
+          "rect": [
+            704,
+            978,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 5,
+          "circle": [
+            176,
+            1120,
+            57
+          ],
+          "rect": [
+            117,
+            1061,
+            118,
+            118
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 5,
+          "rect": [
+            231,
+            1091,
+            150,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 0,
+          "rect": [
+            347,
+            1086,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 1,
+          "rect": [
+            457,
+            1086,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 2,
+          "rect": [
+            576,
+            1086,
+            112,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 3,
+          "rect": [
+            704,
+            1086,
+            112,
+            65
+          ]
+        }
+      ],
+      "changed": 316686,
+      "changedOutsideDynamicMasks": 0,
+      "originalStaticPixels": 1249298,
+      "originalStaticFraction": 0.7940359182179194
+    },
+    {
+      "profile": "portrait",
+      "view": "ranking",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "donor": "art/runtime/web-v3/portrait/ranking-v2.png",
+      "donorSha256": "6e1ef661cdfb113d6e2f1357d731ad8416d6085e14152e3af4d55577bec7d85d",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-ranking-background-v1.png",
+      "sha256": "2643621cd21d4b0f27d9e7eadc5c67ac23d7f895374a9676a950d4c1ff0e9cf0",
+      "canvas": [
+        941,
+        1672
+      ],
+      "regions": [
+        {
+          "kind": "title",
+          "rect": [
+            326,
+            293,
+            310,
+            75
+          ]
+        },
+        {
+          "kind": "subtitle",
+          "rect": [
+            325,
+            403,
+            290,
+            39
+          ]
+        },
+        {
+          "kind": "secondary",
+          "rect": [
+            340,
+            1360,
+            265,
+            81
+          ]
+        },
+        {
+          "kind": "primary",
+          "rect": [
+            330,
+            1486,
+            280,
+            88
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 0,
+          "circle": [
+            378,
+            607,
+            58
+          ],
+          "rect": [
+            318,
+            547,
+            120,
+            120
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 0,
+          "rect": [
+            442,
+            578,
+            164,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 0,
+          "column": 0,
+          "rect": [
+            190,
+            573,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 0,
+          "column": 1,
+          "rect": [
+            629,
+            573,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 1,
+          "circle": [
+            378,
+            714,
+            58
+          ],
+          "rect": [
+            318,
+            654,
+            120,
+            120
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 1,
+          "rect": [
+            442,
+            685,
+            164,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 1,
+          "column": 0,
+          "rect": [
+            190,
+            680,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 1,
+          "column": 1,
+          "rect": [
+            629,
+            680,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 2,
+          "circle": [
+            378,
+            821,
+            58
+          ],
+          "rect": [
+            318,
+            761,
+            120,
+            120
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 2,
+          "rect": [
+            442,
+            792,
+            164,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 2,
+          "column": 0,
+          "rect": [
+            190,
+            787,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 2,
+          "column": 1,
+          "rect": [
+            629,
+            787,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 3,
+          "circle": [
+            378,
+            928,
+            58
+          ],
+          "rect": [
+            318,
+            868,
+            120,
+            120
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 3,
+          "rect": [
+            442,
+            899,
+            164,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 0,
+          "rect": [
+            190,
+            894,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 3,
+          "column": 1,
+          "rect": [
+            629,
+            894,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 4,
+          "circle": [
+            378,
+            1035,
+            58
+          ],
+          "rect": [
+            318,
+            975,
+            120,
+            120
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 4,
+          "rect": [
+            442,
+            1006,
+            164,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 0,
+          "rect": [
+            190,
+            1001,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 4,
+          "column": 1,
+          "rect": [
+            629,
+            1001,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "avatar",
+          "index": 5,
+          "circle": [
+            378,
+            1142,
+            58
+          ],
+          "rect": [
+            318,
+            1082,
+            120,
+            120
+          ]
+        },
+        {
+          "kind": "name",
+          "index": 5,
+          "rect": [
+            442,
+            1113,
+            164,
+            57
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 0,
+          "rect": [
+            190,
+            1108,
+            130,
+            65
+          ]
+        },
+        {
+          "kind": "number",
+          "index": 5,
+          "column": 1,
+          "rect": [
+            629,
+            1108,
+            130,
+            65
+          ]
+        }
+      ],
+      "changed": 285054,
+      "changedOutsideDynamicMasks": 0,
+      "originalStaticPixels": 1283349,
+      "originalStaticFraction": 0.8156782461902994
+    }
+  ]
+}

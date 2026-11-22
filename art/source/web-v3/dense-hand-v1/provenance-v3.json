@@ -1,0 +1,699 @@
+{
+  "method": "Built-in ImageGen dense-state edits and clean scene, followed by geometric normalization of source raster components. No browser capture or runtime card face supplies design geometry. V1 retained as source history; v2 paper/suit normalization retained but strict warm-black threshold incorrectly excluded neutral-black numeral interiors; v3 includes neutral black and isolates two numeral components. Original v1/v2 designs remain unchanged.",
+  "contract": {
+    "cardBox": [
+      128,
+      192
+    ],
+    "lift": 12,
+    "neighborShift": 9,
+    "haloOffset": 8,
+    "haloCanvas": [
+      156,
+      211
+    ],
+    "durationMs": 140,
+    "confirmPulseMs": 560,
+    "origin": "center",
+    "appliesTo": "5-8 card quick-mode play/trick-result hands only; four-card source poses and bid/chooser layouts unchanged"
+  },
+  "profiles": {
+    "landscape": {
+      "canvas": [
+        1672,
+        941
+      ],
+      "hand": {
+        "x": 240,
+        "y": 650,
+        "width": 1004,
+        "height": 245
+      },
+      "columns": [
+        320,
+        440,
+        560,
+        680,
+        800,
+        920,
+        1040,
+        1160
+      ],
+      "rows": [
+        775
+      ],
+      "roundRoi": [
+        52,
+        128,
+        135,
+        90
+      ],
+      "cleanup": [
+        240,
+        650,
+        1004,
+        245
+      ]
+    },
+    "portrait": {
+      "canvas": [
+        941,
+        1672
+      ],
+      "hand": {
+        "x": 154,
+        "y": 1170,
+        "width": 642,
+        "height": 450
+      },
+      "columns": [
+        238,
+        391,
+        548,
+        704
+      ],
+      "rows": [
+        1288,
+        1504
+      ],
+      "roundRoi": [
+        55,
+        151,
+        160,
+        100
+      ],
+      "cleanup": [
+        0,
+        1005,
+        941,
+        667
+      ],
+      "action": [
+        275,
+        1072,
+        394,
+        102
+      ],
+      "timer": [
+        688,
+        957,
+        241,
+        230
+      ],
+      "status": [
+        342,
+        1008,
+        262,
+        52
+      ]
+    }
+  },
+  "provenance": [
+    {
+      "source": "art/source/web-v3/dense-hand-landscape-idle-v2-candidate.png",
+      "sourceRoi": [
+        786,
+        673,
+        122,
+        190
+      ],
+      "paperBounds": [
+        794,
+        675,
+        112,
+        181
+      ],
+      "output": "art/source/web-v3/dense-hand-v1/landscape-leaf-11.png",
+      "sha256": "cc68259925c16fe1ec14da848536fe8119a425e5a3fad205ea32fa1f8fbcadc1"
+    },
+    {
+      "sourceBlank": "art/source/web-v3/cards-v5/landscape-leaf-face.png",
+      "sourceBlankSha256": "f90b1b19107f3f3496a47de6369cba88435c18ed055e79d48e4d68a0577cf10f",
+      "sourceInk": "art/source/web-v3/dense-hand-v1/landscape-leaf-11.png",
+      "inkRoi": [
+        12,
+        12,
+        56,
+        58
+      ],
+      "inkPixels": 484,
+      "output": "art/source/web-v3/dense-hand-v1/landscape-leaf-11-source-family-v3.png",
+      "sha256": "a4ebf2aeaf82403b634b12ad7cefb8a7d13b9f06adb0b719f2cab0dfdc8e26ce",
+      "method": "Original source face family for all ranks. Only generated numeral ink added inside bounded upper-left region; generation-specific suit scale/border rejected."
+    },
+    {
+      "source": "art/source/web-v3/dense-hand-landscape-idle-v2-candidate.png",
+      "sourceRoi": [
+        906,
+        673,
+        118,
+        190
+      ],
+      "paperBounds": [
+        909,
+        675,
+        111,
+        181
+      ],
+      "output": "art/source/web-v3/dense-hand-v1/landscape-mountain-12.png",
+      "sha256": "2658866613581eab31366f7440ad5f22f6c051b346b5e0d9c6245933441abc6d"
+    },
+    {
+      "sourceBlank": "art/source/web-v3/cards-v5/landscape-mountain-face.png",
+      "sourceBlankSha256": "db9360d6f616b55f2514b97a746a0bf64e83c6cd535ca827a81d3611e7bc0ef8",
+      "sourceInk": "art/source/web-v3/dense-hand-v1/landscape-mountain-12.png",
+      "inkRoi": [
+        12,
+        12,
+        56,
+        58
+      ],
+      "inkPixels": 613,
+      "output": "art/source/web-v3/dense-hand-v1/landscape-mountain-12-source-family-v3.png",
+      "sha256": "95505afca650539ff4b45a2bf16f3765d24aca2573a915e2750ba97f1621e48f",
+      "method": "Original source face family for all ranks. Only generated numeral ink added inside bounded upper-left region; generation-specific suit scale/border rejected."
+    },
+    {
+      "profile": "landscape",
+      "state": "idle",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": "art/source/web-v3/dense-hand-landscape-idle-v2-candidate.png",
+      "candidateSha256": "cdfd4d359b1731b548775287d804da32b1342f5f6ad99c5ebad72d176bb0c3b4",
+      "clean": "art/source/web-v3/hand-clean-landscape-v2-candidate.png",
+      "cleanSha256": "436a8fa5ceb5850f1e4d5b4a195a1556bf941c88c07da6ce18168f4de64a029b",
+      "cleanNormalization": "none",
+      "output": "art/mockups/web-v3/27-dense-hand-idle-v3.png",
+      "sha256": "65507dae958775324f56b58553f877165c5cd4e93e81444b92dc538cb273d729",
+      "poses": [
+        {
+          "index": 0,
+          "center": [
+            320,
+            775
+          ],
+          "angle": 0,
+          "column": 0,
+          "row": 0
+        },
+        {
+          "index": 1,
+          "center": [
+            440,
+            775
+          ],
+          "angle": 0,
+          "column": 1,
+          "row": 0
+        },
+        {
+          "index": 2,
+          "center": [
+            560,
+            775
+          ],
+          "angle": 0,
+          "column": 2,
+          "row": 0
+        },
+        {
+          "index": 3,
+          "center": [
+            680,
+            775
+          ],
+          "angle": 0,
+          "column": 3,
+          "row": 0
+        },
+        {
+          "index": 4,
+          "center": [
+            800,
+            775
+          ],
+          "angle": 0,
+          "column": 4,
+          "row": 0
+        },
+        {
+          "index": 5,
+          "center": [
+            920,
+            775
+          ],
+          "angle": 0,
+          "column": 5,
+          "row": 0
+        },
+        {
+          "index": 6,
+          "center": [
+            1040,
+            775
+          ],
+          "angle": 0,
+          "column": 6,
+          "row": 0
+        },
+        {
+          "index": 7,
+          "center": [
+            1160,
+            775
+          ],
+          "angle": 0,
+          "column": 7,
+          "row": 0
+        }
+      ],
+      "changedOutsideAllowedRegions": 0,
+      "allowedRegions": [
+        [
+          240,
+          650,
+          1004,
+          245
+        ],
+        [
+          52,
+          128,
+          135,
+          90
+        ]
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "selected",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "candidate": "art/source/web-v3/dense-hand-landscape-idle-v2-candidate.png",
+      "candidateSha256": "cdfd4d359b1731b548775287d804da32b1342f5f6ad99c5ebad72d176bb0c3b4",
+      "clean": "art/source/web-v3/hand-clean-landscape-v2-candidate.png",
+      "cleanSha256": "436a8fa5ceb5850f1e4d5b4a195a1556bf941c88c07da6ce18168f4de64a029b",
+      "cleanNormalization": "none",
+      "output": "art/mockups/web-v3/28-dense-hand-selected-v3.png",
+      "sha256": "a87830adcc5d2a8d74b7bee4e47583471a5040e0bbac746e81de72a7ef27f78e",
+      "poses": [
+        {
+          "index": 0,
+          "center": [
+            311,
+            775
+          ],
+          "angle": 0,
+          "column": 0,
+          "row": 0
+        },
+        {
+          "index": 1,
+          "center": [
+            431,
+            775
+          ],
+          "angle": 0,
+          "column": 1,
+          "row": 0
+        },
+        {
+          "index": 2,
+          "center": [
+            551,
+            775
+          ],
+          "angle": 0,
+          "column": 2,
+          "row": 0
+        },
+        {
+          "index": 3,
+          "center": [
+            671,
+            775
+          ],
+          "angle": 0,
+          "column": 3,
+          "row": 0
+        },
+        {
+          "index": 4,
+          "center": [
+            800,
+            763
+          ],
+          "angle": 0,
+          "column": 4,
+          "row": 0
+        },
+        {
+          "index": 5,
+          "center": [
+            929,
+            775
+          ],
+          "angle": 0,
+          "column": 5,
+          "row": 0
+        },
+        {
+          "index": 6,
+          "center": [
+            1049,
+            775
+          ],
+          "angle": 0,
+          "column": 6,
+          "row": 0
+        },
+        {
+          "index": 7,
+          "center": [
+            1169,
+            775
+          ],
+          "angle": 0,
+          "column": 7,
+          "row": 0
+        }
+      ],
+      "changedOutsideAllowedRegions": 0,
+      "allowedRegions": [
+        [
+          240,
+          650,
+          1004,
+          245
+        ],
+        [
+          52,
+          128,
+          135,
+          90
+        ],
+        [
+          1254,
+          688,
+          373,
+          120
+        ]
+      ]
+    },
+    {
+      "source": "art/source/web-v3/dense-hand-portrait-idle-v2-candidate.png",
+      "sourceRoi": [
+        160,
+        1390,
+        155,
+        208
+      ],
+      "paperBounds": [
+        169,
+        1392,
+        140,
+        198
+      ],
+      "output": "art/source/web-v3/dense-hand-v1/portrait-leaf-11.png",
+      "sha256": "7615c4fb02981af3bff660142d3ccf29fe837092f430562f2038d5de8471811e"
+    },
+    {
+      "sourceBlank": "art/source/web-v3/cards-v5/portrait-leaf-face.png",
+      "sourceBlankSha256": "258a0254a22639320e3d544bcc25d07552cc0708c9693bf86628015c8545a5b8",
+      "sourceInk": "art/source/web-v3/dense-hand-v1/portrait-leaf-11.png",
+      "inkRoi": [
+        12,
+        12,
+        56,
+        58
+      ],
+      "inkPixels": 540,
+      "output": "art/source/web-v3/dense-hand-v1/portrait-leaf-11-source-family-v3.png",
+      "sha256": "2a51fd7e0861e45db780da1074170ed22b549e6ef179ff0d1fd173b6859512a6",
+      "method": "Original source face family for all ranks. Only generated numeral ink added inside bounded upper-left region; generation-specific suit scale/border rejected."
+    },
+    {
+      "source": "art/source/web-v3/dense-hand-portrait-idle-v2-candidate.png",
+      "sourceRoi": [
+        318,
+        1390,
+        156,
+        208
+      ],
+      "paperBounds": [
+        321,
+        1393,
+        143,
+        197
+      ],
+      "output": "art/source/web-v3/dense-hand-v1/portrait-mountain-12.png",
+      "sha256": "5b04209d938773411c3776ccfa77c2938ccfe6659fe6f2e8d052ddd4327ea1df"
+    },
+    {
+      "sourceBlank": "art/source/web-v3/cards-v5/portrait-mountain-face.png",
+      "sourceBlankSha256": "7bfd947603bfa089230a9b28554ca838c7bbc7ac468ec9428994631e7d1ba3ff",
+      "sourceInk": "art/source/web-v3/dense-hand-v1/portrait-mountain-12.png",
+      "inkRoi": [
+        12,
+        12,
+        56,
+        58
+      ],
+      "inkPixels": 660,
+      "output": "art/source/web-v3/dense-hand-v1/portrait-mountain-12-source-family-v3.png",
+      "sha256": "517365827fd22546f039b34010a3f8fdaca9ddc9686fb36b73663874374b8dc1",
+      "method": "Original source face family for all ranks. Only generated numeral ink added inside bounded upper-left region; generation-specific suit scale/border rejected."
+    },
+    {
+      "profile": "portrait",
+      "state": "idle",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": "art/source/web-v3/dense-hand-portrait-idle-v2-candidate.png",
+      "candidateSha256": "36e8462ee82fefae340b34f9434f4ee40ede2460cbbff2b773d45f49856a8750",
+      "clean": "art/source/web-v3/dense-hand-portrait-clean-lower-v1-candidate.png",
+      "cleanSha256": "875aab88ac8e0151ed206eb6d49836a401ec4f008f8ba15ae9b0a6d2c40266db",
+      "cleanNormalization": "941x1671 raw cleanup resized to941x1672 before bounded crop; original avatar/name/stats restored throughy1144",
+      "output": "art/mockups/web-v3/portrait/27-dense-hand-idle-v3.png",
+      "sha256": "aa2ab841f7912a60cfc40c8f2bf328b659eb91a19353ce8e642e51bbde3703d1",
+      "poses": [
+        {
+          "index": 0,
+          "center": [
+            238,
+            1288
+          ],
+          "angle": 0,
+          "column": 0,
+          "row": 0
+        },
+        {
+          "index": 1,
+          "center": [
+            391,
+            1288
+          ],
+          "angle": 0,
+          "column": 1,
+          "row": 0
+        },
+        {
+          "index": 2,
+          "center": [
+            548,
+            1288
+          ],
+          "angle": 0,
+          "column": 2,
+          "row": 0
+        },
+        {
+          "index": 3,
+          "center": [
+            704,
+            1288
+          ],
+          "angle": 0,
+          "column": 3,
+          "row": 0
+        },
+        {
+          "index": 4,
+          "center": [
+            238,
+            1504
+          ],
+          "angle": 0,
+          "column": 0,
+          "row": 1
+        },
+        {
+          "index": 5,
+          "center": [
+            391,
+            1504
+          ],
+          "angle": 0,
+          "column": 1,
+          "row": 1
+        },
+        {
+          "index": 6,
+          "center": [
+            548,
+            1504
+          ],
+          "angle": 0,
+          "column": 2,
+          "row": 1
+        },
+        {
+          "index": 7,
+          "center": [
+            704,
+            1504
+          ],
+          "angle": 0,
+          "column": 3,
+          "row": 1
+        }
+      ],
+      "changedOutsideAllowedRegions": 0,
+      "allowedRegions": [
+        [
+          0,
+          1005,
+          941,
+          667
+        ],
+        [
+          55,
+          151,
+          160,
+          100
+        ],
+        [
+          707,
+          960,
+          225,
+          205
+        ]
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "selected",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "candidate": "art/source/web-v3/dense-hand-portrait-idle-v2-candidate.png",
+      "candidateSha256": "36e8462ee82fefae340b34f9434f4ee40ede2460cbbff2b773d45f49856a8750",
+      "clean": "art/source/web-v3/dense-hand-portrait-clean-lower-v1-candidate.png",
+      "cleanSha256": "875aab88ac8e0151ed206eb6d49836a401ec4f008f8ba15ae9b0a6d2c40266db",
+      "cleanNormalization": "941x1671 raw cleanup resized to941x1672 before bounded crop; original avatar/name/stats restored throughy1144",
+      "output": "art/mockups/web-v3/portrait/28-dense-hand-selected-v3.png",
+      "sha256": "b2e2b6c98d7fdac1b70e33a3f4e1bf4639e8381a648666d97c97b40fe7be03db",
+      "poses": [
+        {
+          "index": 0,
+          "center": [
+            238,
+            1288
+          ],
+          "angle": 0,
+          "column": 0,
+          "row": 0
+        },
+        {
+          "index": 1,
+          "center": [
+            400,
+            1288
+          ],
+          "angle": 0,
+          "column": 1,
+          "row": 0
+        },
+        {
+          "index": 2,
+          "center": [
+            557,
+            1288
+          ],
+          "angle": 0,
+          "column": 2,
+          "row": 0
+        },
+        {
+          "index": 3,
+          "center": [
+            713,
+            1288
+          ],
+          "angle": 0,
+          "column": 3,
+          "row": 0
+        },
+        {
+          "index": 4,
+          "center": [
+            238,
+            1492
+          ],
+          "angle": 0,
+          "column": 0,
+          "row": 1
+        },
+        {
+          "index": 5,
+          "center": [
+            400,
+            1504
+          ],
+          "angle": 0,
+          "column": 1,
+          "row": 1
+        },
+        {
+          "index": 6,
+          "center": [
+            557,
+            1504
+          ],
+          "angle": 0,
+          "column": 2,
+          "row": 1
+        },
+        {
+          "index": 7,
+          "center": [
+            713,
+            1504
+          ],
+          "angle": 0,
+          "column": 3,
+          "row": 1
+        }
+      ],
+      "changedOutsideAllowedRegions": 0,
+      "allowedRegions": [
+        [
+          0,
+          1005,
+          941,
+          667
+        ],
+        [
+          55,
+          151,
+          160,
+          100
+        ],
+        [
+          707,
+          960,
+          225,
+          205
+        ]
+      ]
+    }
+  ]
+}

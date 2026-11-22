@@ -1,0 +1,103 @@
+{
+  "method": "Source ink all RGB<90 plus four source-pixel fringe; mask contains complete original glyphs only. Existing ImageGen clean image retained in each mask; all other original paper pixels restored.",
+  "profiles": {
+    "landscape": {
+      "source": "art/mockups/web-v3/03-join.png",
+      "old": [
+        5846,
+        6
+      ],
+      "rects": [
+        [
+          647,
+          501,
+          42,
+          60
+        ],
+        [
+          747,
+          501,
+          42,
+          60
+        ],
+        [
+          846,
+          501,
+          42,
+          60
+        ],
+        [
+          945,
+          501,
+          41,
+          60
+        ],
+        [
+          1048,
+          501,
+          32,
+          59
+        ],
+        [
+          1141,
+          501,
+          40,
+          60
+        ]
+      ],
+      "sourceSha256": "a79147cb237e920fa508982af09f53f8e509c2ad02a62ee79d470072762efed7",
+      "oldArea": 35076,
+      "newArea": 14308,
+      "authoredPixelsRestored": 20768
+    },
+    "portrait": {
+      "source": "art/mockups/web-v3/portrait/03-join.png",
+      "old": [
+        6776,
+        6
+      ],
+      "rects": [
+        [
+          194,
+          964,
+          45,
+          64
+        ],
+        [
+          297,
+          965,
+          44,
+          63
+        ],
+        [
+          399,
+          964,
+          43,
+          64
+        ],
+        [
+          501,
+          965,
+          43,
+          63
+        ],
+        [
+          607,
+          965,
+          35,
+          63
+        ],
+        [
+          704,
+          964,
+          43,
+          64
+        ]
+      ],
+      "sourceSha256": "4cea5c828be0c4c059298cac0581f1625e37a6afbcbf212e09c7d2b296002ebe",
+      "oldArea": 40656,
+      "newArea": 16070,
+      "authoredPixelsRestored": 24586
+    }
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "id": "notice.soft",
+  "label": "轻声提醒",
+  "durationSeconds": 0.6,
+  "trigger": "非法操作、表单校验、连接故障首次提示",
+  "prompt": "Two muted low wooden knocks on a padded tea tray, separated by a very short pause. Gentle corrective feedback, calm and non-punishing, dry and clear. No alarm, buzzer, harsh dissonance or startling transient. Entire sound fits within 0.6 seconds. For an enchanted Chinese teahouse game. One isolated close-up, warm tactile hit. No voice, music, ambience, beeps or harsh treble.",
+  "targetLufs": -27,
+  "cooldownMs": 650,
+  "loop": false,
+  "variants": 4,
+  "status": "generated",
+  "runtimePath": "art/runtime/audio/teahouse-v1/notice-soft-v1.mp3",
+  "sourceDirectory": "art/source/audio/teahouse-v1/notice-soft",
+  "submittedAt": "2026-10-28T07:48:47.813Z",
+  "model": "eleven_text_to_sound_v2",
+  "generatedAt": "2026-10-28T07:50:26.006Z",
+  "downloadPrefix": "Two_muted_low_wooden_",
+  "sourceFiles": [
+    {
+      "take": 1,
+      "downloadedName": "Two_muted_low_wooden_#1-1793173736914.mp3",
+      "path": "art/source/audio/teahouse-v1/notice-soft/take-01.mp3"
+    },
+    {
+      "take": 2,
+      "downloadedName": "Two_muted_low_wooden_#2-1793173736951.mp3",
+      "path": "art/source/audio/teahouse-v1/notice-soft/take-02.mp3"
+    },
+    {
+      "take": 3,
+      "downloadedName": "Two_muted_low_wooden_#3-1793173736845.mp3",
+      "path": "art/source/audio/teahouse-v1/notice-soft/take-03.mp3"
+    },
+    {
+      "take": 4,
+      "downloadedName": "Two_muted_low_wooden_#4-1793173736940.mp3",
+      "path": "art/source/audio/teahouse-v1/notice-soft/take-04.mp3"
+    }
+  ],
+  "candidates": [
+    {
+      "take": 1,
+      "source": "art/source/audio/teahouse-v1/notice-soft/take-01.mp3",
+      "sourceSha256": "df06fba84329a89d84381b37e81003bee966c39e710b2533852f794e4c54d54e",
+      "sourceBytes": 16173,
+      "sourceMetrics": {
+        "duration": 0.6065,
+        "peakDbfs": -23.192452709128304,
+        "rmsDbfs": -41.8997788991591,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.0065,
+        "first": 0,
+        "last": 28799
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/notice-soft-take-01.mp3",
+      "sha256": "30beb3a05b985b99affefdec3a26b0fe60c6222fb82d8cae4de3dad999a4933d",
+      "bytes": 10910,
+      "outputMetrics": {
+        "duration": 0.6065208333333333,
+        "peakDbfs": -14.642700114258215,
+        "rmsDbfs": -33.432622322341615,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0000625,
+        "trailingSilenceSeconds": 0.006520833333333333,
+        "first": 3,
+        "last": 28799
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.6065,
+        "targetRmsDbfs": -30,
+        "gainDb": 9,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 2,
+      "source": "art/source/audio/teahouse-v1/notice-soft/take-02.mp3",
+      "sourceSha256": "ab35a287deec2143fd6b694b306d70bb656438d7aa465b0cf3eb2ea994103463",
+      "sourceBytes": 16173,
+      "sourceMetrics": {
+        "duration": 0.6065,
+        "peakDbfs": 0.09503469725536723,
+        "rmsDbfs": -24.908320743127412,
+        "clippedSamples": 2,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.47252083333333333,
+        "first": 0,
+        "last": 6430
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/notice-soft-take-02.mp3",
+      "sha256": "c51e78e48207b25f29f9d06cb3ffe0883667861c85d94e80472b85e87295dbfd",
+      "bytes": 4222,
+      "outputMetrics": {
+        "duration": 0.194,
+        "peakDbfs": -10.395460324710907,
+        "rmsDbfs": -30.45725865840383,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0008125,
+        "trailingSilenceSeconds": 0.060020833333333336,
+        "first": 39,
+        "last": 6430
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.19397916666666667,
+        "targetRmsDbfs": -30,
+        "gainDb": -10.037883213621697,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 3,
+      "source": "art/source/audio/teahouse-v1/notice-soft/take-03.mp3",
+      "sourceSha256": "1993c50a9973500ae0f64173ff627e05af56b2ab617a3f811ec60b1be2c969de",
+      "sourceBytes": 16173,
+      "sourceMetrics": {
+        "duration": 0.6065,
+        "peakDbfs": -6.068199791021533,
+        "rmsDbfs": -35.21437371739013,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.000020833333333333333,
+        "trailingSilenceSeconds": 0.4171875,
+        "first": 1,
+        "last": 9086
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/notice-soft-take-03.mp3",
+      "sha256": "4025d8e4a5cb51aa129711eedfce2566d242cc1f83b6de5bbb489b38b7df1cf8",
+      "bytes": 5058,
+      "outputMetrics": {
+        "duration": 0.24933333333333332,
+        "peakDbfs": -5.168364628529682,
+        "rmsDbfs": -30.45542931534051,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0032291666666666666,
+        "trailingSilenceSeconds": 0.06,
+        "first": 155,
+        "last": 9087
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.2493125,
+        "targetRmsDbfs": -30,
+        "gainDb": 1.3594175376455588,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 4,
+      "source": "art/source/audio/teahouse-v1/notice-soft/take-04.mp3",
+      "sourceSha256": "78f686a565f8fb1603e1718da96492624b73ced7eb0e219c21e0548a420ecf6c",
+      "sourceBytes": 16173,
+      "sourceMetrics": {
+        "duration": 0.6065,
+        "peakDbfs": -1.1433296286636494,
+        "rmsDbfs": -29.3738086231795,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.000020833333333333333,
+        "trailingSilenceSeconds": 0.41472916666666665,
+        "first": 1,
+        "last": 9204
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/notice-soft-take-04.mp3",
+      "sha256": "92f87767336a5457cd25e2b2754a804db7d9c08441684fdc9b87d9545d2d1265",
+      "bytes": 5058,
+      "outputMetrics": {
+        "duration": 0.2517916666666667,
+        "peakDbfs": -6.0717564940506055,
+        "rmsDbfs": -30.4781303151997,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0021458333333333334,
+        "trailingSilenceSeconds": 0.06,
+        "first": 103,
+        "last": 9205
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.25177083333333333,
+        "targetRmsDbfs": -30,
+        "gainDb": -4.440159477982526,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    }
+  ],
+  "selectedTake": 3,
+  "selectionBasis": "约0.25秒内有两次明确低木敲，与普通单次点击有区别；避开候选1过低且接近次声的频谱重心。",
+  "runtimeSha256": "4025d8e4a5cb51aa129711eedfce2566d242cc1f83b6de5bbb489b38b7df1cf8",
+  "runtimeBytes": 5058,
+  "durationActualSeconds": 0.24933333333333332,
+  "technicalStatus": "decode-duration-peak-and-unique-takes-verified",
+  "listeningStatus": "not-human-reviewed",
+  "wiredToGame": true,
+  "selectionStatus": "agent-selected",
+  "selectionReviewMethod": "Per-candidate waveform, spectral distribution, duration, onset pattern, and role matching. This is an agent production choice, not a claim of direct auditory or human listening acceptance.",
+  "finalProcessing": {
+    "eq": null,
+    "gainDb": 0
+  },
+  "finalMetrics": {
+    "duration": 0.24933333333333332,
+    "peakDbfs": -5.168364628529682,
+    "rmsDbfs": -30.45542931534051,
+    "clippedSamples": 0,
+    "leadingSilenceSeconds": 0.0032291666666666666,
+    "trailingSilenceSeconds": 0.06,
+    "first": 155,
+    "last": 9087
+  },
+  "integrationTarget": "react-web"
+}

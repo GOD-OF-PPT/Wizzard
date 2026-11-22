@@ -1,0 +1,15 @@
+{
+  "layout": "art/runtime/web-v3/results-total-minus-v1.json",
+  "sha256": "6cdda19307f6b1f4dced0b3e64b592078284ca560d3e3e2da064e8e518d189a6",
+  "sourceEvidence": [
+    "art/source/web-v3/results-ink-v1/total-minus-before-196.json",
+    "art/source/web-v3/results-ink-v1/total-minus-after-198.json"
+  ],
+  "counts": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "scope": "Per-source-player-count optical total-minus presets. No value/player/row constants. Round negative totals reuse round font-size minus geometry; ranking totals use their count preset. Full actual numeric label and text preserved, digits keep their layout."
+}

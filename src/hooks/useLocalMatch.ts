@@ -1,6 +1,7 @@
 import {
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useReducer,
   useRef,
@@ -186,7 +187,10 @@ export function useLocalMatch(options: PracticeSessionOptions = {}): LocalMatchC
     dispatch({ state: next.state, type: "reset" });
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    // Publish the new action's countdown and retire the previous interval
+    // before paint. A passive effect exposed the AI's remaining 1 second
+    // for one frame when the visible turn had already moved to the human.
     // Build the per-player pacing metadata the shared driver needs. The local
     // human is always connected and human-controlled; AI seats are automated.
     // Clients ignore `playerPacingChanges` (consecutive-timeout takeover is a

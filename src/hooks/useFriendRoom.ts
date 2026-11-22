@@ -1,4 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { RoomAudioTracker } from "../web/audio/cues";
+import { gameAudio, playCues } from "../web/audio/player";
+import type { GameMode } from "@wizzard/game-core/contracts";
+import { rememberedNickname, rememberRoomNickname } from "../web/room-nickname";
 import {
   PROTOCOL_VERSION,
   type AvatarKey,
@@ -51,6 +55,7 @@ export function useFriendRoom(endpoint?: string) {
   const [state, setState] = useState<FriendRoomState>(EMPTY_STATE);
   const [pendingCommand, setPendingCommand] = useState<string | null>(null);
   const pendingCommandRef = useRef<string | null>(null);
+  const pendingTypeRef = useRef<string | null>(null);
   const channelRef = useRef<BroadcastChannel | null>(null);
   const tabIdRef = useRef(`web-tab-${Math.random().toString(36).slice(2)}`);
   const leaseRef = useRef(new WebRoomTabLease());
@@ -66,6 +71,7 @@ export function useFriendRoom(endpoint?: string) {
     leaseRef.current.release();
     setState(EMPTY_STATE);
     pendingCommandRef.current = null;
+    pendingTypeRef.current = null;
     setPendingCommand(null);
   }, []);
 
@@ -84,6 +90,9 @@ export function useFriendRoom(endpoint?: string) {
         ...(endpoint ? { endpoint } : {}),
       } satisfies WebRoomClientOptions);
       clientRef.current = client;
+      const sounds = new RoomAudioTracker(binding.type);
+      let reportedError = false;
+      let checkResumedName = binding.type === "resume";
       setClient(client);
       if (typeof BroadcastChannel !== "undefined") {
         const channel = new BroadcastChannel("wizzard-room");
@@ -98,6 +107,7 @@ export function useFriendRoom(endpoint?: string) {
       }
       unsubscribeRef.current = client.subscribe((event) => {
         if (event.type === "connection") {
+          if (event.state !== "connected") sounds.disconnected();
           setState((current) => ({
             ...current,
             connection: event.state,
@@ -106,10 +116,13 @@ export function useFriendRoom(endpoint?: string) {
         }
 
         if (event.type === "error") {
+          if (!reportedError) gameAudio.play({ id: "notice.soft" });
+          reportedError = true;
           // Transport loss is not a negative acknowledgement. Keep the pending
           // command owned until its own ACK/rejection or an ended session.
           if (event.terminal || event.requestId === pendingCommandRef.current) {
             pendingCommandRef.current = null;
+            pendingTypeRef.current = null;
             setPendingCommand(null);
           }
           setState((current) => ({
@@ -121,14 +134,24 @@ export function useFriendRoom(endpoint?: string) {
           return;
         }
 
+        const settledCommand = event.payload.ackCommandId === pendingCommandRef.current ? pendingTypeRef.current ?? undefined : undefined;
         if (event.payload.ackCommandId === pendingCommandRef.current) {
           pendingCommandRef.current = null;
+          pendingTypeRef.current = null;
           setPendingCommand(null);
         }
         if (!leaseRef.current.acquire(event.payload.room.roomId)) {
           setState((current) => ({ ...current, error: "该房间已在另一个标签页打开" }));
           return;
         }
+        playCues(sounds.update(event.payload, settledCommand));
+        if (checkResumedName) {
+          checkResumedName = false;
+          const { players, selfPlayerId } = event.payload.room;
+          const self = players.find(player => player.playerId === selfPlayerId);
+          if (self && !rememberedNickname()) rememberRoomNickname(self.name);
+        }
+        reportedError = false;
         setState({
           connection: client.getConnectionState(),
           error: null,
@@ -155,24 +178,25 @@ export function useFriendRoom(endpoint?: string) {
     if (!client || client.getConnectionState() !== "connected" || pendingCommandRef.current) return false;
     const requestId = client.nextRequestId();
     pendingCommandRef.current = requestId;
+    pendingTypeRef.current = message.type;
     setPendingCommand(message.type);
     const sent = client.sendTracked({
       ...message,
       requestId,
       v: PROTOCOL_VERSION,
     } as ClientRoomMessage);
-    if (!sent) { pendingCommandRef.current = null; setPendingCommand(null); }
+    if (!sent) { pendingCommandRef.current = null; pendingTypeRef.current = null; setPendingCommand(null); }
     return sent;
   }, []);
 
   const createRoom = useCallback(
-    (displayName: string, maxPlayers: 3 | 4 | 5 | 6 = 6, turnTimerEnabled = false) => {
+    (displayName: string, maxPlayers: 3 | 4 | 5 | 6 = 6, turnTimerEnabled = false, mode: GameMode = "quick") => {
       attach({
         payload: {
           avatarKey: "bamboo-cat",
           displayName,
           maxPlayers,
-          mode: "quick",
+          mode,
           turnTimerEnabled,
         },
         type: "create",
@@ -222,6 +246,8 @@ export function useFriendRoom(endpoint?: string) {
       let settled = false;
       const unsubscribe = activeClient.subscribe((event) => {
         if (event.type === "update" && event.payload.ackCommandId === requestId) {
+          gameAudio.stop();
+          gameAudio.play({ id: "ui.back", key: `leave:${requestId}` });
           settled = true;
           unsubscribe();
           resolve(true);

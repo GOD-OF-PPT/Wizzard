@@ -1,4 +1,4 @@
-import type { RefObject } from "react";
+import { useEffect, useRef, type RefObject } from "react";
 import home from "../../art/runtime/web-v3/home.png";
 import portrait from "../../art/runtime/web-v3/portrait/home.png";
 import protectedHome from "../../art/runtime/web-v3/tab-protection-v1.png";
@@ -11,18 +11,25 @@ type Props = {
   onPractice: () => void;
   onRules: () => void;
   rulesButtonRef: RefObject<HTMLButtonElement | null>;
+  focusAction?: "create" | "join" | null;
 };
 
-export function WebHome({ onCreateRoom, onJoinRoom, onPractice, onRules, rulesButtonRef, roomEntryDisabled = false }: Props) {
+export function WebHome({ onCreateRoom, onJoinRoom, onPractice, onRules, rulesButtonRef, roomEntryDisabled = false, focusAction }: Props) {
+  const createRef = useRef<HTMLButtonElement>(null);
+  const joinRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const target = focusAction === "create" ? createRef.current : focusAction === "join" ? joinRef.current : null;
+    target?.focus({ preventScroll: true });
+  }, [focusAction]);
   return <section className="screen-stage v3-home" aria-labelledby="home-title">
     <h1 className="sr-only" id="home-title">奇术茶馆</h1>
     <picture className="screen-art-picture">
       <source media="(orientation: portrait)" srcSet={roomEntryDisabled ? protectedPortrait : portrait} />
-      <img className="screen-art" alt="灯下的奇术茶馆，好友围桌品茶" src={roomEntryDisabled ? protectedHome : home} draggable={false} />
+      <img className="screen-art" alt="灯下的奇术茶馆，好友围桌品茶" src={roomEntryDisabled ? protectedHome : home} fetchPriority="high" draggable={false} />
     </picture>
     <nav aria-label="茶馆入口" className="v3-home-nav">
-      <button disabled={roomEntryDisabled} className="v3-home-hit v3-home-create" aria-label="创建房间" onClick={onCreateRoom} />
-      <button disabled={roomEntryDisabled} className="v3-home-hit v3-home-join" aria-label="加入房间" onClick={onJoinRoom} />
+      <button ref={createRef} disabled={roomEntryDisabled} className="v3-home-hit v3-home-create" aria-label="创建房间" onClick={onCreateRoom} />
+      <button ref={joinRef} disabled={roomEntryDisabled} className="v3-home-hit v3-home-join" aria-label="加入房间" onClick={onJoinRoom} />
       <button className="v3-home-hit v3-home-practice" aria-label="单人练习" onClick={onPractice} />
       <button className="v3-home-hit v3-home-rules" aria-label="规则与设置" onClick={onRules} ref={rulesButtonRef} />
     </nav>

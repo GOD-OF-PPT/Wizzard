@@ -6,7 +6,8 @@ import {
 } from "../game-assets";
 import type { Card } from "@wizzard/game-core/contracts";
 import webSelectedHalo from "../../art/runtime/web-v3/selected-halo.png";
-import { webCardImage } from "../web/card-assets";
+import { webCardImage, webPortraitCardImage } from "../web/card-assets";
+import { trickCardImage } from "../web/trick-card-assets";
 
 export type CardVisualState =
   | "normal"
@@ -24,9 +25,10 @@ type CardViewProps = {
   state?: CardVisualState;
   style?: CSSProperties;
   winner?: boolean;
+  surface?: "hand" | "trick";
 };
 
-function getCardLabel(card: Card): string {
+export function getCardLabel(card: Card): string {
   if (card.kind === "highest") {
     return "至高牌";
   }
@@ -51,11 +53,13 @@ export function CardView({
   state = "normal",
   style,
   winner = false,
+  surface = "hand",
 }: CardViewProps) {
   const label = faceDown ? "背面朝上的手牌" : getCardLabel(card);
   const cornerText = getCornerText(card);
+  const sourceNumberFace = !faceDown && card.kind === "number";
   const suitClass = card.kind === "number" ? `game-card--suit-${card.suit}` : "";
-  const classNames = `game-card game-card--${state} ${suitClass} ${winner ? "is-winner" : ""} ${className}`;
+  const classNames = `game-card game-card--${state} ${suitClass} ${sourceNumberFace ? "game-card--source-face" : ""} ${winner ? "is-winner" : ""} ${className}`;
   const content = (
     <>
       {state === "legal" ? (
@@ -85,20 +89,21 @@ export function CardView({
           src={gameArt.trickWin}
         />
       ) : null}
-      <img
-        alt=""
-        aria-hidden="true"
-        className="game-card__art"
-        draggable="false"
-        src={faceDown ? cardImages.back : webCardImage(card)}
-      />
-      {!faceDown && cornerText ? (
-        <>
-          <span className="game-card__rank game-card__rank--top">
+      <span className="game-card__face" aria-hidden="true">
+        {sourceNumberFace ? (
+          <picture className="game-card__picture">
+            <source media="(orientation: portrait)" srcSet={surface === "trick" ? trickCardImage(card, true) : webPortraitCardImage(card)} />
+            <img alt="" className="game-card__art" draggable="false" src={surface === "trick" ? trickCardImage(card) : webCardImage(card)} />
+          </picture>
+        ) : (
+          <img alt="" className="game-card__art" draggable="false" src={faceDown ? cardImages.back : webCardImage(card)} />
+        )}
+        {!faceDown && cornerText ? (
+          <span className="game-card__rank game-card__rank--top" data-rank={cornerText}>
             {cornerText}
           </span>
-        </>
-      ) : null}
+        ) : null}
+      </span>
     </>
   );
 

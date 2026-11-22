@@ -21,9 +21,11 @@ const table: Card[] = [
   { id: "review-knot-3", kind: "number", suit: "knot", rank: 3 },
   { id: "review-sun-1", kind: "number", suit: "sun", rank: 1 },
   { id: "review-mountain-9", kind: "number", suit: "mountain", rank: 9 },
+  { id: "review-table-highest", kind: "highest" },
+  { id: "review-table-lowest", kind: "lowest" },
 ];
 
-export function reviewMatchController(phase: MatchPhase, handCount = 4, timer = true, trump: Suit = "sun"): LocalMatchController {
+export function reviewMatchController(phase: MatchPhase, handCount = 4, timer = true, trump: Suit | null = "sun", trickCount = 4): LocalMatchController {
   const hand = referenceHand.slice(0, handCount);
   const snapshot: PlayerMatchSnapshot = {
     privateState: { hand, legalCardIds: ["review-leaf-5", "review-leaf-11", "review-highest", "review-lowest"].filter(id => hand.some(card => card.id === id)), playerId: "review-player-0" },
@@ -37,7 +39,7 @@ export function reviewMatchController(phase: MatchPhase, handCount = 4, timer = 
       revealedCard: null, roundHandCounts: [1, 2, 3, 4, 5, 6, 7, 8], roundIndex: handCount - 1,
       scoreEntries: [], trump, version: 1,
       handCounts: Object.fromEntries(names.map((_, index) => [`review-player-${index}`, handCount])),
-      trick: { leaderId: "review-player-1", number: 1, plays: phase === "trick-play" ? table.map((card, index) => ({ card, playerId: `review-player-${index + 1}` })) : [] },
+      trick: { leaderId: "review-player-1", number: 1, plays: phase === "trick-play" ? table.slice(0, trickCount).map((card, index) => ({ card, playerId: `review-player-${(index + 1) % names.length}` })) : [] },
     },
   };
   return { snapshot, advance: () => undefined, restart: () => undefined, sendIntent: () => undefined,

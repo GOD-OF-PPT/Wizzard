@@ -1,0 +1,19 @@
+{
+  "generator": "built-in image_gen",
+  "createdOn": "2026-10-29",
+  "prompt": "art/prompts/game-cover-teahouse-v1.txt",
+  "promptSha256": "e2940f9c267b3edc58a7b3944cd88926512e4af93a5b72bb563c755398dafdbc",
+  "source": "art/source/covers/teahouse-game-cover-v1-master.png",
+  "sourceDimensions": [
+    1672,
+    941
+  ],
+  "sourceSha256": "316b0d736b4440e291440b0259f4cf0846dac1b633dc610494d91550b42efcbd",
+  "output": "art/runtime/covers/teahouse-game-cover-1920x1080-v1.png",
+  "outputDimensions": [
+    1920,
+    1080
+  ],
+  "sha256": "3100c89bd2cb3719db967f86094628abb98433241f9f6c574f4874814ff13ff8",
+  "export": "Aspect-preserving Lanczos3 resize with centered subpixel-edge crop to exact 16:9. No text, character, color, or layout edits. Native generated master preserved."
+}

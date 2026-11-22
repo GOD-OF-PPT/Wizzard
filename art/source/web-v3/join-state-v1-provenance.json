@@ -1,0 +1,447 @@
+{
+  "method": "Built-in ImageGen edits. Perimeter contains no value glyphs; original selected design retained outside declared ROI. Empty-name lettering and wide focus frame resized once to their measured slots.",
+  "records": [
+    {
+      "profile": "landscape",
+      "source": "art/mockups/web-v3/03-join.png",
+      "candidate": "art/source/web-v3/join-code-error-wide-v1-candidate.png",
+      "number": 22,
+      "state": "join-code-error",
+      "content": {
+        "nickname": "茶客听雨",
+        "code": "12",
+        "error": "请输入六位数字房间码"
+      },
+      "output": "art/mockups/web-v3/22-join-code-error-v1.png",
+      "patches": [
+        {
+          "place": [
+            632,
+            491
+          ],
+          "size": [
+            74,
+            79
+          ]
+        },
+        {
+          "place": [
+            731,
+            491
+          ],
+          "size": [
+            74,
+            79
+          ]
+        },
+        {
+          "place": [
+            830,
+            491
+          ],
+          "size": [
+            74,
+            79
+          ]
+        },
+        {
+          "place": [
+            929,
+            491
+          ],
+          "size": [
+            74,
+            79
+          ]
+        },
+        {
+          "place": [
+            1028,
+            491
+          ],
+          "size": [
+            74,
+            79
+          ]
+        },
+        {
+          "place": [
+            1127,
+            491
+          ],
+          "size": [
+            74,
+            79
+          ]
+        },
+        {
+          "place": [
+            710,
+            590
+          ],
+          "size": [
+            405,
+            34
+          ]
+        }
+      ],
+      "runtime": [
+        "art/runtime/web-v3/join-code-error-landscape-v1.png"
+      ],
+      "changedOutsideRoi": 0,
+      "sourceSha256": "a79147cb237e920fa508982af09f53f8e509c2ad02a62ee79d470072762efed7",
+      "candidateSha256": "75012c540336b13d61bd92ec88f08e8af59d5de17ba4a13b399491477cd1d096",
+      "outputSha256": "a045c9aa0206ff81e3afe272ecfd72c1acc82c303bd8f18475dbb4ee8f6e5f1c"
+    },
+    {
+      "profile": "landscape",
+      "source": "art/mockups/web-v3/03-join.png",
+      "candidate": "art/source/web-v3/join-name-error-wide-v1-candidate.png",
+      "clean": "art/runtime/web-v3/join.png",
+      "cleanSha256": "3ac12f56fb332e4437139058a25e322be38abad97850732039cf52d0e041d497",
+      "number": 23,
+      "state": "join-name-error",
+      "content": {
+        "nickname": "",
+        "code": "628315",
+        "error": "请填写茶客昵称"
+      },
+      "nameCrop": [
+        772,
+        343,
+        225,
+        37
+      ],
+      "nameSize": [
+        200,
+        33
+      ],
+      "output": "art/mockups/web-v3/23-join-name-error-v1.png",
+      "patches": [
+        {
+          "place": [
+            765,
+            334
+          ],
+          "size": [
+            425,
+            54
+          ]
+        },
+        {
+          "place": [
+            776,
+            345
+          ],
+          "size": [
+            200,
+            33
+          ]
+        }
+      ],
+      "runtime": [
+        "art/runtime/web-v3/join-name-error-landscape-v1.png"
+      ],
+      "changedOutsideRoi": 0,
+      "sourceSha256": "a79147cb237e920fa508982af09f53f8e509c2ad02a62ee79d470072762efed7",
+      "candidateSha256": "8f91a89a1491860a39e33273b97de956a47def7b0a136458ab742d365a08e25b",
+      "outputSha256": "8f503ac3b2ac05e18be7ba87b9cf8c5950a17a90028e8bd3c15748c2c606b349"
+    },
+    {
+      "profile": "landscape",
+      "source": "art/mockups/web-v3/03-join.png",
+      "candidate": "art/source/web-v3/join-code-focus-wide-v1-candidate.png",
+      "number": 24,
+      "state": "join-code-focus",
+      "frameCrop": [
+        604,
+        461,
+        627,
+        138
+      ],
+      "frameSize": [
+        613,
+        121
+      ],
+      "content": {
+        "nickname": "茶客听雨",
+        "code": "628315",
+        "focused": "六位房间码"
+      },
+      "output": "art/mockups/web-v3/24-join-code-focus-v1.png",
+      "patches": [
+        {
+          "place": [
+            610,
+            470
+          ],
+          "size": [
+            613,
+            10
+          ]
+        },
+        {
+          "place": [
+            610,
+            578
+          ],
+          "size": [
+            613,
+            13
+          ]
+        },
+        {
+          "place": [
+            610,
+            480
+          ],
+          "size": [
+            14,
+            98
+          ]
+        },
+        {
+          "place": [
+            1212,
+            480
+          ],
+          "size": [
+            11,
+            98
+          ]
+        }
+      ],
+      "runtime": [
+        "art/runtime/web-v3/join-code-focus-landscape-top-v1.png",
+        "art/runtime/web-v3/join-code-focus-landscape-bottom-v1.png",
+        "art/runtime/web-v3/join-code-focus-landscape-left-v1.png",
+        "art/runtime/web-v3/join-code-focus-landscape-right-v1.png"
+      ],
+      "changedOutsideRoi": 0,
+      "sourceSha256": "a79147cb237e920fa508982af09f53f8e509c2ad02a62ee79d470072762efed7",
+      "candidateSha256": "6c11db65ab4c9f971cae8765546f40c7c42dd59995dfa1285ffa26982eea392f",
+      "outputSha256": "88cd4c25b8ef7120afbd3dbd8ba651087f7653784d68f2cb95aa97f3734af5fb"
+    },
+    {
+      "profile": "portrait",
+      "source": "art/mockups/web-v3/portrait/03-join.png",
+      "candidate": "art/source/web-v3/join-code-error-tall-v1-candidate.png",
+      "number": 22,
+      "state": "join-code-error",
+      "content": {
+        "nickname": "茶客听雨",
+        "code": "12",
+        "error": "请输入六位数字房间码"
+      },
+      "output": "art/mockups/web-v3/portrait/22-join-code-error-v1.png",
+      "patches": [
+        {
+          "place": [
+            178,
+            951
+          ],
+          "size": [
+            77,
+            88
+          ]
+        },
+        {
+          "place": [
+            280,
+            951
+          ],
+          "size": [
+            77,
+            88
+          ]
+        },
+        {
+          "place": [
+            381,
+            951
+          ],
+          "size": [
+            77,
+            88
+          ]
+        },
+        {
+          "place": [
+            484,
+            951
+          ],
+          "size": [
+            77,
+            88
+          ]
+        },
+        {
+          "place": [
+            586,
+            951
+          ],
+          "size": [
+            77,
+            88
+          ]
+        },
+        {
+          "place": [
+            687,
+            951
+          ],
+          "size": [
+            77,
+            88
+          ]
+        },
+        {
+          "place": [
+            302,
+            1060
+          ],
+          "size": [
+            352,
+            45
+          ]
+        }
+      ],
+      "runtime": [
+        "art/runtime/web-v3/join-code-error-portrait-v1.png"
+      ],
+      "changedOutsideRoi": 0,
+      "sourceSha256": "4cea5c828be0c4c059298cac0581f1625e37a6afbcbf212e09c7d2b296002ebe",
+      "candidateSha256": "23d98e733971165fe0c87af551270bb34992f4d0858f9f591da086b9ea38141b",
+      "outputSha256": "7c081df156680a72dfaafd31d89bc833a57277d3bc895e9c17fe20db1590451e"
+    },
+    {
+      "profile": "portrait",
+      "source": "art/mockups/web-v3/portrait/03-join.png",
+      "candidate": "art/source/web-v3/join-name-error-tall-v1-candidate.png",
+      "clean": "art/runtime/web-v3/portrait/join.png",
+      "cleanSha256": "6d90dc3bc4feff368e61447b8df1bf8332f3d6a1a65f4790d94f3ed1a9d28b2e",
+      "number": 23,
+      "state": "join-name-error",
+      "content": {
+        "nickname": "",
+        "code": "628315",
+        "error": "请填写茶客昵称"
+      },
+      "nameCrop": [
+        339,
+        708,
+        280,
+        48
+      ],
+      "nameSize": [
+        224,
+        38
+      ],
+      "output": "art/mockups/web-v3/portrait/23-join-name-error-v1.png",
+      "patches": [
+        {
+          "place": [
+            335,
+            700
+          ],
+          "size": [
+            275,
+            61
+          ]
+        },
+        {
+          "place": [
+            348,
+            714
+          ],
+          "size": [
+            224,
+            38
+          ]
+        }
+      ],
+      "runtime": [
+        "art/runtime/web-v3/join-name-error-portrait-v1.png"
+      ],
+      "changedOutsideRoi": 0,
+      "sourceSha256": "4cea5c828be0c4c059298cac0581f1625e37a6afbcbf212e09c7d2b296002ebe",
+      "candidateSha256": "8fa79c6135323d0a797cbe10e792f8c8a48fd3c11d8277fea03cdc8622ae7bbe",
+      "outputSha256": "fb10f68cbff27294e5279b90076d2d35d6fc1a003abfcd89a3122643fc13ed8d"
+    },
+    {
+      "profile": "portrait",
+      "source": "art/mockups/web-v3/portrait/03-join.png",
+      "candidate": "art/source/web-v3/join-code-focus-tall-v1-candidate.png",
+      "number": 24,
+      "state": "join-code-focus",
+      "frameCrop": [
+        145,
+        921,
+        651,
+        148
+      ],
+      "frameSize": [
+        651,
+        148
+      ],
+      "content": {
+        "nickname": "茶客听雨",
+        "code": "628315",
+        "focused": "六位房间码"
+      },
+      "output": "art/mockups/web-v3/portrait/24-join-code-focus-v1.png",
+      "patches": [
+        {
+          "place": [
+            145,
+            921
+          ],
+          "size": [
+            651,
+            18
+          ]
+        },
+        {
+          "place": [
+            145,
+            1051
+          ],
+          "size": [
+            651,
+            18
+          ]
+        },
+        {
+          "place": [
+            145,
+            939
+          ],
+          "size": [
+            24,
+            112
+          ]
+        },
+        {
+          "place": [
+            779,
+            939
+          ],
+          "size": [
+            17,
+            112
+          ]
+        }
+      ],
+      "runtime": [
+        "art/runtime/web-v3/join-code-focus-portrait-top-v1.png",
+        "art/runtime/web-v3/join-code-focus-portrait-bottom-v1.png",
+        "art/runtime/web-v3/join-code-focus-portrait-left-v1.png",
+        "art/runtime/web-v3/join-code-focus-portrait-right-v1.png"
+      ],
+      "changedOutsideRoi": 0,
+      "sourceSha256": "4cea5c828be0c4c059298cac0581f1625e37a6afbcbf212e09c7d2b296002ebe",
+      "candidateSha256": "6ce204e6fad0c01a178c5e73a0211f65a97b6f267752c8449869a9611ac404fe",
+      "outputSha256": "034421b9218441d6767c780c9cab099f336cee7c984b8ac64b9d5d60c34e4923"
+    }
+  ]
+}

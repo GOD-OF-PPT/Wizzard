@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 29,
   "carrier": "react-web",
   "generator": "built-in image_gen",
   "designRoot": "art/mockups/web-v3/",
@@ -7,110 +7,1673 @@
   "portraitDesignRoot": "art/mockups/web-v3/portrait/",
   "designContract": "docs/18-web-v3-design-and-interaction.md",
   "acceptance": "in-progress",
+  "resultsRevision": {
+    "report": "docs/70-web-v3-current-final-and-classic-ranking.md",
+    "comparisons": "art/review/web-v3/results-calibration-20261026/coverage.json",
+    "revision": 163,
+    "comparisonCount": 14,
+    "reviewedViews": {
+      "full": 7,
+      "focused": 7,
+      "carriedByRgbRegression": 7,
+      "currentCaptureGroups": 14
+    },
+    "sourceProvenance": "art/source/web-v3/results-source-v1/provenance-v1.json",
+    "currentRankingProvenance": "art/source/web-v3/results-source-v1/current-ranking-provenance-v1.json",
+    "layout": "art/runtime/web-v3/results-source-v1/layout-v1.json",
+    "runtimeRoot": "art/runtime/web-v3/results-source-v1/",
+    "runtimePNGs": 64,
+    "registry": [
+      "src/web/results-source-assets.generated.ts",
+      "src/web/current-ranking-assets.generated.ts",
+      "src/web/result-state-actions.generated.ts",
+      "src/web/result-mode-art.generated.ts"
+    ],
+    "newDesignState": "33-current-ranking-v1.png",
+    "portraitNewDesignState": "portrait/33-current-ranking-v1.png",
+    "designStateCount": 41,
+    "profiles": 2,
+    "catalogCountsExcludeMissingStates": true,
+    "realPractice": "art/review/web-v3/results-calibration-20261026/159-results-real-terminal-flow-20261026.json",
+    "status": "source-mode-furniture-reviewed-live-glyph-P2-remain",
+    "scope": "Source classic heading/fixed subtitle and live two-digit count, dedicated current-final action.64resultPNG plus Bold/reusedRegular numeric faces. Actual classic player-count/Regular/Escape UI diagnostics; no new real/network match.",
+    "supersedes": "163 current14same-state captures.7pairs freshly opened full/focus;7wholedecodedRGB within1level of opened158 carry previous findings.161before and162Bold/highclassic count retained.159actualpractice historical, terminalJPEGtransition only.",
+    "remaining": [
+      "live nickname/score/round glyph and sampling differences",
+      "cleanup texture and alpha/GPU edges",
+      "Quick-final3/4/5/tie/negative designs added in docs72; complete round/current/classic-count/long-name/connection/focus sources remain",
+      "default-duration/no-timer/fault network boundaries; accelerated terminal/rematch/leave verified in docs71",
+      "docs66 clock/round capture review incomplete"
+    ],
+    "previousReport": "docs/69-web-v3-results-final-and-guest-states.md",
+    "runtimeFonts": 1,
+    "backgroundProvenance": "art/source/web-v3/results-source-v1/background-provenance-v1.json",
+    "fontProvenance": "art/source/fonts/web-v3/results-bold-subset-v1.json",
+    "nativeFontReceipt": "art/review/web-v3/results-calibration-20261026/156-results-font-native-20261026.json",
+    "engineeringChecks": 761,
+    "stateProvenance": "art/source/web-v3/results-states-v1/provenance-v1.json",
+    "newDesignStates": [
+      "36-current-ranking-final-v1.png",
+      "37-ranking-classic-v1.png"
+    ],
+    "portraitNewDesignStates": [
+      "portrait/36-current-ranking-final-v1.png",
+      "portrait/37-ranking-classic-v1.png"
+    ],
+    "realVisualClassification": "art/review/web-v3/results-calibration-20261026/159-results-real-visual-review.json",
+    "runtimeNumericFonts": 2,
+    "modeStateProvenance": "art/source/web-v3/results-mode-states-v1/provenance-v1.json",
+    "modeDiagnostics": "art/review/web-v3/results-calibration-20261026/164-results-mode-variants-20261026.json",
+    "rgbRegression": "art/review/web-v3/results-calibration-20261026/163-regression-pixels-vs-158.json",
+    "countSupplementRevision": 169,
+    "avatarMatteOverrideRevision": 174,
+    "typographyOverrideRevision": 186
+  },
+  "clockRoundRevision": {
+    "report": "docs/66-web-v3-source-round-and-clocks.md",
+    "status": "implemented-partially-captured-review-incomplete",
+    "rawCaptureGroups": 17,
+    "assembledComparisons": 11,
+    "fullyReviewed": false,
+    "comparisons": "art/review/web-v3/clock-round-calibration-20261026/coverage.json",
+    "runtimeRoot": "art/runtime/web-v3/hud-clock-v1/",
+    "runtimePNGs": 10,
+    "roundProvenance": "art/source/web-v3/hud-clock-v1/round-provenance-v1.json",
+    "clockProvenance": "art/source/web-v3/hud-clock-v1/clock-provenance-v1.json",
+    "noTimerProvenance": "art/source/web-v3/hud-clock-v1/dense-notimer-provenance-v1.json",
+    "newDesignStates": [
+      "31-dense-hand-notimer-idle-v1.png",
+      "32-dense-hand-notimer-selected-v1.png"
+    ],
+    "scope": "Original round fixed Chinese and timer ring/hourglass/秒 with live numerals. Dense no-timer wholeclock removal. User shifted priority to results; remaining shared-state/real countdown/final visual acceptance stays open."
+  },
+  "hudActionRevision": {
+    "report": "docs/65-web-v3-source-hud-and-actions.md",
+    "comparisons": "art/review/web-v3/hud-source-calibration-20261026/coverage.json",
+    "revision": 135,
+    "actualCaptureBatches": {
+      "default": 132,
+      "selectedNoTimer": 133,
+      "portraitBidNormalAndPending": 135
+    },
+    "comparisonCount": 28,
+    "reviewedViews": {
+      "full": 28,
+      "focused": 28
+    },
+    "catalog": "art/source/web-v3/hud-source-v1/catalog-v1.json",
+    "actionProvenance": "art/source/web-v3/hud-source-v1/action-provenance-v1.json",
+    "trumpProvenance": "art/source/web-v3/hud-source-v1/trump-provenance-v1.json",
+    "copyCorrection": "art/source/web-v3/hud-source-v1/copy-correction-provenance-v1.json",
+    "assetRegistry": "src/web/source-action-assets.generated.ts",
+    "activeSourcePNGs": 26,
+    "emittedFileRasters": 21,
+    "inlineRasterPayloads": 4,
+    "deduplicatedSourcePair": 1,
+    "runtimeRoot": "art/runtime/web-v3/hud-source-v1/",
+    "status": "source-hud-actions-reviewed-full-page-P2-remain",
+    "designStateCount": 34,
+    "profiles": 2,
+    "visibleSourceCopyRevisions": 18,
+    "catalogCountsExcludeMissingStates": true,
+    "realPractice": "art/review/web-v3/hud-source-calibration-20261026/134-hud-real-native-20261026.json",
+    "scope": "Original fixed action lettering/frame/cloud, trump paper/prefix and live suit state, portrait dense local-play plaque. Source/runtime one-glyph sun correction, opaque RGB and alpha protected outside ROI. Covered parts excluded.",
+    "supersedes": "Corresponding HUD/action/copy views of docs64; not cumulative passes. 132 no-timer idle mismatch replaced by133; portrait bid adjacent-rail alpha fixed in135.",
+    "remaining": [
+      "round/mode/connection/timer furniture",
+      "modal geometry/material/typography",
+      "dynamic glyph and GPU sampling differences",
+      "chooser pending ink/fade",
+      "missing interaction/responsive/dense/full-mode sources",
+      "active-match/pending/lostACK/network end/rematch"
+    ]
+  },
+  "gameplaySeatRevision": {
+    "report": "docs/64-web-v3-original-gameplay-seats.md",
+    "comparisons": "art/review/web-v3/gameplay-seats-calibration-20261026/coverage.json",
+    "revision": 126,
+    "actualCaptureBatches": {
+      "default": 124,
+      "portraitBidNormalAndPending": 126
+    },
+    "comparisonCount": 28,
+    "reviewedViews": {
+      "full": 28,
+      "focused": 28
+    },
+    "portraitProvenance": "art/source/web-v3/gameplay-seats-v1/portrait-provenance-v1.json",
+    "plateProvenance": "art/source/web-v3/gameplay-seats-v1/plate-provenance-v2.json",
+    "bidPose": "art/source/web-v3/gameplay-seats-v1/bid-position-v1.json",
+    "layout": "art/runtime/web-v3/gameplay-seats-v1/layout-v2.json",
+    "assetRegistryGenerator": "tools/generate-web-gameplay-seat-assets-v1.mjs",
+    "runtimeRasters": 40,
+    "fontSubsets": "art/source/fonts/web-v3/seat-subsets-v1.json",
+    "status": "source-seats-and-local-bid-position-reviewed-full-page-P2-remain",
+    "designStateCount": 34,
+    "profiles": 2,
+    "catalogCountsExcludeMissingStates": true,
+    "scope": "Shared MatchScreen six-seat avatars and dynamic name/prediction/won furniture. Local portrait bid moves only seat0 down148 source design px. Other states/player-count sources are not implied complete.",
+    "sourceOpaqueAvatarRGBChanges": 0,
+    "plateOutsideROIChanges": 0,
+    "plateProtectedRimChanges": 0,
+    "realPractice": "art/review/web-v3/gameplay-seats-calibration-20261026/127-seats-real-progress-20261026.json",
+    "supersedes": "Corresponding shared-seat views in docs60-63, not cumulative passed pages. 124 portrait bid concealed local seat; current126 closes it.",
+    "remaining": [
+      "dynamic glyph/edge differences",
+      "trump/timer/round/mode/action furniture",
+      "dense portrait status plaque",
+      "chooser material/position and sun-label typo",
+      "missing states/responsive sources",
+      "active-match/pending/lostACK/network end/rematch"
+    ]
+  },
+  "recoveryPanelRevision": {
+    "report": "docs/63-web-v3-recovery-source-panels.md",
+    "comparisons": "art/review/web-v3/recovery-source-calibration-20261025/coverage.json",
+    "batch": 117,
+    "comparisonCount": 8,
+    "reviewedViews": {
+      "full": 8,
+      "focused": 8
+    },
+    "designStateCount": 34,
+    "profiles": 2,
+    "catalogCountsExcludeMissingStates": true,
+    "panelProvenance": "art/source/web-v3/recovery-source-v1/provenance-v3.json",
+    "focusProvenance": "art/source/web-v3/recovery-source-v1/focus-provenance-v2.json",
+    "inactiveHandProvenance": "art/source/web-v3/recovery-source-v1/inactive-hand-provenance-v3.json",
+    "runtimePattern": "recovery-source-v1/{landscape,portrait}-{reconnecting,session-ended}-v3.png",
+    "focusPattern": "recovery-source-v1/{landscape,portrait}-{reconnecting,session-ended}-focus-v2.png",
+    "sceneRepair": "recovery-source-v1/portrait-top-scene-v1.png",
+    "designs": [
+      "29-reconnecting-focus-v2.png",
+      "30-session-ended-focus-v2.png"
+    ],
+    "portraitDesigns": [
+      "portrait/29-reconnecting-focus-v3.png",
+      "portrait/30-session-ended-focus-v2.png"
+    ],
+    "status": "original-panel-pixels-and-native-focus-reviewed-full-page-P2-remain",
+    "scope": "Fixed original title/body/action rasters plus live semantic buttons. Four normal/four focus views; real network evidence is lobby only.",
+    "realRecoveryRecord": "art/review/web-v3/recovery-source-calibration-20261025/114-real-recovery-recovered-20261025.json",
+    "realSessionClearRecord": "art/review/web-v3/recovery-source-calibration-20261025/115-real-recovery-cleared-20261025.json",
+    "focusFallbackRecord": "art/review/web-v3/recovery-source-calibration-20261025/118-recovery-focus-fallback-20261025.json",
+    "supersedes": "116 recovery comparisons before portrait empty-plaque fix; original 112 pointer over panel and 109 recovery underlays are historical, not cumulative passes.",
+    "remaining": [
+      "avatars/nameplates/HUD geometry and material",
+      "rank font and card resampling",
+      "source sun-label typo",
+      "missing interaction and responsive designs",
+      "active-match/pending/lost-ACK recovery",
+      "network end/rematch"
+    ]
+  },
+  "centralTrickRevision": {
+    "report": "docs/62-web-v3-central-trick-source-and-perspective.md",
+    "comparisons": "art/review/web-v3/trick-calibration-20261025/coverage.json",
+    "batch": 109,
+    "comparisonCount": 16,
+    "reviewedViews": {
+      "full": 16,
+      "focused": 16
+    },
+    "measurements": "art/source/web-v3/trick-faces-v1/measurements.json",
+    "faceProvenance": "art/source/web-v3/trick-faces-v1/face-provenance.json",
+    "geometry": "art/runtime/web-v3/trick-layout-v1.json",
+    "runtimePattern": "trick-cards-v1/{landscape,portrait}-{leaf,knot,sun,mountain}.png",
+    "runtimeSize": [
+      140,
+      210
+    ],
+    "sourceSize": [
+      420,
+      630
+    ],
+    "status": "source-art-and-projected-corners-wired-full-page-P2-remain",
+    "scope": "Central trick only; local hand faces/selection unchanged. Four slots source measured; other1-6 counts centered/interpolated,0empty preserved; no independent designs for othercounts.",
+    "sourceOutsideROIChanges": 0,
+    "sourceAlphaChanges": 0,
+    "protectedColorChanges": 0,
+    "countRecord": "art/review/web-v3/104-trick-count-safety-20261025.json",
+    "realPracticeRecord": "art/review/web-v3/106-real-trick-20261025.json",
+    "supersedes": "Prior82/93 central-card surfaces for eight state groups; bid98 and chooser sources unaffected, no cumulative pass counts",
+    "designStateCount": 32,
+    "profiles": 2,
+    "remaining": [
+      "rank font shapes",
+      "edge resampling",
+      "avatars/HUD/connection-panel original pixels",
+      "missing states/response profiles",
+      "real ACK/reconnect/end/rematch"
+    ]
+  },
+  "bidHandRevision": {
+    "report": "docs/61-web-v3-bid-hand-source-poses.md",
+    "comparisons": "art/review/web-v3/bid-hand-calibration-20261025/coverage.json",
+    "batch": 98,
+    "comparisonCount": 4,
+    "reviewedViews": {
+      "full": 4,
+      "focused": 4
+    },
+    "geometry": "art/runtime/web-v3/bid-hand-layout-v1.json",
+    "sourceMeasurements": "art/source/web-v3/bid-hand-v1/measurements.json",
+    "status": "independent-bid-centers-corrected-full-page-P2-remain",
+    "scope": "Local-human four-card bid normal/pending only. Sources10/17 frozen; identical poses in normal/pending. Other hand counts,play,chooser unchanged.",
+    "supersedes": "source-card-calibration-20261025 bid/bid-pending both profiles only; replace four82groups, do not add pass count",
+    "designStateCount": 32,
+    "profiles": 2,
+    "remaining": [
+      "rank and prediction typography",
+      "card raster sampling",
+      "panel/avatars/HUD material and geometry",
+      "real ACK/network",
+      "other required states"
+    ]
+  },
+  "denseHandRevision": {
+    "report": "docs/60-web-v3-dense-hand-readability.md",
+    "comparisons": "art/review/web-v3/dense-hand-calibration-20261025/coverage.json",
+    "batch": 93,
+    "actualCaptureBatches": {
+      "landscape": 90,
+      "portrait": 93
+    },
+    "comparisonCount": 4,
+    "reviewedViews": {
+      "full": 4,
+      "focused": 4
+    },
+    "designs": [
+      "27-dense-hand-idle-v4.png",
+      "28-dense-hand-selected-v4.png"
+    ],
+    "portraitDesigns": [
+      "portrait/27-dense-hand-idle-v4.png",
+      "portrait/28-dense-hand-selected-v4.png"
+    ],
+    "provenance": "art/source/web-v3/dense-hand-v1/provenance-v4.json",
+    "geometry": "art/runtime/web-v3/dense-hand-layout-v1.json",
+    "status": "readable11-and12-targeted-inputs-pass-full-page-P2-remain",
+    "scope": "5-8 cards during trick-play/trick-result only; independent bid/chooser modal layouts untouched; 9-20 card full-mode remains open",
+    "designStateCount": 32,
+    "profiles": 2,
+    "catalogCountsExcludeMissingStates": true,
+    "inputRecord": "art/review/web-v3/88-dense-native-inputs-20261025.json",
+    "inputCases": 24,
+    "inputFailures": 0,
+    "safetyRecord": "art/review/web-v3/92-dense-shared-layout-safety-20261025.json",
+    "captureMethod": "Unscaled Chrome PNG clips stitched at frozen reduced-motion state; full-size screenshot caused browser extension disconnects. Browser cursor moved to fixture-only no-op back before current capture; top-left cursor remains disclosed.",
+    "remaining": [
+      "number baseline/spacing",
+      "avatar and HUD geometry/material",
+      "central trick perspective",
+      "dense no-timer/pending/other-human prediction designs",
+      "real network ACK/reconnect/end/rematch",
+      "full-mode9-20cards",
+      "all hover/focus/error combinations"
+    ]
+  },
+  "sourceCardRevision": {
+    "report": "docs/59-web-v3-source-card-faces-and-ranks.md",
+    "comparisons": "art/review/web-v3/source-card-calibration-20261025/coverage.json",
+    "batch": 82,
+    "comparisonCount": 20,
+    "designStateCount": 30,
+    "profiles": 2,
+    "status": "current-captured-and-reviewed-P2-remain",
+    "catalogCountsExcludeMissingStates": true,
+    "newMissingStateDesigns": [],
+    "denseRankP2": "Historical84 defect closed for5-8card trick-play in docs60 with independent27/28designs, currentChrome comparisons and24native inputs; whole-page and larger-hand acceptance remain open",
+    "referenceProvenance": "art/source/web-v3/cards-v5/reference-provenance.json",
+    "faceProvenance": "art/source/web-v3/cards-v5/face-provenance.json",
+    "masterPixelSize": [
+      560,
+      840
+    ],
+    "runtimePixelSize": [
+      140,
+      210
+    ],
+    "runtimePattern": "cards/{landscape,portrait}-{leaf,mountain,knot,sun}-v5-native.png",
+    "rankFont": "Noto Serif SC 700, near-black, source-position calibration; no generated numeral baked",
+    "rejectedRankFontProof": "art/source/fonts/web-v3/rank-subset-v1.json",
+    "firstFrameReport": "docs/58-web-v3-countdown-first-frame.md",
+    "firstFrameEvidence": "art/review/web-v3/countdown-first-frame-20261025/after.json"
+  },
+  "semanticStateRevision": {
+    "report": "docs/57-web-v3-timer-and-inactive-hand.md",
+    "comparisons": "art/review/web-v3/semantic-state-calibration-20261025/coverage.json",
+    "batch": 68,
+    "comparisonCount": 8,
+    "status": "source-semantics-corrected-full-page-P2-remain",
+    "designStateCount": 30,
+    "profiles": 2,
+    "timerProvenance": "art/source/web-v3/bid-timer-portrait-v3/provenance.json",
+    "inactiveHandProvenance": "art/source/web-v3/chooser-inactive-hand-v5/provenance.json",
+    "functionalEvidence": "art/review/web-v3/semantic-state-calibration-20261025/71-timer-functional-evidence-20261025.json",
+    "transitionFirstFrame": "Fixed for local AI-to-human bid in docs58; before2/3 red, after6/6 first30, long30-to29. Not network/all-phase acceptance. Current card comparisons supersede this earlier68 set."
+  },
   "selectionContract": {
-    "designCardBox": [140,210],
-    "liftDesignPx": 12, "haloOffsetBelowCardDesignPx": 8, "neighborOutwardDesignPx": 9,
-    "durationMs": 140, "confirmPulseMs": 560,
-    "finishFrameStatus": "candidates-rejected-not-source-of-truth",
-    "promptPaths": ["art/prompts/web-v3-selected-finish-landscape-v1.md", "art/prompts/web-v3-selected-finish-portrait-v1.md"],
-    "nativeInputAudit": "docs/43-web-v3-chrome-current-calibration.md",
-    "nativeInputRecord": "art/review/web-v3/51-native-card-input-20261021.json",
-    "nativeInputCases": 144, "nativeInputFailures": 0
+    "designCardBox": [
+      140,
+      210
+    ],
+    "liftDesignPx": 12,
+    "haloOffsetBelowCardDesignPx": 8,
+    "neighborOutwardDesignPx": 9,
+    "durationMs": 140,
+    "confirmPulseMs": 560,
+    "finishFrameStatus": "source-defined-geometry-aligned-art-typography-P2-remain",
+    "idleDesign": "25-gameplay-selection-idle-v2.png",
+    "completeDesign": "26-gameplay-selection-complete-v2.png",
+    "noTimerDesign": "14-gameplay-notimer-selection-v4.png",
+    "pendingDesign": "19-play-pending-selection-v2.png",
+    "portraitUsesSameFilenames": true,
+    "rotationOrigin": "center",
+    "haloCanvasDesignPx": [
+      171,
+      231
+    ],
+    "haloLayer": "behind paper",
+    "handFaceScale": 0.955,
+    "sourceContract": "art/source/web-v3/selection-geometry-v2-contract.json",
+    "runtimeGeometry": "selection-layout-v2.json",
+    "provenance": "art/source/web-v3/selection-geometry-v2-provenance.json",
+    "derivatives": "art/source/web-v3/selection-geometry-v2-derivatives.json",
+    "promptPaths": [
+      "art/prompts/web-v3-hand-clean-landscape-v2.md",
+      "art/prompts/web-v3-hand-clean-portrait-v2.md",
+      "art/prompts/web-v3-select-idle-action-landscape-v1.md",
+      "art/prompts/web-v3-select-idle-action-portrait-v1.md"
+    ],
+    "recipe": "art/prompts/web-v3-selection-geometry-v2-recipe.md",
+    "rejectedHistory": "selected-finish-v1 candidates; portrait-v1 29 native pixel lift is obsolete; front-layer 175x247.8 halo rejected",
+    "nativeInputAudit": "docs/59-web-v3-source-card-faces-and-ranks.md",
+    "nativeInputRecord": "art/review/web-v3/source-card-calibration-20261025/84-card-input-sanity-20261025.json",
+    "nativeInputCases": 12,
+    "nativeInputFailures": 0,
+    "historicalFullInputMatrix": {
+      "record": "art/review/web-v3/selection-calibration-20261025/61-native-selection-inputs-20261025.json",
+      "cases": 144,
+      "failures": 0,
+      "scope": "Prior art layer; not rerun for v5. Logical button/fan contract unchanged."
+    },
+    "motionRecord": "art/review/web-v3/selection-calibration-20261025/62-live-selection-motion-20261025.json",
+    "motionRecordScope": "Historical real motion; no new v5 visual or timing pass is implied.",
+    "currentComparisons": "art/review/web-v3/source-card-calibration-20261025/coverage.json",
+    "designStateCount": 30,
+    "profiles": 2,
+    "recaptureRequired": [],
+    "previousAffectedSurfaceComparisons": "art/review/web-v3/selection-calibration-20261025/affected/coverage.json",
+    "affectedSurfaceStatus": "All20-shared-card-surfaces-recaptured82; P2-remain",
+    "affectedSurfaceReport": "docs/59-web-v3-source-card-faces-and-ranks.md",
+    "previousAffectedSurfaceReport": "docs/56-web-v3-shared-hand-surface-recapture.md",
+    "currentBidAndChooserComparisons": "art/review/web-v3/source-card-calibration-20261025/coverage.json"
   },
   "assets": {
-    "web.v3.cards.leafV4": { "design": "05-gameplay-final.png", "source": "art/source/web-v3/cards/leaf-v4.png", "runtime": "cards/leaf-v4.png", "pixelSize": [1024,1536], "notes": "Direct source-card ImageGen restoration, no baked numeral. Replaces Web leaf-v2 only. Both-profile Chrome comparison in docs38; corner size/paper warmth and exact selected endpoint remain differences." },
-    "web.v3.gameplay.sleepyCat": { "design": "05-gameplay-final.png", "source": "art/source/web-v3/gameplay-sleepy-cat-v1.png", "runtime": "avatars/gameplay-sleepy-cat-v1.png", "pixelSize": [512,512], "notes": "Independent transparent ImageGen gray-blue scarf traveler, replaces incorrect purple-star closeup on gameplay only. Chrome post-fix both-profile comparison in docs33; ear/face/rim detail drift remains." },
-    "web.v3.modePlayer": { "design": "05-gameplay-final.png", "source": "art/source/web-v3/mode-player-v1.png", "runtime": "mode-player-v1.png", "notes": "Independent transparent ImageGen seated player; source alpha crop326,316,601,625 scaled to256high. Chrome top-plaque comparison in docs32; outline/cup anatomy remains minor drift." },
-    "web.v3.bidPending": { "design": "17-bid-pending-v1.png", "source": "art/source/web-v3/bid-pending-landscape-v1.png", "runtime": "bid.png", "notes": "Same panel with live submitting label and disabled controls. Three ImageGen ROI composition, outside-source changes zero. Chrome same-value2 post-fix evidence in docs30; not full-page pixel pass." },
-    "web.v3.portrait.bidPending": { "design": "portrait/17-bid-pending-v2.png", "generatorRaw": "portrait/17-bid-pending-v1.png", "runtime": "portrait/bid.png", "notes": "Existing blank panel with dynamic submitting copy and disabled controls. Three ImageGen state ROIs only; outside original source pixels unchanged. Chrome pending2 comparison exists; full page fidelity remains in progress." },
-    "web.v3.turnFlourish": { "design": "05-gameplay-final.png", "source": "art/source/web-v3/turn-status-flourish-v1.png", "runtime": "turn-status-flourish-{left,right}-v2.png", "pixelSize": [324,148], "notes": "Independent built-in ImageGen transparent ornament pair; mechanical crops only. Dynamic status text stays live. Chrome 20261019 captured; generated bevel/stroke remains thicker than source." },
-    "web.v3.home": { "design": "01-home.png", "runtime": "home.png", "content": "static scene and entry plaques" },
-    "web.v3.create": { "design": "02-create.png", "runtime": "create.png", "staticRuntime": "create-static-v1.png", "maskContract": "src/web/form-art-masks.tsx", "content": "source static pixels plus field-only cleanup; actual values rendered by RoomEntry" },
-    "web.v3.join": { "design": "03-join.png", "runtime": "join.png", "staticRuntime": "join-static-v1.png", "maskContract": "src/web/form-art-masks.tsx", "content": "source static pixels with nickname and six digit content masks" },
-    "web.v3.lobby": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby.png", "content": "empty table, header and action frames; no players or room data. Truthful four-human/three-ready waiting state; never weaken start permissions to match the old contradictory mock." },
-    "web.v3.gameplay": { "design": "05-gameplay-final.png", "runtime": "gameplay.png", "content": "empty table and HUD frames; no player/card/state data" },
-    "web.v3.results": { "design": "06-results.png", "runtime": "results.png", "content": "static columns and empty rows/actions" },
-    "web.v3.ranking": { "design": "07-ranking.png", "runtime": "ranking-clean-v3.png", "content": "static columns and empty ranks/rows/actions; baked avatar rings removed only within x625,y282,w92,h462 via ImageGen edit. Pixels outside that strip identical to original runtime." },
-    "web.v3.rules": { "design": "08-rules.png", "runtime": "rules-quick-v3.png", "content": "frame, fox and empty step furniture; dynamic labels, numerals and body" },
-    "web.v3.confirm": { "design": "09-confirm.png", "runtime": "confirm.png", "content": "static confirmation copy and controls with semantic live hit targets" },
-    "web.v3.bid": { "design": "10-bid.png", "runtime": "bid.png", "content": "transparent panel, empty range and prediction value" },
-    "web.v3.chooser": { "design": "11-chooser.png", "runtime": "chooser.png", "content": "transparent overlay with four invariant suit choices" },
-    "web.v3.switch.on": { "design": "02-create.png", "runtime": "switch-on-opaque-v3.png", "hasAlpha": false, "renderMask": "normal pill corner clipping" },
-    "web.v3.switch.off": { "design": "02-create.png", "runtime": "switch-off-opaque-v3.png", "hasAlpha": false, "renderMask": "normal pill corner clipping" },
-    "web.v3.inputClear": { "design": "02-create.png", "runtime": "input-clear.png" },
-    "web.v3.seatSelected": { "design": "02-create.png", "runtime": "seat-selected-landscape-v2.png", "notes": "Dynamic label plus generated frame/check; solid green state matte behind partial alpha." },
-    "web.v3.portrait.seatSelected": { "design": "portrait/02-create.png", "runtime": "seat-selected-portrait-v2.png" },
-    "web.v3.emptySeat": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-empty-seat-v2.png", "pixelSize": [1277,1214], "notes": "Independent complete empty-seat ring, silhouette, cloud and invariant waiting label. Never represents an occupied AI." },
-    "web.v3.activeNav": { "design": "08-rules.png", "runtime": "active-nav.png" },
-    "web.v3.stepBadge": { "design": "08-rules.png", "runtime": "step-badge.png" },
-    "web.v3.stepLabel": { "design": "portrait/08-rules.png", "runtime": "step-label-v2.png", "notes": "Proportional background rendering preserves authored cloud ends and transparent padding." },
-    "web.v3.selectedHalo": { "design": "05-gameplay-final.png", "runtime": "selected-halo.png" },
-    "web.v3.portrait.create": { "design": "portrait/02-create.png", "runtime": "portrait/create.png", "staticRuntime": "portrait/create-static-v1.png", "maskContract": "src/web/form-art-masks.tsx", "pixelSize": [941, 1672] },
-    "web.v3.portrait.join": { "design": "portrait/03-join.png", "runtime": "portrait/join.png", "staticRuntime": "portrait/join-static-v1.png", "maskContract": "src/web/form-art-masks.tsx", "pixelSize": [941, 1672] },
-    "web.v3.portrait.rules": { "design": "portrait/08-rules.png", "runtime": "portrait/rules-quick-v3.png", "pixelSize": [941, 1672], "notes": "Original empty step circles and label furniture retained; live DOM text/numerals overlay authored bands." }
-    ,"web.v3.portrait.home": { "design": "portrait/01-home.png", "runtime": "portrait/home.png", "pixelSize": [941, 1672] }
-    ,"web.v3.portrait.lobby": { "design": "portrait/04-lobby-waiting-v2.png", "runtime": "portrait/lobby.png", "pixelSize": [941, 1672] }
-    ,"web.v3.portrait.gameplay": { "design": "portrait/05-gameplay-safe-v2.png", "runtime": "portrait/gameplay-choices-v1.png", "pixelSize": [941, 1672], "notes": "Same scene with action now an independent bitmap below the hand. Original source overlapped its last card." }
-    ,"web.v3.portrait.results": { "design": "portrait/06-results.png", "runtime": "portrait/results.png", "pixelSize": [941, 1672] }
-    ,"web.v3.portrait.ranking": { "design": "portrait/07-ranking.png", "runtime": "portrait/ranking-v2.png", "pixelSize": [941, 1672], "notes": "Dynamic title, subtitle, rank, avatar, player, score and action labels." }
-    ,"web.v3.portrait.confirm": { "design": "portrait/09-confirm.png", "runtime": "portrait/confirm.png", "pixelSize": [941, 1672], "notes": "Invariant confirmation artwork; stacked live semantic action targets." }
-    ,"web.v3.portrait.bid": { "design": "portrait/10-bid.png", "runtime": "portrait/bid.png", "pixelSize": [941, 1672], "notes": "Transparent modal; range, value and confirmation label are dynamic." }
-    ,"web.v3.portrait.chooser": { "design": "portrait/11-chooser-no-play-v4.png", "runtime": "portrait/chooser.png", "pixelSize": [941, 1672], "notes":"V1 retained. V4 removes invalid confirm-play plaque below the chooser; v2/v3 compositing seams rejected. Same four immediate-submit suit targets." }
-    ,"web.v3.portrait.gameplayChoices": { "design": "portrait/05-gameplay.png", "runtime": "portrait/gameplay-choices-v1.png", "pixelSize": [941, 1672], "notes": "Local choice phases omit the duplicate empty green action plaque; timer remains visible." }
-    ,"web.v3.avatars": { "design": "portrait/07-ranking.png", "runtime": "avatars/", "notes": "Six original v3 round portraits, ImageGen extraction with alpha. Web-only; does not replace Mini Game expression atlas. Small likeness drift remains a QA item." }
-    ,"web.v3.rules.trump": { "design": "08-rules-trump.png", "runtime": "rules-trump.png" }
-    ,"web.v3.rules.play": { "design": "08-rules-play.png", "runtime": "rules-play.png" }
-    ,"web.v3.rules.scoring": { "design": "08-rules-scoring.png", "runtime": "rules-scoring.png" }
-    ,"web.v3.settings": { "design": "08-settings.png", "runtime": "settings.png" }
-    ,"web.v3.portrait.rules.trump": { "design": "portrait/08-rules-trump.png", "runtime": "portrait/rules-trump.png", "pixelSize": [941, 1672] }
-    ,"web.v3.portrait.rules.play": { "design": "portrait/08-rules-play.png", "runtime": "portrait/rules-play.png", "pixelSize": [941, 1672] }
-    ,"web.v3.portrait.rules.scoring": { "design": "portrait/08-rules-scoring.png", "runtime": "portrait/rules-scoring.png", "pixelSize": [941, 1672] }
-    ,"web.v3.portrait.settings": { "design": "portrait/08-settings.png", "runtime": "portrait/settings.png", "pixelSize": [941, 1672] }
-    ,"web.v3.connectionError": { "design": "12-connection-error.png", "runtime": "connection-error-v1.png", "content": "Invariant failure copy and live return/retry semantic targets" }
-    ,"web.v3.connecting": { "design": "13-connecting.png", "runtime": "connecting-v1.png", "content": "Invariant waiting copy and live cancel-to-edit target" }
-    ,"web.v3.portrait.connectionError": { "design": "portrait/12-connection-error.png", "runtime": "portrait/connection-error-v1.png", "pixelSize": [941, 1672] }
-    ,"web.v3.portrait.connecting": { "design": "portrait/13-connecting.png", "runtime": "portrait/connecting-v1.png", "pixelSize": [941, 1672] }
-    ,"web.v3.lobby.name": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-name-v2.png", "pixelSize": [2105,724], "visibleSize": [2068,576], "notes": "Independent 3.59:1 visible cloud-ended green plaque; canvas aspect retained, no height stretch. Slight center alpha 253/255 and edge fringe remain P3." }
-    ,"web.v3.lobby.ready": { "design": "04-lobby.png", "runtime": "lobby-ready-v2.png", "pixelSize": [650, 220], "visibleSize": [620, 201] }
-    ,"web.v3.lobby.waiting": { "design": "04-lobby.png", "runtime": "lobby-waiting-v1.png", "pixelSize": [650, 220], "visibleSize": [620, 201] }
-    ,"web.v3.lobby.readyCheck": { "design": "04-lobby.png", "runtime": "lobby-ready-check-v1.png", "pixelSize": [512, 512] }
-    ,"web.v3.lobby.traveler": { "design": "04-lobby.png", "runtime": "avatars/lobby-masked-traveler-v1.png", "pixelSize": [1254, 1254], "notes": "Animal traveler matching the lobby, not the human ranking portrait." }
-    ,"web.v3.lobby.avatars": { "design": "04-lobby-waiting-v2.png", "runtime": "avatars/lobby-{bamboo-cat,wandering-crane,flower-fox,ink-panda}-v2.png", "notes": "Separate ImageGen half-body lobby portraits, not the close-up ranking set. Alpha silhouette retained without circular CSS clipping. Some linework/gold thickness differs from source; no source-pixel identity claim." }
-    ,"web.v3.cards": { "design": "05-gameplay-final.png", "runtime": "cards/{leaf,mountain,knot,sun}-v4.png", "pixelSize": [1024,1536], "notes": "Independent ImageGen direct-card-reference restorations, no baked ranks. V2/v3 retained as history. Highest/lowest/back retain original art. Current comparison docs39; corner/material/selected-endpoint differences remain." }
-    ,"web.v3.gameplay.stats": { "design": "05-gameplay-final.png", "runtime": "gameplay-stats-v1.png", "pixelSize": [584,108] }
-    ,"web.v3.gameplay.trumpPaper": { "design": "05-gameplay-final.png", "runtime": "trump-status-v2.png", "pixelSize": [2007,448], "visibleSize": [1967,400], "notes": "Blank cloud-ended parchment, intrinsic aspect preserved. V1 not consumed." }
-    ,"web.v3.gameplay.suits": { "design": "05-gameplay-final.png", "runtime": "suits/{leaf-v1,mountain-v1,knot-v1,sun-status-v1}.png", "notes": "Transparent independent glyphs, not rounded card crops." }
-    ,"web.v3.gameplay.hourglass": { "design": "05-gameplay-final.png", "runtime": "hourglass-v1.png", "pixelSize": [1254,1254] }
-    ,"web.v3.gameplay.traveler": { "design": "05-gameplay-final.png", "runtime": "avatars/gameplay-masked-traveler-v1.png", "pixelSize": [1254,1254], "notes": "White beaked bird mask, red eye pattern, straw hat; distinct authored gameplay identity." }
-    ,"web.v3.gameplay.noTimer": { "design": "14-gameplay-notimer.png", "runtime": "no-timer-patch-v1.png", "pixelSize": [270,215], "notes": "Quiet background patch only, x1320 y450 in the new no-timer source; no cards, copy or dynamic data." }
-    ,"web.v3.portrait.gameplay.noTimer": { "design": "portrait/14-gameplay-notimer-safe-v3.png", "runtime": "portrait/no-timer-patch-v1.png", "pixelSize": [228,236], "notes": "Quiet background patch only, x713 y1158; no timer when human deadline absent or reconnecting. Uses independent lower action per safe-v2." }
-    ,"web.v3.reconnecting": { "design": "15-reconnecting-network-v2.png", "runtime": "reconnecting-panel-landscape-v1.png", "pixelSize": [1603,939], "notes": "Independent transparent authored dialog, not the full scene. Source v2 corrects network-mode text only; original retained. Current-state Chrome QA still required." }
-    ,"web.v3.portrait.reconnecting": { "design": "portrait/15-reconnecting.png", "runtime": "reconnecting-panel-portrait-v1.png", "pixelSize": [1214,1295], "notes": "Small red fringe remains a QA finding." }
-    ,"web.v3.sessionEnded": { "design": "16-session-ended-network-v3.png", "runtime": "session-ended-panel-landscape-v2.png", "pixelSize": [1643,957], "notes": "Truthful generic ended-connection wording covers protocol and session termination. Source v3 corrects network-mode text only; earlier designs retained. V1 seat-expiry wording rejected." }
-    ,"web.v3.portrait.sessionEnded": { "design": "portrait/16-session-ended-v2.png", "runtime": "session-ended-panel-portrait-v2.png", "pixelSize": [1215,1295], "notes": "Retains independent portrait layout; small red fringe remains a QA finding." }
-    ,"web.v3.portrait.playAction": { "design": "portrait/05-gameplay-safe-v2.png", "runtime": "play-action-portrait-v1.png", "pixelSize": [1725,806], "visibleSize": [1701,782], "notes": "Independent blank plaque, intrinsic aspect preserved. Slight proportion and brush drift remain; no stretched baked action over card targets." }
-    ,"web.v3.gameplay.noAction": { "design": "11-chooser.png", "runtime": "gameplay-no-action-patch-v1.png", "pixelSize": [425,170], "notes": "Quiet scene-only crop x1235 y665 from independent ImageGen cleanup; removes the baked empty action during chooser/recovery only. Bid still uses that action lane." }
-    ,"web.v3.lobby.invite": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-invite-v1.png", "pixelSize": [1840,515], "visibleSize": [1816,491], "notes": "Independent cloud-ended parchment with invariant group/label painted in; accessible live button remains semantic. Intrinsic proportions retained." }
-    ,"web.v3.lobby.addControl": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-add-control-v2.png", "pixelSize": [2132,510], "visibleSize": [2108,486], "notes": "Independent generated dark-gold frame/robot, no baked mutable label; alpha canvas trimmed only." }
-    ,"web.v3.lobby.removeControl": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-remove-control-v2.png", "pixelSize": [2053,519], "visibleSize": [2029,495], "notes": "Independent generated dark-gold frame/minus, no baked mutable label." }
-    ,"web.v3.lobby.groupIcon": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-group-v2.png", "pixelSize": [1111,831], "visibleSize": [1087,807] }
-    ,"web.v3.lobby.wifiIcon": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-wifi-v2.png", "pixelSize": [1268,926], "visibleSize": [1244,902], "notes": "PC only; portrait source has no extra connection chip. Recovery remains blocking in both profiles." }
-    ,"web.v3.lobby.robotIcon": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-robot-v2.png", "pixelSize": [1138,1055], "visibleSize": [1114,1031], "notes": "Standalone PC icon over the scene's existing button frame. Portrait uses the complete generated control instead, never two frames." }
-    ,"web.v3.lobby.minusIcon": { "design": "04-lobby-waiting-v2.png", "runtime": "lobby-minus-v2.png", "pixelSize": [790,785], "visibleSize": [766,761] }
-    ,"web.v3.lobby.readyState": { "design": "04-lobby-ready-v2.png", "portraitDesign": "portrait/04-lobby-ready-v2.png", "content": "Same four humans all ready, one AI and one empty; creator auto-fill allows start. State source only; actual permission and text remain server-backed." }
-    ,"web.v3.rules.font": { "runtime": "../fonts/WebV3Rules-WenKai-Medium-v2.woff2", "source": "art/source/fonts/web-v3/LXGWWenKai-Medium.ttf", "license": "public/licenses/LXGW-WenKai-OFL.txt", "notes": "Rules h3/body/step labels and setting labels. Preserve all shaping features; portrait punctuation uses halt. Numeric badges and Cocos unchanged; other web labels use the independent UI font entry." }
-    ,"web.v3.ui.font": { "runtime": "../fonts/WebV3UI-WenKai-Medium-v1.woff2", "source": "art/source/fonts/web-v3/LXGWWenKai-Medium.ttf", "bytes":1672512, "codepoints":7544, "license":"public/licenses/LXGW-WenKai-OFL.txt", "notes":"Lobby/results/ranking Chinese lettering only. CSS Unicode range retains Noto for digits/Latin; rare glyphs also fall back. Never ship full experimental TTFs." }
-    ,"web.v3.results.avatars": { "design":"06-results.png", "runtime":"avatars/lobby-{bamboo-cat,wandering-crane,flower-fox,ink-panda}-v2.png", "notes":"These source masters show the same half-body originals as the lobby. Sleepy cat and human traveler retain their separate result identities. No extra circular mask or baked duplicate frame." }
-    ,"web.v3.chooser.pending": { "design":"18-chooser-pending-v1.png", "portraitDesign":"portrait/18-chooser-pending-no-play-v4.png", "runtime":"chooser-pending-v2.png", "portraitRuntime":"portrait/chooser-pending-v2.png", "notes":"Local ImageGen crops preserve outside pixels. Landscape status replaces mode content; portrait status replaces subtitle. Portrait v4 removes the semantically invalid play action from the source only; v2/v3 compositing seams rejected. Runtime already omits it. Live aria-busy, status and disabled controls remain semantic. Current Chrome comparison required." }
-    ,"web.v3.tabProtection": { "design":"20-tab-protection-v1.png", "portraitDesign":"portrait/20-tab-protection-v1.png", "runtime":"tab-protection-v1.png", "portraitRuntime":"portrait/tab-protection-v1.png", "notes":"Immutable local-ROI ImageGen designs with changedOutside=0. Live disabled create/join targets, accessible status and refresh action. Practice/rules remain available. Current Chrome comparison required." }
-    ,"web.v3.play.pending": { "design":"19-play-pending-v1.png", "portraitDesign":"portrait/19-play-pending-v1.png", "notes":"Only ImageGen action lettering ROI composed into original. Live action label is DOM, selection retained. Exact zero-degree selected completion design remains missing." }
+    "web.v3.results.sourceFurniture": {
+      "runtime": "results-source-v1/{profile}-{results,ranking}-{title,subtitle,note,primary,secondary}-v1.png",
+      "registry": "src/web/results-source-assets.generated.ts",
+      "notes": "16 original fixed base furniture tiles; round numerals remain live. New final-round/guest canonical actions use independent state family. Unsupported custom/connection text remains DOM."
+    },
+    "web.v3.results.sourceAvatars": {
+      "runtime": "results-avatar-matte-v3/landscape-{results,ranking}-{bamboo-cat,wandering-crane,flower-fox,ink-panda,sleepy-star-cat}-v3.png",
+      "registry": "src/web/results-source-assets.generated.ts",
+      "notes": "Current ten landscape lower-alpha v3 overrides original-v2 extraction; fourteen untouchedv2 remain. Exact registry is generated by refinement tool, originalRGB/core/upper75alpha retained. Source upper overlaps/GPU edges still P2.",
+      "previousRuntime": "results-source-v1/{profile}-{results,ranking}-{identity}-v2.png",
+      "unchangedRuntime": [
+        "results-source-v1/portrait-{results,ranking}-{identity}-v2.png",
+        "results-source-v1/landscape-{results,ranking}-masked-traveler-v2.png"
+      ]
+    },
+    "web.v3.currentRanking": {
+      "design": "33-current-ranking-home-v2.png",
+      "portraitDesign": "portrait/33-current-ranking-home-v2.png",
+      "runtime": "results-source-v1/{profile}-current-ranking-{title,subtitle,primary,secondary}-v1.png",
+      "registry": "src/web/current-ranking-assets.generated.ts",
+      "notes": "Eight tiles from bounded originalframe/newImageGen textROI composition. Completed round/actual totals stay live; actual middle-round view is not a final match/restart.",
+      "previousDesign": "33-current-ranking-v1.png",
+      "previousPortraitDesign": "portrait/33-current-ranking-v1.png"
+    },
+    "web.v3.gameplay.sourceActions": {
+      "runtime": "hud-source-v1/{profile}-action-{state}-v1.png",
+      "portraitBidRuntime": "hud-source-v1/portrait-action-{bid,bid-pending}-v2.png",
+      "registry": "src/web/source-action-assets.generated.ts",
+      "notes": "14 active original fixed-lettered crops. Their independent original rectangles own semantic button placement;44CSSpx touch expansion preserves art location. Dense pending keeps dynamic fallback pending independent source."
+    },
+    "web.v3.gameplay.sourceTrump": {
+      "runtime": "hud-source-v1/{profile}-trump-live-fields-v1.png",
+      "textOnlyRuntime": "hud-source-v1/{profile}-trump-text-panel-v1.png",
+      "textOnlyProvenance": "art/source/web-v3/hud-source-v1/trump-text-panel-provenance-v1.json",
+      "sun": "hud-source-v1/{profile}-trump-sun-v1.png",
+      "sunName": "hud-source-v1/{profile}-trump-sun-name-v1.png",
+      "notes": "Suit states retain original fixed prefix/frame and mutable icon/name fields. Null-suit states use a text-only variant exported from the existing ImageGen blank master, preserving the frame and alpha, with the complete live label centered. Sun glyph locally corrected with built-inImageGen v2. Supersedes trump-status-v2.png in MatchScreen."
+    },
+    "web.v3.gameplay.sourceStatus": {
+      "runtime": "hud-source-v1/{profile}-local-play-status-v1.png",
+      "notes": "Original fixed local-play label; portrait only visible in dense play. Other player statuses remain dynamic, no frozen identity."
+    },
+    "web.v3.chooser.copyCorrected": {
+      "runtime": "hud-source-v1/{profile}-chooser{-pending,}-copy-v1.png",
+      "notes": "One canonical sun glyph correction only, original transparent alpha unchanged. Supersedes oldchooser imports, not a full chooser geometry/material pass."
+    },
+    "web.v3.dense.scenePortrait": {
+      "design": "portrait/27-dense-hand-idle-v4.png",
+      "source": "art/source/web-v3/dense-hand-portrait-clean-lower-v1-candidate.png",
+      "runtime": "dense-scene-portrait-v1.png",
+      "pixelSize": [
+        941,
+        667
+      ],
+      "notes": "Bounded bottom scene patch, avatar/name/stats protected with alpha. Raw941x1671 cleanup normalized to941x1672 then cropped. Independent density reflow, never a full-page replacement."
+    },
+    "web.v3.dense.actionPortrait": {
+      "design": "portrait/27-dense-hand-idle-v4.png",
+      "runtime": "dense-action-portrait-v1.png",
+      "pixelSize": [
+        394,
+        102
+      ],
+      "provenance": "art/source/web-v3/dense-hand-v1/action-provenance.json",
+      "notes": "Original plaque border/cloud; generated quiet-green content only removes editable label. ActualDOM action remains live.44px hit target expands upward, authored visual aspect retained."
+    },
+    "web.v3.cards.leafV4": {
+      "design": "05-gameplay-final.png",
+      "source": "art/source/web-v3/cards/leaf-v4.png",
+      "runtime": "cards/leaf-v4.png",
+      "pixelSize": [
+        1024,
+        1536
+      ],
+      "status": "historical-not-imported",
+      "notes": "Prior whole-face ImageGen restoration; superseded by exact source-face v5 with bounded numeral cleanup. Retained, not a current acceptance claim."
+    },
+    "web.v3.cards.sourceV5": {
+      "design": "05-gameplay-final.png",
+      "portraitDesign": "portrait/05-gameplay-safe-v2.png",
+      "runtime": "cards/{landscape,portrait}-{leaf,mountain,knot,sun}-v5-native.png",
+      "pixelSize": [
+        140,
+        210
+      ],
+      "source": "art/source/web-v3/cards-v5/face-provenance.json",
+      "notes": "Source paper/symbol/border/alpha preserved outside ImageGen quiet-paper numeral cleanup. Portrait has its own source extraction. Dynamic ranks retain Noto700; Garamond/Tinos proofs rejected. Source masters560x840; runtime native grid. Current82 comparison docs59; whole-page P2 remain."
+    },
+    "web.v3.gameplay.sleepyCat": {
+      "design": "25-gameplay-selection-idle-v2.png",
+      "portraitDesign": "portrait/25-gameplay-selection-idle-v2.png",
+      "source": "art/source/web-v3/gameplay-seats-v1/portrait-provenance-v1.json",
+      "runtime": "gameplay-seats-v1/{landscape,portrait}-sleepy-star-cat-v1.png",
+      "notes": "Original gameplay source pixels replace the earlier independently redrawn512px portrait. Scope/source differences and current28 comparisons are recorded in docs64."
+    },
+    "web.v3.gameplay.seats": {
+      "design": "25-gameplay-selection-idle-v2.png",
+      "portraitDesign": "portrait/25-gameplay-selection-idle-v2.png",
+      "runtime": "gameplay-seats-v1/",
+      "layout": "gameplay-seats-v1/layout-v2.json",
+      "notes": "40 source-derived rasters:12avatars,24blank source-frame name/stat plates,twofixed-you markers,twoactive gold rings. Text/state remain live, source0 local portrait bid has independent148px shift. Generated TypeScript registry includes only current versions."
+    },
+    "web.v3.gameplay.seatFonts": {
+      "runtime": "../fonts/WebV3Seat-{WenKai,Tinos}-Regular-v1.woff2",
+      "source": "art/source/fonts/web-v3/seat-subsets-v1.json",
+      "notes": "Seat name/stat only. Regular400 CJK7544codepoints plus95ASCII Tinos; exact source/runtime/license hashes saved. Not a change to other UI/ranks/Cocos; typography differences remain."
+    },
+    "web.v3.modePlayer": {
+      "design": "05-gameplay-final.png",
+      "source": "art/source/web-v3/mode-player-v1.png",
+      "runtime": "mode-player-v1.png",
+      "notes": "Independent transparent ImageGen seated player; source alpha crop326,316,601,625 scaled to256high. Chrome top-plaque comparison in docs32; outline/cup anatomy remains minor drift."
+    },
+    "web.v3.bidPending": {
+      "design": "17-bid-pending-v1.png",
+      "source": "art/source/web-v3/bid-pending-landscape-v1.png",
+      "runtime": "bid.png",
+      "notes": "Same panel with live submitting label and disabled controls. Three ImageGen ROI composition, outside-source changes zero. Chrome same-value2 post-fix evidence in docs30; not full-page pixel pass."
+    },
+    "web.v3.portrait.bidPending": {
+      "design": "portrait/17-bid-pending-timer-v3.png",
+      "generatorRaw": "portrait/17-bid-pending-v1.png",
+      "runtime": "portrait/bid.png",
+      "notes": "Existing blank panel and live pending value; new portrait local-human timer uses independent tile/geometry. 68 current comparison in docs57; typography/material P2 and real delayed ACK remain."
+    },
+    "web.v3.turnFlourish": {
+      "design": "05-gameplay-final.png",
+      "source": "art/source/web-v3/turn-status-flourish-v1.png",
+      "runtime": "turn-status-flourish-{left,right}-v2.png",
+      "pixelSize": [
+        324,
+        148
+      ],
+      "notes": "Independent built-in ImageGen transparent ornament pair; mechanical crops only. Dynamic status text stays live. Chrome 20261019 captured; generated bevel/stroke remains thicker than source."
+    },
+    "web.v3.home": {
+      "design": "01-home.png",
+      "runtime": "home.png",
+      "content": "static scene and entry plaques"
+    },
+    "web.v3.create": {
+      "design": "02-create.png",
+      "runtime": "create.png",
+      "staticRuntime": "create-static-v1.png",
+      "maskContract": "src/web/form-art-masks.tsx",
+      "content": "source static pixels plus field-only cleanup; actual values rendered by RoomEntry"
+    },
+    "web.v3.join": {
+      "design": "03-join.png",
+      "runtime": "join.png",
+      "staticRuntime": "join-static-v1.png",
+      "maskContract": "src/web/form-art-masks.tsx",
+      "content": "source static pixels with nickname and six digit content masks"
+    },
+    "web.v3.lobby": {
+      "design": "04-lobby-waiting-v2.png",
+      "runtime": "lobby.png",
+      "content": "empty table, header and action frames; no players or room data. Truthful four-human/three-ready waiting state; never weaken start permissions to match the old contradictory mock."
+    },
+    "web.v3.gameplay": {
+      "design": "05-gameplay-final.png",
+      "runtime": "gameplay.png",
+      "content": "empty table and HUD frames; no player/card/state data"
+    },
+    "web.v3.results": {
+      "design": "06-results-home-v2.png",
+      "runtime": "results-source-v1/landscape-results-background-v1.png",
+      "content": "Original static frame/headers/decorations/dividers outside dynamic masks; values/identities/actions remain dynamic.",
+      "previousRuntime": "results.png",
+      "notes": "Original page base; bounded dynamic masks only. Original RGB outside masks invariant. Prior full-page blank is a build-time texture donor only, excluded from production. See docs68 and background-provenance-v1.json.",
+      "previousDesign": "06-results.png"
+    },
+    "web.v3.ranking": {
+      "design": "07-ranking.png",
+      "runtime": "results-source-v1/landscape-ranking-background-v1.png",
+      "content": "Original static frame/headers/decorations/dividers outside dynamic masks; values/identities/actions remain dynamic.",
+      "previousRuntime": "ranking-clean-v3.png",
+      "notes": "Original page base; bounded dynamic masks only. Original RGB outside masks invariant. Prior full-page blank is a build-time texture donor only, excluded from production. See docs68 and background-provenance-v1.json."
+    },
+    "web.v3.rules": {
+      "design": "08-rules.png",
+      "runtime": "rules-quick-v3.png",
+      "content": "frame, fox and empty step furniture; dynamic labels, numerals and body"
+    },
+    "web.v3.confirm": {
+      "design": "09-confirm.png",
+      "runtime": "confirm.png",
+      "content": "static confirmation copy and controls with semantic live hit targets"
+    },
+    "web.v3.bid": {
+      "design": "10-bid.png",
+      "portraitDesign": "portrait/10-bid-timer-v3.png",
+      "runtime": "bid.png",
+      "content": "transparent panel, empty range and prediction value; portrait timed local bid has independent timer furniture"
+    },
+    "web.v3.portrait.bidTimer": {
+      "design": "portrait/10-bid-timer-v3.png",
+      "runtime": "bid-timer-portrait-v3.png",
+      "pixelSize": [
+        241,
+        230
+      ],
+      "geometry": "bid-timer-layout-v3.json",
+      "source": "art/source/web-v3/bid-timer-portrait-v3/provenance.json",
+      "notes": "ImageGen local timer crop with center-only live-content cleanup. Original clock covered in portrait local bid only; no-timer mode has no clock. Independent stronger-glow/diamond candidate rejected. Digits remain DOM, not baked28."
+    },
+    "web.v3.portrait.bidHourglass": {
+      "design": "portrait/10-bid-timer-v3.png",
+      "runtime": "bid-hourglass-portrait-v3.png",
+      "pixelSize": [
+        45,
+        56
+      ],
+      "notes": "Mechanical matte from the original timer candidate. Landscape and non-bid timers retain their existing icon."
+    },
+    "web.v3.chooser": {
+      "design": "11-chooser-inactive-hand-v5-copy-v1.png",
+      "runtime": "hud-source-v1/landscape-chooser-copy-v1.png",
+      "previousRuntime": "chooser.png",
+      "content": "transparent overlay with four invariant suit choices; original alpha preserved, single sun glyph corrected locally; modal geometry/material P2 remain"
+    },
+    "web.v3.switch.on": {
+      "design": "02-create.png",
+      "runtime": "switches/entry-landscape-on-v1.png",
+      "portraitRuntime": "switches/entry-portrait-on-v1.png",
+      "renderMask": "normal pill corner clipping",
+      "notes": "Current WebSwitchArt entry family uses lossless selected-design crops. Earlier generated opaque-v3 files remain history."
+    },
+    "web.v3.switch.off": {
+      "design": "02-create.png",
+      "runtime": "switches/entry-landscape-off-v1.png",
+      "portraitRuntime": "switches/entry-portrait-off-v1.png",
+      "renderMask": "normal pill corner clipping"
+    },
+    "web.v3.settings.switch.on": {
+      "design": "08-settings.png",
+      "runtime": "switches/settings-landscape-on-v1.png",
+      "portraitRuntime": "switches/settings-portrait-on-v1.png",
+      "notes": "Current WebSwitchArt settings family; wiring metadata, not a renewed settings visual pass."
+    },
+    "web.v3.settings.switch.off": {
+      "design": "08-settings.png",
+      "runtime": "switches/settings-landscape-off-v1.png",
+      "portraitRuntime": "switches/settings-portrait-off-v1.png"
+    },
+    "web.v3.inputClear": {
+      "design": "02-create.png",
+      "runtime": "input-clear-landscape-v3.png",
+      "portraitRuntime": "input-clear-portrait-v3.png",
+      "notes": "Lossless selected ImageGen icon crops, with independent profile geometry. Native button retains its larger hit target."
+    },
+    "web.v3.seatSelected": {
+      "design": "02-create.png",
+      "runtime": "seat-selected-landscape-v3.png",
+      "pixelSize": [
+        154,
+        86
+      ],
+      "notes": "Original authored border/check/glow with only label ROI cleaned by built-in ImageGen; no solid green matte or second border. Dynamic DOM label. Provenance art/source/web-v3/entry-seat-v3-provenance.json."
+    },
+    "web.v3.portrait.seatSelected": {
+      "design": "portrait/02-create.png",
+      "runtime": "seat-selected-portrait-v3.png",
+      "pixelSize": [
+        152,
+        120
+      ]
+    },
+    "web.v3.create.nameError": {
+      "design": "21-create-name-error-v1.png",
+      "portraitDesign": "portrait/21-create-name-error-v1.png",
+      "runtime": "create-name-error-landscape-v1.png",
+      "portraitRuntime": "create-name-error-portrait-v1.png",
+      "notes": "Invariant ImageGen error lettering in the nickname-row safe band. Triggered by real empty/whitespace validation; role=alert and aria-invalid/describedby remain live DOM. Does not submit or create transport."
+    },
+    "web.v3.join.codeError": {
+      "design": "22-join-code-error-v1.png",
+      "portraitDesign": "portrait/22-join-code-error-v1.png",
+      "runtime": "join-code-error-landscape-v1.png",
+      "portraitRuntime": "join-code-error-portrait-v1.png",
+      "notes": "Fixed local validation in original helper band; live code field gets aria-invalid/describedby. Six cells and value remain live DOM."
+    },
+    "web.v3.join.nameError": {
+      "design": "23-join-name-error-v1.png",
+      "portraitDesign": "portrait/23-join-name-error-v1.png",
+      "runtime": "join-name-error-landscape-v1.png",
+      "portraitRuntime": "join-name-error-portrait-v1.png",
+      "notes": "Fixed warm-umber hint inside the empty paper input; does not enter portrait floral separator. Live alert and field association."
+    },
+    "web.v3.join.codeFocus": {
+      "design": "24-join-code-focus-v1.png",
+      "portraitDesign": "portrait/24-join-code-focus-v1.png",
+      "runtime": "join-code-focus-{landscape,portrait}-{top,bottom,left,right}-v1.png",
+      "geometry": "join-code-focus-geometry-v1.json",
+      "notes": "ImageGen perimeter only, no glyphs. Native focus remains owner; failed/unready images retain CSS outline. Proof/failure boundary docs/54-web-v3-join-states-and-focus.md."
+    },
+    "web.v3.join.fieldMasks": {
+      "design": "03-join.png",
+      "portraitDesign": "portrait/03-join.png",
+      "contract": "src/web/form-art-masks.tsx",
+      "provenance": "art/source/web-v3/join-field-mask-v2-provenance.json",
+      "notes": "Original digit ink plus four-source-pixel fringe only. Preserve authored paper outside glyph ROIs; empty-code Chrome diagnostic retained."
+    },
+    "web.v3.roomCode.font": {
+      "runtime": "../fonts/WebV3RoomCode-EBGaramond-ExtraBold-v1.woff2",
+      "source": "art/source/fonts/web-v3/EBGaramond-Variable.ttf",
+      "license": "public/licenses/EBGaramond-OFL.txt",
+      "bytes": 7132,
+      "notes": "Room-code digits only, lining figures and explicit unit line-height. Pinned SIL OFL source and hashes recorded in fonts README. Brush/glyph difference remains a QA finding."
+    },
+    "web.v3.emptySeat": {
+      "design": "04-lobby-waiting-v2.png",
+      "runtime": "lobby-empty-seat-v2.png",
+      "pixelSize": [
+        1277,
+        1214
+      ],
+      "notes": "Independent complete empty-seat ring, silhouette, cloud and invariant waiting label. Never represents an occupied AI."
+    },
+    "web.v3.activeNav": {
+      "design": "08-rules.png",
+      "runtime": "active-nav.png"
+    },
+    "web.v3.stepBadge": {
+      "design": "08-rules.png",
+      "runtime": "step-badge.png"
+    },
+    "web.v3.stepLabel": {
+      "design": "portrait/08-rules.png",
+      "runtime": "step-label-v2.png",
+      "notes": "Proportional background rendering preserves authored cloud ends and transparent padding."
+    },
+    "web.v3.selectedHalo": {
+      "design": "26-gameplay-selection-complete-v2.png",
+      "runtime": "selected-halo.png",
+      "canvasDesignPx": [
+        171,
+        231
+      ],
+      "offsetBelowCardDesignPx": 8,
+      "layer": "behind paper",
+      "notes": "Existing ImageGen halo fitted to the independent source contract. Earlier front-layer oversized version rejected. Both profiles compared; whole-page art/typography P2 remain."
+    },
+    "web.v3.portrait.create": {
+      "design": "portrait/02-create.png",
+      "runtime": "portrait/create.png",
+      "staticRuntime": "portrait/create-static-v1.png",
+      "maskContract": "src/web/form-art-masks.tsx",
+      "pixelSize": [
+        941,
+        1672
+      ]
+    },
+    "web.v3.portrait.join": {
+      "design": "portrait/03-join.png",
+      "runtime": "portrait/join.png",
+      "staticRuntime": "portrait/join-static-v1.png",
+      "maskContract": "src/web/form-art-masks.tsx",
+      "pixelSize": [
+        941,
+        1672
+      ]
+    },
+    "web.v3.portrait.rules": {
+      "design": "portrait/08-rules.png",
+      "runtime": "portrait/rules-quick-v3.png",
+      "pixelSize": [
+        941,
+        1672
+      ],
+      "notes": "Original empty step circles and label furniture retained; live DOM text/numerals overlay authored bands."
+    },
+    "web.v3.portrait.home": {
+      "design": "portrait/01-home.png",
+      "runtime": "portrait/home.png",
+      "pixelSize": [
+        941,
+        1672
+      ]
+    },
+    "web.v3.portrait.lobby": {
+      "design": "portrait/04-lobby-waiting-v2.png",
+      "runtime": "portrait/lobby.png",
+      "pixelSize": [
+        941,
+        1672
+      ]
+    },
+    "web.v3.portrait.gameplay": {
+      "design": "portrait/05-gameplay-safe-v2.png",
+      "runtime": "portrait/gameplay-choices-v1.png",
+      "pixelSize": [
+        941,
+        1672
+      ],
+      "notes": "Same scene with action now an independent bitmap below the hand. Original source overlapped its last card."
+    },
+    "web.v3.portrait.results": {
+      "design": "portrait/06-results-home-v2.png",
+      "runtime": "results-source-v1/portrait-results-background-v1.png",
+      "pixelSize": [
+        941,
+        1672
+      ],
+      "previousRuntime": "portrait/results.png",
+      "notes": "Original page base; bounded dynamic masks only. Original RGB outside masks invariant. Prior full-page blank is a build-time texture donor only, excluded from production. See docs68 and background-provenance-v1.json.",
+      "content": "Original static frame/headers/decorations/dividers outside dynamic masks; values/identities/actions remain dynamic.",
+      "previousDesign": "portrait/06-results.png"
+    },
+    "web.v3.portrait.ranking": {
+      "design": "portrait/07-ranking.png",
+      "runtime": "results-source-v1/portrait-ranking-background-v1.png",
+      "pixelSize": [
+        941,
+        1672
+      ],
+      "notes": "Original page base; bounded dynamic masks only. Original RGB outside masks invariant. Prior full-page blank is a build-time texture donor only, excluded from production. See docs68 and background-provenance-v1.json.",
+      "previousRuntime": "portrait/ranking-v2.png",
+      "content": "Original static frame/headers/decorations/dividers outside dynamic masks; values/identities/actions remain dynamic."
+    },
+    "web.v3.portrait.confirm": {
+      "design": "portrait/09-confirm.png",
+      "runtime": "portrait/confirm.png",
+      "pixelSize": [
+        941,
+        1672
+      ],
+      "notes": "Invariant confirmation artwork; stacked live semantic action targets."
+    },
+    "web.v3.portrait.bid": {
+      "design": "portrait/10-bid.png",
+      "runtime": "portrait/bid.png",
+      "pixelSize": [
+        941,
+        1672
+      ],
+      "notes": "Transparent modal; range, value and confirmation label are dynamic."
+    },
+    "web.v3.portrait.chooser": {
+      "design": "portrait/11-chooser-inactive-hand-v5-copy-v1.png",
+      "runtime": "hud-source-v1/portrait-chooser-copy-v1.png",
+      "previousRuntime": "portrait/chooser.png",
+      "pixelSize": [
+        941,
+        1672
+      ],
+      "notes": "V5 paper and disabled-hand repair retained; copy-v1 changes only one sun glyph with original alpha. Same four immediate-submit targets; current132 comparison docs65, modal art/type P2 remain."
+    },
+    "web.v3.portrait.gameplayChoices": {
+      "design": "portrait/05-gameplay.png",
+      "runtime": "portrait/gameplay-choices-v1.png",
+      "pixelSize": [
+        941,
+        1672
+      ],
+      "notes": "Local choice phases omit the duplicate empty green action plaque. The baked empty clock remains for normal play/chooser; timed local portrait bid covers it and renders the independent v3 clock tile. No-timer mode covers it without another clock."
+    },
+    "web.v3.avatars": {
+      "design": "portrait/07-ranking.png",
+      "runtime": "avatars/",
+      "notes": "Six original v3 round portraits, ImageGen extraction with alpha. Web-only; does not replace Mini Game expression atlas. Small likeness drift remains a QA item."
+    },
+    "web.v3.rules.trump": {
+      "design": "08-rules-trump.png",
+      "runtime": "rules-trump.png"
+    },
+    "web.v3.rules.play": {
+      "design": "08-rules-play.png",
+      "runtime": "rules-play.png"
+    },
+    "web.v3.rules.scoring": {
+      "design": "08-rules-scoring.png",
+      "runtime": "rules-scoring.png"
+    },
+    "web.v3.settings": {
+      "design": "08-settings.png",
+      "runtime": "settings.png"
+    },
+    "web.v3.portrait.rules.trump": {
+      "design": "portrait/08-rules-trump.png",
+      "runtime": "portrait/rules-trump.png",
+      "pixelSize": [
+        941,
+        1672
+      ]
+    },
+    "web.v3.portrait.rules.play": {
+      "design": "portrait/08-rules-play.png",
+      "runtime": "portrait/rules-play.png",
+      "pixelSize": [
+        941,
+        1672
+      ]
+    },
+    "web.v3.portrait.rules.scoring": {
+      "design": "portrait/08-rules-scoring.png",
+      "runtime": "portrait/rules-scoring.png",
+      "pixelSize": [
+        941,
+        1672
+      ]
+    },
+    "web.v3.portrait.settings": {
+      "design": "portrait/08-settings.png",
+      "runtime": "portrait/settings.png",
+      "pixelSize": [
+        941,
+        1672
+      ]
+    },
+    "web.v3.connectionError": {
+      "design": "12-connection-error.png",
+      "runtime": "connection-error-v1.png",
+      "content": "Invariant failure copy and live return/retry semantic targets"
+    },
+    "web.v3.connecting": {
+      "design": "13-connecting.png",
+      "runtime": "connecting-v1.png",
+      "content": "Invariant waiting copy and live cancel-to-edit target"
+    },
+    "web.v3.portrait.connectionError": {
+      "design": "portrait/12-connection-error.png",
+      "runtime": "portrait/connection-error-v1.png",
+      "pixelSize": [
+        941,
+        1672
+      ]
+    },
+    "web.v3.portrait.connecting": {
+      "design": "portrait/13-connecting.png",
+      "runtime": "portrait/connecting-v1.png",
+      "pixelSize": [
+        941,
+        1672
+      ]
+    },
+    "web.v3.lobby.name": {
+      "design": "04-lobby-waiting-v2.png",
+      "runtime": "lobby-name-v2.png",
+      "pixelSize": [
+        2105,
+        724
+      ],
+      "visibleSize": [
+        2068,
+        576
+      ],
+      "notes": "Independent 3.59:1 visible cloud-ended green plaque; canvas aspect retained, no height stretch. Slight center alpha 253/255 and edge fringe remain P3."
+    },
+    "web.v3.lobby.ready": {
+      "design": "04-lobby.png",
+      "runtime": "lobby-ready-v2.png",
+      "pixelSize": [
+        650,
+        220
+      ],
+      "visibleSize": [
+        620,
+        201
+      ]
+    },
+    "web.v3.lobby.waiting": {
+      "design": "04-lobby.png",
+      "runtime": "lobby-waiting-v1.png",
+      "pixelSize": [
+        650,
+        220
+      ],
+      "visibleSize": [
+        620,
+        201
+      ]
+    },
+    "web.v3.lobby.readyCheck": {
+      "design": "04-lobby.png",
+      "runtime": "lobby-ready-check-v1.png",
+      "pixelSize": [
+        512,
+        512
+      ]
+    },
+    "web.v3.lobby.traveler": {
+      "design": "04-lobby.png",
+      "runtime": "avatars/lobby-masked-traveler-v1.png",
+      "pixelSize": [
+        1254,
+        1254
+      ],
+      "notes": "Animal traveler matching the lobby, not the human ranking portrait."
+    },
+    "web.v3.lobby.avatars": {
+      "design": "04-lobby-waiting-v2.png",
+      "runtime": "avatars/lobby-{bamboo-cat,wandering-crane,flower-fox,ink-panda}-v2.png",
+      "notes": "Separate ImageGen half-body lobby portraits, not the close-up ranking set. Alpha silhouette retained without circular CSS clipping. Some linework/gold thickness differs from source; no source-pixel identity claim."
+    },
+    "web.v3.cards": {
+      "design": "05-gameplay-final.png",
+      "portraitDesign": "portrait/05-gameplay-safe-v2.png",
+      "runtime": "cards/{landscape,portrait}-{leaf,mountain,knot,sun}-v5-native.png",
+      "pixelSize": [
+        140,
+        210
+      ],
+      "notes": "Current source-derived v5. Earlier whole-face v2-v4 and upsampled v5 exports retained as history, not imported. Highest/lowest/back retain original art. Current20 comparison docs59; prediction poses, central perspective, avatars/HUD/panels and other P2 remain."
+    },
+    "web.v3.gameplay.stats": {
+      "design": "05-gameplay-final.png",
+      "runtime": "gameplay-stats-v1.png",
+      "pixelSize": [
+        584,
+        108
+      ]
+    },
+    "web.v3.gameplay.trumpPaper": {
+      "design": "25-gameplay-selection-idle-v2-copy-v1.png",
+      "runtime": "hud-source-v1/landscape-trump-live-fields-v1.png",
+      "portraitRuntime": "hud-source-v1/portrait-trump-live-fields-v1.png",
+      "pixelSize": [
+        331,
+        75
+      ],
+      "portraitPixelSize": [
+        359,
+        80
+      ],
+      "previousRuntime": "trump-status-v2.png",
+      "notes": "Original frame and fixed prefix. Only mutable suit icon/name cleared using bounded ImageGen paper; separate live suit state. Current docs65, not a whole-page pass."
+    },
+    "web.v3.gameplay.suits": {
+      "design": "05-gameplay-final.png",
+      "runtime": "suits/{leaf-v1,mountain-v1,knot-v1,sun-status-v1}.png",
+      "notes": "Transparent independent glyphs, not rounded card crops."
+    },
+    "web.v3.gameplay.hourglass": {
+      "design": "05-gameplay-final.png",
+      "runtime": "hourglass-v1.png",
+      "pixelSize": [
+        1254,
+        1254
+      ]
+    },
+    "web.v3.gameplay.traveler": {
+      "design": "25-gameplay-selection-idle-v2.png",
+      "portraitDesign": "portrait/25-gameplay-selection-idle-v2.png",
+      "runtime": "gameplay-seats-v1/{landscape,portrait}-masked-traveler-v1.png",
+      "notes": "Original source bird-mask/straw-hat traveler; independent source crops replace the previous redrawn gameplay portrait. Other lobby/results identities remain separate."
+    },
+    "web.v3.gameplay.noTimer": {
+      "design": "14-gameplay-notimer.png",
+      "runtime": "no-timer-patch-v1.png",
+      "pixelSize": [
+        270,
+        215
+      ],
+      "notes": "Quiet background patch only, x1320 y450 in the new no-timer source; no cards, copy or dynamic data."
+    },
+    "web.v3.portrait.gameplay.noTimer": {
+      "design": "portrait/14-gameplay-notimer-safe-v3.png",
+      "runtime": "portrait/no-timer-patch-v1.png",
+      "pixelSize": [
+        228,
+        236
+      ],
+      "notes": "Quiet background patch only, x713 y1158; no timer when human deadline absent or reconnecting. Uses independent lower action per safe-v2."
+    },
+    "web.v3.reconnecting": {
+      "design": "15-reconnecting-network-v2.png",
+      "runtime": "recovery-source-v1/landscape-reconnecting-v3.png",
+      "pixelSize": [
+        783,
+        457
+      ],
+      "notes": "Mechanical original component extraction, fixed original copy and live accessible retry. New117 Chrome comparison; full-page P2 remain. Redrawn v1 no longer shipped."
+    },
+    "web.v3.portrait.reconnecting": {
+      "design": "portrait/15-reconnecting-inactive-hand-v3.png",
+      "runtime": "recovery-source-v1/portrait-reconnecting-v3.png",
+      "pixelSize": [
+        609,
+        642
+      ],
+      "notes": "Original panel pixels. Source-only halo correction protects all four paper hulls and unrelated RGB. 44px action target expands upwards."
+    },
+    "web.v3.sessionEnded": {
+      "design": "16-session-ended-network-v3.png",
+      "runtime": "recovery-source-v1/landscape-session-ended-v3.png",
+      "pixelSize": [
+        783,
+        457
+      ],
+      "notes": "Original generic terminal panel pixels; live home callback clears session. Real temporary lobby termination checked, no active-match claim."
+    },
+    "web.v3.portrait.sessionEnded": {
+      "design": "portrait/16-session-ended-v2.png",
+      "runtime": "recovery-source-v1/portrait-session-ended-v3.png",
+      "pixelSize": [
+        609,
+        642
+      ],
+      "notes": "Original portrait panel, current117 comparison. Previous independent redrawn panels retained as history only."
+    },
+    "web.v3.recovery.focus": {
+      "design": "29-reconnecting-focus-v2.png",
+      "terminalDesign": "30-session-ended-focus-v2.png",
+      "portraitDesign": "portrait/29-reconnecting-focus-v3.png",
+      "portraitTerminalDesign": "portrait/30-session-ended-focus-v2.png",
+      "runtime": "recovery-source-v1/{landscape,portrait}-{reconnecting,session-ended}-focus-v2.png",
+      "notes": "Built-in ImageGen ring only, original action/page pixels protected. Native focus-visible, fallback outline on failed image. Ring-corner jaggedness P3 retained."
+    },
+    "web.v3.recovery.portraitTopScene": {
+      "design": "portrait/15-reconnecting.png",
+      "runtime": "recovery-source-v1/portrait-top-scene-v1.png",
+      "pixelSize": [
+        280,
+        95
+      ],
+      "notes": "Exact already-dimmed decorative source crop above scrim removes baked empty return plaque; no dynamic data in crop."
+    },
+    "web.v3.portrait.playAction": {
+      "design": "portrait/05-gameplay-safe-v2.png",
+      "runtime": "play-action-portrait-v1.png",
+      "pixelSize": [
+        1725,
+        806
+      ],
+      "visibleSize": [
+        1701,
+        782
+      ],
+      "notes": "Independent blank plaque, intrinsic aspect preserved. Slight proportion and brush drift remain; no stretched baked action over card targets."
+    },
+    "web.v3.gameplay.noAction": {
+      "design": "11-chooser.png",
+      "runtime": "gameplay-no-action-patch-v1.png",
+      "pixelSize": [
+        425,
+        170
+      ],
+      "notes": "Quiet scene-only crop x1235 y665 from independent ImageGen cleanup; removes the baked empty action during chooser/recovery only. Bid still uses that action lane."
+    },
+    "web.v3.lobby.invite": {
+      "design": "04-lobby-waiting-v2.png",
+      "runtime": "lobby-invite-v1.png",
+      "pixelSize": [
+        1840,
+        515
+      ],
+      "visibleSize": [
+        1816,
+        491
+      ],
+      "notes": "Independent cloud-ended parchment with invariant group/label painted in; accessible live button remains semantic. Intrinsic proportions retained."
+    },
+    "web.v3.lobby.addControl": {
+      "design": "04-lobby-waiting-v2.png",
+      "runtime": "lobby-add-control-v2.png",
+      "pixelSize": [
+        2132,
+        510
+      ],
+      "visibleSize": [
+        2108,
+        486
+      ],
+      "notes": "Independent generated dark-gold frame/robot, no baked mutable label; alpha canvas trimmed only."
+    },
+    "web.v3.lobby.removeControl": {
+      "design": "04-lobby-waiting-v2.png",
+      "runtime": "lobby-remove-control-v2.png",
+      "pixelSize": [
+        2053,
+        519
+      ],
+      "visibleSize": [
+        2029,
+        495
+      ],
+      "notes": "Independent generated dark-gold frame/minus, no baked mutable label."
+    },
+    "web.v3.lobby.groupIcon": {
+      "design": "04-lobby-waiting-v2.png",
+      "runtime": "lobby-group-v2.png",
+      "pixelSize": [
+        1111,
+        831
+      ],
+      "visibleSize": [
+        1087,
+        807
+      ]
+    },
+    "web.v3.lobby.wifiIcon": {
+      "design": "04-lobby-waiting-v2.png",
+      "runtime": "lobby-wifi-v2.png",
+      "pixelSize": [
+        1268,
+        926
+      ],
+      "visibleSize": [
+        1244,
+        902
+      ],
+      "notes": "PC only; portrait source has no extra connection chip. Recovery remains blocking in both profiles."
+    },
+    "web.v3.lobby.robotIcon": {
+      "design": "04-lobby-waiting-v2.png",
+      "runtime": "lobby-robot-v2.png",
+      "pixelSize": [
+        1138,
+        1055
+      ],
+      "visibleSize": [
+        1114,
+        1031
+      ],
+      "notes": "Standalone PC icon over the scene's existing button frame. Portrait uses the complete generated control instead, never two frames."
+    },
+    "web.v3.lobby.minusIcon": {
+      "design": "04-lobby-waiting-v2.png",
+      "runtime": "lobby-minus-v2.png",
+      "pixelSize": [
+        790,
+        785
+      ],
+      "visibleSize": [
+        766,
+        761
+      ]
+    },
+    "web.v3.lobby.readyState": {
+      "design": "04-lobby-ready-v2.png",
+      "portraitDesign": "portrait/04-lobby-ready-v2.png",
+      "content": "Same four humans all ready, one AI and one empty; creator auto-fill allows start. State source only; actual permission and text remain server-backed."
+    },
+    "web.v3.rules.font": {
+      "runtime": "../fonts/WebV3Rules-WenKai-Medium-v2.woff2",
+      "source": "art/source/fonts/web-v3/LXGWWenKai-Medium.ttf",
+      "license": "public/licenses/LXGW-WenKai-OFL.txt",
+      "notes": "Rules h3/body/step labels and setting labels. Preserve all shaping features; portrait punctuation uses halt. Numeric badges and Cocos unchanged; other web labels use the independent UI font entry."
+    },
+    "web.v3.ui.font": {
+      "runtime": "../fonts/WebV3UI-WenKai-Medium-v1.woff2",
+      "source": "art/source/fonts/web-v3/LXGWWenKai-Medium.ttf",
+      "bytes": 1672512,
+      "codepoints": 7544,
+      "license": "public/licenses/LXGW-WenKai-OFL.txt",
+      "notes": "General Chinese UI fallback; source-based result nicknames use the independent seat WenKai Regular subset. ASCII result numbers use their genuine Bold face. Rare CJK fall back; never ship full experimental TTFs."
+    },
+    "web.v3.results.avatars": {
+      "design": "06-results.png",
+      "portraitDesign": "portrait/06-results.png",
+      "runtime": "results-avatar-matte-v3/landscape-results-{bamboo-cat,wandering-crane,flower-fox,ink-panda,sleepy-star-cat}-v3.png",
+      "rankingRuntime": "results-avatar-matte-v3/landscape-ranking-{bamboo-cat,wandering-crane,flower-fox,ink-panda,sleepy-star-cat}-v3.png",
+      "notes": "Ten original-RGB landscape portraits only lower-alpha refined to exclude nextavatar upperarc; fourteen source-v2 portraits unchanged.173/174 five landscape source/Chrome pairs reviewed, two portrait captures RGB-identical. No whole-page pass.",
+      "unchangedRuntime": [
+        "results-source-v1/portrait-{results,ranking}-{identity}-v2.png",
+        "results-source-v1/landscape-{results,ranking}-masked-traveler-v2.png"
+      ]
+    },
+    "web.v3.chooser.pending": {
+      "design": "18-chooser-pending-inactive-hand-v5-copy-v1.png",
+      "portraitDesign": "portrait/18-chooser-pending-inactive-hand-v5-copy-v1.png",
+      "runtime": "hud-source-v1/landscape-chooser-pending-copy-v1.png",
+      "portraitRuntime": "hud-source-v1/portrait-chooser-pending-copy-v1.png",
+      "previousRuntime": "chooser-pending-v2.png",
+      "previousPortraitRuntime": "portrait/chooser-pending-v2.png",
+      "notes": "V5 hand/paper retained, only canonical sun glyph corrected with original alpha. Live aria-busy/status/disabled controls. Current132 comparison docs65; ink/fade/modal P2 and real ACK gaps remain."
+    },
+    "web.v3.tabProtection": {
+      "design": "20-tab-protection-v1.png",
+      "portraitDesign": "portrait/20-tab-protection-v1.png",
+      "runtime": "tab-protection-v1.png",
+      "portraitRuntime": "portrait/tab-protection-v1.png",
+      "notes": "Immutable local-ROI ImageGen designs with changedOutside=0. Live disabled create/join targets, accessible status and refresh action. Practice/rules remain available. Current Chrome comparison required."
+    },
+    "web.v3.play.pending": {
+      "design": "19-play-pending-selection-v2.png",
+      "portraitDesign": "portrait/19-play-pending-selection-v2.png",
+      "notes": "Original ImageGen pending action retained; source-card hand geometry follows independent selection v2. Live action DOM, selection retained. Current 63 comparison in docs55; not a real delayed-ACK or full-page pixel pass."
+    },
+    "web.v3.results.numberFont": {
+      "runtime": "../fonts/WebV3Results-Tinos-Bold-v1.woff2",
+      "source": "art/source/fonts/web-v3/Tinos-Bold.ttf",
+      "bytes": 5876,
+      "codepoints": 95,
+      "weight": 700,
+      "provenance": "art/source/fonts/web-v3/results-bold-subset-v1.json",
+      "license": "public/licenses/Tinos-OFL.txt",
+      "notes": "Live result/rank/round ASCII only. Native Chrome Tinos-Bold confirmed; nickname and remaining glyph P2 unchanged. Separate from rejected card-rank candidate."
+    },
+    "web.v3.results.finalRound": {
+      "design": "34-results-final-round-home-v2.png",
+      "portraitDesign": "portrait/34-results-final-round-home-v2.png",
+      "runtime": "results-states-v1/{profile}-final-round-primary-v1.png",
+      "registry": "src/web/result-state-actions.generated.ts",
+      "notes": "Saved before wiring. Canonical 查看最终总榜 on original green plaque. Values/round/permissions remain live; current8 ranking needs its own state design.",
+      "previousDesign": "34-results-final-round-v1.png",
+      "previousPortraitDesign": "portrait/34-results-final-round-v1.png"
+    },
+    "web.v3.ranking.guestWaiting": {
+      "design": "35-ranking-guest-waiting-v1.png",
+      "portraitDesign": "portrait/35-ranking-guest-waiting-v1.png",
+      "runtime": "results-states-v1/{profile}-guest-waiting-{primary,secondary}-v1.png",
+      "registry": "src/web/result-state-actions.generated.ts",
+      "notes": "Native disabled 等待房主再开, enabled 离开房间. Original lacquer/frame retained, muted waiting lettering. DEV permissions/keyboard and158 visuals are not actual network terminal evidence."
+    },
+    "web.v3.ranking.currentFinal": {
+      "design": "36-current-ranking-final-home-v2.png",
+      "portraitDesign": "portrait/36-current-ranking-final-home-v2.png",
+      "runtime": "results-mode-states-v1/{profile}-current-final-primary-v1.png",
+      "registry": "src/web/result-mode-art.generated.ts",
+      "notes": "Dedicated canonical 查看最终总榜 on current-ranking authored plaque. Completed rounds and totals remain live; no wholepage score baking.",
+      "previousDesign": "36-current-ranking-final-v1.png",
+      "previousPortraitDesign": "portrait/36-current-ranking-final-v1.png"
+    },
+    "web.v3.ranking.classic": {
+      "design": "37-ranking-classic-v1.png",
+      "portraitDesign": "portrait/37-ranking-classic-v1.png",
+      "runtime": "results-mode-states-v1/{profile}-classic-ranking-{title,subtitle}-v1.png",
+      "registry": "src/web/result-mode-art.generated.ts",
+      "notes": "Original heading/subtitle anatomy with generated classic fixed lettering. Only numeric slot blank; actual10/12/15/20 stays live. Scoped reused TinosRegular400, not Bold."
+    },
+    "web.v3.ranking.countStates": {
+      "design": "{38-ranking-3,39-ranking-4,40-ranking-5}-players-v1.png",
+      "portraitDesign": "portrait/{38-ranking-3,39-ranking-4,40-ranking-5}-players-v1.png",
+      "runtime": "ranking-counts-v1/{profile}-empty-ranks-after-{3,4,5}-v1.png",
+      "registry": "src/web/ranking-count-art.generated.ts",
+      "notes": "Six independent built-inImageGen state edits; runtime only empty-rank paper patches, no baked player data. Original occupied furniture/rows preserved. Current169six full/focus comparisons remain blocked by live glyph/sampling P2."
+    },
+    "web.v3.results.returnHome": {
+      "design": "{06-results,33-current-ranking,34-results-final-round,36-current-ranking-final}-home-v2.png",
+      "portraitDesign": "portrait/{06-results,33-current-ranking,34-results-final-round,36-current-ranking-final}-home-v2.png",
+      "runtime": "results-home-v2/{profile}-{results,current-ranking}-back-v2.png",
+      "registry": "src/web/results-home-art.generated.ts",
+      "notes": "Inside nonterminal result dialog, live onExit;44px hit target and authored bitmap aspect. Final ranking uses existing footer."
+    },
+    "web.v3.ranking.negativeSix": {
+      "design": "41-ranking-six-negative-v1.png",
+      "portraitDesign": "portrait/41-ranking-six-negative-v1.png",
+      "runtime": "Existing dynamic ranking carrier; no screenshot baked into runtime",
+      "source": "art/source/web-v3/results-negative-six-v1/provenance-v1.json",
+      "notes": "Six negative totals with tied ranks. Live ASCII digits/signs remain data, newDEVfixture not production authority."
+    },
+    "web.v3.results.results.longName": {
+      "design": "42-results-long-name-v1.png",
+      "portraitDesign": "portrait/42-results-long-name-v1.png",
+      "runtime": "Existing dynamic result carrier",
+      "source": "art/source/web-v3/results-long-name-v1/",
+      "notes": "Full name stays live; catalog entry is not a visual pass."
+    },
+    "web.v3.results.current-ranking.longName": {
+      "design": "43-current-ranking-long-name-v1.png",
+      "portraitDesign": "portrait/43-current-ranking-long-name-v1.png",
+      "runtime": "Existing dynamic result carrier",
+      "source": "art/source/web-v3/results-long-name-v1/",
+      "notes": "Full name stays live; catalog entry is not a visual pass."
+    },
+    "web.v3.results.ranking.longName": {
+      "design": "44-ranking-long-name-v1.png",
+      "portraitDesign": "portrait/44-ranking-long-name-v1.png",
+      "runtime": "Existing dynamic result carrier",
+      "source": "art/source/web-v3/results-long-name-v1/",
+      "notes": "Full name stays live; catalog entry is not a visual pass."
+    },
+    "web.v3.results.name-dialog.longName": {
+      "design": "45-results-name-dialog-v1.png",
+      "portraitDesign": "portrait/45-results-name-dialog-v1.png",
+      "runtime": "results-name-dialog-v1/{landscape,portrait}-panel-v1.png",
+      "source": "art/source/web-v3/results-long-name-v1/",
+      "notes": "Full name stays live; catalog entry is not a visual pass."
+    },
+    "web.v3.results.wideName": {
+      "design": "46-results-wide-name-v1.png",
+      "portraitDesign": "portrait/46-results-wide-name-v1.png",
+      "runtime": "Existing live text carrier",
+      "source": "art/source/web-v3/results-wide-names-v1/provenance-v2.json"
+    },
+    "web.v3.results.wideNameDialog": {
+      "design": "47-results-wide-name-dialog-v2.png",
+      "portraitDesign": "portrait/47-results-wide-name-dialog-v2.png",
+      "runtime": "Existing name panel with measured dynamic text",
+      "source": "art/source/web-v3/results-wide-names-v1/provenance-v2.json"
+    },
+    "web.v3.results.nameAccess.results.landscape": {
+      "design": "48-results-name-access-v1.png",
+      "listDesign": "50-results-name-list-v3.png",
+      "runtime": [
+        "art/runtime/web-v3/results-name-access-v1/landscape-trigger-v1.png",
+        "art/runtime/web-v3/results-name-access-v1/landscape-panel-v3.png"
+      ],
+      "source": "art/source/web-v3/name-list-parchment-v3/provenance-v3.json"
+    },
+    "web.v3.results.nameAccess.ranking.landscape": {
+      "design": "49-ranking-name-access-v1.png",
+      "listDesign": "53-ranking-name-list-v3.png",
+      "runtime": [
+        "art/runtime/web-v3/results-name-access-v1/landscape-trigger-v1.png",
+        "art/runtime/web-v3/results-name-access-v1/landscape-panel-v3.png"
+      ],
+      "source": "art/source/web-v3/name-list-parchment-v3/provenance-v3.json"
+    },
+    "web.v3.results.nameAccess.current-ranking.landscape": {
+      "design": "51-current-ranking-name-access-v1.png",
+      "listDesign": "52-current-ranking-name-list-v3.png",
+      "runtime": [
+        "art/runtime/web-v3/results-name-access-v1/landscape-trigger-v1.png",
+        "art/runtime/web-v3/results-name-access-v1/landscape-panel-v3.png"
+      ],
+      "source": "art/source/web-v3/name-list-parchment-v3/provenance-v3.json"
+    },
+    "web.v3.results.nameAccess.results.portrait": {
+      "design": "portrait/48-results-name-access-v1.png",
+      "listDesign": "portrait/50-results-name-list-v3.png",
+      "runtime": [
+        "art/runtime/web-v3/results-name-access-v1/portrait-trigger-v1.png",
+        "art/runtime/web-v3/results-name-access-v1/portrait-panel-v3.png"
+      ],
+      "source": "art/source/web-v3/name-list-parchment-v3/provenance-v3.json"
+    },
+    "web.v3.results.nameAccess.ranking.portrait": {
+      "design": "portrait/49-ranking-name-access-v1.png",
+      "listDesign": "portrait/53-ranking-name-list-v3.png",
+      "runtime": [
+        "art/runtime/web-v3/results-name-access-v1/portrait-trigger-v1.png",
+        "art/runtime/web-v3/results-name-access-v1/portrait-panel-v3.png"
+      ],
+      "source": "art/source/web-v3/name-list-parchment-v3/provenance-v3.json"
+    },
+    "web.v3.results.nameAccess.current-ranking.portrait": {
+      "design": "portrait/51-current-ranking-name-access-v1.png",
+      "listDesign": "portrait/52-current-ranking-name-list-v3.png",
+      "runtime": [
+        "art/runtime/web-v3/results-name-access-v1/portrait-trigger-v1.png",
+        "art/runtime/web-v3/results-name-access-v1/portrait-panel-v3.png"
+      ],
+      "source": "art/source/web-v3/name-list-parchment-v3/provenance-v3.json"
+    }
   },
   "notes": [
     "Generated scene size is 1672x941; measure actual output rather than assuming requested 1920x1080.",
     "Runtime extraction preserves backgrounds but removes mutable data, never changing the immutable design reference to match implementation.",
     "Cocos resource generation is unchanged; this manifest belongs exclusively to the internal browser carrier.",
-    "Four browser-only number-card faces now use v4 ImageGen art. Core rules and the Mini Game asset bundle are unchanged. Individual likeness, typography and shape differences remain explicit QA findings."
-    ,"Form staticRuntime layers are unchanged copies of the selected ImageGen page. Mandatory field masks hide all baked editable values/checks before live DOM controls render; cleanup imagery never replaces unrelated static scenery."
-    ,"The transparent switch-on-v2 candidate is rejected because generation removed green interior pixels. Only opaque-v3 switch files are consumed."
-  ]
+    "Four browser-only number-card faces now use v4 ImageGen art. Core rules and the Mini Game asset bundle are unchanged. Individual likeness, typography and shape differences remain explicit QA findings.",
+    "Form staticRuntime layers are unchanged copies of the selected ImageGen page. Mandatory field masks hide all baked editable values/checks before live DOM controls render; cleanup imagery never replaces unrelated static scenery.",
+    "The transparent switch-on-v2 candidate was rejected because generation removed green interior pixels. Current entry/settings families consume lossless selected-design crops under switches/; older generated opaque-v3 files are historical."
+  ],
+  "resultsNetworkValidation": {
+    "report": "docs/71-web-v3-network-results-and-rematch.md",
+    "gallery": "art/review/web-v3/network-results-20261026/index.html",
+    "verification": "art/review/web-v3/network-results-20261026/verification.json",
+    "status": "accelerated-real-flow-verified-visual-goal-incomplete",
+    "runs": [
+      166,
+      167
+    ],
+    "independentBrowserGuestOrigins": true,
+    "realWebSocket": true,
+    "actualRoundScoresObserved": 8,
+    "actualRematchAck": true,
+    "actualTerminalLeaveAcks": 2,
+    "stableTerminalScreenshots": true,
+    "defaultTimingValidated": false,
+    "sourcePixelAcceptance": false,
+    "artifactChecks": 154,
+    "cleanup": "art/review/web-v3/network-results-20261026/cleanup.json",
+    "boundaries": [
+      "166 original browser debugger lost before rematch; no continuity claim from166to167",
+      "167 initial frame buffer truncated; terminal/rematch/leave tail ACK evidence only",
+      "Accelerated AI/turn/result timing with timeout takeover, not normal30second/no-timer/fault scenario acceptance",
+      "41saveddesign states unchanged; current names/scores are real runtime data, not frozen-source comparison"
+    ]
+  },
+  "savedDesignStateCount": 57,
+  "designStateProfiles": 2,
+  "designStateCountsAreCatalogOnly": true,
+  "resultsCountRevision": {
+    "report": "docs/72-web-v3-ranking-counts-ties-and-negatives.md",
+    "comparisons": "art/review/web-v3/ranking-counts-calibration-20261026/coverage.json",
+    "revision": 169,
+    "comparisonCount": 6,
+    "reviewedViews": {
+      "full": 6,
+      "focused": 6,
+      "sixPlayerRegressionFullAndFocus": 1
+    },
+    "designStates": [
+      "38-ranking-3-players-v1.png",
+      "39-ranking-4-players-v1.png",
+      "40-ranking-5-players-v1.png"
+    ],
+    "profiles": 2,
+    "sourceProvenance": "art/source/web-v3/ranking-counts-v1/provenance-v1.json",
+    "runtimeRoot": "art/runtime/web-v3/ranking-counts-v1/",
+    "runtimePatchPNGs": 6,
+    "totalActiveResultPNGs": 70,
+    "registry": "src/web/ranking-count-art.generated.ts",
+    "engineeringChecks": 267,
+    "scope": "Quick-final3/4/5player independent designs. Only unused rank-column bitmap patches at runtime; live total/rank/tie/identity and canonical actions. Six players and round-result views receive no patch.",
+    "regression": "170sixplayer vs163:landscape decodedRGB0difference,portrait maxchannel2 and fresh full/focus review. Other classic/current combinations are DEV integration diagnostics.",
+    "status": "empty-rank-fix-reviewed-live-glyph-P2-remain",
+    "remaining": [
+      "live glyph/ink/texture/alpha/GPU sampling differences",
+      "count states for round results/current/classic complete designs",
+      "long-name/connection/focus and other interaction sources",
+      "default timing/fault network boundaries",
+      "docs66 clocks incomplete"
+    ],
+    "avatarMatteOverrideRevision": 174
+  },
+  "resultsAvatarMatteRevision": {
+    "report": "docs/73-web-v3-results-avatar-lower-alpha.md",
+    "comparisons": "art/review/web-v3/results-avatar-matte-20261027/coverage.json",
+    "revision": 174,
+    "beforeRevision": 173,
+    "captureGroups": 7,
+    "reviewedViews": {
+      "landscapeFull": 5,
+      "landscapeFocused": 5,
+      "portraitWholeRgbIdentical": 2
+    },
+    "provenance": "art/source/web-v3/results-avatar-matte-v3/provenance-v3.json",
+    "alphaProof": "art/review/web-v3/results-avatar-matte-20261027/alpha-pixel-proof.json",
+    "pagePixelProof": "art/review/web-v3/results-avatar-matte-20261027/page-pixel-regression.json",
+    "registry": "src/web/results-source-assets.generated.ts",
+    "generator": "tools/refine-web-results-avatar-mattes-v3.mjs --wire",
+    "replacedAvatars": 10,
+    "unchangedAvatars": 14,
+    "activeResultPNGs": 70,
+    "changedAlphaPixels": 2346,
+    "rgbByteChanges": 0,
+    "upper75percentAlphaChanges": 0,
+    "engineeringChecks": 470,
+    "status": "lower-neighbor-arc-fixed-other-P2-remain",
+    "scope": "Versioned lower-alpha correction only; all original RGB, core/upperalpha and geometry retained. Upper-cap draft rejected before wiring. Originalv2 kept on disk but ten contaminated payloads excluded from production.",
+    "boundaries": [
+      "No new design states, still44x2 catalog only",
+      "No new actual gameplay/network or Cocos validation",
+      "Source upper overlaps, live glyph/ink, texture/alpha/GPU sampling remain open",
+      "Full pixel stats retain all capture pixels; restricted local-change stats explicitly omit pointer0..39 and first1pxrow"
+    ]
+  },
+  "resultsExitRevision": {
+    "revision": 178,
+    "report": "docs/74-web-v3-results-return-home-and-focus.md",
+    "comparisons": "art/review/web-v3/results-return-home-20261027/coverage.json",
+    "provenance": "art/source/web-v3/results-home-v2/provenance-v2.json",
+    "sourceRevisions": 8,
+    "newBusinessStates": 0,
+    "savedDesignStateCount": 44,
+    "profiles": 2,
+    "countsAreCatalogOnly": true,
+    "newRuntimeCrops": 4,
+    "existingResultPNGs": 70,
+    "activeResultPNGs": 74,
+    "localReceipt": "art/review/web-v3/results-return-home-20261027/177-results-exit-local-20261027.json",
+    "networkReceipt": "art/review/web-v3/results-return-home-20261027/179-results-exit-network-20261027.json",
+    "status": "return-control-reviewed-keyboard-and-confirmed-leave-fixed-overall-P2-open",
+    "finalResult": "blocked"
+  },
+  "resultsTypographyRevision": {
+    "revision": 186,
+    "report": "docs/75-web-v3-results-typography.md",
+    "comparisons": "art/review/web-v3/results-type-calibration-20261027/coverage.json",
+    "manual": "art/review/web-v3/results-type-calibration-20261027/manual-review.json",
+    "layout": "art/runtime/web-v3/results-typography-layout-v1.json",
+    "nativeFonts": "art/review/web-v3/results-type-calibration-20261027/186-results-type-native-fonts-20261027.json",
+    "pairedViews": 20,
+    "businessStatesAdded": 0,
+    "bitmapSources": 74,
+    "numericFonts": 2,
+    "fontsAdded": 0,
+    "sourcePNGsAdded": 0,
+    "realPractice": "art/review/web-v3/results-type-calibration-20261027/188-results-type-live-practice-20261027.json",
+    "livePreview": "art/review/web-v3/results-type-calibration-20261027/189-results-type-preview-meta-20261027.json",
+    "livePreviewImage": "art/review/web-v3/results-type-calibration-20261027/189-results-type-live-preview-20261027.jpg",
+    "status": "ordinal-hierarchy-refined-exact-live-glyph-P2-remain",
+    "finalResult": "blocked"
+  },
+  "resultsInkRevision": {
+    "revision": 192,
+    "report": "docs/76-web-v3-results-ink-and-minus.md",
+    "comparisons": "art/review/web-v3/results-ink-calibration-20261027/coverage.json",
+    "manual": "art/review/web-v3/results-ink-calibration-20261027/manual-review.json",
+    "layout": "art/runtime/web-v3/results-ink-v1.json",
+    "provenance": "art/source/web-v3/results-ink-v1/runtime-provenance-v1.json",
+    "pairedViews": 20,
+    "freshFull": 10,
+    "macroCarried": 10,
+    "freshFocused": 20,
+    "bitmaps": 74,
+    "numericFonts": 2,
+    "realPractice": "art/review/web-v3/results-ink-calibration-20261027/194-results-ink-live-practice-20261027.json",
+    "status": "source-ink-and-round-minus-refined-total-and-font-P2-remain",
+    "finalResult": "blocked"
+  },
+  "resultsNegativeTotalRevision": {
+    "revision": 198,
+    "report": "docs/77-web-v3-negative-total-ranking.md",
+    "comparisons": "art/review/web-v3/negative-total-calibration-20261027/coverage.json",
+    "layout": "art/runtime/web-v3/results-total-minus-v1.json",
+    "pairedViews": 8,
+    "newLogicalState": 1,
+    "profiles": 2,
+    "catalogCountOnly": 45,
+    "bitmaps": 74,
+    "numericFonts": 2,
+    "realPractice": "art/review/web-v3/negative-total-calibration-20261027/199-negative-total-live-practice-20261027.json",
+    "livePreview": "art/review/web-v3/negative-total-calibration-20261027/200-results-ink-live-preview-meta-20261027.json",
+    "livePreviewImage": "art/review/web-v3/negative-total-calibration-20261027/200-results-ink-live-preview-20261027.jpg",
+    "status": "negative-total-optics-and-six-player-source-reviewed-font-P2-remain",
+    "finalResult": "blocked"
+  },
+  "resultsLongNameRevision": {
+    "revision": 203,
+    "report": "docs/78-web-v3-results-long-name.md",
+    "comparisons": "art/review/web-v3/results-long-name-20261027/coverage.json",
+    "manual": "art/review/web-v3/results-long-name-20261027/manual-review.json",
+    "realNetwork": "art/review/web-v3/results-long-name-20261027/206-network-long-name-20261027.json",
+    "leave": "art/review/web-v3/results-long-name-20261027/206-network-name-leave-20261027.json",
+    "catalogCountOnly": 49,
+    "newLogicalStates": 4,
+    "newRuntimePNGs": 2,
+    "finalResult": "blocked",
+    "preview": "art/review/web-v3/results-long-name-20261027/209-results-name-preview.jpg",
+    "letterboxFocus": "art/review/web-v3/results-long-name-20261027/208-results-name-letterbox-focus.json"
+  },
+  "resultsWideNameRevision": {
+    "revision": 213,
+    "report": "docs/79-web-v3-results-wide-names.md",
+    "comparisons": "art/review/web-v3/results-wide-names-20261027/coverage.json",
+    "manual": "art/review/web-v3/results-wide-names-20261027/manual-review.json",
+    "catalogCountOnly": 51,
+    "newLogicalStates": 2,
+    "newRuntimeImages": 0,
+    "finalResult": "blocked",
+    "preview": "art/review/web-v3/results-wide-names-20261027/215-results-wide-name-preview.jpg",
+    "previewReceipt": "art/review/web-v3/results-wide-names-20261027/215-results-wide-name-preview-final.json"
+  },
+  "resultsNameAccessRevision": {
+    "report": "docs/80-web-v3-results-touch-name-list.md",
+    "comparisons": "art/review/web-v3/results-name-access-20261027/coverage.json",
+    "manual": "art/review/web-v3/results-name-access-20261027/manual-review.json",
+    "realLocalPractice": "art/review/web-v3/results-name-access-20261027/220-live-name-list-flow.json",
+    "newRuntimePNGs": 4,
+    "newLogicalStates": 6,
+    "savedCatalogOnly": 57,
+    "finalResult": "blocked",
+    "preview": "art/review/web-v3/results-name-access-20261027/222-results-name-list-preview.jpg",
+    "previewReceipt": "art/review/web-v3/results-name-access-20261027/222-results-name-list-preview-final.json",
+    "listPaperSupersededBy": "docs/81-web-v3-name-list-parchment.md"
+  },
+  "nameListParchmentRevision": {
+    "report": "docs/81-web-v3-name-list-parchment.md",
+    "comparisons": "art/review/web-v3/name-list-parchment-v3-20261027/coverage.json",
+    "manual": "art/review/web-v3/name-list-parchment-v3-20261027/manual-review.json",
+    "provenance": "art/source/web-v3/name-list-parchment-v3/provenance-v3.json",
+    "newLogicalStates": 0,
+    "savedCatalogOnly": 57,
+    "panelsReplaced": 2,
+    "newFontCount": 0,
+    "finalResult": "blocked",
+    "preview": "art/review/web-v3/name-list-parchment-v3-20261027/226-name-list-parchment-preview.jpg",
+    "previewReceipt": "art/review/web-v3/name-list-parchment-v3-20261027/226-name-list-parchment-preview-final.json"
+  }
 }

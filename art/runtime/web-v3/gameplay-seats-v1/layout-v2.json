@@ -1,0 +1,638 @@
+{
+  "profiles": {
+    "landscape": {
+      "canvas": [
+        1672,
+        941
+      ],
+      "seats": [
+        {
+          "slot": 0,
+          "key": "bamboo-cat",
+          "circle": [
+            178,
+            520,
+            87,
+            87
+          ],
+          "name": [
+            82,
+            568,
+            191,
+            43
+          ],
+          "stats": [
+            85,
+            610,
+            181,
+            36
+          ],
+          "you": [
+            128,
+            648,
+            96,
+            43
+          ],
+          "portrait": [
+            89,
+            431,
+            178,
+            142
+          ],
+          "portraitRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-bamboo-cat-v1.png",
+          "halo": [
+            77,
+            419,
+            202,
+            202
+          ],
+          "nameRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot0-name-v2.png",
+          "nameFont": 27,
+          "statsFont": 21,
+          "youFont": 28,
+          "nameShift": -2,
+          "statsShift": -0.5,
+          "statsRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot0-stats-v2.png",
+          "youRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot0-you-v2.png"
+        },
+        {
+          "slot": 1,
+          "key": "ink-panda",
+          "circle": [
+            473,
+            169,
+            76,
+            76
+          ],
+          "name": [
+            392,
+            216,
+            161,
+            40
+          ],
+          "stats": [
+            396,
+            255,
+            153,
+            31
+          ],
+          "portrait": [
+            395,
+            91,
+            156,
+            130
+          ],
+          "portraitRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-ink-panda-v1.png",
+          "halo": [
+            384.7701149425287,
+            80.77011494252874,
+            176.45977011494253,
+            176.45977011494253
+          ],
+          "nameRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot1-name-v2.png",
+          "nameFont": 23.5,
+          "statsFont": 19,
+          "youFont": 28,
+          "nameShift": -1.5,
+          "statsShift": -1,
+          "statsRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot1-stats-v2.png"
+        },
+        {
+          "slot": 2,
+          "key": "wandering-crane",
+          "circle": [
+            747,
+            124,
+            79,
+            79
+          ],
+          "hat": [
+            [
+              666,
+              66
+            ],
+            [
+              692,
+              49
+            ],
+            [
+              745,
+              29
+            ],
+            [
+              760,
+              38
+            ],
+            [
+              778,
+              51
+            ],
+            [
+              800,
+              79
+            ],
+            [
+              820,
+              101
+            ],
+            [
+              795,
+              100
+            ],
+            [
+              759,
+              89
+            ],
+            [
+              721,
+              77
+            ],
+            [
+              687,
+              73
+            ]
+          ],
+          "name": [
+            666,
+            166,
+            160,
+            41
+          ],
+          "stats": [
+            669,
+            205,
+            153,
+            30
+          ],
+          "portrait": [
+            664,
+            27,
+            164,
+            144
+          ],
+          "portraitRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-wandering-crane-v1.png",
+          "halo": [
+            655.2873563218391,
+            32.287356321839084,
+            183.42528735632183,
+            183.42528735632183
+          ],
+          "nameRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot2-name-v2.png",
+          "nameFont": 23.5,
+          "statsFont": 19,
+          "youFont": 28,
+          "nameShift": -2,
+          "statsShift": -1,
+          "statsRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot2-stats-v2.png"
+        },
+        {
+          "slot": 3,
+          "key": "flower-fox",
+          "circle": [
+            1099,
+            151,
+            73,
+            73
+          ],
+          "name": [
+            1017,
+            202,
+            160,
+            40
+          ],
+          "stats": [
+            1021,
+            241,
+            152,
+            30
+          ],
+          "portrait": [
+            1024,
+            76,
+            150,
+            131
+          ],
+          "portraitRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-flower-fox-v1.png",
+          "halo": [
+            1014.2528735632184,
+            66.25287356321839,
+            169.49425287356323,
+            169.49425287356323
+          ],
+          "nameRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot3-name-v2.png",
+          "nameFont": 23.5,
+          "statsFont": 19,
+          "youFont": 28,
+          "nameShift": -3.5,
+          "statsShift": -1,
+          "statsRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot3-stats-v2.png"
+        },
+        {
+          "slot": 4,
+          "key": "sleepy-star-cat",
+          "circle": [
+            1389,
+            257,
+            74,
+            74
+          ],
+          "name": [
+            1305,
+            306,
+            161,
+            40
+          ],
+          "stats": [
+            1309,
+            345,
+            153,
+            30
+          ],
+          "portrait": [
+            1313,
+            181,
+            152,
+            130
+          ],
+          "portraitRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-sleepy-star-cat-v1.png",
+          "halo": [
+            1303.0919540229886,
+            171.0919540229885,
+            171.816091954023,
+            171.816091954023
+          ],
+          "nameRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot4-name-v2.png",
+          "nameFont": 23.5,
+          "statsFont": 19,
+          "youFont": 28,
+          "nameShift": -2.5,
+          "statsShift": -1,
+          "statsRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot4-stats-v2.png"
+        },
+        {
+          "slot": 5,
+          "key": "masked-traveler",
+          "circle": [
+            281,
+            288,
+            74,
+            74
+          ],
+          "name": [
+            200,
+            343,
+            162,
+            40
+          ],
+          "stats": [
+            204,
+            382,
+            154,
+            30
+          ],
+          "portrait": [
+            205,
+            212,
+            152,
+            136
+          ],
+          "portraitRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-masked-traveler-v1.png",
+          "halo": [
+            195.0919540229885,
+            202.0919540229885,
+            171.816091954023,
+            171.816091954023
+          ],
+          "nameRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot5-name-v2.png",
+          "nameFont": 26,
+          "statsFont": 19,
+          "youFont": 28,
+          "nameShift": -1.5,
+          "statsShift": -1,
+          "statsRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-slot5-stats-v2.png"
+        }
+      ],
+      "activeHaloRuntime": "art/runtime/web-v3/gameplay-seats-v1/landscape-active-halo-v1.png"
+    },
+    "portrait": {
+      "canvas": [
+        941,
+        1672
+      ],
+      "seats": [
+        {
+          "slot": 0,
+          "key": "bamboo-cat",
+          "circle": [
+            115,
+            1001,
+            93,
+            93
+          ],
+          "name": [
+            18,
+            1057,
+            196,
+            48
+          ],
+          "stats": [
+            20,
+            1102,
+            192,
+            39
+          ],
+          "you": [
+            62,
+            1144,
+            106,
+            44
+          ],
+          "portrait": [
+            20,
+            906,
+            190,
+            156
+          ],
+          "portraitRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-bamboo-cat-v1.png",
+          "halo": [
+            8,
+            894,
+            214,
+            214
+          ],
+          "nameRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot0-name-v2.png",
+          "nameFont": 28.5,
+          "statsFont": 25,
+          "youFont": 32,
+          "nameShift": -2,
+          "statsShift": -1.5,
+          "statsRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot0-stats-v2.png",
+          "youRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot0-you-v2.png"
+        },
+        {
+          "slot": 1,
+          "key": "ink-panda",
+          "circle": [
+            265,
+            415,
+            89,
+            89
+          ],
+          "name": [
+            173,
+            469,
+            185,
+            44
+          ],
+          "stats": [
+            176,
+            511,
+            179,
+            37
+          ],
+          "portrait": [
+            174,
+            324,
+            182,
+            150
+          ],
+          "portraitRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-ink-panda-v1.png",
+          "halo": [
+            162.60215053763443,
+            312.60215053763443,
+            204.79569892473117,
+            204.79569892473117
+          ],
+          "nameRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot1-name-v2.png",
+          "nameFont": 27,
+          "statsFont": 24,
+          "youFont": 32,
+          "nameShift": -1.5,
+          "statsShift": -1.5,
+          "statsRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot1-stats-v2.png"
+        },
+        {
+          "slot": 2,
+          "key": "wandering-crane",
+          "circle": [
+            478,
+            335,
+            90,
+            90
+          ],
+          "hat": [
+            [
+              390,
+              290
+            ],
+            [
+              416,
+              271
+            ],
+            [
+              472,
+              250
+            ],
+            [
+              491,
+              261
+            ],
+            [
+              512,
+              278
+            ],
+            [
+              534,
+              302
+            ],
+            [
+              556,
+              321
+            ],
+            [
+              524,
+              321
+            ],
+            [
+              484,
+              307
+            ],
+            [
+              438,
+              297
+            ]
+          ],
+          "name": [
+            382,
+            393,
+            186,
+            44
+          ],
+          "stats": [
+            386,
+            435,
+            179,
+            38
+          ],
+          "portrait": [
+            386,
+            243,
+            184,
+            155
+          ],
+          "portraitRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-wandering-crane-v1.png",
+          "halo": [
+            374.4516129032258,
+            231.4516129032258,
+            207.09677419354838,
+            207.09677419354838
+          ],
+          "nameRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot2-name-v2.png",
+          "nameFont": 27,
+          "statsFont": 24,
+          "youFont": 32,
+          "nameShift": -1.5,
+          "statsShift": -1.5,
+          "statsRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot2-stats-v2.png"
+        },
+        {
+          "slot": 3,
+          "key": "flower-fox",
+          "circle": [
+            685,
+            419,
+            88,
+            88
+          ],
+          "name": [
+            593,
+            469,
+            184,
+            44
+          ],
+          "stats": [
+            597,
+            512,
+            178,
+            36
+          ],
+          "portrait": [
+            595,
+            329,
+            180,
+            145
+          ],
+          "portraitRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-flower-fox-v1.png",
+          "halo": [
+            583.752688172043,
+            317.752688172043,
+            202.49462365591398,
+            202.49462365591398
+          ],
+          "nameRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot3-name-v2.png",
+          "nameFont": 27,
+          "statsFont": 24,
+          "youFont": 32,
+          "nameShift": -1.5,
+          "statsShift": -1.5,
+          "statsRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot3-stats-v2.png"
+        },
+        {
+          "slot": 4,
+          "key": "sleepy-star-cat",
+          "circle": [
+            835,
+            574,
+            84,
+            84
+          ],
+          "name": [
+            746,
+            631,
+            178,
+            44
+          ],
+          "stats": [
+            750,
+            673,
+            170,
+            36
+          ],
+          "portrait": [
+            749,
+            488,
+            172,
+            148
+          ],
+          "portraitRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-sleepy-star-cat-v1.png",
+          "halo": [
+            738.3548387096774,
+            477.35483870967744,
+            193.29032258064515,
+            193.29032258064515
+          ],
+          "nameRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot4-name-v2.png",
+          "nameFont": 27,
+          "statsFont": 24,
+          "youFont": 32,
+          "nameShift": -1.5,
+          "statsShift": -1.5,
+          "statsRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot4-stats-v2.png"
+        },
+        {
+          "slot": 5,
+          "key": "masked-traveler",
+          "circle": [
+            112,
+            575,
+            85,
+            85
+          ],
+          "name": [
+            21,
+            631,
+            176,
+            43
+          ],
+          "stats": [
+            23,
+            673,
+            171,
+            36
+          ],
+          "portrait": [
+            25,
+            488,
+            174,
+            148
+          ],
+          "portraitRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-masked-traveler-v1.png",
+          "halo": [
+            14.204301075268816,
+            477.2043010752688,
+            195.59139784946237,
+            195.59139784946237
+          ],
+          "nameRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot5-name-v2.png",
+          "nameFont": 27.5,
+          "statsFont": 24,
+          "youFont": 32,
+          "nameShift": -1.5,
+          "statsShift": -1.5,
+          "statsRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-slot5-stats-v2.png"
+        }
+      ],
+      "activeHaloRuntime": "art/runtime/web-v3/gameplay-seats-v1/portrait-active-halo-v1.png"
+    }
+  },
+  "localBidPortraitShift": {
+    "y": 148,
+    "canvas": [
+      941,
+      1672
+    ],
+    "source": "art/mockups/web-v3/portrait/10-bid-timer-v3.png",
+    "pending": "art/mockups/web-v3/portrait/17-bid-pending-timer-v3.png",
+    "scope": "Only local seat0 during local human bid normal/pending; source places it below the central modal. Other seats and other phases retain their independent source positions."
+  }
+}

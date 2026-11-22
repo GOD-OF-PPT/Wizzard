@@ -1,0 +1,55 @@
+// Evidence audit for scoped typography work; never equates checks to page fidelity.
+import {createRequire} from 'node:module';
+import {readFile,writeFile,readdir,copyFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+const sharp=createRequire(import.meta.url)(process.argv[2]??'sharp'),root='art/review/web-v3',folder=root+'/results-type-calibration-20261027';
+const read=async p=>JSON.parse(await readFile(p,'utf8')),sha=async p=>createHash('sha256').update(await readFile(p)).digest('hex'),checks=[],verify=(ok,note)=>{checks.push({ok,note});if(!ok)throw Error(note);};
+const coverage=await read(folder+'/coverage.json'),manual=await read(folder+'/manual-review-final-draft.json'),type=await read('art/runtime/web-v3/results-typography-layout-v1.json');
+verify(coverage.batch===186&&coverage.reports.length===20,'Twenty current native paired states, batch186');
+verify(manual.full===20&&manual.focused===20&&manual.reviews.length===20&&manual.reviews.every(r=>r.full&&r.focus),'Twenty full/focused views manually opened in small batches');
+const sources=new Map();for(const path of ['results-return-home-20261027','results-avatar-matte-20261027','ranking-counts-calibration-20261026','results-calibration-20261026'])for(const r of (await read(root+'/'+path+'/coverage.json')).reports){if(!sources.has(r.source))sources.set(r.source,new Set());sources.get(r.source).add(r.sourceSha256);}
+for(const r of coverage.reports){
+ verify(await sha(r.source)===r.sourceSha256&&sources.get(r.source)?.has(r.sourceSha256),'Original source unchanged from prior evidence '+r.state+' '+r.profile);
+ verify(await sha(r.capture)===r.captureSha256,'Native capture hash '+r.state+' '+r.profile);
+ verify(manual.reviews.some(v=>v.state===r.state&&v.profile===r.profile&&v.full&&v.focus),'Paired manual review '+r.state+' '+r.profile);
+ const isRound=r.state==='results'||r.state==='final-round',style=type.profiles[r.profile][isRound?'results':'ranking'],cw=r.profile==='landscape'?1672:941,scale=r.record.canvas.width/cw;
+ verify(r.record.rows.length===r.count&&r.record.images&&r.record.fonts==='loaded','Expected rows and ready imagery/fonts '+r.state+' '+r.profile);
+ for(const v of r.styles.typography){
+  if(v.column==='name'){const expected=isRound&&/[A-Za-z]/.test(v.text)?'normal':style.nameTracking*scale;verify(expected==='normal'?v.spacing==='normal':Math.abs(parseFloat(v.spacing)-expected)<.02,'Name tracking contract '+r.state+' '+r.profile+' '+v.text);continue;}
+  const ordinal=!isRound&&v.column==='0',size=ordinal?style.rankFont:!isRound?style.scoreFont:Number(v.column)>=2?style.scoreFont:r.profile==='landscape'?42:46;
+  verify(Math.abs(parseFloat(v.size)-size*scale)<.03&&v.weight===(ordinal?'400':'700'),'Actual ordinal/score font role '+r.state+' '+r.profile+' '+v.text);
+  verify(v.font.includes(ordinal?'Teahouse Seat Latin':'Teahouse Results Latin'),'Declared font family role '+r.state+' '+r.profile+' '+v.text);
+ }
+ verify(r.record.buttons.every(b=>b.rect.height>=43.9),'Existing44px footer/exit targets retained '+r.state+' '+r.profile);
+ if(r.state==='guest-waiting')verify(r.record.buttons.some(b=>b.label==='等待房主再开'&&b.disabled),'Guest restart remains disabled '+r.profile);
+}
+const fonts=await read(root+'/186-results-type-native-fonts-20261027.json');
+for(const r of fonts){const expected=r.state==='results'?['Tinos-Bold','Tinos-Bold','LXGWWenKai-Regular']:['Tinos-Regular','Tinos-Bold','LXGWWenKai-Regular'];r.fonts.forEach((f,i)=>verify(f.fonts.fonts.some(v=>v.postScriptName===expected[i]&&v.isCustomFont),'Native resolved font '+r.state+' '+f.selector));}
+const diag=await read(root+'/187-results-type-name-diagnostics-20261027.json');verify(diag.length===4&&diag.every(d=>d.record.probeNodes===0&&d.record.names[0].overflow==='hidden'&&d.record.names[0].textOverflow==='ellipsis'),'Long/rare-name clamp retained, no injected probe nodes');
+const live=await read(root+'/188-results-type-live-practice-20261027.json');verify(live.steps[1].record.focus==='返回首页'&&live.steps[1].record.focusInDialog,'Real random local result keyboard return reachable');
+verify(live.steps[2].record.rank&&!live.steps[3].record.rank,'Real current-ranking/Escape transition');verify(live.steps.at(-1).record.home===1&&live.steps.at(-1).record.match===0&&live.steps.at(-1).record.results===0,'Real Enter disposes practice and shows one home');
+// Full native before/after comparisons are retained. This only isolates the
+// expected text footprints; pointer and GPU boundaries are reported separately.
+const pixels=[];
+for(const profile of ['landscape','portrait'])for(const state of ['results','current-ranking']){
+ const before=await read(root+`/181-results-type-${state}-${profile}-styles-20261027.json`),after=coverage.reports.find(r=>r.profile===profile&&r.state===state),beforeFile=`${folder}/before-181/${state}-${profile}-chrome.png`,a=await sharp(beforeFile).removeAlpha().raw().toBuffer(),{data:b,info}=await sharp(after.capture).removeAlpha().raw().toBuffer({resolveWithObject:true}),w=info.width,h=info.height,allowed=new Uint8Array(w*h),rects=[];
+ for(const v of before.typography){const change=v.column==='name'?(state!=='results'||!/[A-Za-z]/.test(v.text)):state==='results'?Number(v.column)>=2:v.column==='0';if(!change)continue;const r=v.rect,pad=4,x0=Math.max(0,Math.floor(r.x)-pad),y0=Math.max(0,Math.floor(r.y)-pad),x1=Math.min(w,Math.ceil(r.right)+pad),y1=Math.min(h,Math.ceil(r.bottom)+pad);rects.push([x0,y0,x1-x0,y1-y0]);for(let y=y0;y<y1;y++)allowed.fill(1,y*w+x0,y*w+x1);}
+ const stats={all:{max:0,over24:0},outsideText:{max:0,over24:0},outsideTextAndPointer:{max:0,over24:0}};
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){const p=y*w+x,i=p*3,d=Math.max(...[0,1,2].map(c=>Math.abs(a[i+c]-b[i+c])));for(const[k,ok]of [['all',true],['outsideText',!allowed[p]],['outsideTextAndPointer',!allowed[p]&&y>1&&!(profile==='landscape'?x<48&&y<48:x>330&&y<48)]])if(ok){stats[k].max=Math.max(stats[k].max,d);if(d>24)stats[k].over24++;}}
+ pixels.push({profile,state,before:beforeFile,beforeSha256:await sha(beforeFile),after:after.capture,afterSha256:after.captureSha256,allowedTextRects:rects,stats,note:'Diagnostics only. Entire originals and all-pixel statistics retained. Pointer and first-row capture boundary explicitly separated, never erased.'});
+}
+await writeFile(folder+'/page-pixel-scope.json',JSON.stringify({reports:pixels},null,2)+'\n');
+const previous=await read(root+'/results-avatar-matte-20261027/verification.json'),back=await read(root+'/results-return-home-20261027/verification.json'),assets=[...new Map([...previous.runtimeProof,...back.runtimeProof].filter(r=>r.source.endsWith('.png')).map(r=>[r.source,r])).values()];verify(assets.length===74,'Existing74result bitmap sources, no added art');
+const output=[];for(const entry of await readdir('dist/assets',{withFileTypes:true}))if(entry.isFile())output.push({path:'dist/assets/'+entry.name,hash:await sha('dist/assets/'+entry.name)});
+const code=(await Promise.all(output.filter(r=>/\.(?:js|css)$/.test(r.path)).map(r=>readFile(r.path,'utf8')))).join('\n'),inline=[...code.matchAll(/data:image\/png;base64,([A-Za-z0-9+/=]+)/g)].map(m=>createHash('sha256').update(Buffer.from(m[1],'base64')).digest('hex')),runtimeProof=[];
+for(const r of assets){verify(await sha(r.source)===r.sha256,'Result bitmap unchanged '+r.source);const files=output.filter(f=>f.hash===r.sha256).map(f=>f.path),inlined=inline.filter(h=>h===r.sha256).length;verify(files.length+inlined>0,'Same bitmap present in production '+r.source);runtimeProof.push({source:r.source,sha256:r.sha256,files,inlined});}
+for(const source of ['art/runtime/fonts/WebV3Seat-Tinos-Regular-v1.woff2','art/runtime/fonts/WebV3Results-Tinos-Bold-v1.woff2']){const hash=await sha(source),files=output.filter(f=>f.hash===hash).map(f=>f.path);verify(files.length>0,'Existing numeric font present '+source);runtimeProof.push({source,sha256:hash,files});}
+verify(!/results-typography-probe|type-calibration|design-review|\.ttf(?:["'?]|$)/.test(code),'No temporary CSS, DEV routing or full TTF in production');
+const preview=await read(root+'/189-results-type-preview-meta-20261027.json');verify(preview.comparisonMetricsCleared&&!preview.comparisonCleanup.probeNodes&&!preview.logs.length,'Comparison metrics cleared, probe absent, live preview has no warning/error');
+verify(!preview.record.url.includes('design-review')&&preview.record.phase==='round-score'&&preview.record.rank&&preview.record.match===1&&preview.record.fonts==='loaded'&&preview.record.images,'Normal-window live current-ranking preview');
+await copyFile(folder+'/manual-review-final-draft.json',folder+'/manual-review.json');await copyFile('dist/web-build-report.json',folder+'/web-build-report.json');for(const n of ['186-results-type-native-fonts-20261027.json','187-results-type-name-diagnostics-20261027.json','188-results-type-live-practice-20261027.json'])await copyFile(root+'/'+n,folder+'/'+n);
+await writeFile(folder+'/verification.json',JSON.stringify({engineeringPassed:true,scope:'Current20paired typography states, source/payload/geometry/native-font and real-local-flow evidence. This is not overall visual acceptance.',checks,runtimeProof,bitmapSources:74,numericFonts:2,sourcePNGsAdded:0,fontsAdded:0,finalResult:'blocked'},null,2)+'\n');
+coverage.status='ordinal-hierarchy-refined-exact-live-glyph-P2-remain';coverage.report='docs/75-web-v3-results-typography.md';coverage.reviewedViews={full:20,focused:20};for(const r of coverage.reports){r.record.originalHelperPointerLabel??=r.record.pointer;r.record.pointer=`Native browser click${r.profile==='portrait'?'350,15':'20,20'} in quiet scene; generic capture-helper label corrected from actual input.`;}await writeFile(folder+'/coverage.json',JSON.stringify(coverage,null,2)+'\n');
+const m=await read('art/web-v3-manifest.json');m.version=Math.max(m.version,23);m.resultsTypographyRevision={revision:186,report:coverage.report,comparisons:folder+'/coverage.json',manual:folder+'/manual-review.json',layout:'art/runtime/web-v3/results-typography-layout-v1.json',nativeFonts:folder+'/186-results-type-native-fonts-20261027.json',pairedViews:20,businessStatesAdded:0,bitmapSources:74,numericFonts:2,fontsAdded:0,sourcePNGsAdded:0,realPractice:folder+'/188-results-type-live-practice-20261027.json',livePreview:folder+'/189-results-type-preview-meta-20261027.json',livePreviewImage:folder+'/189-results-type-live-preview-20261027.jpg',status:coverage.status,finalResult:'blocked'};m.resultsRevision.typographyOverrideRevision=186;await writeFile('art/web-v3-manifest.json',JSON.stringify(m,null,2)+'\n');
+let html=await readFile(folder+'/index.html','utf8');if(!html.includes('189-results-type-live-preview-20261027.jpg'))html=html.replace('<main>','<p><a href="189-results-type-live-preview-20261027.jpg">真实当前总榜预览</a> · <a href="188-results-type-live-practice-20261027.json">正常练习键盘返回</a> · <a href="page-pixel-scope.json">改动范围像素依据</a></p><main>');await writeFile(folder+'/index.html',html);
+console.log({checks:checks.length,engineeringPassed:true,views:20,bitmapSources:74,numericFonts:2,finalResult:'blocked'});

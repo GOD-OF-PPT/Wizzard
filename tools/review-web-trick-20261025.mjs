@@ -1,0 +1,26 @@
+// Current Chrome comparisons; no image metric is an acceptance threshold.
+import {createRequire} from 'node:module';
+import {readFile,writeFile,mkdir,copyFile,readdir} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {spawnSync} from 'node:child_process';
+const modulePath=process.argv[2]??'sharp',batch=Number(process.argv[3]??109),sharp=createRequire(import.meta.url)(modulePath),root='art/review/web-v3',folder=root+'/trick-calibration-20261025';await mkdir(folder,{recursive:true});await mkdir(folder+'/history',{recursive:true});
+const previous=await readFile(folder+'/coverage.json','utf8').then(JSON.parse).catch(()=>null);if(previous&&previous.batch!==batch){await mkdir(folder+'/history/'+previous.batch,{recursive:true});for(const f of await readdir(folder,{withFileTypes:true}))if(f.isFile())await copyFile(folder+'/'+f.name,folder+'/history/'+previous.batch+'/'+f.name,1).catch(e=>{if(e.code!=='EEXIST')throw e;});}
+const sourceNames={idle:['25-gameplay-selection-idle-v2.png'],selected:['26-gameplay-selection-complete-v2.png'],notimer:['14-gameplay-notimer-selection-v4.png'],'play-pending':['19-play-pending-selection-v2.png'],reconnecting:['15-reconnecting-network-v2.png','15-reconnecting.png'],'session-ended':['16-session-ended-network-v3.png','16-session-ended-v2.png'],'dense-idle':['27-dense-hand-idle-v4.png'],'dense-selected':['28-dense-hand-selected-v4.png']};
+const sha=async p=>createHash('sha256').update(await readFile(p)).digest('hex'),reports=[];
+for(const profile of ['landscape','portrait'])for(const [state,names]of Object.entries(sourceNames)){
+ const tall=profile==='portrait',w=tall?390:1672,h=tall?694:941,prefix=`${batch}-trick-${state}-${profile}-20261025`,record=JSON.parse(await readFile(root+'/'+prefix+'.json','utf8')),capture=folder+`/${state}-${profile}-chrome.png`;
+ if(record.profile!==profile||record.viewport[0]!==w||Math.abs(record.viewport[1]-h)>1||Math.abs(record.dpr-1)>.001||record.cards.length!==4||record.fonts!=='loaded'||!record.images)throw Error('Capture parity/readiness error '+prefix);
+ if(record.cards.some(c=>!c.asset.includes('/trick-cards-v1/'+profile+'-')||c.asset.includes('-hi.png')))throw Error('Wrong trick texture family');
+ const stitch=spawnSync(process.execPath,['tools/stitch-web-chrome-tiles.mjs',root+'/'+prefix+'.json',capture,modulePath],{encoding:'utf8'});if(stitch.status)throw Error(stitch.stderr);
+ const source=`art/mockups/web-v3/${tall?'portrait/':''}${names[tall?1:0]??names[0]}`,out=folder+`/${state}-${profile}`,focus=tall?(state==='reconnecting'||state==='session-ended'?'70,292,250,125':'78,298,238,84'):(state==='reconnecting'||state==='session-ended'?'540,295,600,235':'548,310,580,195');
+ const compare=spawnSync(process.execPath,['tools/compare-web-design.mjs',source,capture,out,modulePath,String(w),String(h),focus],{encoding:'utf8'});if(compare.status)throw Error(compare.stderr);await sharp(out+'-comparison.png').jpeg({quality:95,chromaSubsampling:'4:4:4'}).toFile(out+'-comparison.jpg');
+ reports.push({profile,state,source,sourceSha256:await sha(source),capture,captureSha256:await sha(capture),comparison:`${state}-${profile}-comparison.jpg`,focus:`${state}-${profile}-focus.png`,record,status:'review-required-not-a-pass'});
+}
+if(reports.length!==16)throw Error('Sixteen current states required');
+for(const profile of ['landscape','portrait'])await copyFile(root+`/100-trick-before-${profile}-20261025.png`,folder+`/before-${profile}.png`);
+for(const batch of ['101-trick-geometry-portrait','102-trick-faces-idle-landscape','102-trick-faces-idle-portrait','103-trick-hi-idle-landscape','103-trick-hi-idle-portrait']){
+ for(const suffix of ['.png','.json'])await copyFile(root+'/'+batch+'-20261025'+suffix,folder+'/history/'+batch+suffix).catch(e=>{if(e.code!=='ENOENT')throw e;});
+}
+await writeFile(folder+'/coverage.json',JSON.stringify({batch,status:'review-required',scope:'Eight central-trick surfaces across two profiles; source frozen, not real network/ACK evidence. Replaces prior central-card captures, never cumulative page pass count.',reports},null,2)+'\n');
+await writeFile(folder+'/index.html',`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>奇术茶馆 · 中央牌源像素与透视</title><style>body{margin:0;padding:24px;background:#10151d;color:#f4e1b5;font:16px/1.6 system-ui}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,650px),1fr));gap:24px}figure{margin:0}img{display:block;width:100%}a{color:inherit}</style><h1>中央牌源像素与四角 · 当前十六组</h1><p>左冻结设计，右${batch}批次Chrome。卡面来自中央牌本身，ImageGen只供数字ROI纸纹；四角源坐标决定投影，数字保持实时。整体字体/头像/HUD/面板等P2与缺失状态继续保留，未宣称全页通过。</p><p><a href="coverage.json">来源与捕获记录</a> · <a href="../../../../docs/62-web-v3-central-trick-source-and-perspective.md">本轮报告</a> · <a href="before-landscape.png">横屏调整前</a> · <a href="before-portrait.png">竖屏调整前</a></p><main>${reports.map(r=>`<figure><figcaption>${r.state} · ${r.profile}</figcaption><a href="${r.comparison}"><img src="${r.comparison}" alt="左源稿，右Chrome"></a><p><a href="${r.focus}">无损中央牌局部</a> · <a href="${r.capture.split('/').at(-1)}">Chrome原图</a></p></figure>`).join('')}</main></html>`);
+console.log({folder,comparisons:reports.length,status:'review-required'});

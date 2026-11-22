@@ -1,0 +1,257 @@
+{
+  "method": "Original source RGB only; connected original green body and metal/cloud, 2px sampling gap closure, flood-filled silhouette. No generated or DOM lettering. Alpha only; all opaque source RGB invariant.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "state": "idle",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/runtime/web-v3/hud-source-v1/landscape-action-idle-v1.png",
+      "sha256": "b29c899fdb60a7ae533dc160e820fab9ed8b093c59c076b96a616db8d379ab44",
+      "reference": "art/source/web-v3/hud-source-v1/landscape-action-idle-reference-v1.png",
+      "opaque": 45907,
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "state": "confirm",
+      "source": "art/mockups/web-v3/26-gameplay-selection-complete-v2.png",
+      "sourceSha256": "ab22d88de2d62032bd12719331aa8a9e0aa51a91d7288ae6b32cbdd3969e7561",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/runtime/web-v3/hud-source-v1/landscape-action-confirm-v1.png",
+      "sha256": "5a4f96ac17ed6b686c45af7967d507827adc620ab06115a58935151b39e4b83a",
+      "reference": "art/source/web-v3/hud-source-v1/landscape-action-confirm-reference-v1.png",
+      "opaque": 45907,
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "state": "pending",
+      "source": "art/mockups/web-v3/19-play-pending-selection-v2.png",
+      "sourceSha256": "c4d893618d07f888945f383f59476eb2793fac465b4728e570fda1329c4904d1",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/runtime/web-v3/hud-source-v1/landscape-action-pending-v1.png",
+      "sha256": "da4265cc1ea70688542f845d2891aac754d92414b8db6aaac71181f60c20f85b",
+      "reference": "art/source/web-v3/hud-source-v1/landscape-action-pending-reference-v1.png",
+      "opaque": 45907,
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "state": "bid",
+      "source": "art/mockups/web-v3/10-bid.png",
+      "sourceSha256": "6856f22b9c4ab348af7384ca64f2bec32bd0bcb8f0d5b16a275bc9afe07550cc",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/runtime/web-v3/hud-source-v1/landscape-action-bid-v1.png",
+      "sha256": "784341a26a6b4848da6752b0bbc96c1905152e20ee8775c283c22c95b44c37c8",
+      "reference": "art/source/web-v3/hud-source-v1/landscape-action-bid-reference-v1.png",
+      "opaque": 45814,
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "state": "bid-pending",
+      "source": "art/mockups/web-v3/17-bid-pending-v1.png",
+      "sourceSha256": "5d72cbca5b6cacbcf48a93ad73f2ec848b92fc4ee602cab960fa27c6934cf309",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/runtime/web-v3/hud-source-v1/landscape-action-bid-pending-v1.png",
+      "sha256": "f9a8ff550aab4584309bbda5b2e4b95eacf3b94b4fceded33f9b4bc8ede29a22",
+      "reference": "art/source/web-v3/hud-source-v1/landscape-action-bid-pending-reference-v1.png",
+      "opaque": 45814,
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "state": "dense-idle",
+      "source": "art/mockups/web-v3/27-dense-hand-idle-v4.png",
+      "sourceSha256": "65507dae958775324f56b58553f877165c5cd4e93e81444b92dc538cb273d729",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/runtime/web-v3/hud-source-v1/landscape-action-dense-idle-v1.png",
+      "sha256": "b29c899fdb60a7ae533dc160e820fab9ed8b093c59c076b96a616db8d379ab44",
+      "reference": "art/source/web-v3/hud-source-v1/landscape-action-dense-idle-reference-v1.png",
+      "opaque": 45907,
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "action",
+      "state": "dense-confirm",
+      "source": "art/mockups/web-v3/28-dense-hand-selected-v4.png",
+      "sourceSha256": "a4d6fecf46e82fe3254c023b38d0be8831249fb518276ceb23c8df045893a7d7",
+      "crop": [
+        1248,
+        680,
+        390,
+        140
+      ],
+      "output": "art/runtime/web-v3/hud-source-v1/landscape-action-dense-confirm-v1.png",
+      "sha256": "e46d5d2b620945cf0f854c43f264e04b2b5f6797596e934f3b65ba8a267697cc",
+      "reference": "art/source/web-v3/hud-source-v1/landscape-action-dense-confirm-reference-v1.png",
+      "opaque": 46199,
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "state": "idle",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "crop": [
+        660,
+        1495,
+        281,
+        153
+      ],
+      "output": "art/runtime/web-v3/hud-source-v1/portrait-action-idle-v1.png",
+      "sha256": "874813b34bccaf3c353e7d0eae2a45913f0cf0478e2655642bb9eccf0f43a5ec",
+      "reference": "art/source/web-v3/hud-source-v1/portrait-action-idle-reference-v1.png",
+      "opaque": 33596,
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "state": "confirm",
+      "source": "art/mockups/web-v3/portrait/26-gameplay-selection-complete-v2.png",
+      "sourceSha256": "f6cbed225abfdac2f52f7d8a88d339ccd139620ee0dfba25d642772d8e66213f",
+      "crop": [
+        660,
+        1495,
+        281,
+        153
+      ],
+      "output": "art/runtime/web-v3/hud-source-v1/portrait-action-confirm-v1.png",
+      "sha256": "8290f05ffcc615fb8719f3b78da0019b6887d5a404767a1b45f7399946d00b15",
+      "reference": "art/source/web-v3/hud-source-v1/portrait-action-confirm-reference-v1.png",
+      "opaque": 33777,
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "state": "pending",
+      "source": "art/mockups/web-v3/portrait/19-play-pending-selection-v2.png",
+      "sourceSha256": "640d67e490aaf865ae3a82ec39e2c3c9f51a30a345a1cba03461a3ab41134f97",
+      "crop": [
+        660,
+        1495,
+        281,
+        153
+      ],
+      "output": "art/runtime/web-v3/hud-source-v1/portrait-action-pending-v1.png",
+      "sha256": "0ad6fe2c9b8290872392323f494b0b294373e02066dc63551d81d31ae688d77d",
+      "reference": "art/source/web-v3/hud-source-v1/portrait-action-pending-reference-v1.png",
+      "opaque": 33777,
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "state": "bid",
+      "source": "art/mockups/web-v3/portrait/10-bid.png",
+      "sourceSha256": "61a1a96b219389f84c5f12a0e33b5d53f4e99b18c941b150c88873fe6825f870",
+      "crop": [
+        229,
+        963,
+        520,
+        157
+      ],
+      "output": "art/runtime/web-v3/hud-source-v1/portrait-action-bid-v2.png",
+      "sha256": "d0e376f9429ce77f261b75e233f0015a0aeb64f30337c26ca1411a858ce9a05e",
+      "reference": "art/source/web-v3/hud-source-v1/portrait-action-bid-reference-v1.png",
+      "opaque": 62553,
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "state": "bid-pending",
+      "source": "art/mockups/web-v3/portrait/17-bid-pending-timer-v3.png",
+      "sourceSha256": "8d3e76acb7a37838f4c6f23a07d687f73131cf8c9fe4ec510449d7489c3d0882",
+      "crop": [
+        229,
+        963,
+        520,
+        157
+      ],
+      "output": "art/runtime/web-v3/hud-source-v1/portrait-action-bid-pending-v2.png",
+      "sha256": "f7b3fa157d32cd5b215d1a198ec49ca9a7d88efd883bd332d650368f0b99405c",
+      "reference": "art/source/web-v3/hud-source-v1/portrait-action-bid-pending-reference-v1.png",
+      "opaque": 62553,
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "state": "dense-idle",
+      "source": "art/mockups/web-v3/portrait/27-dense-hand-idle-v4.png",
+      "sourceSha256": "aa2ab841f7912a60cfc40c8f2bf328b659eb91a19353ce8e642e51bbde3703d1",
+      "crop": [
+        275,
+        1072,
+        394,
+        102
+      ],
+      "output": "art/runtime/web-v3/hud-source-v1/portrait-action-dense-idle-v1.png",
+      "sha256": "7d410a1ebd915280c16b9b4b3bb649225bc57bbc3958d12f7a35295dbba4f5ac",
+      "reference": "art/source/web-v3/hud-source-v1/portrait-action-dense-idle-reference-v1.png",
+      "opaque": 35883,
+      "opaqueRGBChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "action",
+      "state": "dense-confirm",
+      "source": "art/mockups/web-v3/portrait/28-dense-hand-selected-v4.png",
+      "sourceSha256": "db5829fb658b34791e388832c492c6553084449488f4f82049d628fbc2695a81",
+      "crop": [
+        275,
+        1072,
+        394,
+        102
+      ],
+      "output": "art/runtime/web-v3/hud-source-v1/portrait-action-dense-confirm-v1.png",
+      "sha256": "80a936f2e77a25b5997dfc3a6a08482a20b723d44ad19156c4c724d145df28db",
+      "reference": "art/source/web-v3/hud-source-v1/portrait-action-dense-confirm-reference-v1.png",
+      "opaque": 35429,
+      "opaqueRGBChanges": 0
+    }
+  ]
+}

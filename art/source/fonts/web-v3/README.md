@@ -1,6 +1,12 @@
 # Web v3 typography sources and adopted rules subset
 
-The rules content adopts LXGW WenKai Medium after same-state Chrome comparison. Lobby/results/ranking Chinese labels also use the separate common-character UI subset below. Forms, gameplay and the Cocos carrier retain their existing fonts. The full source fonts below are DEV comparison material, not production imports.
+## Seat-only Regular subsets (2026-10-26)
+
+Dynamic MatchScreen player names and prediction/won rows now use `WebV3Seat-WenKai-Regular-v1.woff2` (1,624,632 bytes,7544 codepoints) for CJK and `WebV3Seat-Tinos-Regular-v1.woff2` (5844 bytes,95 ASCII codepoints) for numbers/AI prefixes. Other labels/ranks retain their previous fonts. Both sources are unchanged Regular400; WenKai uses the same pinned commit below, Tinos follows the actual Google Fonts CSS2 URL saved in `seat-subsets-v1.json`. Existing unchanged OFL/public licenses are hash-checked. The earlier rejected Tinos **Bold rank** proof remains rejected and separate.
+
+`tools/build-web-seat-fonts-v1.py` preserves all shaping/name/license features, uses the saved common-character charset, and refuses to overwrite the output. Full TTFs and DEV proof strings are excluded from production. Rare names still fall back to existing Noto; no user nicknames enter font artifacts. Chrome123 compares source TTFs;124/126 use production subsets. Native platform-font receipts and the remaining glyph/edge differences are documented in docs/64; matching ink boxes is not whole-page acceptance.
+
+The rules content adopts LXGW WenKai Medium after same-state Chrome comparison. The common-character Medium UI subset continues wherever already referenced, including forms, shared gameplay HUD and lobby/results/ranking labels. Dynamic gameplay seats now use the separate Regular subsets above. Other gameplay text and Cocos retain their previous fonts. The full source fonts below are DEV comparison material, not production imports.
 
 - Adopted source: LXGW WenKai Medium, unchanged upstream TTF.
 - Upstream: https://github.com/lxgw/LxgwWenKai
@@ -47,3 +53,30 @@ Scope: Chinese lobby labels and results/ranking title/name/action text, not nume
 The v1 canonical charset retains its original Windows line ending with `-text` so its recorded SHA stays valid on checkout; future generator versions write explicit LF. Line endings do not change the selected glyph set, but do change the input-file hash.
 
 Current comparison and live-flow evidence: `docs/23-web-v3-lobby-results-ink-calibration.md`. This change intentionally keeps Chinese optical ink separate from serif numeric columns; it is not a claim that ImageGen originally used this font.
+
+## Room-code digit subset (2026-10-24)
+
+The join form alone uses EB Garamond ExtraBold lining figures, `WebV3RoomCode-EBGaramond-ExtraBold-v1.woff2` (7,132 bytes, digits 0-9). This follows a Chrome side-by-side study of Noto Serif, Georgia, Times, Constantia, KaiTi, WenKai, ZhenKai, Cormorant Garamond and EB Garamond. It improves the sloping terminals and ink weight; it does not identify the generated source font or close all glyph differences. No other numeric columns were changed.
+
+Pinned upstream inputs are `EBGaramond-Variable.ttf` and the unchanged `OFL-EBGaramond.txt`, downloaded from Google Fonts `ofl/ebgaramond` on 2026-10-24. The complete variable font remains source material only; production emits the digit subset. The unchanged license is also shipped at `public/licenses/EBGaramond-OFL.txt`. Input/output hashes and upstream URLs are in `room-code-subset-v1.json`.
+
+Generation used FontTools 4.51.0:
+
+```powershell
+python -m fontTools.varLib.instancer art/source/fonts/web-v3/EBGaramond-Variable.ttf wght=800 --output=tmp/entry-calibration/EBGaramond-ExtraBold.ttf
+python -m fontTools.subset tmp/entry-calibration/EBGaramond-ExtraBold.ttf --text=0123456789 --flavor=woff2 --layout-features='*' --no-hinting --recommended-glyphs --notdef-outline --name-IDs='*' --name-languages='*' --no-recalc-timestamp --output-file=art/runtime/fonts/WebV3RoomCode-EBGaramond-ExtraBold-v1.woff2
+```
+
+The original output is retained and hashed; no bit-identical regeneration claim is made for an unpinned instancer timestamp. CSS `line-height:1` and `min-height:0` are required: this font's normal line box otherwise expands the grid track and pushes its ink below the authored paper cells. Optical offsets are profile-specific and do not change the six-digit validation.
+
+## Rejected number-card font proofs (2026-10-25)
+
+The card study compared the existing Noto Serif SC700 with EB Garamond800 and Tinos700. The latter faces were rejected for rank shape/weight, especially8/6. Final card ranks still use the existing Noto import, with source-specific position, near-black ink and restrained width calibration. This does not change room-code typography.
+
+`Tinos-Bold.ttf` came from the observed Google Fonts CSS2 URL; `OFL-Tinos.txt` and the matching public license are unchanged. `rank-subset-v1.json` retains exact URLs/hashes and marks the approximately3.6KB `WebV3Rank-Tinos-Bold-v1.woff2` as a rejected candidate, not a production import. The full experimental TTF and candidate WOFF2 must stay out of production. See docs/59 and the saved77–81 Chrome proofs; no generated-source font identity is claimed.
+
+## Results-only genuine Bold face (2026-10-26)
+
+`WebV3Results-Tinos-Bold-v1.woff2` is a separate current runtime subset: 5,876 bytes, 95 ASCII codepoints, genuine weight700/PostScript `Tinos-Bold`. It replaces synthetic Regular700 only for WebResults numerical columns and round numerals; the rejected card-rank subset above remains excluded. Source, runtime and unchanged OFL hashes are in `results-bold-subset-v1.json`, the official Google CSS receipt in `tinos-results-400-700-google-v1.css`, and the reproducible subset command in `tools/build-web-results-bold-font-v1.py`.
+
+Chrome native-font receipt156 confirms the actual face. Current154 source-versus-Chrome comparisons still show numeral/name shape and sampling differences; this is not a claim that ImageGen used Tinos. Nicknames retain the seat WenKai Regular face with synthetic700 after comparing existing Regular/Medium/ZhenKai alternatives. Full TTFs and those probe styles do not enter production. See docs/68.

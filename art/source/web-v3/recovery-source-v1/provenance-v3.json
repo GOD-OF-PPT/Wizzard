@@ -1,0 +1,199 @@
+{
+  "method": "Mechanical extraction of original ImageGen fixed recovery components; panel text/ornamentRGB retained. No source mock modified. V1 combinedcomponent andV2widerim masks rejected; finalbodycolorconstraint removesdarkrectangularscenecontamination.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "reconnecting",
+      "source": "art/mockups/web-v3/15-reconnecting-network-v2.png",
+      "sourceSha256": "9c4e42a51d094e3d2575e2ef448759db42b972b83070c4c7b31de7335f2955cd",
+      "canvas": [
+        1672,
+        941
+      ],
+      "roi": [
+        445,
+        230,
+        783,
+        457
+      ],
+      "body": [
+        449,
+        267,
+        774,
+        417
+      ],
+      "crown": [
+        768,
+        230,
+        136,
+        60
+      ],
+      "cloud": null,
+      "action": [
+        665,
+        567,
+        343,
+        87
+      ],
+      "method": "Largest navy interior insidebodyROI, fillholes, adjacentgoldrim only within13px. Independent original-gold crown/cloud masks;1pxalpha160fringe. sourceRGB copied exactly.",
+      "maskOpaquePixels": 321592,
+      "maskBounds": [
+        5,
+        0,
+        778,
+        454
+      ],
+      "output": "art/runtime/web-v3/recovery-source-v1/landscape-reconnecting-v3.png",
+      "sha256": "e5d7299c72b7223c5ef787fbc27878c4bcbfdceaef0950d42361050a0cfc3ec9",
+      "changedSourceRGB": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "session-ended",
+      "source": "art/mockups/web-v3/16-session-ended-network-v3.png",
+      "sourceSha256": "2aa7172ee9cfd9fb38d4e4ffc61b1dfd1db07b8f9fb774dd60184c41dc975b62",
+      "canvas": [
+        1672,
+        941
+      ],
+      "roi": [
+        445,
+        230,
+        783,
+        457
+      ],
+      "body": [
+        449,
+        267,
+        774,
+        417
+      ],
+      "crown": [
+        768,
+        230,
+        136,
+        60
+      ],
+      "cloud": null,
+      "action": [
+        665,
+        567,
+        343,
+        87
+      ],
+      "method": "Largest navy interior insidebodyROI, fillholes, adjacentgoldrim only within13px. Independent original-gold crown/cloud masks;1pxalpha160fringe. sourceRGB copied exactly.",
+      "maskOpaquePixels": 322116,
+      "maskBounds": [
+        4,
+        0,
+        778,
+        454
+      ],
+      "output": "art/runtime/web-v3/recovery-source-v1/landscape-session-ended-v3.png",
+      "sha256": "03e0fb686530a84643c7528883d985a899e190bcf7be75b292b06fe7753c2e0b",
+      "changedSourceRGB": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "reconnecting",
+      "source": "art/mockups/web-v3/portrait/15-reconnecting.png",
+      "sourceSha256": "359f6acecaddd7a675c2e56e03329fe5f6a4b2e3347bf771c733309876873c05",
+      "canvas": [
+        941,
+        1672
+      ],
+      "roi": [
+        173,
+        508,
+        609,
+        642
+      ],
+      "body": [
+        176,
+        555,
+        591,
+        581
+      ],
+      "crown": [
+        407,
+        510,
+        130,
+        65
+      ],
+      "cloud": [
+        665,
+        1064,
+        113,
+        84
+      ],
+      "action": [
+        242,
+        983,
+        457,
+        104
+      ],
+      "method": "Largest navy interior insidebodyROI, fillholes, adjacentgoldrim only within13px. Independent original-gold crown/cloud masks;1pxalpha160fringe. sourceRGB copied exactly.",
+      "maskOpaquePixels": 344092,
+      "maskBounds": [
+        3,
+        0,
+        599,
+        637
+      ],
+      "output": "art/runtime/web-v3/recovery-source-v1/portrait-reconnecting-v3.png",
+      "sha256": "052ac15a7b561e758e9a8ef514c02b43097be046750ba171061888df4a827ac9",
+      "changedSourceRGB": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "session-ended",
+      "source": "art/mockups/web-v3/portrait/16-session-ended-v2.png",
+      "sourceSha256": "38d3715c0a656c26052e5413b566cdc2297e3cc7a8264df23a33719474782fdf",
+      "canvas": [
+        941,
+        1672
+      ],
+      "roi": [
+        173,
+        508,
+        609,
+        642
+      ],
+      "body": [
+        176,
+        555,
+        591,
+        581
+      ],
+      "crown": [
+        407,
+        510,
+        130,
+        65
+      ],
+      "cloud": [
+        665,
+        1064,
+        113,
+        84
+      ],
+      "action": [
+        242,
+        983,
+        457,
+        104
+      ],
+      "method": "Largest navy interior insidebodyROI, fillholes, adjacentgoldrim only within13px. Independent original-gold crown/cloud masks;1pxalpha160fringe. sourceRGB copied exactly.",
+      "maskOpaquePixels": 343662,
+      "maskBounds": [
+        2,
+        0,
+        599,
+        637
+      ],
+      "output": "art/runtime/web-v3/recovery-source-v1/portrait-session-ended-v3.png",
+      "sha256": "43afa1a630a7b26a0b876536455f7ce9431b744f39aff4bd37217f5ce0005af3",
+      "changedSourceRGB": 0
+    }
+  ]
+}

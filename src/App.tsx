@@ -10,6 +10,9 @@ import { WebLobby } from "./components/WebLobby";
 import { LeaveDialog } from "./components/LeaveDialog";
 import { WebRules, loadWebPreferences } from "./components/WebRules";
 import { RecoveryDialog } from "./components/RecoveryDialog";
+import { useGameAudio } from "./web/audio/useGameAudio";
+import { gameAudio } from "./web/audio/player";
+import { gameMusic } from "./web/audio/music";
 
 type Screen = "home" | "create" | "join" | "room" | "match" | "practice";
 
@@ -22,8 +25,10 @@ export function App() {
   const [rulesOpen, setRulesOpen] = useState(false);
   const [screen, setScreen] = useState<Screen>("home");
   const [preferences, setPreferences] = useState(loadWebPreferences);
+  const audioClick = useGameAudio(preferences.soundEnabled, screen === "match" || screen === "practice" ? "gameplay" : "lobby");
   const [entryPending, setEntryPending] = useState(false);
   const [entryError, setEntryError] = useState<string | null>(null);
+  const [homeFocusAction, setHomeFocusAction] = useState<"create" | "join" | null>(null);
   const [fillAi, setFillAi] = useState(true);
   const [leaveOpen, setLeaveOpen] = useState(false);
   const [leaving, setLeaving] = useState(false);
@@ -61,10 +66,26 @@ export function App() {
     }, 8000);
     return () => window.clearTimeout(timeout);
   }, [entryPending, room.state.error, room.dispose]);
-  const openEntry = (mode: "create" | "join") => { setEntryError(null); setEntryPending(false); setScreen(mode); };
+  const changePreferences = (value: typeof preferences) => {
+    gameAudio.setEnabled(value.soundEnabled);
+    gameMusic.setEnabled(value.soundEnabled);
+    if (value.soundEnabled && !preferences.soundEnabled) gameAudio.play({ id: "ui.confirm" });
+    setPreferences(value);
+    try { localStorage.setItem("wizzard.web.preferences.v1", JSON.stringify(value)); } catch { /* In-memory preferences remain usable. */ }
+  };
+  useEffect(() => {
+    const toggleSound = (event: KeyboardEvent) => {
+      if (event.code !== "KeyM" || event.repeat || event.ctrlKey || event.altKey || event.metaKey || event.target instanceof Element && event.target.closest('input,textarea,select,[contenteditable="true"]')) return;
+      event.preventDefault();
+      changePreferences({ ...preferences, soundEnabled: !preferences.soundEnabled });
+    };
+    window.addEventListener("keydown", toggleSound);
+    return () => window.removeEventListener("keydown", toggleSound);
+  }, [preferences]);
+  const openEntry = (mode: "create" | "join") => { setHomeFocusAction(null); setEntryError(null); setEntryPending(false); setScreen(mode); };
   const submitEntry = (options: RoomOptions) => {
     setEntryPending(true); setEntryError(null); setFillAi(options.fillAi);
-    if (screen === "create") room.createRoom(options.name, options.seats, options.timer);
+    if (screen === "create") room.createRoom(options.name, options.seats, options.timer, options.gameMode);
     else room.joinRoom(options.name, options.code);
   };
   const leaveRoom = async () => {
@@ -88,11 +109,11 @@ export function App() {
     setLeaveOpen(true);
   };
 
-  return <main className="game-prototype" data-reduced-motion={preferences.reducedMotion || viewport.reducedMotion} data-viewport-mode={viewport.mode} data-viewport-visible={viewport.visible ? "true" : "false"} data-room-recovery={recovering}><div aria-hidden={rulesOpen || leaveOpen || recovering || undefined} className="screen-layer" inert={rulesOpen || leaveOpen || recovering} onFocusCapture={event => { screenFocusRef.current = event.target as HTMLElement; }}>
-    {screen === "home" ? <WebHome roomEntryDisabled={room.state.resumeBlocked} onCreateRoom={() => openEntry("create")} onJoinRoom={() => openEntry("join")} onPractice={() => setScreen("practice")} onRules={() => setRulesOpen(true)} rulesButtonRef={rulesButtonRef} /> : null}
-    {screen === "create" || screen === "join" ? <RoomEntry key={screen} mode={screen} pending={entryPending} error={entryError} onBack={() => { room.dispose(); setScreen("home"); }} onSubmit={submitEntry} onEditConnection={() => { room.dispose(); setEntryPending(false); setEntryError(null); }} /> : null}
+  return <main onClickCapture={audioClick} className="game-prototype" data-reduced-motion={preferences.reducedMotion || viewport.reducedMotion} data-viewport-mode={viewport.mode} data-viewport-visible={viewport.visible ? "true" : "false"} data-room-recovery={recovering}><div aria-hidden={rulesOpen || leaveOpen || recovering || undefined} className="screen-layer" inert={rulesOpen || leaveOpen || recovering} onFocusCapture={event => { screenFocusRef.current = event.target as HTMLElement; }}>
+    {screen === "home" ? <WebHome roomEntryDisabled={room.state.resumeBlocked} focusAction={homeFocusAction} onCreateRoom={() => openEntry("create")} onJoinRoom={() => openEntry("join")} onPractice={() => { setHomeFocusAction(null); setScreen("practice"); }} onRules={() => setRulesOpen(true)} rulesButtonRef={rulesButtonRef} /> : null}
+    {screen === "create" || screen === "join" ? <RoomEntry key={screen} mode={screen} pending={entryPending} error={entryError} onBack={() => { setHomeFocusAction(screen); room.dispose(); setScreen("home"); }} onSubmit={submitEntry} onEditConnection={() => { room.dispose(); setEntryPending(false); setEntryError(null); }} /> : null}
     {screen === "room" ? <WebLobby controller={room} fillAi={fillAi} onManualAi={() => setFillAi(false)} onExit={openLeaveDialog} onInvite={() => { const code = room.state.room?.roomCode; if (!code) return; if (!navigator.clipboard) { setNotice(`房间码：${code}`); return; } void navigator.clipboard.writeText(code).then(() => setNotice(`房间码 ${code} 已复制`), () => setNotice(`房间码：${code}`)); }} /> : null}
-    {screen === "match" && networkMatch ? <MatchScreen showLegalHints={preferences.legalHints} controller={networkMatch} onExit={openLeaveDialog} /> : null}
-    {screen === "practice" ? <MatchScreen showLegalHints={preferences.legalHints} onExit={() => setScreen("home")} /> : null}
-  </div>{leaveOpen && !recovering ? <LeaveDialog pending={leaving} error={leaveError} returnFocusRef={leaveFocusRef} onCancel={() => setLeaveOpen(false)} onConfirm={() => void leaveRoom()} /> : null}{rulesOpen ? <WebRules onClose={() => setRulesOpen(false)} returnFocusRef={rulesButtonRef} preferences={preferences} onPreferences={value => { setPreferences(value); try { localStorage.setItem("wizzard.web.preferences.v1", JSON.stringify(value)); } catch { /* Keep preferences in memory when storage is unavailable. */ } }} /> : null}{recovering ? <RecoveryDialog terminal={!!room.state.terminalError} returnFocusRef={screenFocusRef} onRetry={() => { room.reconnect(); }} onHome={() => { if (!room.clearEndedSession()) return; room.dispose(); setLeaveOpen(false); setLeaving(false); setEntryPending(false); setEntryError(null); setScreen("home"); }} /> : null}{notice ? <Notice message={notice} /> : null}</main>;
+    {screen === "match" && networkMatch ? <MatchScreen showLegalHints={preferences.legalHints} controller={networkMatch} hostPlayerId={room.state.room?.hostPlayerId} onExit={openLeaveDialog} /> : null}
+    {screen === "practice" ? <MatchScreen showLegalHints={preferences.legalHints} onExit={() => { gameAudio.stop(); setScreen("home"); }} /> : null}
+  </div>{leaveOpen && !recovering ? <LeaveDialog pending={leaving} error={leaveError} returnFocusRef={leaveFocusRef} onCancel={() => setLeaveOpen(false)} onConfirm={() => void leaveRoom()} /> : null}{rulesOpen ? <WebRules onClose={() => setRulesOpen(false)} returnFocusRef={rulesButtonRef} preferences={preferences} onPreferences={changePreferences} /> : null}{recovering ? <RecoveryDialog terminal={!!room.state.terminalError} returnFocusRef={screenFocusRef} onRetry={() => { room.reconnect(); }} onHome={() => { if (!room.clearEndedSession()) return; room.dispose(); setLeaveOpen(false); setLeaving(false); setEntryPending(false); setEntryError(null); setScreen("home"); }} /> : null}{notice ? <Notice message={notice} /> : null}</main>;
 }

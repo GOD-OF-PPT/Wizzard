@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "landscape": {
+      "results": { "nameTracking": -0.8, "scoreFont": 43.5, "rankFont": 42, "rankStroke": 0 },
+      "ranking": { "nameTracking": -0.9, "scoreFont": 48, "rankFont": 40, "rankStroke": 0.22 }
+    },
+    "portrait": {
+      "results": { "nameTracking": -0.6, "scoreFont": 46, "rankFont": 46, "rankStroke": 0 },
+      "ranking": { "nameTracking": -1.8, "scoreFont": 54, "rankFont": 48, "rankStroke": 0.6 }
+    }
+  }
+}

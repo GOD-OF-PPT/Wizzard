@@ -1,0 +1,556 @@
+{
+  "method": "Dark ink connected components in authored3/4/5-player negative total cells, source normalized to capture dimensions. Quiet horizontal left component only. Diagnostic, not acceptance.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "ranking3",
+      "row": 1,
+      "source": "art/mockups/web-v3/38-ranking-3-players-v1.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/ranking3-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1115,
+        "top": 405,
+        "width": 11,
+        "height": 3,
+        "pixels": 32
+      },
+      "actualBox": {
+        "left": 1115,
+        "top": 402,
+        "width": 12,
+        "height": 4,
+        "pixels": 48
+      },
+      "sourceComponents": [
+        {
+          "left": 1154,
+          "top": 385,
+          "width": 22,
+          "height": 33,
+          "pixels": 342
+        },
+        {
+          "left": 1132,
+          "top": 386,
+          "width": 16,
+          "height": 32,
+          "pixels": 195
+        },
+        {
+          "left": 1115,
+          "top": 405,
+          "width": 11,
+          "height": 3,
+          "pixels": 32
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1133,
+          "top": 383,
+          "width": 17,
+          "height": 32,
+          "pixels": 253
+        },
+        {
+          "left": 1155,
+          "top": 383,
+          "width": 20,
+          "height": 32,
+          "pixels": 395
+        },
+        {
+          "left": 1115,
+          "top": 402,
+          "width": 12,
+          "height": 4,
+          "pixels": 48
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking3",
+      "row": 2,
+      "source": "art/mockups/web-v3/38-ranking-3-players-v1.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/ranking3-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1115,
+        "top": 480,
+        "width": 12,
+        "height": 3,
+        "pixels": 34
+      },
+      "actualBox": {
+        "left": 1115,
+        "top": 478,
+        "width": 12,
+        "height": 4,
+        "pixels": 48
+      },
+      "sourceComponents": [
+        {
+          "left": 1130,
+          "top": 461,
+          "width": 21,
+          "height": 32,
+          "pixels": 259
+        },
+        {
+          "left": 1155,
+          "top": 461,
+          "width": 21,
+          "height": 33,
+          "pixels": 342
+        },
+        {
+          "left": 1115,
+          "top": 480,
+          "width": 12,
+          "height": 3,
+          "pixels": 34
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1131,
+          "top": 459,
+          "width": 20,
+          "height": 32,
+          "pixels": 300
+        },
+        {
+          "left": 1155,
+          "top": 459,
+          "width": 20,
+          "height": 32,
+          "pixels": 395
+        },
+        {
+          "left": 1115,
+          "top": 478,
+          "width": 12,
+          "height": 4,
+          "pixels": 48
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking4",
+      "row": 3,
+      "source": "art/mockups/web-v3/39-ranking-4-players-v1.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/ranking4-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1112,
+        "top": 552,
+        "width": 16,
+        "height": 3,
+        "pixels": 48
+      },
+      "actualBox": {
+        "left": 1115,
+        "top": 554,
+        "width": 12,
+        "height": 4,
+        "pixels": 48
+      },
+      "sourceComponents": [
+        {
+          "left": 1132,
+          "top": 536,
+          "width": 21,
+          "height": 32,
+          "pixels": 265
+        },
+        {
+          "left": 1156,
+          "top": 536,
+          "width": 22,
+          "height": 33,
+          "pixels": 331
+        },
+        {
+          "left": 1112,
+          "top": 552,
+          "width": 16,
+          "height": 3,
+          "pixels": 48
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1131,
+          "top": 535,
+          "width": 20,
+          "height": 32,
+          "pixels": 292
+        },
+        {
+          "left": 1155,
+          "top": 535,
+          "width": 20,
+          "height": 32,
+          "pixels": 395
+        },
+        {
+          "left": 1115,
+          "top": 554,
+          "width": 12,
+          "height": 4,
+          "pixels": 48
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking5",
+      "row": 4,
+      "source": "art/mockups/web-v3/40-ranking-5-players-v1.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/ranking5-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1112,
+        "top": 631,
+        "width": 11,
+        "height": 3,
+        "pixels": 33
+      },
+      "actualBox": {
+        "left": 1115,
+        "top": 630,
+        "width": 12,
+        "height": 4,
+        "pixels": 48
+      },
+      "sourceComponents": [
+        {
+          "left": 1126,
+          "top": 612,
+          "width": 21,
+          "height": 33,
+          "pixels": 275
+        },
+        {
+          "left": 1151,
+          "top": 612,
+          "width": 21,
+          "height": 33,
+          "pixels": 352
+        },
+        {
+          "left": 1112,
+          "top": 631,
+          "width": 11,
+          "height": 3,
+          "pixels": 33
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1131,
+          "top": 611,
+          "width": 20,
+          "height": 32,
+          "pixels": 301
+        },
+        {
+          "left": 1155,
+          "top": 611,
+          "width": 20,
+          "height": 32,
+          "pixels": 396
+        },
+        {
+          "left": 1115,
+          "top": 630,
+          "width": 12,
+          "height": 4,
+          "pixels": 48
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking3",
+      "row": 1,
+      "source": "art/mockups/web-v3/portrait/38-ranking-3-players-v1.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/ranking3-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 273,
+        "top": 296,
+        "width": 6,
+        "height": 1,
+        "pixels": 6
+      },
+      "actualBox": {
+        "left": 274,
+        "top": 296,
+        "width": 5,
+        "height": 2,
+        "pixels": 10
+      },
+      "sourceComponents": [
+        {
+          "left": 291,
+          "top": 288,
+          "width": 11,
+          "height": 16,
+          "pixels": 78
+        },
+        {
+          "left": 282,
+          "top": 289,
+          "width": 7,
+          "height": 15,
+          "pixels": 40
+        },
+        {
+          "left": 273,
+          "top": 296,
+          "width": 6,
+          "height": 1,
+          "pixels": 6
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 293,
+          "top": 287,
+          "width": 9,
+          "height": 15,
+          "pixels": 81
+        },
+        {
+          "left": 282,
+          "top": 288,
+          "width": 8,
+          "height": 14,
+          "pixels": 49
+        },
+        {
+          "left": 274,
+          "top": 296,
+          "width": 5,
+          "height": 2,
+          "pixels": 10
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking3",
+      "row": 2,
+      "source": "art/mockups/web-v3/portrait/38-ranking-3-players-v1.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/ranking3-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 273,
+        "top": 340,
+        "width": 6,
+        "height": 1,
+        "pixels": 6
+      },
+      "actualBox": {
+        "left": 274,
+        "top": 341,
+        "width": 5,
+        "height": 2,
+        "pixels": 10
+      },
+      "sourceComponents": [
+        {
+          "left": 292,
+          "top": 332,
+          "width": 10,
+          "height": 16,
+          "pixels": 83
+        },
+        {
+          "left": 281,
+          "top": 333,
+          "width": 9,
+          "height": 15,
+          "pixels": 54
+        },
+        {
+          "left": 273,
+          "top": 340,
+          "width": 6,
+          "height": 1,
+          "pixels": 6
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 281,
+          "top": 332,
+          "width": 10,
+          "height": 15,
+          "pixels": 62
+        },
+        {
+          "left": 293,
+          "top": 332,
+          "width": 9,
+          "height": 15,
+          "pixels": 81
+        },
+        {
+          "left": 274,
+          "top": 341,
+          "width": 5,
+          "height": 2,
+          "pixels": 10
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking4",
+      "row": 3,
+      "source": "art/mockups/web-v3/portrait/39-ranking-4-players-v1.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/ranking4-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 272,
+        "top": 385,
+        "width": 7,
+        "height": 2,
+        "pixels": 14
+      },
+      "actualBox": {
+        "left": 274,
+        "top": 385,
+        "width": 5,
+        "height": 2,
+        "pixels": 10
+      },
+      "sourceComponents": [
+        {
+          "left": 281,
+          "top": 377,
+          "width": 10,
+          "height": 15,
+          "pixels": 54
+        },
+        {
+          "left": 292,
+          "top": 377,
+          "width": 11,
+          "height": 16,
+          "pixels": 80
+        },
+        {
+          "left": 282,
+          "top": 378,
+          "width": 2,
+          "height": 3,
+          "pixels": 4
+        },
+        {
+          "left": 272,
+          "top": 385,
+          "width": 7,
+          "height": 2,
+          "pixels": 14
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 282,
+          "top": 376,
+          "width": 8,
+          "height": 15,
+          "pixels": 55
+        },
+        {
+          "left": 293,
+          "top": 376,
+          "width": 9,
+          "height": 15,
+          "pixels": 81
+        },
+        {
+          "left": 274,
+          "top": 385,
+          "width": 5,
+          "height": 2,
+          "pixels": 10
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking5",
+      "row": 4,
+      "source": "art/mockups/web-v3/portrait/40-ranking-5-players-v1.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/ranking5-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 273,
+        "top": 430,
+        "width": 5,
+        "height": 2,
+        "pixels": 9
+      },
+      "actualBox": {
+        "left": 274,
+        "top": 430,
+        "width": 5,
+        "height": 2,
+        "pixels": 10
+      },
+      "sourceComponents": [
+        {
+          "left": 281,
+          "top": 422,
+          "width": 9,
+          "height": 15,
+          "pixels": 58
+        },
+        {
+          "left": 293,
+          "top": 422,
+          "width": 10,
+          "height": 16,
+          "pixels": 74
+        },
+        {
+          "left": 273,
+          "top": 430,
+          "width": 5,
+          "height": 2,
+          "pixels": 9
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 281,
+          "top": 421,
+          "width": 10,
+          "height": 15,
+          "pixels": 62
+        },
+        {
+          "left": 293,
+          "top": 421,
+          "width": 9,
+          "height": 15,
+          "pixels": 81
+        },
+        {
+          "left": 274,
+          "top": 430,
+          "width": 5,
+          "height": 2,
+          "pixels": 10
+        }
+      ]
+    }
+  ]
+}

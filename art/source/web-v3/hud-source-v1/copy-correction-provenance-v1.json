@@ -1,0 +1,1695 @@
+{
+  "method": "Original one-glyph ROI cleared using existing ImageGen quiet paper, median color registration. Corrected built-in ImageGen v2 赤+者 glyph alpha is fitted to original ink bounds. Original 日, all frame/other text and pixels outside each ROI unchanged. V1 candidates rejected; source and runtime versions are explicit.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "kind": "reference",
+      "input": "art/source/web-v3/hud-source-v1/landscape-trump-reference.png",
+      "inputSha256": "3b057a85932b68c6d5d2c0d3acb21572f0d1d740cadbbeae05c404992baa0d64",
+      "output": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-reference-v1.png",
+      "sha256": "82fb415ffaaac93dd98edff53f02bff726eac9b010654bc8905b8b3a0265a90b",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        234,
+        18,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        237,
+        25,
+        262,
+        49
+      ],
+      "ink": [
+        144,
+        49,
+        27
+      ],
+      "changed": 1015,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "reference",
+      "input": "art/source/web-v3/hud-source-v1/portrait-trump-reference.png",
+      "inputSha256": "0d9669ccee029c3bd13b5d168d9f13d32e0b590bf240db99e9248226ae1a4b7b",
+      "output": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-reference-v1.png",
+      "sha256": "d38d1e9e5273224cc9fce73a57cd17ecac2610e20cfa3e219c428c3105a7bae8",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        253,
+        20,
+        34,
+        39
+      ],
+      "originalInkBounds": [
+        255,
+        26,
+        282,
+        52
+      ],
+      "ink": [
+        165,
+        36,
+        20
+      ],
+      "changed": 1179,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "inputSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "output": "art/mockups/web-v3/25-gameplay-selection-idle-v2-copy-v1.png",
+      "sha256": "2d2e30b2c5a477acf12257472746fc12017fe783562010e6462833e18ed52b15",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        523,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        530,
+        934,
+        554
+      ],
+      "ink": [
+        144,
+        49,
+        27
+      ],
+      "changed": 1015,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/26-gameplay-selection-complete-v2.png",
+      "inputSha256": "ab22d88de2d62032bd12719331aa8a9e0aa51a91d7288ae6b32cbdd3969e7561",
+      "output": "art/mockups/web-v3/26-gameplay-selection-complete-v2-copy-v1.png",
+      "sha256": "5d5e4b5154ad11075dbe264e4bce278a227db52b992dfbc2e332d8410d39f7b7",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        523,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        530,
+        934,
+        554
+      ],
+      "ink": [
+        144,
+        49,
+        27
+      ],
+      "changed": 1015,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/14-gameplay-notimer-selection-v4.png",
+      "inputSha256": "32bdf6d6e55ce740864d2db2e7ba5610d4ceb4751c5e7cb3b95f84b5eb75c0a7",
+      "output": "art/mockups/web-v3/14-gameplay-notimer-selection-v4-copy-v1.png",
+      "sha256": "f1f09aec4380706ce09fb18aa990799ada1deb09e75c8776b16d1a71d8b0b472",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        523,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        529,
+        934,
+        554
+      ],
+      "ink": [
+        140,
+        40,
+        21
+      ],
+      "changed": 1014,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/19-play-pending-selection-v2.png",
+      "inputSha256": "c4d893618d07f888945f383f59476eb2793fac465b4728e570fda1329c4904d1",
+      "output": "art/mockups/web-v3/19-play-pending-selection-v2-copy-v1.png",
+      "sha256": "a22597aec059e0529674dfd96d86b86bcb5b1161d446541382cd72cfd2d242f5",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        523,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        530,
+        934,
+        554
+      ],
+      "ink": [
+        144,
+        49,
+        27
+      ],
+      "changed": 1015,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/10-bid.png",
+      "inputSha256": "6856f22b9c4ab348af7384ca64f2bec32bd0bcb8f0d5b16a275bc9afe07550cc",
+      "output": "art/mockups/web-v3/10-bid-copy-v1.png",
+      "sha256": "8ecdbda4868ebc6d0563e2041a886a84ad47f24e4694b772b75d2f312893e2f0",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        611,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        617,
+        934,
+        642
+      ],
+      "ink": [
+        153,
+        44,
+        25
+      ],
+      "changed": 1010,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/17-bid-pending-v1.png",
+      "inputSha256": "5d72cbca5b6cacbcf48a93ad73f2ec848b92fc4ee602cab960fa27c6934cf309",
+      "output": "art/mockups/web-v3/17-bid-pending-v1-copy-v1.png",
+      "sha256": "6fcaa4f98f50a7acbdfba2132236c8bb57ad546c21018e3d117c41941a90e8d0",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        611,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        617,
+        934,
+        642
+      ],
+      "ink": [
+        153,
+        44,
+        25
+      ],
+      "changed": 1010,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/11-chooser-inactive-hand-v5.png",
+      "inputSha256": "d14ea6c311819d7f6624dfd501e4f23b32b695c1f4b8b562e1cab60e39b3ff0b",
+      "output": "art/mockups/web-v3/11-chooser-inactive-hand-v5-copy-v1.png",
+      "sha256": "86f7abea4d300597fc0936b6c20aa50f95d95ccf51c5ac23e5d7a05c9b9fede1",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        1105,
+        613,
+        39,
+        39
+      ],
+      "originalInkBounds": [
+        1109,
+        614,
+        1141,
+        647
+      ],
+      "ink": [
+        143,
+        26,
+        13
+      ],
+      "changed": 1367,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/18-chooser-pending-inactive-hand-v5.png",
+      "inputSha256": "3a754f971283c65dcb3713cc9479701343abb4bf078d97b716619ce449170f63",
+      "output": "art/mockups/web-v3/18-chooser-pending-inactive-hand-v5-copy-v1.png",
+      "sha256": "337ad531ad78025b25c404cea871de8143bea03f724b1cc038488ebb2523b528",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        1105,
+        613,
+        39,
+        39
+      ],
+      "originalInkBounds": [
+        1109,
+        615,
+        1141,
+        647
+      ],
+      "ink": [
+        169,
+        59,
+        37
+      ],
+      "changed": 1362,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/27-dense-hand-idle-v4.png",
+      "inputSha256": "65507dae958775324f56b58553f877165c5cd4e93e81444b92dc538cb273d729",
+      "output": "art/mockups/web-v3/27-dense-hand-idle-v4-copy-v1.png",
+      "sha256": "403b276d4e3871837698e5e075404234a783d3428a8ddd025d489148e6d690c5",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        523,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        530,
+        934,
+        554
+      ],
+      "ink": [
+        144,
+        49,
+        27
+      ],
+      "changed": 1015,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/28-dense-hand-selected-v4.png",
+      "inputSha256": "a4d6fecf46e82fe3254c023b38d0be8831249fb518276ceb23c8df045893a7d7",
+      "output": "art/mockups/web-v3/28-dense-hand-selected-v4-copy-v1.png",
+      "sha256": "132cf6d7e0b33a182d998ef08c26cd0679dea2c1839a0ce51dee434ff7764c26",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        523,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        530,
+        934,
+        554
+      ],
+      "ink": [
+        144,
+        49,
+        27
+      ],
+      "changed": 1015,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "inputSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "output": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2-copy-v1.png",
+      "sha256": "7f9218ccd6c91c3905e24144e6322701d98a1dfc0883cee411a2a4937142e3d6",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        551,
+        943,
+        34,
+        39
+      ],
+      "originalInkBounds": [
+        553,
+        949,
+        580,
+        975
+      ],
+      "ink": [
+        165,
+        36,
+        20
+      ],
+      "changed": 1179,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/26-gameplay-selection-complete-v2.png",
+      "inputSha256": "f6cbed225abfdac2f52f7d8a88d339ccd139620ee0dfba25d642772d8e66213f",
+      "output": "art/mockups/web-v3/portrait/26-gameplay-selection-complete-v2-copy-v1.png",
+      "sha256": "d32400f0f23bae1d5cdd437bf50bf952741654b0a73cf5ba0ad84b1caa5e2e37",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        551,
+        943,
+        34,
+        39
+      ],
+      "originalInkBounds": [
+        553,
+        949,
+        580,
+        975
+      ],
+      "ink": [
+        165,
+        36,
+        20
+      ],
+      "changed": 1179,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/14-gameplay-notimer-selection-v4.png",
+      "inputSha256": "106f578a40a49af1b0722195d2d8dc62b0e6d083fd3bd39eae998dc24708a17f",
+      "output": "art/mockups/web-v3/portrait/14-gameplay-notimer-selection-v4-copy-v1.png",
+      "sha256": "db0bd5a0fe4e0e48b8297ce07deb2ef760d80eb1e834e104b94118c99ab5c8e6",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        551,
+        943,
+        34,
+        39
+      ],
+      "originalInkBounds": [
+        553,
+        948,
+        581,
+        975
+      ],
+      "ink": [
+        163,
+        33,
+        21
+      ],
+      "changed": 1180,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/19-play-pending-selection-v2.png",
+      "inputSha256": "640d67e490aaf865ae3a82ec39e2c3c9f51a30a345a1cba03461a3ab41134f97",
+      "output": "art/mockups/web-v3/portrait/19-play-pending-selection-v2-copy-v1.png",
+      "sha256": "d078fcb77818200b893ff392d28f0b10423654a5b325eef90d99ff4b5f28f22a",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        551,
+        943,
+        34,
+        39
+      ],
+      "originalInkBounds": [
+        553,
+        949,
+        580,
+        975
+      ],
+      "ink": [
+        165,
+        36,
+        20
+      ],
+      "changed": 1179,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/11-chooser-inactive-hand-v5.png",
+      "inputSha256": "f69249321a555256fab331076152fc770c42ba39690e55dac6e068dbba926fff",
+      "output": "art/mockups/web-v3/portrait/11-chooser-inactive-hand-v5-copy-v1.png",
+      "sha256": "30dca14cb4e300b39d912ad7f293ca3f2c277f4d91f9f9490eb0ed68cbc9d2e0",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        574,
+        1110,
+        45,
+        47
+      ],
+      "originalInkBounds": [
+        578,
+        1113,
+        617,
+        1152
+      ],
+      "ink": [
+        186,
+        93,
+        5
+      ],
+      "changed": 1935,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/18-chooser-pending-inactive-hand-v5.png",
+      "inputSha256": "405ff24ff2a11f03f84af36c8e76fe43740691e7d449c78de73ebb554c6cbf71",
+      "output": "art/mockups/web-v3/portrait/18-chooser-pending-inactive-hand-v5-copy-v1.png",
+      "sha256": "2eea9af6fe77aa57db57be79feb49668d958885a1b900d032303c8c86e061715",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        574,
+        1110,
+        45,
+        47
+      ],
+      "originalInkBounds": [
+        578,
+        1113,
+        617,
+        1152
+      ],
+      "ink": [
+        150,
+        75,
+        6
+      ],
+      "changed": 1933,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/27-dense-hand-idle-v4.png",
+      "inputSha256": "aa2ab841f7912a60cfc40c8f2bf328b659eb91a19353ce8e642e51bbde3703d1",
+      "output": "art/mockups/web-v3/portrait/27-dense-hand-idle-v4-copy-v1.png",
+      "sha256": "1edc0b70f98fd6eb20c1983646692fffd3bbe4c7d80406d9b678dc4cfc44ab14",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        551,
+        943,
+        34,
+        39
+      ],
+      "originalInkBounds": [
+        553,
+        949,
+        580,
+        975
+      ],
+      "ink": [
+        165,
+        36,
+        20
+      ],
+      "changed": 1179,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/28-dense-hand-selected-v4.png",
+      "inputSha256": "db5829fb658b34791e388832c492c6553084449488f4f82049d628fbc2695a81",
+      "output": "art/mockups/web-v3/portrait/28-dense-hand-selected-v4-copy-v1.png",
+      "sha256": "d494a8718245c089919e61b94739912ea9388b03f7715e1885155628eeb5c688",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        551,
+        943,
+        34,
+        39
+      ],
+      "originalInkBounds": [
+        553,
+        949,
+        580,
+        975
+      ],
+      "ink": [
+        165,
+        36,
+        20
+      ],
+      "changed": 1179,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "runtime-chooser",
+      "input": "art/runtime/web-v3/chooser.png",
+      "inputSha256": "46fae4fa4a5efe0c1de87db26a96465f7f527632f5878c28d433e2663bb10fa7",
+      "output": "art/runtime/web-v3/hud-source-v1/landscape-chooser-copy-v1.png",
+      "sha256": "c63d0f745a1281f1aa05b4ac4bae606acb8c0399ebf19ef5849290134a8db4c8",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        1105,
+        613,
+        39,
+        39
+      ],
+      "originalInkBounds": [
+        1108,
+        616,
+        1140,
+        648
+      ],
+      "ink": [
+        142,
+        19,
+        8
+      ],
+      "changed": 1368,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "runtime-chooser",
+      "input": "art/runtime/web-v3/chooser-pending-v2.png",
+      "inputSha256": "e3e457f414ff585621cc313e311b2e827480b64649acc77412744f60c4bee999",
+      "output": "art/runtime/web-v3/hud-source-v1/landscape-chooser-pending-copy-v1.png",
+      "sha256": "c80e99bd2f994b0cb1a14b6a464d3703db9ce4d8b26d6a097410a60a2a446604",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        1105,
+        613,
+        39,
+        39
+      ],
+      "originalInkBounds": [
+        1109,
+        615,
+        1141,
+        647
+      ],
+      "ink": [
+        169,
+        59,
+        37
+      ],
+      "changed": 1362,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "runtime-chooser",
+      "input": "art/runtime/web-v3/portrait/chooser.png",
+      "inputSha256": "0f9e70c33d0912180c2eb44265fd67f3af36c28cf556619bd0023e5a1f1e90cf",
+      "output": "art/runtime/web-v3/hud-source-v1/portrait-chooser-copy-v1.png",
+      "sha256": "84960816c94c6d1642b457f38d58c4ebe20f5c501e7eb0179fa81c80729581fd",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        574,
+        1110,
+        45,
+        47
+      ],
+      "originalInkBounds": [
+        578,
+        1114,
+        618,
+        1153
+      ],
+      "ink": [
+        184,
+        92,
+        4
+      ],
+      "changed": 1930,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "runtime-chooser",
+      "input": "art/runtime/web-v3/portrait/chooser-pending-v2.png",
+      "inputSha256": "c10351f9794e374cd86facf66ddbbf70a0986a3e9994443a9b7bf8ea910c8b57",
+      "output": "art/runtime/web-v3/hud-source-v1/portrait-chooser-pending-copy-v1.png",
+      "sha256": "91849957043d928a7dcdf27e3a30e82f0cfd0efda073838cec6cef1d37af0d50",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        574,
+        1110,
+        45,
+        47
+      ],
+      "originalInkBounds": [
+        578,
+        1113,
+        617,
+        1152
+      ],
+      "ink": [
+        150,
+        75,
+        6
+      ],
+      "changed": 1933,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0
+    }
+  ],
+  "mapping": [
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "inputSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "output": "art/mockups/web-v3/25-gameplay-selection-idle-v2-copy-v1.png",
+      "sha256": "2d2e30b2c5a477acf12257472746fc12017fe783562010e6462833e18ed52b15",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        523,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        530,
+        934,
+        554
+      ],
+      "ink": [
+        144,
+        49,
+        27
+      ],
+      "changed": 1015,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "idle",
+      "position": {
+        "left": 672,
+        "top": 505,
+        "error": 0,
+        "scale": 1
+      }
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/26-gameplay-selection-complete-v2.png",
+      "inputSha256": "ab22d88de2d62032bd12719331aa8a9e0aa51a91d7288ae6b32cbdd3969e7561",
+      "output": "art/mockups/web-v3/26-gameplay-selection-complete-v2-copy-v1.png",
+      "sha256": "5d5e4b5154ad11075dbe264e4bce278a227db52b992dfbc2e332d8410d39f7b7",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        523,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        530,
+        934,
+        554
+      ],
+      "ink": [
+        144,
+        49,
+        27
+      ],
+      "changed": 1015,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "selected",
+      "position": {
+        "left": 672,
+        "top": 505,
+        "error": 0,
+        "scale": 1
+      }
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/14-gameplay-notimer-selection-v4.png",
+      "inputSha256": "32bdf6d6e55ce740864d2db2e7ba5610d4ceb4751c5e7cb3b95f84b5eb75c0a7",
+      "output": "art/mockups/web-v3/14-gameplay-notimer-selection-v4-copy-v1.png",
+      "sha256": "f1f09aec4380706ce09fb18aa990799ada1deb09e75c8776b16d1a71d8b0b472",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        523,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        529,
+        934,
+        554
+      ],
+      "ink": [
+        140,
+        40,
+        21
+      ],
+      "changed": 1014,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "notimer",
+      "position": {
+        "left": 672,
+        "top": 505,
+        "error": 119.09055757161705,
+        "scale": 0.9821537684885009
+      }
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/19-play-pending-selection-v2.png",
+      "inputSha256": "c4d893618d07f888945f383f59476eb2793fac465b4728e570fda1329c4904d1",
+      "output": "art/mockups/web-v3/19-play-pending-selection-v2-copy-v1.png",
+      "sha256": "a22597aec059e0529674dfd96d86b86bcb5b1161d446541382cd72cfd2d242f5",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        523,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        530,
+        934,
+        554
+      ],
+      "ink": [
+        144,
+        49,
+        27
+      ],
+      "changed": 1015,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "play-pending",
+      "position": {
+        "left": 672,
+        "top": 505,
+        "error": 0,
+        "scale": 1
+      }
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/10-bid.png",
+      "inputSha256": "6856f22b9c4ab348af7384ca64f2bec32bd0bcb8f0d5b16a275bc9afe07550cc",
+      "output": "art/mockups/web-v3/10-bid-copy-v1.png",
+      "sha256": "8ecdbda4868ebc6d0563e2041a886a84ad47f24e4694b772b75d2f312893e2f0",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        611,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        617,
+        934,
+        642
+      ],
+      "ink": [
+        153,
+        44,
+        25
+      ],
+      "changed": 1010,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "bid",
+      "position": {
+        "left": 672,
+        "top": 593,
+        "error": 201.3887853547186,
+        "scale": 1.0128298826345976
+      }
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/17-bid-pending-v1.png",
+      "inputSha256": "5d72cbca5b6cacbcf48a93ad73f2ec848b92fc4ee602cab960fa27c6934cf309",
+      "output": "art/mockups/web-v3/17-bid-pending-v1-copy-v1.png",
+      "sha256": "6fcaa4f98f50a7acbdfba2132236c8bb57ad546c21018e3d117c41941a90e8d0",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        611,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        617,
+        934,
+        642
+      ],
+      "ink": [
+        153,
+        44,
+        25
+      ],
+      "changed": 1010,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "bid-pending",
+      "position": {
+        "left": 672,
+        "top": 593,
+        "error": 201.3887853547186,
+        "scale": 1.0128298826345976
+      }
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/11-chooser-inactive-hand-v5.png",
+      "inputSha256": "d14ea6c311819d7f6624dfd501e4f23b32b695c1f4b8b562e1cab60e39b3ff0b",
+      "output": "art/mockups/web-v3/11-chooser-inactive-hand-v5-copy-v1.png",
+      "sha256": "86f7abea4d300597fc0936b6c20aa50f95d95ccf51c5ac23e5d7a05c9b9fede1",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        1105,
+        613,
+        39,
+        39
+      ],
+      "originalInkBounds": [
+        1109,
+        614,
+        1141,
+        647
+      ],
+      "ink": [
+        143,
+        26,
+        13
+      ],
+      "changed": 1367,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "chooser",
+      "position": null
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/18-chooser-pending-inactive-hand-v5.png",
+      "inputSha256": "3a754f971283c65dcb3713cc9479701343abb4bf078d97b716619ce449170f63",
+      "output": "art/mockups/web-v3/18-chooser-pending-inactive-hand-v5-copy-v1.png",
+      "sha256": "337ad531ad78025b25c404cea871de8143bea03f724b1cc038488ebb2523b528",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        1105,
+        613,
+        39,
+        39
+      ],
+      "originalInkBounds": [
+        1109,
+        615,
+        1141,
+        647
+      ],
+      "ink": [
+        169,
+        59,
+        37
+      ],
+      "changed": 1362,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "chooser-pending",
+      "position": null
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/27-dense-hand-idle-v4.png",
+      "inputSha256": "65507dae958775324f56b58553f877165c5cd4e93e81444b92dc538cb273d729",
+      "output": "art/mockups/web-v3/27-dense-hand-idle-v4-copy-v1.png",
+      "sha256": "403b276d4e3871837698e5e075404234a783d3428a8ddd025d489148e6d690c5",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        523,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        530,
+        934,
+        554
+      ],
+      "ink": [
+        144,
+        49,
+        27
+      ],
+      "changed": 1015,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "dense-idle",
+      "position": {
+        "left": 672,
+        "top": 505,
+        "error": 0,
+        "scale": 1
+      }
+    },
+    {
+      "profile": "landscape",
+      "kind": "design",
+      "input": "art/mockups/web-v3/28-dense-hand-selected-v4.png",
+      "inputSha256": "a4d6fecf46e82fe3254c023b38d0be8831249fb518276ceb23c8df045893a7d7",
+      "output": "art/mockups/web-v3/28-dense-hand-selected-v4-copy-v1.png",
+      "sha256": "132cf6d7e0b33a182d998ef08c26cd0679dea2c1839a0ce51dee434ff7764c26",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-corrected-candidate-v2.png",
+      "candidateSha256": "fc01ef954843e6570e2fe531644abbe60a933abd098e27fa4723781a3317ede1",
+      "generated": [
+        1541,
+        259,
+        172,
+        176
+      ],
+      "rect": [
+        906,
+        523,
+        32,
+        36
+      ],
+      "originalInkBounds": [
+        909,
+        530,
+        934,
+        554
+      ],
+      "ink": [
+        144,
+        49,
+        27
+      ],
+      "changed": 1015,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "dense-selected",
+      "position": {
+        "left": 672,
+        "top": 505,
+        "error": 0,
+        "scale": 1
+      }
+    },
+    {
+      "profile": "landscape",
+      "state": "reconnecting",
+      "input": "art/mockups/web-v3/15-reconnecting-network-v2.png",
+      "output": "art/mockups/web-v3/15-reconnecting-network-v2.png",
+      "reason": "Modal covers this HUD field; no hidden-pixel correction claimed"
+    },
+    {
+      "profile": "landscape",
+      "state": "session-ended",
+      "input": "art/mockups/web-v3/16-session-ended-network-v3.png",
+      "output": "art/mockups/web-v3/16-session-ended-network-v3.png",
+      "reason": "Modal covers this HUD field; no hidden-pixel correction claimed"
+    },
+    {
+      "profile": "landscape",
+      "state": "reconnecting-focus",
+      "input": "art/mockups/web-v3/29-reconnecting-focus-v2.png",
+      "output": "art/mockups/web-v3/29-reconnecting-focus-v2.png",
+      "reason": "Modal covers this HUD field; no hidden-pixel correction claimed"
+    },
+    {
+      "profile": "landscape",
+      "state": "session-ended-focus",
+      "input": "art/mockups/web-v3/30-session-ended-focus-v2.png",
+      "output": "art/mockups/web-v3/30-session-ended-focus-v2.png",
+      "reason": "Modal covers this HUD field; no hidden-pixel correction claimed"
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "inputSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "output": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2-copy-v1.png",
+      "sha256": "7f9218ccd6c91c3905e24144e6322701d98a1dfc0883cee411a2a4937142e3d6",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        551,
+        943,
+        34,
+        39
+      ],
+      "originalInkBounds": [
+        553,
+        949,
+        580,
+        975
+      ],
+      "ink": [
+        165,
+        36,
+        20
+      ],
+      "changed": 1179,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "idle",
+      "position": {
+        "left": 298,
+        "top": 923,
+        "error": 0,
+        "scale": 1
+      }
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/26-gameplay-selection-complete-v2.png",
+      "inputSha256": "f6cbed225abfdac2f52f7d8a88d339ccd139620ee0dfba25d642772d8e66213f",
+      "output": "art/mockups/web-v3/portrait/26-gameplay-selection-complete-v2-copy-v1.png",
+      "sha256": "d32400f0f23bae1d5cdd437bf50bf952741654b0a73cf5ba0ad84b1caa5e2e37",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        551,
+        943,
+        34,
+        39
+      ],
+      "originalInkBounds": [
+        553,
+        949,
+        580,
+        975
+      ],
+      "ink": [
+        165,
+        36,
+        20
+      ],
+      "changed": 1179,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "selected",
+      "position": {
+        "left": 298,
+        "top": 923,
+        "error": 0,
+        "scale": 1
+      }
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/14-gameplay-notimer-selection-v4.png",
+      "inputSha256": "106f578a40a49af1b0722195d2d8dc62b0e6d083fd3bd39eae998dc24708a17f",
+      "output": "art/mockups/web-v3/portrait/14-gameplay-notimer-selection-v4-copy-v1.png",
+      "sha256": "db0bd5a0fe4e0e48b8297ce07deb2ef760d80eb1e834e104b94118c99ab5c8e6",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        551,
+        943,
+        34,
+        39
+      ],
+      "originalInkBounds": [
+        553,
+        948,
+        581,
+        975
+      ],
+      "ink": [
+        163,
+        33,
+        21
+      ],
+      "changed": 1180,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "notimer",
+      "position": {
+        "left": 298,
+        "top": 923,
+        "error": 64.19538985503227,
+        "scale": 0.9867823884703987
+      }
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/19-play-pending-selection-v2.png",
+      "inputSha256": "640d67e490aaf865ae3a82ec39e2c3c9f51a30a345a1cba03461a3ab41134f97",
+      "output": "art/mockups/web-v3/portrait/19-play-pending-selection-v2-copy-v1.png",
+      "sha256": "d078fcb77818200b893ff392d28f0b10423654a5b325eef90d99ff4b5f28f22a",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        551,
+        943,
+        34,
+        39
+      ],
+      "originalInkBounds": [
+        553,
+        949,
+        580,
+        975
+      ],
+      "ink": [
+        165,
+        36,
+        20
+      ],
+      "changed": 1179,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "play-pending",
+      "position": {
+        "left": 298,
+        "top": 923,
+        "error": 0,
+        "scale": 1
+      }
+    },
+    {
+      "profile": "portrait",
+      "state": "bid",
+      "input": "art/mockups/web-v3/portrait/10-bid-timer-v3.png",
+      "output": "art/mockups/web-v3/portrait/10-bid-timer-v3.png",
+      "reason": "Modal covers this HUD field; no hidden-pixel correction claimed"
+    },
+    {
+      "profile": "portrait",
+      "state": "bid-pending",
+      "input": "art/mockups/web-v3/portrait/17-bid-pending-timer-v3.png",
+      "output": "art/mockups/web-v3/portrait/17-bid-pending-timer-v3.png",
+      "reason": "Modal covers this HUD field; no hidden-pixel correction claimed"
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/11-chooser-inactive-hand-v5.png",
+      "inputSha256": "f69249321a555256fab331076152fc770c42ba39690e55dac6e068dbba926fff",
+      "output": "art/mockups/web-v3/portrait/11-chooser-inactive-hand-v5-copy-v1.png",
+      "sha256": "30dca14cb4e300b39d912ad7f293ca3f2c277f4d91f9f9490eb0ed68cbc9d2e0",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        574,
+        1110,
+        45,
+        47
+      ],
+      "originalInkBounds": [
+        578,
+        1113,
+        617,
+        1152
+      ],
+      "ink": [
+        186,
+        93,
+        5
+      ],
+      "changed": 1935,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "chooser",
+      "position": null
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/18-chooser-pending-inactive-hand-v5.png",
+      "inputSha256": "405ff24ff2a11f03f84af36c8e76fe43740691e7d449c78de73ebb554c6cbf71",
+      "output": "art/mockups/web-v3/portrait/18-chooser-pending-inactive-hand-v5-copy-v1.png",
+      "sha256": "2eea9af6fe77aa57db57be79feb49668d958885a1b900d032303c8c86e061715",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        574,
+        1110,
+        45,
+        47
+      ],
+      "originalInkBounds": [
+        578,
+        1113,
+        617,
+        1152
+      ],
+      "ink": [
+        150,
+        75,
+        6
+      ],
+      "changed": 1933,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "chooser-pending",
+      "position": null
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/27-dense-hand-idle-v4.png",
+      "inputSha256": "aa2ab841f7912a60cfc40c8f2bf328b659eb91a19353ce8e642e51bbde3703d1",
+      "output": "art/mockups/web-v3/portrait/27-dense-hand-idle-v4-copy-v1.png",
+      "sha256": "1edc0b70f98fd6eb20c1983646692fffd3bbe4c7d80406d9b678dc4cfc44ab14",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        551,
+        943,
+        34,
+        39
+      ],
+      "originalInkBounds": [
+        553,
+        949,
+        580,
+        975
+      ],
+      "ink": [
+        165,
+        36,
+        20
+      ],
+      "changed": 1179,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "dense-idle",
+      "position": {
+        "left": 298,
+        "top": 923,
+        "error": 0,
+        "scale": 1
+      }
+    },
+    {
+      "profile": "portrait",
+      "kind": "design",
+      "input": "art/mockups/web-v3/portrait/28-dense-hand-selected-v4.png",
+      "inputSha256": "db5829fb658b34791e388832c492c6553084449488f4f82049d628fbc2695a81",
+      "output": "art/mockups/web-v3/portrait/28-dense-hand-selected-v4-copy-v1.png",
+      "sha256": "d494a8718245c089919e61b94739912ea9388b03f7715e1885155628eeb5c688",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-corrected-candidate-v2.png",
+      "candidateSha256": "6c0de1f48595a144c6dbe6b75b9d7b2545e6a955372ec726dbaf3c9bebb46cb1",
+      "generated": [
+        1534,
+        271,
+        175,
+        173
+      ],
+      "rect": [
+        551,
+        943,
+        34,
+        39
+      ],
+      "originalInkBounds": [
+        553,
+        949,
+        580,
+        975
+      ],
+      "ink": [
+        165,
+        36,
+        20
+      ],
+      "changed": 1179,
+      "changedOutsideROI": 0,
+      "alphaChanges": 0,
+      "state": "dense-selected",
+      "position": {
+        "left": 298,
+        "top": 923,
+        "error": 0,
+        "scale": 1
+      }
+    },
+    {
+      "profile": "portrait",
+      "state": "reconnecting",
+      "input": "art/mockups/web-v3/portrait/15-reconnecting-inactive-hand-v3.png",
+      "output": "art/mockups/web-v3/portrait/15-reconnecting-inactive-hand-v3.png",
+      "reason": "Modal covers this HUD field; no hidden-pixel correction claimed"
+    },
+    {
+      "profile": "portrait",
+      "state": "session-ended",
+      "input": "art/mockups/web-v3/portrait/16-session-ended-v2.png",
+      "output": "art/mockups/web-v3/portrait/16-session-ended-v2.png",
+      "reason": "Modal covers this HUD field; no hidden-pixel correction claimed"
+    },
+    {
+      "profile": "portrait",
+      "state": "reconnecting-focus",
+      "input": "art/mockups/web-v3/portrait/29-reconnecting-focus-v3.png",
+      "output": "art/mockups/web-v3/portrait/29-reconnecting-focus-v3.png",
+      "reason": "Modal covers this HUD field; no hidden-pixel correction claimed"
+    },
+    {
+      "profile": "portrait",
+      "state": "session-ended-focus",
+      "input": "art/mockups/web-v3/portrait/30-session-ended-focus-v2.png",
+      "output": "art/mockups/web-v3/portrait/30-session-ended-focus-v2.png",
+      "reason": "Modal covers this HUD field; no hidden-pixel correction claimed"
+    }
+  ]
+}

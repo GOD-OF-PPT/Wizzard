@@ -1,0 +1,6 @@
+Built-in image_gen precise local edit of selected06-results and33-current-ranking, independent horizontal/portrait sources.
+Add only one top-left compact parchment plaque reading返回首页 in original brush-calligraphy/dark ink/warm parchment/gold-lacquer style. No icon or extra labels.
+Landscape1672x941 visible plaque x36..222,y18..76, full quiet crop x32..232,y14..82; roughly24px text. Portrait941x1672 visible plaque x26..262,y23..88, full quiet crop x22..266,y19..92; roughly38px text.
+Preserve every other original title, avatar, nickname, score, header/divider, flowers, scroll, footer action, lantern and scene pixel/composition. No plaque over title or table, no resizing/reflow.
+Final selected sources accept ONLY that new control rectangle from candidates. Save06/33 home-v2 before wiring; reuse identical local component ROI on existing34/36 final-round states as versioned home-v2 revisions. Existing design-state count does not increase for these revisions.
+Runtime crops original-ratio plaques with fixed lettering and live accessible callbacks. Minimum44CSSpx touch targets may extend into quiet scene; no duplicate old outer match control during result surfaces. Final ranking uses its existing footer home/leave action.

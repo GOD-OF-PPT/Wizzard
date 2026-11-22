@@ -1,0 +1,8 @@
+{
+  "source": "art/source/web-v3/results-ink-v1/source-colors-v1.json",
+  "sourceSha256": "8d5831c4d3da689f5eaa93ef34844e2926b6b56d92bd1d49106523577f4530e7",
+  "output": "art/runtime/web-v3/results-ink-v1.json",
+  "outputSha256": "0e9a0096f34a017fd9b0c79dcddb572ff0a4468aeb7b8f7513c1a664fab1d187",
+  "selection": "Native source1px-eroded RGB medians, with original distributions retained. Existing authored normal/final/current/count variants stay distinct. Classic and guest use unchanged final-ranking source ink.",
+  "minus": "Initial optical correction derived from source/186 blue-ink component geometry; must be reviewed in Chrome. Live ASCII minus and complete score string retained; no data or rules change."
+}

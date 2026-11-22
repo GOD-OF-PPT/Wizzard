@@ -1,0 +1,231 @@
+{
+  "id": "match.victory",
+  "label": "茶会胜出",
+  "durationSeconds": 2.8,
+  "trigger": "最终总榜本人第一名、并列第一",
+  "prompt": "A graceful compact celebration made from three warm jade-bell and porcelain strikes, a soft bamboo roll and a tiny silk flourish, resolving gently. Refined joyful enchanted teahouse victory, small room scale, no orchestra, melody, cymbal crash or grand cinematic impact. Entire sound fits within 2.8 seconds. For an enchanted Chinese teahouse game. One isolated close-up, warm tactile hit. No voice, music, ambience, beeps or harsh treble.",
+  "targetLufs": -20,
+  "cooldownMs": 3000,
+  "loop": false,
+  "variants": 4,
+  "status": "generated",
+  "runtimePath": "art/runtime/audio/teahouse-v1/match-victory-v1.mp3",
+  "sourceDirectory": "art/source/audio/teahouse-v1/match-victory",
+  "submittedAt": "2026-10-28T07:44:54.884Z",
+  "generatedAt": "2026-10-28T07:48:03.142Z",
+  "model": "eleven_text_to_sound_v2",
+  "downloadPrefix": "A_graceful_compact_c_",
+  "sourceFiles": [
+    {
+      "take": 1,
+      "downloadedName": "A_graceful_compact_c_#1-1793173695419.mp3",
+      "path": "art/source/audio/teahouse-v1/match-victory/take-01.mp3"
+    },
+    {
+      "take": 2,
+      "downloadedName": "A_graceful_compact_c_#2-1793173695420.mp3",
+      "path": "art/source/audio/teahouse-v1/match-victory/take-02.mp3"
+    },
+    {
+      "take": 3,
+      "downloadedName": "A_graceful_compact_c_#3-1793173695420.mp3",
+      "path": "art/source/audio/teahouse-v1/match-victory/take-03.mp3"
+    },
+    {
+      "take": 4,
+      "downloadedName": "A_graceful_compact_c_#4-1793173695420.mp3",
+      "path": "art/source/audio/teahouse-v1/match-victory/take-04.mp3"
+    }
+  ],
+  "candidates": [
+    {
+      "take": 1,
+      "source": "art/source/audio/teahouse-v1/match-victory/take-01.mp3",
+      "sourceSha256": "a1adc5fbbab93ee121b58e01d6498ad3291228b499bb1a36756fc277ac85149b",
+      "sourceBytes": 67437,
+      "sourceMetrics": {
+        "duration": 2.76,
+        "peakDbfs": -3.6734530343686913,
+        "rmsDbfs": -26.42584040152652,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.000020833333333333333,
+        "trailingSilenceSeconds": 0.000020833333333333333,
+        "first": 1,
+        "last": 132478
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/match-victory-take-01.mp3",
+      "sha256": "971d6825f621d3a5982a0512c3650ada71f920656f55c4d9c921a0bbd35c2b27",
+      "bytes": 45182,
+      "outputMetrics": {
+        "duration": 2.76,
+        "peakDbfs": -3.477047283109166,
+        "rmsDbfs": -26.21295605632374,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.00016666666666666666,
+        "trailingSilenceSeconds": 1.5424583333333333,
+        "first": 8,
+        "last": 58441
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 2.76,
+        "targetRmsDbfs": -23,
+        "gainDb": 0.6734530343686913,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 2,
+      "source": "art/source/audio/teahouse-v1/match-victory/take-02.mp3",
+      "sourceSha256": "4fda7f730acd4cfab208a96d85c8102a697adf21b7b2004d31486ac13403285b",
+      "sourceBytes": 67437,
+      "sourceMetrics": {
+        "duration": 2.76,
+        "peakDbfs": 0.3265581140959788,
+        "rmsDbfs": -21.836681354472496,
+        "clippedSamples": 5,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.000041666666666666665,
+        "first": 0,
+        "last": 132477
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/match-victory-take-02.mp3",
+      "sha256": "85908ac9706434cfd05e79482c71d9771b9e91699b07c53f348589af3fd1e324",
+      "bytes": 45182,
+      "outputMetrics": {
+        "duration": 2.76,
+        "peakDbfs": -3.248504101761849,
+        "rmsDbfs": -25.661214029647795,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 1.0718541666666668,
+        "first": 0,
+        "last": 81030
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 2.76,
+        "targetRmsDbfs": -23,
+        "gainDb": -3.326558114095979,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 3,
+      "source": "art/source/audio/teahouse-v1/match-victory/take-03.mp3",
+      "sourceSha256": "afac21bfabaa68c381af84d811af08e43c701e441e4f71a6c5ebfdf9334efddb",
+      "sourceBytes": 67437,
+      "sourceMetrics": {
+        "duration": 2.76,
+        "peakDbfs": -1.8190889425595769,
+        "rmsDbfs": -27.234589432064013,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.00008333333333333333,
+        "first": 0,
+        "last": 132475
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/match-victory-take-03.mp3",
+      "sha256": "00397c56d1f58495f8e5584b37d5320406f735a1de624672d2b93a32aad2ce98",
+      "bytes": 45182,
+      "outputMetrics": {
+        "duration": 2.76,
+        "peakDbfs": -3.40596742946025,
+        "rmsDbfs": -28.95150060346907,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 1.4961041666666666,
+        "first": 0,
+        "last": 60666
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 2.76,
+        "targetRmsDbfs": -23,
+        "gainDb": -1.1809110574404231,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 4,
+      "source": "art/source/audio/teahouse-v1/match-victory/take-04.mp3",
+      "sourceSha256": "42d33124d35372284693eb1b42d6fc30d00be7667ca2d802977588c88d732f9e",
+      "sourceBytes": 67437,
+      "sourceMetrics": {
+        "duration": 2.76,
+        "peakDbfs": -10.277394332775454,
+        "rmsDbfs": -34.03412796230553,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0,
+        "first": 0,
+        "last": 132479
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/match-victory-take-04.mp3",
+      "sha256": "ed0fbd129e6811f5495e198267886d412b744f9e12232649fa454385e24b7d44",
+      "bytes": 45182,
+      "outputMetrics": {
+        "duration": 2.76,
+        "peakDbfs": -3.938767396108508,
+        "rmsDbfs": -27.263952755220473,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 1.3823541666666668,
+        "first": 0,
+        "last": 66126
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 2.76,
+        "targetRmsDbfs": -23,
+        "gainDb": 7.2773943327754544,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    }
+  ],
+  "selectedTake": 2,
+  "selectionBasis": "保留较完整的低中频共鸣与2.76秒收尾；在四个候选中高频集中较低，再以高频搁架柔化亮度。",
+  "runtimeSha256": "2746a4f50cafe0cd618c8219fd18d1731bad3dc5a5657c62b5e6f9518ae5e6e2",
+  "runtimeBytes": 45182,
+  "durationActualSeconds": 2.76,
+  "technicalStatus": "decode-duration-peak-and-unique-takes-verified",
+  "listeningStatus": "not-human-reviewed",
+  "wiredToGame": true,
+  "selectionStatus": "agent-selected",
+  "selectionReviewMethod": "Per-candidate waveform, spectral distribution, duration, onset pattern, and role matching. This is an agent production choice, not a claim of direct auditory or human listening acceptance.",
+  "finalProcessing": {
+    "eq": "highshelf=f=4500:g=-8",
+    "gainDb": 2
+  },
+  "finalMetrics": {
+    "duration": 2.76,
+    "peakDbfs": -6.903728857349369,
+    "rmsDbfs": -29.475932908444147,
+    "clippedSamples": 0,
+    "leadingSilenceSeconds": 0,
+    "trailingSilenceSeconds": 0.6778125,
+    "first": 0,
+    "last": 99944
+  },
+  "integrationTarget": "react-web"
+}

@@ -1,0 +1,31 @@
+// Evidence integrity and production exclusion, never a visual-pass heuristic.
+import {readFile,writeFile,copyFile,readdir,mkdir,stat} from "node:fs/promises";
+import {createHash} from "node:crypto";
+import {spawnSync} from "node:child_process";
+const folder="art/review/web-v3/source-card-calibration-20261025",read=async p=>JSON.parse(await readFile(p,"utf8")),sha=async p=>createHash("sha256").update(await readFile(p)).digest("hex");
+const verified=[];async function check(path,expected){const actual=await sha(path);if(actual!==expected)throw Error("Hash mismatch "+path);verified.push({path,sha256:actual});}
+const refs=await read("art/source/web-v3/cards-v5/reference-provenance.json"),faces=await read("art/source/web-v3/cards-v5/face-provenance.json");
+if(refs.reports.length!==8||faces.reports.length!==8||!faces.complete||!faces.runtimeExported)throw Error("Incomplete face set");
+for(const r of refs.reports){await check(r.source,r.sourceSha256);await check(r.reference,r.referenceSha256);}
+for(const r of faces.reports){for(const [p,k]of [[r.reference,"referenceSha256"],[r.candidate,"candidateSha256"],[r.source,"sourceSha256"],[r.runtime,"runtimeSha256"],[r.nativeRuntime,"nativeRuntimeSha256"]])await check(p,r[k]);if(r.changedOutsideRoi||r.alphaChanges||r.protectedChanges)throw Error("Source protection failed");}
+const coverage=await read(`${folder}/coverage.json`);if(coverage.reports.length!==20)throw Error("Not all shared states captured");
+for(const r of coverage.reports){await check(r.source,r.sourceSha256);await check(r.capture,r.captureSha256);r.status="captured-and-reviewed-P2-remain";}
+coverage.status="captured-and-reviewed-P2-remain";coverage.reviewReport="docs/59-web-v3-source-card-faces-and-ranks.md";coverage.reviewedViews={full:20,focused:20};coverage.additionalFinding="P2 dense selected11 can obscure the leading1 of neighboring12; independent dense state designs missing";
+await writeFile(`${folder}/coverage.json`,JSON.stringify(coverage,null,2)+"\n");
+await mkdir(`${folder}/diagnostics`,{recursive:true});
+const inputName="84-card-input-sanity-20261025.json";await copyFile(`art/review/web-v3/${inputName}`,`${folder}/${inputName}`);const input=await read(`${folder}/${inputName}`);if(input.rows.length!==12||input.rows.some(r=>!r.passed))throw Error("Input receipt inconsistent");
+for(const profile of ["landscape","portrait"])for(const mode of ["mouse","touch"]){const n=`84-eight-${profile}-${mode}-20261025.png`;await copyFile(`art/review/web-v3/${n}`,`${folder}/diagnostics/${n}`);}
+const before=await read("art/review/web-v3/countdown-first-frame-20261025/before.json"),after=await read("art/review/web-v3/countdown-first-frame-20261025/after.json"),a=after.runs.filter(r=>r.label.startsWith("after-"));
+if(before.runs.length!==3||before.runs.filter(r=>r.red).length!==2||a.length!==6||a.some(r=>r.red||r.first.seconds!==30))throw Error("Clock claims inconsistent");
+const long=a.find(r=>r.label==="after-6-explicit-long");if(long.rows.at(-1).time-long.rows[0].time<1200||!long.rows.some(r=>r.seconds===29))throw Error("No interval spanning clock observation");
+const manifest=await read("art/web-v3-manifest.json");if(manifest.version!==8||manifest.sourceCardRevision.comparisonCount!==20)throw Error("Manifest stale");
+await writeFile(`${folder}/verification.json`,JSON.stringify({at:new Date().toISOString(),hashChecks:verified.length,verified,protectedSourceOutsideRoi:0,protectedAlphaChanges:0,protectedColorChanges:0,currentJointViews:{full:20,focused:20},inputs:{cases:12,failures:0,scope:input.scope},clock:{beforeRuns:3,beforeRed:2,afterRuns:6,afterRed:0,longFrames:long.rows.length,longDurationMs:long.rows.at(-1).time-long.rows[0].time,sequence:[30,29],scope:"Local AI-to-human bid only"},overallVisualResult:"blocked"},null,2)+"\n");
+const files=await readdir("dist/assets"),scripts=files.filter(n=>/\.(js|css)$/.test(n)),markers=["rank-font","rank-v1","Review Tinos","Tinos-Bold","WebV3Rank-Tinos","rankProof","design-review","review-leaf-5","reviewMatchController","DesignReview","Review WenKai","Review ZhenKai"],matches=[];
+for(const file of scripts){const data=await readFile(`dist/assets/${file}`,"utf8");for(const marker of markers)if(data.includes(marker))matches.push({file,marker});}
+const forbiddenAssets=files.filter(n=>/candidate|measurement|reference|Tinos|WebV3Rank|^(leaf|mountain|knot|sun)-v4|^(landscape|portrait)-(leaf|mountain|knot|sun)-v5-(?!native)/i.test(n));
+const nativeAssets=files.filter(n=>/^(landscape|portrait)-(leaf|mountain|knot|sun)-v5-native-/.test(n));if(matches.length||forbiddenAssets.length||nativeAssets.length!==8)throw Error("Production exclusion failed "+JSON.stringify({matches,forbiddenAssets,nativeAssets}));
+const diff=spawnSync("git",["diff","--check"],{encoding:"utf8"});if(diff.status!==0)throw Error(diff.stdout+diff.stderr);
+const sourceFiles=["src/hooks/useLocalMatch.ts","src/components/CardView.tsx","src/web/card-assets.ts","src/styles.css","src/web-v3.css"];
+await writeFile(`${folder}/build.json`,JSON.stringify({typescript:{command:"npx tsc --noEmit",exitCode:0},webBuild:{command:"npm run web:build",exitCode:0,...await read("dist/web-build-report.json")},productionScan:{scripts:await Promise.all(scripts.map(async file=>({file,sha256:await sha(`dist/assets/${file}`),bytes:(await stat(`dist/assets/${file}`)).size}))),markers,matches,forbiddenAssets,nativeAssets},sourceFiles:await Promise.all(sourceFiles.map(async path=>({path,sha256:await sha(path)}))),diffCheck:{command:"git diff --check",exitCode:0},scope:"Engineering only; not visual acceptance"},null,2)+"\n");
+const indexPath=`${folder}/index.html`,html=await readFile(indexPath,"utf8");if(!html.includes('id="inputs"'))await writeFile(indexPath,html.replace("<main>",'<p id="inputs"><a href="84-card-input-sanity-20261025.json">12项当前原生输入</a> · <a href="diagnostics/84-eight-portrait-touch-20261025.png">八牌竖屏诊断</a> · <a href="diagnostics/84-eight-landscape-touch-20261025.png">八牌横屏诊断</a>。注意：中选11遮住邻牌12首位，P2未关闭，密集状态独立源稿待补。</p><main>'));
+console.log(JSON.stringify({hashChecks:verified.length,comparisons:20,inputs:12,clockFirstFrames:[2,0],nativeAssets:nativeAssets.length,productionMarkers:matches.length,visualResult:"blocked"}));

@@ -1,0 +1,109 @@
+{
+  "method": "Built-in ImageGen blank quiet paper texture registered/cropped and median color matched; only original sun and mutable suit-name rectangles cleaned. Original fixed prefix/frame RGB retained. Original sun saturated-ink alpha extraction. Status copy uses original pixels.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "strip": [
+        0,
+        111,
+        2170,
+        492
+      ],
+      "crop": [
+        672,
+        505,
+        331,
+        75
+      ],
+      "icon": [
+        28,
+        9,
+        68,
+        55
+      ],
+      "name": [
+        234,
+        16,
+        59,
+        39
+      ],
+      "source": "art/source/web-v3/hud-source-v1/landscape-trump-reference.png",
+      "sourceSha256": "3b057a85932b68c6d5d2c0d3acb21572f0d1d740cadbbeae05c404992baa0d64",
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-blank-candidate-v1.png",
+      "candidateSha256": "fea4ae0b1d6bf3d2b8bbfc4d09e80193d45aa886a2e8e9530848d06011f52461",
+      "delta": [
+        -3,
+        -2,
+        3
+      ],
+      "changed": 5548,
+      "changedOutsideLiveFields": 0,
+      "output": "art/runtime/web-v3/hud-source-v1/landscape-trump-live-fields-v1.png",
+      "sha256": "c50d02faede8b0713b6d50ea55f60d474315ea60f5ebaa24dd3d69bc940e841c",
+      "sun": "art/runtime/web-v3/hud-source-v1/landscape-trump-sun-v1.png",
+      "sunSha256": "6b1c0c98d5160a0d0249c5ae2e88be659831d2b80173e7e6b9740754c1d7b3a0"
+    },
+    {
+      "profile": "portrait",
+      "strip": [
+        0,
+        120,
+        2168,
+        483
+      ],
+      "crop": [
+        298,
+        923,
+        359,
+        80
+      ],
+      "icon": [
+        30,
+        9,
+        73,
+        59
+      ],
+      "name": [
+        253,
+        16,
+        65,
+        43
+      ],
+      "source": "art/source/web-v3/hud-source-v1/portrait-trump-reference.png",
+      "sourceSha256": "0d9669ccee029c3bd13b5d168d9f13d32e0b590bf240db99e9248226ae1a4b7b",
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-blank-candidate-v1.png",
+      "candidateSha256": "eb2a261ba62f62a9c1a94b17f8482c2da562f2fd02b385cf11db18c8cfcf3f9b",
+      "delta": [
+        -3,
+        -6,
+        -5
+      ],
+      "changed": 6603,
+      "changedOutsideLiveFields": 0,
+      "output": "art/runtime/web-v3/hud-source-v1/portrait-trump-live-fields-v1.png",
+      "sha256": "666297d03b8573ae0719e58a6a99ed8c37170418cdeb8987b7d3c62b801db5a8",
+      "sun": "art/runtime/web-v3/hud-source-v1/portrait-trump-sun-v1.png",
+      "sunSha256": "5e75188bd490f240ef79c77e72b7d53d782429d099780c10c4724a13c8092426"
+    },
+    {
+      "profile": "landscape",
+      "kind": "local-play-status",
+      "source": "art/source/web-v3/hud-source-v1/landscape-status-reference-v1.png",
+      "sourceSha256": "2cb3ef4666e06ec08f2b0563792de666a4e593aee1afa60cbc6a13b3a995e890",
+      "output": "art/runtime/web-v3/hud-source-v1/landscape-local-play-status-v1.png",
+      "sha256": "034962fea0ea33f907d68bab39fc6c56d1919c1fc5acf75f7c6cf548f5889bac",
+      "opaqueRGBChanges": 0,
+      "alpha": "Larger original source tile, 8px outer feather; quiet original center covers incompatible baked empty top line."
+    },
+    {
+      "profile": "portrait",
+      "kind": "local-play-status",
+      "source": "art/source/web-v3/hud-source-v1/portrait-status-reference-v1.png",
+      "sourceSha256": "7092325ae0ba0bd3a7186f395e039c974f7037573672fb3c754a64ebcafe20a7",
+      "output": "art/runtime/web-v3/hud-source-v1/portrait-local-play-status-v1.png",
+      "sha256": "6e5bcc9353233a28c7024d25bd00a68fad4ce053cc6354b112275737d807c1bf",
+      "opaqueRGBChanges": 0,
+      "alpha": "Original gold decoration plus 1px adjacent pixels; retain original dark plaque interior."
+    }
+  ]
+}

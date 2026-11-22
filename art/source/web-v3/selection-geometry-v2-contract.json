@@ -1,0 +1,107 @@
+{
+  "contract": {
+    "cardBox": [
+      140,
+      210
+    ],
+    "lift": 12,
+    "neighborShift": 9,
+    "haloOffset": 8,
+    "haloCanvas": [
+      171,
+      231
+    ],
+    "haloLayer": "behind original paper",
+    "durationMs": 140,
+    "confirmPulseMs": 560,
+    "origin": "center"
+  },
+  "profiles": {
+    "landscape": {
+      "canvas": [
+        1672,
+        941
+      ],
+      "hand": {
+        "x": 351.12,
+        "y": 625.765,
+        "width": 969.76,
+        "height": 254.07,
+        "bottom": 879.835
+      },
+      "poses": [
+        {
+          "center": [
+            614.9261,
+            770.8313
+          ],
+          "angle": -2.35
+        },
+        {
+          "center": [
+            760.7328,
+            768.9906
+          ],
+          "angle": -2.3
+        },
+        {
+          "center": [
+            905.2282,
+            769.6873
+          ],
+          "angle": 1.8
+        },
+        {
+          "center": [
+            1051.7059,
+            778.7502
+          ],
+          "angle": 4.7
+        }
+      ]
+    },
+    "portrait": {
+      "canvas": [
+        941,
+        1672
+      ],
+      "hand": {
+        "x": 86.8543,
+        "y": 1237.28,
+        "width": 621.06,
+        "height": 234.08,
+        "bottom": 1471.36
+      },
+      "poses": [
+        {
+          "center": [
+            208.834,
+            1368.3129
+          ],
+          "angle": -2.5
+        },
+        {
+          "center": [
+            353.5235,
+            1365.1284
+          ],
+          "angle": -1.85
+        },
+        {
+          "center": [
+            489.5512,
+            1365.124
+          ],
+          "angle": 2
+        },
+        {
+          "center": [
+            630.0256,
+            1374.5556
+          ],
+          "angle": 4.8
+        }
+      ]
+    }
+  }
+}

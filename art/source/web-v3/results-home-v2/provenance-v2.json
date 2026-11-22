@@ -1,0 +1,241 @@
+{
+  "method": "Built-in ImageGen new local back-control edit on selected06/33. Only top-left quiet control ROI composed into original sources. Same component ROI reused on34/36 as versioned design revisions; unrelated sourceRGB invariant. Runtime fixed-ratio local crop plus live accessible onExit callback.",
+  "profiles": {
+    "landscape": {
+      "canvas": [
+        1672,
+        941
+      ],
+      "rect": [
+        26,
+        16,
+        202,
+        76
+      ]
+    },
+    "portrait": {
+      "canvas": [
+        941,
+        1672
+      ],
+      "rect": [
+        20,
+        24,
+        250,
+        90
+      ]
+    }
+  },
+  "reports": [
+    {
+      "profile": "landscape",
+      "view": "results",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "candidate": "art/source/web-v3/results-home-v2/landscape-current-ranking-candidate-v2.png",
+      "candidateSha256": "f8d1ca362b23c820d072eac032a6f2d1a3b542de10775067fd3b8f079af426c3",
+      "allowed": [
+        [
+          26,
+          16,
+          202,
+          76
+        ]
+      ],
+      "output": "art/mockups/web-v3/06-results-home-v2.png",
+      "sha256": "cf3023e82658542dc06cf5c9873643a1ff25ecc9cd1268f023c04758e40aec4b",
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "landscape",
+      "view": "results-final",
+      "source": "art/mockups/web-v3/34-results-final-round-v1.png",
+      "sourceSha256": "f83e11b1042a9abb71fa9ab83d6273a159cde0ad404aaa8300f19bb34ab5f9de",
+      "controlSource": "art/mockups/web-v3/06-results-home-v2.png",
+      "controlSourceSha256": "cf3023e82658542dc06cf5c9873643a1ff25ecc9cd1268f023c04758e40aec4b",
+      "allowed": [
+        [
+          26,
+          16,
+          202,
+          76
+        ]
+      ],
+      "output": "art/mockups/web-v3/34-results-final-round-home-v2.png",
+      "sha256": "5a1c627f8e82e6de204eb2a1a5b4acb912037e5b30ed7567aaefdc18d9e9feae",
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "landscape",
+      "view": "current-ranking",
+      "source": "art/mockups/web-v3/33-current-ranking-v1.png",
+      "sourceSha256": "dce9d69cd894483b1968bc1e69c9aec33aabe55f2d431a0c9ffe6babd480c0ed",
+      "candidate": "art/source/web-v3/results-home-v2/landscape-current-ranking-candidate-v2.png",
+      "candidateSha256": "f8d1ca362b23c820d072eac032a6f2d1a3b542de10775067fd3b8f079af426c3",
+      "allowed": [
+        [
+          26,
+          16,
+          202,
+          76
+        ]
+      ],
+      "output": "art/mockups/web-v3/33-current-ranking-home-v2.png",
+      "sha256": "f658cb7e31a482840d48399010b0e41ffd696dab057612dc7cff199635099c4b",
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "landscape",
+      "view": "current-ranking-final",
+      "source": "art/mockups/web-v3/36-current-ranking-final-v1.png",
+      "sourceSha256": "bf9992730659fe3e6b4fffe7346883c70989808276e390e0377a9ff46fa11da2",
+      "controlSource": "art/mockups/web-v3/33-current-ranking-home-v2.png",
+      "controlSourceSha256": "f658cb7e31a482840d48399010b0e41ffd696dab057612dc7cff199635099c4b",
+      "allowed": [
+        [
+          26,
+          16,
+          202,
+          76
+        ]
+      ],
+      "output": "art/mockups/web-v3/36-current-ranking-final-home-v2.png",
+      "sha256": "7fb935daf53012df432d3042d0dd887743b731d2ce017f033cc6a3e1c0789342",
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "portrait",
+      "view": "results",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "candidate": "art/source/web-v3/results-home-v2/portrait-current-ranking-candidate-v2.png",
+      "candidateSha256": "a9d9bccdd07b1372699fe76b4efeb12eee82dae5ab9f27a5b79460397e9406e5",
+      "allowed": [
+        [
+          20,
+          24,
+          250,
+          90
+        ]
+      ],
+      "output": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+      "sha256": "6941e02fd4f5b6cb9d0dff7bc17b86184df3cbad7618c1832c8f9a51071dc7e1",
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "portrait",
+      "view": "results-final",
+      "source": "art/mockups/web-v3/portrait/34-results-final-round-v1.png",
+      "sourceSha256": "a07233b8747e413c426d58b6295264fdc691608f1b884354436c2c4cbf52144f",
+      "controlSource": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+      "controlSourceSha256": "6941e02fd4f5b6cb9d0dff7bc17b86184df3cbad7618c1832c8f9a51071dc7e1",
+      "allowed": [
+        [
+          20,
+          24,
+          250,
+          90
+        ]
+      ],
+      "output": "art/mockups/web-v3/portrait/34-results-final-round-home-v2.png",
+      "sha256": "f1f6a4f2edc05e4478308559638389438c66f02579d81ad9a07d6c86c2035aef",
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "portrait",
+      "view": "current-ranking",
+      "source": "art/mockups/web-v3/portrait/33-current-ranking-v1.png",
+      "sourceSha256": "9adf5aac5954333d5829be06de28ab5efc511d234a9fa8d8f6818e76925cd709",
+      "candidate": "art/source/web-v3/results-home-v2/portrait-current-ranking-candidate-v2.png",
+      "candidateSha256": "a9d9bccdd07b1372699fe76b4efeb12eee82dae5ab9f27a5b79460397e9406e5",
+      "allowed": [
+        [
+          20,
+          24,
+          250,
+          90
+        ]
+      ],
+      "output": "art/mockups/web-v3/portrait/33-current-ranking-home-v2.png",
+      "sha256": "654d03d837ebe9a29c3d4b0f1123be7db82fdb4c3293e45a8bff2c6f5205a0a2",
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "portrait",
+      "view": "current-ranking-final",
+      "source": "art/mockups/web-v3/portrait/36-current-ranking-final-v1.png",
+      "sourceSha256": "4a002be7aa7066b36414091f7020776ca8b24d51822cdafc1fc53629267a3ddf",
+      "controlSource": "art/mockups/web-v3/portrait/33-current-ranking-home-v2.png",
+      "controlSourceSha256": "654d03d837ebe9a29c3d4b0f1123be7db82fdb4c3293e45a8bff2c6f5205a0a2",
+      "allowed": [
+        [
+          20,
+          24,
+          250,
+          90
+        ]
+      ],
+      "output": "art/mockups/web-v3/portrait/36-current-ranking-final-home-v2.png",
+      "sha256": "24498a24b6240375f530ac7296ba681eb7df29b287f9fddc0344d00b99c0d694",
+      "changedOutsideROI": 0
+    }
+  ],
+  "runtimeReports": [
+    {
+      "profile": "landscape",
+      "view": "results",
+      "source": "art/mockups/web-v3/06-results-home-v2.png",
+      "sourceSha256": "cf3023e82658542dc06cf5c9873643a1ff25ecc9cd1268f023c04758e40aec4b",
+      "rect": [
+        26,
+        16,
+        202,
+        76
+      ],
+      "output": "art/runtime/web-v3/results-home-v2/landscape-results-back-v2.png",
+      "sha256": "99e070ba5680a82d3bf2af74156159326068396b3dd00aeb4bc1325da091f3de"
+    },
+    {
+      "profile": "landscape",
+      "view": "current-ranking",
+      "source": "art/mockups/web-v3/33-current-ranking-home-v2.png",
+      "sourceSha256": "f658cb7e31a482840d48399010b0e41ffd696dab057612dc7cff199635099c4b",
+      "rect": [
+        26,
+        16,
+        202,
+        76
+      ],
+      "output": "art/runtime/web-v3/results-home-v2/landscape-current-ranking-back-v2.png",
+      "sha256": "f9e4f76e4c9d3b56e5030b133ffe6fca083129d30cd644b44d37c6b31bbec67f"
+    },
+    {
+      "profile": "portrait",
+      "view": "results",
+      "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+      "sourceSha256": "6941e02fd4f5b6cb9d0dff7bc17b86184df3cbad7618c1832c8f9a51071dc7e1",
+      "rect": [
+        20,
+        24,
+        250,
+        90
+      ],
+      "output": "art/runtime/web-v3/results-home-v2/portrait-results-back-v2.png",
+      "sha256": "66ea5d4c8e5ab2a795eb3d2f20040431a3728363fd6de9d3285a17342f8fba13"
+    },
+    {
+      "profile": "portrait",
+      "view": "current-ranking",
+      "source": "art/mockups/web-v3/portrait/33-current-ranking-home-v2.png",
+      "sourceSha256": "654d03d837ebe9a29c3d4b0f1123be7db82fdb4c3293e45a8bff2c6f5205a0a2",
+      "rect": [
+        20,
+        24,
+        250,
+        90
+      ],
+      "output": "art/runtime/web-v3/results-home-v2/portrait-current-ranking-back-v2.png",
+      "sha256": "f1da1e8a6c44c39bf73b1d6385ca4cd249ae3c3b7e7fd03f9ef1bd4e634747ec"
+    }
+  ]
+}

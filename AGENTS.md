@@ -11,7 +11,7 @@ When implementing from a selected generated mock, treat that image as the source
 - The current product is a friends-only, non-commercial WeChat card-game experience.
 - Work priority is functional behavior first, WeChat Mini Game UI second, required release/build gates third, and broader test-only work last. Do not expand tests while known functional or visual defects remain unresolved.
 - Newly created friend rooms use six-digit numeric room codes. The initial staged rollout generates digits 2-9 so the previous experience client can still join after the server-first deployment; the new client accepts exactly six decimal digits. Protocol decoding may accept the previous safe-alphabet format only for short-lived deployment compatibility; never generate new letter-based room codes or weaken the separate high-entropy invite token.
-- Opening either the create-room or join-room dialog generates one fresh, editable teahouse-style nickname. Keep that nickname stable across dialog redraws, generate another only after returning and opening an entry dialog again, and preserve the established identity when resuming a room session. Direct create/join bindings also receive a random nickname.
+- Web create/join share the last valid nickname on this browser. Generate a teahouse-style suggestion on first use, remember valid edits across reopening and reload, and preserve established identities on resume. Keep the existing fresh-name behavior for the Cocos client.
 - The game is landscape-first at a 16:9 design reference; do not redesign it as portrait without an explicit decision change.
 - The selected visual direction is option 2, “Enchanted Teahouse / 奇术茶馆”, stored at `public/assets/selected-art-direction.png`.
 - Preserve the warm lacquer, paper-card, lantern, ink-wash, animal-traveler visual language of the selected reference.
@@ -73,7 +73,7 @@ When implementing from a selected generated mock, treat that image as the source
 - Friend-room input rows preserve their authored height and extend only through the quiet horizontal center band. Compact dialog buttons may use nine-slice only when their runtime height is at least the combined authored top/bottom caps.
 - Friend-room title, avatar, field, option, and action bands must stay inside each panel's authored decoration-free safe area with at least 8 design pixels between adjacent bands; bottom actions must not enter the lotus ornament or lacquer border.
 - The AI-fill row must expose an explicit 开启/关闭 state in addition to its visual opacity state.
-- Room creation exposes AI auto-fill as an explicit choice. A network match may not start until at least two real human players are present and ready; AI may fill only the remaining configured seats.
+- Room creation exposes AI auto-fill as an explicit choice. A connected, ready human host may start with AI filling the remaining configured seats; every other human who has joined must also be connected and ready.
 
 ### Latest Visual QA Decisions (2026-08-10)
 
@@ -87,7 +87,7 @@ When implementing from a selected generated mock, treat that image as the source
 - Superseded on 2026-08-11: the lobby AI standby badge is a redundant add-AI target while the host is allowed to add a robot.
 - Once a friend room has been established, clear the create/join entry-dialog mode. A later protocol or session failure may return to the home entry with an error, but must never reopen the stale create-room dialog.
 - Friend-room occupied-seat status uses the final-ratio SIMPLE `ui.match.stat.paper/green` assets. The local prepare action uses the final-ratio green results button, cancel-prepare uses the paper results button, and the ready counter counts connected ready humans over total humans only.
-- The lobby must expose explicit host-only `添加机器人` / `移除机器人` controls after at least two connected humans are present. Commands set an absolute AI count; a successful manual adjustment disables the host's local start-time auto-fill choice so a removed AI is not silently restored.
+- The lobby must expose explicit host-only `添加机器人` / `移除机器人` controls immediately after room creation is acknowledged. Commands set an absolute AI count; a successful manual adjustment disables the host's local start-time auto-fill choice so a removed AI is not silently restored.
 - Disabled start controls must state the blocking reason (`等待好友`, `等待准备`, or `补齐座位`). AI management, ready, start, and leave are mutually exclusive pending commands, and their Mini Game touch targets must remain disjoint at the 402px-height acceptance viewport.
 
 ### Latest Release Engineering Decisions (2026-08-10)
@@ -163,3 +163,37 @@ When implementing from a selected generated mock, treat that image as the source
 - User requests a fresh ImageGen design for every page and its interactions, saved to the repository before implementation. Track the full page/state coverage in `docs/18-web-v3-design-and-interaction.md`; preserve the selected WeChat Enchanted Teahouse art direction.
 - Final acceptance uses Chrome only and requires same-viewport, same-state source-versus-implementation comparisons. Standalone implementation screenshots, passing builds, and earlier `passed` claims do not prove pixel fidelity.
 - Do not mark the redesign complete while page designs, interactive states, responsive views, or post-fix visual evidence remain missing. Record current gaps explicitly.
+
+### Latest Friend-Room Decisions (2026-10-28)
+
+- Remove the two-online-human requirement for both robot management and starting a friend-room match. One connected human host may add/remove robots immediately, ready up, and start with either manual AI placement or start-time auto-fill.
+- The shared room contract permits one human plus up to five AI in a six-seat room. Preserve host-only commands, configured seat capacity, all joined humans being connected and ready, and pending-command exclusion.
+
+### Latest Audio Decisions (2026-10-28)
+
+- The user delegated selection of the ElevenLabs teahouse sound-effect candidates to Codex. The chosen takes and restrained finishing adjustments are recorded in `art/source/audio/teahouse-v1/selection-v1.json`; `art/audio-manifest.json` owns runtime paths and checksums. Re-exporting must preserve those choices instead of replacing them with the automatic technical defaults.
+- Web game audio lives under `src/web/audio/`, outside `packages/game-core`. Play network outcomes from authoritative room updates; silence initial resume/reconnect baselines and dedupe repeated versions. Unlock on a trusted gesture, stop on hidden/page leave/mute, cap simultaneous voices at four, and persist the local `游戏音效` preference. Settings uses the third authored row for sound and the footer plaque for reset; `M` toggles sound outside text inputs.
+
+### Latest Web HUD Decisions (2026-10-29)
+
+- When no trump suit exists, center the full `本轮王牌 · 无王牌` / `本轮王牌 · 待选择` line on its parchment plaque. Do not reserve an empty suit-icon slot or squeeze three-character states into the two-character suit-name field. Keep normal suit layouts and the authored plaque frame intact.
+
+### Latest Background Music Decisions (2026-10-29)
+
+- User-supplied music masters live in `art/source/audio/teahouse-bgm-v1/`; preserve the originals. `tools/prepare-teahouse-bgm.mjs` exports normalized runtime copies and `art/music-manifest.json` records source/runtime hashes, loudness, and playback behavior.
+- Home, entry dialogs, and friend-room lobby share two tracks with a random first selection and no immediate repeat at track end. Keep the current song and position across those surfaces. Practice and network matches, including results/rematches, use the dedicated looping gameplay track.
+- Keep one streamed background-music element separate from the four short-effect voices. Require a trusted gesture; fade scene changes, pause on mute/background/page leave, and require a fresh gesture after tab return. The third settings row is now `游戏声音`, and it plus `M` control both music and effects through the existing persisted `soundEnabled` preference.
+
+### Latest Web Packaging Decisions (2026-10-29)
+
+- Vite uses `base: "./"` so production HTML, styles, and imported media resolve relative to the deployed directory. Preserve subdirectory hosting support through the build configuration instead of manually rewriting `dist/index.html`.
+
+- Web production builds encode runtime art as WebP from the authored PNGs. Keep the original dimensions and alpha, use lossless encoding for small UI and card art, and select the current orientation for screens and form masks. Use immutable caching for fingerprinted assets only.
+
+- During web matches, place seats clockwise in game-core seat order as seen by every viewer, with the local player anchored in their own slot. Mark the acting seat and name the player and action, including who leads an empty trick. On phones, keep the round trump readable through bidding and the first play. Use the corresponding suit ink and icon, with centered neutral copy for no trump or a pending choice.
+
+- Keep the web table’s portrait `返回首页` label on one line inside the plaque, clear of its arrow, including prediction and trump-choice dialogs. Room creation offers quick and classic modes; display the seat-dependent round count from game-core and carry the choice through the request, lobby and match.
+
+- The web rules include a directly accessible `牌型与数量` chapter. List all four numbered suits and both special cards with counts from the game-core deck, and explain their play, trump reveal and trick-winning behavior.
+
+- Each card in the current trick carries its actual player's name from the accepted play, including during trick settlement. Keep the name tags legible in a full six-card trick. Show the phase and actor globally throughout the match; on settlement show the winner or the actual available next action.

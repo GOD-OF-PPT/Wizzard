@@ -1,0 +1,570 @@
+{
+  "method": "Projected central ImageGen source face, inverse homography, originalRGB/alpha preserved except bounded numeral cleanup. Generated quiet paper only. Native140x210 runtime; rank liveDOM.",
+  "complete": true,
+  "missing": [],
+  "reports": [
+    {
+      "profile": "landscape",
+      "suit": "leaf",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "reference": "art/source/web-v3/trick-faces-v1/landscape-leaf-reference.png",
+      "referenceSha256": "6690f1982d19801a46d2b57b74060b35b3307d17d1b366f060281f075ba4a887",
+      "candidate": "art/source/web-v3/trick-faces-v1/landscape-rank-paper-clean-candidate.png",
+      "candidateSha256": "7c07d690f1c039a31ec72bbbda544137ccea7ce64ef9bc06227c04491ef1b0c5",
+      "candidateSize": [
+        1017,
+        1546
+      ],
+      "rejectedFaceCandidate": "art/source/web-v3/trick-faces-v1/landscape-leaf-rank-clean-candidate.png",
+      "rank": 7,
+      "rankInk": [
+        91,
+        80,
+        165,
+        203
+      ],
+      "rankLogicalInk": [
+        30.333333333333332,
+        26.666666666666668,
+        55,
+        67.66666666666667
+      ],
+      "cleanupRoi": [
+        79,
+        68,
+        98,
+        147
+      ],
+      "paperBoundaryTonePlane": [
+        [
+          -3.4588563458856347,
+          0.5243521940116364,
+          0.6797833049146522
+        ],
+        [
+          -1.9546722454672245,
+          1.8184811243000527,
+          1.3823682216495663
+        ],
+        [
+          3.4665271966527196,
+          2.5798413251657677,
+          3.1336304336688197
+        ]
+      ],
+      "face": "art/source/web-v3/trick-faces-v1/landscape-leaf-face.png",
+      "faceSha256": "05734845f4b98164c32353722b40022b056bc74f06811550e3a5e514c70792d2",
+      "runtime": "art/runtime/web-v3/trick-cards-v1/landscape-leaf.png",
+      "runtimeSha256": "6d02191ede960465cdb2309053a74aca2a24a3b2e5ae696af4d785169ab812cd",
+      "runtimeSize": [
+        140,
+        210
+      ],
+      "highRuntime": "art/runtime/web-v3/trick-cards-v1/landscape-leaf-hi.png",
+      "highRuntimeSha256": "05734845f4b98164c32353722b40022b056bc74f06811550e3a5e514c70792d2",
+      "highRuntimeSize": [
+        420,
+        630
+      ],
+      "proof": "art/source/web-v3/trick-faces-v1/landscape-leaf-proof.png",
+      "changed": 13320,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "suit": "knot",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "reference": "art/source/web-v3/trick-faces-v1/landscape-knot-reference.png",
+      "referenceSha256": "3d3552f0719da0fff9db6cb8d957236cf504917030f8cbc83ebd99e70c472293",
+      "candidate": "art/source/web-v3/trick-faces-v1/landscape-rank-paper-clean-candidate.png",
+      "candidateSha256": "7c07d690f1c039a31ec72bbbda544137ccea7ce64ef9bc06227c04491ef1b0c5",
+      "candidateSize": [
+        1017,
+        1546
+      ],
+      "rejectedFaceCandidate": "art/source/web-v3/trick-faces-v1/landscape-knot-rank-clean-candidate.png",
+      "rank": 3,
+      "rankInk": [
+        80,
+        77,
+        151,
+        200
+      ],
+      "rankLogicalInk": [
+        26.666666666666668,
+        25.666666666666668,
+        50.333333333333336,
+        66.66666666666667
+      ],
+      "cleanupRoi": [
+        68,
+        65,
+        95,
+        147
+      ],
+      "paperBoundaryTonePlane": [
+        [
+          -2.8545197740112993,
+          -2.6216010165184573,
+          1.159139735585754
+        ],
+        [
+          -1.74364406779661,
+          -3.009868699703555,
+          1.664851726037452
+        ],
+        [
+          4.036723163841808,
+          -4.168996188055964,
+          1.8422245684906389
+        ]
+      ],
+      "face": "art/source/web-v3/trick-faces-v1/landscape-knot-face.png",
+      "faceSha256": "a4e70f0575293bd593ec9ced8a10d15d30bfca5b53a263b7d65b6535e7a54c4c",
+      "runtime": "art/runtime/web-v3/trick-cards-v1/landscape-knot.png",
+      "runtimeSha256": "085faa0c775acf84c4ab07b851b6b62b775f0a64d6f5b1ec02f6796c22e38fdb",
+      "runtimeSize": [
+        140,
+        210
+      ],
+      "highRuntime": "art/runtime/web-v3/trick-cards-v1/landscape-knot-hi.png",
+      "highRuntimeSha256": "a4e70f0575293bd593ec9ced8a10d15d30bfca5b53a263b7d65b6535e7a54c4c",
+      "highRuntimeSize": [
+        420,
+        630
+      ],
+      "proof": "art/source/web-v3/trick-faces-v1/landscape-knot-proof.png",
+      "changed": 13220,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "suit": "sun",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "reference": "art/source/web-v3/trick-faces-v1/landscape-sun-reference.png",
+      "referenceSha256": "a3a16c624a8bfb270f62b3dd922585b11124e81e1e110e29e7d5231d17c870f5",
+      "candidate": "art/source/web-v3/trick-faces-v1/landscape-rank-paper-clean-candidate.png",
+      "candidateSha256": "7c07d690f1c039a31ec72bbbda544137ccea7ce64ef9bc06227c04491ef1b0c5",
+      "candidateSize": [
+        1017,
+        1546
+      ],
+      "rejectedFaceCandidate": "art/source/web-v3/trick-faces-v1/landscape-sun-rank-clean-candidate.png",
+      "rank": 1,
+      "rankInk": [
+        76,
+        77,
+        119,
+        197
+      ],
+      "rankLogicalInk": [
+        25.333333333333332,
+        25.666666666666668,
+        39.666666666666664,
+        65.66666666666667
+      ],
+      "cleanupRoi": [
+        64,
+        65,
+        67,
+        144
+      ],
+      "paperBoundaryTonePlane": [
+        [
+          -3.6709525473827638,
+          -0.7016772644559454,
+          2.3023556321123415
+        ],
+        [
+          -3.049396159491786,
+          -0.8790592504208168,
+          1.0704654802731162
+        ],
+        [
+          2.81310508899032,
+          -1.0389130301044536,
+          -1.7500399409165586
+        ]
+      ],
+      "face": "art/source/web-v3/trick-faces-v1/landscape-sun-face.png",
+      "faceSha256": "5c7f2ab4caf7e74a8d6ac077fc8b2a53d819cbf5abd0bb1b351ff40002460c20",
+      "runtime": "art/runtime/web-v3/trick-cards-v1/landscape-sun.png",
+      "runtimeSha256": "432b7ab893acee027798b3c85766e03ac175c0b189bca6234088799589c2c512",
+      "runtimeSize": [
+        140,
+        210
+      ],
+      "highRuntime": "art/runtime/web-v3/trick-cards-v1/landscape-sun-hi.png",
+      "highRuntimeSha256": "5c7f2ab4caf7e74a8d6ac077fc8b2a53d819cbf5abd0bb1b351ff40002460c20",
+      "highRuntimeSize": [
+        420,
+        630
+      ],
+      "proof": "art/source/web-v3/trick-faces-v1/landscape-sun-proof.png",
+      "changed": 8813,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "suit": "mountain",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "reference": "art/source/web-v3/trick-faces-v1/landscape-mountain-reference.png",
+      "referenceSha256": "5823c89f964d76bde26c29f1610420f367cbc6e3dec8b08b9a697cb4f9614b4d",
+      "candidate": "art/source/web-v3/trick-faces-v1/landscape-rank-paper-clean-candidate.png",
+      "candidateSha256": "7c07d690f1c039a31ec72bbbda544137ccea7ce64ef9bc06227c04491ef1b0c5",
+      "candidateSize": [
+        1017,
+        1546
+      ],
+      "rejectedFaceCandidate": "art/source/web-v3/trick-faces-v1/landscape-mountain-rank-clean-candidate.png",
+      "rank": 9,
+      "rankInk": [
+        79,
+        78,
+        153,
+        200
+      ],
+      "rankLogicalInk": [
+        26.333333333333332,
+        26,
+        51,
+        66.66666666666667
+      ],
+      "cleanupRoi": [
+        67,
+        66,
+        98,
+        146
+      ],
+      "paperBoundaryTonePlane": [
+        [
+          -2.8004201680672267,
+          1.5857271324656468,
+          2.2169145734955658
+        ],
+        [
+          -1.6127450980392157,
+          0.12225648961674168,
+          1.7103464224332205
+        ],
+        [
+          4.740196078431373,
+          -3.3698725509295704,
+          1.635334859792255
+        ]
+      ],
+      "face": "art/source/web-v3/trick-faces-v1/landscape-mountain-face.png",
+      "faceSha256": "03dcda67180e397c2fc7630f65d9d34cec5377b177e140b9549ef9410289b98a",
+      "runtime": "art/runtime/web-v3/trick-cards-v1/landscape-mountain.png",
+      "runtimeSha256": "e23c25c7230d3d4cfec54873e86c0b546f7ff9766eeea45ef7fcc3154de245aa",
+      "runtimeSize": [
+        140,
+        210
+      ],
+      "highRuntime": "art/runtime/web-v3/trick-cards-v1/landscape-mountain-hi.png",
+      "highRuntimeSha256": "03dcda67180e397c2fc7630f65d9d34cec5377b177e140b9549ef9410289b98a",
+      "highRuntimeSize": [
+        420,
+        630
+      ],
+      "proof": "art/source/web-v3/trick-faces-v1/landscape-mountain-proof.png",
+      "changed": 13467,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "suit": "leaf",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "reference": "art/source/web-v3/trick-faces-v1/portrait-leaf-reference.png",
+      "referenceSha256": "c24271b5e28dca36e9e9c44ec7115c8f3025bd5c6e3624f5b1a66d67271cd0df",
+      "candidate": "art/source/web-v3/trick-faces-v1/portrait-rank-paper-clean-candidate.png",
+      "candidateSha256": "d9584016dee957ef245bb163fabdc04fb70bbf5dd1008525f77d79cd4c4d0cd4",
+      "candidateSize": [
+        1017,
+        1546
+      ],
+      "rejectedFaceCandidate": "art/source/web-v3/trick-faces-v1/portrait-leaf-rank-clean-candidate.png",
+      "rank": 7,
+      "rankInk": [
+        92,
+        82,
+        165,
+        205
+      ],
+      "rankLogicalInk": [
+        30.666666666666668,
+        27.333333333333332,
+        55,
+        68.33333333333333
+      ],
+      "cleanupRoi": [
+        80,
+        70,
+        97,
+        147
+      ],
+      "paperBoundaryTonePlane": [
+        [
+          -7.397759103641457,
+          -0.47263880540025766,
+          1.747467309464341
+        ],
+        [
+          -7.957983193277311,
+          1.290076907002123,
+          1.6072166292224213
+        ],
+        [
+          -4.813025210084033,
+          2.3058581928789437,
+          1.4233874690655155
+        ]
+      ],
+      "face": "art/source/web-v3/trick-faces-v1/portrait-leaf-face.png",
+      "faceSha256": "e5d6ed03bdea8e88013378f054023ccba3d4846e1bac9325d98f73f48fcad2a2",
+      "runtime": "art/runtime/web-v3/trick-cards-v1/portrait-leaf.png",
+      "runtimeSha256": "e564abb69b1eb26e1cdc0c8ca32a6f897569dfb082cb3fb6df00ce4ffb54bbd6",
+      "runtimeSize": [
+        140,
+        210
+      ],
+      "highRuntime": "art/runtime/web-v3/trick-cards-v1/portrait-leaf-hi.png",
+      "highRuntimeSha256": "e5d6ed03bdea8e88013378f054023ccba3d4846e1bac9325d98f73f48fcad2a2",
+      "highRuntimeSize": [
+        420,
+        630
+      ],
+      "proof": "art/source/web-v3/trick-faces-v1/portrait-leaf-proof.png",
+      "changed": 13264,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "suit": "knot",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "reference": "art/source/web-v3/trick-faces-v1/portrait-knot-reference.png",
+      "referenceSha256": "e0588b33cccb75c2903e039e23b721a43ae16cadd4970b4061239dbeffbc6c48",
+      "candidate": "art/source/web-v3/trick-faces-v1/portrait-rank-paper-clean-candidate.png",
+      "candidateSha256": "d9584016dee957ef245bb163fabdc04fb70bbf5dd1008525f77d79cd4c4d0cd4",
+      "candidateSize": [
+        1017,
+        1546
+      ],
+      "rejectedFaceCandidate": "art/source/web-v3/trick-faces-v1/portrait-knot-rank-clean-candidate.png",
+      "rank": 3,
+      "rankInk": [
+        79,
+        81,
+        154,
+        206
+      ],
+      "rankLogicalInk": [
+        26.333333333333332,
+        27,
+        51.333333333333336,
+        68.66666666666667
+      ],
+      "cleanupRoi": [
+        67,
+        69,
+        99,
+        149
+      ],
+      "paperBoundaryTonePlane": [
+        [
+          -1.2441159974714606,
+          2.5160648112157586,
+          4.477805653128746
+        ],
+        [
+          -5.316483689651082,
+          1.030457666547732,
+          2.8814072016691106
+        ],
+        [
+          -6.084951153681088,
+          1.5094537547515687,
+          2.6851216721589095
+        ]
+      ],
+      "face": "art/source/web-v3/trick-faces-v1/portrait-knot-face.png",
+      "faceSha256": "9651f3fde881f91220c85af4994ee1689a4dac8d4448096e49a7c40114303ea0",
+      "runtime": "art/runtime/web-v3/trick-cards-v1/portrait-knot.png",
+      "runtimeSha256": "a050f007623838025ffb0fa2ebf6a6ad3cc1ccd2ca7010a940b6dc8b97dac434",
+      "runtimeSize": [
+        140,
+        210
+      ],
+      "highRuntime": "art/runtime/web-v3/trick-cards-v1/portrait-knot-hi.png",
+      "highRuntimeSha256": "9651f3fde881f91220c85af4994ee1689a4dac8d4448096e49a7c40114303ea0",
+      "highRuntimeSize": [
+        420,
+        630
+      ],
+      "proof": "art/source/web-v3/trick-faces-v1/portrait-knot-proof.png",
+      "changed": 13926,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "suit": "sun",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "reference": "art/source/web-v3/trick-faces-v1/portrait-sun-reference.png",
+      "referenceSha256": "80a0ebcab2e177a31875e1b95a368ca7f90dec768887582c4a54f30f1fe3464f",
+      "candidate": "art/source/web-v3/trick-faces-v1/portrait-rank-paper-clean-candidate.png",
+      "candidateSha256": "d9584016dee957ef245bb163fabdc04fb70bbf5dd1008525f77d79cd4c4d0cd4",
+      "candidateSize": [
+        1017,
+        1546
+      ],
+      "rejectedFaceCandidate": "art/source/web-v3/trick-faces-v1/portrait-sun-rank-clean-candidate.png",
+      "rank": 1,
+      "rankInk": [
+        79,
+        83,
+        128,
+        206
+      ],
+      "rankLogicalInk": [
+        26.333333333333332,
+        27.666666666666668,
+        42.666666666666664,
+        68.66666666666667
+      ],
+      "cleanupRoi": [
+        67,
+        71,
+        73,
+        147
+      ],
+      "paperBoundaryTonePlane": [
+        [
+          -6.673785345852893,
+          -1.2464432795377807,
+          1.0857793690141755
+        ],
+        [
+          -6.39726862948448,
+          -1.5908743805370793,
+          -0.8548766852328321
+        ],
+        [
+          -2.147565678695665,
+          0.07116685998259703,
+          0.22738807516324225
+        ]
+      ],
+      "face": "art/source/web-v3/trick-faces-v1/portrait-sun-face.png",
+      "faceSha256": "08745f5fd3eaf5efc8127209a5d1ba0feb45b2852cf7e385add9c1fadbbab4c2",
+      "runtime": "art/runtime/web-v3/trick-cards-v1/portrait-sun.png",
+      "runtimeSha256": "fa723dcbbab84aed333cc843e028d62c62d0db31a2a027cb3dbf8df46bd2991e",
+      "runtimeSize": [
+        140,
+        210
+      ],
+      "highRuntime": "art/runtime/web-v3/trick-cards-v1/portrait-sun-hi.png",
+      "highRuntimeSha256": "08745f5fd3eaf5efc8127209a5d1ba0feb45b2852cf7e385add9c1fadbbab4c2",
+      "highRuntimeSize": [
+        420,
+        630
+      ],
+      "proof": "art/source/web-v3/trick-faces-v1/portrait-sun-proof.png",
+      "changed": 9911,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "suit": "mountain",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "reference": "art/source/web-v3/trick-faces-v1/portrait-mountain-reference.png",
+      "referenceSha256": "9000f502b7fd7b700a2c4f02d6ab93fffe465ad7e56a674ba38a12675cbce34a",
+      "candidate": "art/source/web-v3/trick-faces-v1/portrait-rank-paper-clean-candidate.png",
+      "candidateSha256": "d9584016dee957ef245bb163fabdc04fb70bbf5dd1008525f77d79cd4c4d0cd4",
+      "candidateSize": [
+        1017,
+        1546
+      ],
+      "rejectedFaceCandidate": "art/source/web-v3/trick-faces-v1/portrait-mountain-rank-clean-candidate.png",
+      "rank": 9,
+      "rankInk": [
+        82,
+        81,
+        158,
+        206
+      ],
+      "rankLogicalInk": [
+        27.333333333333332,
+        27,
+        52.666666666666664,
+        68.66666666666667
+      ],
+      "cleanupRoi": [
+        70,
+        69,
+        100,
+        149
+      ],
+      "paperBoundaryTonePlane": [
+        [
+          -8.070644718792867,
+          0.9363867628915525,
+          0.8876508852679732
+        ],
+        [
+          -6.838820301783265,
+          0.40557041630728,
+          0.9668940854520016
+        ],
+        [
+          -1.353909465020576,
+          -0.9204878208557645,
+          1.2496922635837515
+        ]
+      ],
+      "face": "art/source/web-v3/trick-faces-v1/portrait-mountain-face.png",
+      "faceSha256": "342fd6451615680bd845d1739edc662c7b60a8a3c6bfec414e3f595719e91f7d",
+      "runtime": "art/runtime/web-v3/trick-cards-v1/portrait-mountain.png",
+      "runtimeSha256": "9f82bf981278925e3f80cbd7db75e1a9c31ba46496b649c94ebfeaddcd5c9f78",
+      "runtimeSize": [
+        140,
+        210
+      ],
+      "highRuntime": "art/runtime/web-v3/trick-cards-v1/portrait-mountain-hi.png",
+      "highRuntimeSha256": "342fd6451615680bd845d1739edc662c7b60a8a3c6bfec414e3f595719e91f7d",
+      "highRuntimeSize": [
+        420,
+        630
+      ],
+      "proof": "art/source/web-v3/trick-faces-v1/portrait-mountain-proof.png",
+      "changed": 13859,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0
+    }
+  ],
+  "rejectedStrategy": "Eight full-face edits changed internal alpha/mottling; do not use any of their RGB or alpha. Final two opaque RGB paper-only edits supply bounded numeralROI with boundary-fitted channel plane.",
+  "runtimeChoice": "Native140x210 selected after same-view102/103 Chrome checks; high420x630 exports retained, not imported. No visible gain justified production emission.",
+  "borderHandling": "Source alpha owns rounded paper edge; final central CSS removes generic border-radius clip. 105 pre-fix history; final109."
+}

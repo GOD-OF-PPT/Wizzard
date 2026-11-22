@@ -1,0 +1,13 @@
+Built-in image_gen, edit each independently selected06 results source.
+Preserve exact page framing, original avatar identities/names/positions, divider positions, headers/note, flowers, lantern background, parchment and gold/lacquer furniture. No redesign or extra objects.
+New final-round title: 第8轮结算. Primary label: 查看最终总榜, six Chinese characters well inside the same unchanged green plaque. Secondary stays 查看总榜.
+Replace numeric cells only, column order预测/赢墩/本轮/总分:
+青竹客 2 / 2 / +40 / 180
+云游鹤 3 / 1 / -20 / 150
+花间狐 1 / 2 / -10 / 120
+墨隐熊 1 / 1 / +30 / 100
+星眠猫 0 / 0 / +20 / 80
+AI旅人 1 / 2 / -10 / 60
+Keep red positives and blue negatives; all source cell centers/baselines. Original brush-calligraphy and warm material style.
+Independent landscape1672x941 and portrait941x1672 full-screen outputs; portrait keeps its stacked bottom actions.
+Candidate is not allowed to replace unrelated source pixels. Final source composition may accept candidate only inside explicit title/action/numeric ROIs; everything else remains original RGB.

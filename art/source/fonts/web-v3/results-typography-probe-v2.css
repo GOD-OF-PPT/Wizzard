@@ -1,0 +1,17 @@
+/* Second temporary Chrome probe: preserve ordinal geometry, restore total ink. */
+.v3-results.v3-results--source.v3-ranking .v3-results-row > [data-result-column='0'] {
+  -webkit-text-stroke:.013157895cqw currentColor;
+}
+.v3-results.v3-results--source.v3-ranking .v3-results-row > [data-result-column='1'] {
+  font-family:'Teahouse Results Latin',serif;
+  font-weight:700;
+  font-size:2.990430622cqw;
+  transform:translate(calc(-50% + .089712919cqw),calc(-50% - .059808612cqw));
+}
+@media (orientation:portrait) {
+  .v3-results.v3-results--source.v3-ranking .v3-results-row > [data-result-column='0'] { -webkit-text-stroke:.063761955cqw currentColor; }
+  .v3-results.v3-results--source.v3-ranking .v3-results-row > [data-result-column='1'] {
+    font-size:5.951115834cqw;
+    transform:translate(calc(-50% + .318809777cqw),calc(-50% + .159404888cqw));
+  }
+}

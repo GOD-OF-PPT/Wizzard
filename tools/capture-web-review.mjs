@@ -1,5 +1,5 @@
-// Local-only screenshot sink for Chrome's browser-control capture bytes.
-// It accepts image filenames only and cannot write outside the review folder.
+// Local-only evidence sink for Chrome capture bytes and diagnostic JSON.
+// It accepts flat filenames only and cannot write outside the review folder.
 import http from "node:http";
 import path from "node:path";
 import { mkdir, writeFile } from "node:fs/promises";
@@ -9,8 +9,8 @@ await mkdir(directory, { recursive: true });
 const server = http.createServer(async (request, response) => {
   response.setHeader("Access-Control-Allow-Origin", "*");
   const filename = (request.url ?? "").slice(1);
-  if (request.method !== "POST" || !/^[a-zA-Z0-9_.-]+\.(png|jpg)$/.test(filename)) {
-    response.writeHead(400).end("Expected an image filename");
+  if (request.method !== "POST" || !/^[a-zA-Z0-9_.-]+\.(png|jpg|json)$/.test(filename)) {
+    response.writeHead(400).end("Expected an evidence filename");
     return;
   }
   try {
@@ -21,7 +21,9 @@ const server = http.createServer(async (request, response) => {
       if (length > 8 * 1024 * 1024) throw new Error("Screenshot too large");
       chunks.push(chunk);
     }
-    await writeFile(path.join(directory, filename), Buffer.concat(chunks));
+    const body = Buffer.concat(chunks);
+    if (filename.endsWith(".json")) JSON.parse(body.toString("utf8"));
+    await writeFile(path.join(directory, filename), body);
     response.writeHead(200).end("saved");
   } catch {
     response.writeHead(400).end("Capture rejected");

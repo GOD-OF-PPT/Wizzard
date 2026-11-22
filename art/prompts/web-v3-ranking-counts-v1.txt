@@ -1,0 +1,7 @@
+Built-in image_gen precise-object/text edits of independent07-ranking sources.
+Same title快速局总榜, subtitle八轮已毕 · 下回再会, header, occupied row coordinates, faint divider lines, original avatar/name identities, parchment/frame/flowers/lantern setting, footer返回首页/再来一局. Never resize/reflow the original furniture.
+3players:青竹客/云游鹤/花间狐, ranks1/2/3, totals60/-10/-30.
+4players:青竹客/云游鹤/花间狐/墨隐熊, ranks1/2/2/4, totals120/80/80/-20.
+5players:青竹客/云游鹤/花间狐/墨隐熊/星眠猫, ranks1/2/2/4/5, totals120/80/80/0/-30.
+For each unused row below the last occupied player, erase avatar/name/score/rank AND the empty diamond rank badge. Matching quiet parchment only. Preserve faint horizontal table lines and floral decoration. No dashes/placeholder/waiting copy. Occupied scores use original style and centers, first gold and others dark ink including minus signs.
+Separate1672x941 landscape and941x1672 portrait outputs for each count. Final composition accepts only exact mutable-data and unused-badge masks; unrelated original RGB protected. Runtime ranks/scores/names/identity stay live, no whole-page score baking.

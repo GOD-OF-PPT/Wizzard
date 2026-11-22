@@ -1,0 +1,231 @@
+{
+  "id": "trump.reveal",
+  "label": "王牌显形",
+  "durationSeconds": 1.4,
+  "trigger": "每轮王牌正式确定",
+  "prompt": "A soft silk-brush sweep with one delicate jade bell shimmer blooming briefly over a small porcelain resonance. Intimate restrained tea magic revealing a symbol, bright but not piercing, no cinematic rise. Entire sound fits within 1.4 seconds. For an enchanted Chinese teahouse game. One isolated close-up, warm tactile hit. No voice, music, ambience, beeps or harsh treble.",
+  "targetLufs": -24,
+  "cooldownMs": 800,
+  "loop": false,
+  "variants": 4,
+  "status": "generated",
+  "runtimePath": "art/runtime/audio/teahouse-v1/trump-reveal-v1.mp3",
+  "sourceDirectory": "art/source/audio/teahouse-v1/trump-reveal",
+  "submittedAt": "2026-10-28T07:40:03.198Z",
+  "model": "eleven_text_to_sound_v2",
+  "generatedAt": "2026-10-28T07:40:40.547Z",
+  "downloadPrefix": "A_soft_silk-brush_sw_",
+  "sourceFiles": [
+    {
+      "take": 1,
+      "downloadedName": "A_soft_silk-brush_sw_#1-1793173213797.mp3",
+      "path": "art/source/audio/teahouse-v1/trump-reveal/take-01.mp3"
+    },
+    {
+      "take": 2,
+      "downloadedName": "A_soft_silk-brush_sw_#2-1793173213900.mp3",
+      "path": "art/source/audio/teahouse-v1/trump-reveal/take-02.mp3"
+    },
+    {
+      "take": 3,
+      "downloadedName": "A_soft_silk-brush_sw_#3-1793173249656.mp3",
+      "path": "art/source/audio/teahouse-v1/trump-reveal/take-03.mp3"
+    },
+    {
+      "take": 4,
+      "downloadedName": "A_soft_silk-brush_sw_#4-1793173251625.mp3",
+      "path": "art/source/audio/teahouse-v1/trump-reveal/take-04.mp3"
+    }
+  ],
+  "candidates": [
+    {
+      "take": 1,
+      "source": "art/source/audio/teahouse-v1/trump-reveal/take-01.mp3",
+      "sourceSha256": "156e4ce7e072b3f63a579a34d82498757b9bf34a6e17f3d92da6d5bc3538cfe7",
+      "sourceBytes": 34029,
+      "sourceMetrics": {
+        "duration": 1.36,
+        "peakDbfs": -9.066749714624336,
+        "rmsDbfs": -33.8300392228536,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.5357708333333333,
+        "first": 0,
+        "last": 39562
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/trump-reveal-take-01.mp3",
+      "sha256": "93e3ef2dc8390f466df39ad67f12079f0b619c782442ef2358ff93dfe3cfe639",
+      "bytes": 15089,
+      "outputMetrics": {
+        "duration": 0.88425,
+        "peakDbfs": -4.572532176068609,
+        "rmsDbfs": -27.64093152309366,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.060020833333333336,
+        "first": 0,
+        "last": 39562
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.8842291666666666,
+        "targetRmsDbfs": -27,
+        "gainDb": 4.961660495298162,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 2,
+      "source": "art/source/audio/teahouse-v1/trump-reveal/take-02.mp3",
+      "sourceSha256": "561d825794b7777a067dd449eb00ffb1103412061ec738c916ccabc46b4c2741",
+      "sourceBytes": 34029,
+      "sourceMetrics": {
+        "duration": 1.36,
+        "peakDbfs": -6.773456013091359,
+        "rmsDbfs": -26.362209575116363,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.58525,
+        "first": 0,
+        "last": 37187
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/trump-reveal-take-02.mp3",
+      "sha256": "fc8f4b45ea9b44d0e8f2be60d1961bf7fd878e0852d75bf22672b288f01025e5",
+      "bytes": 14253,
+      "outputMetrics": {
+        "duration": 0.8347708333333334,
+        "peakDbfs": -10.200213432565398,
+        "rmsDbfs": -27.422349104482123,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0006458333333333333,
+        "trailingSilenceSeconds": 0.060020833333333336,
+        "first": 31,
+        "last": 37187
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.8347500000000001,
+        "targetRmsDbfs": -27,
+        "gainDb": -2.757418117744141,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 3,
+      "source": "art/source/audio/teahouse-v1/trump-reveal/take-03.mp3",
+      "sourceSha256": "22c904d2d73397f55185e70fde29f140b3f3f419ab73ea1ac5f76981322b6bd3",
+      "sourceBytes": 34029,
+      "sourceMetrics": {
+        "duration": 1.36,
+        "peakDbfs": -2.842573470354146,
+        "rmsDbfs": -23.626064136110184,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.6787916666666667,
+        "first": 0,
+        "last": 32697
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/trump-reveal-take-03.mp3",
+      "sha256": "5c54c25eb3b46612a2af5625a24ea3ff503f80494fb0ed3e9959d6b00b529e2c",
+      "bytes": 12999,
+      "outputMetrics": {
+        "duration": 0.7412291666666667,
+        "peakDbfs": -9.185574324591709,
+        "rmsDbfs": -27.455067938407947,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.00022916666666666666,
+        "trailingSilenceSeconds": 0.060020833333333336,
+        "first": 11,
+        "last": 32697
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.7412083333333332,
+        "targetRmsDbfs": -27,
+        "gainDb": -6.009748508784941,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 4,
+      "source": "art/source/audio/teahouse-v1/trump-reveal/take-04.mp3",
+      "sourceSha256": "92b1e8c19284d0736a5dc79ca67098f8d41370fdc70032a36c74910bc433ea38",
+      "sourceBytes": 34029,
+      "sourceMetrics": {
+        "duration": 1.36,
+        "peakDbfs": -4.104486698283189,
+        "rmsDbfs": -24.789950578677363,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.471125,
+        "first": 0,
+        "last": 42665
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/trump-reveal-take-04.mp3",
+      "sha256": "de0cd803eb79e6844c9240d3197d95e9b9be193f433e13527a84ab5122e3a360",
+      "bytes": 16343,
+      "outputMetrics": {
+        "duration": 0.9488958333333334,
+        "peakDbfs": -8.290782935535185,
+        "rmsDbfs": -27.47448489125962,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.00025,
+        "trailingSilenceSeconds": 0.060020833333333336,
+        "first": 12,
+        "last": 42665
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.9488749999999999,
+        "targetRmsDbfs": -27,
+        "gainDb": -3.773194656110416,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    }
+  ],
+  "selectedTake": 3,
+  "selectionBasis": "约0.74秒，高于6kHz能量约21%，明显低于其他候选70%–82%；保留短魔法共鸣。",
+  "runtimeSha256": "c7abd267e32114328b8db5afc93ff1f60d1ada4b328e4b6c5b58f2a9f09079c7",
+  "runtimeBytes": 12999,
+  "durationActualSeconds": 0.7412291666666667,
+  "technicalStatus": "decode-duration-peak-and-unique-takes-verified",
+  "listeningStatus": "not-human-reviewed",
+  "wiredToGame": true,
+  "selectionStatus": "agent-selected",
+  "selectionReviewMethod": "Per-candidate waveform, spectral distribution, duration, onset pattern, and role matching. This is an agent production choice, not a claim of direct auditory or human listening acceptance.",
+  "finalProcessing": {
+    "eq": "highshelf=f=5000:g=-3",
+    "gainDb": 0
+  },
+  "finalMetrics": {
+    "duration": 0.7412291666666667,
+    "peakDbfs": -10.725541387877,
+    "rmsDbfs": -29.435430382462087,
+    "clippedSamples": 0,
+    "leadingSilenceSeconds": 0.00022916666666666666,
+    "trailingSilenceSeconds": 0.067,
+    "first": 11,
+    "last": 32362
+  },
+  "integrationTarget": "react-web"
+}

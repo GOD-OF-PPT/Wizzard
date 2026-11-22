@@ -1,0 +1,7 @@
+Built-in image_gen, precise text-localization edit of each independent selected07 ranking source.
+Keep exact original frame, lantern/background, parchment, gold/lacquer, floral ornaments, six avatar identities/names/ranks/scores, row dividers and both button positions/outlines. Preserve title快速局总榜 and subtitle八轮已毕 · 下回再会.
+Change only bottom action labels:
+Paper secondary: 离开房间. Enabled, dark brush lettering.
+Green primary: 等待房主再开. Disabled waiting, muted pale ivory letters inside the original content-safe area. Preserve original dark green lacquer/gold edge, no global fade, spinner or countdown.
+One full-screen1672x941 landscape and an independent941x1672 portrait; portrait keeps its stacked footer. No new elements or composition drift. Original brush-calligraphy style.
+Final saved design may accept only bounded label ROIs from the candidate, keeping all other original RGB exactly unchanged. Runtime labels are matched only to these canonical semantics; dynamic/custom blocked copy remains live DOM.

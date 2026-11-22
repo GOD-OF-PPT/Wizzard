@@ -1,0 +1,401 @@
+{
+  "method": "Built-in ImageGen current-final and classic state edits. Only permitted text/value ROIs compose into source33/07; unrelated original RGB invariant. Runtime classic subtitle clears only the two-digit count slot using median-registered existing blank paper; actual rounds remain live.",
+  "geometry": {
+    "landscape": {
+      "title": [
+        665,
+        78,
+        348,
+        77
+      ],
+      "subtitle": [
+        680,
+        174,
+        315,
+        40
+      ],
+      "primary": [
+        899,
+        760,
+        276,
+        66
+      ],
+      "currentDigit": [
+        884,
+        178,
+        23,
+        30
+      ],
+      "classicDigit": [
+        681,
+        176,
+        39,
+        32
+      ],
+      "classicValue": [
+        678,
+        177,
+        43,
+        35
+      ],
+      "font": 32
+    },
+    "portrait": {
+      "title": [
+        325,
+        293,
+        310,
+        75
+      ],
+      "subtitle": [
+        325,
+        403,
+        290,
+        39
+      ],
+      "primary": [
+        295,
+        1490,
+        355,
+        85
+      ],
+      "currentDigit": [
+        509,
+        406,
+        25,
+        32
+      ],
+      "classicDigit": [
+        326,
+        405,
+        38,
+        33
+      ],
+      "classicValue": [
+        321.5,
+        406,
+        42,
+        38
+      ],
+      "font": 30
+    }
+  },
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "current-final",
+      "source": "art/mockups/web-v3/33-current-ranking-v1.png",
+      "sourceSha256": "dce9d69cd894483b1968bc1e69c9aec33aabe55f2d431a0c9ffe6babd480c0ed",
+      "candidate": "art/source/web-v3/results-mode-states-v1/landscape-current-final-candidate-v1.png",
+      "candidateSha256": "50c7c38f468830c6754d1385bfd31c36205cf54c5860cd48c7ce5d12ada98403",
+      "allowed": [
+        [
+          884,
+          178,
+          23,
+          30
+        ],
+        [
+          899,
+          760,
+          276,
+          66
+        ],
+        [
+          1090,
+          298,
+          110,
+          53
+        ],
+        [
+          1090,
+          374,
+          110,
+          53
+        ],
+        [
+          1090,
+          450,
+          110,
+          53
+        ],
+        [
+          1090,
+          526,
+          110,
+          53
+        ],
+        [
+          1090,
+          602,
+          110,
+          53
+        ],
+        [
+          1090,
+          678,
+          110,
+          53
+        ]
+      ],
+      "output": "art/mockups/web-v3/36-current-ranking-final-v1.png",
+      "sha256": "bf9992730659fe3e6b4fffe7346883c70989808276e390e0377a9ff46fa11da2",
+      "changed": 50489,
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "classic-ranking",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "candidate": "art/source/web-v3/results-mode-states-v1/landscape-classic-ranking-candidate-v1.png",
+      "candidateSha256": "1f96dad6b5397c4276b72002fa42307bf829c3fc18e72c09d3c440cd62c7d8c5",
+      "allowed": [
+        [
+          665,
+          78,
+          348,
+          77
+        ],
+        [
+          680,
+          174,
+          315,
+          40
+        ]
+      ],
+      "output": "art/mockups/web-v3/37-ranking-classic-v1.png",
+      "sha256": "d4f6509fe89454d7a7ebb94442d2e86855275cf04ab98f16aedfa85ad19608e4",
+      "changed": 37675,
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "current-final",
+      "source": "art/mockups/web-v3/portrait/33-current-ranking-v1.png",
+      "sourceSha256": "9adf5aac5954333d5829be06de28ab5efc511d234a9fa8d8f6818e76925cd709",
+      "candidate": "art/source/web-v3/results-mode-states-v1/portrait-current-final-candidate-v1.png",
+      "candidateSha256": "978768cf908c3fe1b6977c6726fcb4edfbe2da81cc0f99f07f0a1bb5c5c324b9",
+      "allowed": [
+        [
+          509,
+          406,
+          25,
+          32
+        ],
+        [
+          295,
+          1490,
+          355,
+          85
+        ],
+        [
+          646,
+          578,
+          101,
+          62
+        ],
+        [
+          646,
+          685,
+          101,
+          62
+        ],
+        [
+          646,
+          792,
+          101,
+          62
+        ],
+        [
+          646,
+          899,
+          101,
+          62
+        ],
+        [
+          646,
+          1006,
+          101,
+          62
+        ],
+        [
+          646,
+          1113,
+          101,
+          62
+        ]
+      ],
+      "output": "art/mockups/web-v3/portrait/36-current-ranking-final-v1.png",
+      "sha256": "4a002be7aa7066b36414091f7020776ca8b24d51822cdafc1fc53629267a3ddf",
+      "changed": 64994,
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "classic-ranking",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "candidate": "art/source/web-v3/results-mode-states-v1/portrait-classic-ranking-candidate-v1.png",
+      "candidateSha256": "79835f1bdfe489bae43b889b45dc897ab49960994246132fc34d9a942d1f3def",
+      "allowed": [
+        [
+          325,
+          293,
+          310,
+          75
+        ],
+        [
+          325,
+          403,
+          290,
+          39
+        ]
+      ],
+      "output": "art/mockups/web-v3/portrait/37-ranking-classic-v1.png",
+      "sha256": "346961cad6604843a127b9b8a993021263d811e68c77c5d306110e85829ea228",
+      "changed": 33014,
+      "changedOutsideROI": 0
+    }
+  ],
+  "runtimeReports": [
+    {
+      "profile": "landscape",
+      "state": "current-final",
+      "kind": "primary",
+      "source": "art/mockups/web-v3/36-current-ranking-final-v1.png",
+      "sourceSha256": "bf9992730659fe3e6b4fffe7346883c70989808276e390e0377a9ff46fa11da2",
+      "rect": [
+        846,
+        742,
+        370,
+        105
+      ],
+      "digitCleanup": null,
+      "output": "art/runtime/web-v3/results-mode-states-v1/landscape-current-final-primary-v1.png",
+      "sha256": "e388401a0f2d787dc28a88e928f453d8859f423b19a7dfc14fec1c707805f58f"
+    },
+    {
+      "profile": "landscape",
+      "state": "classic-ranking",
+      "kind": "title",
+      "source": "art/mockups/web-v3/37-ranking-classic-v1.png",
+      "sourceSha256": "d4f6509fe89454d7a7ebb94442d2e86855275cf04ab98f16aedfa85ad19608e4",
+      "rect": [
+        538,
+        57,
+        595,
+        118
+      ],
+      "digitCleanup": null,
+      "output": "art/runtime/web-v3/results-mode-states-v1/landscape-classic-ranking-title-v1.png",
+      "sha256": "8a72f22bafd01842235894428a14e4836cb2c3fc1d1c980d7971971736c01489"
+    },
+    {
+      "profile": "landscape",
+      "state": "classic-ranking",
+      "kind": "subtitle",
+      "source": "art/mockups/web-v3/37-ranking-classic-v1.png",
+      "sourceSha256": "d4f6509fe89454d7a7ebb94442d2e86855275cf04ab98f16aedfa85ad19608e4",
+      "rect": [
+        606,
+        175,
+        461,
+        38
+      ],
+      "digitCleanup": {
+        "rect": [
+          681,
+          176,
+          39,
+          32
+        ],
+        "valueRect": [
+          678,
+          177,
+          43,
+          35
+        ],
+        "font": 32,
+        "blank": "art/runtime/web-v3/results-source-v1/landscape-ranking-background-v1.png",
+        "blankSha256": "0ef3a9dc0c7da6d93e3dc6600d1dea0d0abed9428e9fdd1a74702dde0037dfb7",
+        "shifts": [
+          -1,
+          -4,
+          -4
+        ]
+      },
+      "output": "art/runtime/web-v3/results-mode-states-v1/landscape-classic-ranking-subtitle-v1.png",
+      "sha256": "21b459875f5832574a1303a243a1ab2afc359e69a96f1d079ef7f2c7d273cf0d"
+    },
+    {
+      "profile": "portrait",
+      "state": "current-final",
+      "kind": "primary",
+      "source": "art/mockups/web-v3/portrait/36-current-ranking-final-v1.png",
+      "sourceSha256": "4a002be7aa7066b36414091f7020776ca8b24d51822cdafc1fc53629267a3ddf",
+      "rect": [
+        179,
+        1457,
+        585,
+        130
+      ],
+      "digitCleanup": null,
+      "output": "art/runtime/web-v3/results-mode-states-v1/portrait-current-final-primary-v1.png",
+      "sha256": "e84c5e7543ad0cc964fef9c6b04edffefc27d49726901cc5cbc6c7b86f80a52b"
+    },
+    {
+      "profile": "portrait",
+      "state": "classic-ranking",
+      "kind": "title",
+      "source": "art/mockups/web-v3/portrait/37-ranking-classic-v1.png",
+      "sourceSha256": "346961cad6604843a127b9b8a993021263d811e68c77c5d306110e85829ea228",
+      "rect": [
+        207,
+        268,
+        528,
+        126
+      ],
+      "digitCleanup": null,
+      "output": "art/runtime/web-v3/results-mode-states-v1/portrait-classic-ranking-title-v1.png",
+      "sha256": "f1d209caa7f4180453e6baa09148892c72d128882d6a7aea5d80d8e9dd2142e6"
+    },
+    {
+      "profile": "portrait",
+      "state": "classic-ranking",
+      "kind": "subtitle",
+      "source": "art/mockups/web-v3/portrait/37-ranking-classic-v1.png",
+      "sourceSha256": "346961cad6604843a127b9b8a993021263d811e68c77c5d306110e85829ea228",
+      "rect": [
+        248,
+        401,
+        445,
+        43
+      ],
+      "digitCleanup": {
+        "rect": [
+          326,
+          405,
+          38,
+          33
+        ],
+        "valueRect": [
+          321.5,
+          406,
+          42,
+          38
+        ],
+        "font": 30,
+        "blank": "art/runtime/web-v3/results-source-v1/portrait-ranking-background-v1.png",
+        "blankSha256": "2643621cd21d4b0f27d9e7eadc5c67ac23d7f895374a9676a950d4c1ff0e9cf0",
+        "shifts": [
+          0,
+          -3,
+          -3
+        ]
+      },
+      "output": "art/runtime/web-v3/results-mode-states-v1/portrait-classic-ranking-subtitle-v1.png",
+      "sha256": "ad9a6f9536d58dfe89f0747104cbea959e6178a480b61694a7670492d94c99a3"
+    }
+  ]
+}

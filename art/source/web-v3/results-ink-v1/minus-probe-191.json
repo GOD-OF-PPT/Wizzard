@@ -1,0 +1,856 @@
+{
+  "method": "Blue ink connected components in fixed score cells. Only quiet horizontal component left of column center and near row center selected. Source symmetrically normalized to actual capture size. Diagnostic only.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "results",
+      "row": 1,
+      "source": "art/mockups/web-v3/06-results-home-v2.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/probe-191/results-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1009,
+        "top": 376,
+        "width": 14,
+        "height": 3,
+        "pixels": 42
+      },
+      "actualBox": {
+        "left": 1009,
+        "top": 376,
+        "width": 14,
+        "height": 2,
+        "pixels": 28
+      },
+      "sourceComponents": [
+        {
+          "left": 1030,
+          "top": 362,
+          "width": 14,
+          "height": 29,
+          "pixels": 162
+        },
+        {
+          "left": 1048,
+          "top": 362,
+          "width": 19,
+          "height": 30,
+          "pixels": 266
+        },
+        {
+          "left": 1009,
+          "top": 376,
+          "width": 14,
+          "height": 3,
+          "pixels": 42
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1028,
+          "top": 362,
+          "width": 16,
+          "height": 28,
+          "pixels": 197
+        },
+        {
+          "left": 1048,
+          "top": 362,
+          "width": 18,
+          "height": 28,
+          "pixels": 293
+        },
+        {
+          "left": 1009,
+          "top": 376,
+          "width": 14,
+          "height": 2,
+          "pixels": 28
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "row": 3,
+      "source": "art/mockups/web-v3/06-results-home-v2.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/probe-191/results-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1009,
+        "top": 526,
+        "width": 14,
+        "height": 3,
+        "pixels": 40
+      },
+      "actualBox": {
+        "left": 1009,
+        "top": 526,
+        "width": 14,
+        "height": 2,
+        "pixels": 28
+      },
+      "sourceComponents": [
+        {
+          "left": 1048,
+          "top": 512,
+          "width": 19,
+          "height": 30,
+          "pixels": 271
+        },
+        {
+          "left": 1029,
+          "top": 513,
+          "width": 14,
+          "height": 29,
+          "pixels": 169
+        },
+        {
+          "left": 1009,
+          "top": 526,
+          "width": 14,
+          "height": 3,
+          "pixels": 40
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1028,
+          "top": 513,
+          "width": 16,
+          "height": 28,
+          "pixels": 197
+        },
+        {
+          "left": 1048,
+          "top": 513,
+          "width": 18,
+          "height": 28,
+          "pixels": 293
+        },
+        {
+          "left": 1009,
+          "top": 526,
+          "width": 14,
+          "height": 2,
+          "pixels": 28
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "row": 5,
+      "source": "art/mockups/web-v3/06-results-home-v2.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/probe-191/results-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1009,
+        "top": 677,
+        "width": 14,
+        "height": 3,
+        "pixels": 42
+      },
+      "actualBox": {
+        "left": 1009,
+        "top": 676,
+        "width": 14,
+        "height": 2,
+        "pixels": 28
+      },
+      "sourceComponents": [
+        {
+          "left": 1048,
+          "top": 662,
+          "width": 20,
+          "height": 31,
+          "pixels": 280
+        },
+        {
+          "left": 1029,
+          "top": 663,
+          "width": 15,
+          "height": 29,
+          "pixels": 166
+        },
+        {
+          "left": 1009,
+          "top": 677,
+          "width": 14,
+          "height": 3,
+          "pixels": 42
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1028,
+          "top": 662,
+          "width": 16,
+          "height": 28,
+          "pixels": 197
+        },
+        {
+          "left": 1048,
+          "top": 662,
+          "width": 18,
+          "height": 28,
+          "pixels": 293
+        },
+        {
+          "left": 1009,
+          "top": 676,
+          "width": 14,
+          "height": 2,
+          "pixels": 28
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "final-round",
+      "row": 1,
+      "source": "art/mockups/web-v3/34-results-final-round-home-v2.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/probe-191/final-round-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1009,
+        "top": 376,
+        "width": 14,
+        "height": 3,
+        "pixels": 42
+      },
+      "actualBox": {
+        "left": 1009,
+        "top": 376,
+        "width": 14,
+        "height": 2,
+        "pixels": 28
+      },
+      "sourceComponents": [
+        {
+          "left": 1050,
+          "top": 362,
+          "width": 19,
+          "height": 30,
+          "pixels": 262
+        },
+        {
+          "left": 1029,
+          "top": 363,
+          "width": 18,
+          "height": 28,
+          "pixels": 201
+        },
+        {
+          "left": 1009,
+          "top": 376,
+          "width": 14,
+          "height": 3,
+          "pixels": 42
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1027,
+          "top": 362,
+          "width": 17,
+          "height": 28,
+          "pixels": 219
+        },
+        {
+          "left": 1048,
+          "top": 362,
+          "width": 18,
+          "height": 28,
+          "pixels": 293
+        },
+        {
+          "left": 1009,
+          "top": 376,
+          "width": 14,
+          "height": 2,
+          "pixels": 28
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "final-round",
+      "row": 2,
+      "source": "art/mockups/web-v3/34-results-final-round-home-v2.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/probe-191/final-round-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1010,
+        "top": 452,
+        "width": 14,
+        "height": 3,
+        "pixels": 41
+      },
+      "actualBox": {
+        "left": 1009,
+        "top": 451,
+        "width": 14,
+        "height": 2,
+        "pixels": 28
+      },
+      "sourceComponents": [
+        {
+          "left": 1031,
+          "top": 438,
+          "width": 14,
+          "height": 29,
+          "pixels": 168
+        },
+        {
+          "left": 1050,
+          "top": 438,
+          "width": 19,
+          "height": 29,
+          "pixels": 264
+        },
+        {
+          "left": 1010,
+          "top": 452,
+          "width": 14,
+          "height": 3,
+          "pixels": 41
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1028,
+          "top": 438,
+          "width": 16,
+          "height": 28,
+          "pixels": 197
+        },
+        {
+          "left": 1048,
+          "top": 438,
+          "width": 18,
+          "height": 28,
+          "pixels": 293
+        },
+        {
+          "left": 1009,
+          "top": 451,
+          "width": 14,
+          "height": 2,
+          "pixels": 28
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "final-round",
+      "row": 5,
+      "source": "art/mockups/web-v3/34-results-final-round-home-v2.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/probe-191/final-round-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1009,
+        "top": 677,
+        "width": 14,
+        "height": 3,
+        "pixels": 42
+      },
+      "actualBox": {
+        "left": 1009,
+        "top": 676,
+        "width": 14,
+        "height": 2,
+        "pixels": 28
+      },
+      "sourceComponents": [
+        {
+          "left": 1030,
+          "top": 663,
+          "width": 13,
+          "height": 29,
+          "pixels": 160
+        },
+        {
+          "left": 1048,
+          "top": 663,
+          "width": 19,
+          "height": 30,
+          "pixels": 276
+        },
+        {
+          "left": 1009,
+          "top": 677,
+          "width": 14,
+          "height": 3,
+          "pixels": 42
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1028,
+          "top": 662,
+          "width": 16,
+          "height": 28,
+          "pixels": 197
+        },
+        {
+          "left": 1048,
+          "top": 662,
+          "width": 18,
+          "height": 28,
+          "pixels": 293
+        },
+        {
+          "left": 1009,
+          "top": 676,
+          "width": 14,
+          "height": 2,
+          "pixels": 28
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "row": 1,
+      "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/probe-191/results-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 250,
+        "top": 284,
+        "width": 6,
+        "height": 1,
+        "pixels": 6
+      },
+      "actualBox": {
+        "left": 250,
+        "top": 284,
+        "width": 6,
+        "height": 1,
+        "pixels": 6
+      },
+      "sourceComponents": [
+        {
+          "left": 259,
+          "top": 278,
+          "width": 5,
+          "height": 12,
+          "pixels": 20
+        },
+        {
+          "left": 266,
+          "top": 278,
+          "width": 8,
+          "height": 12,
+          "pixels": 46
+        },
+        {
+          "left": 250,
+          "top": 284,
+          "width": 6,
+          "height": 1,
+          "pixels": 6
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 258,
+          "top": 278,
+          "width": 6,
+          "height": 12,
+          "pixels": 31
+        },
+        {
+          "left": 266,
+          "top": 278,
+          "width": 8,
+          "height": 12,
+          "pixels": 53
+        },
+        {
+          "left": 250,
+          "top": 284,
+          "width": 6,
+          "height": 1,
+          "pixels": 6
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "row": 3,
+      "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/probe-191/results-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 250,
+        "top": 375,
+        "width": 6,
+        "height": 1,
+        "pixels": 6
+      },
+      "actualBox": {
+        "left": 250,
+        "top": 374,
+        "width": 6,
+        "height": 1,
+        "pixels": 6
+      },
+      "sourceComponents": [
+        {
+          "left": 259,
+          "top": 369,
+          "width": 4,
+          "height": 12,
+          "pixels": 17
+        },
+        {
+          "left": 266,
+          "top": 369,
+          "width": 8,
+          "height": 12,
+          "pixels": 44
+        },
+        {
+          "left": 250,
+          "top": 375,
+          "width": 6,
+          "height": 1,
+          "pixels": 6
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 258,
+          "top": 368,
+          "width": 6,
+          "height": 12,
+          "pixels": 31
+        },
+        {
+          "left": 266,
+          "top": 368,
+          "width": 8,
+          "height": 12,
+          "pixels": 59
+        },
+        {
+          "left": 250,
+          "top": 374,
+          "width": 6,
+          "height": 1,
+          "pixels": 6
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "row": 5,
+      "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/probe-191/results-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 250,
+        "top": 463,
+        "width": 5,
+        "height": 2,
+        "pixels": 10
+      },
+      "actualBox": {
+        "left": 250,
+        "top": 464,
+        "width": 6,
+        "height": 1,
+        "pixels": 6
+      },
+      "sourceComponents": [
+        {
+          "left": 259,
+          "top": 458,
+          "width": 5,
+          "height": 12,
+          "pixels": 28
+        },
+        {
+          "left": 266,
+          "top": 458,
+          "width": 8,
+          "height": 12,
+          "pixels": 47
+        },
+        {
+          "left": 250,
+          "top": 463,
+          "width": 5,
+          "height": 2,
+          "pixels": 10
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 258,
+          "top": 458,
+          "width": 6,
+          "height": 12,
+          "pixels": 31
+        },
+        {
+          "left": 266,
+          "top": 458,
+          "width": 8,
+          "height": 12,
+          "pixels": 59
+        },
+        {
+          "left": 250,
+          "top": 464,
+          "width": 6,
+          "height": 1,
+          "pixels": 6
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "final-round",
+      "row": 1,
+      "source": "art/mockups/web-v3/portrait/34-results-final-round-home-v2.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/probe-191/final-round-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 250,
+        "top": 284,
+        "width": 6,
+        "height": 1,
+        "pixels": 6
+      },
+      "actualBox": {
+        "left": 250,
+        "top": 284,
+        "width": 6,
+        "height": 1,
+        "pixels": 6
+      },
+      "sourceComponents": [
+        {
+          "left": 258,
+          "top": 278,
+          "width": 7,
+          "height": 7,
+          "pixels": 20
+        },
+        {
+          "left": 271,
+          "top": 278,
+          "width": 4,
+          "height": 12,
+          "pixels": 24
+        },
+        {
+          "left": 267,
+          "top": 279,
+          "width": 2,
+          "height": 10,
+          "pixels": 18
+        },
+        {
+          "left": 250,
+          "top": 284,
+          "width": 6,
+          "height": 1,
+          "pixels": 6
+        },
+        {
+          "left": 258,
+          "top": 286,
+          "width": 7,
+          "height": 4,
+          "pixels": 18
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 257,
+          "top": 278,
+          "width": 2,
+          "height": 2,
+          "pixels": 3
+        },
+        {
+          "left": 260,
+          "top": 278,
+          "width": 4,
+          "height": 8,
+          "pixels": 15
+        },
+        {
+          "left": 266,
+          "top": 278,
+          "width": 8,
+          "height": 12,
+          "pixels": 53
+        },
+        {
+          "left": 250,
+          "top": 284,
+          "width": 6,
+          "height": 1,
+          "pixels": 6
+        },
+        {
+          "left": 257,
+          "top": 287,
+          "width": 7,
+          "height": 3,
+          "pixels": 15
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "final-round",
+      "row": 2,
+      "source": "art/mockups/web-v3/portrait/34-results-final-round-home-v2.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/probe-191/final-round-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 250,
+        "top": 329,
+        "width": 6,
+        "height": 2,
+        "pixels": 11
+      },
+      "actualBox": {
+        "left": 250,
+        "top": 329,
+        "width": 6,
+        "height": 1,
+        "pixels": 6
+      },
+      "sourceComponents": [
+        {
+          "left": 259,
+          "top": 324,
+          "width": 5,
+          "height": 12,
+          "pixels": 21
+        },
+        {
+          "left": 266,
+          "top": 324,
+          "width": 5,
+          "height": 12,
+          "pixels": 23
+        },
+        {
+          "left": 271,
+          "top": 324,
+          "width": 3,
+          "height": 11,
+          "pixels": 22
+        },
+        {
+          "left": 250,
+          "top": 329,
+          "width": 6,
+          "height": 2,
+          "pixels": 11
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 258,
+          "top": 323,
+          "width": 6,
+          "height": 12,
+          "pixels": 31
+        },
+        {
+          "left": 266,
+          "top": 323,
+          "width": 8,
+          "height": 12,
+          "pixels": 59
+        },
+        {
+          "left": 250,
+          "top": 329,
+          "width": 6,
+          "height": 1,
+          "pixels": 6
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "final-round",
+      "row": 5,
+      "source": "art/mockups/web-v3/portrait/34-results-final-round-home-v2.png",
+      "capture": "art/review/web-v3/results-ink-calibration-20261027/probe-191/final-round-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 250,
+        "top": 464,
+        "width": 6,
+        "height": 1,
+        "pixels": 6
+      },
+      "actualBox": {
+        "left": 250,
+        "top": 464,
+        "width": 6,
+        "height": 1,
+        "pixels": 6
+      },
+      "sourceComponents": [
+        {
+          "left": 259,
+          "top": 458,
+          "width": 4,
+          "height": 12,
+          "pixels": 27
+        },
+        {
+          "left": 266,
+          "top": 458,
+          "width": 8,
+          "height": 12,
+          "pixels": 43
+        },
+        {
+          "left": 250,
+          "top": 464,
+          "width": 6,
+          "height": 1,
+          "pixels": 6
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 258,
+          "top": 458,
+          "width": 6,
+          "height": 12,
+          "pixels": 31
+        },
+        {
+          "left": 266,
+          "top": 458,
+          "width": 8,
+          "height": 12,
+          "pixels": 59
+        },
+        {
+          "left": 250,
+          "top": 464,
+          "width": 6,
+          "height": 1,
+          "pixels": 6
+        }
+      ]
+    }
+  ]
+}

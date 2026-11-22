@@ -1,0 +1,110 @@
+{
+  "contract": {
+    "cardBox": [
+      128,
+      192
+    ],
+    "lift": 12,
+    "neighborShift": 9,
+    "haloOffset": 8,
+    "haloCanvas": [
+      156,
+      211
+    ],
+    "durationMs": 140,
+    "confirmPulseMs": 560,
+    "origin": "center",
+    "appliesTo": "5-8 card quick-mode play/trick-result hands only; four-card source poses and bid/chooser layouts unchanged"
+  },
+  "profiles": {
+    "landscape": {
+      "canvas": [
+        1672,
+        941
+      ],
+      "hand": {
+        "x": 240,
+        "y": 650,
+        "width": 1004,
+        "height": 245
+      },
+      "columns": [
+        320,
+        440,
+        560,
+        680,
+        800,
+        920,
+        1040,
+        1160
+      ],
+      "rows": [
+        775
+      ],
+      "roundRoi": [
+        52,
+        128,
+        135,
+        90
+      ],
+      "cleanup": [
+        240,
+        650,
+        1004,
+        245
+      ]
+    },
+    "portrait": {
+      "canvas": [
+        941,
+        1672
+      ],
+      "hand": {
+        "x": 154,
+        "y": 1170,
+        "width": 642,
+        "height": 450
+      },
+      "columns": [
+        238,
+        391,
+        548,
+        704
+      ],
+      "rows": [
+        1288,
+        1504
+      ],
+      "roundRoi": [
+        55,
+        151,
+        160,
+        100
+      ],
+      "cleanup": [
+        0,
+        1005,
+        941,
+        667
+      ],
+      "action": [
+        275,
+        1072,
+        394,
+        102
+      ],
+      "timer": [
+        688,
+        957,
+        241,
+        230
+      ],
+      "status": [
+        342,
+        1008,
+        262,
+        52
+      ]
+    }
+  }
+}

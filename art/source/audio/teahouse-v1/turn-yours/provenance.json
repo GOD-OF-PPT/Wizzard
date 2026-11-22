@@ -1,0 +1,231 @@
+{
+  "id": "turn.yours",
+  "label": "轮到你了",
+  "durationSeconds": 1,
+  "trigger": "新进入本人的行动回合",
+  "prompt": "Two very gentle clear bamboo-and-jade chime taps, a lower tone then a slightly higher tone, like a small tea-room wind chime touched by hand. Brief informative notification, warm and calm, no melody or sustained ringing. Entire sound fits within 1 seconds. For an enchanted Chinese teahouse game. One isolated close-up, warm tactile hit. No voice, music, ambience, beeps or harsh treble.",
+  "targetLufs": -23,
+  "cooldownMs": 1200,
+  "loop": false,
+  "variants": 4,
+  "status": "generated",
+  "runtimePath": "art/runtime/audio/teahouse-v1/turn-yours-v1.mp3",
+  "sourceDirectory": "art/source/audio/teahouse-v1/turn-yours",
+  "submittedAt": "2026-10-28T07:36:51.278Z",
+  "model": "eleven_text_to_sound_v2",
+  "generatedAt": "2026-10-28T07:39:13.390Z",
+  "downloadPrefix": "Two_very_gentle_clea_",
+  "sourceFiles": [
+    {
+      "take": 1,
+      "downloadedName": "Two_very_gentle_clea_#1-1793173021091.mp3",
+      "path": "art/source/audio/teahouse-v1/turn-yours/take-01.mp3"
+    },
+    {
+      "take": 2,
+      "downloadedName": "Two_very_gentle_clea_#2-1793173021071.mp3",
+      "path": "art/source/audio/teahouse-v1/turn-yours/take-02.mp3"
+    },
+    {
+      "take": 3,
+      "downloadedName": "Two_very_gentle_clea_#3-1793173021130.mp3",
+      "path": "art/source/audio/teahouse-v1/turn-yours/take-03.mp3"
+    },
+    {
+      "take": 4,
+      "downloadedName": "Two_very_gentle_clea_#4-1793173021410.mp3",
+      "path": "art/source/audio/teahouse-v1/turn-yours/take-04.mp3"
+    }
+  ],
+  "candidates": [
+    {
+      "take": 1,
+      "source": "art/source/audio/teahouse-v1/turn-yours/take-01.mp3",
+      "sourceSha256": "9e7aa855fc538c24ccb452d2b6a79bf83cc8e1eaa92f6d058e8cc7f199d23a02",
+      "sourceBytes": 25389,
+      "sourceMetrics": {
+        "duration": 1,
+        "peakDbfs": -15.077998585573669,
+        "rmsDbfs": -32.67029909823749,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0,
+        "first": 0,
+        "last": 47999
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/turn-yours-take-01.mp3",
+      "sha256": "3521f2cd678acb4ee84357da9b2fe88161a3e16ba9882d51ee13eec15e4a306c",
+      "bytes": 17179,
+      "outputMetrics": {
+        "duration": 1,
+        "peakDbfs": -8.864586125327511,
+        "rmsDbfs": -26.56980859248158,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0000625,
+        "trailingSilenceSeconds": 0.23154166666666667,
+        "first": 3,
+        "last": 36885
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 1,
+        "targetRmsDbfs": -26,
+        "gainDb": 6.670299098237493,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 2,
+      "source": "art/source/audio/teahouse-v1/turn-yours/take-02.mp3",
+      "sourceSha256": "64e7d960aff103d355072d472f5da53abd3cec3c6b76ade8b158703705950743",
+      "sourceBytes": 25389,
+      "sourceMetrics": {
+        "duration": 1,
+        "peakDbfs": -22.454079243714645,
+        "rmsDbfs": -39.41825547684475,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0,
+        "first": 0,
+        "last": 47999
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/turn-yours-take-02.mp3",
+      "sha256": "965dcdc435e0372efcedf80b0831e701d5afe32cf2fb8bd6a62ce3abfeceefa1",
+      "bytes": 17179,
+      "outputMetrics": {
+        "duration": 1,
+        "peakDbfs": -13.897813179930761,
+        "rmsDbfs": -31.02181080279193,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.00010416666666666667,
+        "trailingSilenceSeconds": 0.0020208333333333332,
+        "first": 5,
+        "last": 47902
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 1,
+        "targetRmsDbfs": -26,
+        "gainDb": 9,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 3,
+      "source": "art/source/audio/teahouse-v1/turn-yours/take-03.mp3",
+      "sourceSha256": "ec7499bbc2af966f779de47d6827b27d5460aa3c28487c8ca15ce36fc7bafbc9",
+      "sourceBytes": 25389,
+      "sourceMetrics": {
+        "duration": 1,
+        "peakDbfs": -12.813065745384634,
+        "rmsDbfs": -30.067867271283827,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.369875,
+        "first": 0,
+        "last": 30245
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/turn-yours-take-03.mp3",
+      "sha256": "170b872a011943de237a0dba69d458e113e38f9dcfbb78e3d13050235e7ad326",
+      "bytes": 12163,
+      "outputMetrics": {
+        "duration": 0.6901458333333333,
+        "peakDbfs": -12.702076939039983,
+        "rmsDbfs": -26.653102282316414,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0000625,
+        "trailingSilenceSeconds": 0.0289375,
+        "first": 3,
+        "last": 31737
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.6901250000000001,
+        "targetRmsDbfs": -26,
+        "gainDb": 2.457719852227683,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 4,
+      "source": "art/source/audio/teahouse-v1/turn-yours/take-04.mp3",
+      "sourceSha256": "70294229e177eb0bb6a9983f4ad53bf9e2dc2069e710123d81e7f5accf64f9f7",
+      "sourceBytes": 25389,
+      "sourceMetrics": {
+        "duration": 1,
+        "peakDbfs": -4.322844117632753,
+        "rmsDbfs": -24.63564713715904,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.461625,
+        "first": 0,
+        "last": 25841
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/turn-yours-take-04.mp3",
+      "sha256": "bd14f330fa86b5e2a52aaccd6bd5e836e5f0759a4fe179002bf55bb83b37059e",
+      "bytes": 10492,
+      "outputMetrics": {
+        "duration": 0.5983958333333333,
+        "peakDbfs": -8.349446558554002,
+        "rmsDbfs": -26.446694531388154,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0009166666666666666,
+        "trailingSilenceSeconds": 0.060020833333333336,
+        "first": 44,
+        "last": 25841
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.5983750000000001,
+        "targetRmsDbfs": -26,
+        "gainDb": -3.5928901077059052,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    }
+  ],
+  "selectedTake": 1,
+  "selectionBasis": "具有两次起音及清楚的共鸣带，与单次按钮/确认有区别；高于6kHz能量接近零，避免尖锐催促。",
+  "runtimeSha256": "3521f2cd678acb4ee84357da9b2fe88161a3e16ba9882d51ee13eec15e4a306c",
+  "runtimeBytes": 17179,
+  "durationActualSeconds": 1,
+  "technicalStatus": "decode-duration-peak-and-unique-takes-verified",
+  "listeningStatus": "not-human-reviewed",
+  "wiredToGame": true,
+  "selectionStatus": "agent-selected",
+  "selectionReviewMethod": "Per-candidate waveform, spectral distribution, duration, onset pattern, and role matching. This is an agent production choice, not a claim of direct auditory or human listening acceptance.",
+  "finalProcessing": {
+    "eq": null,
+    "gainDb": 0
+  },
+  "finalMetrics": {
+    "duration": 1,
+    "peakDbfs": -8.864586125327511,
+    "rmsDbfs": -26.56980859248158,
+    "clippedSamples": 0,
+    "leadingSilenceSeconds": 0.0000625,
+    "trailingSilenceSeconds": 0.23154166666666667,
+    "first": 3,
+    "last": 36885
+  },
+  "integrationTarget": "react-web"
+}

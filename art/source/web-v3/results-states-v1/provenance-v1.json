@@ -1,0 +1,501 @@
+{
+  "method": "Built-in ImageGen final-round and network-guest terminal state edits. Exact text/value ROIs composed into original selected06/07 sources; all other original RGB invariant. Runtime canonical action tiles preserve original frame anatomy and2px outside feather; live game values never sourced from full-page artwork.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "final-round",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "candidate": "art/source/web-v3/results-states-v1/landscape-final-round-candidate-v1.png",
+      "candidateSha256": "b29f41cb69e5660119bb4c1bcbf05d421ba82f4b1678211ead865fd272a8bb45",
+      "allowed": [
+        [
+          758,
+          93,
+          49,
+          68
+        ],
+        [
+          1125,
+          736,
+          245,
+          60
+        ],
+        [
+          621,
+          276,
+          112,
+          55
+        ],
+        [
+          803,
+          276,
+          112,
+          55
+        ],
+        [
+          983,
+          276,
+          112,
+          55
+        ],
+        [
+          1166,
+          276,
+          112,
+          55
+        ],
+        [
+          621,
+          351,
+          112,
+          55
+        ],
+        [
+          803,
+          351,
+          112,
+          55
+        ],
+        [
+          983,
+          351,
+          112,
+          55
+        ],
+        [
+          1166,
+          351,
+          112,
+          55
+        ],
+        [
+          621,
+          426,
+          112,
+          55
+        ],
+        [
+          803,
+          426,
+          112,
+          55
+        ],
+        [
+          983,
+          426,
+          112,
+          55
+        ],
+        [
+          1166,
+          426,
+          112,
+          55
+        ],
+        [
+          621,
+          501,
+          112,
+          55
+        ],
+        [
+          803,
+          501,
+          112,
+          55
+        ],
+        [
+          983,
+          501,
+          112,
+          55
+        ],
+        [
+          1166,
+          501,
+          112,
+          55
+        ],
+        [
+          621,
+          576,
+          112,
+          55
+        ],
+        [
+          803,
+          576,
+          112,
+          55
+        ],
+        [
+          983,
+          576,
+          112,
+          55
+        ],
+        [
+          1166,
+          576,
+          112,
+          55
+        ],
+        [
+          621,
+          651,
+          112,
+          55
+        ],
+        [
+          803,
+          651,
+          112,
+          55
+        ],
+        [
+          983,
+          651,
+          112,
+          55
+        ],
+        [
+          1166,
+          651,
+          112,
+          55
+        ]
+      ],
+      "changed": 156618,
+      "changedOutsideROI": 0,
+      "output": "art/mockups/web-v3/34-results-final-round-v1.png",
+      "sha256": "f83e11b1042a9abb71fa9ab83d6273a159cde0ad404aaa8300f19bb34ab5f9de"
+    },
+    {
+      "profile": "landscape",
+      "state": "guest-waiting",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "candidate": "art/source/web-v3/results-states-v1/landscape-guest-waiting-candidate-v1.png",
+      "candidateSha256": "06bbb296f90be0e4eb6e5a87b40e880186dcad07abb42ebdb40ca48e34f9e5b3",
+      "allowed": [
+        [
+          538,
+          765,
+          218,
+          60
+        ],
+        [
+          899,
+          760,
+          276,
+          66
+        ]
+      ],
+      "changed": 30001,
+      "changedOutsideROI": 0,
+      "output": "art/mockups/web-v3/35-ranking-guest-waiting-v1.png",
+      "sha256": "bb3b4f2c74b2f7e08000770084a84d3a94337ad1cb37da8d9a306b037912d50b"
+    },
+    {
+      "profile": "portrait",
+      "state": "final-round",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "candidate": "art/source/web-v3/results-states-v1/portrait-final-round-candidate-v1.png",
+      "candidateSha256": "4d5fe51adcc382a1b096eb4974f4f18cc1e385166ec7588469d39653b8288e91",
+      "allowed": [
+        [
+          392,
+          272,
+          54,
+          78
+        ],
+        [
+          300,
+          1504,
+          350,
+          82
+        ],
+        [
+          347,
+          546,
+          112,
+          65
+        ],
+        [
+          457,
+          546,
+          112,
+          65
+        ],
+        [
+          576,
+          546,
+          112,
+          65
+        ],
+        [
+          704,
+          546,
+          112,
+          65
+        ],
+        [
+          347,
+          654,
+          112,
+          65
+        ],
+        [
+          457,
+          654,
+          112,
+          65
+        ],
+        [
+          576,
+          654,
+          112,
+          65
+        ],
+        [
+          704,
+          654,
+          112,
+          65
+        ],
+        [
+          347,
+          762,
+          112,
+          65
+        ],
+        [
+          457,
+          762,
+          112,
+          65
+        ],
+        [
+          576,
+          762,
+          112,
+          65
+        ],
+        [
+          704,
+          762,
+          112,
+          65
+        ],
+        [
+          347,
+          870,
+          112,
+          65
+        ],
+        [
+          457,
+          870,
+          112,
+          65
+        ],
+        [
+          576,
+          870,
+          112,
+          65
+        ],
+        [
+          704,
+          870,
+          112,
+          65
+        ],
+        [
+          347,
+          978,
+          112,
+          65
+        ],
+        [
+          457,
+          978,
+          112,
+          65
+        ],
+        [
+          576,
+          978,
+          112,
+          65
+        ],
+        [
+          704,
+          978,
+          112,
+          65
+        ],
+        [
+          347,
+          1086,
+          112,
+          65
+        ],
+        [
+          457,
+          1086,
+          112,
+          65
+        ],
+        [
+          576,
+          1086,
+          112,
+          65
+        ],
+        [
+          704,
+          1086,
+          112,
+          65
+        ]
+      ],
+      "changed": 196404,
+      "changedOutsideROI": 0,
+      "output": "art/mockups/web-v3/portrait/34-results-final-round-v1.png",
+      "sha256": "a07233b8747e413c426d58b6295264fdc691608f1b884354436c2c4cbf52144f"
+    },
+    {
+      "profile": "portrait",
+      "state": "guest-waiting",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "candidate": "art/source/web-v3/results-states-v1/portrait-guest-waiting-candidate-v1.png",
+      "candidateSha256": "e98a6b6740405684f860d2b5a205d15e9bb6cb42152b045fdc03ce05acde09eb",
+      "allowed": [
+        [
+          330,
+          1358,
+          285,
+          82
+        ],
+        [
+          295,
+          1490,
+          355,
+          85
+        ]
+      ],
+      "changed": 51705,
+      "changedOutsideROI": 0,
+      "output": "art/mockups/web-v3/portrait/35-ranking-guest-waiting-v1.png",
+      "sha256": "ff3c12de56f5496b5dbd30f8c21a7b04390edda2451fd0640039e37ac38131af"
+    }
+  ],
+  "runtimeReports": [
+    {
+      "profile": "landscape",
+      "state": "final-round",
+      "kind": "primary",
+      "label": "查看最终总榜",
+      "view": "results",
+      "source": "art/mockups/web-v3/34-results-final-round-v1.png",
+      "sourceSha256": "f83e11b1042a9abb71fa9ab83d6273a159cde0ad404aaa8300f19bb34ab5f9de",
+      "rect": [
+        1075,
+        717,
+        318,
+        96
+      ],
+      "output": "art/runtime/web-v3/results-states-v1/landscape-final-round-primary-v1.png",
+      "sha256": "c0997d3a2048f572c281b7986ec6744ca0af565e823875a8ba22e3298ed89f68"
+    },
+    {
+      "profile": "landscape",
+      "state": "guest-waiting",
+      "kind": "secondary",
+      "label": "离开房间",
+      "view": "ranking",
+      "source": "art/mockups/web-v3/35-ranking-guest-waiting-v1.png",
+      "sourceSha256": "bb3b4f2c74b2f7e08000770084a84d3a94337ad1cb37da8d9a306b037912d50b",
+      "rect": [
+        459,
+        744,
+        369,
+        101
+      ],
+      "output": "art/runtime/web-v3/results-states-v1/landscape-guest-waiting-secondary-v1.png",
+      "sha256": "75069bee4f875a91a2c340651a13e801f62803f1b96325a27fc5c6338d2552b4"
+    },
+    {
+      "profile": "landscape",
+      "state": "guest-waiting",
+      "kind": "primary",
+      "label": "等待房主再开",
+      "view": "ranking",
+      "source": "art/mockups/web-v3/35-ranking-guest-waiting-v1.png",
+      "sourceSha256": "bb3b4f2c74b2f7e08000770084a84d3a94337ad1cb37da8d9a306b037912d50b",
+      "rect": [
+        846,
+        742,
+        370,
+        105
+      ],
+      "output": "art/runtime/web-v3/results-states-v1/landscape-guest-waiting-primary-v1.png",
+      "sha256": "28a2fa1c6457b7a145d6e96f15a5b16a9b52a002286a4183d3d4f2e0c71d4704"
+    },
+    {
+      "profile": "portrait",
+      "state": "final-round",
+      "kind": "primary",
+      "label": "查看最终总榜",
+      "view": "results",
+      "source": "art/mockups/web-v3/portrait/34-results-final-round-v1.png",
+      "sourceSha256": "a07233b8747e413c426d58b6295264fdc691608f1b884354436c2c4cbf52144f",
+      "rect": [
+        132,
+        1482,
+        680,
+        122
+      ],
+      "output": "art/runtime/web-v3/results-states-v1/portrait-final-round-primary-v1.png",
+      "sha256": "a8be4d8cad0e410dd2fd1a113728e9518cef2afb3fe21eabd1263201edc73d7b"
+    },
+    {
+      "profile": "portrait",
+      "state": "guest-waiting",
+      "kind": "secondary",
+      "label": "离开房间",
+      "view": "ranking",
+      "source": "art/mockups/web-v3/portrait/35-ranking-guest-waiting-v1.png",
+      "sourceSha256": "ff3c12de56f5496b5dbd30f8c21a7b04390edda2451fd0640039e37ac38131af",
+      "rect": [
+        179,
+        1333,
+        585,
+        122
+      ],
+      "output": "art/runtime/web-v3/results-states-v1/portrait-guest-waiting-secondary-v1.png",
+      "sha256": "73a4cf05f7e43ce0d162e1a27de4ff1725e43e7258746ee7a3be00f70fc6e0d2"
+    },
+    {
+      "profile": "portrait",
+      "state": "guest-waiting",
+      "kind": "primary",
+      "label": "等待房主再开",
+      "view": "ranking",
+      "source": "art/mockups/web-v3/portrait/35-ranking-guest-waiting-v1.png",
+      "sourceSha256": "ff3c12de56f5496b5dbd30f8c21a7b04390edda2451fd0640039e37ac38131af",
+      "rect": [
+        179,
+        1457,
+        585,
+        130
+      ],
+      "output": "art/runtime/web-v3/results-states-v1/portrait-guest-waiting-primary-v1.png",
+      "sha256": "7c39de78f89b5cce1cbab3342a247986d193f01adae695c04e3671a7061dd284"
+    }
+  ]
+}

@@ -8,12 +8,10 @@ import {
 import {
   cardImages,
   gameArt,
-  suitLabels,
   suitNames,
   type AvatarExpression,
 } from "../game-assets";
 import {
-  SUITS,
   type Card,
   type MatchErrorCode,
   type MatchPhase,
@@ -21,37 +19,42 @@ import {
   type Suit,
 } from "@wizzard/game-core/contracts";
 import { useLocalMatch } from "../hooks/useLocalMatch";
+import { MatchAudioTracker } from "../web/audio/cues";
+import { gameAudio, playCues } from "../web/audio/player";
 import type { LocalMatchController } from "../hooks/useLocalMatch";
 import { CardView, type CardVisualState } from "./CardView";
+import selectionLayout from "../../art/runtime/web-v3/selection-layout-v2.json";
+import denseLayout from "../../art/runtime/web-v3/dense-hand-layout-v1.json";
+import densePortraitScene from "../../art/runtime/web-v3/dense-scene-portrait-v1.png";
+import bidHandLayout from "../../art/runtime/web-v3/bid-hand-layout-v1.json";
+import { TrickArea } from "./TrickArea";
+import { TableStatus } from "./TableStatus";
+import { currentAction, tableStatus } from "../web/table-status";
 import { WebResults } from "./WebResults";
 import gameplayV3 from "../../art/runtime/web-v3/gameplay.png";
 import gameplayChoicesPortraitV3 from "../../art/runtime/web-v3/portrait/gameplay-choices-v1.png";
 import { WebTrumpChooser, WebBidPanel } from "./WebMatchChoices";
-import { webGameplayAvatar } from "../web/avatar-assets";
-import hourglass from "../../art/runtime/web-v3/hourglass-v1.png";
-import trumpStatusArt from "../../art/runtime/web-v3/trump-status-v2.png";
+import { gameplaySeatHalo, gameplaySeatPortrait, gameplaySeatStyle } from "../web/gameplay-seats";
+import { tableSlotForSeat } from "../web/table-seating";
+import { roomModeNames } from "../web/room-mode";
+import trumpPaper from "../../art/runtime/web-v3/trump-status-v2.png";
 import { webSuitIcons } from "../web/suit-assets";
 import noTimerPatch from "../../art/runtime/web-v3/no-timer-patch-v1.png";
 import noTimerPortraitPatch from "../../art/runtime/web-v3/portrait/no-timer-patch-v1.png";
 import noActionPatch from "../../art/runtime/web-v3/gameplay-no-action-patch-v1.png";
-import turnFlourishLeft from "../../art/runtime/web-v3/turn-status-flourish-left-v2.png";
-import turnFlourishRight from "../../art/runtime/web-v3/turn-status-flourish-right-v2.png";
 import modePlayer from "../../art/runtime/web-v3/mode-player-v1.png";
+import { SourceActionArt } from "./SourceActionArt";
+import { sourceActionStyle, type SourceActionState } from "../web/source-actions";
+import {sourceRoundArt,sourceRoundStyle} from "../web/source-round";
+import {sourceClockArt,sourceClockStyle,sourceDenseNoTimerArt,sourceDenseNoTimerStyle,type SourceClockVariant} from "../web/source-clocks";
 
 type MatchScreenProps = {
   controller?: LocalMatchController;
+  hostPlayerId?: string;
   onExit: () => void;
   showLegalHints?: boolean;
 };
 
-const phaseLabels = {
-  bid: "依次预测本轮赢墩数",
-  "match-end": "快速局结束",
-  "round-score": "本轮结算",
-  "trick-play": "按领出花色出牌",
-  "trick-result": "本墩结算",
-  "trump-select": "发牌者选择王牌",
-} as const;
 
 const errorMessages: Record<MatchErrorCode, string> = {
   BID_NOT_INTEGER: "预测必须是整数",
@@ -91,6 +94,7 @@ function PlayerSeat({
   completedWinnerId,
   currentPlayerId,
   displaySlot,
+  action,
   handCount,
   isDealer,
   isLocal,
@@ -100,6 +104,7 @@ function PlayerSeat({
   completedWinnerId?: string;
   currentPlayerId: string | null;
   displaySlot: number;
+  action: string | null;
   handCount: number;
   isDealer: boolean;
   isLocal: boolean;
@@ -113,20 +118,28 @@ function PlayerSeat({
     phase,
   );
   const isActive = currentPlayerId === player.id;
+  const portrait = gameplaySeatPortrait(player.avatarKey);
 
   return (
     <article
-      className={`player-seat player-seat--${displaySlot} ${isActive ? "is-active" : ""} ${player.isHuman ? "is-human" : "is-ai"}`}
+      className={`player-seat player-seat--source player-seat--${displaySlot} ${isActive ? "is-active" : ""} ${player.isHuman ? "is-human" : "is-ai"}`}
+      style={gameplaySeatStyle(displaySlot)}
+      data-seat-index={player.seatIndex}
+      data-table-slot={displaySlot}
+      aria-current={isActive ? "true" : undefined}
       aria-label={`${player.name}${!player.isHuman ? "，AI" : ""}${isDealer ? "，发牌者" : ""}`}
     >
       <div className="player-seat__portrait-wrap">
-        <img
-          alt={`${player.name}头像`}
-          className="player-seat__portrait"
-          data-expression={expression}
-          draggable="false"
-          src={webGameplayAvatar(player.avatarKey)}
-        />
+        <picture className="player-seat__source-art">
+          <source media="(orientation: portrait)" srcSet={portrait.portrait} />
+          <img
+            alt={`${player.name}头像`}
+            className="player-seat__portrait"
+            data-expression={expression}
+            draggable={false}
+            src={portrait.landscape}
+          />
+        </picture>
         {!player.isHuman ? (
           <img
             alt="AI"
@@ -142,7 +155,9 @@ function PlayerSeat({
           </span>
         ) : null}
       </div>
-      <strong>{player.name}</strong>
+      {isActive && <picture className="player-seat__active-art"><source media="(orientation: portrait)" srcSet={gameplaySeatHalo.portrait} /><img src={gameplaySeatHalo.landscape} alt="" aria-hidden="true" draggable={false} /></picture>}
+      {isActive && action && <span className="table-seat-action" aria-hidden="true">{action}</span>}
+      <strong><span className="player-seat__name-text">{player.name}</span></strong>
       <div className="player-seat__stats">
         <span className="player-seat__stat">
           <span>预测 {player.bid ?? "—"}</span>
@@ -151,7 +166,7 @@ function PlayerSeat({
           <span>赢墩 {player.tricksWon}</span>
         </span>
       </div>
-      {isLocal && <span className="player-seat__you">你</span>}
+      {isLocal && <span className="player-seat__you"><span className="sr-only">你</span></span>}
       <div className="player-seat__hand-count" aria-label={`剩余 ${handCount} 张牌`}>
         <img alt="" aria-hidden="true" draggable="false" src={cardImages.back} />
         <span>{handCount}</span>
@@ -161,125 +176,80 @@ function PlayerSeat({
 }
 
 function RoundHeader({
+  dense,
   handSize,
-  phase,
   roundNumber,
-  totalRounds,
 }: {
+  dense: boolean;
   handSize: number;
-  phase: MatchPhase;
   roundNumber: number;
-  totalRounds: number;
 }) {
+  const art=sourceRoundArt[dense?"dense":"normal"];
   return (
-    <header className="match-round-header">
-      <img alt="" aria-hidden="true" draggable="false" src={gameArt.roundTitleScroll} />
+    <header className="match-round-header match-round-header--source" style={sourceRoundStyle(dense)}>
+      <picture className="match-round-header__source" aria-hidden="true"><source media="(orientation: portrait)" srcSet={art.portrait}/><img src={art.landscape} alt="" draggable={false}/></picture>
       <div>
-        <strong>
-          第 {roundNumber} 轮
+        <strong className="round-source__round">
+          <span className="sr-only">第 </span>{roundNumber}<span className="sr-only"> 轮</span>
         </strong>
-        <span>
-          每人 {handSize} 张
+        <span className="round-source__hand">
+          <span className="sr-only">每人 </span>{handSize}<span className="sr-only"> 张</span>
         </span>
       </div>
     </header>
   );
 }
 
-function TrumpStatus({
-  phase,
-  revealedCard,
-  trump,
-}: {
-  phase: MatchPhase;
-  revealedCard: Card | null;
-  trump: Suit | null;
-}) {
+function TrumpStatus({ phase, trump }: { phase: MatchPhase; trump: Suit | null }) {
+  const name = trump ? suitNames[trump] : phase === "trump-select" ? "待选择" : "无王牌";
   return (
-    <aside className="trump-status">
-      <img
-        alt=""
-        aria-hidden="true"
-        className="trump-status__panel"
-        draggable="false"
-        src={trumpStatusArt}
-      />
-      {trump ? (
-        <img
-          alt=""
-          aria-hidden="true"
-          className="trump-status__suit"
-          draggable="false"
-          src={webSuitIcons[trump]}
-        />
-      ) : null}
-      <div className="trump-status__content">
+    <aside id="round-trump-info" className="trump-status table-trump" data-suit={trump ?? "none"} aria-label={`本轮王牌：${name}`}>
+      <img className="table-trump__paper" src={trumpPaper} alt="" draggable={false} />
+      <div className="table-trump__line">
+        {trump && <span className="table-trump__icon" aria-hidden="true" style={{ "--suit-symbol": `url("${webSuitIcons[trump]}")` } as CSSProperties} />}
         <span>本轮王牌 ·</span>
-        <strong>
-          {trump
-            ? suitNames[trump]
-            : phase === "trump-select"
-              ? "待选择"
-              : "无王牌"}
-        </strong>
+        <strong>{name}</strong>
       </div>
-      {revealedCard ? (
-        <div className="trump-status__reveal">
-          <CardView card={revealedCard} state="played" />
-        </div>
-      ) : null}
     </aside>
   );
 }
 
-function TrickArea({
-  completedWinnerId,
-  plays,
-  showEmpty,
-}: {
-  completedWinnerId?: string;
-  plays: readonly { card: Card; playerId: string }[];
-  showEmpty: boolean;
-}) {
-  return (
-    <section aria-label="当前一墩" className="trick-area">
-      {plays.length === 0 && showEmpty ? (
-        <span className="trick-area__empty">
-          <img alt="" aria-hidden="true" draggable="false" src={gameArt.smallPlaque} />
-          <span>等待领出</span>
-        </span>
-      ) : null}
-      {plays.map((play, index) => (
-        <CardView
-          card={play.card}
-          className="trick-card"
-          key={`${play.playerId}:${play.card.id}`}
-          state="played"
-          style={trickCardStyle(index, plays.length)}
-          winner={completedWinnerId === play.playerId}
-        />
-      ))}
-    </section>
-  );
-}
-
-function trickCardStyle(index: number, count: number): CSSProperties {
-  const midpoint = (count - 1) / 2;
-  const offset = index - midpoint;
-  const spread = count === 1 ? 0 : Math.min(25, 100 / (count - 1));
-
-  return {
-    "--trick-left": `${50 + offset * spread}%`,
-    "--trick-perspective-left": `${50.8 + offset * Math.min(23.7, spread)}%`,
-    "--trick-skew": `${offset * 3}deg`,
-    "--trick-rotation": "0deg",
-    "--trick-top": "0%",
-  } as CSSProperties;
-}
 
 
 
-function handCardStyle(index: number, count: number): CSSProperties {
+function handCardStyle(index: number, count: number, dense = false, bid = false): CSSProperties {
+  if (dense) {
+    const wide = denseLayout.profiles.landscape;
+    const tall = denseLayout.profiles.portrait;
+    const x = 740 + (index - (count - 1) / 2) * 120;
+    const [px, py] = densePortraitCardCenter(index, count);
+    return {
+      "--fan-left": `${(x - wide.hand.x) / wide.hand.width * 100}%`,
+      "--portrait-fan-left": `${(px - tall.hand.x) / tall.hand.width * 100}%`,
+      "--fan-rotation": "0deg",
+      "--portrait-fan-rotation": "0deg",
+      "--fan-rise": `${(wide.hand.y + wide.hand.height - wide.rows[0] - 96) / wide.hand.height * 100}%`,
+      "--portrait-fan-rise": `${(tall.hand.y + tall.hand.height - py - 96) / tall.hand.height * 100}%`,
+    } as CSSProperties;
+  }
+  // Independent source measurements own the four-card benchmark. Its card
+  // centers do not come from a rendered implementation screenshot.
+  if (count === 4) {
+    const sourceLayout = bid ? bidHandLayout : selectionLayout;
+    const wide = sourceLayout.profiles.landscape;
+    const tall = sourceLayout.profiles.portrait;
+    const wp = wide.poses[index], tp = tall.poses[index];
+    const halfHeight = sourceLayout.contract.cardBox[1] / 2;
+    return {
+      "--fan-left": `${(wp.center[0] - wide.hand.x) / wide.hand.width * 100}%`,
+      "--portrait-fan-left": `${(tp.center[0] - tall.hand.x) / tall.hand.width * 100}%`,
+      "--fan-rotation": `${wp.angle}deg`,
+      "--portrait-fan-rotation": `${tp.angle}deg`,
+      "--fan-rise": `${(wide.hand.bottom - wp.center[1] - halfHeight) / wide.hand.height * 100}%`,
+      "--portrait-fan-rise": `${(tall.hand.bottom - tp.center[1] - halfHeight) / tall.hand.height * 100}%`,
+      zIndex: index + 1,
+    } as CSSProperties;
+  }
   const midpoint = (count - 1) / 2;
   const offset = index - midpoint;
   // Reserve the right action lane, including card rotation and the 9px
@@ -297,50 +267,46 @@ function handCardStyle(index: number, count: number): CSSProperties {
   return customStyle as CSSProperties;
 }
 
-const displaySlotsByPlayerCount: Record<number, readonly number[]> = {
-  3: [0, 1, 3],
-  4: [0, 1, 2, 3],
-  5: [0, 1, 2, 3, 4],
-  6: [0, 2, 3, 1, 4, 5],
-};
-
-function getDisplaySlotMap(
-  players: readonly MatchPlayerState[],
-  localPlayerId: string,
-): Map<string, number> {
-  const localIndex = Math.max(
-    0,
-    players.findIndex((player) => player.id === localPlayerId),
-  );
-  const orderedPlayers = players.map(
-    (_, offset) => players[(localIndex + offset) % players.length],
-  );
-  const slots = displaySlotsByPlayerCount[players.length] ??
-    players.map((_, index) => index);
-
-  return new Map(
-    orderedPlayers.map((player, index) => [player.id, slots[index] ?? index]),
-  );
+function densePortraitCardCenter(index: number, count: number): [number, number] {
+  const p = denseLayout.profiles.portrait;
+  const columns = Math.ceil(count / 2);
+  const row = Math.floor(index / columns);
+  const rowCount = row === 0 ? columns : count - columns;
+  const column = index % columns;
+  return [rowCount === 4 ? p.columns[column] : 470.5 + (column - (rowCount - 1) / 2) * 156, p.rows[row]];
 }
 
+const denseFrameStyle = Object.fromEntries(Object.entries(denseLayout.profiles).flatMap(([profile, p]) => {
+  const prefix = profile === "portrait" ? "--dense-portrait" : "--dense";
+  return [
+    [`${prefix}-hand-left`, `${p.hand.x / p.canvas[0] * 100}%`],
+    [`${prefix}-hand-top`, `${p.hand.y / p.canvas[1] * 100}%`],
+    [`${prefix}-hand-width`, `${p.hand.width / p.canvas[0] * 100}%`],
+    [`${prefix}-hand-height`, `${p.hand.height / p.canvas[1] * 100}%`],
+    [`${prefix}-card-width`, `${denseLayout.contract.cardBox[0] / p.canvas[0] * 100}cqw`],
+  ];
+})) as CSSProperties;
+
+
 function TurnTimer({
+  variant,
   playerName,
   secondsRemaining,
 }: {
+  variant: SourceClockVariant;
   playerName: string;
   secondsRemaining: number;
 }) {
   return (
     <div
       aria-label={`${playerName}剩余 ${secondsRemaining} 秒`}
-      className={`turn-timer ${secondsRemaining <= 5 ? "is-warning" : ""}`}
+      className={`turn-timer turn-timer--source ${secondsRemaining <= 5 ? "is-warning" : ""}`}
+      data-source-clock={variant}
       role="timer"
+      style={sourceClockStyle(variant)}
     >
-      <img alt="" aria-hidden="true" draggable="false" src={gameArt.countdownRing} />
-      <div>
-        <img className="turn-timer__hourglass" src={hourglass} alt="" />
-        <span className="turn-timer__value"><strong>{secondsRemaining}</strong><span>秒</span></span>
-      </div>
+      <picture className="source-clock__art" aria-hidden="true"><source media="(orientation: portrait)" srcSet={sourceClockArt.portrait[variant]}/><img src={sourceClockArt.landscape[variant]} alt="" draggable={false}/></picture>
+      <strong className="source-clock__value" aria-hidden="true">{secondsRemaining}</strong>
     </div>
   );
 }
@@ -354,7 +320,14 @@ function PracticeSurface(props: Omit<MatchScreenProps, "controller">) {
   return <MatchSurface {...props} controller={controller} network={false} />;
 }
 
-function MatchSurface({ controller, network, onExit, showLegalHints = true }: Omit<MatchScreenProps, "controller"> & { controller: LocalMatchController; network: boolean }) {
+function MatchSurface({ controller, network, hostPlayerId, onExit, showLegalHints = true }: Omit<MatchScreenProps, "controller"> & { controller: LocalMatchController; network: boolean }) {
+  const sounds = useRef(new MatchAudioTracker());
+  useEffect(() => {
+    // Network events are observed synchronously at the room subscription;
+    // React frame/countdown updates must not re-announce them here.
+    if (!network) playCues(sounds.current.update(controller.snapshot, controller.events, { fresh: true }));
+    return undefined;
+  }, [network, controller.snapshot, controller.events]);
   const { privateState, publicState } = controller.snapshot;
   const [feedback, setFeedback] = useState<string | null>(null);
   const [feedbackRevision, setFeedbackRevision] = useState(0);
@@ -368,10 +341,12 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
   const connectionReady = !network || controller.connection === "connected";
   const timerSeconds = connectionReady && currentPlayer?.isHuman ? controller.turnSecondsRemaining : null;
   const humanTurn = publicState.currentPlayerId === controller.humanPlayerId;
-  const displaySlotByPlayerId = useMemo(
-    () => getDisplaySlotMap(publicState.players, controller.humanPlayerId),
-    [controller.humanPlayerId, publicState.players],
-  );
+  const localBid = humanTurn && publicState.phase === "bid";
+  const localSeat = publicState.players.find(player => player.id === controller.humanPlayerId)?.seatIndex ?? 0;
+  const action = currentAction(publicState.phase, publicState.trick.plays.length === 0);
+  const actor = connectionReady && action ? currentPlayer : undefined;
+  const status = tableStatus(publicState, controller.humanPlayerId, connectionReady, !!controller.pendingIntent, network, hostPlayerId);
+  const resultsOpen = publicState.phase === "round-score" || publicState.phase === "match-end";
   const legalCardIds = useMemo(
     () => new Set(privateState.legalCardIds),
     [privateState.legalCardIds],
@@ -380,6 +355,13 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
     (card) => card.id === selectedCardId,
   );
   const selectedCardIndex = privateState.hand.findIndex(card => card.id === selectedCardId);
+  // Prediction and chooser own separate modal safety bands. Their dense
+  // designs must be calibrated independently before adopting this play rail.
+  const denseHand = privateState.hand.length > 4 && privateState.hand.length <= 8 &&
+    (publicState.phase === "trick-play" || publicState.phase === "trick-result");
+  const sourceAction: SourceActionState | null = humanTurn && publicState.phase === "trick-play" && !(denseHand && controller.pendingIntent)
+    ? controller.pendingIntent ? "pending" : denseHand ? selectedCard ? "dense-confirm" : "dense-idle" : selectedCard ? "confirm" : "idle"
+    : null;
 
   useEffect(() => {
     if (!privateState.hand.some((card) => card.id === selectedCardId)) {
@@ -421,6 +403,7 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
   }, [feedback, feedbackRevision]);
 
   function showFeedback(message: string) {
+    gameAudio.play({ id: "notice.soft" });
     setFeedback(message);
     // An identical explanation is still a fresh user action. Renew its
     // lifetime instead of letting the previous click's timer dismiss it.
@@ -445,6 +428,7 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
     }
     // A successful selection supersedes the earlier illegal-card explanation.
     setFeedback(null);
+    gameAudio.play({ id: "card.select" });
     setSelectedCardId((current) => (current === card.id ? null : card.id));
   }
 
@@ -466,11 +450,14 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
       data-local-phase={humanTurn ? publicState.phase : "waiting"}
       data-has-timer={timerSeconds !== null}
       data-pending-intent={controller.pendingIntent || undefined}
+      data-dense-hand={denseHand || undefined}
+      data-crowded-trick={publicState.trick.plays.length > 4 || undefined}
+      style={denseHand ? denseFrameStyle : undefined}
     >
-      <button className="v3-match-back v3-baked-hit" onClick={onExit} aria-label="返回首页"><span>返回首页</span></button>
+      {publicState.phase !== "round-score" && publicState.phase !== "match-end" && <button className="v3-match-back v3-baked-hit" onClick={onExit} aria-label="返回首页"><span>返回首页</span></button>}
       <div className="v3-match-mode" role="status"><img src={modePlayer} alt="" aria-hidden="true" /><span>{!network ? "单人练习" : controller.connection === "connected" ? "好友对局" : controller.connection === "disconnected" ? "连接中断" : "重连中"}</span></div>
       <h1 className="sr-only" id="match-title">
-        奇术茶馆快速局牌桌
+        奇术茶馆{roomModeNames[publicState.mode]}牌桌
       </h1>
       <picture className="match-stage__background-picture">
         <source media="(orientation: portrait)" srcSet={gameplayChoicesPortraitV3} />
@@ -482,29 +469,28 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
           src={gameArt.table}
         />
       </picture>
-      {timerSeconds === null && <picture className="v3-no-timer-patch"><source media="(orientation: portrait)" srcSet={noTimerPortraitPatch} /><img src={noTimerPatch} alt="" /></picture>}
+      {denseHand && <img className="v3-dense-portrait-scene" src={densePortraitScene} alt="" aria-hidden="true" />}
+      {(timerSeconds === null || localBid) && !(timerSeconds === null && denseHand) && <picture className={`v3-no-timer-patch${timerSeconds !== null ? " v3-no-timer-patch--bid" : ""}`}><source media="(orientation: portrait)" srcSet={noTimerPortraitPatch} /><img src={noTimerPatch} alt="" /></picture>}
+      {timerSeconds === null && denseHand && <picture className="source-dense-notimer" style={sourceDenseNoTimerStyle()} aria-hidden="true"><source media="(orientation: portrait)" srcSet={sourceDenseNoTimerArt.portrait}/><img src={sourceDenseNoTimerArt.landscape} alt="" draggable={false}/></picture>}
       {(!connectionReady || humanTurn && publicState.phase === "trump-select") && <img className="v3-no-action-patch" src={noActionPatch} alt="" />}
       <div className="match-stage__shade" />
 
       <RoundHeader
+        dense={publicState.handSize > 4}
         handSize={publicState.handSize}
-        phase={publicState.phase}
         roundNumber={publicState.roundIndex + 1}
-        totalRounds={publicState.roundHandCounts.length}
       />
 
-      <TrumpStatus
-        phase={publicState.phase}
-        revealedCard={publicState.revealedCard}
-        trump={publicState.trump}
-      />
+      {publicState.phase !== "round-score" && publicState.phase !== "match-end" &&
+        <TrumpStatus phase={publicState.phase} trump={publicState.trump} />}
 
       <div className="player-seats">
         {publicState.players.map((player) => (
           <PlayerSeat
             completedWinnerId={publicState.completedTrick?.winnerId}
-            currentPlayerId={publicState.currentPlayerId}
-            displaySlot={displaySlotByPlayerId.get(player.id) ?? player.seatIndex}
+            currentPlayerId={actor?.id ?? null}
+            action={action}
+            displaySlot={tableSlotForSeat(publicState.players.length, localSeat, player.seatIndex)}
             handCount={publicState.handCounts[player.id] ?? 0}
             isDealer={player.seatIndex === publicState.dealerIndex}
             isLocal={player.id === controller.humanPlayerId}
@@ -515,32 +501,18 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
         ))}
       </div>
 
-      <TrickArea
-        completedWinnerId={publicState.completedTrick?.winnerId}
-        plays={publicState.trick.plays}
-        showEmpty={publicState.phase === "trick-play"}
-      />
-
-      <div className="match-status-strip" role="status">
-        <img alt="" aria-hidden="true" draggable="false" src={gameArt.secondaryPanel} />
-        <div>
-          <span>{phaseLabels[publicState.phase]}</span>
-          <img className="turn-status-flourish" alt="" aria-hidden="true" src={turnFlourishLeft} />
-          <strong>
-            {currentPlayer
-              ? currentPlayer.id === controller.humanPlayerId
-                ? publicState.phase === "trick-play" ? "轮到你出牌" : "轮到你"
-                : `${currentPlayer.name}${currentPlayer.isHuman ? "操作中" : "思考中"}`
-              : publicState.completedTrick
-                ? `${publicState.players.find((player) => player.id === publicState.completedTrick?.winnerId)?.name ?? "玩家"}赢得本墩`
-                : "等待牌桌推进"}
-          </strong>
-          <img className="turn-status-flourish" alt="" aria-hidden="true" src={turnFlourishRight} />
-        </div>
-      </div>
+      {!resultsOpen && <>
+        <TrickArea key={`${publicState.matchId}:${publicState.roundIndex}:${publicState.trick.number}`}
+          completedWinnerId={publicState.completedTrick?.winnerId}
+          plays={publicState.trick.plays} players={publicState.players} viewerId={controller.humanPlayerId}
+          showEmpty={publicState.phase === "trick-play" && !actor}
+        />
+        <TableStatus status={status} />
+      </>}
 
       {currentPlayer && timerSeconds !== null ? (
         <TurnTimer
+          variant={denseHand ? "dense" : localBid ? "bid" : "normal"}
           playerName={currentPlayer.name}
           secondsRemaining={timerSeconds}
         />
@@ -591,8 +563,11 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
               onClick={() => selectCard(card)}
               state={visualState}
               style={{
-                ...handCardStyle(index, privateState.hand.length),
+                ...handCardStyle(index, privateState.hand.length, denseHand, localBid),
                 "--selection-offset": selectedCardIndex >= 0 && index !== selectedCardIndex ? (index < selectedCardIndex ? "calc(-1 * var(--hand-neighbor-offset, 9px))" : "var(--hand-neighbor-offset, 9px)") : "0px",
+                "--portrait-selection-offset": denseHand && selectedCardIndex >= 0 && index !== selectedCardIndex
+                  ? `${Math.sign(densePortraitCardCenter(index, privateState.hand.length)[0] - densePortraitCardCenter(selectedCardIndex, privateState.hand.length)[0]) * 7.03125}%`
+                  : "0px",
                 // Reveal the outward edge on either side of the raised card.
                 // An always-increasing right stack sandwiches the immediate
                 // neighbour on dense portrait hands between two higher cards.
@@ -604,17 +579,19 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
       </div>
 
       <button
-        aria-label={controller.pendingIntent ? "出牌中" : "确认出牌"}
+        aria-label={controller.pendingIntent ? "出牌中" : humanTurn ? (selectedCard ? "确认出牌" : "选择手牌") : "等待回合"}
         aria-busy={controller.pendingIntent || undefined}
-        className={`turn-action ${confirmPulse ? "turn-action--pulse" : ""}`}
+        className={`turn-action ${confirmPulse ? "turn-action--pulse" : ""} ${sourceAction ? "source-action" : ""}`}
+        data-source-action={sourceAction ?? undefined}
+        style={sourceAction ? sourceActionStyle(sourceAction) : undefined}
         disabled={
           controller.pendingIntent || !selectedCard || !humanTurn || publicState.phase !== "trick-play"
         }
         onClick={playSelectedCard}
         type="button"
       >
-        <img alt="" aria-hidden="true" draggable="false" src={gameArt.turnButton} />
-        <span>{controller.pendingIntent ? "出牌中" : humanTurn ? (selectedCard ? "确认出牌" : "选择手牌") : "等待回合"}</span>
+        {sourceAction ? <SourceActionArt state={sourceAction}/> : <img alt="" aria-hidden="true" draggable="false" src={gameArt.turnButton} />}
+        <span className={sourceAction ? "sr-only" : undefined}>{controller.pendingIntent ? "出牌中" : humanTurn ? (selectedCard ? "确认出牌" : "选择手牌") : "等待回合"}</span>
       </button>
 
       {humanTurn && publicState.phase === "trump-select" ? (
@@ -636,21 +613,12 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
         />
       ) : null}
 
-      {publicState.phase === "trick-result" && publicState.completedTrick ? (
-        <div className="trick-result-banner" role="status">
-          <img alt="" aria-hidden="true" draggable="false" src={gameArt.trickWin} />
-          <strong>
-            {publicState.players.find(
-              (player) => player.id === publicState.completedTrick?.winnerId,
-            )?.name ?? "玩家"}
-            赢得第 {publicState.completedTrick.number} 墩
-          </strong>
-        </div>
-      ) : null}
 
       {publicState.phase === "round-score" ? (
         <WebResults
+          tableStatus={status}
           isMatchEnd={false}
+          mode={publicState.mode}
           isFinalRound={publicState.roundIndex + 1 >= publicState.roundHandCounts.length}
           onContinue={controller.advance}
           onExit={onExit}
@@ -665,7 +633,9 @@ function MatchSurface({ controller, network, onExit, showLegalHints = true }: Om
 
       {publicState.phase === "match-end" ? (
         <WebResults
+          tableStatus={status}
           isMatchEnd
+          mode={publicState.mode}
           network={network}
           canRestart={!network || controller.connection === "connected" && controller.controls?.canRematch === true}
           blockedLabel={network && controller.connection !== "connected" ? "等待恢复连接" : undefined}

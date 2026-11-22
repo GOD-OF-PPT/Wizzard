@@ -1,0 +1,153 @@
+{
+  "method": "BuiltinImageGen local-focus edit; bright new ring largestcomponent plus1pxmatchingbrightedge copied toRGBA and explicit targetgeometry. Original page/actionRGB invariant outside ring. V1 hardthreshold fringe retainedashistory.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "reconnecting",
+      "source": "art/mockups/web-v3/15-reconnecting-network-v2.png",
+      "sourceSha256": "9c4e42a51d094e3d2575e2ef448759db42b972b83070c4c7b31de7335f2955cd",
+      "candidate": "art/source/web-v3/recovery-source-v1/landscape-reconnecting-focus-candidate.png",
+      "candidateSha256": "7ca7e285bc534ff81a56a4b89aa77c24ccef6284d6c99248c7a8b1a6fd11c58b",
+      "candidateSize": [
+        1672,
+        941
+      ],
+      "ringSourceBounds": [
+        657,
+        559,
+        1015,
+        659
+      ],
+      "ringComponentPixels": 1813,
+      "targetRing": [
+        658,
+        560,
+        357,
+        101
+      ],
+      "action": [
+        665,
+        567,
+        343,
+        87
+      ],
+      "output": "art/runtime/web-v3/recovery-source-v1/landscape-reconnecting-focus-v2.png",
+      "sha256": "8c7f76443644a5b50faf38c2e9b6616afe3fe413cf08c6a1cc6ff31be2637dee",
+      "design": "art/mockups/web-v3/29-reconnecting-focus-v2.png",
+      "designSha256": "9a95ae1eb4119490b1a18be95661b71d9ebd3a472e16b99a0cd12219b56fe92d",
+      "changedOutsideRing": 0,
+      "actionPixelChanges": 0
+    },
+    {
+      "profile": "landscape",
+      "state": "session-ended",
+      "source": "art/mockups/web-v3/16-session-ended-network-v3.png",
+      "sourceSha256": "2aa7172ee9cfd9fb38d4e4ffc61b1dfd1db07b8f9fb774dd60184c41dc975b62",
+      "candidate": "art/source/web-v3/recovery-source-v1/landscape-session-ended-focus-candidate.png",
+      "candidateSha256": "3ba6f289b8f3c8f794087e02cb73f99e1a8095c191065d8900c971709bc6358d",
+      "candidateSize": [
+        1672,
+        941
+      ],
+      "ringSourceBounds": [
+        657,
+        562,
+        1014,
+        659
+      ],
+      "ringComponentPixels": 1734,
+      "targetRing": [
+        658,
+        560,
+        357,
+        101
+      ],
+      "action": [
+        665,
+        567,
+        343,
+        87
+      ],
+      "output": "art/runtime/web-v3/recovery-source-v1/landscape-session-ended-focus-v2.png",
+      "sha256": "22d7b92672ec4e73ece4491acd4f340b1e9aa6e6bf5e3fce2e268210da3ba8d0",
+      "design": "art/mockups/web-v3/30-session-ended-focus-v2.png",
+      "designSha256": "5a75e49ce661b6dcf81fff79e901cfa67acc4e9c872e007760ddca8b7b096d44",
+      "changedOutsideRing": 0,
+      "actionPixelChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "reconnecting",
+      "source": "art/mockups/web-v3/portrait/15-reconnecting.png",
+      "sourceSha256": "359f6acecaddd7a675c2e56e03329fe5f6a4b2e3347bf771c733309876873c05",
+      "candidate": "art/source/web-v3/recovery-source-v1/portrait-reconnecting-focus-candidate.png",
+      "candidateSha256": "fe4b7d780d7df957d71ce35f43a00e5901f8623c5a6ab019a20af7a3904005a0",
+      "candidateSize": [
+        941,
+        1672
+      ],
+      "ringSourceBounds": [
+        230,
+        971,
+        710,
+        1101
+      ],
+      "ringComponentPixels": 4621,
+      "targetRing": [
+        235,
+        976,
+        471,
+        118
+      ],
+      "action": [
+        242,
+        983,
+        457,
+        104
+      ],
+      "output": "art/runtime/web-v3/recovery-source-v1/portrait-reconnecting-focus-v2.png",
+      "sha256": "cb58f3842e0dfa1d3981e5542e4443b22953453a2a931812ef2e963d4e6fed98",
+      "design": "art/mockups/web-v3/portrait/29-reconnecting-focus-v2.png",
+      "designSha256": "5cb44475c7797e788071078a2f24c59128dafe95bef87f5926741bfa6d29ae8b",
+      "changedOutsideRing": 0,
+      "actionPixelChanges": 0
+    },
+    {
+      "profile": "portrait",
+      "state": "session-ended",
+      "source": "art/mockups/web-v3/portrait/16-session-ended-v2.png",
+      "sourceSha256": "38d3715c0a656c26052e5413b566cdc2297e3cc7a8264df23a33719474782fdf",
+      "candidate": "art/source/web-v3/recovery-source-v1/portrait-session-ended-focus-candidate.png",
+      "candidateSha256": "8517ec2a3297115b0a395dbbf65e8b54bb3120cfda2fc2d03bcb08bd42c2a68b",
+      "candidateSize": [
+        941,
+        1672
+      ],
+      "ringSourceBounds": [
+        230,
+        972,
+        709,
+        1100
+      ],
+      "ringComponentPixels": 5326,
+      "targetRing": [
+        235,
+        976,
+        471,
+        118
+      ],
+      "action": [
+        242,
+        983,
+        457,
+        104
+      ],
+      "output": "art/runtime/web-v3/recovery-source-v1/portrait-session-ended-focus-v2.png",
+      "sha256": "43942beedfdbc75992ef68b455d5a4f546b69042e765b5c9650987b9546fdf80",
+      "design": "art/mockups/web-v3/portrait/30-session-ended-focus-v2.png",
+      "designSha256": "46e978a712fa84c3eb61cf3da049cc00de46d00dd9e1220592476f091db772dd",
+      "changedOutsideRing": 0,
+      "actionPixelChanges": 0
+    }
+  ]
+}

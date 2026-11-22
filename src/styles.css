@@ -1007,6 +1007,14 @@ button.game-card {
   touch-action: manipulation;
 }
 
+.game-card__face {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .game-card__art {
   position: relative;
   z-index: 1;
@@ -1016,6 +1024,12 @@ button.game-card {
   object-fit: fill;
   border-radius: 5.5%;
   pointer-events: none;
+}
+
+.game-card__picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .game-card__rank {

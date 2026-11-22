@@ -1,0 +1,61 @@
+{
+  "contract": {
+    "cardBox": [
+      140,
+      210
+    ],
+    "lift": 12,
+    "neighborShift": 9,
+    "haloOffset": 8,
+    "haloCanvas": [
+      171,
+      231
+    ],
+    "haloLayer": "behind original paper",
+    "durationMs": 140,
+    "confirmPulseMs": 560,
+    "origin": "center"
+  },
+  "derivatives": [
+    {
+      "profile": "landscape",
+      "base": "art/mockups/web-v3/14-gameplay-notimer.png",
+      "baseSha256": "3ef488ed470d92c645a8690bbe423a318ec7be3acc62741e9e94658145fc083d",
+      "output": "art/mockups/web-v3/14-gameplay-notimer-selection-v4.png",
+      "sha256": "32bdf6d6e55ce740864d2db2e7ba5610d4ceb4751c5e7cb3b95f84b5eb75c0a7",
+      "changedPixels": 135497,
+      "changedOutsideHandRoi": 0,
+      "method": "Only changed hand pixels from the canonical selected endpoint, not its mode/timer/action/scene"
+    },
+    {
+      "profile": "landscape",
+      "base": "art/mockups/web-v3/19-play-pending-v1.png",
+      "baseSha256": "edb2391794500d0c80e54d36f5213e59418947772ff0dcb5879afd428421842d",
+      "output": "art/mockups/web-v3/19-play-pending-selection-v2.png",
+      "sha256": "c4d893618d07f888945f383f59476eb2793fac465b4728e570fda1329c4904d1",
+      "changedPixels": 135497,
+      "changedOutsideHandRoi": 0,
+      "method": "Only changed hand pixels from the canonical selected endpoint, not its mode/timer/action/scene"
+    },
+    {
+      "profile": "portrait",
+      "base": "art/mockups/web-v3/portrait/14-gameplay-notimer-safe-v3.png",
+      "baseSha256": "b724e86a43c61b8b5ee45d802ba4362aeb50609babce0e203c27a70b0c9bbb47",
+      "output": "art/mockups/web-v3/portrait/14-gameplay-notimer-selection-v4.png",
+      "sha256": "106f578a40a49af1b0722195d2d8dc62b0e6d083fd3bd39eae998dc24708a17f",
+      "changedPixels": 134062,
+      "changedOutsideHandRoi": 0,
+      "method": "Only changed hand pixels from the canonical selected endpoint, not its mode/timer/action/scene"
+    },
+    {
+      "profile": "portrait",
+      "base": "art/mockups/web-v3/portrait/19-play-pending-v1.png",
+      "baseSha256": "af890c765782b746037295df0108a51dd9bf8bc27fe39be685c05f2508440c0b",
+      "output": "art/mockups/web-v3/portrait/19-play-pending-selection-v2.png",
+      "sha256": "640d67e490aaf865ae3a82ec39e2c3c9f51a30a345a1cba03461a3ab41134f97",
+      "changedPixels": 134062,
+      "changedOutsideHandRoi": 0,
+      "method": "Only changed hand pixels from the canonical selected endpoint, not its mode/timer/action/scene"
+    }
+  ]
+}

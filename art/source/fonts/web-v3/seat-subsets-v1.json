@@ -1,0 +1,36 @@
+{
+  "fontTools": "4.51.0",
+  "charset": "art/source/fonts/web-v3/ui-charset-v1.txt",
+  "charsetSha256": "7fbe31a8c0dea13441fa1ea607a22f64c7489bdb54aff8b40721e3c013f354c5",
+  "scope": "PlayerSeat dynamic name and prediction/won text only. CJK Regular plus Times-style ASCII. Other UI, card ranks and Cocos unchanged; unsupported rare CJK fall back to existing Noto.",
+  "reports": [
+    {
+      "source": "art/source/fonts/web-v3/LXGWWenKai-Regular.ttf",
+      "sourceSha256": "2d73eea94ad808999d90c0000c239a84a33b09d4bc6ab6c5b8bbf1eda8a7fc8b",
+      "upstream": "https://raw.githubusercontent.com/lxgw/LxgwWenKai/4becfb4d5cf0c92cfdb60a6e9b504bda43315325/fonts/TTF/LXGWWenKai-Regular.ttf",
+      "family": "LXGW WenKai",
+      "weight": 400,
+      "runtime": "art/runtime/fonts/WebV3Seat-WenKai-Regular-v1.woff2",
+      "runtimeSha256": "314c2260a119ad4680f3e112bcafe27f67a06acd60f7de64dcbad2fd755d73ae",
+      "bytes": 1624632,
+      "glyphs": 7544,
+      "license": "art/source/fonts/web-v3/OFL-LXGW-WenKai.txt",
+      "licenseSha256": "1a25e35da1031c6c3436fde545bb9cb5aca954e9873afe510c834b8b79bd21a0",
+      "publicLicense": "public/licenses/LXGW-WenKai-OFL.txt"
+    },
+    {
+      "source": "art/source/fonts/web-v3/Tinos-Regular.ttf",
+      "sourceSha256": "e30f146a85623eff54453d733e5e5102fee69f07584d8ea074175a9732028be6",
+      "upstream": "https://fonts.gstatic.com/s/tinos/v26/buE4poGnedXvwgX8.ttf",
+      "family": "Tinos",
+      "weight": 400,
+      "runtime": "art/runtime/fonts/WebV3Seat-Tinos-Regular-v1.woff2",
+      "runtimeSha256": "e024b22c61bf178bbb2ff835dce409cec136742959e4605d02b3594616abf5ca",
+      "bytes": 5844,
+      "glyphs": 95,
+      "license": "art/source/fonts/web-v3/OFL-Tinos.txt",
+      "licenseSha256": "cb3382d4643e8b02c12e322c220a3c76a5020d667e4fd4e7c75e744cca6caa6b",
+      "publicLicense": "public/licenses/Tinos-OFL.txt"
+    }
+  ]
+}

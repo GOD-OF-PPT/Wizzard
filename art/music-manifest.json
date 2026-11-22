@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "theme": "enchanted-teahouse",
+  "source": "User-supplied music; original files preserved",
+  "tracks": [
+    {
+      "id": "lobby-01",
+      "scene": "lobby",
+      "source": "art/source/audio/teahouse-bgm-v1/lobby-01.mp3",
+      "sourceSha256": "2b2ea05f4886ddb09c985de82fd363fdfa7f197021fd580c5ccf17c4d53fc08e",
+      "sourceBytes": 2149550,
+      "sourceDurationSeconds": 67.082449,
+      "sourceLoudness": {
+        "input_i": "-15.78",
+        "input_tp": "0.37",
+        "input_lra": "6.60",
+        "input_thresh": "-25.95",
+        "output_i": "-22.00",
+        "output_tp": "-3.91",
+        "output_lra": "5.30",
+        "output_thresh": "-32.03",
+        "normalization_type": "dynamic",
+        "target_offset": "-1.00"
+      },
+      "runtime": "art/runtime/audio/teahouse-bgm-v1/lobby-01.mp3",
+      "sha256": "962ca5b0ec59aaf16ddc25893a6d6d69a1154c704fd07ebae36cdd663a81d807",
+      "bytes": 1074198,
+      "output": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "44100",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "67.108571",
+          "size": "1074198"
+        }
+      },
+      "outputLoudness": {
+        "input_i": "-23.47",
+        "input_tp": "-7.01",
+        "input_lra": "6.60",
+        "input_thresh": "-33.66",
+        "output_i": "-21.87",
+        "output_tp": "-3.55",
+        "output_lra": "5.30",
+        "output_thresh": "-31.91",
+        "normalization_type": "dynamic",
+        "target_offset": "-1.13"
+      }
+    },
+    {
+      "id": "lobby-02",
+      "scene": "lobby",
+      "source": "art/source/audio/teahouse-bgm-v1/lobby-02.mp3",
+      "sourceSha256": "35742b532c82e7f0f086e4dcdc956ecc3b59968e98400c00b7c9f116aa94b2b3",
+      "sourceBytes": 4258572,
+      "sourceDurationSeconds": 132.989388,
+      "sourceLoudness": {
+        "input_i": "-21.56",
+        "input_tp": "-1.51",
+        "input_lra": "8.60",
+        "input_thresh": "-31.96",
+        "output_i": "-22.08",
+        "output_tp": "-3.00",
+        "output_lra": "7.60",
+        "output_thresh": "-32.38",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.92"
+      },
+      "runtime": "art/runtime/audio/teahouse-bgm-v1/lobby-02.mp3",
+      "sha256": "d41a48a3880d723518735377db5d6c5afa31a8ee1a70caeb1226d4e94ae24e4e",
+      "bytes": 2128709,
+      "output": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "44100",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "133.015510",
+          "size": "2128709"
+        }
+      },
+      "outputLoudness": {
+        "input_i": "-23.43",
+        "input_tp": "-3.67",
+        "input_lra": "7.70",
+        "input_thresh": "-33.81",
+        "output_i": "-22.05",
+        "output_tp": "-3.00",
+        "output_lra": "7.30",
+        "output_thresh": "-32.33",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.95"
+      }
+    },
+    {
+      "id": "gameplay-v1",
+      "scene": "gameplay",
+      "source": "art/source/audio/teahouse-bgm-v1/gameplay-v1.mp3",
+      "sourceSha256": "aef543ece9bd1b75a795868282684c9577613407734df4e70c94bd4b7cd443fd",
+      "sourceBytes": 4808606,
+      "sourceDurationSeconds": 150.177959,
+      "sourceLoudness": {
+        "input_i": "-15.88",
+        "input_tp": "0.34",
+        "input_lra": "4.40",
+        "input_thresh": "-26.01",
+        "output_i": "-22.10",
+        "output_tp": "-3.75",
+        "output_lra": "2.40",
+        "output_thresh": "-32.16",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.90"
+      },
+      "runtime": "art/runtime/audio/teahouse-bgm-v1/gameplay-v1.mp3",
+      "sha256": "20c76b666b56e8073e45097509f52bbaa3a7e809a3acd764a022ec8b897ae492",
+      "bytes": 2403726,
+      "output": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "44100",
+            "channels": 2
+          }
+        ],
+        "format": {
+          "duration": "150.204082",
+          "size": "2403726"
+        }
+      },
+      "outputLoudness": {
+        "input_i": "-23.45",
+        "input_tp": "-6.92",
+        "input_lra": "4.30",
+        "input_thresh": "-33.55",
+        "output_i": "-22.11",
+        "output_tp": "-4.33",
+        "output_lra": "2.30",
+        "output_thresh": "-32.16",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.89"
+      }
+    }
+  ],
+  "processing": {
+    "targetLufs": -23,
+    "peakCeilingDbtp": -3,
+    "bitrate": 128000,
+    "channels": 2,
+    "sampleRate": 44100,
+    "fadeInSeconds": 0.45,
+    "fadeOutSeconds": 1.2,
+    "trims": false
+  },
+  "playback": {
+    "lobby": "Random first track, then random choice excluding the previous track; home/entry/lobby share one uninterrupted playlist",
+    "gameplay": "One looping track for practice and network matches, including results",
+    "volume": 0.35,
+    "transitionFadeOutMs": 180,
+    "fadeInMs": 600,
+    "maxMusicElements": 1,
+    "preference": "soundEnabled",
+    "hidden": "Pause, preserve position, and wait for the next trusted gesture before resuming"
+  }
+}

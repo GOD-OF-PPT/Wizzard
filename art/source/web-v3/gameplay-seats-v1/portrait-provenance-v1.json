@@ -1,0 +1,445 @@
+{
+  "method": "Mechanical original ImageGen source extraction. All non-transparent RGB copied from exact source, opaque RGB invariant, hidden RGB zero. Geometry is source-measured, never based on browser screenshot.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "slot": 0,
+      "key": "bamboo-cat",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "reference": "art/source/web-v3/gameplay-seats-v1/landscape-bamboo-cat-reference.png",
+      "referenceSha256": "388e7783e25548112129b665b33be1f4d96e4595b83b9b78cd22553f78711906",
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-bamboo-cat-v1.png",
+      "sha256": "e4c384234f9b2b371ec9e96e1cdee3f674c1d70883b0482a2c236a3032140753",
+      "crop": [
+        89,
+        431,
+        178,
+        142
+      ],
+      "circle": [
+        178,
+        520,
+        87,
+        87
+      ],
+      "hat": null,
+      "mask": "4x4 subpixel original ellipse and source hat contour; stop before source name lettering",
+      "changedOpaqueRGB": 0,
+      "hiddenRGB": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 1,
+      "key": "ink-panda",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "reference": "art/source/web-v3/gameplay-seats-v1/landscape-ink-panda-reference.png",
+      "referenceSha256": "056423da579599a304f494dca77192c05f231510753e171b36a2c7b97500fe74",
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-ink-panda-v1.png",
+      "sha256": "fa1eca059283c06538c479d9266ec9e40c6d24a76ce01d83ab0b422343088ca4",
+      "crop": [
+        395,
+        91,
+        156,
+        130
+      ],
+      "circle": [
+        473,
+        169,
+        76,
+        76
+      ],
+      "hat": null,
+      "mask": "4x4 subpixel original ellipse and source hat contour; stop before source name lettering",
+      "changedOpaqueRGB": 0,
+      "hiddenRGB": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 2,
+      "key": "wandering-crane",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "reference": "art/source/web-v3/gameplay-seats-v1/landscape-wandering-crane-reference.png",
+      "referenceSha256": "ce8a9f4a04d8208f167626d0da523707a02953deeff8701a5490195993879ee2",
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-wandering-crane-v1.png",
+      "sha256": "d8ce9f244055478766dcab3d427365a5951c7eb36fd7c8956186344bcecedffe",
+      "crop": [
+        664,
+        27,
+        164,
+        144
+      ],
+      "circle": [
+        747,
+        124,
+        79,
+        79
+      ],
+      "hat": [
+        [
+          666,
+          66
+        ],
+        [
+          692,
+          49
+        ],
+        [
+          745,
+          29
+        ],
+        [
+          760,
+          38
+        ],
+        [
+          778,
+          51
+        ],
+        [
+          800,
+          79
+        ],
+        [
+          820,
+          101
+        ],
+        [
+          795,
+          100
+        ],
+        [
+          759,
+          89
+        ],
+        [
+          721,
+          77
+        ],
+        [
+          687,
+          73
+        ]
+      ],
+      "mask": "4x4 subpixel original ellipse and source hat contour; stop before source name lettering",
+      "changedOpaqueRGB": 0,
+      "hiddenRGB": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 3,
+      "key": "flower-fox",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "reference": "art/source/web-v3/gameplay-seats-v1/landscape-flower-fox-reference.png",
+      "referenceSha256": "349c0343db9590c3e3a6aef6929d7da58ff81732e293ead4c19fef03e9923008",
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-flower-fox-v1.png",
+      "sha256": "a804212daae249a4104a1b50dbc053b2a2d239b09f0848c35a68a7378fc87363",
+      "crop": [
+        1024,
+        76,
+        150,
+        131
+      ],
+      "circle": [
+        1099,
+        151,
+        73,
+        73
+      ],
+      "hat": null,
+      "mask": "4x4 subpixel original ellipse and source hat contour; stop before source name lettering",
+      "changedOpaqueRGB": 0,
+      "hiddenRGB": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 4,
+      "key": "sleepy-star-cat",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "reference": "art/source/web-v3/gameplay-seats-v1/landscape-sleepy-star-cat-reference.png",
+      "referenceSha256": "651d70243e9c499f589d5732656e5334dd746a47ea34d9576661a6f855551ca6",
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-sleepy-star-cat-v1.png",
+      "sha256": "18ac85833e4f89b65c56184b6de938750ad1f18adfafc955a45ca0c110a81a4a",
+      "crop": [
+        1313,
+        181,
+        152,
+        130
+      ],
+      "circle": [
+        1389,
+        257,
+        74,
+        74
+      ],
+      "hat": null,
+      "mask": "4x4 subpixel original ellipse and source hat contour; stop before source name lettering",
+      "changedOpaqueRGB": 0,
+      "hiddenRGB": 0
+    },
+    {
+      "profile": "landscape",
+      "slot": 5,
+      "key": "masked-traveler",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "reference": "art/source/web-v3/gameplay-seats-v1/landscape-masked-traveler-reference.png",
+      "referenceSha256": "eae844bdd3e08f2a6ca89f16e785e24a27e681bd6a35105e2b2d55dd92169cfc",
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-masked-traveler-v1.png",
+      "sha256": "51c6591ae61093efc10d0ba31053d0c61677cffdf644275dadd71f810d64fb03",
+      "crop": [
+        205,
+        212,
+        152,
+        136
+      ],
+      "circle": [
+        281,
+        288,
+        74,
+        74
+      ],
+      "hat": null,
+      "mask": "4x4 subpixel original ellipse and source hat contour; stop before source name lettering",
+      "changedOpaqueRGB": 0,
+      "hiddenRGB": 0
+    },
+    {
+      "profile": "landscape",
+      "kind": "active-halo",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "output": "art/runtime/web-v3/gameplay-seats-v1/landscape-active-halo-v1.png",
+      "sha256": "2ec0471df620cbf4b072aeee6386049c228b0979be4742298e462beb983889bc",
+      "crop": [
+        77,
+        419,
+        202,
+        202
+      ],
+      "method": "Exact source local active gold pixels in outer circular band; original non-gold scene removed. Shared raster scales with each source circle; no CSS glow drawing."
+    },
+    {
+      "profile": "portrait",
+      "slot": 0,
+      "key": "bamboo-cat",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "reference": "art/source/web-v3/gameplay-seats-v1/portrait-bamboo-cat-reference.png",
+      "referenceSha256": "14784f2708b2362cf9fc5ec4010a2eff1d4f099fac543f436cd4dca62a12b05d",
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-bamboo-cat-v1.png",
+      "sha256": "5bb8144a518a6394642b2789e823d6cfd44bf2efe3a0fedcded6109768d12477",
+      "crop": [
+        20,
+        906,
+        190,
+        156
+      ],
+      "circle": [
+        115,
+        1001,
+        93,
+        93
+      ],
+      "hat": null,
+      "mask": "4x4 subpixel original ellipse and source hat contour; stop before source name lettering",
+      "changedOpaqueRGB": 0,
+      "hiddenRGB": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 1,
+      "key": "ink-panda",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "reference": "art/source/web-v3/gameplay-seats-v1/portrait-ink-panda-reference.png",
+      "referenceSha256": "0559eb34d4d56078a862a3872ac7e8d86cbb098e483bf125110dcae55223c805",
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-ink-panda-v1.png",
+      "sha256": "d426347b35357f6b27f88d06fa2185b72f1d62796452898fc4984f8543a15309",
+      "crop": [
+        174,
+        324,
+        182,
+        150
+      ],
+      "circle": [
+        265,
+        415,
+        89,
+        89
+      ],
+      "hat": null,
+      "mask": "4x4 subpixel original ellipse and source hat contour; stop before source name lettering",
+      "changedOpaqueRGB": 0,
+      "hiddenRGB": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 2,
+      "key": "wandering-crane",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "reference": "art/source/web-v3/gameplay-seats-v1/portrait-wandering-crane-reference.png",
+      "referenceSha256": "e3cc540102f90a7c0c920370d00c8be5d1d83b2a47429be8e6f8bd5f431cc5bd",
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-wandering-crane-v1.png",
+      "sha256": "b483a4bd06eb4662564582747b7029ec430358549e7ee1ecbca490df9358ac07",
+      "crop": [
+        386,
+        243,
+        184,
+        155
+      ],
+      "circle": [
+        478,
+        335,
+        90,
+        90
+      ],
+      "hat": [
+        [
+          390,
+          290
+        ],
+        [
+          416,
+          271
+        ],
+        [
+          472,
+          250
+        ],
+        [
+          491,
+          261
+        ],
+        [
+          512,
+          278
+        ],
+        [
+          534,
+          302
+        ],
+        [
+          556,
+          321
+        ],
+        [
+          524,
+          321
+        ],
+        [
+          484,
+          307
+        ],
+        [
+          438,
+          297
+        ]
+      ],
+      "mask": "4x4 subpixel original ellipse and source hat contour; stop before source name lettering",
+      "changedOpaqueRGB": 0,
+      "hiddenRGB": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 3,
+      "key": "flower-fox",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "reference": "art/source/web-v3/gameplay-seats-v1/portrait-flower-fox-reference.png",
+      "referenceSha256": "9e7653df0990c9e5710a49f1e1ceb4d7ea31c5c14be6a39569beb7f02501a9fd",
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-flower-fox-v1.png",
+      "sha256": "3a0e55058d3a61c953cfcecc36990955a8952697db528787256dcf4bf8a77b87",
+      "crop": [
+        595,
+        329,
+        180,
+        145
+      ],
+      "circle": [
+        685,
+        419,
+        88,
+        88
+      ],
+      "hat": null,
+      "mask": "4x4 subpixel original ellipse and source hat contour; stop before source name lettering",
+      "changedOpaqueRGB": 0,
+      "hiddenRGB": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 4,
+      "key": "sleepy-star-cat",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "reference": "art/source/web-v3/gameplay-seats-v1/portrait-sleepy-star-cat-reference.png",
+      "referenceSha256": "1e3b23cc7104b7967bbe7a8b38cb19281f9e3a308f7f1c512b3179f0e5275c3a",
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-sleepy-star-cat-v1.png",
+      "sha256": "5c8c12fd862822e6bdbccd3b3735ef721defe452a33ec6e6bd6e308477accc20",
+      "crop": [
+        749,
+        488,
+        172,
+        148
+      ],
+      "circle": [
+        835,
+        574,
+        84,
+        84
+      ],
+      "hat": null,
+      "mask": "4x4 subpixel original ellipse and source hat contour; stop before source name lettering",
+      "changedOpaqueRGB": 0,
+      "hiddenRGB": 0
+    },
+    {
+      "profile": "portrait",
+      "slot": 5,
+      "key": "masked-traveler",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "reference": "art/source/web-v3/gameplay-seats-v1/portrait-masked-traveler-reference.png",
+      "referenceSha256": "f05f3e009c865e27f265c7434170a02dda35a93239e353f433fa1390ce4ab87e",
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-masked-traveler-v1.png",
+      "sha256": "5c090db14ffbb3dfa5a1f5c6061c23ef5b28b23f3e66a9227be7ae1657c3b730",
+      "crop": [
+        25,
+        488,
+        174,
+        148
+      ],
+      "circle": [
+        112,
+        575,
+        85,
+        85
+      ],
+      "hat": null,
+      "mask": "4x4 subpixel original ellipse and source hat contour; stop before source name lettering",
+      "changedOpaqueRGB": 0,
+      "hiddenRGB": 0
+    },
+    {
+      "profile": "portrait",
+      "kind": "active-halo",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "output": "art/runtime/web-v3/gameplay-seats-v1/portrait-active-halo-v1.png",
+      "sha256": "5522e6e1fd58c10d5374784b959b63b06bb043edff587cb24b278eb57dd9f797",
+      "crop": [
+        8,
+        894,
+        214,
+        214
+      ],
+      "method": "Exact source local active gold pixels in outer circular band; original non-gold scene removed. Shared raster scales with each source circle; no CSS glow drawing."
+    }
+  ]
+}

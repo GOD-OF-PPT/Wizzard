@@ -4,12 +4,6 @@ import portraitFailure from "../../art/runtime/web-v3/portrait/connection-error-
 import connecting from "../../art/runtime/web-v3/connecting-v1.png";
 import portraitConnecting from "../../art/runtime/web-v3/portrait/connecting-v1.png";
 
-export function preloadConnectionArt() {
-  for (const src of [failure, portraitFailure, connecting, portraitConnecting]) {
-    const image = new Image(); image.src = src;
-  }
-}
-
 /** Fixed, truthful connection copy is authored in the art; both actions are live.
  * The editable form stays mounted underneath, so retry/cancel never loses input. */
 export function ConnectionDialog({ pending, onReturn, onRetry }: {

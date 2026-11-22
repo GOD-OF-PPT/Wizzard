@@ -1,0 +1,51 @@
+{
+  "method": "Built-in ImageGen label cleanup, explicit label ROI only; outside ROI source bytes retained",
+  "records": [
+    {
+      "profile": "landscape",
+      "source": "art/mockups/web-v3/02-create.png",
+      "crop": [
+        1098,
+        352,
+        160,
+        86
+      ],
+      "exportWidth": 154,
+      "roi": [
+        43,
+        22,
+        63,
+        43
+      ],
+      "candidate": "art/source/web-v3/seat-selected-wide-label-free-v3-candidate.png",
+      "output": "art/runtime/web-v3/seat-selected-landscape-v3.png",
+      "sourceSha256": "718571ab3d1b8a0758d5075ddc0d815cbf09ffde85a85a3c782af96c29408133",
+      "candidateSha256": "f67a893f71699a0adadf87574b94735737f75a1ccb3512d25bd19a44252eb267",
+      "outputSha256": "a66eeef020fd164b50c4520e31c59e3ac1689356fa8dac87f5568927b87c4ad3",
+      "changedOutsideRoi": 0
+    },
+    {
+      "profile": "portrait",
+      "source": "art/mockups/web-v3/portrait/02-create.png",
+      "crop": [
+        613,
+        650,
+        170,
+        120
+      ],
+      "exportWidth": 152,
+      "roi": [
+        29,
+        44,
+        66,
+        43
+      ],
+      "candidate": "art/source/web-v3/seat-selected-tall-label-free-v3-candidate.png",
+      "output": "art/runtime/web-v3/seat-selected-portrait-v3.png",
+      "sourceSha256": "104556b60ba4781a92a50e2a60b74e841f2c43e7f441ca427fade5631d3657a8",
+      "candidateSha256": "b2636b5935a8c96e8b4e464f266029e25f55f2a0893cf5bb73e001786eeffcd1",
+      "outputSha256": "7794b8dc18e77dba4bb8452e1f58d9dfdb8c8bfc66d64e53e1f7e9b33f61a415",
+      "changedOutsideRoi": 0
+    }
+  ]
+}

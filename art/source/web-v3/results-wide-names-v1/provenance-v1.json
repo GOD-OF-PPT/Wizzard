@@ -1,0 +1,145 @@
+{
+  "scope": "Built-in ImageGen ink as raster source. Raw candidate counts were4prefix/13or15full glyphs, so candidate full pages rejected. Exact copy contract assembled from that generatedWglyph:3prefix+source ellipsis,16full. Original42 outside nicknameROI preserved;47composed from46+44percent scrim+unchanged authored panel. No runtime fonts/screenshots used to draw source.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "source": "art/mockups/web-v3/42-results-long-name-v1.png",
+      "sourceSha256": "955285a7dc0d8a0438c4af366b465e300895d29af773b8dd502ae7d9c9102f7a",
+      "tableCandidate": "art/source/web-v3/results-wide-names-v1/landscape-table-candidate-v1.png",
+      "tableCandidateSha256": "5fae073cabd53113de1dae42ce5390d5fddc2c4dbf5a062e2d4d6ca9934de8ca",
+      "table": "art/mockups/web-v3/46-results-wide-name-v1.png",
+      "tableSha256": "37cbbc0c7b8a40cceb864a4c1e55c0f94239250b2671544ff920b3b0bc0e5c9c",
+      "dialogCandidate": "art/source/web-v3/results-wide-names-v1/landscape-dialog-candidate-v1.png",
+      "dialogCandidateSha256": "343b81c3ed5a5f5c9bba8e560eb6975d35c1eed158f0c4dc2e7d7544b83afba4",
+      "dialog": "art/mockups/web-v3/47-results-wide-name-dialog-v1.png",
+      "dialogSha256": "eeeaeeadb54a1ec9d2ef64098fabd26a23831d31024d9656795e9cbc0c19772d",
+      "tableROI": [
+        436,
+        276,
+        167,
+        56
+      ],
+      "changedOutsideTableROI": 0,
+      "tablePrefix": "WWW…",
+      "fullName": "WWWWWWWWWWWWWWWW",
+      "fullGlyphCount": 16,
+      "geometry": {
+        "canvas": [
+          1672,
+          941
+        ],
+        "roi": [
+          436,
+          276,
+          167,
+          56
+        ],
+        "tableGlyph": [
+          447,
+          290,
+          31,
+          31
+        ],
+        "dots": [
+          578,
+          290,
+          29,
+          31
+        ],
+        "tableX": 443,
+        "tableY": 290,
+        "advance": 32,
+        "dotX": 543,
+        "dialog": [
+          488,
+          302,
+          696,
+          338
+        ],
+        "glyph": [
+          584,
+          453,
+          38,
+          38
+        ],
+        "glyphSize": [
+          33,
+          27
+        ],
+        "fullX": 558,
+        "fullY": 462,
+        "fullAdvance": 34.8
+      }
+    },
+    {
+      "profile": "portrait",
+      "source": "art/mockups/web-v3/portrait/42-results-long-name-v1.png",
+      "sourceSha256": "3d331745b7624566cdc6344a3c32189a46ecab376a492b02122d4dc8d1b3f1a8",
+      "tableCandidate": "art/source/web-v3/results-wide-names-v1/portrait-table-candidate-v1.png",
+      "tableCandidateSha256": "d045a0dfb1e2841f91ad3835f9a02c9911c9eabea85cb178851540ffd99018f1",
+      "table": "art/mockups/web-v3/portrait/46-results-wide-name-v1.png",
+      "tableSha256": "93bf44606f46b22712badff7f2cc833e593318aa0b098f0268efb6ac7d23bc2b",
+      "dialogCandidate": "art/source/web-v3/results-wide-names-v1/portrait-dialog-candidate-v1.png",
+      "dialogCandidateSha256": "fc4ecef30eea0c9c63ca2fa0b9a6881e3cf81704d66c6ea11791faea68158333",
+      "dialog": "art/mockups/web-v3/portrait/47-results-wide-name-dialog-v1.png",
+      "dialogSha256": "8d08d625c339ce1dd94980dc98f33da394f366d60cc42ee8936819cd8bd8ff21",
+      "tableROI": [
+        232,
+        545,
+        150,
+        68
+      ],
+      "changedOutsideTableROI": 0,
+      "tablePrefix": "WWW…",
+      "fullName": "WWWWWWWWWWWWWWWW",
+      "fullGlyphCount": 16,
+      "geometry": {
+        "canvas": [
+          941,
+          1672
+        ],
+        "roi": [
+          232,
+          545,
+          150,
+          68
+        ],
+        "tableGlyph": [
+          239,
+          561,
+          34,
+          38
+        ],
+        "dots": [
+          380,
+          561,
+          30,
+          38
+        ],
+        "tableX": 240,
+        "tableY": 561,
+        "advance": 34,
+        "dotX": 348,
+        "dialog": [
+          59,
+          605,
+          824,
+          452
+        ],
+        "glyph": [
+          132,
+          804,
+          44,
+          46
+        ],
+        "glyphSize": [
+          41,
+          39
+        ],
+        "fullX": 127,
+        "fullY": 807,
+        "fullAdvance": 43
+      }
+    }
+  ]
+}

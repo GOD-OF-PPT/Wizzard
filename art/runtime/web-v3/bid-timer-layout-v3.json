@@ -1,0 +1,39 @@
+{
+  "canvas": [
+    941,
+    1672
+  ],
+  "tile": [
+    665,
+    1078,
+    241,
+    230
+  ],
+  "faceCleanup": [
+    759,
+    1125,
+    90,
+    113
+  ],
+  "hourglass": [
+    777,
+    1130,
+    45,
+    56
+  ],
+  "value": {
+    "centerX": 798,
+    "top": 1192
+  },
+  "visualTimerBounds": [
+    684,
+    1090,
+    204,
+    201
+  ],
+  "minimumHandPaperTop": 1310,
+  "visualGapToHand": 19,
+  "runtime": "art/runtime/web-v3/bid-timer-portrait-v3.png",
+  "runtimeIcon": "art/runtime/web-v3/bid-hourglass-portrait-v3.png",
+  "scope": "portrait human bid, including pending; number remains dynamic; no-timer mode renders no clock"
+}

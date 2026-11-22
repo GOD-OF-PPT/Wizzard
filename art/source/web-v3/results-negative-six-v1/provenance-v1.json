@@ -1,0 +1,241 @@
+{
+  "generator": "Built-in ImageGen local numeric edits on selected07, complete prompts in art/prompts/web-v3-ranking-six-negative-v1.txt",
+  "data": {
+    "ranks": [
+      1,
+      1,
+      3,
+      3,
+      5,
+      6
+    ],
+    "totals": [
+      -10,
+      -10,
+      -30,
+      -30,
+      -60,
+      -80
+    ]
+  },
+  "reports": [
+    {
+      "profile": "landscape",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "candidate": "art/source/web-v3/results-negative-six-v1/landscape-candidate-v1.png",
+      "candidateSha256": "7147e6bdd1032ecdf215d839f7c1bbe067aa8aa88961670af5f5b3dfcd6c5b9b",
+      "output": "art/mockups/web-v3/41-ranking-six-negative-v1.png",
+      "outputSha256": "51e50b5bd2ef629121aaad18786f9935725e1912ec8c947cf947855ef50ab2d6",
+      "allowed": [
+        {
+          "role": "gold",
+          "row": 0,
+          "rect": [
+            1080,
+            293,
+            140,
+            66
+          ],
+          "changedPixels": 2757,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        },
+        {
+          "role": "black",
+          "row": 1,
+          "rect": [
+            1080,
+            369,
+            140,
+            66
+          ],
+          "changedPixels": 2416,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        },
+        {
+          "role": "black",
+          "row": 2,
+          "rect": [
+            1080,
+            445,
+            140,
+            66
+          ],
+          "changedPixels": 2432,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        },
+        {
+          "role": "black",
+          "row": 3,
+          "rect": [
+            1080,
+            521,
+            140,
+            66
+          ],
+          "changedPixels": 2462,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        },
+        {
+          "role": "black",
+          "row": 4,
+          "rect": [
+            1080,
+            597,
+            140,
+            66
+          ],
+          "changedPixels": 2382,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        },
+        {
+          "role": "black",
+          "row": 5,
+          "rect": [
+            1080,
+            673,
+            140,
+            66
+          ],
+          "changedPixels": 2379,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        },
+        {
+          "role": "rank",
+          "row": 1,
+          "rect": [
+            486,
+            374,
+            42,
+            56
+          ],
+          "changedPixels": 632,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        },
+        {
+          "role": "rank",
+          "row": 3,
+          "rect": [
+            486,
+            526,
+            42,
+            56
+          ],
+          "changedPixels": 660,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        }
+      ],
+      "totalChangedPixels": 16120,
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "portrait",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "candidate": "art/source/web-v3/results-negative-six-v1/portrait-candidate-v1.png",
+      "candidateSha256": "94b50c3a91ff1575a6d63934ff4b649789535d3ba296749b19d09556e802cf97",
+      "output": "art/mockups/web-v3/portrait/41-ranking-six-negative-v1.png",
+      "outputSha256": "e490f1ac990013271e70fb5a4996ca581a63c4e9b9a4a6180bddb3a7bdcba06b",
+      "allowed": [
+        {
+          "role": "gold",
+          "row": 0,
+          "rect": [
+            625,
+            565,
+            122,
+            84
+          ],
+          "changedPixels": 3044,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        },
+        {
+          "role": "black",
+          "row": 1,
+          "rect": [
+            625,
+            672,
+            122,
+            84
+          ],
+          "changedPixels": 2929,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        },
+        {
+          "role": "black",
+          "row": 2,
+          "rect": [
+            625,
+            779,
+            122,
+            84
+          ],
+          "changedPixels": 2928,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        },
+        {
+          "role": "black",
+          "row": 3,
+          "rect": [
+            625,
+            886,
+            122,
+            84
+          ],
+          "changedPixels": 2972,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        },
+        {
+          "role": "black",
+          "row": 4,
+          "rect": [
+            625,
+            993,
+            122,
+            84
+          ],
+          "changedPixels": 3051,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        },
+        {
+          "role": "black",
+          "row": 5,
+          "rect": [
+            625,
+            1100,
+            122,
+            84
+          ],
+          "changedPixels": 3098,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        },
+        {
+          "role": "rank",
+          "row": 1,
+          "rect": [
+            234,
+            686,
+            42,
+            56
+          ],
+          "changedPixels": 822,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        },
+        {
+          "role": "rank",
+          "row": 3,
+          "rect": [
+            234,
+            900,
+            42,
+            56
+          ],
+          "changedPixels": 936,
+          "mask": "Union of old/generated numeric ink, dilate2px,1px feather. Quiet local source paper clears old ink. No full page replacement."
+        }
+      ],
+      "totalChangedPixels": 19780,
+      "changedOutsideROI": 0
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "generator": "Built-in ImageGen local first-name edits on selected06/07. Strict union-of-old/new ink footprint with2px dilation/1px feather, bounded within name ROI.33reuses same row layout/ROI, all unrelated sourceRGB preserved.",
+  "fullName": "竹下听雨的第十二位茶客",
+  "profiles": {
+    "landscape": {
+      "canvas": [
+        1672,
+        941
+      ],
+      "results": [
+        436,
+        276,
+        167,
+        56
+      ],
+      "ranking": [
+        734,
+        294,
+        230,
+        64
+      ]
+    },
+    "portrait": {
+      "canvas": [
+        941,
+        1672
+      ],
+      "results": [
+        232,
+        545,
+        150,
+        68
+      ],
+      "ranking": [
+        445,
+        570,
+        180,
+        76
+      ]
+    }
+  },
+  "reports": [
+    {
+      "profile": "landscape",
+      "view": "results",
+      "source": "art/mockups/web-v3/06-results-home-v2.png",
+      "sourceSha256": "cf3023e82658542dc06cf5c9873643a1ff25ecc9cd1268f023c04758e40aec4b",
+      "candidate": "art/source/web-v3/results-long-name-v1/landscape-results-candidate-v1.png",
+      "candidateSha256": "b52d87d5d3d8b194986d89175310b8de62e315cec0318969082699cd0b6c23b5",
+      "output": "art/mockups/web-v3/42-results-long-name-v1.png",
+      "outputSha256": "955285a7dc0d8a0438c4af366b465e300895d29af773b8dd502ae7d9c9102f7a",
+      "rect": [
+        436,
+        276,
+        167,
+        56
+      ],
+      "changedPixels": 3514,
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "landscape",
+      "view": "ranking",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "candidate": "art/source/web-v3/results-long-name-v1/landscape-ranking-candidate-v1.png",
+      "candidateSha256": "6299a63e0c8e5f06c1c8f36a61018f33ca16b65e48dbeb84011c6f39fffd34bf",
+      "output": "art/mockups/web-v3/44-ranking-long-name-v1.png",
+      "outputSha256": "ded81bea42a668b3964f3c3cecae2201cc2693f9838ea5902626d1be220d8c76",
+      "rect": [
+        734,
+        294,
+        230,
+        64
+      ],
+      "changedPixels": 5720,
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "landscape",
+      "view": "current-ranking",
+      "source": "art/mockups/web-v3/33-current-ranking-home-v2.png",
+      "sourceSha256": "f658cb7e31a482840d48399010b0e41ffd696dab057612dc7cff199635099c4b",
+      "controlSource": "art/mockups/web-v3/44-ranking-long-name-v1.png",
+      "controlSourceSha256": "ded81bea42a668b3964f3c3cecae2201cc2693f9838ea5902626d1be220d8c76",
+      "output": "art/mockups/web-v3/43-current-ranking-long-name-v1.png",
+      "outputSha256": "930a9e018528830fc647407fdb8e725f9a5f45af98aa4dac8f7409b378624d18",
+      "rect": [
+        734,
+        294,
+        230,
+        64
+      ],
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "portrait",
+      "view": "results",
+      "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+      "sourceSha256": "6941e02fd4f5b6cb9d0dff7bc17b86184df3cbad7618c1832c8f9a51071dc7e1",
+      "candidate": "art/source/web-v3/results-long-name-v1/portrait-results-candidate-v1.png",
+      "candidateSha256": "6b2cb97333a961a8568a73ab00a7bf777cd2677d8b94b3eb1dc3c4fb992d6b3b",
+      "output": "art/mockups/web-v3/portrait/42-results-long-name-v1.png",
+      "outputSha256": "3d331745b7624566cdc6344a3c32189a46ecab376a492b02122d4dc8d1b3f1a8",
+      "rect": [
+        232,
+        545,
+        150,
+        68
+      ],
+      "changedPixels": 3724,
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "portrait",
+      "view": "ranking",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "candidate": "art/source/web-v3/results-long-name-v1/portrait-ranking-candidate-v1.png",
+      "candidateSha256": "a09c057de732658ba98153c76f4ed41217d748037a40fc75eff0edf717a13dab",
+      "output": "art/mockups/web-v3/portrait/44-ranking-long-name-v1.png",
+      "outputSha256": "63e5e5565beaae1d05e2515b60c857132f86a8aea8ae73ba79213261b556a3e4",
+      "rect": [
+        445,
+        570,
+        180,
+        76
+      ],
+      "changedPixels": 4353,
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "portrait",
+      "view": "current-ranking",
+      "source": "art/mockups/web-v3/portrait/33-current-ranking-home-v2.png",
+      "sourceSha256": "654d03d837ebe9a29c3d4b0f1123be7db82fdb4c3293e45a8bff2c6f5205a0a2",
+      "controlSource": "art/mockups/web-v3/portrait/44-ranking-long-name-v1.png",
+      "controlSourceSha256": "63e5e5565beaae1d05e2515b60c857132f86a8aea8ae73ba79213261b556a3e4",
+      "output": "art/mockups/web-v3/portrait/43-current-ranking-long-name-v1.png",
+      "outputSha256": "0a96d65ec5017e16b0813f18236613cc0ef32fcfe2b5325b67b00062204272da",
+      "rect": [
+        445,
+        570,
+        180,
+        76
+      ],
+      "changedOutsideROI": 0
+    }
+  ]
+}

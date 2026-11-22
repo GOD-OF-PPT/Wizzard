@@ -1,0 +1,253 @@
+{
+  "method": "Only numeric ROI uses built-in ImageGen quiet dark-face texture, normalized and fitted to original quiet pixels with a per-channel affine color plane. Original 秒, hourglass, ring, ticks, cloud and other RGB stay. Original circle/connected gold silhouette extracted with2px gap closure. Other portrait poses use the same cleaned dark interior as a color registered patch, not generated frames.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "variant": "normal",
+      "canvas": [
+        1672,
+        941
+      ],
+      "tile": [
+        1340,
+        462,
+        224,
+        195
+      ],
+      "reference": "art/source/web-v3/hud-source-v1/landscape-timer-reference-v1.png",
+      "roi": [
+        87,
+        96,
+        45,
+        34
+      ],
+      "circle": [
+        125,
+        92,
+        92
+      ],
+      "value": {
+        "x": 86,
+        "y": 94,
+        "width": 46,
+        "height": 38,
+        "font": 38
+      },
+      "candidate": "art/source/web-v3/hud-clock-v1/landscape-clock-digits-blank-candidate-v1.png",
+      "candidateSha256": "bf183a3cb324d9fb544f6dbc1c6cb6e54a5e2ddae96301bcec663bb7c0de0c6e",
+      "referenceSha256": "2938c5aa97d9a4b2819f77a9572a705ac1035afd231674556907c83ae3eef01c",
+      "shifts": [
+        [
+          6.3686576521776015,
+          -0.2717143469746321,
+          -3.1261686196947824
+        ],
+        [
+          4.806533390895723,
+          -2.154511133747773,
+          -0.9402016550967314
+        ],
+        [
+          2.4818774334669382,
+          -1.6686470791252974,
+          0.5974490708761792
+        ]
+      ],
+      "color": [
+        244,
+        219,
+        113
+      ],
+      "changed": 1366,
+      "changedOutsideDigitROI": 0,
+      "output": "art/runtime/web-v3/hud-clock-v1/landscape-clock-normal-v1.png",
+      "sha256": "12c8bcb8765a9761c07d4716e3bb07ac9fa5596b6cb7ae650cd12c7438582a8a"
+    },
+    {
+      "profile": "portrait",
+      "variant": "normal",
+      "canvas": [
+        941,
+        1672
+      ],
+      "tile": [
+        723,
+        1182,
+        211,
+        193
+      ],
+      "reference": "art/source/web-v3/hud-source-v1/portrait-timer-reference-v1.png",
+      "roi": [
+        76,
+        97,
+        45,
+        35
+      ],
+      "circle": [
+        114,
+        93,
+        93
+      ],
+      "value": {
+        "x": 75,
+        "y": 95,
+        "width": 46,
+        "height": 38,
+        "font": 38
+      },
+      "candidate": "art/source/web-v3/hud-clock-v1/portrait-clock-digits-blank-candidate-v1.png",
+      "candidateSha256": "6ea5037f7673d803348524e76670d71268765d2a38c079f977ed2422e4525317",
+      "referenceSha256": "edc58576adeb5c2bda37c0b5c9d8445508db73f8407be699d2e5a796b1b5b875",
+      "shifts": [
+        [
+          1.9277786456022823,
+          -3.9291354183346625,
+          -8.464142410310695
+        ],
+        [
+          2.604589118818581,
+          -2.6636057295194897,
+          -3.3865586987412217
+        ],
+        [
+          3.283133730488116,
+          0.10140898943051285,
+          -0.7823914023334635
+        ]
+      ],
+      "color": [
+        243,
+        232,
+        126
+      ],
+      "changed": 1413,
+      "changedOutsideDigitROI": 0,
+      "output": "art/runtime/web-v3/hud-clock-v1/portrait-clock-normal-v1.png",
+      "sha256": "119f59b260a677a5c99e5cdbf3f86783ad7a72480671a668b03a9a8b18bcc365"
+    },
+    {
+      "profile": "portrait",
+      "variant": "bid",
+      "canvas": [
+        941,
+        1672
+      ],
+      "tile": [
+        665,
+        1078,
+        241,
+        230
+      ],
+      "reference": "art/source/web-v3/hud-source-v1/portrait-bidTimer-reference-v1.png",
+      "roi": [
+        96,
+        113,
+        43,
+        35
+      ],
+      "circle": [
+        132,
+        111,
+        98
+      ],
+      "value": {
+        "x": 94.5,
+        "y": 111,
+        "width": 46,
+        "height": 38,
+        "font": 38
+      },
+      "candidate": "art/source/web-v3/hud-clock-v1/portrait-clock-digits-blank-candidate-v1.png",
+      "candidateSha256": "6ea5037f7673d803348524e76670d71268765d2a38c079f977ed2422e4525317",
+      "referenceSha256": "cb5296113f9df5b60d0f3edad223f6d1207296732dba9c2bfccccf51730af906",
+      "shifts": [
+        [
+          2.9482760744396863,
+          -5.7296363997033914,
+          -4.83096864088123
+        ],
+        [
+          4.272697182921837,
+          -2.9420686446743005,
+          0.08466089771279567
+        ],
+        [
+          3.2864938245331463,
+          -0.3813388200039031,
+          1.0248204339486042
+        ]
+      ],
+      "color": [
+        240,
+        228,
+        122
+      ],
+      "changed": 1351,
+      "changedOutsideDigitROI": 0,
+      "output": "art/runtime/web-v3/hud-clock-v1/portrait-clock-bid-v1.png",
+      "sha256": "f2e5be5f4fb2ef736169482cd772220b56c6a5d44cef73c0afa880ab575a4b98"
+    },
+    {
+      "profile": "portrait",
+      "variant": "dense",
+      "canvas": [
+        941,
+        1672
+      ],
+      "tile": [
+        688,
+        940,
+        253,
+        249
+      ],
+      "reference": "art/source/web-v3/hud-clock-v1/portrait-dense-clock-reference-v1.png",
+      "roi": [
+        110,
+        127,
+        43,
+        34
+      ],
+      "circle": [
+        147,
+        121,
+        101
+      ],
+      "value": {
+        "x": 109,
+        "y": 124,
+        "width": 46,
+        "height": 38,
+        "font": 38
+      },
+      "candidate": "art/source/web-v3/hud-clock-v1/portrait-clock-digits-blank-candidate-v1.png",
+      "candidateSha256": "6ea5037f7673d803348524e76670d71268765d2a38c079f977ed2422e4525317",
+      "referenceSha256": "c5ca1e047875aea95e5489ba18e19c80c849de0d1439d3c8f58b51852aa8db3c",
+      "shifts": [
+        [
+          -0.9286225476944264,
+          -7.265106184436972,
+          -8.987545006738966
+        ],
+        [
+          3.6209580708264464,
+          -1.9924300343532801,
+          -4.187918059025097
+        ],
+        [
+          4.8569102168606575,
+          0.768744331692408,
+          -1.0042726018288128
+        ]
+      ],
+      "color": [
+        243,
+        234,
+        124
+      ],
+      "changed": 1311,
+      "changedOutsideDigitROI": 0,
+      "output": "art/runtime/web-v3/hud-clock-v1/portrait-clock-dense-v1.png",
+      "sha256": "ba37282b6d8f3779219c7c00c4921f2829cadbf5b0cb58202aaaa973e046781b"
+    }
+  ]
+}

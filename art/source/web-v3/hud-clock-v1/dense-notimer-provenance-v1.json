@@ -1,0 +1,157 @@
+{
+  "method": "Built-in ImageGen local clock removal, exact canvas, bounded6px-feather patch. Shared clock ROI applies to previously independent idle/selected sources; unrelated generated paper/character/glyph drift rejected. Designs saved before runtime wiring.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "dense-notimer-idle",
+      "source": "art/mockups/web-v3/27-dense-hand-idle-v4-copy-v1.png",
+      "sourceSha256": "403b276d4e3871837698e5e075404234a783d3428a8ddd025d489148e6d690c5",
+      "candidate": "art/source/web-v3/hud-clock-v1/landscape-dense-notimer-candidate-v1.png",
+      "candidateSha256": "13f0c75ac46c6fc91fadbf4b4828b2d71ed2f972b839b24c482721ae2cb10b28",
+      "canvas": [
+        1672,
+        941
+      ],
+      "roi": [
+        1320,
+        450,
+        270,
+        225
+      ],
+      "allowed": [
+        [
+          1320,
+          450,
+          270,
+          225
+        ],
+        [
+          1453,
+          8,
+          200,
+          65
+        ]
+      ],
+      "modeSource": "art/mockups/web-v3/14-gameplay-notimer-selection-v4-copy-v1.png",
+      "modeSourceSha256": "f1f09aec4380706ce09fb18aa990799ada1deb09e75c8776b16d1a71d8b0b472",
+      "patch": "art/runtime/web-v3/hud-clock-v1/landscape-dense-notimer-patch-v1.png",
+      "patchSha256": "202a78a920a5648169999db1ce9a62f0bc74c58e8ed866c01134a9f7c879ae5b",
+      "output": "art/mockups/web-v3/31-dense-hand-notimer-idle-v1.png",
+      "sha256": "51d8de7fbe4b9d2f5df9069185016fa6e362bfee124a5fe1dae634a5d77ea7d5",
+      "changed": 71343,
+      "changedOutsideAllowedROIs": 0,
+      "scope": "Clock and glow/cloud/shadow removal. Landscape uses original friend-mode badge from the existing no-timer source because timer=false fixture is a connected friend match, not local practice. Canonical sun/eight papers/selection/round/avatars/actions outside allowed ROIs preserved."
+    },
+    {
+      "profile": "landscape",
+      "state": "dense-notimer-selected",
+      "source": "art/mockups/web-v3/28-dense-hand-selected-v4-copy-v1.png",
+      "sourceSha256": "132cf6d7e0b33a182d998ef08c26cd0679dea2c1839a0ce51dee434ff7764c26",
+      "candidate": "art/source/web-v3/hud-clock-v1/landscape-dense-notimer-candidate-v1.png",
+      "candidateSha256": "13f0c75ac46c6fc91fadbf4b4828b2d71ed2f972b839b24c482721ae2cb10b28",
+      "canvas": [
+        1672,
+        941
+      ],
+      "roi": [
+        1320,
+        450,
+        270,
+        225
+      ],
+      "allowed": [
+        [
+          1320,
+          450,
+          270,
+          225
+        ],
+        [
+          1453,
+          8,
+          200,
+          65
+        ]
+      ],
+      "modeSource": "art/mockups/web-v3/14-gameplay-notimer-selection-v4-copy-v1.png",
+      "modeSourceSha256": "f1f09aec4380706ce09fb18aa990799ada1deb09e75c8776b16d1a71d8b0b472",
+      "patch": "art/runtime/web-v3/hud-clock-v1/landscape-dense-notimer-patch-v1.png",
+      "patchSha256": "202a78a920a5648169999db1ce9a62f0bc74c58e8ed866c01134a9f7c879ae5b",
+      "output": "art/mockups/web-v3/32-dense-hand-notimer-selected-v1.png",
+      "sha256": "0a7a39c114dc97fd3d4131a7829af342ae2067f6a7ec99594ecfc3ce3d4a1e62",
+      "changed": 71343,
+      "changedOutsideAllowedROIs": 0,
+      "scope": "Clock and glow/cloud/shadow removal. Landscape uses original friend-mode badge from the existing no-timer source because timer=false fixture is a connected friend match, not local practice. Canonical sun/eight papers/selection/round/avatars/actions outside allowed ROIs preserved."
+    },
+    {
+      "profile": "portrait",
+      "state": "dense-notimer-idle",
+      "source": "art/mockups/web-v3/portrait/27-dense-hand-idle-v4-copy-v1.png",
+      "sourceSha256": "1edc0b70f98fd6eb20c1983646692fffd3bbe4c7d80406d9b678dc4cfc44ab14",
+      "candidate": "art/source/web-v3/hud-clock-v1/portrait-dense-notimer-candidate-v1.png",
+      "candidateSha256": "5216aba01ed5d08d9aaafaf19111a02593f34920d8aa23a99a8d1694a0ea6f79",
+      "canvas": [
+        941,
+        1672
+      ],
+      "roi": [
+        688,
+        940,
+        253,
+        249
+      ],
+      "allowed": [
+        [
+          688,
+          940,
+          253,
+          249
+        ]
+      ],
+      "modeSource": null,
+      "modeSourceSha256": null,
+      "patch": "art/runtime/web-v3/hud-clock-v1/portrait-dense-notimer-patch-v1.png",
+      "patchSha256": "313e147b1c004424b82db40151144b920f57d0920054ef4c298b6b51b1293c59",
+      "output": "art/mockups/web-v3/portrait/31-dense-hand-notimer-idle-v1.png",
+      "sha256": "289451c693954e9e5982d1275723f0e71b47044db4d05c86b07319b5d1ac93f7",
+      "changed": 61171,
+      "changedOutsideAllowedROIs": 0,
+      "scope": "Clock and glow/cloud/shadow removal. Landscape uses original friend-mode badge from the existing no-timer source because timer=false fixture is a connected friend match, not local practice. Canonical sun/eight papers/selection/round/avatars/actions outside allowed ROIs preserved."
+    },
+    {
+      "profile": "portrait",
+      "state": "dense-notimer-selected",
+      "source": "art/mockups/web-v3/portrait/28-dense-hand-selected-v4-copy-v1.png",
+      "sourceSha256": "d494a8718245c089919e61b94739912ea9388b03f7715e1885155628eeb5c688",
+      "candidate": "art/source/web-v3/hud-clock-v1/portrait-dense-notimer-candidate-v1.png",
+      "candidateSha256": "5216aba01ed5d08d9aaafaf19111a02593f34920d8aa23a99a8d1694a0ea6f79",
+      "canvas": [
+        941,
+        1672
+      ],
+      "roi": [
+        688,
+        940,
+        253,
+        249
+      ],
+      "allowed": [
+        [
+          688,
+          940,
+          253,
+          249
+        ]
+      ],
+      "modeSource": null,
+      "modeSourceSha256": null,
+      "patch": "art/runtime/web-v3/hud-clock-v1/portrait-dense-notimer-patch-v1.png",
+      "patchSha256": "313e147b1c004424b82db40151144b920f57d0920054ef4c298b6b51b1293c59",
+      "output": "art/mockups/web-v3/portrait/32-dense-hand-notimer-selected-v1.png",
+      "sha256": "61c43ea63aafa01bfd8fa05a28545d10adf3a5dfe0fd94a671f43a9408c67015",
+      "changed": 61171,
+      "changedOutsideAllowedROIs": 0,
+      "scope": "Clock and glow/cloud/shadow removal. Landscape uses original friend-mode badge from the existing no-timer source because timer=false fixture is a connected friend match, not local practice. Canonical sun/eight papers/selection/round/avatars/actions outside allowed ROIs preserved."
+    }
+  ]
+}

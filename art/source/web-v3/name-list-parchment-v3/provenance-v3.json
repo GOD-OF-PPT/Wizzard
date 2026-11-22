@@ -1,0 +1,343 @@
+{
+  "method": "Built-in ImageGen full-body paper repair. Normalize candidate only as donor, blend through continuous quiet-body rectangle with smooth30/28px edge and14px protection around authored flowers/action. Original alpha and allRGB outside mask retained. Sourcev3 recomposes same entry+scrim+updatedpanel+original same avatar/name rasters; no typography/layout change. Small authored line ends outside quietbody remain protected, not claimed removed.",
+  "records": [
+    {
+      "profile": "landscape",
+      "source": "art/runtime/web-v3/results-name-access-v1/landscape-panel-v2.png",
+      "sourceSha256": "f357a4b955d6714bc18e6ffd77d64fb2daddc7105f29c28ef9a2076c5e1bd5fd",
+      "candidate": "art/source/web-v3/name-list-parchment-v3/landscape-candidate-v3.png",
+      "candidateSha256": "07a4b3c252528678fbdabe0292c61e0cf3b50bf8134e53686d8147df53f601af",
+      "output": "art/runtime/web-v3/results-name-access-v1/landscape-panel-v3.png",
+      "outputSha256": "51cf9047920f3d471d2e62dbd6e23b7abec5e29fe688e9d6dd5c342830e8144b",
+      "canvas": [
+        1000,
+        722
+      ],
+      "mask": {
+        "rect": [
+          140,
+          112,
+          800,
+          526
+        ],
+        "feather": 30,
+        "protected": [
+          [
+            [
+              0,
+              460
+            ],
+            [
+              60,
+              460
+            ],
+            [
+              70,
+              520
+            ],
+            [
+              125,
+              530
+            ],
+            [
+              125,
+              580
+            ],
+            [
+              170,
+              640
+            ],
+            [
+              170,
+              722
+            ],
+            [
+              0,
+              722
+            ]
+          ],
+          [
+            [
+              990,
+              455
+            ],
+            [
+              1000,
+              455
+            ],
+            [
+              1000,
+              722
+            ],
+            [
+              835,
+              722
+            ],
+            [
+              835,
+              650
+            ],
+            [
+              880,
+              600
+            ],
+            [
+              900,
+              548
+            ],
+            [
+              930,
+              510
+            ],
+            [
+              955,
+              475
+            ]
+          ],
+          [
+            [
+              325,
+              610
+            ],
+            [
+              680,
+              610
+            ],
+            [
+              680,
+              722
+            ],
+            [
+              325,
+              722
+            ]
+          ]
+        ]
+      },
+      "maskFile": "art/source/web-v3/name-list-parchment-v3/landscape-body-mask-v3.png",
+      "changedPixels": 387363,
+      "alphaChanged": 0,
+      "changedOutsideAllowedMask": 0,
+      "pair": "art/source/web-v3/name-list-parchment-v3/landscape-panel-before-after-v3.png"
+    },
+    {
+      "profile": "portrait",
+      "source": "art/runtime/web-v3/results-name-access-v1/portrait-panel-v2.png",
+      "sourceSha256": "d429f903df6fec13b50d79d300012a7340c0f459209de058aca603b11f67b261",
+      "candidate": "art/source/web-v3/name-list-parchment-v3/portrait-candidate-v3.png",
+      "candidateSha256": "82ad627caf3b15ba6c3fad2df4902289268a0a0f734951833a40d20edba92b30",
+      "output": "art/runtime/web-v3/results-name-access-v1/portrait-panel-v3.png",
+      "outputSha256": "80cee54064605d0acc4ebccc1e8d8d32c14864a2fc1d47fdf117ecd727f5f57b",
+      "canvas": [
+        824,
+        999
+      ],
+      "mask": {
+        "rect": [
+          120,
+          120,
+          650,
+          766
+        ],
+        "feather": 28,
+        "protected": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              120,
+              0
+            ],
+            [
+              120,
+              165
+            ],
+            [
+              75,
+              190
+            ],
+            [
+              0,
+              190
+            ]
+          ],
+          [
+            [
+              0,
+              770
+            ],
+            [
+              65,
+              770
+            ],
+            [
+              100,
+              850
+            ],
+            [
+              160,
+              910
+            ],
+            [
+              160,
+              999
+            ],
+            [
+              0,
+              999
+            ]
+          ],
+          [
+            [
+              800,
+              760
+            ],
+            [
+              824,
+              760
+            ],
+            [
+              824,
+              999
+            ],
+            [
+              670,
+              999
+            ],
+            [
+              680,
+              915
+            ],
+            [
+              720,
+              865
+            ],
+            [
+              745,
+              800
+            ]
+          ],
+          [
+            [
+              165,
+              895
+            ],
+            [
+              670,
+              895
+            ],
+            [
+              670,
+              999
+            ],
+            [
+              165,
+              999
+            ]
+          ]
+        ]
+      },
+      "maskFile": "art/source/web-v3/name-list-parchment-v3/portrait-body-mask-v3.png",
+      "changedPixels": 473951,
+      "alphaChanged": 0,
+      "changedOutsideAllowedMask": 0,
+      "pair": "art/source/web-v3/name-list-parchment-v3/portrait-panel-before-after-v3.png"
+    }
+  ],
+  "sources": [
+    {
+      "profile": "landscape",
+      "state": "results",
+      "source": "art/mockups/web-v3/50-results-name-list-v2.png",
+      "sourceSha256": "49d6e7a3c1bf52c8f09c852f0a5da0167e5c1dafadf361b87d027da385c4049a",
+      "output": "art/mockups/web-v3/50-results-name-list-v3.png",
+      "outputSha256": "781f974baba207be7002fbe2e669dd6273d8a8c2c83258004fac08cc3d4c8800",
+      "panel": "art/runtime/web-v3/results-name-access-v1/landscape-panel-v3.png",
+      "panelRect": [
+        336,
+        110,
+        1000,
+        722
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "source": "art/mockups/web-v3/53-ranking-name-list-v2.png",
+      "sourceSha256": "567516d51eb0e78052f589592bfbdce9cbe8cd1ab8b0361ed6ce297692860bb1",
+      "output": "art/mockups/web-v3/53-ranking-name-list-v3.png",
+      "outputSha256": "c7f4abf809a2d9caf20e3c831657774aef562840753598808da38b31b898d320",
+      "panel": "art/runtime/web-v3/results-name-access-v1/landscape-panel-v3.png",
+      "panelRect": [
+        336,
+        110,
+        1000,
+        722
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "current-ranking",
+      "source": "art/mockups/web-v3/52-current-ranking-name-list-v2.png",
+      "sourceSha256": "c518f3970a00922f62cbd7838a9c75773755da23f62d7342c0a04d3c5d7bf991",
+      "output": "art/mockups/web-v3/52-current-ranking-name-list-v3.png",
+      "outputSha256": "ed6f020a417923b4b81d9a8442d1ec63357c36e7cd23e0611399c9b2f65f1fdd",
+      "panel": "art/runtime/web-v3/results-name-access-v1/landscape-panel-v3.png",
+      "panelRect": [
+        336,
+        110,
+        1000,
+        722
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "source": "art/mockups/web-v3/portrait/50-results-name-list-v2.png",
+      "sourceSha256": "7ce6e36555bac7c8d150a409f43c8b51978b16d0554bafb710bcd3217d62c3ff",
+      "output": "art/mockups/web-v3/portrait/50-results-name-list-v3.png",
+      "outputSha256": "8737b8cc56193c8826aa1e485d39525382bf6576da0869046b28e6de969c6fa3",
+      "panel": "art/runtime/web-v3/results-name-access-v1/portrait-panel-v3.png",
+      "panelRect": [
+        59,
+        336,
+        824,
+        999
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "source": "art/mockups/web-v3/portrait/53-ranking-name-list-v2.png",
+      "sourceSha256": "d82487a852410e20d711ac2ff0a4e67d6928a85dc2a13db0a6e862a9b8ea4383",
+      "output": "art/mockups/web-v3/portrait/53-ranking-name-list-v3.png",
+      "outputSha256": "4cd2694ead818d133b6787ad322186a04e10ea4d5c5d7143306b0bb7573bd180",
+      "panel": "art/runtime/web-v3/results-name-access-v1/portrait-panel-v3.png",
+      "panelRect": [
+        59,
+        336,
+        824,
+        999
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "current-ranking",
+      "source": "art/mockups/web-v3/portrait/52-current-ranking-name-list-v2.png",
+      "sourceSha256": "3ff9522143d95d3f713b5876a26c23fb3c460b8fd5e6db3c00b9ebe736e182c2",
+      "output": "art/mockups/web-v3/portrait/52-current-ranking-name-list-v3.png",
+      "outputSha256": "e4e3c533e865d49976d78fd584c6a663874e1b6391a43a33d1384580267379cf",
+      "panel": "art/runtime/web-v3/results-name-access-v1/portrait-panel-v3.png",
+      "panelRect": [
+        59,
+        336,
+        824,
+        999
+      ]
+    }
+  ],
+  "previousProvenance": "art/source/web-v3/results-name-access-v1/provenance-v2.json",
+  "layout": "art/runtime/web-v3/results-name-access-v1/layout-v1.json"
+}

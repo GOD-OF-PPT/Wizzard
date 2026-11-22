@@ -1,0 +1,67 @@
+{
+  "description": "Built-in ImageGen cleaned panel. Normalize to measured component. Full-screen source is unchanged42 plus44% scrim, generated panel and original generated name ink. Runtime full name remains DOM text.",
+  "records": [
+    {
+      "profile": "landscape",
+      "candidate": "art/source/web-v3/results-long-name-v1/landscape-dialog-blank-generated-v1.png",
+      "output": "art/runtime/web-v3/results-name-dialog-v1/landscape-panel-v1.png",
+      "design": "art/mockups/web-v3/45-results-name-dialog-v1.png",
+      "file": "exec-a5531a7f-25d3-4641-bdff-01e5ac528ff5.png",
+      "canvas": [
+        1672,
+        941
+      ],
+      "rect": [
+        488,
+        302,
+        696,
+        338
+      ],
+      "name": [
+        60,
+        119,
+        576,
+        95
+      ],
+      "ink": [
+        93,
+        139,
+        510,
+        61
+      ],
+      "sha256": "5b19f762107a3673b5ce544df03eb5cbbf4c3b8bdd774c39acbd1615de82d61f",
+      "generatedHasAlpha": true
+    },
+    {
+      "profile": "portrait",
+      "candidate": "art/source/web-v3/results-long-name-v1/portrait-dialog-blank-generated-v1.png",
+      "output": "art/runtime/web-v3/results-name-dialog-v1/portrait-panel-v1.png",
+      "design": "art/mockups/web-v3/portrait/45-results-name-dialog-v1.png",
+      "file": "exec-f1c884e1-74ff-463d-86ed-a82d14ffa2b9.png",
+      "canvas": [
+        941,
+        1672
+      ],
+      "rect": [
+        59,
+        605,
+        824,
+        452
+      ],
+      "name": [
+        58,
+        165,
+        708,
+        112
+      ],
+      "ink": [
+        103,
+        186,
+        610,
+        71
+      ],
+      "sha256": "d063f9ebb4fe4175fd2440f73909c5c1664ff38622a28114e3586b46b8e924f6",
+      "generatedHasAlpha": true
+    }
+  ]
+}

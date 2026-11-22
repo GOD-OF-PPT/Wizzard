@@ -1,0 +1,231 @@
+{
+  "id": "trick.win",
+  "label": "收墩小喜",
+  "durationSeconds": 1.1,
+  "trigger": "本人赢得一墩",
+  "prompt": "A small porcelain cup gently placed on a wooden tray followed by two tiny glassy tea-spoon tinkles rising slightly. Modest friendly success, quick and satisfying, not a victory fanfare. Entire sound fits within 1.1 seconds. For an enchanted Chinese teahouse game. One isolated close-up, warm tactile hit. No voice, music, ambience, beeps or harsh treble.",
+  "targetLufs": -23,
+  "cooldownMs": 700,
+  "loop": false,
+  "variants": 4,
+  "status": "generated",
+  "runtimePath": "art/runtime/audio/teahouse-v1/trick-win-v1.mp3",
+  "sourceDirectory": "art/source/audio/teahouse-v1/trick-win",
+  "submittedAt": "2026-10-28T07:40:42.504Z",
+  "model": "eleven_text_to_sound_v2",
+  "generatedAt": "2026-10-28T07:40:56.355Z",
+  "downloadPrefix": "A_small_porcelain_cu_",
+  "sourceFiles": [
+    {
+      "take": 1,
+      "downloadedName": "A_small_porcelain_cu_#1-1793173251808.mp3",
+      "path": "art/source/audio/teahouse-v1/trick-win/take-01.mp3"
+    },
+    {
+      "take": 2,
+      "downloadedName": "A_small_porcelain_cu_#2-1793173251765.mp3",
+      "path": "art/source/audio/teahouse-v1/trick-win/take-02.mp3"
+    },
+    {
+      "take": 3,
+      "downloadedName": "A_small_porcelain_cu_#3-1793173265864.mp3",
+      "path": "art/source/audio/teahouse-v1/trick-win/take-03.mp3"
+    },
+    {
+      "take": 4,
+      "downloadedName": "A_small_porcelain_cu_#4-1793173268341.mp3",
+      "path": "art/source/audio/teahouse-v1/trick-win/take-04.mp3"
+    }
+  ],
+  "candidates": [
+    {
+      "take": 1,
+      "source": "art/source/audio/teahouse-v1/trick-win/take-01.mp3",
+      "sourceSha256": "62eb50b1fc77f1bbdcc012426584006ed7ad4ef7d4c3935718479d6475174e02",
+      "sourceBytes": 27117,
+      "sourceMetrics": {
+        "duration": 1.08,
+        "peakDbfs": 2.509189658721401,
+        "rmsDbfs": -24.56164900037055,
+        "clippedSamples": 3,
+        "leadingSilenceSeconds": 0.39247916666666666,
+        "trailingSilenceSeconds": 0.41604166666666664,
+        "first": 18839,
+        "last": 31869
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/trick-win-take-01.mp3",
+      "sha256": "78a060ba371c481e63ebcf288d15e08acc1099925610a3f8bd98b61829925056",
+      "bytes": 6312,
+      "outputMetrics": {
+        "duration": 0.3395208333333333,
+        "peakDbfs": -4.275594844072977,
+        "rmsDbfs": -26.41718767160242,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.008,
+        "trailingSilenceSeconds": 0.06179166666666667,
+        "first": 384,
+        "last": 13330
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0.38447916666666665,
+        "trimEndSeconds": 0.7239583333333333,
+        "targetRmsDbfs": -26,
+        "gainDb": -6.463736762006391,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 2,
+      "source": "art/source/audio/teahouse-v1/trick-win/take-02.mp3",
+      "sourceSha256": "6779956a21bb7b90d3728830df13d9feb271123a8878f114a426cd317b3f7eb7",
+      "sourceBytes": 27117,
+      "sourceMetrics": {
+        "duration": 1.08,
+        "peakDbfs": 2.9487162661241104,
+        "rmsDbfs": -20.002447875963334,
+        "clippedSamples": 105,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.493125,
+        "first": 0,
+        "last": 28169
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/trick-win-take-02.mp3",
+      "sha256": "9cc518c443e299a1766188bffa2dd404f9d2477200bc03b7c287e388fb5a6ed7",
+      "bytes": 11327,
+      "outputMetrics": {
+        "duration": 0.6468958333333333,
+        "peakDbfs": -5.697766264402164,
+        "rmsDbfs": -26.49482095614656,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.060020833333333336,
+        "first": 0,
+        "last": 28169
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.6468750000000001,
+        "targetRmsDbfs": -26,
+        "gainDb": -8.223437710215698,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 3,
+      "source": "art/source/audio/teahouse-v1/trick-win/take-03.mp3",
+      "sourceSha256": "c6b917c49bd3513ae4f0835aaf4fc6d53bcd1143dc2d18ba2702c35c4b252b77",
+      "sourceBytes": 27117,
+      "sourceMetrics": {
+        "duration": 1.08,
+        "peakDbfs": 1.595036067705926,
+        "rmsDbfs": -21.16946692516228,
+        "clippedSamples": 7,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0,
+        "first": 0,
+        "last": 51839
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/trick-win-take-03.mp3",
+      "sha256": "4359eed8d771d047c576082fb31709fcaddae56dca99bb2e978436fa7b037987",
+      "bytes": 18433,
+      "outputMetrics": {
+        "duration": 1.08,
+        "peakDbfs": -3.73323082070842,
+        "rmsDbfs": -26.496646378949087,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0004166666666666667,
+        "trailingSilenceSeconds": 0.6360625,
+        "first": 20,
+        "last": 21308
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 1.08,
+        "targetRmsDbfs": -26,
+        "gainDb": -4.830533074837721,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    },
+    {
+      "take": 4,
+      "source": "art/source/audio/teahouse-v1/trick-win/take-04.mp3",
+      "sourceSha256": "218b37944e5a7cedaa52ca96bafe2c5a55c72e0237cf1bfbe12e54b93383d481",
+      "sourceBytes": 27117,
+      "sourceMetrics": {
+        "duration": 1.08,
+        "peakDbfs": 3.0994439693847387,
+        "rmsDbfs": -19.38157755916842,
+        "clippedSamples": 52,
+        "leadingSilenceSeconds": 0,
+        "trailingSilenceSeconds": 0.8849166666666667,
+        "first": 0,
+        "last": 9363
+      },
+      "runtimePath": "art/runtime/audio/teahouse-v1/candidates/trick-win-take-04.mp3",
+      "sha256": "397135eaf76402bf47ec854348f0338849bf24a7afba1d7539e19a745288c2da",
+      "bytes": 5058,
+      "outputMetrics": {
+        "duration": 0.2551041666666667,
+        "peakDbfs": -10.242800305669707,
+        "rmsDbfs": -26.618701136270527,
+        "clippedSamples": 0,
+        "leadingSilenceSeconds": 0.0000625,
+        "trailingSilenceSeconds": 0.06004166666666667,
+        "first": 3,
+        "last": 9362
+      },
+      "technicalWarning": null,
+      "processing": {
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 0.25508333333333333,
+        "targetRmsDbfs": -26,
+        "gainDb": -12.885779124751018,
+        "sampleRate": 44100,
+        "channels": 1,
+        "mp3Bitrate": 128000,
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.015
+      }
+    }
+  ],
+  "selectedTake": 2,
+  "selectionBasis": "约0.65秒，落杯后有数次小共鸣；比候选1/4更有奖励辨识度，又比候选3更短。",
+  "runtimeSha256": "9cc518c443e299a1766188bffa2dd404f9d2477200bc03b7c287e388fb5a6ed7",
+  "runtimeBytes": 11327,
+  "durationActualSeconds": 0.6468958333333333,
+  "technicalStatus": "decode-duration-peak-and-unique-takes-verified",
+  "listeningStatus": "not-human-reviewed",
+  "wiredToGame": true,
+  "selectionStatus": "agent-selected",
+  "selectionReviewMethod": "Per-candidate waveform, spectral distribution, duration, onset pattern, and role matching. This is an agent production choice, not a claim of direct auditory or human listening acceptance.",
+  "finalProcessing": {
+    "eq": null,
+    "gainDb": 0
+  },
+  "finalMetrics": {
+    "duration": 0.6468958333333333,
+    "peakDbfs": -5.697766264402164,
+    "rmsDbfs": -26.49482095614656,
+    "clippedSamples": 0,
+    "leadingSilenceSeconds": 0,
+    "trailingSilenceSeconds": 0.060020833333333336,
+    "first": 0,
+    "last": 28169
+  },
+  "integrationTarget": "react-web"
+}

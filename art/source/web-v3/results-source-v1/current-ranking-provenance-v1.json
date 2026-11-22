@@ -1,0 +1,299 @@
+{
+  "method": "Built-in ImageGen independent intermediate ranking state. Only approved text/numeric ROIs from candidate compose into original final-ranking design; all original avatar/frame/decor and otherRGB preserved. Runtime subtitle clears only the live completed-round numeral using existing original blank ranking paper. Standalone return-label candidates retained as exploration, not consumed.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "candidate": "art/source/web-v3/results-source-v1/landscape-current-ranking-candidate-v1.png",
+      "candidateSha256": "734a95bd4192e048db387f82400c896db33df05293f7b7c725979afd12822dfc",
+      "allowed": [
+        [
+          666,
+          79,
+          340,
+          77
+        ],
+        [
+          680,
+          176,
+          307,
+          33
+        ],
+        [
+          548,
+          768,
+          194,
+          55
+        ],
+        [
+          909,
+          766,
+          239,
+          58
+        ],
+        [
+          1090,
+          298,
+          110,
+          53
+        ],
+        [
+          1090,
+          374,
+          110,
+          53
+        ],
+        [
+          1090,
+          450,
+          110,
+          53
+        ],
+        [
+          1090,
+          526,
+          110,
+          53
+        ],
+        [
+          1090,
+          602,
+          110,
+          53
+        ],
+        [
+          1090,
+          678,
+          110,
+          53
+        ]
+      ],
+      "output": "art/mockups/web-v3/33-current-ranking-v1.png",
+      "sha256": "dce9d69cd894483b1968bc1e69c9aec33aabe55f2d431a0c9ffe6babd480c0ed",
+      "changed": 90732,
+      "changedOutsideROI": 0
+    },
+    {
+      "profile": "portrait",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "candidate": "art/source/web-v3/results-source-v1/portrait-current-ranking-candidate-v1.png",
+      "candidateSha256": "682f8abb7b95013aaf6888f09c8cd755098136850d0a4ad05ab71596cf7a29d4",
+      "allowed": [
+        [
+          324,
+          294,
+          310,
+          72
+        ],
+        [
+          324,
+          402,
+          295,
+          39
+        ],
+        [
+          346,
+          1365,
+          257,
+          71
+        ],
+        [
+          318,
+          1492,
+          312,
+          77
+        ],
+        [
+          646,
+          578,
+          101,
+          62
+        ],
+        [
+          646,
+          685,
+          101,
+          62
+        ],
+        [
+          646,
+          792,
+          101,
+          62
+        ],
+        [
+          646,
+          899,
+          101,
+          62
+        ],
+        [
+          646,
+          1006,
+          101,
+          62
+        ],
+        [
+          646,
+          1113,
+          101,
+          62
+        ]
+      ],
+      "output": "art/mockups/web-v3/portrait/33-current-ranking-v1.png",
+      "sha256": "9adf5aac5954333d5829be06de28ab5efc511d234a9fa8d8f6818e76925cd709",
+      "changed": 107920,
+      "changedOutsideROI": 0
+    }
+  ],
+  "runtimeReports": [
+    {
+      "profile": "landscape",
+      "kind": "title",
+      "source": "art/mockups/web-v3/33-current-ranking-v1.png",
+      "sourceSha256": "dce9d69cd894483b1968bc1e69c9aec33aabe55f2d431a0c9ffe6babd480c0ed",
+      "rect": [
+        538,
+        57,
+        595,
+        118
+      ],
+      "digitCleanup": null,
+      "blank": "art/runtime/web-v3/ranking-clean-v3.png",
+      "blankSha256": "10bff9ed112110e584acbf3a7e72169b82629872e44bf1d41f9e329693b1d679",
+      "output": "art/runtime/web-v3/results-source-v1/landscape-current-ranking-title-v1.png",
+      "sha256": "a203c95d1231a368015e15e28c4beddb4a6a0a4354a02594d2bcbb143b6f8b92"
+    },
+    {
+      "profile": "landscape",
+      "kind": "subtitle",
+      "source": "art/mockups/web-v3/33-current-ranking-v1.png",
+      "sourceSha256": "dce9d69cd894483b1968bc1e69c9aec33aabe55f2d431a0c9ffe6babd480c0ed",
+      "rect": [
+        606,
+        175,
+        461,
+        38
+      ],
+      "digitCleanup": [
+        884,
+        178,
+        23,
+        30
+      ],
+      "blank": "art/runtime/web-v3/ranking-clean-v3.png",
+      "blankSha256": "10bff9ed112110e584acbf3a7e72169b82629872e44bf1d41f9e329693b1d679",
+      "output": "art/runtime/web-v3/results-source-v1/landscape-current-ranking-subtitle-v1.png",
+      "sha256": "e2a47b28e50cd231a260abfb7fe2f3e45130e06ad4fb4a95b0ce51f7a7c00c39"
+    },
+    {
+      "profile": "landscape",
+      "kind": "secondary",
+      "source": "art/mockups/web-v3/33-current-ranking-v1.png",
+      "sourceSha256": "dce9d69cd894483b1968bc1e69c9aec33aabe55f2d431a0c9ffe6babd480c0ed",
+      "rect": [
+        459,
+        744,
+        369,
+        101
+      ],
+      "digitCleanup": null,
+      "blank": "art/runtime/web-v3/ranking-clean-v3.png",
+      "blankSha256": "10bff9ed112110e584acbf3a7e72169b82629872e44bf1d41f9e329693b1d679",
+      "output": "art/runtime/web-v3/results-source-v1/landscape-current-ranking-secondary-v1.png",
+      "sha256": "4c810f44022d96f7386bbbed994c374ad0d2411cbb54691f2b07fd36a589c2e2"
+    },
+    {
+      "profile": "landscape",
+      "kind": "primary",
+      "source": "art/mockups/web-v3/33-current-ranking-v1.png",
+      "sourceSha256": "dce9d69cd894483b1968bc1e69c9aec33aabe55f2d431a0c9ffe6babd480c0ed",
+      "rect": [
+        846,
+        742,
+        370,
+        105
+      ],
+      "digitCleanup": null,
+      "blank": "art/runtime/web-v3/ranking-clean-v3.png",
+      "blankSha256": "10bff9ed112110e584acbf3a7e72169b82629872e44bf1d41f9e329693b1d679",
+      "output": "art/runtime/web-v3/results-source-v1/landscape-current-ranking-primary-v1.png",
+      "sha256": "916cb2ec1e635a4f4c11234a4af7d4552bb4a5da42e10b16cf609c12c654bc8e"
+    },
+    {
+      "profile": "portrait",
+      "kind": "title",
+      "source": "art/mockups/web-v3/portrait/33-current-ranking-v1.png",
+      "sourceSha256": "9adf5aac5954333d5829be06de28ab5efc511d234a9fa8d8f6818e76925cd709",
+      "rect": [
+        207,
+        268,
+        528,
+        126
+      ],
+      "digitCleanup": null,
+      "blank": "art/runtime/web-v3/portrait/ranking-v2.png",
+      "blankSha256": "6e1ef661cdfb113d6e2f1357d731ad8416d6085e14152e3af4d55577bec7d85d",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-current-ranking-title-v1.png",
+      "sha256": "5af76422d74e786f42ce96b9bc473136cdcee1043cfc75492013dd8f97525072"
+    },
+    {
+      "profile": "portrait",
+      "kind": "subtitle",
+      "source": "art/mockups/web-v3/portrait/33-current-ranking-v1.png",
+      "sourceSha256": "9adf5aac5954333d5829be06de28ab5efc511d234a9fa8d8f6818e76925cd709",
+      "rect": [
+        248,
+        401,
+        445,
+        43
+      ],
+      "digitCleanup": [
+        509,
+        406,
+        25,
+        32
+      ],
+      "blank": "art/runtime/web-v3/portrait/ranking-v2.png",
+      "blankSha256": "6e1ef661cdfb113d6e2f1357d731ad8416d6085e14152e3af4d55577bec7d85d",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-current-ranking-subtitle-v1.png",
+      "sha256": "994f1a538c7cb1148be8ff372ad8bc18af5108648140a5c3da799e2233e3fa07"
+    },
+    {
+      "profile": "portrait",
+      "kind": "secondary",
+      "source": "art/mockups/web-v3/portrait/33-current-ranking-v1.png",
+      "sourceSha256": "9adf5aac5954333d5829be06de28ab5efc511d234a9fa8d8f6818e76925cd709",
+      "rect": [
+        179,
+        1333,
+        585,
+        122
+      ],
+      "digitCleanup": null,
+      "blank": "art/runtime/web-v3/portrait/ranking-v2.png",
+      "blankSha256": "6e1ef661cdfb113d6e2f1357d731ad8416d6085e14152e3af4d55577bec7d85d",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-current-ranking-secondary-v1.png",
+      "sha256": "bf7c705f95e56494049639e6e34f10a3dd69732150ed7f67bcd130e0fc6eb604"
+    },
+    {
+      "profile": "portrait",
+      "kind": "primary",
+      "source": "art/mockups/web-v3/portrait/33-current-ranking-v1.png",
+      "sourceSha256": "9adf5aac5954333d5829be06de28ab5efc511d234a9fa8d8f6818e76925cd709",
+      "rect": [
+        179,
+        1457,
+        585,
+        130
+      ],
+      "digitCleanup": null,
+      "blank": "art/runtime/web-v3/portrait/ranking-v2.png",
+      "blankSha256": "6e1ef661cdfb113d6e2f1357d731ad8416d6085e14152e3af4d55577bec7d85d",
+      "output": "art/runtime/web-v3/results-source-v1/portrait-current-ranking-primary-v1.png",
+      "sha256": "e9840a7ac0ebf79e1c548fff4e58e3a2c56b9583f2c5f1801e3e68939e66086e"
+    }
+  ]
+}

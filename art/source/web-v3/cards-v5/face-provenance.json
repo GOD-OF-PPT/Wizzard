@@ -1,0 +1,632 @@
+{
+  "method": "Exact selected-source raster faces with ImageGen quiet-paper numeral-ROI cleanup only; source alpha/border/symbol/core paper protected. Candidate paper tone matched at ROI boundary; direct pale numeral inpainting rejected.",
+  "complete": true,
+  "runtimeExported": true,
+  "missing": [],
+  "reports": [
+    {
+      "profile": "landscape",
+      "suit": "leaf",
+      "source": "art/source/web-v3/cards-v5/landscape-leaf-face.png",
+      "sourceSha256": "f90b1b19107f3f3496a47de6369cba88435c18ed055e79d48e4d68a0577cf10f",
+      "reference": "art/source/web-v3/cards-v5/landscape-leaf-reference.png",
+      "referenceSha256": "cee7091c686e6ce69b761d5e162e7012004a4469a37d0c42c76287156342890f",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          614.9260839067887,
+          770.8313394048662
+        ],
+        "angle": -2.35000000000002
+      },
+      "rank": 5,
+      "rankInkBounds": [
+        114,
+        123,
+        202,
+        270
+      ],
+      "rankRoi": [
+        102,
+        111,
+        112,
+        171
+      ],
+      "rankLogicalBounds": [
+        28.5,
+        30.75,
+        50.5,
+        67.5
+      ],
+      "candidate": "art/source/web-v3/cards-v5/landscape-leaf-rank-clean-candidate.png",
+      "cleanupRoi": [
+        94,
+        103,
+        128,
+        187
+      ],
+      "candidateSize": [
+        1024,
+        1536
+      ],
+      "candidateSha256": "2e9448bab40b3e961cffb84f73debc608fef43e18978f59997fcb8029d212ca9",
+      "paperSample": {
+        "left": 248,
+        "top": 56,
+        "width": 112,
+        "height": 156
+      },
+      "borderToneOffsets": [
+        0.0805921052631579,
+        0.9564144736842105,
+        4.048519736842105
+      ],
+      "runtime": "art/runtime/web-v3/cards/landscape-leaf-v5.png",
+      "proof": "art/source/web-v3/cards-v5/landscape-leaf-proof.png",
+      "changedPixels": 23067,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0,
+      "runtimeSha256": "f90b1b19107f3f3496a47de6369cba88435c18ed055e79d48e4d68a0577cf10f",
+      "nativeRuntime": "art/runtime/web-v3/cards/landscape-leaf-v5-native.png",
+      "nativeRuntimeSize": [
+        140,
+        210
+      ],
+      "nativeRuntimeSha256": "0da271770ee1e6c136d43a120896356b200aa5bd2608480ec9c8dcce26b261ac"
+    },
+    {
+      "profile": "landscape",
+      "suit": "mountain",
+      "source": "art/source/web-v3/cards-v5/landscape-mountain-face.png",
+      "sourceSha256": "db9360d6f616b55f2514b97a746a0bf64e83c6cd535ca827a81d3611e7bc0ef8",
+      "reference": "art/source/web-v3/cards-v5/landscape-mountain-reference.png",
+      "referenceSha256": "1ba53a9f86bd91dd3c9511b47e734bf87124b045877f4fda86a94f2ab951b142",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          760.7328383865522,
+          768.9906482443572
+        ],
+        "angle": -2.3000000000000203
+      },
+      "rank": 8,
+      "rankInkBounds": [
+        100,
+        121,
+        190,
+        267
+      ],
+      "rankRoi": [
+        88,
+        109,
+        114,
+        170
+      ],
+      "rankLogicalBounds": [
+        25,
+        30.25,
+        47.5,
+        66.75
+      ],
+      "candidate": "art/source/web-v3/cards-v5/landscape-mountain-rank-clean-candidate.png",
+      "cleanupRoi": [
+        80,
+        101,
+        130,
+        186
+      ],
+      "candidateSize": [
+        1024,
+        1536
+      ],
+      "candidateSha256": "2f91b6eab396ff56ff980c4b173ac06b96a3072759f92055d47eb81b52644341",
+      "paperSample": {
+        "left": 248,
+        "top": 56,
+        "width": 112,
+        "height": 156
+      },
+      "borderToneOffsets": [
+        -3.121794871794872,
+        -2.5296474358974357,
+        -3.6658653846153846
+      ],
+      "runtime": "art/runtime/web-v3/cards/landscape-mountain-v5.png",
+      "proof": "art/source/web-v3/cards-v5/landscape-mountain-proof.png",
+      "changedPixels": 23181,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0,
+      "runtimeSha256": "db9360d6f616b55f2514b97a746a0bf64e83c6cd535ca827a81d3611e7bc0ef8",
+      "nativeRuntime": "art/runtime/web-v3/cards/landscape-mountain-v5-native.png",
+      "nativeRuntimeSize": [
+        140,
+        210
+      ],
+      "nativeRuntimeSha256": "f78ca09945bc14010284ae00c9c851ed65741fdb5406463f3c5778c89e8b27d6"
+    },
+    {
+      "profile": "landscape",
+      "suit": "knot",
+      "source": "art/source/web-v3/cards-v5/landscape-knot-face.png",
+      "sourceSha256": "4797a09820816d7434d72058a9046c80748f75e73d540735d19ba1684e5ab45b",
+      "reference": "art/source/web-v3/cards-v5/landscape-knot-reference.png",
+      "referenceSha256": "1585522a4efa542f07359519e492b0467f3952e88effa2b3365e04fcabd69ef6",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          905.2282000023491,
+          769.6872683001642
+        ],
+        "angle": 1.799999999999981
+      },
+      "rank": 2,
+      "rankInkBounds": [
+        108,
+        122,
+        192,
+        260
+      ],
+      "rankRoi": [
+        96,
+        110,
+        108,
+        162
+      ],
+      "rankLogicalBounds": [
+        27,
+        30.5,
+        48,
+        65
+      ],
+      "candidate": "art/source/web-v3/cards-v5/landscape-knot-rank-clean-candidate.png",
+      "cleanupRoi": [
+        88,
+        102,
+        124,
+        178
+      ],
+      "candidateSize": [
+        1024,
+        1536
+      ],
+      "candidateSha256": "ee3aadf4dbfa383933c69b38995313e7f4b67250512570dcb12759ae42a33a7b",
+      "paperSample": {
+        "left": 248,
+        "top": 56,
+        "width": 112,
+        "height": 156
+      },
+      "borderToneOffsets": [
+        1.0814558058925476,
+        -0.44540727902946275,
+        -1.1871750433275563
+      ],
+      "runtime": "art/runtime/web-v3/cards/landscape-knot-v5.png",
+      "proof": "art/source/web-v3/cards-v5/landscape-knot-proof.png",
+      "changedPixels": 20878,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0,
+      "runtimeSha256": "4797a09820816d7434d72058a9046c80748f75e73d540735d19ba1684e5ab45b",
+      "nativeRuntime": "art/runtime/web-v3/cards/landscape-knot-v5-native.png",
+      "nativeRuntimeSize": [
+        140,
+        210
+      ],
+      "nativeRuntimeSha256": "60070f91b3b5274775db793a2a68129bb890c52f5b561ccdf9cf79c8d8e23f66"
+    },
+    {
+      "profile": "landscape",
+      "suit": "sun",
+      "source": "art/source/web-v3/cards-v5/landscape-sun-face.png",
+      "sourceSha256": "3b28fc500264eb80cf35f0a91b70f8a0afdb9bc4e9e3a685abb03a329d4cbdce",
+      "reference": "art/source/web-v3/cards-v5/landscape-sun-reference.png",
+      "referenceSha256": "d6c2947e94f790074ec874e26c6efad22526e5302591d4c18da700c5e45c3e46",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          1051.7059476755046,
+          778.7501564674542
+        ],
+        "angle": 4.699999999999972
+      },
+      "rank": 6,
+      "rankInkBounds": [
+        109,
+        123,
+        198,
+        269
+      ],
+      "rankRoi": [
+        97,
+        111,
+        113,
+        170
+      ],
+      "rankLogicalBounds": [
+        27.25,
+        30.75,
+        49.5,
+        67.25
+      ],
+      "candidate": "art/source/web-v3/cards-v5/landscape-sun-rank-clean-candidate.png",
+      "cleanupRoi": [
+        89,
+        103,
+        129,
+        186
+      ],
+      "candidateSize": [
+        1023,
+        1537
+      ],
+      "candidateSha256": "ef3a745882b834554209a6739eef3e7e89bfac0d9985e79c3df2577e8505795a",
+      "paperSample": {
+        "left": 248,
+        "top": 56,
+        "width": 112,
+        "height": 156
+      },
+      "borderToneOffsets": [
+        2.940983606557377,
+        3.6098360655737705,
+        1.8352459016393443
+      ],
+      "runtime": "art/runtime/web-v3/cards/landscape-sun-v5.png",
+      "proof": "art/source/web-v3/cards-v5/landscape-sun-proof.png",
+      "changedPixels": 22689,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0,
+      "runtimeSha256": "3b28fc500264eb80cf35f0a91b70f8a0afdb9bc4e9e3a685abb03a329d4cbdce",
+      "nativeRuntime": "art/runtime/web-v3/cards/landscape-sun-v5-native.png",
+      "nativeRuntimeSize": [
+        140,
+        210
+      ],
+      "nativeRuntimeSha256": "65d5fcbe01c086a3daea4dea5b5a9bd62158f7e2318d7c576e5857b8c375ebfe"
+    },
+    {
+      "profile": "portrait",
+      "suit": "leaf",
+      "source": "art/source/web-v3/cards-v5/portrait-leaf-face.png",
+      "sourceSha256": "258a0254a22639320e3d544bcc25d07552cc0708c9693bf86628015c8545a5b8",
+      "reference": "art/source/web-v3/cards-v5/portrait-leaf-reference.png",
+      "referenceSha256": "3247bead5a3a0ff2d221520a1ee8cf8f95ff051986612f4e7de6d6fcf94c20b7",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          208.83399290570551,
+          1368.3128746266261
+        ],
+        "angle": -2.5000000000000195
+      },
+      "rank": 5,
+      "rankInkBounds": [
+        115,
+        122,
+        204,
+        273
+      ],
+      "rankRoi": [
+        103,
+        110,
+        113,
+        175
+      ],
+      "rankLogicalBounds": [
+        28.75,
+        30.5,
+        51,
+        68.25
+      ],
+      "candidate": "art/source/web-v3/cards-v5/portrait-leaf-rank-clean-candidate.png",
+      "cleanupRoi": [
+        95,
+        102,
+        129,
+        191
+      ],
+      "candidateSize": [
+        1024,
+        1536
+      ],
+      "candidateSha256": "f59cb659b3d1673b120500d0fab1d8a61b801fb1f665aadbea6043eb0d5abbe6",
+      "paperSample": {
+        "left": 248,
+        "top": 56,
+        "width": 112,
+        "height": 156
+      },
+      "borderToneOffsets": [
+        2.1086601307189543,
+        2.5531045751633985,
+        0.5204248366013072
+      ],
+      "runtime": "art/runtime/web-v3/cards/portrait-leaf-v5.png",
+      "proof": "art/source/web-v3/cards-v5/portrait-leaf-proof.png",
+      "changedPixels": 23285,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0,
+      "runtimeSha256": "258a0254a22639320e3d544bcc25d07552cc0708c9693bf86628015c8545a5b8",
+      "nativeRuntime": "art/runtime/web-v3/cards/portrait-leaf-v5-native.png",
+      "nativeRuntimeSize": [
+        140,
+        210
+      ],
+      "nativeRuntimeSha256": "694bb9f14b4e9ede01ed8dad6577503d7f93099666e20f2fd4e64f04314e96c2"
+    },
+    {
+      "profile": "portrait",
+      "suit": "mountain",
+      "source": "art/source/web-v3/cards-v5/portrait-mountain-face.png",
+      "sourceSha256": "7bfd947603bfa089230a9b28554ca838c7bbc7ac468ec9428994631e7d1ba3ff",
+      "reference": "art/source/web-v3/cards-v5/portrait-mountain-reference.png",
+      "referenceSha256": "8dd6eea796ee86ba450647a21c8c6de8e349704b726609ad75124796a5181acc",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          353.5235342624809,
+          1365.1284391144372
+        ],
+        "angle": -1.8500000000000212
+      },
+      "rank": 8,
+      "rankInkBounds": [
+        103,
+        124,
+        194,
+        273
+      ],
+      "rankRoi": [
+        91,
+        112,
+        115,
+        173
+      ],
+      "rankLogicalBounds": [
+        25.75,
+        31,
+        48.5,
+        68.25
+      ],
+      "candidate": "art/source/web-v3/cards-v5/portrait-mountain-rank-clean-candidate.png",
+      "cleanupRoi": [
+        83,
+        104,
+        131,
+        189
+      ],
+      "candidateSize": [
+        1024,
+        1536
+      ],
+      "candidateSha256": "30ae45a88f934945a092d3944ca33df805f0a50b485519dab1dd7b5344dab3a5",
+      "paperSample": {
+        "left": 248,
+        "top": 56,
+        "width": 112,
+        "height": 156
+      },
+      "borderToneOffsets": [
+        1.1607744107744107,
+        0.7735690235690236,
+        0.2735690235690236
+      ],
+      "runtime": "art/runtime/web-v3/cards/portrait-mountain-v5.png",
+      "proof": "art/source/web-v3/cards-v5/portrait-mountain-proof.png",
+      "changedPixels": 23500,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0,
+      "runtimeSha256": "7bfd947603bfa089230a9b28554ca838c7bbc7ac468ec9428994631e7d1ba3ff",
+      "nativeRuntime": "art/runtime/web-v3/cards/portrait-mountain-v5-native.png",
+      "nativeRuntimeSize": [
+        140,
+        210
+      ],
+      "nativeRuntimeSha256": "67524f396757881103382cb60fc5aa45e0929e13c546f02ff50c66b115f040a4"
+    },
+    {
+      "profile": "portrait",
+      "suit": "knot",
+      "source": "art/source/web-v3/cards-v5/portrait-knot-face.png",
+      "sourceSha256": "7d39bc377e40aab1a83927c75541f4d2558132c60c043ea59a3d7f1325a678c6",
+      "reference": "art/source/web-v3/cards-v5/portrait-knot-reference.png",
+      "referenceSha256": "fd9805d58e63b1b21e6512c7a6f3382f4b0bcf229ed33136edcb38c7a0680ff1",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          489.5512367388705,
+          1365.1240119195686
+        ],
+        "angle": 1.9999999999999811
+      },
+      "rank": 2,
+      "rankInkBounds": [
+        114,
+        126,
+        200,
+        267
+      ],
+      "rankRoi": [
+        102,
+        114,
+        110,
+        165
+      ],
+      "rankLogicalBounds": [
+        28.5,
+        31.5,
+        50,
+        66.75
+      ],
+      "candidate": "art/source/web-v3/cards-v5/portrait-knot-rank-clean-candidate.png",
+      "cleanupRoi": [
+        94,
+        106,
+        126,
+        181
+      ],
+      "candidateSize": [
+        1024,
+        1536
+      ],
+      "candidateSha256": "4e7bed5e5bb0845193f8c4b9c25667bee170b630a21d416c660fd56cf5d3d942",
+      "paperSample": {
+        "left": 248,
+        "top": 56,
+        "width": 112,
+        "height": 156
+      },
+      "borderToneOffsets": [
+        0.2908777969018933,
+        1.3889845094664373,
+        -0.6592082616179001
+      ],
+      "runtime": "art/runtime/web-v3/cards/portrait-knot-v5.png",
+      "proof": "art/source/web-v3/cards-v5/portrait-knot-proof.png",
+      "changedPixels": 21440,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0,
+      "runtimeSha256": "7d39bc377e40aab1a83927c75541f4d2558132c60c043ea59a3d7f1325a678c6",
+      "nativeRuntime": "art/runtime/web-v3/cards/portrait-knot-v5-native.png",
+      "nativeRuntimeSize": [
+        140,
+        210
+      ],
+      "nativeRuntimeSha256": "0373d1b57ba6e6ede09af31603eeb73e2e8243e53427f02a8bf6bda1e5aa48fe"
+    },
+    {
+      "profile": "portrait",
+      "suit": "sun",
+      "source": "art/source/web-v3/cards-v5/portrait-sun-face.png",
+      "sourceSha256": "cb71ecb01a7f1012339bbce299bf9821aae89246326b5515fa8413867aa39e90",
+      "reference": "art/source/web-v3/cards-v5/portrait-sun-reference.png",
+      "referenceSha256": "ff41705d5cd9ba09a8537a78d64340b9f512a2ec795b232f7eaf7cc916a920a2",
+      "pixelSize": [
+        560,
+        840
+      ],
+      "logicalBox": [
+        140,
+        210
+      ],
+      "pose": {
+        "center": [
+          630.0256230439677,
+          1374.5556400312532
+        ],
+        "angle": 4.799999999999971
+      },
+      "rank": 6,
+      "rankInkBounds": [
+        110,
+        123,
+        202,
+        273
+      ],
+      "rankRoi": [
+        98,
+        111,
+        116,
+        174
+      ],
+      "rankLogicalBounds": [
+        27.5,
+        30.75,
+        50.5,
+        68.25
+      ],
+      "candidate": "art/source/web-v3/cards-v5/portrait-sun-rank-clean-candidate.png",
+      "cleanupRoi": [
+        90,
+        103,
+        132,
+        190
+      ],
+      "candidateSize": [
+        1024,
+        1536
+      ],
+      "candidateSha256": "6fcbd5876eeed0e56981455899325b8ebb753e77369ca56d3ed4b9b01b9bfe93",
+      "paperSample": {
+        "left": 248,
+        "top": 56,
+        "width": 112,
+        "height": 156
+      },
+      "borderToneOffsets": [
+        1.1961102106969206,
+        2.6110210696920584,
+        -0.04781199351701783
+      ],
+      "runtime": "art/runtime/web-v3/cards/portrait-sun-v5.png",
+      "proof": "art/source/web-v3/cards-v5/portrait-sun-proof.png",
+      "changedPixels": 23499,
+      "changedOutsideRoi": 0,
+      "alphaChanges": 0,
+      "protectedChanges": 0,
+      "runtimeSha256": "cb71ecb01a7f1012339bbce299bf9821aae89246326b5515fa8413867aa39e90",
+      "nativeRuntime": "art/runtime/web-v3/cards/portrait-sun-v5-native.png",
+      "nativeRuntimeSize": [
+        140,
+        210
+      ],
+      "nativeRuntimeSha256": "66abf6f1824c38c82c209a0a7ca8d926148f3e772dc4bb54f303c908691a6f21"
+    }
+  ]
+}

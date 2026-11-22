@@ -1,0 +1,1372 @@
+{
+  "method": "Dark ink connected components in authored3/4/5-player negative total cells, source normalized to capture dimensions. Quiet horizontal left component only. Diagnostic, not acceptance.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "ranking3",
+      "row": 1,
+      "source": "art/mockups/web-v3/38-ranking-3-players-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/ranking3-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1115,
+        "top": 405,
+        "width": 11,
+        "height": 3,
+        "pixels": 32
+      },
+      "actualBox": {
+        "left": 1115,
+        "top": 404,
+        "width": 12,
+        "height": 3,
+        "pixels": 36
+      },
+      "sourceComponents": [
+        {
+          "left": 1154,
+          "top": 385,
+          "width": 22,
+          "height": 33,
+          "pixels": 342
+        },
+        {
+          "left": 1132,
+          "top": 386,
+          "width": 16,
+          "height": 32,
+          "pixels": 195
+        },
+        {
+          "left": 1115,
+          "top": 405,
+          "width": 11,
+          "height": 3,
+          "pixels": 32
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1133,
+          "top": 383,
+          "width": 17,
+          "height": 32,
+          "pixels": 253
+        },
+        {
+          "left": 1155,
+          "top": 383,
+          "width": 20,
+          "height": 32,
+          "pixels": 395
+        },
+        {
+          "left": 1115,
+          "top": 404,
+          "width": 12,
+          "height": 3,
+          "pixels": 36
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking3",
+      "row": 2,
+      "source": "art/mockups/web-v3/38-ranking-3-players-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/ranking3-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1115,
+        "top": 480,
+        "width": 12,
+        "height": 3,
+        "pixels": 34
+      },
+      "actualBox": {
+        "left": 1115,
+        "top": 480,
+        "width": 12,
+        "height": 3,
+        "pixels": 36
+      },
+      "sourceComponents": [
+        {
+          "left": 1130,
+          "top": 461,
+          "width": 21,
+          "height": 32,
+          "pixels": 259
+        },
+        {
+          "left": 1155,
+          "top": 461,
+          "width": 21,
+          "height": 33,
+          "pixels": 342
+        },
+        {
+          "left": 1115,
+          "top": 480,
+          "width": 12,
+          "height": 3,
+          "pixels": 34
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1131,
+          "top": 459,
+          "width": 20,
+          "height": 32,
+          "pixels": 300
+        },
+        {
+          "left": 1155,
+          "top": 459,
+          "width": 20,
+          "height": 32,
+          "pixels": 395
+        },
+        {
+          "left": 1115,
+          "top": 480,
+          "width": 12,
+          "height": 3,
+          "pixels": 36
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking4",
+      "row": 3,
+      "source": "art/mockups/web-v3/39-ranking-4-players-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/ranking4-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1112,
+        "top": 552,
+        "width": 16,
+        "height": 3,
+        "pixels": 48
+      },
+      "actualBox": {
+        "left": 1112,
+        "top": 552,
+        "width": 16,
+        "height": 3,
+        "pixels": 48
+      },
+      "sourceComponents": [
+        {
+          "left": 1132,
+          "top": 536,
+          "width": 21,
+          "height": 32,
+          "pixels": 265
+        },
+        {
+          "left": 1156,
+          "top": 536,
+          "width": 22,
+          "height": 33,
+          "pixels": 331
+        },
+        {
+          "left": 1112,
+          "top": 552,
+          "width": 16,
+          "height": 3,
+          "pixels": 48
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1131,
+          "top": 535,
+          "width": 20,
+          "height": 32,
+          "pixels": 292
+        },
+        {
+          "left": 1155,
+          "top": 535,
+          "width": 20,
+          "height": 32,
+          "pixels": 395
+        },
+        {
+          "left": 1112,
+          "top": 552,
+          "width": 16,
+          "height": 3,
+          "pixels": 48
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking5",
+      "row": 4,
+      "source": "art/mockups/web-v3/40-ranking-5-players-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/ranking5-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1112,
+        "top": 631,
+        "width": 11,
+        "height": 3,
+        "pixels": 33
+      },
+      "actualBox": {
+        "left": 1112,
+        "top": 631,
+        "width": 11,
+        "height": 3,
+        "pixels": 33
+      },
+      "sourceComponents": [
+        {
+          "left": 1126,
+          "top": 612,
+          "width": 21,
+          "height": 33,
+          "pixels": 275
+        },
+        {
+          "left": 1151,
+          "top": 612,
+          "width": 21,
+          "height": 33,
+          "pixels": 352
+        },
+        {
+          "left": 1112,
+          "top": 631,
+          "width": 11,
+          "height": 3,
+          "pixels": 33
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1131,
+          "top": 611,
+          "width": 20,
+          "height": 32,
+          "pixels": 301
+        },
+        {
+          "left": 1155,
+          "top": 611,
+          "width": 20,
+          "height": 32,
+          "pixels": 396
+        },
+        {
+          "left": 1112,
+          "top": 631,
+          "width": 11,
+          "height": 3,
+          "pixels": 33
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "negative-six",
+      "row": 0,
+      "source": "art/mockups/web-v3/41-ranking-six-negative-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/negative-six-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1108,
+        "top": 325,
+        "width": 20,
+        "height": 3,
+        "pixels": 60
+      },
+      "actualBox": {
+        "left": 1108,
+        "top": 325,
+        "width": 21,
+        "height": 3,
+        "pixels": 63
+      },
+      "sourceComponents": [
+        {
+          "left": 1134,
+          "top": 309,
+          "width": 16,
+          "height": 34,
+          "pixels": 251
+        },
+        {
+          "left": 1156,
+          "top": 309,
+          "width": 22,
+          "height": 34,
+          "pixels": 391
+        },
+        {
+          "left": 1108,
+          "top": 325,
+          "width": 20,
+          "height": 3,
+          "pixels": 60
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1133,
+          "top": 307,
+          "width": 18,
+          "height": 32,
+          "pixels": 256
+        },
+        {
+          "left": 1155,
+          "top": 307,
+          "width": 20,
+          "height": 32,
+          "pixels": 401
+        },
+        {
+          "left": 1108,
+          "top": 325,
+          "width": 21,
+          "height": 3,
+          "pixels": 63
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "negative-six",
+      "row": 1,
+      "source": "art/mockups/web-v3/41-ranking-six-negative-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/negative-six-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1108,
+        "top": 401,
+        "width": 20,
+        "height": 3,
+        "pixels": 59
+      },
+      "actualBox": {
+        "left": 1108,
+        "top": 401,
+        "width": 20,
+        "height": 3,
+        "pixels": 60
+      },
+      "sourceComponents": [
+        {
+          "left": 1156,
+          "top": 385,
+          "width": 21,
+          "height": 33,
+          "pixels": 349
+        },
+        {
+          "left": 1134,
+          "top": 386,
+          "width": 16,
+          "height": 32,
+          "pixels": 197
+        },
+        {
+          "left": 1108,
+          "top": 401,
+          "width": 20,
+          "height": 3,
+          "pixels": 59
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1133,
+          "top": 383,
+          "width": 17,
+          "height": 32,
+          "pixels": 253
+        },
+        {
+          "left": 1155,
+          "top": 383,
+          "width": 20,
+          "height": 32,
+          "pixels": 395
+        },
+        {
+          "left": 1108,
+          "top": 401,
+          "width": 20,
+          "height": 3,
+          "pixels": 60
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "negative-six",
+      "row": 2,
+      "source": "art/mockups/web-v3/41-ranking-six-negative-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/negative-six-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1108,
+        "top": 477,
+        "width": 20,
+        "height": 3,
+        "pixels": 59
+      },
+      "actualBox": {
+        "left": 1108,
+        "top": 477,
+        "width": 20,
+        "height": 3,
+        "pixels": 60
+      },
+      "sourceComponents": [
+        {
+          "left": 1132,
+          "top": 461,
+          "width": 21,
+          "height": 33,
+          "pixels": 276
+        },
+        {
+          "left": 1156,
+          "top": 461,
+          "width": 21,
+          "height": 33,
+          "pixels": 347
+        },
+        {
+          "left": 1108,
+          "top": 477,
+          "width": 20,
+          "height": 3,
+          "pixels": 59
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1131,
+          "top": 459,
+          "width": 20,
+          "height": 32,
+          "pixels": 300
+        },
+        {
+          "left": 1155,
+          "top": 459,
+          "width": 20,
+          "height": 32,
+          "pixels": 395
+        },
+        {
+          "left": 1108,
+          "top": 477,
+          "width": 20,
+          "height": 3,
+          "pixels": 60
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "negative-six",
+      "row": 3,
+      "source": "art/mockups/web-v3/41-ranking-six-negative-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/negative-six-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1108,
+        "top": 552,
+        "width": 20,
+        "height": 3,
+        "pixels": 59
+      },
+      "actualBox": {
+        "left": 1108,
+        "top": 553,
+        "width": 21,
+        "height": 3,
+        "pixels": 63
+      },
+      "sourceComponents": [
+        {
+          "left": 1132,
+          "top": 536,
+          "width": 20,
+          "height": 33,
+          "pixels": 267
+        },
+        {
+          "left": 1156,
+          "top": 536,
+          "width": 21,
+          "height": 33,
+          "pixels": 344
+        },
+        {
+          "left": 1108,
+          "top": 552,
+          "width": 20,
+          "height": 3,
+          "pixels": 59
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1131,
+          "top": 535,
+          "width": 20,
+          "height": 32,
+          "pixels": 300
+        },
+        {
+          "left": 1155,
+          "top": 535,
+          "width": 20,
+          "height": 32,
+          "pixels": 395
+        },
+        {
+          "left": 1108,
+          "top": 553,
+          "width": 21,
+          "height": 3,
+          "pixels": 63
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "negative-six",
+      "row": 4,
+      "source": "art/mockups/web-v3/41-ranking-six-negative-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/negative-six-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1108,
+        "top": 628,
+        "width": 20,
+        "height": 3,
+        "pixels": 59
+      },
+      "actualBox": {
+        "left": 1108,
+        "top": 629,
+        "width": 21,
+        "height": 3,
+        "pixels": 63
+      },
+      "sourceComponents": [
+        {
+          "left": 1131,
+          "top": 612,
+          "width": 22,
+          "height": 33,
+          "pixels": 327
+        },
+        {
+          "left": 1156,
+          "top": 612,
+          "width": 21,
+          "height": 33,
+          "pixels": 344
+        },
+        {
+          "left": 1108,
+          "top": 628,
+          "width": 20,
+          "height": 3,
+          "pixels": 59
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1131,
+          "top": 611,
+          "width": 21,
+          "height": 32,
+          "pixels": 370
+        },
+        {
+          "left": 1155,
+          "top": 611,
+          "width": 20,
+          "height": 32,
+          "pixels": 396
+        },
+        {
+          "left": 1108,
+          "top": 629,
+          "width": 21,
+          "height": 3,
+          "pixels": 63
+        }
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "negative-six",
+      "row": 5,
+      "source": "art/mockups/web-v3/41-ranking-six-negative-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/negative-six-landscape-chrome.png",
+      "scale": 1,
+      "sourceBox": {
+        "left": 1108,
+        "top": 705,
+        "width": 20,
+        "height": 3,
+        "pixels": 59
+      },
+      "actualBox": {
+        "left": 1108,
+        "top": 705,
+        "width": 21,
+        "height": 3,
+        "pixels": 63
+      },
+      "sourceComponents": [
+        {
+          "left": 1131,
+          "top": 689,
+          "width": 22,
+          "height": 33,
+          "pixels": 358
+        },
+        {
+          "left": 1156,
+          "top": 689,
+          "width": 21,
+          "height": 33,
+          "pixels": 356
+        },
+        {
+          "left": 1108,
+          "top": 705,
+          "width": 20,
+          "height": 3,
+          "pixels": 59
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 1131,
+          "top": 687,
+          "width": 20,
+          "height": 32,
+          "pixels": 397
+        },
+        {
+          "left": 1155,
+          "top": 687,
+          "width": 20,
+          "height": 32,
+          "pixels": 396
+        },
+        {
+          "left": 1108,
+          "top": 705,
+          "width": 21,
+          "height": 3,
+          "pixels": 63
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking3",
+      "row": 1,
+      "source": "art/mockups/web-v3/portrait/38-ranking-3-players-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/ranking3-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 273,
+        "top": 296,
+        "width": 6,
+        "height": 1,
+        "pixels": 6
+      },
+      "actualBox": {
+        "left": 273,
+        "top": 296,
+        "width": 7,
+        "height": 2,
+        "pixels": 14
+      },
+      "sourceComponents": [
+        {
+          "left": 291,
+          "top": 288,
+          "width": 11,
+          "height": 16,
+          "pixels": 78
+        },
+        {
+          "left": 282,
+          "top": 289,
+          "width": 7,
+          "height": 15,
+          "pixels": 40
+        },
+        {
+          "left": 273,
+          "top": 296,
+          "width": 6,
+          "height": 1,
+          "pixels": 6
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 293,
+          "top": 287,
+          "width": 9,
+          "height": 15,
+          "pixels": 81
+        },
+        {
+          "left": 282,
+          "top": 288,
+          "width": 8,
+          "height": 14,
+          "pixels": 49
+        },
+        {
+          "left": 273,
+          "top": 296,
+          "width": 7,
+          "height": 2,
+          "pixels": 14
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking3",
+      "row": 2,
+      "source": "art/mockups/web-v3/portrait/38-ranking-3-players-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/ranking3-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 273,
+        "top": 340,
+        "width": 6,
+        "height": 1,
+        "pixels": 6
+      },
+      "actualBox": {
+        "left": 273,
+        "top": 341,
+        "width": 7,
+        "height": 2,
+        "pixels": 14
+      },
+      "sourceComponents": [
+        {
+          "left": 292,
+          "top": 332,
+          "width": 10,
+          "height": 16,
+          "pixels": 83
+        },
+        {
+          "left": 281,
+          "top": 333,
+          "width": 9,
+          "height": 15,
+          "pixels": 54
+        },
+        {
+          "left": 273,
+          "top": 340,
+          "width": 6,
+          "height": 1,
+          "pixels": 6
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 281,
+          "top": 332,
+          "width": 10,
+          "height": 15,
+          "pixels": 62
+        },
+        {
+          "left": 293,
+          "top": 332,
+          "width": 9,
+          "height": 15,
+          "pixels": 81
+        },
+        {
+          "left": 273,
+          "top": 341,
+          "width": 7,
+          "height": 2,
+          "pixels": 14
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking4",
+      "row": 3,
+      "source": "art/mockups/web-v3/portrait/39-ranking-4-players-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/ranking4-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 272,
+        "top": 385,
+        "width": 7,
+        "height": 2,
+        "pixels": 14
+      },
+      "actualBox": {
+        "left": 272,
+        "top": 385,
+        "width": 8,
+        "height": 2,
+        "pixels": 16
+      },
+      "sourceComponents": [
+        {
+          "left": 281,
+          "top": 377,
+          "width": 10,
+          "height": 15,
+          "pixels": 54
+        },
+        {
+          "left": 292,
+          "top": 377,
+          "width": 11,
+          "height": 16,
+          "pixels": 80
+        },
+        {
+          "left": 282,
+          "top": 378,
+          "width": 2,
+          "height": 3,
+          "pixels": 4
+        },
+        {
+          "left": 272,
+          "top": 385,
+          "width": 7,
+          "height": 2,
+          "pixels": 14
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 282,
+          "top": 376,
+          "width": 8,
+          "height": 15,
+          "pixels": 55
+        },
+        {
+          "left": 293,
+          "top": 376,
+          "width": 9,
+          "height": 15,
+          "pixels": 81
+        },
+        {
+          "left": 272,
+          "top": 385,
+          "width": 8,
+          "height": 2,
+          "pixels": 16
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking5",
+      "row": 4,
+      "source": "art/mockups/web-v3/portrait/40-ranking-5-players-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/ranking5-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 273,
+        "top": 430,
+        "width": 5,
+        "height": 2,
+        "pixels": 9
+      },
+      "actualBox": {
+        "left": 273,
+        "top": 430,
+        "width": 5,
+        "height": 2,
+        "pixels": 10
+      },
+      "sourceComponents": [
+        {
+          "left": 281,
+          "top": 422,
+          "width": 9,
+          "height": 15,
+          "pixels": 58
+        },
+        {
+          "left": 293,
+          "top": 422,
+          "width": 10,
+          "height": 16,
+          "pixels": 74
+        },
+        {
+          "left": 273,
+          "top": 430,
+          "width": 5,
+          "height": 2,
+          "pixels": 9
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 281,
+          "top": 421,
+          "width": 10,
+          "height": 15,
+          "pixels": 62
+        },
+        {
+          "left": 293,
+          "top": 421,
+          "width": 9,
+          "height": 15,
+          "pixels": 81
+        },
+        {
+          "left": 273,
+          "top": 430,
+          "width": 5,
+          "height": 2,
+          "pixels": 10
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "negative-six",
+      "row": 0,
+      "source": "art/mockups/web-v3/portrait/41-ranking-six-negative-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/negative-six-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 271,
+        "top": 251,
+        "width": 9,
+        "height": 2,
+        "pixels": 17
+      },
+      "actualBox": {
+        "left": 271,
+        "top": 251,
+        "width": 10,
+        "height": 2,
+        "pixels": 19
+      },
+      "sourceComponents": [
+        {
+          "left": 293,
+          "top": 244,
+          "width": 10,
+          "height": 16,
+          "pixels": 81
+        },
+        {
+          "left": 283,
+          "top": 245,
+          "width": 8,
+          "height": 15,
+          "pixels": 53
+        },
+        {
+          "left": 271,
+          "top": 251,
+          "width": 9,
+          "height": 2,
+          "pixels": 17
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 282,
+          "top": 243,
+          "width": 8,
+          "height": 15,
+          "pixels": 52
+        },
+        {
+          "left": 293,
+          "top": 243,
+          "width": 9,
+          "height": 15,
+          "pixels": 83
+        },
+        {
+          "left": 271,
+          "top": 251,
+          "width": 10,
+          "height": 2,
+          "pixels": 19
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "negative-six",
+      "row": 1,
+      "source": "art/mockups/web-v3/portrait/41-ranking-six-negative-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/negative-six-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 271,
+        "top": 295,
+        "width": 9,
+        "height": 2,
+        "pixels": 17
+      },
+      "actualBox": {
+        "left": 271,
+        "top": 295,
+        "width": 9,
+        "height": 2,
+        "pixels": 18
+      },
+      "sourceComponents": [
+        {
+          "left": 293,
+          "top": 288,
+          "width": 10,
+          "height": 16,
+          "pixels": 81
+        },
+        {
+          "left": 283,
+          "top": 289,
+          "width": 8,
+          "height": 15,
+          "pixels": 50
+        },
+        {
+          "left": 271,
+          "top": 295,
+          "width": 9,
+          "height": 2,
+          "pixels": 17
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 293,
+          "top": 287,
+          "width": 9,
+          "height": 15,
+          "pixels": 81
+        },
+        {
+          "left": 282,
+          "top": 288,
+          "width": 8,
+          "height": 14,
+          "pixels": 49
+        },
+        {
+          "left": 271,
+          "top": 295,
+          "width": 9,
+          "height": 2,
+          "pixels": 18
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "negative-six",
+      "row": 2,
+      "source": "art/mockups/web-v3/portrait/41-ranking-six-negative-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/negative-six-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 271,
+        "top": 339,
+        "width": 9,
+        "height": 2,
+        "pixels": 17
+      },
+      "actualBox": {
+        "left": 271,
+        "top": 340,
+        "width": 9,
+        "height": 2,
+        "pixels": 18
+      },
+      "sourceComponents": [
+        {
+          "left": 293,
+          "top": 332,
+          "width": 10,
+          "height": 16,
+          "pixels": 80
+        },
+        {
+          "left": 282,
+          "top": 333,
+          "width": 10,
+          "height": 15,
+          "pixels": 57
+        },
+        {
+          "left": 271,
+          "top": 339,
+          "width": 9,
+          "height": 2,
+          "pixels": 17
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 281,
+          "top": 332,
+          "width": 10,
+          "height": 15,
+          "pixels": 62
+        },
+        {
+          "left": 293,
+          "top": 332,
+          "width": 9,
+          "height": 15,
+          "pixels": 81
+        },
+        {
+          "left": 271,
+          "top": 340,
+          "width": 9,
+          "height": 2,
+          "pixels": 18
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "negative-six",
+      "row": 3,
+      "source": "art/mockups/web-v3/portrait/41-ranking-six-negative-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/negative-six-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 270,
+        "top": 384,
+        "width": 10,
+        "height": 1,
+        "pixels": 10
+      },
+      "actualBox": {
+        "left": 271,
+        "top": 384,
+        "width": 9,
+        "height": 2,
+        "pixels": 18
+      },
+      "sourceComponents": [
+        {
+          "left": 282,
+          "top": 377,
+          "width": 10,
+          "height": 16,
+          "pixels": 60
+        },
+        {
+          "left": 293,
+          "top": 377,
+          "width": 10,
+          "height": 16,
+          "pixels": 81
+        },
+        {
+          "left": 270,
+          "top": 384,
+          "width": 10,
+          "height": 1,
+          "pixels": 10
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 281,
+          "top": 376,
+          "width": 10,
+          "height": 15,
+          "pixels": 62
+        },
+        {
+          "left": 293,
+          "top": 376,
+          "width": 9,
+          "height": 15,
+          "pixels": 81
+        },
+        {
+          "left": 271,
+          "top": 384,
+          "width": 9,
+          "height": 2,
+          "pixels": 18
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "negative-six",
+      "row": 4,
+      "source": "art/mockups/web-v3/portrait/41-ranking-six-negative-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/negative-six-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 271,
+        "top": 428,
+        "width": 9,
+        "height": 2,
+        "pixels": 10
+      },
+      "actualBox": {
+        "left": 271,
+        "top": 429,
+        "width": 9,
+        "height": 2,
+        "pixels": 18
+      },
+      "sourceComponents": [
+        {
+          "left": 282,
+          "top": 421,
+          "width": 10,
+          "height": 16,
+          "pixels": 77
+        },
+        {
+          "left": 293,
+          "top": 421,
+          "width": 10,
+          "height": 16,
+          "pixels": 79
+        },
+        {
+          "left": 271,
+          "top": 428,
+          "width": 9,
+          "height": 2,
+          "pixels": 10
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 281,
+          "top": 421,
+          "width": 10,
+          "height": 15,
+          "pixels": 76
+        },
+        {
+          "left": 293,
+          "top": 421,
+          "width": 9,
+          "height": 15,
+          "pixels": 81
+        },
+        {
+          "left": 271,
+          "top": 429,
+          "width": 9,
+          "height": 2,
+          "pixels": 18
+        }
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "negative-six",
+      "row": 5,
+      "source": "art/mockups/web-v3/portrait/41-ranking-six-negative-v1.png",
+      "capture": "art/review/web-v3/negative-total-calibration-20261027/negative-six-portrait-chrome.png",
+      "scale": 0.41445270988310307,
+      "sourceBox": {
+        "left": 271,
+        "top": 474,
+        "width": 9,
+        "height": 2,
+        "pixels": 17
+      },
+      "actualBox": {
+        "left": 271,
+        "top": 473,
+        "width": 9,
+        "height": 2,
+        "pixels": 18
+      },
+      "sourceComponents": [
+        {
+          "left": 282,
+          "top": 467,
+          "width": 10,
+          "height": 16,
+          "pixels": 82
+        },
+        {
+          "left": 293,
+          "top": 467,
+          "width": 10,
+          "height": 16,
+          "pixels": 81
+        },
+        {
+          "left": 271,
+          "top": 474,
+          "width": 9,
+          "height": 2,
+          "pixels": 17
+        }
+      ],
+      "actualComponents": [
+        {
+          "left": 281,
+          "top": 465,
+          "width": 10,
+          "height": 15,
+          "pixels": 83
+        },
+        {
+          "left": 293,
+          "top": 465,
+          "width": 9,
+          "height": 15,
+          "pixels": 81
+        },
+        {
+          "left": 271,
+          "top": 473,
+          "width": 9,
+          "height": 2,
+          "pixels": 18
+        }
+      ]
+    }
+  ]
+}

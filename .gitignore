@@ -28,6 +28,29 @@ tmp/
 # Existing tracked evidence stays in Git; manifests retain paths and SHA-256s.
 /art/review/web-v3/*
 !/art/review/web-v3/evidence-archive-*.json
+!/art/review/web-v3/entry-calibration-20261024/
+!/art/review/web-v3/join-states-20261025/
+!/art/review/web-v3/selection-calibration-20261025/
+!/art/review/web-v3/semantic-state-calibration-20261025/
+!/art/review/web-v3/countdown-first-frame-20261025/
+!/art/review/web-v3/source-card-calibration-20261025/
+!/art/review/web-v3/recovery-source-calibration-20261025/
+/art/review/web-v3/recovery-source-calibration-20261025/history-*/
+!/art/review/web-v3/gameplay-seats-calibration-20261026/
+/art/review/web-v3/gameplay-seats-calibration-20261026/history-*/
+!/art/review/web-v3/hud-source-calibration-20261026/
+/art/review/web-v3/hud-source-calibration-20261026/history-*/
+!/art/review/web-v3/clock-round-calibration-20261026/
+!/art/review/web-v3/results-calibration-20261026/
+!/art/review/web-v3/network-results-20261026/
+!/art/review/web-v3/ranking-counts-calibration-20261026/
+!/art/review/web-v3/results-avatar-matte-20261027/
+!/art/review/web-v3/results-long-name-20261027/
+!/art/review/web-v3/results-wide-names-20261027/
+!/art/review/web-v3/results-name-access-20261027/
+!/art/review/web-v3/name-list-parchment-v3-20261027/
+!/art/review/web-v3/network-results-long-name-20261027/
+/art/review/web-v3/network-results-followup-20261026/
 
 # Local commit-message scratchpad, retained on disk.
 /COMMIT_MSG.txt

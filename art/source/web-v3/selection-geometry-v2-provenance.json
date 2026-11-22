@@ -1,0 +1,236 @@
+{
+  "method": "Built-in ImageGen exposed-table/action edits plus geometric normalization of original source card pixels; original ranks/art preserved, no implementation screenshot used.",
+  "contract": {
+    "cardBox": [
+      140,
+      210
+    ],
+    "lift": 12,
+    "neighborShift": 9,
+    "haloOffset": 8,
+    "haloCanvas": [
+      171,
+      231
+    ],
+    "haloLayer": "behind original paper",
+    "durationMs": 140,
+    "confirmPulseMs": 560,
+    "origin": "center"
+  },
+  "halo": {
+    "source": "art/runtime/web-v3/selected-halo.png",
+    "sha256": "6f28fca14785ef13d272c48f1e1b256c9e193262e86d6ef124e0783ca0869026"
+  },
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "idle",
+      "output": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "source": "art/mockups/web-v3/05-gameplay-final.png",
+      "sourceSha256": "6bfe13fcc5cf85779cab92742e5733621039d73fbcfcb5958b7c069c3c4c273f",
+      "clean": "art/source/web-v3/hand-clean-landscape-v2-candidate.png",
+      "cleanSha256": "436a8fa5ceb5850f1e4d5b4a195a1556bf941c88c07da6ce18168f4de64a029b",
+      "idleAction": "art/source/web-v3/select-idle-action-landscape-v1-candidate.png",
+      "idleActionSha256": "ebf2d10d1b0df2e635c7f176efcb92c50c0af725c73b8a7a11af05a8d6eefd4b",
+      "poses": [
+        {
+          "center": [
+            614.9261,
+            770.8313
+          ],
+          "angle": -2.35
+        },
+        {
+          "center": [
+            760.7328,
+            768.9906
+          ],
+          "angle": -2.3
+        },
+        {
+          "center": [
+            905.2282,
+            769.6873
+          ],
+          "angle": 1.8
+        },
+        {
+          "center": [
+            1051.7059,
+            778.7502
+          ],
+          "angle": 4.7
+        }
+      ],
+      "handRoi": [
+        510,
+        650,
+        665,
+        255
+      ],
+      "actionRoi": [
+        1300,
+        710,
+        310,
+        72
+      ],
+      "changedOutsideRoi": 0,
+      "sha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015"
+    },
+    {
+      "profile": "landscape",
+      "state": "complete",
+      "output": "art/mockups/web-v3/26-gameplay-selection-complete-v2.png",
+      "source": "art/mockups/web-v3/05-gameplay-final.png",
+      "sourceSha256": "6bfe13fcc5cf85779cab92742e5733621039d73fbcfcb5958b7c069c3c4c273f",
+      "clean": "art/source/web-v3/hand-clean-landscape-v2-candidate.png",
+      "cleanSha256": "436a8fa5ceb5850f1e4d5b4a195a1556bf941c88c07da6ce18168f4de64a029b",
+      "idleAction": "art/source/web-v3/select-idle-action-landscape-v1-candidate.png",
+      "idleActionSha256": "ebf2d10d1b0df2e635c7f176efcb92c50c0af725c73b8a7a11af05a8d6eefd4b",
+      "poses": [
+        {
+          "center": [
+            614.9261,
+            758.8313
+          ],
+          "angle": 0
+        },
+        {
+          "center": [
+            769.7328,
+            768.9906
+          ],
+          "angle": -2.3
+        },
+        {
+          "center": [
+            914.2282,
+            769.6873
+          ],
+          "angle": 1.8
+        },
+        {
+          "center": [
+            1060.7059,
+            778.7502
+          ],
+          "angle": 4.7
+        }
+      ],
+      "handRoi": [
+        510,
+        650,
+        665,
+        255
+      ],
+      "actionRoi": null,
+      "changedOutsideRoi": 0,
+      "sha256": "ab22d88de2d62032bd12719331aa8a9e0aa51a91d7288ae6b32cbdd3969e7561"
+    },
+    {
+      "profile": "portrait",
+      "state": "idle",
+      "output": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "source": "art/mockups/web-v3/portrait/05-gameplay-safe-v2.png",
+      "sourceSha256": "563eb03f9db59bdc970937bea00fffa1267b951da32b7e3368ab9938a1d34810",
+      "clean": "art/source/web-v3/hand-clean-portrait-v2-candidate.png",
+      "cleanSha256": "8ca4b0e71385c515f3bd91dad2e047dbdea9f3700462d810659cd675244a2578",
+      "idleAction": "art/source/web-v3/select-idle-action-portrait-v1-candidate.png",
+      "idleActionSha256": "5b770f087809d1f1c7cd05ab1e24e4d7de48aa4e985a287883f234befb4542e6",
+      "poses": [
+        {
+          "center": [
+            208.834,
+            1368.3129
+          ],
+          "angle": -2.5
+        },
+        {
+          "center": [
+            353.5235,
+            1365.1284
+          ],
+          "angle": -1.85
+        },
+        {
+          "center": [
+            489.5512,
+            1365.124
+          ],
+          "angle": 2
+        },
+        {
+          "center": [
+            630.0256,
+            1374.5556
+          ],
+          "angle": 4.8
+        }
+      ],
+      "handRoi": [
+        112,
+        1240,
+        635,
+        275
+      ],
+      "actionRoi": [
+        665,
+        1498,
+        276,
+        143
+      ],
+      "changedOutsideRoi": 0,
+      "sha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151"
+    },
+    {
+      "profile": "portrait",
+      "state": "complete",
+      "output": "art/mockups/web-v3/portrait/26-gameplay-selection-complete-v2.png",
+      "source": "art/mockups/web-v3/portrait/05-gameplay-safe-v2.png",
+      "sourceSha256": "563eb03f9db59bdc970937bea00fffa1267b951da32b7e3368ab9938a1d34810",
+      "clean": "art/source/web-v3/hand-clean-portrait-v2-candidate.png",
+      "cleanSha256": "8ca4b0e71385c515f3bd91dad2e047dbdea9f3700462d810659cd675244a2578",
+      "idleAction": "art/source/web-v3/select-idle-action-portrait-v1-candidate.png",
+      "idleActionSha256": "5b770f087809d1f1c7cd05ab1e24e4d7de48aa4e985a287883f234befb4542e6",
+      "poses": [
+        {
+          "center": [
+            208.834,
+            1356.3129
+          ],
+          "angle": 0
+        },
+        {
+          "center": [
+            362.5235,
+            1365.1284
+          ],
+          "angle": -1.85
+        },
+        {
+          "center": [
+            498.5512,
+            1365.124
+          ],
+          "angle": 2
+        },
+        {
+          "center": [
+            639.0256,
+            1374.5556
+          ],
+          "angle": 4.8
+        }
+      ],
+      "handRoi": [
+        112,
+        1240,
+        635,
+        275
+      ],
+      "actionRoi": null,
+      "changedOutsideRoi": 0,
+      "sha256": "f6cbed225abfdac2f52f7d8a88d339ccd139620ee0dfba25d642772d8e66213f"
+    }
+  ]
+}

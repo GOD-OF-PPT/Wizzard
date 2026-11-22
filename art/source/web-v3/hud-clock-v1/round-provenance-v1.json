@@ -1,0 +1,161 @@
+{
+  "method": "Original scroll frame, fixed Chinese and separator retained. Existing built-in ImageGen quiet paper supplies only two numeric ROIs, median-channel matched and2px feathered. Dynamic numbers use the licensed Tinos400 face with explicit Chrome bold synthesis. Normal and dense source scroll variants independent.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "variant": "normal",
+      "source": "art/mockups/web-v3/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "48325b92cdfcca68639ba99fe2bbb933b135f707eaa9a1bfbb54099e90c2c015",
+      "frame": [
+        8,
+        90,
+        217,
+        164
+      ],
+      "rois": [
+        [
+          91,
+          42,
+          32,
+          40
+        ],
+        [
+          109,
+          96,
+          21,
+          29
+        ]
+      ],
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-blank-candidate-v1.png",
+      "candidateSha256": "fea4ae0b1d6bf3d2b8bbfc4d09e80193d45aa886a2e8e9530848d06011f52461",
+      "reference": "art/source/web-v3/hud-clock-v1/landscape-round-normal-reference-v1.png",
+      "referenceSha256": "c6f1260baae6b5b49bacb729a56c5a9b8ed3cd5e774646295e5eaf0c6fef9675",
+      "output": "art/runtime/web-v3/hud-clock-v1/landscape-round-normal-v1.png",
+      "sha256": "7f078019f2a4d0f4d24d900dea78f675801d18a4bc913f860634ca46084085cc",
+      "color": [
+        36,
+        21,
+        6
+      ],
+      "changed": 1643,
+      "changedOutsideNumericROIs": 0
+    },
+    {
+      "profile": "landscape",
+      "variant": "dense",
+      "source": "art/mockups/web-v3/27-dense-hand-idle-v4.png",
+      "sourceSha256": "65507dae958775324f56b58553f877165c5cd4e93e81444b92dc538cb273d729",
+      "frame": [
+        8,
+        90,
+        217,
+        164
+      ],
+      "rois": [
+        [
+          91,
+          42,
+          32,
+          40
+        ],
+        [
+          109,
+          96,
+          21,
+          29
+        ]
+      ],
+      "candidate": "art/source/web-v3/hud-source-v1/landscape-trump-blank-candidate-v1.png",
+      "candidateSha256": "fea4ae0b1d6bf3d2b8bbfc4d09e80193d45aa886a2e8e9530848d06011f52461",
+      "reference": "art/source/web-v3/hud-clock-v1/landscape-round-dense-reference-v1.png",
+      "referenceSha256": "82503b298610cb8a01d1d8d2e1224625f84468983c6f877080617d698342ccdf",
+      "output": "art/runtime/web-v3/hud-clock-v1/landscape-round-dense-v1.png",
+      "sha256": "8134814866722471b70623154463cd45bdc9e28adbbcb3167212176ac89978a6",
+      "color": [
+        11,
+        7,
+        4
+      ],
+      "changed": 1645,
+      "changedOutsideNumericROIs": 0
+    },
+    {
+      "profile": "portrait",
+      "variant": "normal",
+      "source": "art/mockups/web-v3/portrait/25-gameplay-selection-idle-v2.png",
+      "sourceSha256": "677f4c19ba26d69fbdf3f6e0d9315e3896bb15fe9118ec4f46c339fa053dd151",
+      "frame": [
+        6,
+        108,
+        258,
+        181
+      ],
+      "rois": [
+        [
+          110,
+          44,
+          36,
+          47
+        ],
+        [
+          132,
+          109,
+          23,
+          31
+        ]
+      ],
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-blank-candidate-v1.png",
+      "candidateSha256": "eb2a261ba62f62a9c1a94b17f8482c2da562f2fd02b385cf11db18c8cfcf3f9b",
+      "reference": "art/source/web-v3/hud-clock-v1/portrait-round-normal-reference-v1.png",
+      "referenceSha256": "74e91b1b7804a7830752e5c7b0fc0d8bfaf4460b30234bca6f068cc17309f0f3",
+      "output": "art/runtime/web-v3/hud-clock-v1/portrait-round-normal-v1.png",
+      "sha256": "e828405f538f33645c083983d5d6fcfde87d25cfa58f453682e27d1e8685d906",
+      "color": [
+        6,
+        5,
+        2
+      ],
+      "changed": 2122,
+      "changedOutsideNumericROIs": 0
+    },
+    {
+      "profile": "portrait",
+      "variant": "dense",
+      "source": "art/mockups/web-v3/portrait/27-dense-hand-idle-v4.png",
+      "sourceSha256": "aa2ab841f7912a60cfc40c8f2bf328b659eb91a19353ce8e642e51bbde3703d1",
+      "frame": [
+        6,
+        108,
+        258,
+        181
+      ],
+      "rois": [
+        [
+          110,
+          44,
+          36,
+          47
+        ],
+        [
+          132,
+          109,
+          23,
+          31
+        ]
+      ],
+      "candidate": "art/source/web-v3/hud-source-v1/portrait-trump-blank-candidate-v1.png",
+      "candidateSha256": "eb2a261ba62f62a9c1a94b17f8482c2da562f2fd02b385cf11db18c8cfcf3f9b",
+      "reference": "art/source/web-v3/hud-clock-v1/portrait-round-dense-reference-v1.png",
+      "referenceSha256": "ec877316cbe956194dbfc398d2c7e4899ce1b36cae97d7c9699586c89a43a14a",
+      "output": "art/runtime/web-v3/hud-clock-v1/portrait-round-dense-v1.png",
+      "sha256": "179dd6bbe781e3d50cb7fb3da92d1f1e4bba4f909c7e3f5b4c4d4fb5018347c2",
+      "color": [
+        8,
+        7,
+        4
+      ],
+      "changed": 2122,
+      "changedOutsideNumericROIs": 0
+    }
+  ]
+}

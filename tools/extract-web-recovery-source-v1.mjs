@@ -1,0 +1,27 @@
+// Source component extraction only. Text and ornament RGB remain exact.
+// No generated redraw, runtime screenshot or hand/scene pixel supplies panel.
+import {createRequire} from 'node:module';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+const sharp=createRequire(import.meta.url)(process.argv[2]??'sharp'),folder='art/source/web-v3/recovery-source-v1',runtime='art/runtime/web-v3/recovery-source-v1';await mkdir(folder,{recursive:true});await mkdir(runtime,{recursive:true});
+const sha=async p=>createHash('sha256').update(await readFile(p)).digest('hex'),profiles={landscape:{canvas:[1672,941],roi:[445,230,783,457],body:[449,267,774,417],crown:[768,230,136,60],cloud:null,action:[665,567,343,87]},portrait:{canvas:[941,1672],roi:[173,508,609,642],body:[176,555,591,581],crown:[407,510,130,65],cloud:[665,1064,113,84],action:[242,983,457,104]}};
+const reports=[];
+for(const [profile,p]of Object.entries(profiles))for(const state of ['reconnecting','session-ended']){
+ const tall=profile==='portrait',name=tall?(state==='reconnecting'?'15-reconnecting.png':'16-session-ended-v2.png'):(state==='reconnecting'?'15-reconnecting-network-v2.png':'16-session-ended-network-v3.png'),source=`art/mockups/web-v3/${tall?'portrait/':''}${name}`,[ox,oy,w,h]=p.roi,{data}=await sharp(source).extract({left:ox,top:oy,width:w,height:h}).removeAlpha().raw().toBuffer({resolveWithObject:true}),eligible=new Uint8Array(w*h),seen=new Uint8Array(w*h),components=[];
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){const i=(y*w+x)*3,[r,g,b]=data.subarray(i,i+3),navy=b>r*.84&&b>g*.91&&b>14&&r<160,[bl,bt,bw,bh]=p.body;eligible[y*w+x]=x+ox>=bl&&x+ox<bl+bw&&y+oy>=bt&&y+oy<bt+bh&&navy?1:0;}
+ for(let n=0;n<eligible.length;n++){if(seen[n]||!eligible[n])continue;const q=[n];seen[n]=1;for(let i=0;i<q.length;i++){const a=q[i],x=a%w,y=Math.floor(a/w);for(const [xx,yy]of [[x-1,y],[x+1,y],[x,y-1],[x,y+1]])if(xx>=0&&xx<w&&yy>=0&&yy<h){const j=yy*w+xx;if(eligible[j]&&!seen[j]){seen[j]=1;q.push(j);}}}components.push(q);}
+ components.sort((a,b)=>b.length-a.length);const main=components[0];if(main.length<w*h*.55)throw Error('Missing source panel '+profile+state);const mask=new Uint8Array(w*h);for(const n of main)mask[n]=1;
+ // Fill interior lettering/button holes, retaining only the object's exterior.
+ const outside=new Uint8Array(w*h),q=[];for(let x=0;x<w;x++){for(const n of [x,(h-1)*w+x])if(!mask[n]&&!outside[n]){outside[n]=1;q.push(n);}}for(let y=0;y<h;y++)for(const n of [y*w,y*w+w-1])if(!mask[n]&&!outside[n]){outside[n]=1;q.push(n);}
+ for(let i=0;i<q.length;i++){const n=q[i],x=n%w,y=Math.floor(n/w);for(const [xx,yy]of [[x-1,y],[x+1,y],[x,y-1],[x,y+1]])if(xx>=0&&xx<w&&yy>=0&&yy<h){const j=yy*w+xx;if(!mask[j]&&!outside[j]){outside[j]=1;q.push(j);}}}
+ for(let n=0;n<mask.length;n++)if(!outside[n])mask[n]=1;
+ // Expand the source navy interior through its authored gold rim, with a
+ // bounded body ROI. Crown/cloud ornaments get their own source-color masks;
+ // surrounding player labels and rails can never join the body component.
+ const expanded=new Uint8Array(w*h),[bl,bt,bw,bh]=p.body;
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){if(x+ox<bl||x+ox>=bl+bw||y+oy<bt||y+oy>=bt+bh)continue;let keep=mask[y*w+x];if(!keep){const i=(y*w+x)*3,[r,g,b]=data.subarray(i,i+3);if(r>95&&g>60&&r>b*1.2&&g>b*1.03)for(let yy=Math.max(0,y-13);yy<=Math.min(h-1,y+13)&&!keep;yy++)for(let xx=Math.max(0,x-13);xx<=Math.min(w-1,x+13);xx++)if(mask[yy*w+xx]){keep=1;break;}}expanded[y*w+x]=keep;}
+ for(const ornament of [p.crown,p.cloud].filter(Boolean)){const [l,t,rw,rh]=ornament;for(let y=t-oy;y<t-oy+rh;y++)for(let x=l-ox;x<l-ox+rw;x++){const n=y*w+x,i=n*3,[r,g,b]=data.subarray(i,i+3);if(r>145&&g>95&&r>b*1.15&&g>b*.95)for(let yy=Math.max(0,y-1);yy<=Math.min(h-1,y+1);yy++)for(let xx=Math.max(0,x-1);xx<=Math.min(w-1,x+1);xx++)expanded[yy*w+xx]=1;}}
+ const rgba=Buffer.alloc(w*h*4);let opaque=0,bounds=[w,h,0,0];for(let y=0;y<h;y++)for(let x=0;x<w;x++){let alpha=expanded[y*w+x]?255:0;if(!alpha)for(let yy=Math.max(0,y-1);yy<=Math.min(h-1,y+1);yy++)for(let xx=Math.max(0,x-1);xx<=Math.min(w-1,x+1);xx++)if(expanded[yy*w+xx])alpha=160;const i=(y*w+x)*4,j=(y*w+x)*3;if(alpha)for(let c=0;c<3;c++)rgba[i+c]=data[j+c];rgba[i+3]=alpha;if(alpha){opaque++;bounds=[Math.min(bounds[0],x),Math.min(bounds[1],y),Math.max(bounds[2],x+1),Math.max(bounds[3],y+1)];}}
+ const output=`${runtime}/${profile}-${state}-v3.png`;await sharp(rgba,{raw:{width:w,height:h,channels:4}}).png().toFile(output);reports.push({profile,state,source,sourceSha256:await sha(source),canvas:p.canvas,roi:p.roi,body:p.body,crown:p.crown,cloud:p.cloud,action:p.action,method:'Largest navy interior insidebodyROI, fillholes, adjacentgoldrim only within13px. Independent original-gold crown/cloud masks;1pxalpha160fringe. sourceRGB copied exactly.',maskOpaquePixels:opaque,maskBounds:bounds,output,sha256:await sha(output),changedSourceRGB:0});
+}
+await writeFile(folder+'/provenance-v3.json',JSON.stringify({method:'Mechanical extraction of original ImageGen fixed recovery components; panel text/ornamentRGB retained. No source mock modified. V1 combinedcomponent andV2widerim masks rejected; finalbodycolorconstraint removesdarkrectangularscenecontamination.',reports},null,2)+'\n');await writeFile(`${runtime}/layout-v3.json`,JSON.stringify({profiles},null,2)+'\n');console.log(JSON.stringify(reports.map(r=>({profile:r.profile,state:r.state,bounds:r.maskBounds,opaque:r.maskOpaquePixels,output:r.output}))));

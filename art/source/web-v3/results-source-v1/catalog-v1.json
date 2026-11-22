@@ -1,0 +1,482 @@
+{
+  "profiles": {
+    "landscape": {
+      "canvas": [
+        1672,
+        941
+      ],
+      "results": {
+        "title": [
+          575,
+          72,
+          520,
+          111
+        ],
+        "roundRoi": [
+          758,
+          93,
+          49,
+          68
+        ],
+        "roundValue": [
+          750,
+          90,
+          64,
+          68
+        ],
+        "note": [
+          351,
+          727,
+          442,
+          83
+        ],
+        "secondary": [
+          818,
+          718,
+          241,
+          94
+        ],
+        "primary": [
+          1075,
+          717,
+          318,
+          96
+        ],
+        "rows": [
+          304,
+          379,
+          454,
+          529,
+          604,
+          679
+        ],
+        "avatar": [
+          388,
+          38.5
+        ],
+        "name": {
+          "x": 443,
+          "y": -24,
+          "width": 160,
+          "font": 34.5
+        },
+        "columns": [
+          677,
+          859,
+          1039,
+          1222
+        ],
+        "numberFont": 42
+      },
+      "ranking": {
+        "title": [
+          538,
+          57,
+          595,
+          118
+        ],
+        "subtitle": [
+          606,
+          175,
+          461,
+          38
+        ],
+        "secondary": [
+          459,
+          744,
+          369,
+          101
+        ],
+        "primary": [
+          846,
+          742,
+          370,
+          105
+        ],
+        "rows": [
+          326,
+          402,
+          478,
+          554,
+          630,
+          706
+        ],
+        "avatar": [
+          671,
+          40
+        ],
+        "name": {
+          "x": 742,
+          "y": -24,
+          "width": 220,
+          "font": 35.5
+        },
+        "columns": [
+          507,
+          1145
+        ],
+        "numberFont": 48
+      }
+    },
+    "portrait": {
+      "canvas": [
+        941,
+        1672
+      ],
+      "results": {
+        "title": [
+          214,
+          244,
+          518,
+          136
+        ],
+        "roundRoi": [
+          392,
+          272,
+          54,
+          78
+        ],
+        "roundValue": [
+          386,
+          269,
+          66,
+          79
+        ],
+        "note": [
+          216,
+          1205,
+          509,
+          93
+        ],
+        "secondary": [
+          130,
+          1365,
+          684,
+          116
+        ],
+        "primary": [
+          132,
+          1482,
+          680,
+          122
+        ],
+        "rows": [
+          580,
+          688,
+          796,
+          904,
+          1012,
+          1120
+        ],
+        "avatar": [
+          176,
+          50
+        ],
+        "name": {
+          "x": 240,
+          "y": -27,
+          "width": 138,
+          "font": 35
+        },
+        "columns": [
+          403,
+          513,
+          632,
+          760
+        ],
+        "numberFont": 46
+      },
+      "ranking": {
+        "title": [
+          207,
+          268,
+          528,
+          126
+        ],
+        "subtitle": [
+          248,
+          401,
+          445,
+          43
+        ],
+        "secondary": [
+          179,
+          1333,
+          585,
+          122
+        ],
+        "primary": [
+          179,
+          1457,
+          585,
+          130
+        ],
+        "rows": [
+          607,
+          714,
+          821,
+          928,
+          1035,
+          1142
+        ],
+        "avatar": [
+          378,
+          51
+        ],
+        "name": {
+          "x": 451,
+          "y": -28,
+          "width": 152,
+          "font": 40
+        },
+        "columns": [
+          255,
+          694
+        ],
+        "numberFont": 54
+      }
+    }
+  },
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "results",
+      "kind": "title",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        575,
+        72,
+        520,
+        111
+      ],
+      "output": "art/source/web-v3/results-source-v1/landscape-results-title-reference-v1.png",
+      "sha256": "8fa569062c86610a93cb30ad7e8df71b120df9deb997fec5ad157fbc6c168882"
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "kind": "note",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        351,
+        727,
+        442,
+        83
+      ],
+      "output": "art/source/web-v3/results-source-v1/landscape-results-note-reference-v1.png",
+      "sha256": "76d61dbb920b39c9b697e650ebecf3fe6f6d28781eb20a5b45810caf57423e8b"
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "kind": "secondary",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        818,
+        718,
+        241,
+        94
+      ],
+      "output": "art/source/web-v3/results-source-v1/landscape-results-secondary-reference-v1.png",
+      "sha256": "169cd83a51c45f124ab2cb87cbbc34b8bf7d9bd4b3c3f11c9c215090971fdf4e"
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "kind": "primary",
+      "source": "art/mockups/web-v3/06-results.png",
+      "sourceSha256": "ca5d1e2a1cc5a40362a989c5f637c111f4cfdcab37af982427fc649e25d8e27d",
+      "rect": [
+        1075,
+        717,
+        318,
+        96
+      ],
+      "output": "art/source/web-v3/results-source-v1/landscape-results-primary-reference-v1.png",
+      "sha256": "0a3f220d63951e1cc47ad82f5dcb2553bbb04bcc4b6c230693d4a03fb41916d1"
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "kind": "title",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        538,
+        57,
+        595,
+        118
+      ],
+      "output": "art/source/web-v3/results-source-v1/landscape-ranking-title-reference-v1.png",
+      "sha256": "723dc5659d54141e38cf7013ec32f447ac27e3c54c7d233e8be80de85f2673ac"
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "kind": "subtitle",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        606,
+        175,
+        461,
+        38
+      ],
+      "output": "art/source/web-v3/results-source-v1/landscape-ranking-subtitle-reference-v1.png",
+      "sha256": "017b89c40c39a0a96622c47d8b9399ba8deef8897adf2b5460bcb8011d0ac1cb"
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "kind": "secondary",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        459,
+        744,
+        369,
+        101
+      ],
+      "output": "art/source/web-v3/results-source-v1/landscape-ranking-secondary-reference-v1.png",
+      "sha256": "6feb7ab37c4a51747750153cacc3aa91eb5da6ea7701806d93e42580e8a0b321"
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "kind": "primary",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "rect": [
+        846,
+        742,
+        370,
+        105
+      ],
+      "output": "art/source/web-v3/results-source-v1/landscape-ranking-primary-reference-v1.png",
+      "sha256": "afacee826d4a6d42c28752d1f82766dbe4df00d022f0c7c1ec4987a72dce7318"
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "kind": "title",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        214,
+        244,
+        518,
+        136
+      ],
+      "output": "art/source/web-v3/results-source-v1/portrait-results-title-reference-v1.png",
+      "sha256": "8022bf1f38855587a2c381ead5aa425eb628ca1c9592a0de23cba27aed218564"
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "kind": "note",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        216,
+        1205,
+        509,
+        93
+      ],
+      "output": "art/source/web-v3/results-source-v1/portrait-results-note-reference-v1.png",
+      "sha256": "4ba67b8b8bbefc5476c4731df42f3ce82937bef029655ff8fe81c2fee4c922f5"
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "kind": "secondary",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        130,
+        1365,
+        684,
+        116
+      ],
+      "output": "art/source/web-v3/results-source-v1/portrait-results-secondary-reference-v1.png",
+      "sha256": "74f24595916abc5c85c0073d0d5abf4985ff86b8e85dbad5508f0293c0a7bcff"
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "kind": "primary",
+      "source": "art/mockups/web-v3/portrait/06-results.png",
+      "sourceSha256": "6760872459a194747b6d7ffdd2a19a61cf34bfce0a7cd6cd51c7a624ca60f397",
+      "rect": [
+        132,
+        1482,
+        680,
+        122
+      ],
+      "output": "art/source/web-v3/results-source-v1/portrait-results-primary-reference-v1.png",
+      "sha256": "064622ea5707b73232b72610a1214bcbc1d72b59f9b61b57f8beed4d244d32f0"
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "kind": "title",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        207,
+        268,
+        528,
+        126
+      ],
+      "output": "art/source/web-v3/results-source-v1/portrait-ranking-title-reference-v1.png",
+      "sha256": "106c0a947e499881386384189fb5d2c147f69c2cb24ddd9953eb546fd7522c3d"
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "kind": "subtitle",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        248,
+        401,
+        445,
+        43
+      ],
+      "output": "art/source/web-v3/results-source-v1/portrait-ranking-subtitle-reference-v1.png",
+      "sha256": "d497687e285f43027b770efe299b19b16c7cd9b251a58e8109a45b34762a1632"
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "kind": "secondary",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        179,
+        1333,
+        585,
+        122
+      ],
+      "output": "art/source/web-v3/results-source-v1/portrait-ranking-secondary-reference-v1.png",
+      "sha256": "b9995c6f2e18508da87a9cace45f416e69c014e236462f1510943230662f8927"
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "kind": "primary",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "rect": [
+        179,
+        1457,
+        585,
+        130
+      ],
+      "output": "art/source/web-v3/results-source-v1/portrait-ranking-primary-reference-v1.png",
+      "sha256": "bb82c2e6d42890734a7c0c69702a5abc4020d24492911dace1abb8caed64d2c7"
+    }
+  ]
+}

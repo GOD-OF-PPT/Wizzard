@@ -1,0 +1,19 @@
+// Compare native before/after pixels and common opaque glyph pixels.
+// Mask statistics isolate scope; they do not replace source/Chrome review.
+import {createRequire} from 'node:module';
+import {readFile,writeFile} from 'node:fs/promises';
+const sharp=createRequire(import.meta.url)(process.argv[2]??'sharp'),root='art/review/web-v3',folder=root+'/results-ink-calibration-20261027',read=async p=>JSON.parse(await readFile(p,'utf8')),coverage=await read(folder+'/coverage.json'),previous=await read(root+'/results-type-calibration-20261027/coverage.json'),reports=[];
+const oldRGB={positive:[163,43,27],negative:[22,71,104],leading:[139,82,7]},parse=s=>s.match(/\d+/g).slice(0,3).map(Number),ink=(r,g,b,role)=>role==='positive'?r>g*1.7&&r>b*1.6&&g<130&&b<110:role==='negative'?b>r*1.3&&b>g*.8&&r<95&&g<140:r>60&&r<185&&g<140&&b<80&&r>g*1.25;
+for(const r of coverage.reports){
+ const {data:a,info}=await sharp(r.baseline).removeAlpha().raw().toBuffer({resolveWithObject:true}),b=await sharp(r.capture).removeAlpha().raw().toBuffer(),s=await sharp(r.source).resize(info.width,info.height,{fit:'fill'}).removeAlpha().raw().toBuffer(),w=info.width,h=info.height,allowed=new Uint8Array(w*h),rects=[],colors=[];
+ for(const cell of r.record.inkCells){
+  const box=cell.rect,pad=4,x0=Math.max(0,Math.floor(box.x)-pad),y0=Math.max(0,Math.floor(box.y)-pad),x1=Math.min(w,Math.ceil(box.right)+pad),y1=Math.min(h,Math.ceil(box.bottom)+pad),before=oldRGB[cell.role],after=parse(cell.color);rects.push([x0,y0,x1-x0,y1-y0]);for(let y=y0;y<y1;y++)allowed.fill(1,y*w+x0,y*w+x1);
+  let n=0,oldError=0,newError=0;for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++){const i=(y*w+x)*3;if(!before.every((v,c)=>a[i+c]===v)||!after.every((v,c)=>b[i+c]===v)||!ink(s[i],s[i+1],s[i+2],cell.role))continue;n++;for(let c=0;c<3;c++){oldError+=Math.abs(s[i+c]-before[c]);newError+=Math.abs(s[i+c]-after[c]);}}
+  colors.push({role:cell.role,text:cell.text,oldRGB:before,newRGB:after,commonOpaquePixels:n,beforeMeanAbsoluteChannelError:n?oldError/n/3:null,afterMeanAbsoluteChannelError:n?newError/n/3:null,note:'Same positions where both actual renders have full CSS ink and reference has that role. Reference may still be antialiased/textured: this mixes paint and glyph-coverage error, not pure color error. Small/zero portrait samples are not generalized.'});
+ }
+ const stats={all:{max:0,over24:0},outsideInk:{max:0,over24:0},outsideInkAndPointer:{max:0,over24:0}};for(let y=0;y<h;y++)for(let x=0;x<w;x++){const p=y*w+x,i=p*3,d=Math.max(Math.abs(a[i]-b[i]),Math.abs(a[i+1]-b[i+1]),Math.abs(a[i+2]-b[i+2]));for(const[k,ok]of [['all',true],['outsideInk',!allowed[p]],['outsideInkAndPointer',!allowed[p]&&y>1&&!(r.profile==='landscape'?x<48&&y<48:x>330&&y<48)]])if(ok){stats[k].max=Math.max(stats[k].max,d);if(d>24)stats[k].over24++;}}
+ const oldRecord=previous.reports.find(p=>p.state===r.state&&p.profile===r.profile).styles,rectDeltas=[];for(let i=0;i<r.record.typography.length;i++){const now=r.record.typography[i],old=oldRecord.typography?.[i];if(old)rectDeltas.push(...['x','y','width','height'].map(k=>Math.abs(now.rect[k]-old.rect[k])));}
+ reports.push({profile:r.profile,state:r.state,baseline:r.baseline,capture:r.capture,allowedInkRects:rects,stats,colors,parentRectMaximumDelta:rectDeltas.length?Math.max(...rectDeltas):null});
+}
+await writeFile(folder+'/pixel-scope-and-color.json',JSON.stringify({method:'Native decoded RGB, all-pixel statistics retained. Only expected ink cell bounds isolated; pointer/first-row capture boundary separated explicitly. Color samples are diagnostics, never a page pass threshold.',reports},null,2)+'\n');
+console.log(reports.map(r=>({profile:r.profile,state:r.state,outside:r.stats.outsideInkAndPointer,colors:r.colors.map(c=>({role:c.role,n:c.commonOpaquePixels,before:c.beforeMeanAbsoluteChannelError,after:c.afterMeanAbsoluteChannelError}))})));

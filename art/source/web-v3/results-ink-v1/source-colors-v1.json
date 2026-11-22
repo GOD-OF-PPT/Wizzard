@@ -1,0 +1,885 @@
+{
+  "method": "Native source RGB in quiet score cells,1px mask erosion. Texture and generated glyph variation retained as5/50/95percentiles. Not a screenshot pass threshold.",
+  "reports": [
+    {
+      "profile": "landscape",
+      "state": "results",
+      "role": "positive",
+      "source": "art/mockups/web-v3/06-results-home-v2.png",
+      "sourceSha256": "cf3023e82658542dc06cf5c9873643a1ff25ecc9cd1268f023c04758e40aec4b",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            984,
+            272,
+            110,
+            64
+          ],
+          "corePixels": 242
+        },
+        {
+          "row": 2,
+          "rect": [
+            984,
+            422,
+            110,
+            64
+          ],
+          "corePixels": 253
+        },
+        {
+          "row": 4,
+          "rect": [
+            984,
+            572,
+            110,
+            64
+          ],
+          "corePixels": 250
+        }
+      ],
+      "pixels": 745,
+      "median": [
+        162,
+        15,
+        7
+      ],
+      "hex": "#a20f07",
+      "p05": [
+        150,
+        2,
+        0
+      ],
+      "p95": [
+        174,
+        22,
+        12
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "results",
+      "role": "negative",
+      "source": "art/mockups/web-v3/06-results-home-v2.png",
+      "sourceSha256": "cf3023e82658542dc06cf5c9873643a1ff25ecc9cd1268f023c04758e40aec4b",
+      "bounds": [
+        {
+          "row": 1,
+          "rect": [
+            984,
+            347,
+            110,
+            64
+          ],
+          "corePixels": 198
+        },
+        {
+          "row": 3,
+          "rect": [
+            984,
+            497,
+            110,
+            64
+          ],
+          "corePixels": 201
+        },
+        {
+          "row": 5,
+          "rect": [
+            984,
+            647,
+            110,
+            64
+          ],
+          "corePixels": 206
+        }
+      ],
+      "pixels": 605,
+      "median": [
+        6,
+        44,
+        84
+      ],
+      "hex": "#062c54",
+      "p05": [
+        0,
+        36,
+        71
+      ],
+      "p95": [
+        13,
+        52,
+        94
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "final-round",
+      "role": "positive",
+      "source": "art/mockups/web-v3/34-results-final-round-home-v2.png",
+      "sourceSha256": "5a1c627f8e82e6de204eb2a1a5b4acb912037e5b30ed7567aaefdc18d9e9feae",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            984,
+            272,
+            110,
+            64
+          ],
+          "corePixels": 272
+        },
+        {
+          "row": 3,
+          "rect": [
+            984,
+            497,
+            110,
+            64
+          ],
+          "corePixels": 240
+        },
+        {
+          "row": 4,
+          "rect": [
+            984,
+            572,
+            110,
+            64
+          ],
+          "corePixels": 253
+        }
+      ],
+      "pixels": 765,
+      "median": [
+        170,
+        19,
+        11
+      ],
+      "hex": "#aa130b",
+      "p05": [
+        157,
+        7,
+        2
+      ],
+      "p95": [
+        179,
+        27,
+        17
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "final-round",
+      "role": "negative",
+      "source": "art/mockups/web-v3/34-results-final-round-home-v2.png",
+      "sourceSha256": "5a1c627f8e82e6de204eb2a1a5b4acb912037e5b30ed7567aaefdc18d9e9feae",
+      "bounds": [
+        {
+          "row": 1,
+          "rect": [
+            984,
+            347,
+            110,
+            64
+          ],
+          "corePixels": 181
+        },
+        {
+          "row": 2,
+          "rect": [
+            984,
+            422,
+            110,
+            64
+          ],
+          "corePixels": 198
+        },
+        {
+          "row": 5,
+          "rect": [
+            984,
+            647,
+            110,
+            64
+          ],
+          "corePixels": 207
+        }
+      ],
+      "pixels": 586,
+      "median": [
+        4,
+        44,
+        83
+      ],
+      "hex": "#042c53",
+      "p05": [
+        0,
+        33,
+        67
+      ],
+      "p95": [
+        15,
+        52,
+        96
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking",
+      "role": "leading",
+      "source": "art/mockups/web-v3/07-ranking.png",
+      "sourceSha256": "4c9200dddecac8368087d9863d2b3d9afe4950e7506206fa3238911310f2e03f",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            1065,
+            294,
+            160,
+            64
+          ],
+          "corePixels": 517
+        }
+      ],
+      "pixels": 517,
+      "median": [
+        123,
+        71,
+        5
+      ],
+      "hex": "#7b4705",
+      "p05": [
+        108,
+        59,
+        0
+      ],
+      "p95": [
+        135,
+        80,
+        9
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "current-ranking",
+      "role": "leading",
+      "source": "art/mockups/web-v3/33-current-ranking-home-v2.png",
+      "sourceSha256": "f658cb7e31a482840d48399010b0e41ffd696dab057612dc7cff199635099c4b",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            1065,
+            294,
+            160,
+            64
+          ],
+          "corePixels": 339
+        }
+      ],
+      "pixels": 339,
+      "median": [
+        126,
+        72,
+        5
+      ],
+      "hex": "#7e4805",
+      "p05": [
+        112,
+        59,
+        0
+      ],
+      "p95": [
+        137,
+        81,
+        11
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "current-final",
+      "role": "leading",
+      "source": "art/mockups/web-v3/36-current-ranking-final-home-v2.png",
+      "sourceSha256": "7fb935daf53012df432d3042d0dd887743b731d2ce017f033cc6a3e1c0789342",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            1065,
+            294,
+            160,
+            64
+          ],
+          "corePixels": 415
+        }
+      ],
+      "pixels": 415,
+      "median": [
+        132,
+        77,
+        8
+      ],
+      "hex": "#844d08",
+      "p05": [
+        120,
+        66,
+        0
+      ],
+      "p95": [
+        144,
+        86,
+        15
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking3",
+      "role": "leading",
+      "source": "art/mockups/web-v3/38-ranking-3-players-v1.png",
+      "sourceSha256": "1bc7555940626e3f279e02a7ddd0af02c7b8316ed3476c1399c72ac69a88f498",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            1065,
+            294,
+            160,
+            64
+          ],
+          "corePixels": 347
+        }
+      ],
+      "pixels": 347,
+      "median": [
+        131,
+        75,
+        6
+      ],
+      "hex": "#834b06",
+      "p05": [
+        117,
+        64,
+        0
+      ],
+      "p95": [
+        140,
+        83,
+        11
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking4",
+      "role": "leading",
+      "source": "art/mockups/web-v3/39-ranking-4-players-v1.png",
+      "sourceSha256": "b6754527810c3ef0d14be00d5ab7c3d85b5ed0e00325eb50a1f45a96084b25e2",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            1065,
+            294,
+            160,
+            64
+          ],
+          "corePixels": 455
+        }
+      ],
+      "pixels": 455,
+      "median": [
+        134,
+        80,
+        6
+      ],
+      "hex": "#865006",
+      "p05": [
+        122,
+        68,
+        0
+      ],
+      "p95": [
+        146,
+        89,
+        12
+      ]
+    },
+    {
+      "profile": "landscape",
+      "state": "ranking5",
+      "role": "leading",
+      "source": "art/mockups/web-v3/40-ranking-5-players-v1.png",
+      "sourceSha256": "50a17956eca4b020981318fa7c52010579733e57dab02f2e87493cf0384883fc",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            1065,
+            294,
+            160,
+            64
+          ],
+          "corePixels": 462
+        }
+      ],
+      "pixels": 462,
+      "median": [
+        128,
+        76,
+        5
+      ],
+      "hex": "#804c05",
+      "p05": [
+        113,
+        63,
+        0
+      ],
+      "p95": [
+        141,
+        86,
+        10
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "role": "positive",
+      "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+      "sourceSha256": "6941e02fd4f5b6cb9d0dff7bc17b86184df3cbad7618c1832c8f9a51071dc7e1",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            577,
+            541,
+            110,
+            78
+          ],
+          "corePixels": 317
+        },
+        {
+          "row": 2,
+          "rect": [
+            577,
+            757,
+            110,
+            78
+          ],
+          "corePixels": 334
+        },
+        {
+          "row": 4,
+          "rect": [
+            577,
+            973,
+            110,
+            78
+          ],
+          "corePixels": 313
+        }
+      ],
+      "pixels": 964,
+      "median": [
+        174,
+        7,
+        7
+      ],
+      "hex": "#ae0707",
+      "p05": [
+        160,
+        0,
+        0
+      ],
+      "p95": [
+        186,
+        13,
+        14
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "results",
+      "role": "negative",
+      "source": "art/mockups/web-v3/portrait/06-results-home-v2.png",
+      "sourceSha256": "6941e02fd4f5b6cb9d0dff7bc17b86184df3cbad7618c1832c8f9a51071dc7e1",
+      "bounds": [
+        {
+          "row": 1,
+          "rect": [
+            577,
+            649,
+            110,
+            78
+          ],
+          "corePixels": 231
+        },
+        {
+          "row": 3,
+          "rect": [
+            577,
+            865,
+            110,
+            78
+          ],
+          "corePixels": 229
+        },
+        {
+          "row": 5,
+          "rect": [
+            577,
+            1081,
+            110,
+            78
+          ],
+          "corePixels": 239
+        }
+      ],
+      "pixels": 699,
+      "median": [
+        6,
+        51,
+        113
+      ],
+      "hex": "#063371",
+      "p05": [
+        0,
+        37,
+        101
+      ],
+      "p95": [
+        13,
+        60,
+        125
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "final-round",
+      "role": "positive",
+      "source": "art/mockups/web-v3/portrait/34-results-final-round-home-v2.png",
+      "sourceSha256": "f1f6a4f2edc05e4478308559638389438c66f02579d81ad9a07d6c86c2035aef",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            577,
+            541,
+            110,
+            78
+          ],
+          "corePixels": 339
+        },
+        {
+          "row": 3,
+          "rect": [
+            577,
+            865,
+            110,
+            78
+          ],
+          "corePixels": 331
+        },
+        {
+          "row": 4,
+          "rect": [
+            577,
+            973,
+            110,
+            78
+          ],
+          "corePixels": 316
+        }
+      ],
+      "pixels": 986,
+      "median": [
+        214,
+        6,
+        17
+      ],
+      "hex": "#d60611",
+      "p05": [
+        202,
+        0,
+        6
+      ],
+      "p95": [
+        224,
+        14,
+        26
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "final-round",
+      "role": "negative",
+      "source": "art/mockups/web-v3/portrait/34-results-final-round-home-v2.png",
+      "sourceSha256": "f1f6a4f2edc05e4478308559638389438c66f02579d81ad9a07d6c86c2035aef",
+      "bounds": [
+        {
+          "row": 1,
+          "rect": [
+            577,
+            649,
+            110,
+            78
+          ],
+          "corePixels": 248
+        },
+        {
+          "row": 2,
+          "rect": [
+            577,
+            757,
+            110,
+            78
+          ],
+          "corePixels": 253
+        },
+        {
+          "row": 5,
+          "rect": [
+            577,
+            1081,
+            110,
+            78
+          ],
+          "corePixels": 236
+        }
+      ],
+      "pixels": 737,
+      "median": [
+        7,
+        60,
+        127
+      ],
+      "hex": "#073c7f",
+      "p05": [
+        0,
+        47,
+        115
+      ],
+      "p95": [
+        13,
+        69,
+        139
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking",
+      "role": "leading",
+      "source": "art/mockups/web-v3/portrait/07-ranking.png",
+      "sourceSha256": "b35344f040b83d11b23ed05710c9c8d1137dc5f898ba75552e425f1aa59e7f7d",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            614,
+            568,
+            160,
+            78
+          ],
+          "corePixels": 633
+        }
+      ],
+      "pixels": 633,
+      "median": [
+        128,
+        72,
+        4
+      ],
+      "hex": "#804804",
+      "p05": [
+        115,
+        62,
+        1
+      ],
+      "p95": [
+        141,
+        80,
+        8
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "current-ranking",
+      "role": "leading",
+      "source": "art/mockups/web-v3/portrait/33-current-ranking-home-v2.png",
+      "sourceSha256": "654d03d837ebe9a29c3d4b0f1123be7db82fdb4c3293e45a8bff2c6f5205a0a2",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            614,
+            568,
+            160,
+            78
+          ],
+          "corePixels": 441
+        }
+      ],
+      "pixels": 441,
+      "median": [
+        134,
+        75,
+        6
+      ],
+      "hex": "#864b06",
+      "p05": [
+        121,
+        65,
+        0
+      ],
+      "p95": [
+        149,
+        87,
+        10
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "current-final",
+      "role": "leading",
+      "source": "art/mockups/web-v3/portrait/36-current-ranking-final-home-v2.png",
+      "sourceSha256": "24498a24b6240375f530ac7296ba681eb7df29b287f9fddc0344d00b99c0d694",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            614,
+            568,
+            160,
+            78
+          ],
+          "corePixels": 552
+        }
+      ],
+      "pixels": 552,
+      "median": [
+        149,
+        84,
+        7
+      ],
+      "hex": "#955407",
+      "p05": [
+        131,
+        71,
+        2
+      ],
+      "p95": [
+        158,
+        90,
+        12
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking3",
+      "role": "leading",
+      "source": "art/mockups/web-v3/portrait/38-ranking-3-players-v1.png",
+      "sourceSha256": "0fefe3296f4c496c24b63520268d788791c6c92dc86a2373899e14fe1ac4d0ca",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            614,
+            568,
+            160,
+            78
+          ],
+          "corePixels": 465
+        }
+      ],
+      "pixels": 465,
+      "median": [
+        130,
+        72,
+        5
+      ],
+      "hex": "#824805",
+      "p05": [
+        115,
+        58,
+        0
+      ],
+      "p95": [
+        141,
+        80,
+        10
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking4",
+      "role": "leading",
+      "source": "art/mockups/web-v3/portrait/39-ranking-4-players-v1.png",
+      "sourceSha256": "bb20f361995e9a0d2594c8943fc779caaf488309ca9b2a2b17f1dc615a32ff19",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            614,
+            568,
+            160,
+            78
+          ],
+          "corePixels": 592
+        }
+      ],
+      "pixels": 592,
+      "median": [
+        137,
+        77,
+        6
+      ],
+      "hex": "#894d06",
+      "p05": [
+        125,
+        68,
+        2
+      ],
+      "p95": [
+        151,
+        86,
+        10
+      ]
+    },
+    {
+      "profile": "portrait",
+      "state": "ranking5",
+      "role": "leading",
+      "source": "art/mockups/web-v3/portrait/40-ranking-5-players-v1.png",
+      "sourceSha256": "e2a99781b789df692f5741b7ebb2009f65e367577c94884c8e92cc5a501c6ed2",
+      "bounds": [
+        {
+          "row": 0,
+          "rect": [
+            614,
+            568,
+            160,
+            78
+          ],
+          "corePixels": 576
+        }
+      ],
+      "pixels": 576,
+      "median": [
+        136,
+        76,
+        8
+      ],
+      "hex": "#884c08",
+      "p05": [
+        123,
+        67,
+        2
+      ],
+      "p95": [
+        146,
+        84,
+        12
+      ]
+    }
+  ]
+}

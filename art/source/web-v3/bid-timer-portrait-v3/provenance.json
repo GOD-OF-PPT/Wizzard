@@ -1,0 +1,68 @@
+{
+  "method": "Built-in ImageGen timer addition, bounded source composition; second ImageGen edit cleans live-content center only",
+  "candidate": "art/source/web-v3/bid-timer-portrait-v3-candidate.png",
+  "candidateSha256": "29d55f35b256bdc3b4815dcf769a25becbdb78a220d816f305773a6d9cf68f51",
+  "cleanup": "art/source/web-v3/bid-timer-portrait-v3-blank-face-candidate.png",
+  "cleanupSha256": "7ed4914453600850c1d8e04af2742fc46f25bd19c77a9aae70875bda3e48ee19",
+  "runtimeSha256": "3e03614a5a3b4a73af57325e5d7fb676098888ca67b47381e3cffb89f32daa12",
+  "runtimeIconSha256": "78c10aa75906f496961a6371897ce4be37db39a9139b83e82cff475346945f9c",
+  "contract": {
+    "canvas": [
+      941,
+      1672
+    ],
+    "tile": [
+      665,
+      1078,
+      241,
+      230
+    ],
+    "faceCleanup": [
+      759,
+      1125,
+      90,
+      113
+    ],
+    "hourglass": [
+      777,
+      1130,
+      45,
+      56
+    ],
+    "value": {
+      "centerX": 798,
+      "top": 1192
+    },
+    "visualTimerBounds": [
+      684,
+      1090,
+      204,
+      201
+    ],
+    "minimumHandPaperTop": 1310,
+    "visualGapToHand": 19,
+    "runtime": "art/runtime/web-v3/bid-timer-portrait-v3.png",
+    "runtimeIcon": "art/runtime/web-v3/bid-hourglass-portrait-v3.png",
+    "scope": "portrait human bid, including pending; number remains dynamic; no-timer mode renders no clock"
+  },
+  "iconPixels": 786,
+  "rejected": "bid-timer-blank-v1.png independent redraw added stronger glow/diamond markers and is not used",
+  "reports": [
+    {
+      "base": "art/mockups/web-v3/portrait/10-bid.png",
+      "baseSha256": "61a1a96b219389f84c5f12a0e33b5d53f4e99b18c941b150c88873fe6825f870",
+      "output": "art/mockups/web-v3/portrait/10-bid-timer-v3.png",
+      "outputSha256": "f0cd95a89356f6790980f62a497945c12c8a57dace1a72f7e519044585b2da19",
+      "changedPixels": 50827,
+      "changedOutsideRoi": 0
+    },
+    {
+      "base": "art/mockups/web-v3/portrait/17-bid-pending-v2.png",
+      "baseSha256": "522169b6a769ea58de6e76f5c3f993700edd29ff6317114681484669effa6091",
+      "output": "art/mockups/web-v3/portrait/17-bid-pending-timer-v3.png",
+      "outputSha256": "8d3e76acb7a37838f4c6f23a07d687f73131cf8c9fe4ec510449d7489c3d0882",
+      "changedPixels": 50827,
+      "changedOutsideRoi": 0
+    }
+  ]
+}

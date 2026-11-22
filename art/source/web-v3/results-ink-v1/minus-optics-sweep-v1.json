@@ -1,0 +1,427 @@
+{
+  "scope": "Temporary CSS optics on DEV frozen source-content view only; no data edits. Probe removed after native captures.",
+  "candidates": [
+    {
+      "index": 0,
+      "name": "193-minus-probe-0.png",
+      "scaleY": 0.9,
+      "shiftY": -2.5,
+      "css": ".v3-results.v3-results--source .results-source-minus{transform:translate(.029904306cqw,-0.14952153110047847cqw) scale(1.3,0.9)!important;}",
+      "clipCss": [
+        990,
+        360,
+        100,
+        340
+      ],
+      "status": 200,
+      "boxes": [
+        {
+          "left": 1009,
+          "top": 376,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 526,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 676,
+          "width": 14,
+          "height": 3
+        }
+      ],
+      "loss": 1
+    },
+    {
+      "index": 1,
+      "name": "193-minus-probe-1.png",
+      "scaleY": 0.9,
+      "shiftY": -2.25,
+      "css": ".v3-results.v3-results--source .results-source-minus{transform:translate(.029904306cqw,-0.13456937799043062cqw) scale(1.3,0.9)!important;}",
+      "clipCss": [
+        990,
+        360,
+        100,
+        340
+      ],
+      "status": 200,
+      "boxes": [
+        {
+          "left": 1009,
+          "top": 376,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 526,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 676,
+          "width": 14,
+          "height": 3
+        }
+      ],
+      "loss": 1
+    },
+    {
+      "index": 2,
+      "name": "193-minus-probe-2.png",
+      "scaleY": 0.9,
+      "shiftY": -2,
+      "css": ".v3-results.v3-results--source .results-source-minus{transform:translate(.029904306cqw,-0.11961722488038277cqw) scale(1.3,0.9)!important;}",
+      "clipCss": [
+        990,
+        360,
+        100,
+        340
+      ],
+      "status": 200,
+      "boxes": [
+        {
+          "left": 1009,
+          "top": 376,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 526,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 676,
+          "width": 14,
+          "height": 3
+        }
+      ],
+      "loss": 1
+    },
+    {
+      "index": 3,
+      "name": "193-minus-probe-3.png",
+      "scaleY": 0.9375,
+      "shiftY": -2.5,
+      "css": ".v3-results.v3-results--source .results-source-minus{transform:translate(.029904306cqw,-0.14952153110047847cqw) scale(1.3,0.9375)!important;}",
+      "clipCss": [
+        990,
+        360,
+        100,
+        340
+      ],
+      "status": 200,
+      "boxes": [
+        {
+          "left": 1009,
+          "top": 376,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 526,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 676,
+          "width": 14,
+          "height": 3
+        }
+      ],
+      "loss": 1
+    },
+    {
+      "index": 4,
+      "name": "193-minus-probe-4.png",
+      "scaleY": 0.9375,
+      "shiftY": -2.25,
+      "css": ".v3-results.v3-results--source .results-source-minus{transform:translate(.029904306cqw,-0.13456937799043062cqw) scale(1.3,0.9375)!important;}",
+      "clipCss": [
+        990,
+        360,
+        100,
+        340
+      ],
+      "status": 200,
+      "boxes": [
+        {
+          "left": 1009,
+          "top": 376,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 527,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 676,
+          "width": 14,
+          "height": 3
+        }
+      ],
+      "loss": 2
+    },
+    {
+      "index": 5,
+      "name": "193-minus-probe-5.png",
+      "scaleY": 0.9375,
+      "shiftY": -2,
+      "css": ".v3-results.v3-results--source .results-source-minus{transform:translate(.029904306cqw,-0.11961722488038277cqw) scale(1.3,0.9375)!important;}",
+      "clipCss": [
+        990,
+        360,
+        100,
+        340
+      ],
+      "status": 200,
+      "boxes": [
+        {
+          "left": 1009,
+          "top": 377,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 527,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 677,
+          "width": 14,
+          "height": 3
+        }
+      ],
+      "loss": 2
+    },
+    {
+      "index": 6,
+      "name": "193-minus-probe-6.png",
+      "scaleY": 0.96875,
+      "shiftY": -2.5,
+      "css": ".v3-results.v3-results--source .results-source-minus{transform:translate(.029904306cqw,-0.14952153110047847cqw) scale(1.3,0.96875)!important;}",
+      "clipCss": [
+        990,
+        360,
+        100,
+        340
+      ],
+      "status": 200,
+      "boxes": [
+        {
+          "left": 1009,
+          "top": 377,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 527,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 677,
+          "width": 14,
+          "height": 3
+        }
+      ],
+      "loss": 2
+    },
+    {
+      "index": 7,
+      "name": "193-minus-probe-7.png",
+      "scaleY": 0.96875,
+      "shiftY": -2.25,
+      "css": ".v3-results.v3-results--source .results-source-minus{transform:translate(.029904306cqw,-0.13456937799043062cqw) scale(1.3,0.96875)!important;}",
+      "clipCss": [
+        990,
+        360,
+        100,
+        340
+      ],
+      "status": 200,
+      "boxes": [
+        {
+          "left": 1009,
+          "top": 377,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 527,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 677,
+          "width": 14,
+          "height": 3
+        }
+      ],
+      "loss": 2
+    },
+    {
+      "index": 8,
+      "name": "193-minus-probe-8.png",
+      "scaleY": 0.96875,
+      "shiftY": -2,
+      "css": ".v3-results.v3-results--source .results-source-minus{transform:translate(.029904306cqw,-0.11961722488038277cqw) scale(1.3,0.96875)!important;}",
+      "clipCss": [
+        990,
+        360,
+        100,
+        340
+      ],
+      "status": 200,
+      "boxes": [
+        {
+          "left": 1009,
+          "top": 377,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 527,
+          "width": 14,
+          "height": 3
+        },
+        {
+          "left": 1009,
+          "top": 677,
+          "width": 14,
+          "height": 3
+        }
+      ],
+      "loss": 2
+    },
+    {
+      "index": 9,
+      "name": "193-minus-probe-9.png",
+      "scaleY": 1,
+      "shiftY": -2.5,
+      "css": ".v3-results.v3-results--source .results-source-minus{transform:translate(.029904306cqw,-0.14952153110047847cqw) scale(1.3,1)!important;}",
+      "clipCss": [
+        990,
+        360,
+        100,
+        340
+      ],
+      "status": 200,
+      "boxes": [
+        {
+          "left": 1009,
+          "top": 376,
+          "width": 14,
+          "height": 4
+        },
+        {
+          "left": 1009,
+          "top": 526,
+          "width": 14,
+          "height": 4
+        },
+        {
+          "left": 1009,
+          "top": 676,
+          "width": 14,
+          "height": 4
+        }
+      ],
+      "loss": 10
+    },
+    {
+      "index": 10,
+      "name": "193-minus-probe-10.png",
+      "scaleY": 1,
+      "shiftY": -2.25,
+      "css": ".v3-results.v3-results--source .results-source-minus{transform:translate(.029904306cqw,-0.13456937799043062cqw) scale(1.3,1)!important;}",
+      "clipCss": [
+        990,
+        360,
+        100,
+        340
+      ],
+      "status": 200,
+      "boxes": [
+        {
+          "left": 1009,
+          "top": 376,
+          "width": 14,
+          "height": 4
+        },
+        {
+          "left": 1009,
+          "top": 527,
+          "width": 14,
+          "height": 4
+        },
+        {
+          "left": 1009,
+          "top": 676,
+          "width": 14,
+          "height": 4
+        }
+      ],
+      "loss": 11
+    },
+    {
+      "index": 11,
+      "name": "193-minus-probe-11.png",
+      "scaleY": 1,
+      "shiftY": -2,
+      "css": ".v3-results.v3-results--source .results-source-minus{transform:translate(.029904306cqw,-0.11961722488038277cqw) scale(1.3,1)!important;}",
+      "clipCss": [
+        990,
+        360,
+        100,
+        340
+      ],
+      "status": 200,
+      "boxes": [
+        {
+          "left": 1009,
+          "top": 376,
+          "width": 14,
+          "height": 4
+        },
+        {
+          "left": 1009,
+          "top": 527,
+          "width": 14,
+          "height": 4
+        },
+        {
+          "left": 1009,
+          "top": 676,
+          "width": 14,
+          "height": 4
+        }
+      ],
+      "loss": 11
+    }
+  ],
+  "probeRemaining": false,
+  "note": "Geometry ranking selects a candidate for visual review only, not acceptance. All native clips remain unchanged."
+}
